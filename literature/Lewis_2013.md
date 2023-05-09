@@ -1,0 +1,11 @@
+---
+title: Lewis_2013
+---
+
+Lewis, J.S., D. Wartzok, and M.R. Heithaus. 2013. “Individuals as Information Sources: Could Followers Benefit from Leaders’ Knowledge?” _Behaviour_ 150 (6): 635–57.
+
+---
+
+
+
+> Group leaders were defined as individuals who were in vanguard position (i.e., in front of other group members) for >20% of the time group was observed when travelling. Using vanguard position during group travel as a proxy for leadership is supported by the observation that indivuals in the vanguard position are much more successful at changing group direction than individuals not in this position. Consistent leaders were the small number of individuals that were identified as leaders within groups (using the above definition) significantly more often than expected based on chance (Lewis et al., 2011). Leaders and followers exist in all groups, but only a subset of individuals lead groups across sightings significantly more than expected (3 of 20 individuals tested, Lewis et al., 2011
