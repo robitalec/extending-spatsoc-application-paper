@@ -1,0 +1,14 @@
+---
+title: Merkle_2015
+---
+
+Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow or Not? How Animals in Fusion–Fission Societies Handle Conflicting Information during Group Decision-Making.” _Ecology Letters_ 18 (8): 799–806.
+
+---
+
+No clear definition of following vs leading and how that was measured
+
+Supporting information contains only model parameter estimate tables
+
+
+
