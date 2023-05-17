@@ -22,4 +22,6 @@ Binary engaged in leader-follower or not
 
 Bayesian GLM in Stan
 
+https://github.com/vivekhsridhar/INFL_2022
+
 
