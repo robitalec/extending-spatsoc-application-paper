@@ -10,7 +10,7 @@ GPS data at 10 Hz = 10 cycles per second = 0.1 second fix rate
 
 Determining leader-follower
 
-Use the directional correlation delay defined in [[Nagy_2010]]
+Use the directional correlation delay defined in [Nagy_2010](Nagy_2010.md)
 
 The directional correlation delay of a pair is $C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$
 
