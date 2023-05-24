@@ -6,7 +6,7 @@ Sueur, C., and O. Petit. 2008. “Shared or Unshared Consensus Decision in Macaq
 
 ---
 
-Assessing dominance rank (observations)
+Assessing [dominance](dominance.md) rank (observations)
 
 - spatial patterns
 	- group dispersion

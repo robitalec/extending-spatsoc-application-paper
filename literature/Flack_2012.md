@@ -37,8 +37,8 @@ Track similarity (within individual)
 
 
 
-Leaders and followers
+[Leaders](leaders.md) and [followers](followers.md)
 
-Defined using a comparison of highly efficient tracks and previous training flights of individual and partner. Leaders are defined as individuals where both paired flights fell within the highly efficient range and followers those where both paired flights did not. 
+Defined using a comparison of highly efficient tracks and previous training flights of individual and partner. [[leaders]] are defined as individuals where both paired flights fell within the highly efficient range and [[followers]] those where both paired flights did not. 
 
 To clarify: 18 track segments

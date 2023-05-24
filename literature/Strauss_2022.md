@@ -10,9 +10,9 @@ Social hierachies are dynamic but often treated as static for practical reasons
 
 ## Background
 
-Dominance typically measured using agonistic interactions to infer rank in dominance hierarchy
+[Dominance](dominance.md) typically measured using agonistic interactions to infer rank in [dominance](dominance.md) [hierarchy](hierarchy.md)
 
 Rank is then comapred to covariates to understand causes and consequences in social systems
 
-Dynamics of dominance, changes in hierarchies, is often ignored 
+Dynamics of [dominance](dominance.md), changes in hierarchies, is often ignored 
 

@@ -10,7 +10,7 @@ title: Sarova_2010
 - GPS 
 - behaviour scans
 
-Dominance
+[Dominance](dominance.md)
 - number of cows threatened or butted by focal / (number of cows threatened or butted by focal + number of cows threatened or butted focal)
 
 Movement vector of herd

@@ -16,7 +16,7 @@ Clock-shifts to artificially shift day-night cycle
 Leadership rank based on 
 
 1. average distance from center of flock along front-back axis of flock's direction of motion
-2. [Nagy_2010](Nagy_2010.md)'s directional correlation delay
+2. [Nagy_2010](Nagy_2010.md)'s [directional correlation delay](directional%20correlation%20delay.md)
 
 
 [Supplementary materials](https://royalsocietypublishing.org/doi/suppl/10.1098/rsbl.2016.0544#secSuppl)
