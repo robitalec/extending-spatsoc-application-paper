@@ -7,13 +7,13 @@ Watts, Isobel, Máté Nagy, Theresa Burt de Perera, and Dora Biro. 2016. “Misi
 ---
 
 
-- GPS data
+- [GPS](GPS.md) data
 - Matlab, R
 
 Clock-shifts to artificially shift day-night cycle 
 
 
-Leadership rank based on 
+Leadership [rank](rank.md) based on 
 
 1. average distance from center of flock along front-back axis of flock's direction of motion
 2. [Nagy_2010](Nagy_2010.md)'s [directional correlation delay](directional%20correlation%20delay.md)

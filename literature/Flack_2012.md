@@ -7,7 +7,7 @@ Flack, Andrea, Benjamin Pettit, Robin Freeman, Tim Guilford, and Dora Biro. 2012
 ---
 
 - Matlab
-- GPS logging devices carried by 20 adult homing pigeons
+- [GPS](GPS.md) logging devices carried by 20 adult homing pigeons
 - Two release sites
 
 Homing efficiency is the ratio of straight-line distance between release site and loft (home), divided by sum of direct distances between the neighbouring fixes (actual steps)
@@ -37,8 +37,8 @@ Track similarity (within individual)
 
 
 
-[Leaders](leaders.md) and [followers](followers.md)
+[Leaders](leader.md) and [follower](follower.md)
 
-Defined using a comparison of highly efficient tracks and previous training flights of individual and partner. [[leaders]] are defined as individuals where both paired flights fell within the highly efficient range and [[followers]] those where both paired flights did not. 
+Defined using a comparison of highly efficient tracks and previous training flights of individual and partner. [[leader]] are defined as individuals where both paired flights fell within the highly efficient range and [[follower]] those where both paired flights did not. 
 
 To clarify: 18 track segments

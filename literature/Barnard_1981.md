@@ -10,9 +10,9 @@ Observations were made for four days per group, during which recordings were mad
 
 - searching
 	- "searching the wells (as defined by characteristic slow zig-zag hopping in a semi-erect posture and frequent head-cocking)"
-- interacting
+- [interaction](interaction.md)
 	- "Interacting was characterized by fast hopping, in a crouched position and without head-cocking, towards another bird which appeared to have located food or towards an area on the grid recently vacated by such a bird. During fast hopping no attempt was made to search the wells."
-	- "Three basic types of interaction could be distinguished"
-		- area copying "the commonest form of interaction and involved the interactor responding to some cue from another forager (not necessarily a successful find) by moving across to search in the immediate area around the forager."
+	- "Three basic types of [interaction](interaction.md) could be distinguished"
+		- area copying "the commonest form of [interaction](interaction.md) and involved the interactor responding to some cue from another forager (not necessarily a successful find) by moving across to search in the immediate area around the forager."
 		- following "sometimes one bird followed another around the grid without exhibiting any searching behaviour itself"
-		- snatching "the least frequent form of interaction and usually consisted of the interactor taking prey directly from the recipient's bill."
+		- snatching "the least frequent form of [interaction](interaction.md) and usually consisted of the interactor taking prey directly from the recipient's bill."

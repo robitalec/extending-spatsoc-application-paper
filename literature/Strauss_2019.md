@@ -6,6 +6,6 @@ Strauss, Eli D., and Kay E. Holekamp. 2019. “Social Alliances Improve Rank and
 
 ---
 
-Observational data
+Inferring dynamical [dominance](dominance.md) [hierarchy](hierarchy.md) from observation data
 
 https://github.com/straussed/DynaRankR

@@ -1,3 +1,4 @@
+
 ---
 title: Strandburg-Peshkin_2015
 ---
@@ -10,8 +11,8 @@ Decision making
 
 - olive baboons
 - stable, multi-male, multi-female troops
-- 80% with GPS collars but true number of collars varied between 16-25 / 26
-- 1 second fix rate during daylight
+- 80% with [GPS](GPS.md) collars but true number of collars varied between 16-25 / 26
+- [temporal resolution](temporal%20resolution.md) 1 second fix rate during daylight
 
 Conflicting past results in this system for identifying influential individuals
 

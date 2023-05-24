@@ -7,7 +7,7 @@ Pettit, Benjamin, Zsuzsa Ákos, Tamás Vicsek, and Dora Biro. 2015. “Speed Det
 ---
 
 - pigeons
-- GPS
+- [GPS](GPS.md)
 
 Homing efficiency as straight line distance from start to end (homing) divided by total distance travelled
 

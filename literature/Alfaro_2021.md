@@ -6,6 +6,8 @@ Alfaro, Luis, and Rosalva Cabrera. 2021. “Effect of Group Size on Producer–S
 
 ---
 
-Video sessions
+[producer](producer.md) [scrounger](scrounger.md)
+
+Video sessions 
 
 - "A production response consisted of opening a patch door and consuming at least part of the food, whereas a scrounging response consisted in consuming the food of a patch opened by another rat."

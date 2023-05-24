@@ -7,9 +7,9 @@ Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D. Couzin, and Martin Wikelsk
 ---
 
 
-Social information, collective movements in 27 migrating juvenile white stocks using GPS and accelerometers
+Social information, collective movements in 27 migrating juvenile white stocks using [GPS](GPS.md) and [[accelerometers]]
 
-GPS bursts of 2/5 minute every 15 minute
+[GPS](GPS.md) bursts of 2/5 minute every 15 minute
 
 [Supplement](https://www.science.org/doi/10.1126/science.aap7781#supplementary-materials)
 

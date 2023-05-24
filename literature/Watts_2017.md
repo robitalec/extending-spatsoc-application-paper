@@ -8,7 +8,7 @@ Watts, Isobel, Máté Nagy, Robert I. Holbrook, Dora Biro, and Theresa Burt de P
 
 tetra fish (*Astyanax mexicanus*)
 
-Used three-dimensional data to compare to two-dimensional results ignoring the third dimension. Found for 95% of all pairwise interactions, results were the same
+Used three-dimensional data to compare to two-dimensional results ignoring the third dimension. Found for 95% of all pairwise [interaction](interaction.md), results were the same
 
 Matlab, Perl, R, CUDA
 

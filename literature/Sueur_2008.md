@@ -6,7 +6,7 @@ Sueur, C., and O. Petit. 2008. “Shared or Unshared Consensus Decision in Macaq
 
 ---
 
-Assessing [dominance](dominance.md) rank (observations)
+Assessing [dominance](dominance.md) [rank](rank.md) (observations)
 
 - spatial patterns
 	- group dispersion
@@ -20,11 +20,11 @@ Assessing [dominance](dominance.md) rank (observations)
 
 ### Single leader
 
-Single group leader concept is widespread: social carnivores, horses, primates
+Single group [leader](leader.md) concept is widespread: social carnivores, horses, primates
 
 Consistent leadership, individual leadership
 
-Leader is frequently the most socially dominant animal, eg. mountain gorillas, wolves, mongooses
+[Leader](leader.md) is frequently the most socially [dominant](dominance.md) animal, eg. mountain gorillas, wolves, mongooses
 
 ### Voting
 

@@ -7,7 +7,7 @@ title: Sarova_2010
 ---
 
 - beef cows
-- GPS 
+- [GPS](GPS.md) 
 - behaviour scans
 
 [Dominance](dominance.md)

@@ -10,7 +10,7 @@ Sridhar, Vivek H., Jacob D. Davidson, Colin R. Twomey, Matthew M. G. Sosna, Mát
 Behavioural research focuses on behaviours at relatively short temporal scales, often matching observations. Behavioural coupling where multiple animals interact can introduce new timescales of importance. The predictive power of pairwise interactionns depends on the timescale of analysis. Short timescales are best predicted by relative position of neighbours, where the distribution of influence acorss group members is relatively linear with a small slope. Long timescales are best predicted by both relative position and kinematics, nonlinearity increases and a subset of individuals are disproportionately influential. Timescale influences results, importance of considering multiple scales.
 
 
-Two example data sets: homing pigeon GPS and filmed golden shiners
+Two example data sets: homing pigeon [GPS](GPS.md) and filmed golden shiners
 
 
 Use [Nagy_2010](Nagy_2010.md)'s directional correlation technique 
@@ -18,7 +18,7 @@ Use [Nagy_2010](Nagy_2010.md)'s directional correlation technique
 12,
 28
 
-Binary engaged in leader-follower or not
+Binary engaged in [leader](leader.md) [follower](follower.md) or not
 
 Bayesian GLM in Stan
 

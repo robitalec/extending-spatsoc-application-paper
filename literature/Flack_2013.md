@@ -6,9 +6,9 @@ Flack, Andrea, Zsuzsa Ákos, Máté Nagy, Tamás Vicsek, and Dora Biro. 2013. �
 
 ---
 
-GPS data at 10 Hz = 10 cycles per second = 0.1 second fix rate
+[GPS](GPS.md) data at [temporal resolution](temporal%20resolution.md) 10 Hz = 10 cycles per second = 0.1 second fix rate
 
-Determining leader-follower
+Determining [leader](leader.md) [follower](follower.md)
 
 Use the [directional correlation delay](directional%20correlation%20delay.md) defined in [Nagy_2010](Nagy_2010.md)
 
@@ -30,6 +30,6 @@ Generated hierchical networks using $\tau^{*}_{ij}$
 Stabililty of hierchical structure possibly provide benefits in making flights routine, making decision making and coordination more efficient 
 
 
-Appendix: GPS error, tests of [hierarchy](hierarchy.md) robustness
+Appendix: [GPS](GPS.md) error, tests of [hierarchy](hierarchy.md) robustness
 
 

@@ -15,4 +15,4 @@ Influence of front and rear fish on group's swimming direction
 
 Fig 1 Propagation of directions
 
-Criterion for leadership: angle between average direction of front fish and rear fish between +-400ms 
+Criterion for [leader](leader.md): angle between average direction of front fish and rear fish between +-400ms 

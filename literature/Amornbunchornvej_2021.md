@@ -6,7 +6,7 @@ Amornbunchornvej, Chainarong. 2021. “MFLICA: An R Package for Inferring Leader
 
 ---
 
-Point to Amornbunchornvej_2020 as confirming Strandburg-Peshkin_2015 using mFLICA
+Point to Amornbunchornvej_2020 as confirming [Strandburg-Peshkin_2015](Strandburg-Peshkin_2015.md) using mFLICA
 
 https://github.com/DarkEyes/mFLICA
 
