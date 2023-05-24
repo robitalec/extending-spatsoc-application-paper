@@ -18,4 +18,4 @@ Subset to where maximum corerlation was above 0.7, below 200 mm
 
 Methods extended from [Nagy_2010](Nagy_2010.md) to 3d
 
-Translated video to location data
+Translated [[video]] to location data

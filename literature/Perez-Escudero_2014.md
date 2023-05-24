@@ -6,4 +6,4 @@ Pérez-Escudero, Alfonso, Julián Vicente-Page, Robert C. Hinz, Sara Arganda, an
 
 ---
 
-Helps identify and track individuals from video recordings of groups
+Helps identify and track individuals from [video](video.md) recordings of groups

@@ -7,7 +7,7 @@ Bumann, Dirk, and Jens Krause. 1993. “Front Individuals Lead in Shoals of Thre
 ---
 
 
-Video recording
+[Video](video.md) recording
 
 roach and three-spined stickleback
 
