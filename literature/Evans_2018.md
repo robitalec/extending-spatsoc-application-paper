@@ -5,6 +5,7 @@ title: Evans_2018
 Evans, Julian C., Isabelle Devost, Teri B. Jones, and Julie Morand-Ferron. 2018. “Inferring Dominance Interactions from Automatically Recorded Temporal Data.” Edited by E. Hebets. _Ethology_ 124 (3): 188–95. [https://doi.org/10.1111/eth.12720](https://doi.org/10.1111/eth.12720).
 
 ---
+Black-capped chickadees
 
 [Video](video.md) [[interaction]] coded for:
 
