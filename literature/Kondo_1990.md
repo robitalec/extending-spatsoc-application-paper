@@ -6,6 +6,6 @@ Kondo, S., and J. F. Hurnik. 1990. “Stabilization of Social Hierarchy in Dairy
 
 ---
 
-Tools available through https://cran.r-project.org/web/packages/socialh/ (note different authors)
+Tools available through [Valente_2022](Valente_2022.md) package  (note different authors)
 
 [hierarchy](hierarchy.md)

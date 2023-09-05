@@ -6,8 +6,15 @@ Torney, Colin J., Myles Lamont, Leon Debell, Ryan J. Angohiatok, Lisa-Marie Lecl
 
 ---
 
-[drone](drone.md)
+[UAV]
 
-References: [Merkle_2015](Merkle_2015.md) [Nagy_2010](Nagy_2010.md) [Strandburg-Peshkin_2015](Strandburg-Peshkin_2015.md)
+References: 
+
+[Merkle_2015](Merkle_2015.md) 
+[Nagy_2010](Nagy_2010.md) 
+[Strandburg-Peshkin_2015](Strandburg-Peshkin_2015.md)
 
 Bayesian with PyMC
+
+Supplement 
+https://royalsocietypublishing.org/action/downloadSupplement?doi=10.1098%2Frstb.2017.0385&file=rstb20170385supp1.pdf

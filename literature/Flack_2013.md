@@ -25,9 +25,9 @@ The maximum value of the directional correlation function $C_{ij}$ is at $C_{ij}
 - Negative values indicate that flight directional changes of bird i fall behind that of bird j and therefore j is leading
 - In this analysis, the authors averaged all 
 
-Generated hierchical networks using $\tau^{*}_{ij}$
+Generated hierarchical networks using $\tau^{*}_{ij}$
 
-Stabililty of hierchical structure possibly provide benefits in making flights routine, making decision making and coordination more efficient 
+Stability of hierarchical structure possibly provide benefits in making flights routine, making decision making and coordination more efficient 
 
 
 Appendix: [GPS](GPS.md) error, tests of [hierarchy](hierarchy.md) robustness
