@@ -1,7 +1,6 @@
 ---
 title: Pettit_2015
 ---
-
 Pettit, Benjamin, Zsuzsa Ákos, Tamás Vicsek, and Dora Biro. 2015. “Speed Determines Leadership and Leadership Determines Learning during Pigeon Flocking.” _Current Biology_ 25 (23): 3132–37. [https://doi.org/10.1016/j.cub.2015.10.044](https://doi.org/10.1016/j.cub.2015.10.044).
 
 ---
