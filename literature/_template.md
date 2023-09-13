@@ -1,7 +1,6 @@
 ---
 title: {{citekey}}
 ---
-
 {{bibliography}}
 
 ---
