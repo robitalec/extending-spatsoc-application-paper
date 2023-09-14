@@ -27,7 +27,16 @@ Automated procedure for extracting movement initiations, based on relative movem
 	- 0-1 where 0 is negligible change in dyadic distance and 1 where difference is very large
 	- eg 1 where very close, then very far, then very close again
 	- authors use a threshold of 0.1
+- [dominance](dominance.md) [hierarchy](hierarchy.md)
 	- based on [approach–avoidance](approach–avoidance.md) citing [Seyfarth_1976](Seyfarth_1976.md)
+	- for each pair of individuals, identify potential [approach–avoidance](approach–avoidance.md) events
+		- within a 20 second interval, distance between i and j changed from > 3 m to < 2 m
+		- in the preceding 10 seconds, individual j moved < 1.5 m
+		- during the approach, individual j moved > 3 m
+		- after the approach, distance between i and j changed from < 2 m to > 3m
+		- during the avoid, individual i moved < 1.5 m and individual j moved > 3 m
+	- for each potential [approach–avoidance](approach–avoidance.md) event, manual classify as clear, potential and not approach avoids
+	- [dominance](dominance.md) [hierarchy](hierarchy.md) using [[Elo scores]]
 
 
 > Code for extracting pulls and anchors from trajectory data will be made available online.
