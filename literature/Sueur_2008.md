@@ -1,7 +1,6 @@
 ---
 title: Sueur_2008
 ---
-
 Sueur, C., and O. Petit. 2008. “Shared or Unshared Consensus Decision in Macaques?” _Behavioural Processes_ 78 (1): 84–92. [https://doi.org/10.1016/j.beproc.2008.01.004](https://doi.org/10.1016/j.beproc.2008.01.004).
 
 ---
@@ -35,7 +34,7 @@ variable leadership
 
 ### Unshared consensus
 
-all members of teh group abide by the decision made by a single individual
+all members of the group abide by the decision made by a single individual
 
 ### Shared consensus
 

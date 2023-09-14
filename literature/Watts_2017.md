@@ -1,7 +1,6 @@
 ---
 title: Watts_2017
 ---
-
 Watts, Isobel, Máté Nagy, Robert I. Holbrook, Dora Biro, and Theresa Burt de Perera. 2017. “Validating Two-Dimensional Leadership Models on Three-Dimensionally Structured Fish Schools.” _Royal Society Open Science_ 4 (1): 160804. [https://doi.org/10.1098/rsos.160804](https://doi.org/10.1098/rsos.160804).
 
 ---

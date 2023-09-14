@@ -2,8 +2,8 @@ See supplement of [Nagy_2010](Nagy_2010.md) and [Flack_2013](Flack_2013.md)
 
 The [directional correlation delay](directional%20correlation%20delay.md) of a pair is $C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$
 
-- $\overrightarrow{v_{i}}(t)$: normalized velocity of bird i at time t
-- $\overrightarrow{v_{j}}(t + \tau)$: normalized velocity of bird j at time t + $\tau$
+- $\overrightarrow{v_{i}}(t)$: normalized [velocity](velocity.md) of bird i at time t
+- $\overrightarrow{v_{j}}(t + \tau)$: normalized [velocity](velocity.md) of bird j at time t + $\tau$
 - Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
 - Calculated only where pairs of individuals were less than 100 m apart
 
@@ -14,4 +14,4 @@ The maximum value of the directional correlation function $C_{ij}$ is at $C_{ij}
 
 Generated hierarchical networks using $\tau^{*}_{ij}$
 
-Also can be used to compare an individual to the average group direction
+Also can be used to compare an individual to the average group [direction](direction.md)
