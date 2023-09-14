@@ -26,7 +26,7 @@ Method
 	- Relative angle from center of group to each individual
 - Group characteristics
 	- Speed of the group center
-	- Group cohesion
+	- [[group cohesion]]
 		- Mean inter individual distances based on pairwise distances between all individuals in a group
 	- [[group polarization]]
 		- Alignment of the fish relative to each other, ranges from 0 to 1, complete non-alignment to complete alignment
@@ -34,6 +34,7 @@ Method
 	- Using [Katz_2011](Katz_2011.md), [Nagy_2010](Nagy_2010.md)
 
 
-Code: https://github.com/vivekhsridhar/individual_differences, https://www.repository.cam.ac.uk/items/6dcf8f29-79df-4e62-8e93-2e6357a4ee51
+Code: https://github.com/vivekhsridhar/individual_differences
+Data: https://www.repository.cam.ac.uk/items/6dcf8f29-79df-4e62-8e93-2e6357a4ee51
 
 Supplemental: https://www.cell.com/cms/10.1016/j.cub.2017.08.004/attachment/ba6b7125-3575-4e90-b1ce-092dcd58e851/mmc1.pdf
