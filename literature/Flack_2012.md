@@ -19,7 +19,7 @@ Spatial similarity measured using
 
 
 
-Nearest-neighbour analysis, measuring track as spatial proximity between tracks
+[nearest neighbours](nearest%20neighbours.md) analysis, measuring track as spatial proximity between tracks
 
 1. Distance from each point to neighbor point
 2. Average distance = track similarity

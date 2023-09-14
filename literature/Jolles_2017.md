@@ -19,7 +19,7 @@ Method
 	- Acceleration = finite difference of velocity
 	- Turning speed = finite difference of angle
 - Within group positions
-	- Nearest neighbour distance
+	- [[nearest neighbours]] distance
 	- Center distance
 		- Distance of  each fish to the center of the group
 	- Relative position to center
