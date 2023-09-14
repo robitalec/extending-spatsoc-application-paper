@@ -1,8 +1,6 @@
-
 ---
 title: Strandburg-Peshkin_2015
 ---
-
 Strandburg-Peshkin, Ariana, Damien R. Farine, Iain D. Couzin, and Margaret C. Crofoot. 2015. “Shared Decision-Making Drives Collective Movement in Wild Baboons.” _Science_ 348 (6241): 1358–61. [https://doi.org/10.1126/science.aaa5099](https://doi.org/10.1126/science.aaa5099).
 
 ---
