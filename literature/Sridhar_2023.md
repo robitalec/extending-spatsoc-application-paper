@@ -13,7 +13,7 @@ Supplemental materials
 
 Behavioural research focuses on behaviours at relatively short temporal scales, often matching observations. Behavioural coupling where multiple animals interact can introduce new timescales of importance. The predictive power of pairwise interactionns depends on the timescale of analysis. Short timescales are best predicted by relative position of neighbours, where the distribution of influence across group members is relatively linear with a small slope. Long timescales are best predicted by both relative position and kinematics, as nonlinearity increases and a subset of individuals are disproportionately influential. Timescale influences results therefore it is important to consider multiple scales.
 
-The authors note the use of terms [[influence]] and [[leader]] interchangeably 
+The authors note the use of terms influence and [[leader]] interchangeably 
 
 
 Data
