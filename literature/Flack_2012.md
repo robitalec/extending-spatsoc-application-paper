@@ -28,7 +28,7 @@ Spatial similarity measured using
 
 Dynamics of tracks
 
-1. Instantaneous flight direction (heading) (bearing)
+1. Instantaneous flight [direction](direction.md) (heading) (bearing)
 2. Bearing = for every two points, calculate heading relative to position of loft
 
 

@@ -15,7 +15,7 @@ Cohesive definedd as all 5 minute intervals where no pairwise distance exceeded 
 
 When cohesive, group's position was calculated as the group's centroid
 
-Direction determined by watching animations of [GPS](GPS.md) data
+[Direction](direction.md) determined by watching animations of [GPS](GPS.md) data
 
 Initiators defined as individuals that moved more than 20 m away from the center of the group. Departure order of individuals. Initiation successful if all group members followed the direction of the initiator and unsuccesful if not all followed or if the initiator returned to the group. 
 

@@ -11,8 +11,8 @@ Bumann, Dirk, and Jens Krause. 1993. “Front Individuals Lead in Shoals of Thre
 
 roach and three-spined stickleback
 
-Influence of front and rear fish on group's swimming direction
+Influence of front and rear fish on group's swimming [direction](direction.md)
 
 Fig 1 Propagation of directions
 
-Criterion for [leader](leader.md): angle between average direction of front fish and rear fish between +-400ms 
+Criterion for [leader](leader.md): angle between average [direction](direction.md) of front fish and rear fish between +-400ms 
