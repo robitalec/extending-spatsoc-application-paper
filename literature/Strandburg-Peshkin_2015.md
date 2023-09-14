@@ -26,6 +26,7 @@ Automated procedure for extracting movement initiations, based on relative movem
 	- 0-1 where 0 is negligible change in dyadic distance and 1 where difference is very large
 	- eg 1 where very close, then very far, then very close again
 	- authors use a threshold of 0.1
+	- based on [approach–avoidance](approach–avoidance.md) citing [Seyfarth_1976](Seyfarth_1976.md)
 
 
 > Code for extracting pulls and anchors from trajectory data will be made available online.
