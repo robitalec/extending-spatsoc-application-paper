@@ -22,8 +22,8 @@ Automated procedure for extracting movement initiations, based on relative movem
 	- authors use a threshold of 0.1 to remove segments that are not clearly either successful or failed pulls
 	- "To be considered a successful pull, individual i had to move more than individual j during the first segment (min to max) and less than individual i during the second segment (max to min). For a failed pull (or anchor), individual i moved more than individual j during both segments. Candidate sequences in which the distance moved by both individuals was too similar (in either segment) were excluded""
 
-- strength
-	- strength = |sij t2 - sij t1| | sij t3 - sij t2| / |sij t2 + sij t1| | sij t3 + sij t2|
+- [[strength]]
+	- [[strength]] = |sij t2 - sij t1| | sij t3 - sij t2| / |sij t2 + sij t1| | sij t3 + sij t2|
 	- 0-1 where 0 is negligible change in dyadic distance and 1 where difference is very large
 	- eg 1 where very close, then very far, then very close again
 	- authors use a threshold of 0.1
