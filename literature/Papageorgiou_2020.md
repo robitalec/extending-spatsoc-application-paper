@@ -24,7 +24,7 @@ Initiators defined as individuals that moved more than 20 m away from the center
 
 Distance and [speed](speed.md) in rejoining group for individuals at the back of a group
 
-Compared to group's centroid
+Compared to group's centroid ([position within group](position%20within%20group.md))
 
 Solar-powered battery
 

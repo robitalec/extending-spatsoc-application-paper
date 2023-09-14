@@ -9,7 +9,7 @@ Assessing [dominance](dominance.md) [rank](rank.md) (observations)
 
 - spatial patterns
 	- group dispersion
-	- position of first departed individual
+	- position of first departed individual (part of [position within group](position%20within%20group.md))
 - behavioural
 	- [speed](speed.md)
 	- back glance

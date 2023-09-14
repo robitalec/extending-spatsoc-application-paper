@@ -22,8 +22,9 @@ Method
 	- [[nearest neighbours]] distance
 	- Center distance
 		- Distance of  each fish to the center of the group
-	- Relative position to center
-	- Relative angle from center of group to each individual
+	- [position within group](position%20within%20group.md) 
+		- Relative position to center
+		- Relative angle from center of group to each individual
 - Group characteristics
 	- Speed of the group center
 	- [[group cohesion]]
