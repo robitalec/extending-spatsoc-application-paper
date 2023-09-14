@@ -24,15 +24,15 @@ Methods
 - Positional features
 	- Relative distance and angular position of individuals with respect to every other individual in the group
 		- Distance = difference between position of i at time t and position of j at time t
-		- Angular position = angle between velocity vector of i and vector dij = position i - position j at time t . In other words, the difference between vector and the vector that would have otherwise moved i to individual j. Absolute value.
+		- Angular position = angle between [velocity](velocity.md) vector of i and vector dij = position i - position j at time t . In other words, the difference between vector and the vector that would have otherwise moved i to individual j. Absolute value.
 - Kinematic variables ([Jolles_2017](Jolles_2017.md), [Pettit_2015](Pettit_2015.md))
 	- Absolute kinematic variables
-		- Speed and rate of change of velocity
-			- Speed = magnitude of the velocity vector  eg. difference between position at time t and time  t - delta t, divided by delta t
-			- Acceleration = difference between speed at time t and time t - delta t, divided by delta t
+		- [Speed](speed.md) and rate of change of [velocity](velocity.md)
+			- [Speed](speed.md) = magnitude of the [velocity](velocity.md) vector  eg. difference between position at time t and time  t - delta t, divided by delta t
+			- [Acceleration](acceleration.md) = difference between speed at time t and time t - delta t, divided by delta t
 	- Relative kinematic variables
 		- Pairwise differences in absolute kinematic variables
-	- Difference in speed and acceleration between individual and every other individual in the group
+	- Difference in speed and [acceleration](acceleration.md) between individual and every other individual in the group
 - [Nagy_2010](Nagy_2010.md)'s directional correlation technique 
 	- Time lags of 7, 15, 30, 60 s
 - Binary engaged in [leader](leader.md) [follower](follower.md) or not
