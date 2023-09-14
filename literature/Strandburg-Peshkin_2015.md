@@ -14,7 +14,7 @@ Decision making
 
 Conflicting past results in this system for identifying influential individuals
 
-Automated procedure for extracting movement initiations, based on relative movements of pairs of individuals including disparity and strength. Successful pulls, failed pulls (anchors) or neither. Successful pull = i moves more than j during the first, but less than j during the second segment. Failed pull = i moves more during booth segments. Excluded where individuals' distance was too similar
+Automated procedure for extracting movement initiations, based on relative movements of pairs of individuals including [[disparity]] and [[strength]]. Successful pulls, failed pulls (anchors) or neither. Successful pull = i moves more than j during the first, but less than j during the second segment. Failed pull = i moves more during booth segments. Excluded where individuals' distance was too similar
 
 - [[disparity]] 
 	- [[disparity]] = |displacement i t1 t2 - displacement j t1 t2| |displacement i t2 t3 - displacement j t2 t3| / |displacement i t1 t2 + displacement j t1 t2| |displacement i t2 t3 + displacement j t2 t3|
