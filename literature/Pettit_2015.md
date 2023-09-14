@@ -14,7 +14,7 @@ Data
 
 Methods
 - lat long to UTM
-- Speed = distance between successive GPS fixes
+- [Speed](speed.md) = distance between successive GPS fixes
 - Homing efficiency = straight line distance from start to end (homing) divided by total distance travelled
 - Medium track speed
 - Leadership

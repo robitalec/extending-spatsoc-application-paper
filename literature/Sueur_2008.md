@@ -12,7 +12,7 @@ Assessing [dominance](dominance.md) [rank](rank.md) (observations)
 	- group dispersion
 	- position of first departed individual
 - behavioural
-	- speed
+	- [speed](speed.md)
 	- back glance
 	- pause
 	- advance

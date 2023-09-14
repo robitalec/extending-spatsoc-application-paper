@@ -14,9 +14,9 @@ Data
 Method
 - Individual characteristics
 	- Velocity = forward finite difference
-	- Speed
 	- Direction = atan2
 	- Acceleration = finite difference of velocity
+	- [Speed](speed.md)
 	- Turning speed = finite difference of angle
 - Within group positions
 	- [[nearest neighbours]] distance

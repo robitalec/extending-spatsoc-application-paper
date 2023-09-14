@@ -22,7 +22,7 @@ Initiators defined as individuals that moved more than 20 m away from the center
 > To determine whether the departures by the last individual on  each patch are caused by depletion or not, we test whether these  individuals express disproportionate movement characteristics that indicate that they are being pulled away from the patch. We use data  from a group where all members were fitted with Global Positioning System ([GPS](GPS.md)) tags to calculate the distance from the last individuals at the moment of leaving the patch to the rest of the group and their speed while rejoining the group.
 
 
-Distance and speed in rejoining group for individuals at the back of a group
+Distance and [speed](speed.md) in rejoining group for individuals at the back of a group
 
 Compared to group's centroid
 
