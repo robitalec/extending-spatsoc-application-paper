@@ -5,9 +5,6 @@ Simons, A. 2004. “Many Wrongs: The Advantage of Group Navigation.” _Trends i
 
 ---
 
-Many wrongs principle.  Related to [information](information.md) for group navigation
+[[many wrongs]] principle
 
-Early citations include:
-- Bergman, G. and Donner, K.O. (1964) An analysis of the spring migration of the common scoter and the long-tailed duck in southern Finland. Acta Zool. Fenn. 105, 1–59
-- Hamilton, W.J. III (1967) Social aspects of bird orientation mechanisms. In Animal Orientation and Navigation (Storm, R.M., ed.), pp. 57 – 71, Oregon State University Press
-- Wallraff, H.G. (1978) Social interrelations involved in migratory orientation of birds: possible contribution of field studies. Oikos 30, 401–404
+Review
