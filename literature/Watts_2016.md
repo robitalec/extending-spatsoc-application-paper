@@ -4,7 +4,7 @@ title: Watts_2016
 Watts, Isobel, Máté Nagy, Theresa Burt de Perera, and Dora Biro. 2016. “Misinformed Leaders Lose Influence over Pigeon Flocks.” _Biology Letters_ 12 (9): 20160544. [https://doi.org/10.1098/rsbl.2016.0544](https://doi.org/10.1098/rsbl.2016.0544).
 
 ---
-
+[information](information)
 
 - [GPS](GPS.md) data
 - Matlab, R

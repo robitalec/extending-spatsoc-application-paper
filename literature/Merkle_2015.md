@@ -7,6 +7,8 @@ Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow or Not? How Animals i
 
 No clear definition of [leader](leader.md) vs [follower](follower.md) and how that was measured
 
+[information](information)
+
 Supporting information contains only model parameter estimate tables
 
 

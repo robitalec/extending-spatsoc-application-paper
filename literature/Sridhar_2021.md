@@ -18,7 +18,7 @@ desirected direction
 
 The authors argue that vectorial information is insufficient because it does not contain the necessary feedbacks
 
-Feedbacks such as uninformed vs informed individuals, 
+Feedbacks such as uninformed vs informed ([information](information)) individuals, 
 46, 41
 
 
