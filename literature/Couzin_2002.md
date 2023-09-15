@@ -9,5 +9,5 @@ Models of group formation in 3d space and use it to reveal spatial dynamics of a
 
 Three zones: repulsion, orientation and attraction
 
-Blind volume behind  individual
+Blind volume behind  individual ([sensory zone](sensory%20zone.md))
 
