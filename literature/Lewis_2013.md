@@ -1,7 +1,6 @@
 ---
 title: Lewis_2013
 ---
-
 Lewis, J.S., D. Wartzok, and M.R. Heithaus. 2013. “Individuals as Information Sources: Could Followers Benefit from Leaders’ Knowledge?” _Behaviour_ 150 (6): 635–57.
 
 ---

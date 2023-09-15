@@ -1,7 +1,6 @@
 ---
 title: Harten_2018
 ---
-
 Harten, Lee, Yasmin Matalon, Naama Galli, Hagit Navon, Roi Dor, and Yossi Yovel. 2018. “Persistent Producer-Scrounger Relationships in Bats.” _Science Advances_ 4 (2): e1603293. [https://doi.org/10.1126/sciadv.1603293](https://doi.org/10.1126/sciadv.1603293).
 
 ---

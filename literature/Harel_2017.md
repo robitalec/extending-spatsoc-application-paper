@@ -1,7 +1,6 @@
 ---
 title: Harel_2017
 ---
-
 Harel, Roi, Orr Spiegel, Wayne M. Getz, and Ran Nathan. 2017. “Social Foraging and Individual Consistency in Following Behaviour: Testing the Information Centre Hypothesis in Free-Ranging Vultures.” _Proceedings of the Royal Society B: Biological Sciences_ 284 (1852): 20162654. [https://doi.org/10.1098/rspb.2016.2654](https://doi.org/10.1098/rspb.2016.2654).
 
 ---

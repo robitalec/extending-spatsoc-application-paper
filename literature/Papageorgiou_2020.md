@@ -1,7 +1,6 @@
 ---
 title: Papageorgiou_2020
 ---
-
 Papageorgiou, Danai, and Damien R. Farine. 2020. “Shared Decision-Making Allows Subordinates to Lead When Dominants Monopolize Resources.” _Science Advances_ 6 (48): eaba5881. [https://doi.org/10.1126/sciadv.aba5881](https://doi.org/10.1126/sciadv.aba5881).
 
 ---

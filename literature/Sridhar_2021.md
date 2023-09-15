@@ -1,7 +1,6 @@
 ---
 title: Sridhar_2021
 ---
-
 Sridhar, Vivek H., Liang Li, Dan Gorbonos, Máté Nagy, Bianca R. Schell, Timothy Sorochkin, Nir S. Gov, and Iain D. Couzin. 2021. “The Geometry of Decision-Making in Individuals and Collectives.” _Proceedings of the National Academy of Sciences_ 118 (50): e2102157118.
 
 ---

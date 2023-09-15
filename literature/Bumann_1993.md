@@ -1,7 +1,6 @@
 ---
 title: Bumann_1993
 ---
-
 Bumann, Dirk, and Jens Krause. 1993. “Front Individuals Lead in Shoals of Three-Spined Sticklebacks (Gasterosteus Aculeatus) and Juvenile Roach (Rutilus Rutilus).” _Behaviour_ 125 (3–4): 189–98. [https://doi.org/10.1163/156853993X00236](https://doi.org/10.1163/156853993X00236).
 
 ---

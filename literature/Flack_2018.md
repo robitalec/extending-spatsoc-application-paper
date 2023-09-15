@@ -1,7 +1,6 @@
 ---
 title: Flack_2018
 ---
-
 Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D. Couzin, and Martin Wikelski. 2018. “From Local Collective Behavior to Global Migratory Patterns in White Storks.” _Science_ 360 (6391): 911–14.
 
 ---

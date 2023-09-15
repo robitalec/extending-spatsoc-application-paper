@@ -1,7 +1,6 @@
 ---
 title: Flack_2013
 ---
-
 Flack, Andrea, Zsuzsa Ákos, Máté Nagy, Tamás Vicsek, and Dora Biro. 2013. “Robustness of Flight Leadership Relations in Pigeons.” _Animal Behaviour_ 86 (4): 723–32.
 
 ---

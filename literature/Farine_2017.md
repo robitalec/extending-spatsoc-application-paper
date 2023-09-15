@@ -1,7 +1,6 @@
 ---
 title: Farine_2017
 ---
-
 Farine, D. R., A. Strandburg-Peshkin, I. D. Couzin, T. Y. Berger-Wolf, and M. C. Crofoot. 2017. “Individual Variation in Local Interaction Rules Can Explain Emergent Patterns of Spatial Organization in Wild Baboons.” _Proceedings of the Royal Society B: Biological Sciences_ 284 (1853): 20162243. [https://doi.org/10.1098/rspb.2016.2243](https://doi.org/10.1098/rspb.2016.2243).
 
 ---

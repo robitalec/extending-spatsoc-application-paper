@@ -1,7 +1,6 @@
 ---
 title: Berdahl_2018
 ---
-
 Berdahl, Andrew M., Albert B. Kao, Andrea Flack, Peter A. H. Westley, Edward A. Codling, Iain D. Couzin, Anthony I. Dell, and Dora Biro. 2018. “Collective Animal Navigation and Migratory Culture: From Theoretical Models to Empirical Evidence.” _Philosophical Transactions of the Royal Society B: Biological Sciences_ 373 (1746): 20170009. [https://doi.org/10.1098/rstb.2017.0009](https://doi.org/10.1098/rstb.2017.0009).
 
 ---
