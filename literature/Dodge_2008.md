@@ -43,10 +43,33 @@ Scale/granularity (see more in [[Laube_2005]])
 - temporal
 
 Patterns
-- primitive patterns
-	- incidents
-	- constancy
-- compound patterns
-	- trend-setting
-	- convergence
-	- encounter
+- Primitive patterns
+	- Co-location in space: same positions in space
+		- ordered co-location
+		- unordered co-location
+		- symmetrical co-location
+	- Concentration: zone of high density
+	- incidents (Laube_2002)
+		- Concurrence: same values of motion attributes at the same time (synchronous movement)
+		- Co-incidence in space and time ([[Andrienko_2007]])
+			- full co-incidence
+			- lagged co-incidence
+	- Opposition: bi- or multi-polar arrangement of motion parameter values, such as spatial splitting of a group into two opposite directions
+	- Dispersion: opposite of concurrence, non-uniform or random motion
+	- Constancy
+	- Sequence
+	- Periodicity
+	- Meet
+	- Moving cluster
+	- Temporal relations
+	- Synchronization
+- Compound patterns
+- Isolated object
+- Symmetry
+- Repetition
+- Propagation
+- Convergence/divergence
+- Encounter/breakup
+- Trend/fluctuation
+- Trend-setting
+
