@@ -11,7 +11,7 @@ Supplemental materials
 - https://figshare.com/articles/journal_contribution/Inferring_social_influence_in_animal_groups_across_multiple_timescales_SI/21967120
 
 
-Behavioural research focuses on behaviours at relatively short temporal scales, often matching observations. Behavioural coupling where multiple animals interact can introduce new timescales of importance. The predictive power of pairwise interactionns depends on the timescale of analysis. Short timescales are best predicted by relative position of neighbours, where the distribution of influence across group members is relatively linear with a small slope. Long timescales are best predicted by both relative position and kinematics, as nonlinearity increases and a subset of individuals are disproportionately influential. Timescale influences results therefore it is important to consider multiple scales.
+Behavioural research focuses on behaviours at relatively short temporal scales, often matching observations. Behavioural coupling where multiple animals interact can introduce new timescales of importance. The predictive power of pairwise interactionns depends on the timescale of analysis. Short timescales are best predicted by [[relative]] position of neighbours, where the distribution of influence across group members is relatively linear with a small slope. Long timescales are best predicted by both [[relative]] position and kinematics, as nonlinearity increases and a subset of individuals are disproportionately influential. Timescale influences results therefore it is important to consider multiple scales.
 
 The authors note the use of terms influence and [[leader]] interchangeably 
 
@@ -22,16 +22,16 @@ Data
 
 Methods
 - Positional features
-	- Relative distance and angular position of individuals with respect to every other individual in the group
-		- Distance = difference between position of i at time t and position of j at time t
-		- Angular position = angle between [velocity](velocity.md) vector of i and vector dij = position i - position j at time t . In other words, the difference between vector and the vector that would have otherwise moved i to individual j. Absolute value.
+	- [[relative]] [[distance]] and [direction](direction.md) angular position of individuals with respect to every other individual in the group
+		- [distance](distance.md) = difference between position of i at time t and position of j at time t
+		- [direction](direction.md) (Angular position) = angle between [velocity](velocity.md) vector of i and vector dij = position i - position j at time t . In other words, the difference between vector and the vector that would have otherwise moved i to individual j. Absolute value.
 - Kinematic variables ([Jolles_2017](Jolles_2017.md), [Pettit_2015](Pettit_2015.md))
-	- Absolute kinematic variables
+	- [Absolute](absolute.md) kinematic variables
 		- [Speed](speed.md) and rate of change of [velocity](velocity.md)
 			- [Speed](speed.md) = magnitude of the [velocity](velocity.md) vector  eg. difference between position at time t and time  t - delta t, divided by delta t
 			- [Acceleration](acceleration.md) = difference between speed at time t and time t - delta t, divided by delta t
-	- Relative kinematic variables
-		- Pairwise differences in absolute kinematic variables
+	- [[relative]] kinematic variables
+		- Pairwise differences in [absolute](absolute.md) kinematic variables
 	- Difference in speed and [acceleration](acceleration.md) between individual and every other individual in the group
 - [Nagy_2010](Nagy_2010.md)'s directional correlation technique 
 	- Time lags of 7, 15, 30, 60 s

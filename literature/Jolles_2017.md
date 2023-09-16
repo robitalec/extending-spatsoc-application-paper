@@ -23,14 +23,14 @@ Method
 	- Center distance
 		- Distance of  each fish to the center of the group
 	- [position within group](position%20within%20group.md) 
-		- Relative position to center
-		- Relative angle from center of group to each individual
+		- [[relative]] position to center
+		- [[relative]] angle from center of group to each individual
 - Group characteristics
 	- Speed of the group center
 	- [[group cohesion]]
 		- Mean inter individual distances based on pairwise distances between all individuals in a group
 	- [[group polarization]]
-		- Alignment of the fish relative to each other, ranges from 0 to 1, complete non-alignment to complete alignment
+		- Alignment of the fish [[relative]] to each other, ranges from 0 to 1, complete non-alignment to complete alignment
 - Propagation of motion
 	- Using [Katz_2011](Katz_2011.md), [Nagy_2010](Nagy_2010.md)
 

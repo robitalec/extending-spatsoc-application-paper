@@ -9,7 +9,7 @@ Review
 
 
 Fish schools and bird flocks
-- repulsion, alignment, and attraction tendencies based on the positions and orientations of individuals  relative to one another
+- repulsion, alignment, and attraction tendencies based on the positions and orientations of individuals  [[relative]] to one another
 	 - Aoki_1982, [Reynolds_1987](Reynolds_1987.md), [Huth_1994](Huth_1994.md), [Couzin_2002](Couzin_2002.md)
 
 Group internal structure

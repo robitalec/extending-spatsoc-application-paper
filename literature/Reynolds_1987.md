@@ -5,7 +5,7 @@ Reynolds, Craig W. 1987. “Flocks, Herds and Schools: A Distributed Behavioral 
 
 ---
 
-static collision avoidance based on relative position of neighbours  ([distance](distance.md))
+static collision avoidance based on [[relative]] position of neighbours  ([distance](distance.md))
 
 dynamic velocity matching based on velocity, ignoring position ([speed](speed.md))
 
