@@ -1,0 +1,3 @@
+- ordered
+- unordered
+- symmetrical

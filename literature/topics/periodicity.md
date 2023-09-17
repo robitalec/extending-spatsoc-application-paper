@@ -1,0 +1,2 @@
+- temporal periodicity
+- spatiotemporal periodicity
