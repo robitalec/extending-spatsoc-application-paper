@@ -43,8 +43,8 @@ Scale/granularity (see more in [[Laube_2005]])
 - [spatial](spatial.md)
 - [temporal](temporal.md)
 
-[[patterns]]
-- Primitive [patterns](patterns.md)
+[[pattern]]
+- Primitive [pattern](pattern.md)
 	- [[co-location in space]]: same positions in space
 		- ordered co-location
 		- unordered co-location
@@ -60,8 +60,8 @@ Scale/granularity (see more in [[Laube_2005]])
 	- [[constancy]]: movement [parameters](parameters.md) remain the same or only have minor changes for a particular duration  
 	- [[sequence]]: ordered list of visits to a series of locations
 		- [[spatio-temporal]] [sequence](sequence.md)  is an ordered subsequence of locations with timestamps
-	- [[periodicity]]: [[temporal]] periodic [patterns](patterns.md) 
-		- [spatiotemporal](spatiotemporal.md) [periodicity](periodicity.md): same [patterns](patterns.md) or pattern sequences  at regularly spaced time intervals,  eg. migrating geese every year ([Andrienko_2007](Andrienko_2007.md))
+	- [[periodicity]]: [[temporal]] periodic [pattern](pattern.md) 
+		- [spatiotemporal](spatiotemporal.md) [periodicity](periodicity.md): same [pattern](pattern.md) or pattern sequences  at regularly spaced time intervals,  eg. migrating geese every year ([Andrienko_2007](Andrienko_2007.md))
 	- [[meet]]: set of individuals forming as stationary cluster
 		- fixed [meet](meet.md): all individuals remain together for the entire time interval ([Gudmundsson_2006](Gudmundsson_2006.md))
 		- varying [meet](meet.md): individuals change during the time interval ([Gudmundsson_2006](Gudmundsson_2006.md))
@@ -72,10 +72,10 @@ Scale/granularity (see more in [[Laube_2005]])
 	- [[synchronization]]: 
 		- full [[synchronization]]: similar changes of movement [parameters](parameters.md) occurring at the same time [Andrienko_2007](Andrienko_2007.md)
 		- lagged [[synchronization]]: similar changes of movement [parameters](parameters.md) occurring after a time delay ([Andrienko_2007](Andrienko_2007.md))
-- Generic [patterns](patterns.md): compound [patterns](patterns.md)
+- Generic [pattern](pattern.md): compound [pattern](pattern.md)
 	- [[isolated object]]: individual not influenced by or with any influence on other individuals
-	- [[symmetry]]: [sequence](sequence.md) of [patterns](patterns.md) where same [patterns](patterns.md) are arranged in reverse order (eg. migration N-S then S-N)
-	- [[repetition]]: [sequence](sequence.md) of [patterns](patterns.md) or pattern [sequence](sequence.md) at different time intervals (eg. eye scanning  page up and down repeatedly)
+	- [[symmetry]]: [sequence](sequence.md) of [pattern](pattern.md) where same [pattern](pattern.md) are arranged in reverse order (eg. migration N-S then S-N)
+	- [[repetition]]: [sequence](sequence.md) of [pattern](pattern.md) or pattern [sequence](sequence.md) at different time intervals (eg. eye scanning  page up and down repeatedly)
 	- [[propagation]]: one individual starts a movement parameter and others adopt the same pattern. Compared to [trend-setter](trend-setter.md), does not necessarily require an influential [trend-setter](trend-setter.md) object (eg. geese gradually starting migration north).
 	- [[convergence]]/[[divergence]]
 		- [[convergence]]: movement of individuals towards a common location
@@ -86,9 +86,9 @@ Scale/granularity (see more in [[Laube_2005]])
 		- [[encounter]]: moving to and meeting at the same location.  A specific form of [convergence](convergence.md) where objects arrive at the same time. 
 		- [[breakup]]: movement of individuals away from a common location at a common time. A specific form of [divergence](divergence.md) that adds a [temporal](temporal.md) constraint
 	- [trend](trend.md)/[fluctuation](fluctuation.md)
-		- [[trend]]: consistent changes in movement [patterns](patterns.md) (eg. airplane in a circular holding pattern has a constant rate of change of movement [direction](direction.md))
+		- [[trend]]: consistent changes in movement [pattern](pattern.md) (eg. airplane in a circular holding pattern has a constant rate of change of movement [direction](direction.md))
 		- [[fluctuation]]: irregular changes in movement [parameters](parameters.md) of individuals
 	- [trend-setter](trend-setter.md) [Laube_2005a](Laube_2005a.md)
 		- 
-- Behavioural [patterns](patterns.md)
+- Behavioural [pattern](pattern.md)
 
