@@ -18,7 +18,7 @@ Laube_2002, Laube_2004
 
 Combining constancy  with concurrence, we get the complex pattern:
 
-- Trend-setter: an individual anticipates the motion  of N others. Individual A pattern consists of a constancy linked to a concurrence
+- [[trend-setter]]: an individual anticipates the motion  of N others. Individual A pattern consists of a constancy linked to a concurrence
 
 The paper focuses  on [direction](direction.md) (azimuth) but  could be applied to [speed](speed.md)  or change of [speed](speed.md),  or other motion attributes
 
