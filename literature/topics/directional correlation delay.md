@@ -5,7 +5,7 @@ The [directional correlation delay](directional%20correlation%20delay.md) of a p
 - $\overrightarrow{v_{i}}(t)$: normalized [velocity](velocity.md) of bird i at time t
 - $\overrightarrow{v_{j}}(t + \tau)$: normalized [velocity](velocity.md) of bird j at time t + $\tau$
 - Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
-- Calculated only where pairs of individuals were less than 100 m apart
+- Calculated only where pairs of individuals were less than 100 m apart ([distance](distance.md))
 
 The maximum value of the directional correlation function $C_{ij}$ is at $C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of individuals, ignoring [hierarchy](hierarchy.md) changes caused by other individuals. 
 
@@ -15,3 +15,4 @@ The maximum value of the directional correlation function $C_{ij}$ is at $C_{ij}
 Generated hierarchical networks using $\tau^{*}_{ij}$
 
 Also can be used to compare an individual to the average group [direction](direction.md)
+
