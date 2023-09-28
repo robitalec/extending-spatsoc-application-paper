@@ -86,7 +86,7 @@ Scale/granularity (see more in [[Laube_2005]])
 		- [[encounter]]: moving to and meeting at the same location.  A specific form of [convergence](convergence.md) where objects arrive at the same time. 
 		- [[breakup]]: movement of individuals away from a common location at a common time. A specific form of [divergence](divergence.md) that adds a [temporal](temporal.md) constraint
 	- [trend](trend.md)/[fluctuation](fluctuation.md)
-		- [[trend]]: consistent changes in movement [pattern](pattern.md) (eg. airplane in a circular holding [pattern](pattern.md) has a constant rate of change of movement [direction](direction.md))
+		- [[trend]]: consistent changes in movement [pattern](pattern.md) (eg. air plane in a circular holding [pattern](pattern.md) has a constant rate of change of movement [direction](direction.md))
 		- [[fluctuation]]: irregular changes in movement [parameters](parameters.md) of individuals
 	- [[trend-setter](trend-setter.md)]: individuals that anticipate movement patterns and are afterwards followed by other individuals  ([Laube_2005a](Laube_2005a.md))
 		- non-varying [trend-setter](trend-setter.md): fixed subset of other individuals
@@ -97,7 +97,7 @@ Scale/granularity (see more in [[Laube_2005]])
 		- Pursuit/evasion is a combination of [leadership](leadership.md) and [trend](trend.md)-setting movements as the evader leads and affects the pursuer's movement [parameters](parameters.md)
 	- fighting
 		- High [speed](speed.md) movements with large amounts of tightly intertwined turning, looping and frequent contact
-		- Combination  of pursuit/evasion, attack and defense. Complex combination of different patterns including incidents, [concurrence](concurrence.md), [repetition](repetition.md), [co-location in space](co-location%20in%20space.md) and time. If fighting occurs among a group of animals, other types of patterns might be involved such as [convergence](convergence.md), [divergence](divergence.md), [encounter](encounter.md), [breakup](breakup.md), [leadership](leadership.md). 
+		- Combination  of pursuit/evasion, attack and defence. Complex combination of different patterns including incidents, [concurrence](concurrence.md), [repetition](repetition.md), [co-location in space](co-location%20in%20space.md) and time. If fighting occurs among a group of animals, other types of patterns might be involved such as [convergence](convergence.md), [divergence](divergence.md), [encounter](encounter.md), [breakup](breakup.md), [leadership](leadership.md). 
 	- play: combination of pursuit, evasion, fighting, courtship where individuals may repeatedly switch roles between pursuer and evader, attacker and defender. 
 	- [flock](flock.md): represented by the generic [pattern](pattern.md) of [moving cluster](moving%20cluster.md) 
 	- [[leadership]]: [leader](leader.md) may be defined as one that isn't followed by anyone and is followed by a sufficient number of other individuals at a proximate  [distance](distance.md)
@@ -105,6 +105,6 @@ Scale/granularity (see more in [[Laube_2005]])
 		- In contrast to [trend-setter](trend-setter.md), [leadership](leadership.md) requires [spatio-temporal](spatio-temporal.md)  proximity and this requirement is less strict in [trend-setter](trend-setter.md)
 	- congestion: slower than usual movement, longer trips, increased queuing. A combination of [meet](meet.md), [concurrence](concurrence.md), [constancy](constancy.md). Jams form areas of [concentration](concentration.md)
 	- saccade/fixation
-		- fixaion: pauses over informattive  regions  of  interest
+		- fixation: pauses over informative  regions  of  interest
 		- saccade: rapid movements  between fixations
 
