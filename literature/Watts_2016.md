@@ -1,0 +1,23 @@
+---
+title: Watts_2016
+---
+Watts, Isobel, Máté Nagy, Theresa Burt de Perera, and Dora Biro. 2016. “Misinformed Leaders Lose Influence over Pigeon Flocks.” _Biology Letters_ 12 (9): 20160544. [https://doi.org/10.1098/rsbl.2016.0544](https://doi.org/10.1098/rsbl.2016.0544).
+
+---
+[information](information)
+
+- [GPS](GPS.md) data
+- Matlab, R
+
+pigeons
+
+Clock-shifts to artificially shift day-night cycle 
+
+
+Leadership [rank](rank.md) based on 
+
+1. [position within group](position%20within%20group.md) (average distance from center of flock along front-back axis of flock's [direction](direction.md) of motion)
+2. [Nagy_2010](Nagy_2010.md)'s [directional correlation delay](directional%20correlation%20delay.md)
+
+
+[Supplementary materials](https://royalsocietypublishing.org/doi/suppl/10.1098/rsbl.2016.0544#secSuppl)
