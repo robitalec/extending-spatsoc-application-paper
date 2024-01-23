@@ -5,7 +5,7 @@ targets::tar_source('R')
 c(
   tar_file(
     raw_review,
-    file.path('map', 'review_384590_20240123073254.csv')
+    file.path('map', 'review.csv')
   ),
   tar_target(
     review,
