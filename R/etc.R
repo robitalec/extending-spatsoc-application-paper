@@ -1,0 +1,1 @@
+paste_n_percent <- function(n) paste0(n, ' (', scales::percent(n / sum(n)), ')')

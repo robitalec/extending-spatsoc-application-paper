@@ -24,5 +24,9 @@ c(
   tar_target(
     count_analysis_code_availability,
     count_list(review, 'analysis_code_availability')[, .N, V1]
+  ),
+  tar_quarto(
+    site,
+    path = '.'
   )
 )
