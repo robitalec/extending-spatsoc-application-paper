@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "manuscript/index.html",
+    "href": "manuscript/index.html",
+    "title": "Home",
+    "section": "",
+    "text": "(As of 2024-01-31)\n3870 references imported for screening as 3870 studies\n    128 duplicates identified manually\n    799 duplicates identified by Covidence\n2943 studies screened against title and abstract\n    2527 studies excluded\n416 studies assessed for full-text eligibility\n    262 studies excluded\n        171  Does not discuss dyadic measure\n        86  Metric not applicable to spatiotemporal data\n        2  Book chapter\n        2  Full text not in English\n        1  Thesis\n    0 studies ongoing\n    0 studies awaiting classification\n154 studies included"
+  },
+  {
+    "objectID": "manuscript/index.html#prisma",
+    "href": "manuscript/index.html#prisma",
+    "title": "Home",
+    "section": "",
+    "text": "(As of 2024-01-31)\n3870 references imported for screening as 3870 studies\n    128 duplicates identified manually\n    799 duplicates identified by Covidence\n2943 studies screened against title and abstract\n    2527 studies excluded\n416 studies assessed for full-text eligibility\n    262 studies excluded\n        171  Does not discuss dyadic measure\n        86  Metric not applicable to spatiotemporal data\n        2  Book chapter\n        2  Full text not in English\n        1  Thesis\n    0 studies ongoing\n    0 studies awaiting classification\n154 studies included"
+  },
+  {
+    "objectID": "manuscript/index.html#code-availability",
+    "href": "manuscript/index.html#code-availability",
+    "title": "Home",
+    "section": "Code availability",
+    "text": "Code availability\n\n\n\n\nCode availability\nN\n\n\n\nNo\n106 (82%)\n\n\nYes\n23 (18%)"
+  },
+  {
+    "objectID": "manuscript/index.html#programming-language-gui-program",
+    "href": "manuscript/index.html#programming-language-gui-program",
+    "title": "Home",
+    "section": "Programming language / GUI program",
+    "text": "Programming language / GUI program\nOut of 129 articles, 45 did not list a programming language or GUI program. Of the 84 that did, 20 articles listed more than one programming language or GUI program, therefore the total count below will be greater than the number of articles.\n\n\n\n\nProgramming language / GUI software\nN\n\n\n\nR\n57 (50.44%)\n\n\nMATLAB\n15 (13.27%)\n\n\nPython\n6 (5.31%)\n\n\nCUDA\n4 (3.54%)\n\n\nUcinet\n3 (2.65%)\n\n\nPerl\n3 (2.65%)\n\n\nC++\n3 (2.65%)\n\n\nNetLogo\n2 (1.77%)\n\n\nSPSS\n2 (1.77%)\n\n\nSchoolTracker\n1 (0.88%)\n\n\nBonsai\n1 (0.88%)\n\n\nKeras\n1 (0.88%)\n\n\nTensorFlow\n1 (0.88%)\n\n\nSYSTAT\n1 (0.88%)\n\n\nFortran\n1 (0.88%)\n\n\nMathematica\n1 (0.88%)\n\n\nBrodgar\n1 (0.88%)\n\n\nStata\n1 (0.88%)\n\n\nArcGIS\n1 (0.88%)\n\n\nPascal\n1 (0.88%)\n\n\nMatlab\n1 (0.88%)\n\n\nHawth Tools for ArcGIS\n1 (0.88%)\n\n\nWolfram Mathematica\n1 (0.88%)\n\n\nCtrax\n1 (0.88%)\n\n\nStreamPix 5\n1 (0.88%)\n\n\nMoveMine\n1 (0.88%)\n\n\nJava\n1 (0.88%)"
+  },
+  {
+    "objectID": "manuscript/index.html#software-packages",
+    "href": "manuscript/index.html#software-packages",
+    "title": "Home",
+    "section": "Software packages",
+    "text": "Software packages\nOut of 128 articles, 104 did not list a software package. Of the 24 that did, 11 articles listed more than one software package , therefore the total count below will be greater than the number of articles.\n\n\n\n\nSoftware package\nN\n\n\n\nwildlifeDI\n9 (19.6%)\n\n\nadehabitat\n2 (4.3%)\n\n\nmoveVis\n2 (4.3%)\n\n\nctmm\n2 (4.3%)\n\n\nCircStats\n2 (4.3%)\n\n\ngeosphere\n2 (4.3%)\n\n\ncorrMove\n2 (4.3%)\n\n\nadehabitatHR\n2 (4.3%)\n\n\nnumpy\n2 (4.3%)\n\n\nh5py\n2 (4.3%)\n\n\nmatplotlib\n2 (4.3%)\n\n\npathlib\n2 (4.3%)\n\n\nswaRm\n1 (2.2%)\n\n\nforecast (cross correlation)\n1 (2.2%)\n\n\nmove\n1 (2.2%)\n\n\nmoveUD\n1 (2.2%)\n\n\nboot\n1 (2.2%)\n\n\nMASS\n1 (2.2%)\n\n\nBBMM\n1 (2.2%)\n\n\nmomentuHMM\n1 (2.2%)\n\n\nadehabitatLT\n1 (2.2%)\n\n\nEloRating\n1 (2.2%)\n\n\ncompete\n1 (2.2%)\n\n\nchangepoint\n1 (2.2%)\n\n\nigraph\n1 (2.2%)\n\n\nrethinking\n1 (2.2%)\n\n\nOpenCV\n1 (2.2%)"
+  }
+]
