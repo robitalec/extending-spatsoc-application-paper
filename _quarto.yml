@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: public
+  execute-dir: project
+
+website:
+  title: "spatsoc paper 2"
+  sidebar:
+    contents: auto
+    tools:
+      - icon: gitlab
+        href: https://gitlab.com/robitalec/spatsoc-paper-2
+
+format:
+  html:
+    theme:
+      dark: darkly
+      light: flatly
+    toc: true
+    code-line-numbers: false
+    code-copy: true
+    code-link: true
+    code-block-border-left: false
