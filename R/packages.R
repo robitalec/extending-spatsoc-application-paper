@@ -8,3 +8,4 @@ library(data.table)
 library(ggplot2)
 
 library(printr)
+library(scales)
