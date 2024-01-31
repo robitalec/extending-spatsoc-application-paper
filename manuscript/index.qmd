@@ -30,3 +30,16 @@ targets::tar_source('R')
 	0 studies awaiting classification
 154 studies included
 ```
+
+
+## Code availability
+
+```{r}
+#| echo: false
+tar_load(count_analysis_code_availability)
+
+count_analysis_code_availability[, .(
+  `Code availability` = V1,
+  N = paste_n_percent(N)
+)]
+```
