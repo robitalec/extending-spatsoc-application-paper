@@ -43,3 +43,33 @@ count_analysis_code_availability[, .(
   N = paste_n_percent(N)
 )]
 ```
+
+
+
+
+## Programming language / software
+
+```{r}
+#| echo: false
+tar_load(count_programming_language)
+
+```
+
+Out of `r count_programming_language[, uniqueN(covidence_number)]` articles, 
+`r count_programming_language[is.na(V1), .N]` did not list a programming 
+language or software. Of the 
+`r count_programming_language[!is.na(V1), uniqueN(covidence_number)]` 
+that did, `r count_programming_language[, .N, covidence_number][N > 1, .N]` 
+articles listed more than one programming 
+language or software, therefore the total 
+count below will be greater than the number of articles. 
+
+
+```{r}
+#| echo: false
+count_prog <- count_programming_language[!is.na(V1), .N, V1]
+
+count_prog[order(-N), 
+           .(`Programming language / software` = V1, 
+             N = paste_n_percent(N))]
+```
