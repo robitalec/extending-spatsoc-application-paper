@@ -7,6 +7,11 @@ c(
     raw_review,
     file.path('map', 'review.csv')
   ),
+  tar_file_read(
+    metric_synonyms,
+    'map/metric-thesaurus.csv',
+    fread(!!.x)
+  ),
   tar_target(
     review,
     prep_review(
