@@ -116,12 +116,11 @@ count_met[order(-N),
 ## Temporal
 
 ```{r}
+#| include: false
 tar_load(review)
 ```
 
 ```{r}
-review[, yr := tstrsplit(study_id, ' ', keep = 2, type.convert = TRUE)]
-
 ggplot(review) + 
   geom_histogram(aes(yr), binwidth = 1) + 
   labs(x = 'Year of publication', y = '') + 

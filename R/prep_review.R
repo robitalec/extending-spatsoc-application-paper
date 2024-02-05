@@ -9,5 +9,7 @@ prep_review <- function(DT, metric_synonyms = NULL) {
     ]
   }
 
+  DT[, yr := tstrsplit(study_id, ' ', keep = 2, type.convert = TRUE)]
+
   return(DT)
 }
