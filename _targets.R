@@ -16,7 +16,8 @@ c(
   tar_target(
     review,
     prep_review(
-      raw_review
+      raw_review,
+      metric_synonyms
     )
   ),
   tar_target(
