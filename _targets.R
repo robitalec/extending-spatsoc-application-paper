@@ -36,6 +36,10 @@ c(
     count_raw_metric,
     count_list(review, 'metric_used_or_described')
   ),
+  tar_target(
+    count_metric,
+    count_list(review, 'metric_agg')
+  ),
   tar_quarto(
     site,
     path = '.'
