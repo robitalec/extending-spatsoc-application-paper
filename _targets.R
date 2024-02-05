@@ -3,9 +3,10 @@ targets::tar_source('R')
 
 
 c(
-  tar_file(
+  tar_file_read(
     raw_review,
-    file.path('map', 'review.csv')
+    file.path('map', 'review.csv'),
+    fread(!!.x)
   ),
   tar_file_read(
     metric_synonyms,
