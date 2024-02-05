@@ -96,3 +96,18 @@ count_soft[order(-N),
            .(`Software package` = V1, 
              N = paste_n_percent(N))]
 ```
+
+
+## Metrics
+
+```{r}
+tar_load(count_metric)
+```
+
+```{r}
+count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
+
+count_met[order(-N), 
+           .(`Metric` = V1, 
+             N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))]
+```

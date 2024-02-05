@@ -3,14 +3,21 @@ targets::tar_source('R')
 
 
 c(
-  tar_file(
+  tar_file_read(
     raw_review,
-    file.path('map', 'review.csv')
+    file.path('map', 'review.csv'),
+    fread(!!.x)
+  ),
+  tar_file_read(
+    metric_synonyms,
+    'map/metric-thesaurus.csv',
+    fread(!!.x)
   ),
   tar_target(
     review,
     prep_review(
-      raw_review
+      raw_review,
+      metric_synonyms
     )
   ),
   tar_target(
@@ -24,6 +31,14 @@ c(
   tar_target(
     count_analysis_code_availability,
     count_list(review, 'analysis_code_availability')[, .N, V1]
+  ),
+  tar_target(
+    count_raw_metric,
+    count_list(review, 'metric_used_or_described')
+  ),
+  tar_target(
+    count_metric,
+    count_list(review, 'metric_agg')
   ),
   tar_quarto(
     site,
