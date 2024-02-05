@@ -111,3 +111,19 @@ count_met[order(-N),
            .(`Metric` = V1, 
              N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))]
 ```
+
+
+## Temporal
+
+```{r}
+tar_load(review)
+```
+
+```{r}
+review[, yr := tstrsplit(study_id, ' ', keep = 2, type.convert = TRUE)]
+ggplot(review) + 
+  geom_histogram(aes(yr)) + 
+  labs(x = 'Year of publication', y = '') + 
+  xlim(1980, 2024) + 
+  theme_bw()
+```
