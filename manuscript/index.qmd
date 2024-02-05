@@ -121,9 +121,10 @@ tar_load(review)
 
 ```{r}
 review[, yr := tstrsplit(study_id, ' ', keep = 2, type.convert = TRUE)]
+
 ggplot(review) + 
-  geom_histogram(aes(yr)) + 
+  geom_histogram(aes(yr), binwidth = 1) + 
   labs(x = 'Year of publication', y = '') + 
-  xlim(1980, 2024) + 
+  coord_cartesian(xlim = c(1980, 2024)) +
   theme_bw()
 ```
