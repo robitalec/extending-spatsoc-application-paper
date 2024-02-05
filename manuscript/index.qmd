@@ -102,17 +102,12 @@ count_soft[order(-N),
 
 ```{r}
 tar_load(count_metric)
-tar_load(metric_synonyms)
 ```
 
 ```{r}
-# TODO: fix N from read 
-# merge_syn <- merge(
-#   count_metric,
-#   metric_synonyms,
-#   by.x = 'V1',
-#   by.y = 'metric'
-# )
+count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
 
-metric_synonyms[, sum(N), by = metric_agg][order(-V1), .(N = V1, Metric = metric_agg)]
+count_met[order(-N), 
+           .(`Metric` = V1, 
+             N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))]
 ```
