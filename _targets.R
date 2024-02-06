@@ -15,12 +15,14 @@ c(
                sheet = 'metric-thesaurus',
                col_types = 'c') |>
       fwrite(x = _, file = fp_met_thes),
+    cue = tar_cue('always')
   ),
   tar_target(
     software_meta,
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                sheet = 'software-meta',
                col_types = 'c'),
+    cue = tar_cue('always')
   ),
   tar_file_read(
     metric_synonyms,
