@@ -12,13 +12,15 @@ c(
   tar_target(
     dl_metric_thesaurus,
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-               sheet = 'metric-thesaurus') |>
-      fwrite(x = _, file = fp_met_thes)
+               sheet = 'metric-thesaurus',
+               col_types = 'c') |>
+      fwrite(x = _, file = fp_met_thes),
   ),
   tar_target(
     software_meta,
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-               sheet = 'software-meta')
+               sheet = 'software-meta',
+               col_types = 'c'),
   ),
   tar_file_read(
     metric_synonyms,
