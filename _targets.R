@@ -17,17 +17,17 @@ c(
       fwrite(x = _, file = fp_met_thes),
     cue = tar_cue('always')
   ),
+  tar_file_read(
+    metric_synonyms,
+    fp_met_thes,
+    fread(!!.x)
+  ),
   tar_target(
     software_meta,
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                sheet = 'software-meta',
                col_types = 'c'),
     cue = tar_cue('always')
-  ),
-  tar_file_read(
-    metric_synonyms,
-    fp_met_thes,
-    fread(!!.x)
   ),
   tar_target(
     review,
