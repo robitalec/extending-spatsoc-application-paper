@@ -9,3 +9,5 @@ library(ggplot2)
 
 library(tinytable)
 library(scales)
+
+library(googlesheets4)
