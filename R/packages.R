@@ -11,3 +11,5 @@ library(tinytable)
 library(scales)
 
 library(googlesheets4)
+
+library(sf)
