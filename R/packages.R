@@ -6,6 +6,7 @@ library(janitor)
 library(data.table)
 
 library(ggplot2)
+library(forcats)
 library(rnaturalearth)
 
 library(tinytable)
