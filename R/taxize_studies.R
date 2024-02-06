@@ -15,3 +15,10 @@ taxize_studies <- function(DT) {
   # Quality 	Parsing quality
   DT_parse <- gn_parse_tidy(DT_in[, unique(species)])
   setDT(DT_parse)
+
+  DT_out <- merge(
+    DT_in,
+    DT_parse[, .(verbatim, canonicalsimple, quality)],
+    by.x = 'species',
+    by.y = 'verbatim'
+  )
