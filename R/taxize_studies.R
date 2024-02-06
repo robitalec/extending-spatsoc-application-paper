@@ -22,3 +22,8 @@ taxize_studies <- function(DT) {
     by.x = 'species',
     by.y = 'verbatim'
   )
+
+  setDT(DT_out)
+  setnames(DT_out,
+           c('canonicalsimple', 'quality'),
+           c('parsed_species', 'parse_quality'))
