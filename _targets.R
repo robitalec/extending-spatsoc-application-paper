@@ -15,6 +15,11 @@ c(
                sheet = 'metric-thesaurus') |>
       fwrite(x = _, file = fp_met_thes)
   ),
+  tar_target(
+    software_meta,
+    read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+               sheet = 'software-meta')
+  ),
   tar_file_read(
     metric_synonyms,
     fp_met_thes,
