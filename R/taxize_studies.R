@@ -27,3 +27,13 @@ taxize_studies <- function(DT) {
   setnames(DT_out,
            c('canonicalsimple', 'quality'),
            c('parsed_species', 'parse_quality'))
+
+  # https://github.com/gnames/gnparser?tab=readme-ov-file#figuring-out-if-names-are-well-formed
+  # "quality": 1 - No problems were detected.
+  # "quality": 2 - There were small problems, normalized result should still be good.
+  # "quality": 3 - There are some significant problems with parsing.
+  # "quality": 4 - There were serious problems with the name, and the final result is rather doubtful.
+  # "quality": 0 - A string could not be recognized as a scientific name and parsing failed.
+
+  return(DT_out[parse_quality == 1])
+}
