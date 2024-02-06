@@ -134,7 +134,7 @@ tar_load(review)
 ```{r}
 ggplot(review) + 
   geom_histogram(aes(yr), binwidth = 1) + 
-  labs(x = 'Year of publication', y = '') + 
+  labs(x = 'Year of publication', y = 'Count') + 
   coord_cartesian(xlim = c(1980, 2024)) +
   theme_bw()
 ```
@@ -168,9 +168,11 @@ tar_load(taxized)
 ```
 
 ```{r}
+#| fig-height: 9
 ggplot(taxized) + 
   geom_bar(aes(y = fct_infreq(species)),
            fill = 'grey70',
            linewidth = 0.1) +
-  theme_bw()
+  theme_bw() + 
+  labs(x = 'Count', y = 'Species')
 ```
