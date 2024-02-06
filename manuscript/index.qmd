@@ -139,3 +139,22 @@ ggplot(review) +
   theme_bw()
 ```
 
+
+
+## Geographic
+
+```{r}
+tar_load(geocoded)
+countries <- ne_countries()
+```
+
+```{r}
+crs <- 8857
+
+ggplot() + 
+  geom_sf(data = countries) + 
+  geom_hex(aes(long, lat), alpha = 0.7, data = geocoded[!is.na(long)]) + 
+  coord_sf(crs = crs, default_crs = 4326) + 
+  theme_void() + 
+  theme(legend.position = 'bottom')
+```

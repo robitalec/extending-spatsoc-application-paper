@@ -56,6 +56,10 @@ c(
     count_metric,
     count_list(review, 'metric_agg')
   ),
+  tar_target(
+    geocoded,
+    geocode_studies(review)
+  ),
   tar_quarto(
     site,
     path = '.'
