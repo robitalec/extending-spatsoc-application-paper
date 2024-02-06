@@ -139,3 +139,20 @@ ggplot(review) +
   theme_bw()
 ```
 
+
+
+## Geographic
+
+```{r}
+tar_load(geocoded)
+countries <- ne_countries()
+```
+
+```{r}
+crs <- 8857
+
+ggplot() + 
+  geom_sf(data = countries) + 
+  geom_hex(aes(long, lat), alpha = 0.7, data = geocoded) + 
+  coord_sf(crs = crs, default_crs = 4326)
+```
