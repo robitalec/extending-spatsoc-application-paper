@@ -60,6 +60,10 @@ c(
     geocoded,
     geocode_studies(review)
   ),
+  tar_target(
+    taxized,
+    taxize_studies(review)
+  ),
   tar_quarto(
     site,
     path = '.'
