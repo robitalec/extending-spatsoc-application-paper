@@ -78,6 +78,7 @@ count_prog[order(-N),
 
 ```{r}
 tar_load(count_software)
+tar_load(software_meta)
 ```
 
 
@@ -91,14 +92,19 @@ articles listed more than one software package
 count below will be greater than the number of articles. 
 
 ```{r}
-count_soft <- count_software[!is.na(V1), .N, V1]
-
-count_soft[order(-N), 
-           .(`Software package` = V1, 
-             N = paste_n_percent(N))] |> 
-  tt()
+# count_soft <- count_software[!is.na(V1), .N, V1]
+# 
+# count_soft[order(-N), 
+#            .(`Software package` = V1, 
+#              N = paste_n_percent(N))] |> 
+#   tt()
 ```
 
+
+```{r}
+software_meta |> 
+  tt()
+```
 
 ## Metrics
 
@@ -130,3 +136,4 @@ ggplot(review) +
   coord_cartesian(xlim = c(1980, 2024)) +
   theme_bw()
 ```
+
