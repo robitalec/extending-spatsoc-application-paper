@@ -1,5 +1,6 @@
 targets::tar_source('R')
 
+fp_met_thes <- file.path('map', 'metric-thesaurus.csv')
 
 
 c(
@@ -8,9 +9,15 @@ c(
     file.path('map', 'review.csv'),
     fread(!!.x)
   ),
+  tar_target(
+    dl_metric_thesaurus,
+    read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+               sheet = 'metric-thesaurus') |>
+      fwrite(x = _, file = fp_met_thes)
+  ),
   tar_file_read(
     metric_synonyms,
-    'map/metric-thesaurus.csv',
+    fp_met_thes,
     fread(!!.x)
   ),
   tar_target(
