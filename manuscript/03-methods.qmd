@@ -9,3 +9,38 @@ execute:
 #| include: false
 targets::tar_source('R')
 ```
+
+
+
+# Selecting metrics
+
+Criteria: 
+
+- highly cited, unavailable
+- direct extension of available functions in spatsoc
+- biology
+
+
+Not selected:
+
+(mFLICA table 1)
+
+- mFLICA 
+  - available
+- FLOCK
+- LPD
+- Granger causality
+- Influence maximization
+
+
+# Metrics defined
+
+For each
+
+- Citation
+- Interpretation 
+- Formula
+- Code example
+
+
+# Case study
