@@ -54,7 +54,7 @@ Not selected:
 - Influence maximization
 
 
-# Metrics defined
+# Metrics selected, defined
 
 For each
 
@@ -62,6 +62,34 @@ For each
 - Interpretation 
 - Formula
 - Code example
+
+
+## Directional correlation delay
+
+```{r}
+tar_load(count_metric)
+tar_load(taxized)
+tar_load(geocoded)
+tar_load(review)
+
+dirr_del <- count_metric[V1 == 'directional correlation delay']
+
+dirr_del[, uniqueN(covidence_number)]
+
+taxized[covidence_number %in% dirr_del$covidence_number, 
+        unique(species)]
+
+geocoded[covidence_number %in% dirr_del$covidence_number, 
+        unique(region)]
+
+
+review[grepl('directional correlation delay', metric_used_or_described), .(metric_used_or_described,
+                                                                           citation_for_metric_if_not_introduced_in_this_current_paper, 
+                                                                           interpretation)]
+```
+
+
+
 
 
 # Case study
