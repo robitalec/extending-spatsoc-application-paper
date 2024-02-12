@@ -59,7 +59,7 @@ Not selected:
 For each
 
 - Citation
-- Interpretation 
+- Interpretation, **emphasis on biology**
 - Formula
 - Code example
 
