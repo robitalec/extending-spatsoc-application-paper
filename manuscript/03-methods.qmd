@@ -129,8 +129,8 @@ the position within group or rank position within group, across
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
-studies had code available. 
-
+studies had code available.  To our knowledge, there are no R packages that
+provide this metric. 
 
 
 - front-back distance along group's axis of movement [@Quera_2023]
