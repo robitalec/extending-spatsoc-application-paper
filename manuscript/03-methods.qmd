@@ -71,7 +71,7 @@ tar_load(count_metric)
 tar_load(taxized)
 tar_load(geocoded)
 tar_load(review)
-tar_load(count_analysis_code_availability)
+count_code_avail <- tar_read(count_analysis_code_availability)
 
 dirr_del <- count_metric[V1 == 'directional correlation delay']
 
@@ -79,13 +79,16 @@ dirr_del <- count_metric[V1 == 'directional correlation delay']
 #         unique(region)]
 
 # review[grepl('directional correlation delay', metric_used_or_described), .(metric_used_or_described,
-#                                                                            citation_for_metric_if_not_introduced_in_this_current_paper, 
+#                                                                            citation_for_metric_if_not_introduced_in_this_current_paper,
 #                                                                            interpretation)]  |> tt()
 ```
  
 Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
-the directional correlation delay, across `r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` study species. Only 
-`r count_analysis_code_availability[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` study had code available for 
+the directional correlation delay, across 
+`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
+study species. Only 
+`r count_code_avail[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` 
+study had code available for 
 MATLAB (closed source), CUDA (closed source), and Python (open source). 
 
 
