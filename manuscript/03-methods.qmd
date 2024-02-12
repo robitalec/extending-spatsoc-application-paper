@@ -141,5 +141,8 @@ of the centroid [@Harel_2021]
 to group center and movement direction [@Andrienko_2013]
 
 
+The position within group is the position along the front-to-back axis of the 
+group's bearing. The rank position within group is the ordinal rank along
+the front-to-back axis of the group's bearing. 
 
 # Case study
