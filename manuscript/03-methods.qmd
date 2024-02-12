@@ -129,4 +129,17 @@ the position within group or rank position within group, across
 study species. 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
 studies had code available. 
+
+
+
+- front-back distance along group's axis of movement [@Quera_2023]
+- ordinal 1-6 position along group's traveling direction [@Burns_2012]
+- relative positional ranks on the front-to-back axis were determined 
+by multiplying their x–y locations by a rotation matrix based on the heading 
+of the centroid [@Harel_2021]
+- space transformation from geographical space to relative positions with respect
+to group center and movement direction [@Andrienko_2013]
+
+
+
 # Case study
