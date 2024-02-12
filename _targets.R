@@ -46,7 +46,7 @@ c(
   ),
   tar_target(
     count_analysis_code_availability,
-    count_list(review, 'analysis_code_availability')[, .N, V1]
+    count_list(review, 'analysis_code_availability')
   ),
   tar_target(
     count_raw_metric,

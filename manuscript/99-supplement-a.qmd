@@ -111,7 +111,7 @@ Discussion points, etc
 ```{r}
 tar_load(count_analysis_code_availability)
 
-count_analysis_code_availability[, .(
+count_analysis_code_availability[, .N, V1][, .(
   `Code availability` = V1,
   N = paste_n_percent(N)
 )] |> tt()
