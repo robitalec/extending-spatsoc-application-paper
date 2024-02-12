@@ -39,6 +39,11 @@ Not selected:
   - diffusive movement correlation
   - drift movement correlation
   - overall component movement correlation
+- voronoi
+- HMM
+- change point detection
+
+
 (mFLICA table 1)
 
 - mFLICA 
