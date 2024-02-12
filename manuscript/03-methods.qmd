@@ -1,0 +1,11 @@
+---
+title: "Methods"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+targets::tar_source('R')
+```
