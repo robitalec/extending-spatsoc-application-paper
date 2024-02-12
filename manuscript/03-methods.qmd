@@ -149,4 +149,31 @@ the front-to-back axis of the group's bearing.
 - group = distance threshold
 - at each step
 - ?how to compare rank across varying sized groups
+
+
+## Distance and direction to group centroid
+
+```{r}
+to_grp_cent <- count_metric[V1 %in% c('direction to group centroid', 
+                                      'distance to group centroid',
+                                      'group)]
+```
+
+Our review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
+the distance, direction or rank distance to group centroid, across 
+`r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & V1 == 'Yes', .N]`
+studies had code available.  To our knowledge, there are no R packages that
+provide this metric. 
+
+
+The group centroid is the centroid of individual locations in a group. The
+distance to group centroid is the distance between an individual's location
+and the group centroid. The direction to group centroid is the absolute
+bearing from an individual's location and the group centroid. The rank distance
+to group centroid is the ordinal rank of individuals' distances from the 
+group centroid. 
+
+
 # Case study
