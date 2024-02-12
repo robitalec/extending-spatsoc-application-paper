@@ -146,4 +146,7 @@ The position within group is the position along the front-to-back axis of the
 group's bearing. The rank position within group is the ordinal rank along
 the front-to-back axis of the group's bearing. 
 
+- group = distance threshold
+- at each step
+- ?how to compare rank across varying sized groups
 # Case study
