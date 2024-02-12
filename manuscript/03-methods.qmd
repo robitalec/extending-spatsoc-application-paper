@@ -75,21 +75,19 @@ tar_load(count_analysis_code_availability)
 
 dirr_del <- count_metric[V1 == 'directional correlation delay']
 
-dirr_del[, uniqueN(covidence_number)]
+# geocoded[covidence_number %in% dirr_del$covidence_number, 
+#         unique(region)]
 
-taxized[covidence_number %in% dirr_del$covidence_number, 
-        unique(species)]
-
-geocoded[covidence_number %in% dirr_del$covidence_number, 
-        unique(region)]
-
-
-review[grepl('directional correlation delay', metric_used_or_described), .(metric_used_or_described,
-                                                                           citation_for_metric_if_not_introduced_in_this_current_paper, 
-                                                                           interpretation)]  |> tt()
+# review[grepl('directional correlation delay', metric_used_or_described), .(metric_used_or_described,
+#                                                                            citation_for_metric_if_not_introduced_in_this_current_paper, 
+#                                                                            interpretation)]  |> tt()
 ```
+ 
+Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
+the directional correlation delay, across `r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` study species. Only 
 `r count_analysis_code_availability[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` study had code available for 
 MATLAB (closed source), CUDA (closed source), and Python (open source). 
+
 
 
 The directional correlation delay [@Nagy_2010] of individuals i, j is 
@@ -113,6 +111,8 @@ individuals, ignoring hierarchy changes caused by other individuals.
 - Negative values indicate that flight directional changes of bird i fall behind that of bird j and therefore j is leading
 
 Hierarchical networks can be generated using $\tau^{*}_{ij}$
+
+
 
 
 
