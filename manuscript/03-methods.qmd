@@ -23,6 +23,18 @@ Criteria:
 
 Not selected:
 
+- wildlifeDI
+  - DI
+  - Don
+  - Prox
+  - Lixn
+  - Cs
+  - DI in direction
+  - DI in displacement
+  - HAI
+  - IAB
+  - Cr
+  - Ca
 (mFLICA table 1)
 
 - mFLICA 
