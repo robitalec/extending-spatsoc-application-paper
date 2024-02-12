@@ -35,6 +35,10 @@ Not selected:
   - IAB
   - Cr
   - Ca
+- corrMove
+  - diffusive movement correlation
+  - drift movement correlation
+  - overall component movement correlation
 (mFLICA table 1)
 
 - mFLICA 
