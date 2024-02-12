@@ -89,7 +89,8 @@ the directional correlation delay, across
 study species. Only 
 `r count_code_avail[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` 
 study had code available for 
-MATLAB (closed source), CUDA (closed source), and Python (open source). 
+MATLAB (closed source), CUDA (closed source), and Python (open source). To
+our knowledge, there are no R packages that provide this metric. 
 
 
 
