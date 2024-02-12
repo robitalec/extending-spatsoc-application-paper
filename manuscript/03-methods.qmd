@@ -71,6 +71,7 @@ tar_load(count_metric)
 tar_load(taxized)
 tar_load(geocoded)
 tar_load(review)
+tar_load(count_analysis_code_availability)
 
 dirr_del <- count_metric[V1 == 'directional correlation delay']
 
@@ -87,6 +88,7 @@ review[grepl('directional correlation delay', metric_used_or_described), .(metri
                                                                            citation_for_metric_if_not_introduced_in_this_current_paper, 
                                                                            interpretation)]  |> tt()
 ```
+`r count_analysis_code_availability[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` study had code available for 
 
 
 The directional correlation delay [@Nagy_2010] of individuals i, j is 
