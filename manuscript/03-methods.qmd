@@ -156,17 +156,20 @@ the front-to-back axis of the group's bearing.
 ```{r}
 to_grp_cent <- count_metric[V1 %in% c('direction to group centroid', 
                                       'distance to group centroid',
-                                      'group)]
+                                      'rank distance to group centroid',
+                                      'group centroid')]
 ```
 
 Our review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
-the distance, direction or rank distance to group centroid, across 
+the group centroid, distance to group centroid, direction to group centroid, 
+or rank distance to group centroid, across 
 `r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & V1 == 'Yes', .N]`
-studies had code available.  To our knowledge, there are no R packages that
-provide this metric. 
-
+studies had code available. The {swaRm} package provides functionality to 
+calculate the group centroid and the distance to the group centroid but not
+to calculate the direction to group centroid or rank distance to group
+centroid. 
 
 The group centroid is the centroid of individual locations in a group. The
 distance to group centroid is the distance between an individual's location
