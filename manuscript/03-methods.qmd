@@ -117,6 +117,16 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 
 
 
+## Position and rank position within group
 
+```{r}
+pos_wi <- count_metric[V1 %in% c('position within group', 'rank position within group')]
+```
 
+Our review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
+the position within group or rank position within group, across 
+`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
+studies had code available. 
 # Case study
