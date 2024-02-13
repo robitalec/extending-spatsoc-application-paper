@@ -62,6 +62,7 @@ For each
 - Interpretation, **emphasis on biology**
 - Formula
 - Code example
+- Similar terms? eg. see metric synonyms
 
 
 ## Directional correlation delay
