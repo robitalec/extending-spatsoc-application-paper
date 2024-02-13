@@ -125,8 +125,9 @@ the position within group, rank position within group, or time spent
 leading group metrics, across 
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
 study species. 
+Only 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
-studies had code available.  To our knowledge, there are no R packages that
+study had code available.  To our knowledge, there are no R packages that
 provide this metric. 
 
 
