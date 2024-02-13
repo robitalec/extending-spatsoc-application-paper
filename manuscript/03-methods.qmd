@@ -180,20 +180,23 @@ to group centroid is the ordinal rank of individuals' distances from the
 group centroid. 
 
 
-## Directional alignment
+## Polarization, directional alignment and interindividual direction
 
 ```{r}
-align <- count_metric[V1 %in% c('polarization', 'directional alignment')]
+align <- count_metric[V1 %in% c('polarization', 
+                                'directional alignment',
+                                'interindividual direction',
+                                'nearest neighbour direction')]
 ```
 
 Our review found `r align[, uniqueN(covidence_number)]` studies that used 
-the directional alignment or polarization metrics, 
-or rank distance to group centroid, across 
+the polarization, directional alignment or interindividual direction metrics, 
+across
 `r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
-calculate the polarization order parameter, as well as the {circStats} package.
+calculate the polarization order parameter, as well as the {CircStats} package.
 
 Polarization measures the uniformity of bearings in a group of individuals 
 [@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
@@ -215,6 +218,38 @@ r.test(h)
 # Also interesting
 circ.range(h)
 ```
+
+Directional alignment measures the pairwise differences in bearing between
+individuals. Interindividual direction measures the pairwise bearings
+between individual locations. 
+
+```{r}
+# Mock code
+# NN directions
+edge_bearing(DT, only_nn = TRUE)
+
+# All neighbours 
+edge_bearing(DT, only_nn = FALSE)
+
+# Or as arg
+edge_dist(DT, ..., bearing = TRUE)
+edge_nn(DT, ..., bearing = TRUE)
+```
+
+<!--
+
+spatsoc::edge_bearing
+
+or 
+
+edge_dist
+edge_nn
+
+bearing argg
+
+--> 
+
+
 
 
 # Case study
