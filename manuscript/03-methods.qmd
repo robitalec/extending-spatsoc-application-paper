@@ -75,13 +75,6 @@ tar_load(review)
 count_code_avail <- tar_read(count_analysis_code_availability)
 
 dirr_del <- count_metric[V1 == 'directional correlation delay']
-
-# geocoded[covidence_number %in% dirr_del$covidence_number, 
-#         unique(region)]
-
-# review[grepl('directional correlation delay', metric_used_or_described), .(metric_used_or_described,
-#                                                                            citation_for_metric_if_not_introduced_in_this_current_paper,
-#                                                                            interpretation)]  |> tt()
 ```
  
 Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
@@ -119,7 +112,7 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 
 
 
-## Position, rank position within group and time spent leading group
+## Position within group, rank position within group and time spent leading group
 
 ```{r}
 pos_wi <- count_metric[V1 %in% c('position within group', 
@@ -156,7 +149,7 @@ is an aggregate measure of the time ini the first rank position within group.
 - ?how to compare rank across varying sized groups
 
 
-## Distance and direction to group centroid
+## Distance, direction and rank distance to group centroid
 
 ```{r}
 to_grp_cent <- count_metric[V1 %in% c('direction to group centroid', 
