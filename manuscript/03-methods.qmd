@@ -184,7 +184,7 @@ to group centroid is the ordinal rank of individuals' distances from the
 group centroid. 
 
 
-## Directional alignment / polarization
+## Directional alignment
 
 ```{r}
 align <- count_metric[V1 %in% c('polarization', 'directional alignment')]
