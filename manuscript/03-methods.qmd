@@ -199,3 +199,23 @@ Polarization measures the uniformity of bearings in a group of individuals
 [@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
 in different directions and values near 1 indicate that bearings point in 
 similar directions. 
+
+```{r}
+#| echo: true
+
+# Random bearings (radians)
+h <- runif(25, 0, 2 * pi)
+
+library(swaRm)
+pol_order(h)
+
+library(CircStats)
+r.test(h)
+
+# Also interesting
+circ.range(h)
+```
+
+
+# Case study
+
