@@ -131,6 +131,13 @@ study had code available.  To our knowledge, there are no R packages that
 provide this metric. 
 
 
+The position within group is the position along the front-to-back axis of the
+group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+[@Burns_2012]). The time spent leading group is an aggregate measure of the time
+ini the first rank position within group.
+
+<!-- 
 - front-back distance along group's axis of movement [@Quera_2023]
 - ordinal 1-6 position along group's traveling direction [@Burns_2012]
 - relative positional ranks on the front-to-back axis were determined 
@@ -140,15 +147,10 @@ of the centroid [@Harel_2021]
 to group center and movement direction [@Andrienko_2013]
 
 
-The position within group is the position along the front-to-back axis of the 
-group's bearing. The rank position within group is the ordinal rank along
-the front-to-back axis of the group's bearing. The time spent leading group
-is an aggregate measure of the time ini the first rank position within group. 
-
 - group = distance threshold
 - at each step
 - ?how to compare rank across varying sized groups
-
+-->
 
 ## Distance, direction and rank distance to group centroid
 
