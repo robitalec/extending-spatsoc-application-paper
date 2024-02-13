@@ -194,3 +194,8 @@ study species.
 `r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
 calculate the polarization order parameter, as well as the {circStats} package.
+
+Polarization measures the uniformity of bearings in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
+in different directions and values near 1 indicate that bearings point in 
+similar directions. 
