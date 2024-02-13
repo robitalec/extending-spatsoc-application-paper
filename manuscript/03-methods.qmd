@@ -85,7 +85,7 @@ dirr_del <- count_metric[V1 == 'directional correlation delay']
 ```
  
 Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
-the directional correlation delay, across 
+the directional correlation delay metric, across 
 `r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
 study species. Only 
 `r count_code_avail[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` 
@@ -126,7 +126,7 @@ pos_wi <- count_metric[V1 %in% c('position within group', 'rank position within 
 ```
 
 Our review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
-the position within group or rank position within group, across 
+the position within group or rank position within group metrics, across 
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
@@ -163,7 +163,7 @@ to_grp_cent <- count_metric[V1 %in% c('direction to group centroid',
 
 Our review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
 the group centroid, distance to group centroid, direction to group centroid, 
-or rank distance to group centroid, across 
+or rank distance to group centroid metrics, across 
 `r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & V1 == 'Yes', .N]`
