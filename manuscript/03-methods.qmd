@@ -185,3 +185,12 @@ group centroid.
 ```{r}
 align <- count_metric[V1 %in% c('polarization', 'directional alignment')]
 ```
+
+Our review found `r align[, uniqueN(covidence_number)]` studies that used 
+the directional alignment or polarization metrics, 
+or rank distance to group centroid, across 
+`r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
+studies had code available. The {swaRm} package provides functionality to 
+calculate the polarization order parameter, as well as the {circStats} package.
