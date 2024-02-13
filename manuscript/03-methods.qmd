@@ -172,7 +172,7 @@ calculate the group centroid and the distance to the group centroid but not
 to calculate the direction to group centroid or rank distance to group
 centroid. 
 
-The group centroid is the centroid of individual locations in a group. The
+The group centroid is the mean of individual locations in a group. The
 distance to group centroid is the distance between an individual's location
 and the group centroid. The direction to group centroid is the absolute
 bearing from an individual's location and the group centroid. The rank distance
