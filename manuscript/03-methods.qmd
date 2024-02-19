@@ -232,6 +232,7 @@ individuals. Interindividual direction measures the pairwise bearings
 between individual locations. 
 
 ```{r}
+#| eval: false
 # Mock code
 # NN directions
 edge_bearing(DT, only_nn = TRUE)
