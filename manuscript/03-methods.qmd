@@ -152,6 +152,9 @@ of the centroid [@Harel_2021]
 to group center and movement direction [@Andrienko_2013]
 
 
+- note group leader defined using {spatsoc} functions, or manually, 
+using focal obs or other tools
+
 - group = distance threshold
 - at each step
 - ?how to compare rank across varying sized groups
