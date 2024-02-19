@@ -131,7 +131,7 @@ study species.
 Only 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
 study had code available.  To our knowledge, there are no R packages that
-provide this metric. 
+provide these metrics. 
 
 
 The position within group is the position along the front-to-back axis of the
@@ -176,9 +176,9 @@ or rank distance to group centroid metrics, across
 study species. 
 `r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & V1 == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
-calculate the group centroid and the distance to the group centroid but not
-to calculate the direction to group centroid or rank distance to group
-centroid. 
+calculate the group centroid and the distance to the group centroid. To our
+knowledge, there are no R packages that provided the direction and
+rank distance to group centroid metrics. 
 
 The group centroid is the mean of individual locations in a group. The
 distance to group centroid is the distance between an individual's location
@@ -205,6 +205,8 @@ study species.
 `r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
 calculate the polarization order parameter, as well as the {CircStats} package.
+To our knowledge, there are no R packages that provide thedirectional 
+alignment or interindividual direction metrics. 
 
 Polarization measures the uniformity of bearings in a group of individuals 
 [@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
