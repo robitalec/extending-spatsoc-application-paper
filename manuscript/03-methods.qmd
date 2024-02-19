@@ -113,17 +113,19 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 
 
 
-## Position within group, rank position within group and time spent leading group
+## Position within group, rank position within group, time spent leading group, distance and direction to leader
 
 ```{r}
 pos_wi <- count_metric[V1 %in% c('position within group', 
                                  'rank position within group',
-                                 'time spent leading group')]
+                                 'time spent leading group',
+                                 'distance to leader',
+                                 'direction to leader')]
 ```
 
 Our review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
-the position within group, rank position within group, or time spent
-leading group metrics, across 
+the position within group, rank position within group, time spent leading 
+group metrics, distance to leader, or direction to leader metrics across 
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
 study species. 
 Only 
@@ -136,7 +138,9 @@ The position within group is the position along the front-to-back axis of the
 group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
 is the ordinal rank along the front-to-back axis of the group's bearing (eg.
 [@Burns_2012]). The time spent leading group is an aggregate measure of the time
-ini the first rank position within group.
+in the first rank position within group. The distance to leader is the 
+geographic distance to the focal individual's group leader. The direction to 
+leader is the absolute bearing to the focal individual's group leader. 
 
 <!-- 
 - front-back distance along group's axis of movement [@Quera_2023]
