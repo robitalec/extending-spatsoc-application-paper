@@ -205,7 +205,7 @@ study species.
 `r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
 calculate the polarization order parameter, as well as the {CircStats} package.
-To our knowledge, there are no R packages that provide thedirectional 
+To our knowledge, there are no R packages that provide the directional 
 alignment or interindividual direction metrics. 
 
 Polarization measures the uniformity of bearings in a group of individuals 
