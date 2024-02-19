@@ -82,7 +82,7 @@ the directional correlation delay metric, across
 `r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
 study species. Only 
 `r count_code_avail[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` 
-study had code available for 
+study had code available using a combination of 
 MATLAB (closed source), CUDA (closed source), and Python (open source). To
 our knowledge, there are no R packages that provide this metric. 
 
@@ -106,7 +106,8 @@ delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
 individuals, ignoring hierarchy changes caused by other individuals.
 
 - Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
-- Negative values indicate that flight directional changes of bird i fall behind that of bird j and therefore j is leading
+- Negative values indicate that flight directional changes of bird i fall behind
+that of bird j and therefore j is leading
 
 Hierarchical networks can be generated using $\tau^{*}_{ij}$
 
