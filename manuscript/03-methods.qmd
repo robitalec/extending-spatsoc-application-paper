@@ -260,8 +260,34 @@ bearing argg
 
 --> 
 
+## Behavioural zones
 
 
+```{r}
+zone <- count_metric[V1 %in% c('zones')]
+```
+
+Our review found `r zone[, uniqueN(covidence_number)]` studies that used 
+the behavioural zones metric, 
+across
+`r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% zone$covidence_number & V1 == 'Yes', .N]`
+studies had code available. To our knowledge, there are no R packages that
+provided the behavioural zones metric.
+
+The behavioural zones metric metric assigns neighbours to three non-overlapping
+behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
+around an individual within which neighbours are expected to move away to 
+avoid collisions. The "zone of orientation" is the next zone around an 
+individual beyond the "zone of repulsion" within which neighbours are expected
+to orient themselves to the movement of their neighbours. The "zone of
+attraction" is the last zone around an individual within which neighbours are 
+expected to be attracted to the position of the focal individual. Notably, 
+there is a possibly "blind volume" behind the individual representing the limits
+of their perception. 
+
+![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
 
 # Case study
 
