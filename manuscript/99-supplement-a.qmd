@@ -1,0 +1,83 @@
+---
+title: "Supplementary Materials A: Scoping Review Methods"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+targets::tar_source('R')
+```
+
+# Methods
+
+## Benchmark papers
+
+## Search terms
+
+## Sources
+ 
+WoS, Scopus
+
+## Deduplication
+
+## Screening
+
+Title and abstract screening
+
+Full text screening
+
+- dyadic measures
+- applicable to spatiotemporal data
+- full text available in English
+- Not a thesis or book chapter
+
+
+## Data extraction
+
+Only from studies not classified as "reviews"
+
+Covidence #
+Study ID
+Title
+Reviewer Name
+
+Study information
+
+- Type of study
+  - Empirical
+  - Simulation
+  - Algorithm
+  - Model
+  - Review
+  - Other
+- Species
+- Region
+
+
+Dyadic social metric
+
+- Metric used or described
+- Software package(s) used
+- Citation for metric if not introduced in this current paper
+- Interpretation
+- Data input required
+- Definitions of "leader", "initiator", etc
+
+Dominance
+
+- Dominance metric
+- Interpretation
+- Citation for dominance metric if not introduced in this paper
+
+Code availability
+
+- Analysis code availability
+- Programming language
+- Analysis code link
+- Analysis code availability location
+- Other comments about code availability
+
+Discussion points, etc
+
