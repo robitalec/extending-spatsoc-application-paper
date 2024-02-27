@@ -104,7 +104,6 @@ Study information
 - Species
 - Region
 
-
 Dyadic social metric
 
 - Metric used or described
@@ -130,3 +129,11 @@ Code availability
 
 Discussion points, etc
 
+
+## Table A.1
+
+```{r}
+tar_source('R')
+options("tinytable_print_output"="markdown")
+tar_read(benchmark_papers) |> tinytable::tt()
+```
