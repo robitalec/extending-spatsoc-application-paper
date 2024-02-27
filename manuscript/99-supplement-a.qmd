@@ -39,15 +39,19 @@ screening, and data extraction.
 
 Before screening, articles were marked as duplicates using Covidence and manual
 screening. Covidence detected N duplicates based on title, year, volume, and
-authors, and manual screening identified an additional N duplicates. Articles
-were screened out based on the following criteria:
+authors, and manual screening identified an additional N duplicates. 
 
-- Reference does not describe dyadic measure (EXAMPLE)
-- Reference describes metric that is not applicable to spatiotemporal data (EXAMPLE)
-- Reference describes metric considered “static interaction” eg. home range overlap  (EXAMPLE)
-- Reference full text is not available in English (EXAMPLE)
-- Reference is not a thesis (EXAMPLE)
-- Reference is not a book chapter (EXAMPLE)
+Articles were screened out based on the following criteria:
+
+- Study does not describe dyadic measure (eg. [@Papageorgiou_2020])
+- Study describes metric that is not applicable to spatiotemporal data 
+(eg. focal observations @Ballesta_2021)
+- Study does not describe metric beyond static interaction (eg. home range or 
+spatial overlap Carter_2013)
+- Study does not describe metric beyond group size (eg. @Delgado_2021)
+- Study full text is not available in English (eg. @Bernard_2002)
+- Study is not a thesis (EXAMPLE)
+- Study is not a book chapter (eg. @Bernstein_2019)
 
 Despite a focus on animal ecology, some references were discussed movement data
 more generically or, alternatively, specifically focused on human or robotic
