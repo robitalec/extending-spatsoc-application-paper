@@ -135,5 +135,12 @@ Discussion points, etc
 ```{r}
 tar_source('R')
 options("tinytable_print_output"="markdown")
-tar_read(benchmark_papers) |> tinytable::tt()
+tar_read(benchmark_papers) |> tt()
+```
+
+## Table A.2
+
+```{r}
+options("tinytable_print_output"=NULL)
+tar_read(search_strings) |> tt()
 ```
