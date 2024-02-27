@@ -50,7 +50,7 @@ Articles were screened out based on the following criteria:
 spatial overlap Carter_2013)
 - Study does not describe metric beyond group size (eg. @Delgado_2021)
 - Study full text is not available in English (eg. @Bernard_2002)
-- Study is not a thesis (EXAMPLE)
+- Study is not a thesis
 - Study is not a book chapter (eg. @Bernstein_2019)
 
 Despite a focus on animal ecology, some references were discussed movement data
