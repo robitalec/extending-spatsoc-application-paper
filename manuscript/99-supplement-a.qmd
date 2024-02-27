@@ -59,9 +59,9 @@ movement data (EXAMPLE). These references were retained when the metrics
 described were deemed applicable to animal spatiotemporal movement data.
 References using mathematical models or simulations were largely beyond the
 scope of this review but references were retained when the parameters used as
-inputs could be applied to spatial temporal data (EXAMPLE). Review references
-were retained for building the scope of introduction and discussion but not
-included in data extraction (EXAMPLE).
+inputs could be applied to spatial temporal data (eg. @Long_2015). Review
+references were retained for building the scope of introduction and discussion
+but not included in data extraction (eg. @Herbert-Read_2016).
 
 The goals of data extraction were to record the breadth of dyadic social and
 dominance metrics applicable to spatiotemporal data, and the degree of code
