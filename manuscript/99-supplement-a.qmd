@@ -1,5 +1,5 @@
 ---
-title: "Supplementary Materials A: Scoping Review Methods"
+title: "Supplement A: Scoping Review Methods"
 toc: true
 execute:
   echo: false
