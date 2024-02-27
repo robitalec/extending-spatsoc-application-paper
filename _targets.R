@@ -20,10 +20,18 @@ c(
   tar_target(
     benchmark_papers,
     data.table(
-      read_sheet('112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
-               sheet = 'benchmark papers'))[
-                 is.na(`Removed as benchmark`),
-                 .(Citation, `Indexed in WoS`)]
+      read_sheet(
+        '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
+        sheet = 'benchmark papers'))[
+          is.na(`Removed as benchmark`),
+          .(Citation, `Indexed in WoS`)]
+  ),
+  tar_target(
+    search_strings,
+    data.table(
+      read_sheet(
+        '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
+        sheet = 'iterative search'))[, last(.SD)[, .(String)], Source]
   ),
   tar_file_read(
     metric_synonyms,
