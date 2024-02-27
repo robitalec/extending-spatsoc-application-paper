@@ -17,6 +17,14 @@ c(
       fwrite(x = _, file = fp_met_thes),
     cue = tar_cue('always')
   ),
+  tar_target(
+    benchmark_papers,
+    data.table(
+      read_sheet('112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
+               sheet = 'benchmark papers'))[
+                 is.na(`Removed as benchmark`),
+                 .(Citation, `Indexed in WoS`)]
+  ),
   tar_file_read(
     metric_synonyms,
     fp_met_thes,
