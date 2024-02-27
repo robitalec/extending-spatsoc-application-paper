@@ -77,8 +77,9 @@ software packages used.
 Metrics identified were aggregated using a manual process to identify synonymous
 terms. This aggregation process was required due to variability in defining
 metrics during data extraction, as well as differences between authors in
-describing metrics (EXAMPLE). Each study was geocoded using the {tidygeocoder}
-package (CITE) and species were parsed using the {rgnparser} package (CITE)
+describing metrics (eg. distance to group "center", "centroid", or "center of mass"). 
+Each study was geocoded using the {tidygeocoder}
+package [@Cambon_2021] and species were parsed using the {rgnparser} package (CITE)
 which provides the GNparser (CITE) functionality in R. We calculated frequency
 of data extracted for each categorical field including programming language,
 software package, analysis code availability, geographic region, study species
@@ -92,8 +93,11 @@ including only papers that provided sufficient information are retained.
 ## Form
 
 Covidence #
+
 Study ID
+
 Title
+
 Reviewer Name
 
 Study information
