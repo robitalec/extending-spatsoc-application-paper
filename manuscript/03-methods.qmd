@@ -21,41 +21,6 @@ Criteria:
 - biology
 
 
-Not selected:
-
-- wildlifeDI
-  - DI
-  - Don
-  - Prox
-  - Lixn
-  - Cs
-  - DI in direction
-  - DI in displacement
-  - HAI
-  - IAB
-  - Cr
-  - Ca
-- corrMove
-  - diffusive movement correlation
-  - drift movement correlation
-  - overall component movement correlation
-- voronoi
-- HMM
-- change point detection
-
-
-(mFLICA table 1)
-
-- mFLICA 
-  - available
-- FLOCK
-- LPD
-- Granger causality
-- Influence maximization
-
-
-# Metrics selected, defined
-
 For each
 
 - Citation
@@ -198,6 +163,23 @@ there is a possibly "blind volume" behind the individual representing the limits
 of their perception. 
 
 ![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
+
+## Not selected
+
+- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca, 
+- corrMove (diffusive movement correlation, drift movement correlation,
+overall component movement correlation)
+- voronoi
+- HMM
+- change point detection
+- mFLICA 
+  - available
+- FLOCK
+- LPD
+- Granger causality
+- Influence maximization
+
 
 # Case study
 
