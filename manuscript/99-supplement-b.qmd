@@ -22,7 +22,7 @@ targets::tar_source('R')
   2527 studies excluded
 416 studies assessed for full-text eligibility
   262 studies excluded
-    171  Does not discuss dyadic measure
+    171  Does not discuss dyadic metric
     86  Metric not applicable to spatiotemporal data
     2  Book chapter
     2  Full text not in English

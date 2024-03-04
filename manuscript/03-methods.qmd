@@ -62,7 +62,7 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 The position within group is the position along the front-to-back axis of the
 group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
 is the ordinal rank along the front-to-back axis of the group's bearing (eg.
-[@Burns_2012]). The time spent leading group is an aggregate measure of the time
+[@Burns_2012]). The time spent leading group is an aggregate metric of the time
 in the first rank position within group. The distance to leader is the 
 geographic distance to the focal individual's group leader. The direction to 
 leader is the absolute bearing to the focal individual's group leader. 
@@ -179,6 +179,8 @@ tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader
 HAI, IAB, Cr, Ca, 
 - corrMove (diffusive movement correlation, drift movement correlation,
 overall component movement correlation)
+- metrics relating to posture
+- static interaction eg. home range overlap
 - voronoi
 - HMM
 - change point detection
