@@ -11,10 +11,9 @@ c(
   ),
   tar_target(
     dl_metric_thesaurus,
-    read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-               sheet = 'metric-thesaurus',
-               col_types = 'c') |>
-      fwrite(x = _, file = fp_met_thes),
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'metric-thesaurus',
+                     file = fp_met_thes),
     cue = tar_cue('always')
   ),
   tar_target(
@@ -35,7 +34,7 @@ c(
   ),
   tar_file_read(
     metric_synonyms,
-    fp_met_thes,
+    dl_metric_thesaurus,
     fread(!!.x)
   ),
   tar_target(
