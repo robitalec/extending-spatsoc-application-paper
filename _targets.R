@@ -11,15 +11,30 @@ c(
   ),
   tar_target(
     dl_metric_thesaurus,
-    read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-               sheet = 'metric-thesaurus',
-               col_types = 'c') |>
-      fwrite(x = _, file = fp_met_thes),
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'metric-thesaurus',
+                     file = fp_met_thes),
     cue = tar_cue('always')
+  ),
+  tar_target(
+    benchmark_papers,
+    data.table(
+      read_sheet(
+        '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
+        sheet = 'benchmark papers'))[
+          is.na(`Removed as benchmark`),
+          .(Citation, `Indexed in WoS`)]
+  ),
+  tar_target(
+    search_strings,
+    data.table(
+      read_sheet(
+        '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
+        sheet = 'iterative search'))[, last(.SD)[, .(String)], Source]
   ),
   tar_file_read(
     metric_synonyms,
-    fp_met_thes,
+    dl_metric_thesaurus,
     fread(!!.x)
   ),
   tar_target(

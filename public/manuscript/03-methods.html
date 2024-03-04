@@ -140,14 +140,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../manuscript/05-discussion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Discussion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-a.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Supplementary Materials A: Scoping Review Methods</span></a>
+ <span class="menu-text">Supplement A: Scoping Review Methods</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-b.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Supplementary Materials B: Scoping Review Results</span></a>
+ <span class="menu-text">Supplement B: Scoping Review Results</span></a>
   </div>
 </li>
       </ul>
@@ -160,15 +166,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#selecting-metrics" id="toc-selecting-metrics" class="nav-link active" data-scroll-target="#selecting-metrics">Selecting metrics</a></li>
-  <li>
-<a href="#metrics-selected-defined" id="toc-metrics-selected-defined" class="nav-link" data-scroll-target="#metrics-selected-defined">Metrics selected, defined</a>
+<li>
+<a href="#selecting-metrics" id="toc-selecting-metrics" class="nav-link active" data-scroll-target="#selecting-metrics">Selecting metrics</a>
   <ul class="collapse">
 <li><a href="#directional-correlation-delay" id="toc-directional-correlation-delay" class="nav-link" data-scroll-target="#directional-correlation-delay">Directional correlation delay</a></li>
   <li><a href="#position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" id="toc-position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" class="nav-link" data-scroll-target="#position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader">Position within group, rank position within group, time spent leading group, distance and direction to leader</a></li>
   <li><a href="#distance-direction-and-rank-distance-to-group-centroid" id="toc-distance-direction-and-rank-distance-to-group-centroid" class="nav-link" data-scroll-target="#distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</a></li>
   <li><a href="#polarization-directional-alignment-and-interindividual-direction" id="toc-polarization-directional-alignment-and-interindividual-direction" class="nav-link" data-scroll-target="#polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</a></li>
   <li><a href="#behavioural-zones" id="toc-behavioural-zones" class="nav-link" data-scroll-target="#behavioural-zones">Behavioural zones</a></li>
+  <li><a href="#fission-fusion" id="toc-fission-fusion" class="nav-link" data-scroll-target="#fission-fusion">Fission fusion</a></li>
+  <li><a href="#not-selected" id="toc-not-selected" class="nav-link" data-scroll-target="#not-selected">Not selected</a></li>
   </ul>
 </li>
   <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study">Case study</a></li>
@@ -196,46 +203,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>direct extension of available functions in spatsoc</li>
 <li>biology</li>
 </ul>
-<p>Not selected:</p>
-<ul>
-<li>wildlifeDI
-<ul>
-<li>DI</li>
-<li>Don</li>
-<li>Prox</li>
-<li>Lixn</li>
-<li>Cs</li>
-<li>DI in direction</li>
-<li>DI in displacement</li>
-<li>HAI</li>
-<li>IAB</li>
-<li>Cr</li>
-<li>Ca</li>
-</ul>
-</li>
-<li>corrMove
-<ul>
-<li>diffusive movement correlation</li>
-<li>drift movement correlation</li>
-<li>overall component movement correlation</li>
-</ul>
-</li>
-<li>voronoi</li>
-<li>HMM</li>
-<li>change point detection</li>
-</ul>
-<p>(mFLICA table 1)</p>
-<ul>
-<li>mFLICA
-<ul>
-<li>available</li>
-</ul>
-</li>
-<li>FLOCK</li>
-<li>LPD</li>
-<li>Granger causality</li>
-<li>Influence maximization</li>
-</ul></section><section id="metrics-selected-defined" class="level1"><h1>Metrics selected, defined</h1>
 <p>For each</p>
 <ul>
 <li>Citation</li>
@@ -246,7 +213,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Similar terms? eg. see metric synonyms</li>
 </ul>
 <section id="directional-correlation-delay" class="level2"><h2 class="anchored" data-anchor-id="directional-correlation-delay">Directional correlation delay</h2>
-<p>Our review found 16 studies that used the directional correlation delay metric, across 12 study species. Only 1 study had code available using a combination of MATLAB (closed source), CUDA (closed source), and Python (open source). To our knowledge, there are no R packages that provide this metric.</p>
 <p>The directional correlation delay <span class="citation" data-cites="Nagy_2010">[@Nagy_2010]</span> of individuals i, j is</p>
 <p><span class="math display">\[C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}\]</span></p>
 <p>where</p>
@@ -268,7 +234,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Hierarchical networks can be generated using <span class="math inline">\(\tau^{*}_{ij}\)</span></p>
 </section><section id="position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" class="level2"><h2 class="anchored" data-anchor-id="position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader">Position within group, rank position within group, time spent leading group, distance and direction to leader</h2>
-<p>Our review found 18 studies that used the position within group, rank position within group, time spent leading group metrics, distance to leader, or direction to leader metrics across 16 study species. Only 1 study had code available. To our knowledge, there are no R packages that provide these metrics.</p>
 <p>The position within group is the position along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Quera_2023 Harel_2021">[@Quera_2023; @Harel_2021]</span>). The rank position within group is the ordinal rank along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Burns_2012">[@Burns_2012]</span>). The time spent leading group is an aggregate measure of the time in the first rank position within group. The distance to leader is the geographic distance to the focal individual’s group leader. The direction to leader is the absolute bearing to the focal individual’s group leader.</p>
 <!-- 
 - front-back distance along group's axis of movement [@Quera_2023]
@@ -288,10 +253,8 @@ using focal obs or other tools
 - ?how to compare rank across varying sized groups
 -->
 </section><section id="distance-direction-and-rank-distance-to-group-centroid" class="level2"><h2 class="anchored" data-anchor-id="distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</h2>
-<p>Our review found 20 studies that used the group centroid, distance to group centroid, direction to group centroid, or rank distance to group centroid metrics, across 14 study species. 3 studies had code available. The {swaRm} package provides functionality to calculate the group centroid and the distance to the group centroid. To our knowledge, there are no R packages that provided the direction and rank distance to group centroid metrics.</p>
 <p>The group centroid is the mean of individual locations in a group. The distance to group centroid is the distance between an individual’s location and the group centroid. The direction to group centroid is the absolute bearing from an individual’s location and the group centroid. The rank distance to group centroid is the ordinal rank of individuals’ distances from the group centroid.</p>
 </section><section id="polarization-directional-alignment-and-interindividual-direction" class="level2"><h2 class="anchored" data-anchor-id="polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</h2>
-<p>Our review found 17 studies that used the polarization, directional alignment or interindividual direction metrics, across 11 study species. 4 studies had code available. The {swaRm} package provides functionality to calculate the polarization order parameter, as well as the {CircStats} package. To our knowledge, there are no R packages that provide the directional alignment or interindividual direction metrics.</p>
 <p>Polarization measures the uniformity of bearings in a group of individuals <span class="citation" data-cites="Wang_2022">[@Wang_2022]</span> on a scale of 0-1 where values near 0 indicate that bearings point in different directions and values near 1 indicate that bearings point in similar directions.</p>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Random bearings (radians)</span></span>
@@ -300,7 +263,7 @@ using focal obs or other tools
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://swarm-lab.github.io/swaRm/">swaRm</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://swarm-lab.github.io/swaRm/reference/pol_order.html">pol_order</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2634212</code></pre>
+<pre><code>[1] 0.2249143</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">CircStats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -312,16 +275,16 @@ using focal obs or other tools
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/r.test.html">r.test</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$r.bar
-[1] 0.2634212
+[1] 0.2249143
 
 $p.value
-[1] 0.1772926</code></pre>
+[1] 0.2850392</code></pre>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Also interesting</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/circ.range.html">circ.range</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     range
-1 5.453637</code></pre>
+<pre><code>    range
+1 5.38159</code></pre>
 </div>
 </div>
 <p>Directional alignment measures the pairwise differences in bearing between individuals. Interindividual direction measures the pairwise bearings between individual locations.</p>
@@ -338,13 +301,61 @@ bearing argg
 
 -->
 </section><section id="behavioural-zones" class="level2"><h2 class="anchored" data-anchor-id="behavioural-zones">Behavioural zones</h2>
-<p>Our review found 12 studies that used the behavioural zones metric, across 9 study species. 4 studies had code available. To our knowledge, there are no R packages that provided the behavioural zones metric.</p>
 <p>The behavioural zones metric metric assigns neighbours to three non-overlapping behavioural zones [Couzin_2002]. The “zone of repulsion” is the minimum distance around an individual within which neighbours are expected to move away to avoid collisions. The “zone of orientation” is the next zone around an individual beyond the “zone of repulsion” within which neighbours are expected to orient themselves to the movement of their neighbours. The “zone of attraction” is the last zone around an individual within which neighbours are expected to be attracted to the position of the focal individual. Notably, there is a possibly “blind volume” behind the individual representing the limits of their perception.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="Couzin_et_al_2002_Fig_1.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure from Couzin et al 2002</figcaption></figure>
 </div>
-</section></section><section id="case-study" class="level1"><h1>Case study</h1>
+</section><section id="fission-fusion" class="level2"><h2 class="anchored" data-anchor-id="fission-fusion">Fission fusion</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>             study_id
+               &lt;char&gt;
+ 1:        Baden 2016
+ 2: Aguilar-Melo 2018
+ 3:      Barocas 2016
+ 4:       Haydon 2008
+ 5:       Fortin 2009
+ 6:         Body 2015
+ 7:  DellaLibera 2023
+ 8:      Wielgus 2020
+ 9:    Nishikawa 2014
+10:      Krueger 2014
+11:   Lesmerises 2018
+12:       Merkle 2015
+                                                                                                                                                                                                                                                                                                   definitions_of_leader_initiator_etc
+                                                                                                                                                                                                                                                                                                                                &lt;char&gt;
+ 1:                                                                                                                                                                                                                                                                                                                               &lt;NA&gt;
+ 2:                                                                                                                                           fission when gte 1 were not observed with a group for 2 consecutive scans; fusion when gte 1 who were previously not observed with group are observed with group for 2 consecutive scans
+ 3:                                                                                                                                                                                                                                                 fission and fusion defined as joining and leaving group in subsequent observations
+ 4:                                                                                                                                                                                                                                                             fusion where solitary to grouped and fission where grouped to solitary
+ 5:                                                                                                                                                                                                                                group/fusion when within 100 m; fission when two or more consecutive locations separated by &gt; 100 m
+ 6:                                                                                                                                                                                                                                                       fusion gte 2 groups merging into one; fission one group splitting into gte 2
+ 7: define a fission and fusion event if one or more individuals left or  joined the group, respectively. in the rare cases of missing data, missing individuals are not considered as having changed group membership, and individual ‘disappearances’ and ‘reappearances’ in the dataset are not considered as fission–fusion events
+ 8:                                                                                                                                                                                              group where simultaneously within 1 km or &gt;= 1 km for &lt;= 2 hr; fusion where together then different by one time step; fission reverse
+ 9:                                                                                                                                                                                                   converged when IID less than 20 m; separated when IID greater than 20  m; converged and separated synonymous with fission fusion
+10:                                                                                                                                                                                                                                                                                                                               &lt;NA&gt;
+11:                                                                         grouped/fission fusion if within 50 m for two relocations; to minimize the false fission events, considered dyad valid if together at t0,  t2, but apart at t1; if one missing GPS location, dyad valid if before and after missing loc distance was &lt;50 m
+12:                                                                                                                                                                                                                                                                                      group defined as within 100 m within 24 hours</code></pre>
+</div>
+</div>
+</section><section id="not-selected" class="level2"><h2 class="anchored" data-anchor-id="not-selected">Not selected</h2>
+<ul>
+<li>wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, HAI, IAB, Cr, Ca,</li>
+<li>corrMove (diffusive movement correlation, drift movement correlation, overall component movement correlation)</li>
+<li>voronoi</li>
+<li>HMM</li>
+<li>change point detection</li>
+<li>mFLICA
+<ul>
+<li>available</li>
+</ul>
+</li>
+<li>FLOCK</li>
+<li>LPD</li>
+<li>Granger causality</li>
+<li>Influence maximization</li>
+</ul></section></section><section id="case-study" class="level1"><h1>Case study</h1>
 
 
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
