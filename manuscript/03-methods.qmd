@@ -164,6 +164,15 @@ of their perception.
 
 ![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
 
+
+## Fission fusion
+
+```{r}
+tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)]
+```
+
+
+
 ## Not selected
 
 - wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
