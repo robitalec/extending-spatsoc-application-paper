@@ -76,30 +76,8 @@ knowledge, there are no R packages that provided the direction and
 rank distance to group centroid metrics. 
 
 
-## Distance, direction and rank distance to group centroid
-
-
-```{r}
-align <- count_metric[V1 %in% c('polarization', 
-                                'directional alignment',
-                                'interindividual direction',
-                                'nearest neighbour direction')]
-```
-
-Our review found `r align[, uniqueN(covidence_number)]` studies that used 
-the polarization, directional alignment or interindividual direction metrics, 
-across
-`r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
-study species. 
-`r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
-studies had code available. The {swaRm} package provides functionality to 
-calculate the polarization order parameter, as well as the {CircStats} package.
-To our knowledge, there are no R packages that provide the directional 
-alignment or interindividual direction metrics. 
-
-
-
 ## Polarization, directional alignment and interindividual direction
+
 
 ```{r}
 align <- count_metric[V1 %in% c('polarization', 
