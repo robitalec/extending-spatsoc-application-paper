@@ -263,7 +263,7 @@ using focal obs or other tools
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://swarm-lab.github.io/swaRm/">swaRm</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://swarm-lab.github.io/swaRm/reference/pol_order.html">pol_order</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2249143</code></pre>
+<pre><code>[1] 0.06693954</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">CircStats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -275,16 +275,16 @@ using focal obs or other tools
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/r.test.html">r.test</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$r.bar
-[1] 0.2249143
+[1] 0.06693954
 
 $p.value
-[1] 0.2850392</code></pre>
+[1] 0.8959093</code></pre>
 </div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Also interesting</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/circ.range.html">circ.range</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    range
-1 5.38159</code></pre>
+<pre><code>     range
+1 5.477836</code></pre>
 </div>
 </div>
 <p>Directional alignment measures the pairwise differences in bearing between individuals. Interindividual direction measures the pairwise bearings between individual locations.</p>
@@ -308,35 +308,102 @@ bearing argg
 </div>
 </section><section id="fission-fusion" class="level2"><h2 class="anchored" data-anchor-id="fission-fusion">Fission fusion</h2>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>             study_id
-               &lt;char&gt;
- 1:        Baden 2016
- 2: Aguilar-Melo 2018
- 3:      Barocas 2016
- 4:       Haydon 2008
- 5:       Fortin 2009
- 6:         Body 2015
- 7:  DellaLibera 2023
- 8:      Wielgus 2020
- 9:    Nishikawa 2014
-10:      Krueger 2014
-11:   Lesmerises 2018
-12:       Merkle 2015
-                                                                                                                                                                                                                                                                                                   definitions_of_leader_initiator_etc
-                                                                                                                                                                                                                                                                                                                                &lt;char&gt;
- 1:                                                                                                                                                                                                                                                                                                                               &lt;NA&gt;
- 2:                                                                                                                                           fission when gte 1 were not observed with a group for 2 consecutive scans; fusion when gte 1 who were previously not observed with group are observed with group for 2 consecutive scans
- 3:                                                                                                                                                                                                                                                 fission and fusion defined as joining and leaving group in subsequent observations
- 4:                                                                                                                                                                                                                                                             fusion where solitary to grouped and fission where grouped to solitary
- 5:                                                                                                                                                                                                                                group/fusion when within 100 m; fission when two or more consecutive locations separated by &gt; 100 m
- 6:                                                                                                                                                                                                                                                       fusion gte 2 groups merging into one; fission one group splitting into gte 2
- 7: define a fission and fusion event if one or more individuals left or  joined the group, respectively. in the rare cases of missing data, missing individuals are not considered as having changed group membership, and individual ‘disappearances’ and ‘reappearances’ in the dataset are not considered as fission–fusion events
- 8:                                                                                                                                                                                              group where simultaneously within 1 km or &gt;= 1 km for &lt;= 2 hr; fusion where together then different by one time step; fission reverse
- 9:                                                                                                                                                                                                   converged when IID less than 20 m; separated when IID greater than 20  m; converged and separated synonymous with fission fusion
-10:                                                                                                                                                                                                                                                                                                                               &lt;NA&gt;
-11:                                                                         grouped/fission fusion if within 50 m for two relocations; to minimize the false fission events, considered dyad valid if together at t0,  t2, but apart at t1; if one missing GPS location, dyad valid if before and after missing loc distance was &lt;50 m
-12:                                                                                                                                                                                                                                                                                      group defined as within 100 m within 24 hours</code></pre>
+<div class="cell-output-display">
+
+ 
+
+  
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tinytable_8v5dvou500xm5dyiqolb</title>
+<style>
+.table td.tinytable_css_m552xih7tpv24br5skt9, .table th.tinytable_css_m552xih7tpv24br5skt9 {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script><div class="container">
+      <table class="table table-borderless" id="tinytable_8v5dvou500xm5dyiqolb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+<thead><tr>
+<th scope="col">study_id</th>
+                <th scope="col">definitions_of_leader_initiator_etc</th>
+              </tr></thead>
+<tbody>
+<tr>
+<td>Baden 2016</td>
+                  <td>NA</td>
+                </tr>
+<tr>
+<td>Aguilar-Melo 2018</td>
+                  <td>fission when gte 1 were not observed with a group for 2 consecutive scans; fusion when gte 1 who were previously not observed with group are observed with group for 2 consecutive scans</td>
+                </tr>
+<tr>
+<td>Barocas 2016</td>
+                  <td>fission and fusion defined as joining and leaving group in subsequent observations</td>
+                </tr>
+<tr>
+<td>Haydon 2008</td>
+                  <td>fusion where solitary to grouped and fission where grouped to solitary</td>
+                </tr>
+<tr>
+<td>Fortin 2009</td>
+                  <td>group/fusion when within 100 m; fission when two or more consecutive locations separated by &gt; 100 m</td>
+                </tr>
+<tr>
+<td>Body 2015</td>
+                  <td>fusion gte 2 groups merging into one; fission one group splitting into gte 2</td>
+                </tr>
+<tr>
+<td>DellaLibera 2023</td>
+                  <td>define a fission and fusion event if one or more individuals left or  joined the group, respectively. in the rare cases of missing data, missing individuals are not considered as having changed group membership, and individual ‘disappearances’ and ‘reappearances’ in the dataset are not considered as fission–fusion events</td>
+                </tr>
+<tr>
+<td>Wielgus 2020</td>
+                  <td>group where simultaneously within 1 km or &gt;= 1 km for &lt;= 2 hr; fusion where together then different by one time step; fission reverse</td>
+                </tr>
+<tr>
+<td>Nishikawa 2014</td>
+                  <td>converged when IID less than 20 m; separated when IID greater than 20  m; converged and separated synonymous with fission fusion</td>
+                </tr>
+<tr>
+<td>Krueger 2014</td>
+                  <td>NA</td>
+                </tr>
+<tr>
+<td>Lesmerises 2018</td>
+                  <td>grouped/fission fusion if within 50 m for two relocations; to minimize the false fission events, considered dyad valid if together at t0,  t2, but apart at t1; if one missing GPS location, dyad valid if before and after missing loc distance was &lt;50 m</td>
+                </tr>
+<tr>
+<td>Merkle 2015</td>
+                  <td>group defined as within 100 m within 24 hours</td>
+                </tr>
+</tbody>
+</table>
+</div>
+
+    <script>
+    function styleCell_tinytable_x7culatugwsw35dtrtwo(i, j, css_id) {
+      var table = document.getElementById("tinytable_8v5dvou500xm5dyiqolb");
+      table.rows[i].cells[j].classList.add(css_id);
+    }
+    function insertSpanRow(i, colspan, content) {
+      var table = document.getElementById('tinytable_8v5dvou500xm5dyiqolb');
+      var newRow = table.insertRow(i);
+      var newCell = newRow.insertCell(0);
+      newCell.setAttribute("colspan", colspan);
+      // newCell.innerText = content;
+      // this may be unsafe, but innerText does not interpret <br>
+      newCell.innerHTML = content;
+    }
+window.addEventListener('load', function () { styleCell_tinytable_x7culatugwsw35dtrtwo(0, 0, 'tinytable_css_m552xih7tpv24br5skt9') })
+window.addEventListener('load', function () { styleCell_tinytable_x7culatugwsw35dtrtwo(0, 1, 'tinytable_css_m552xih7tpv24br5skt9') })
+    </script>
 </div>
 </div>
 </section><section id="not-selected" class="level2"><h2 class="anchored" data-anchor-id="not-selected">Not selected</h2>
