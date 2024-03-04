@@ -1,5 +1,6 @@
 ---
 title: "Supplement A: Scoping Review Methods"
+date: "`r Sys.Date()`"
 toc: true
 execute:
   echo: false
