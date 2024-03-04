@@ -86,6 +86,7 @@ metric,entropy,mutual information between locations of dog i based and combinati
 pattern,fission fusion,fission = gte 1 individual absent in 2 consecutive scans,,
 pattern,fission fusion,fusion = gte 1 individual now present in 2 consecutive scans,,
 metric,fission fusion,departure from group,,
+metric,fission fusion,fission fusion,,
 metric,fleeing event,fleeing events,,
 pattern,flock,flock,,
 metric,following order parameter,following order,Vicsek & Zafeiris 2012,
