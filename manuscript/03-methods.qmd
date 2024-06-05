@@ -1,5 +1,6 @@
 ---
 title: "Methods"
+date: "`r Sys.Date()`"
 toc: true
 execute:
   echo: false
