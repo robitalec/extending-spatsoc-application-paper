@@ -1,0 +1,18 @@
+---
+title: "Abstract"
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+targets::tar_source('R')
+```
+
+
+1. Beyond social networks, dyadic measures
+2. Extending social networks derived from GPS using detailed dyadic measures beyond rates of association
+3. Linking social processes to spatial/geography environment, hint at selection
+4. Expanding spatsoc to version N by including important and unavailable methods in R 
