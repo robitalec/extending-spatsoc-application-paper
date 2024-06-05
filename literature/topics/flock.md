@@ -1,1 +1,0 @@
-Synonymous with [[moving cluster]]
