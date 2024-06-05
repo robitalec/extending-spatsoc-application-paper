@@ -1,1 +1,0 @@
-Quantifies asymmetry in interactions

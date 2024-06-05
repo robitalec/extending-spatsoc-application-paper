@@ -1,2 +1,0 @@
-- [temporal](temporal.md) periodicity
-- [spatio-temporal](spatio-temporal.md) periodicity
