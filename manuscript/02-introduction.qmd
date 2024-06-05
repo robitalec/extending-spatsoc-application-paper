@@ -10,3 +10,25 @@ execute:
 #| include: false
 targets::tar_source('R')
 ```
+
+
+Extend social networks with more specific/details. Dyadic measures are important ideas in biology
+
+Producer scrounger 
+
+“animal social highly structured fission fusion to less structured”
+
+Leader follower
+
+Dominance hierarchies
+
+“correlation between leadership and dominance is consistent with a trend in ‘despotic’ social mammals” from Akos_2014
+
+Extending spatsoc to bring access
+- Given lack of diversity in species, study regions 
+- Lack of code availability 
+
+In application:
+For considering environment/spatial/geographic context eg. habitat or patch
+Eg. if animal is leader given directional correlation delay do they also do X
+
