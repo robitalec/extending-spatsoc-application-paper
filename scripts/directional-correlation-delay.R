@@ -21,3 +21,5 @@ DT[, datetime := seq.POSIXt(
   length.out = .N,
   each = n_id
 )]
+
+print(calc_dir_corr_delay(DT))
