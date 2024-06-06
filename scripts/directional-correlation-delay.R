@@ -6,3 +6,7 @@ library(lwgeom)
 calc_dir_corr_delay <- function(DT) {
 
 }
+
+
+n <- 10
+n_id <- 2
