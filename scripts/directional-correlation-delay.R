@@ -9,6 +9,11 @@ calc_dir_corr_delay <- function(DT) {
        lwgeom::st_geod_azimuth(),
      by = id]
   DT
+  # Troubleshooting:
+  # Error in set(x, j = name, value = value) :
+  # Supplied 9 items to be assigned to 10 items of column 'az'. If you wish to 'recycle' the RHS please use rep() to make this intent clear to readers of your code.
+  # ^ Related to units and st_geod_azimuth dropping last instead of returning NA
+  # ^ Related: https://github.com/r-quantities/units/issues/163
 }
 
 
