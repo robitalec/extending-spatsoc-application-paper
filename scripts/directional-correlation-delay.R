@@ -5,10 +5,10 @@ library(lwgeom)
 
 calc_dir_corr_delay <- function(DT) {
 
-  DT[, az := st_as_sf(.SD, coords = c('x', 'y'), crs = 4326) |>
-       lwgeom::st_geod_azimuth(),
-     by = id]
-  DT
+  DT[, az := c(
+    units::drop_units(
+      lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = c('x', 'y'), crs = 4326))),
+    NA), by = id]
   # Troubleshooting:
   # Error in set(x, j = name, value = value) :
   # Supplied 9 items to be assigned to 10 items of column 'az'. If you wish to 'recycle' the RHS please use rep() to make this intent clear to readers of your code.
