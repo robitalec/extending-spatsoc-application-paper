@@ -29,8 +29,8 @@ DT <- data.table(
 DT[, datetime := seq.POSIXt(
   as.POSIXct('2022-01-01 10:00:00'),
   as.POSIXct('2022-01-02 10:00:00'),
-  length.out = .N,
-  each = n_id
-)]
+  length.out = .N),
+  by = id
+]
 
 print(calc_dir_corr_delay(DT))
