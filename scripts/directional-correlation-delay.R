@@ -33,4 +33,5 @@ DT[, datetime := seq.POSIXt(
   by = id
 ]
 
-print(calc_dir_corr_delay(DT))
+zz <- calc_dir_corr_delay(DT)
+print(zz)
