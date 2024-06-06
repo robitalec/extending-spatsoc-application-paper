@@ -6,6 +6,9 @@ library(lwgeom)
 calc_dir_corr_delay <- function(DT) {
 
   DT[, az := st_as_sf(.SD, coords = c('x', 'y'), crs = 4326) |>
+       lwgeom::st_geod_azimuth(),
+     by = id]
+  DT
 }
 
 
