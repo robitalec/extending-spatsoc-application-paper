@@ -160,3 +160,7 @@ g <- ggplot(DT) +
   guides(size = 'none', color = 'none')
 
 plot(g)
+
+dir_cor_delay <- calc_dir_corr_delay(DT, window = 3)
+
+print(dir_cor_delay)
