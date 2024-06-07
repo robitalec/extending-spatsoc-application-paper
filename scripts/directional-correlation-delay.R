@@ -27,6 +27,100 @@ shift_window <- function(x, size) {
 
 
 shift_window(c(1, 2, 3, 4, 5), 2)
+
+calc_dir_corr_delay <- function(DT, window = 5) {
+  calc_az(DT)
+
+  # TODO: switch datetime to group_times
+  cast <- dcast(DT, datetime ~ id, value.var = 'az')
+
+  # cast[cast, on = .(datetime = between(datetime, datetime - window, datetime + window))]
+  # cast[3 + seq(-2, 2),
+  #      fdiff(c(A,  B))]
+
+  only_pos <- function(x) {x[x <= 0] <- NA; x}
+
+  cast[, A] - cast[only_pos(seq.int(.N) - 2), B]
+  cast[, A] - cast[only_pos(seq.int(.N) - 1), B]
+  cast[, A] - cast[only_pos(seq.int(.N)), B]
+  cast[, A] - cast[only_pos(seq.int(.N) + 1), B]
+  cast[, A] - cast[only_pos(seq.int(.N) + 2), B]
+
+  lapply(unique(cast$datetime), FUN = function(i) {
+    which_i <- which(cast$datetime == i)
+    which_b <- which_i + seq(-window, window)
+
+    cast[which_i, A] -
+      cast[, B[which_b[which_b > 0]]]
+  })
+
+
+  cast
+
+  D(cast, cols = function(x) x$A[3] - x$B[seq(-3, 3)])
+
+  as.matrix(cast[, .(A, B)])
+
+  c(-2, 3, 4) - 2
+
+  cast[5, which.min(flag(B, seq(-2, 2)) - A)]
+
+  cast[5, A] - flag(cast$B, seq(-2, 2))
+
+
+  dapply()
+
+  TRA(cast,
+      STATS = ,
+      FUN = "-",
+      )
+
+  cast[, shift(A, seq(-window, window))]
+  cast[, A] %r-% cast[, shift(B, seq(-window, window))]
+
+  cast[, A - B]
+  # TODO: ensure sort by datetime?
+
+
+  # https://stackoverflow.com/questions/24520720/subtract-a-constant-vector-from-each-row-in-a-matrix-in-r
+  # {collapse}
+  # lapply(seq.int(window), function(i) {
+  #   lapply(unique(DT$id), function(focal) {
+  #     cast[, , env = .()]
+  #   })
+  # })
+
+  # roll?
+
+  # focal <- 'A'
+
+  # seq(-window, window)
+  # which.max
+  #
+  # sweep(cast[, .(B)], MARGIN = 1, FUN = sum)
+  #
+  # cast[, A %-% B]
+  #
+  # A <- cast$A
+  # t(t(cast$B)) - A
+  #
+  # cast
+  #
+  # cast[, matrix(shift(.SD, n = c(-3, -2, -1, 0, 1, 2, 3))),
+  #      # env = list(focal = focal),
+  #      .SDcols = 'B']
+  #      # .SDcols = -c('datetime', focal)]
+
+
+  # DT[, diff := as.numeric(dist(az)), by = datetime]
+  # DT[, min_diff := diff == min(diff, na.rm = TRUE)]
+
+  # TODO: figure out directionality
+
+  # TODO: extend to 3
+  # TODO: extend to exclude based on distance, or is this based on
+  #       group_times -> group_pts -> runs of groups together -> calc dirr cor delay
+
   # Troubleshooting:
   # Error in set(x, j = name, value = value) :
   # Supplied 9 items to be assigned to 10 items of column 'az'. If you wish to 'recycle' the RHS please use rep() to make this intent clear to readers of your code.
