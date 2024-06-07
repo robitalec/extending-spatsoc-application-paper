@@ -144,5 +144,19 @@ DT[, datetime := seq.POSIXt(
   by = id
 ]
 
-zz <- calc_dir_corr_delay(DT)
-print(zz)
+calc_az(DT)
+print(DT)
+
+DT[, diff := as.numeric(dist(az)), by = datetime]
+
+g <- ggplot(DT) +
+  geom_path(aes(x, y, color = id, group = id), arrow = arrow()) +
+  ggrepel::geom_text_repel(
+    aes(x, y,
+        label = ifelse(is.na(diff), "", sprintf("%.2f", diff))),
+    min.segment.length = 100) +
+  geom_point(aes(x, y, size = 1 / diff), na.rm = TRUE)  +
+  theme_bw() +
+  guides(size = 'none', color = 'none')
+
+plot(g)
