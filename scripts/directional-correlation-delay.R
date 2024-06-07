@@ -17,6 +17,16 @@ calc_az <- function(DT) {
     NA), by = id]
 }
 
+shift_window <- function(x, size) {
+  c(
+    shift(x, n = size, type = 'lead'),
+    x,
+    shift(x, n = size, type = 'lag')
+  )
+}
+
+
+shift_window(c(1, 2, 3, 4, 5), 2)
   # Troubleshooting:
   # Error in set(x, j = name, value = value) :
   # Supplied 9 items to be assigned to 10 items of column 'az'. If you wish to 'recycle' the RHS please use rep() to make this intent clear to readers of your code.
