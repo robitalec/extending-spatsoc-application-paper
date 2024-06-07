@@ -129,12 +129,13 @@ calc_dir_corr_delay <- function(DT, window = 5) {
 }
 
 
-n <- 10
-n_id <- 2
+n <- 30
+n_id <- 3
 DT <- data.table(
-  x = -88 + runif(n),
-  y = 55 + runif(n),
-  id = LETTERS[seq.int(n_id)]
+  x = -88 + rexp(n),
+  y = 55 + rexp(n),
+  id = LETTERS[seq.int(n_id)],
+  i = rep(seq.int(n / n_id), each = n_id, from = 1, to = n / n_id)
 )
 DT[, datetime := seq.POSIXt(
   as.POSIXct('2022-01-01 10:00:00'),
