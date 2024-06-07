@@ -1,3 +1,9 @@
+# https://static-content.springer.com/esm/art%3A10.1038%2Fnature08891/MediaObjects/41586_2010_BFnature08891_MOESM272_ESM.pdf
+
+
+# https://www.zora.uzh.ch/id/eprint/9627/10/2008_Dodge_etal_IV_2008_MoveAnalysisTaxonomy_preprint.pdf
+# https://cran.r-project.org/web/packages/collapse/collapse.pdf
+
 library(data.table)
 library(ggplot2)
 library(sf)
