@@ -36,6 +36,39 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   spatsoc::group_times(cast, 'datetime')
 
 
+  abs_diff_rad <- function(x,  y) {
+    d <- abs(x - y)
+    fifelse(d > 2 * pi, d - (2 * pi), d)
+  }
+
+  dyads <- CJ(ID1 = unique(DT$id), ID2 = unique(DT$id))[ID1 != ID2]
+  dyads[, tg := 5]
+  dyads[DT, focal_az := az, on = .(ID1 == id, tg == timegroup)]
+  # dyads[, closest_az := DT[id == ID2 &
+  #              between(timegroup, tg - window, tg + window),
+  #            which.min(abs(focal_az - az))],
+  #       by = .(ID1, ID2)]
+  dyads[, closest_az_with_f := DT[id == ID2 &
+                             between(timegroup, tg - window, tg + window),
+                           which.min(abs_diff_rad(focal_az, az))],
+        by = .(ID1, ID2)]
+  dyads[, adj_closest := closest_az_with_f  - window - 1]
+
+  dyads
+  cast[between(timegroup, i - window, i + window),
+       .SD,
+       .SDcols = -c('datetime', 'timegroup')]
+
+  merge(dyads, DT[, .(id, az)], by.x = 'ID2', by.y = 'id', allow.cartesian = TRUE)
+  dyads[DT,
+        # [between(timegroup, 5 - window, 5 + window)],
+        # which_min_diff := which.min(focal_az - az),
+        ls_min_diff := list(list(focal_az - az,
+                                 id)
+                            ),
+        # {print(focal_az - az);rep(1, .N)},
+           on = .(ID2 == id, low_timegroup >= timegroup, high_timegroup <= timegroup)]
+
   # for each timegroup
   # make matrix of timegroup - window to timegroup to timegroup + window
   # rename cols/rows to index timegroup - window to timegroup + window
