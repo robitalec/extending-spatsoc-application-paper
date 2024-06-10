@@ -41,9 +41,29 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   # rename cols/rows to index timegroup - window to timegroup + window
   # for each direction + dyad, find min diff
   # return timegroup diff
+
+
+
+
+
+
+
+
   # cast[cast, on = .(datetime = between(datetime, datetime - window, datetime + window))]
   # cast[3 + seq(-2, 2),
   #      fdiff(c(A,  B))]
+
+  # data.table roll nearest
+
+  frollapply(cast[, .(A, B)], 2, FUN = function(x) x$A - x$B)
+
+
+  nms <- setdiff(colnames(cast), 'datetime')
+  cast[3:5, (.SD), .SDcols = -'datetime']
+  # https://stackoverflow.com/questions/19933788/r-compare-all-the-columns-pairwise-in-matrix
+  # https://stats.stackexchange.com/questions/600794/how-to-make-a-pairwise-correlation-matrix-including-interaction-with-a-third-var
+
+  which.min(cast[5, A] - cast[, t(B)])
 
   only_pos <- function(x) {x[x <= 0] <- NA; x}
 
