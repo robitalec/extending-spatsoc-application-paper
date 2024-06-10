@@ -55,6 +55,11 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   dyads[, adj_closest := closest_az_with_f  - window - 1]
 
   dyads
+
+  # TODO: check where 2 pi differs
+  # TODO: timing, improve
+  # TODO: build into timegroup, maybe by building dyad * timegroup set
+
   cast[between(timegroup, i - window, i + window),
        .SD,
        .SDcols = -c('datetime', 'timegroup')]
