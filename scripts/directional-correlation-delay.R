@@ -42,9 +42,28 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   # for each direction + dyad, find min diff
   # return timegroup diff
 
+  i <- 5
+  window <- 2
 
+  # to grab focal row: .SD[median(.I)]
 
+  cast[timegroup == i,
+       .SD,
+       .SDcols = -c('datetime', 'timegroup')]
 
+  cast[between(timegroup, i - window, i + window),
+       .SD,
+       .SDcols = -c('datetime', 'timegroup')]
+
+  cast[between(timegroup, i - window, i + window),
+       {
+         dist(.SD, upper = TRUE, diag = FALSE) |> print();
+         pmin(.SD) |> print();
+         pmin(t(.SD))
+       },
+       .SDcols = -c('datetime', 'timegroup')]
+
+  #
 
 
 
