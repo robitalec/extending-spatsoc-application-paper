@@ -33,6 +33,7 @@ calc_dir_corr_delay <- function(DT, window = 5) {
 
   # TODO: switch datetime to group_times
   cast <- dcast(DT, datetime ~ id, value.var = 'az')
+  spatsoc::group_times(cast, 'datetime')
 
   # cast[cast, on = .(datetime = between(datetime, datetime - window, datetime + window))]
   # cast[3 + seq(-2, 2),
