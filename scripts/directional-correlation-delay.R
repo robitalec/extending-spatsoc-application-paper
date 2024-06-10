@@ -35,6 +35,12 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   cast <- dcast(DT, datetime ~ id, value.var = 'az')
   spatsoc::group_times(cast, 'datetime')
 
+
+  # for each timegroup
+  # make matrix of timegroup - window to timegroup to timegroup + window
+  # rename cols/rows to index timegroup - window to timegroup + window
+  # for each direction + dyad, find min diff
+  # return timegroup diff
   # cast[cast, on = .(datetime = between(datetime, datetime - window, datetime + window))]
   # cast[3 + seq(-2, 2),
   #      fdiff(c(A,  B))]
