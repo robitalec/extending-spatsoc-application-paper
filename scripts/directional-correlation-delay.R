@@ -28,19 +28,36 @@ shift_window <- function(x, size) {
 
 shift_window(c(1, 2, 3, 4, 5), 2)
 
+abs_diff_rad <- function(x,  y) {
+  d <- abs(x - y)
+  fifelse(d > 2 * pi | is.na(d), d - (2 * pi), d)
+}
+
 calc_dir_corr_delay <- function(DT, window = 5) {
   calc_az(DT)
+  dyads <- CJ(
+    ID1 = unique(DT$id),
+    ID2 = unique(DT$id),
+    tg = unique(DT$timegroup)
+  )[ID1 != ID2]
 
-  # TODO: switch datetime to group_times
-  cast <- dcast(DT, datetime ~ id, value.var = 'az')
-  spatsoc::group_times(cast, 'datetime')
-
-
-  abs_diff_rad <- function(x,  y) {
-    d <- abs(x - y)
-    fifelse(d > 2 * pi, d - (2 * pi), d)
+  calc_closest_az <- function(dyad_DT, locs_DT, window) {
+    dyad_DT[, which.min(abs_diff_rad(
+      locs_DT[.SD, az, on = .(id == ID1, timegroup == tg)],
+      locs_DT[id == ID2 & between(timegroup, tg - window, tg + window), az]
+    )) - window - 1L,
+    by = .(ID1, ID2), .SDcols = colnames(dyad_DT)]
   }
+  dyads[, calc_closest_az(.SD, DT, window),
+        by = tg,
+        .SDcols = colnames(dyads)]
+}
 
+calc_dir_corr_delay_zz <- function(DT, window = 5) {
+  calc_az(DT)
+
+
+# -------------------------------------------------------------------------
   dyads <- CJ(ID1 = unique(DT$id), ID2 = unique(DT$id))[ID1 != ID2]
   dyads[, tg := 5]
   dyads[DT, focal_az := az, on = .(ID1 == id, tg == timegroup)]
@@ -53,12 +70,55 @@ calc_dir_corr_delay <- function(DT, window = 5) {
                            which.min(abs_diff_rad(focal_az, az))],
         by = .(ID1, ID2)]
   dyads[, adj_closest := closest_az_with_f  - window - 1]
+# -------------------------------------------------------------------------
+
 
   dyads
+
+  spatsoc::group_times(DT, 'datetime')
+  # DT[sample(.N, 5), c('x', 'y') := NA]
+  dyads <- CJ(ID1 = unique(DT$id), ID2 = unique(DT$id), tg = unique(DT$timegroup))[ID1 != ID2]
+  window <- 2
+  calc_closest_az <- function(dyad_DT, locs_DT, window) {
+    dyad_DT <- copy(dyad_DT)
+    dyad_DT[locs_DT, focal_az := az, on = .(ID1 == id, tg == timegroup)]
+    dyad_DT[, closest_az_with_f :=
+              locs_DT[id == ID2 & between(timegroup, tg - window, tg + window),
+                      which.min(abs_diff_rad(focal_az, az))],
+            by = .(ID1, ID2)]
+    return(dyad_DT)
+  }
+  dyads[tg == 5, calc_closest_az(.SD, DT, window)[]]
+  # .SD locked i by timegroup, works if copy
+  dyads[, calc_closest_az(.SD, DT, window), by = tg, .SDcols = colnames(dyads)]
+
+
+  calc_closest_az <- function(dyad_DT, locs_DT, window) {
+    dyad_DT[, which.min(abs_diff_rad(
+      locs_DT[.SD, az, on = .(id == ID1, timegroup == tg)],
+      locs_DT[id == ID2 & between(timegroup, tg - window, tg + window), az]
+    )) - window - 1L,
+    by = .(ID1, ID2), .SDcols = colnames(dyad_DT)]
+  }
+  calc_closest_az(dyads[tg == 5], DT, window)
+  dyads[, calc_closest_az(.SD, DT, window),
+        by = tg,
+        .SDcols = colnames(dyads)]
+
+  # TODO: dyads[, adj_closest := closest_az_with_f  - window - 1]
+
+
 
   # TODO: check where 2 pi differs
   # TODO: timing, improve
   # TODO: build into timegroup, maybe by building dyad * timegroup set
+
+
+
+  # TODO: switch datetime to group_times
+  cast <- dcast(DT, datetime ~ id, value.var = 'az')
+  spatsoc::group_times(cast, 'datetime')
+
 
   cast[between(timegroup, i - window, i + window),
        .SD,
@@ -248,3 +308,41 @@ plot(g)
 dir_cor_delay <- calc_dir_corr_delay(DT, window = 3)
 
 print(dir_cor_delay)
+
+
+
+n <- 10
+DT_test_A <- data.table(
+  x = -88 + cumsum(seq(1, 10, length.out = n)),
+  y = 55 + seq.int(n),
+  id =  'A'
+)
+DT_test_A[, datetime := seq.POSIXt(
+  as.POSIXct('2022-01-01 10:00:00'),
+  as.POSIXct('2022-01-02 10:00:00'),
+  length.out = .N),
+  by = id
+]
+DT_test <- rbindlist(list(
+  DT_test_A,
+  DT_test_A[, .(x = shift(x, -2) - 20, y = shift(y, -2), id = 'B',
+                datetime)],
+  DT_test_A[, .(x = shift(x, -2) - 15, y = shift(y, -1), id = 'C',
+                datetime)],
+  DT_test_A[, .(x = shift(x, 1) + 7, y = shift(y, 1), id = 'D',
+              datetime)],
+  DT_test_A[, .(x = shift(x, 2) + 10, y = shift(y, 2), id = 'E',
+                datetime)]
+))
+DT_test <- na.omit(DT_test)#[datetime %in% na.omit(DT_test)[, .N, datetime][N == 3, datetime]]
+spatsoc::group_times(DT_test, 'datetime')
+calc_dir_corr_delay(DT_test, window  = 2)
+# Error in st_as_sf.data.frame(.SD, coords = c("x", "y"), crs = 4326) :
+  # missing values in coordinates not allowed
+g <- ggplot(DT_test) +
+  geom_path(aes(x, y, color = id, group = id), arrow = arrow()) +
+  geom_label(aes(x, y, label = timegroup)) +
+  theme_bw()# +
+  # guides(size = 'none', color = 'none')
+print(g)
+
