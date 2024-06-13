@@ -42,10 +42,10 @@ calc_dir_corr_delay <- function(DT, window = 5) {
   )[ID1 != ID2]
 
   calc_closest_az <- function(dyad_DT, locs_DT, window) {
-    dyad_DT[, which.min(abs_diff_rad(
+    dyad_DT[, .(tg_delay = which.min(abs_diff_rad(
       locs_DT[.SD, az, on = .(id == ID1, timegroup == tg)],
       locs_DT[id == ID2 & between(timegroup, tg - window, tg + window), az]
-    )) - window - 1L,
+    )) - window - 1L),
     by = .(ID1, ID2), .SDcols = colnames(dyad_DT)]
   }
   dyads[, calc_closest_az(.SD, DT, window),
@@ -305,16 +305,10 @@ g <- ggplot(DT) +
 
 plot(g)
 
-dir_cor_delay <- calc_dir_corr_delay(DT, window = 3)
 
-print(dir_cor_delay)
-
-
-
-n <- 10
 DT_test_A <- data.table(
-  x = -88 + cumsum(seq(1, 10, length.out = n)),
-  y = 55 + seq.int(n),
+  x = c(0, -10, 0, 10, 5),
+  y = c(0, 10, 20, 10, 5),
   id =  'A'
 )
 DT_test_A[, datetime := seq.POSIXt(
@@ -323,26 +317,25 @@ DT_test_A[, datetime := seq.POSIXt(
   length.out = .N),
   by = id
 ]
+spatsoc::group_times(DT_test_A, 'datetime')
+DT_test_A[, datetime := NULL]
 DT_test <- rbindlist(list(
   DT_test_A,
-  DT_test_A[, .(x = shift(x, -2) - 20, y = shift(y, -2), id = 'B',
-                datetime)],
-  DT_test_A[, .(x = shift(x, -2) - 15, y = shift(y, -1), id = 'C',
-                datetime)],
-  DT_test_A[, .(x = shift(x, 1) + 7, y = shift(y, 1), id = 'D',
-              datetime)],
-  DT_test_A[, .(x = shift(x, 2) + 10, y = shift(y, 2), id = 'E',
-                datetime)]
-))
-DT_test <- na.omit(DT_test)#[datetime %in% na.omit(DT_test)[, .N, datetime][N == 3, datetime]]
-spatsoc::group_times(DT_test, 'datetime')
-calc_dir_corr_delay(DT_test, window  = 2)
+  DT_test_A[, .(x, y, timegroup = shift(timegroup, 0, type = 'cyclic'), id = 'B')],
+  DT_test_A[, .(x, y, timegroup = shift(timegroup, -1, type = 'cyclic'), id = 'C')],
+  DT_test_A[, .(x, y, timegroup = shift(timegroup, 1, type = 'cyclic'), id = 'D')],
+  DT_test_A[, .(x, y, timegroup = shift(timegroup, 2, type = 'cyclic'), id = 'E')]
+), use.names = TRUE)
+setorder(DT_test, timegroup)
+# DT_test <- na.omit(DT_test)#[datetime %in% na.omit(DT_test)[, .N, datetime][N == 3, datetime]]
+calc_dir_corr_delay(DT_test, window  = 1)[ID1 == 'A']
 # Error in st_as_sf.data.frame(.SD, coords = c("x", "y"), crs = 4326) :
   # missing values in coordinates not allowed
 g <- ggplot(DT_test) +
   geom_path(aes(x, y, color = id, group = id), arrow = arrow()) +
   geom_label(aes(x, y, label = timegroup)) +
-  theme_bw()# +
+  theme_bw() +
+  facet_wrap(~id)
   # guides(size = 'none', color = 'none')
 print(g)
 
