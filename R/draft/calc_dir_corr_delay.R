@@ -32,3 +32,20 @@ calc_closest_az <- function(dyad_DT, locs_DT, window) {
 cast_az <- function(DT) {
   as.matrix(dcast(DT, timegroup ~ id, value.var = 'az')[,-c(1)])
 }
+
+
+
+
+
+
+calc_delay <- function(DT) {
+  setorder(DT, timegroup)
+  id_tg <- DT[, .(ID1 = unique(id), focal_az = az),
+              by = .(tg = timegroup)][!is.na(focal_az)]
+  id_tg[, {
+    DT[between(timegroup, tg - window, tg + window) & id != .BY$ID1][,
+       .(delay = tg - timegroup[which.min(focal_az - az)]),
+       by = id]
+  }, by = .(ID1, tg)]
+}
+calc_delay(DT)
