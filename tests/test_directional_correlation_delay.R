@@ -14,21 +14,20 @@ targets::tar_source('R/draft')
 
 
 # Data --------------------------------------------------------------------
-DT_test_A <- data.table(
-  x = c(0, 10, 20),
-  y = c(0, 20, 30),
-  timegroup = c(4, 5, 6),
+DT_template <- data.table(
+  x = c(0, 10),
+  y = c(0, 20),
+  timegroup = c(4, 5),
   id =  'C'
 )
 
 DT_test <- rbindlist(list(
-  DT_test_A,
-  DT_test_A[, .(x, y, timegroup = timegroup - 2, id = 'A')],
-  DT_test_A[, .(x, y, timegroup = timegroup - 1, id = 'B')],
-  DT_test_A[, .(x, y, timegroup = timegroup + 1, id = 'D')]
+  DT_template,
+  DT_template[, .(x, y, timegroup = timegroup - 2, id = 'A')],
+  DT_template[, .(x, y, timegroup = timegroup - 1, id = 'B')],
+  DT_template[, .(x, y, timegroup = timegroup + 1, id = 'D')]
 ))
 
-setorder(DT_test, timegroup)
 
 
 # Test --------------------------------------------------------------------
