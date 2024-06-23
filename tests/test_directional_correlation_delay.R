@@ -50,6 +50,9 @@ expect_equal(
 )
 
 
+group_times(DT_fogo, 'datetime', '5 minutes')
+calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+calc_dir_corr_delay(DT_fogo, 2)
 # Plot --------------------------------------------------------------------
 g <- ggplot(DT_test, aes(x, y)) +
   geom_path(arrow = arrow()) +
