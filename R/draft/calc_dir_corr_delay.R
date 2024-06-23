@@ -38,14 +38,16 @@ cast_az <- function(DT) {
 
 
 
-calc_delay <- function(DT) {
+calc_delay <- function(DT, window) {
   setorder(DT, timegroup)
   id_tg <- DT[, .(ID1 = unique(id), focal_az = az),
               by = .(tg = timegroup)][!is.na(focal_az)]
   id_tg[, {
     DT[between(timegroup, tg - window, tg + window) & id != .BY$ID1][,
        .(delay = tg - timegroup[which.min(focal_az - az)]),
-       by = id]
+       by = .(ID2 = id)]
   }, by = .(ID1, tg)]
 }
-calc_delay(DT)
+calc_az(DT_test)
+calc_delay(DT_test, window = 3)
+DT_test
