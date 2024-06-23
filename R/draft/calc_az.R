@@ -6,6 +6,8 @@ calc_az <- function(DT) {
     by = id]
 }
 
+# TODO: option for projected coordinates?
+
 # TODO: lead/lag?
 
 # TODO: NaN return

@@ -8,3 +8,8 @@ calc_dir_corr_delay <- function(DT, window) {
        by = .(ID2 = id)]
   }, by = .(ID1, tg)]
 }
+# TODO: consider using new env() functionality from data.table
+# TODO: if so, refactor package to use throughout
+# TODO: check chmatch
+
+# TODO: is there some way to avoid double calculating
