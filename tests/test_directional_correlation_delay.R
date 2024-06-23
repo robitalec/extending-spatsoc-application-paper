@@ -4,10 +4,13 @@ library(ggplot2)
 library(sf)
 library(lwgeom)
 library(spatsoc)
+library(testthat)
+
 
 
 # Functions ---------------------------------------------------------------
 targets::tar_source('R/draft')
+
 
 
 # Data --------------------------------------------------------------------
