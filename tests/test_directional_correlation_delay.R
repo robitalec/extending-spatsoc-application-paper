@@ -34,16 +34,16 @@ DT_fogo <- fread('../prepare-locs/output/2023-10-12_NL-Fogo-Caribou-Telemetry.cs
 
 # Test --------------------------------------------------------------------
 calc_az(DT_test)
-calc_dir_corr_delay(DT_test, window = 3)
-DT_test
+calc_dir_corr_delay(DT_test, window = 3) |> print()
 
-# TODO: test where exaggerated window still returns same result
 
+# Test where exaggerated window size
 expect_equal(
   calc_dir_corr_delay(DT_test, window = 3),
   calc_dir_corr_delay(DT_test, window = 10)
 )
 
+# Even more exaggerated
 expect_equal(
   calc_dir_corr_delay(DT_test, window = 3),
   calc_dir_corr_delay(DT_test, window = 100)
