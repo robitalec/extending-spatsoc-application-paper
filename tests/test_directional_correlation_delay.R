@@ -37,8 +37,15 @@ DT_test
 
 # TODO: test where exaggerated window still returns same result
 
+expect_equal(
+  calc_dir_corr_delay(DT_test, window = 3),
+  calc_dir_corr_delay(DT_test, window = 10)
+)
 
-
+expect_equal(
+  calc_dir_corr_delay(DT_test, window = 3),
+  calc_dir_corr_delay(DT_test, window = 100)
+)
 
 
 # Plot --------------------------------------------------------------------
