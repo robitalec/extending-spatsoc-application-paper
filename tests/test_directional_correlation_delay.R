@@ -28,6 +28,8 @@ DT_test <- rbindlist(list(
   DT_template[, .(x, y, timegroup = timegroup + 3, id = 'D')]
 ))
 
+DT_fogo <- fread('../prepare-locs/output/2023-10-12_NL-Fogo-Caribou-Telemetry.csv')
+
 
 
 # Test --------------------------------------------------------------------
