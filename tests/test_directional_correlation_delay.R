@@ -18,14 +18,14 @@ DT_template <- data.table(
   x = c(0, 10),
   y = c(0, 20),
   timegroup = c(4, 5),
-  id =  'C'
+  id =  'A'
 )
 
 DT_test <- rbindlist(list(
   DT_template,
-  DT_template[, .(x, y, timegroup = timegroup - 2, id = 'A')],
-  DT_template[, .(x, y, timegroup = timegroup - 1, id = 'B')],
-  DT_template[, .(x, y, timegroup = timegroup + 1, id = 'D')]
+  DT_template[, .(x, y, timegroup = timegroup + 1, id = 'B')],
+  DT_template[, .(x, y, timegroup = timegroup + 2, id = 'C')],
+  DT_template[, .(x, y, timegroup = timegroup + 3, id = 'D')]
 ))
 
 
