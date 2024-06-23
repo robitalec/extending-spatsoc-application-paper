@@ -1,8 +1,9 @@
-calc_az <- function(DT) {
+calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
+  setorder(DT, timegroup)
   DT[, az := c(
     NA,
     units::drop_units(
-      lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = c('x', 'y'), crs = 4326)))),
+      lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = coords, crs = projection)))),
     by = id]
 }
 
