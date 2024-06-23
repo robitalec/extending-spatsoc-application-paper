@@ -29,58 +29,20 @@ setorder(DT_test, timegroup)
 
 
 # Test --------------------------------------------------------------------
-calc_dir_corr_delay(DT_test, window  = 1)# |>
-#   print()
-#
-# DT_test[, .BY, ]
-#
-# DT_test[DT_test[!id %in% .SD[, unique(id)],
-#                 .(timegroup_r = timegroup, id_r = id, az_r = az)],
-#         .(az - az_r, id),
-#         on = 'timegroup',
-#         by = .EACHI]
-# find a solution to taking a matrix of az in a window
-# and returning pairwise which min diff
-# then map over timegroup
+calc_az(DT_test)
+calc_dir_corr_delay(DT_test, window = 3)
+DT_test
 
-# by = .EACHI
-
-DT_test[, by = .EACHI]
-
-calc_delay <- function(DT) {
-  m <- cast_az(DT)
-  combs <- CJ(ID1 = seq.int(ncol(m)), ID2 = seq.int(ncol(m)))[ID1 != ID2]
-  combs[, .(delay =
-              which.min(
-                # focal timegroup observation for column V1
-                m[median(seq.int(nrow(m))), V1] -
-                  # moving window observation for column V2
-                  m[,V2])),
-        by = .(V1, V2)]
-}
-
-DT_test[, calc_delay(.SD), by = timegroup, .SDcols = colnames(DT_test)]
+# TODO: test where exaggerated window still returns same result
 
 
-m
-combs[, .(m[median(seq.int(nrow(m))), V1], m[,V2]),
-      by = .(V1, V2)]
 
-cast_az(DT_test) |>
-  filter(filter = 1)
 
-window <- 3
-DT_test[id == 'A' & !is.na(az)][,
-        apply(
-          dcast(DT_test[timegroup %in% seq.int(-window, window) + .BY[[2]]],
-                            timegroup ~ id, value.var = 'az')[, .SD, .SDcols = -c('timegroup')] - az,
-              MARGIN = 2, FUN = which.min),
-        by = .(id, timegroup)]
 
 # Plot --------------------------------------------------------------------
-g <- ggplot(DT_test) +
-  geom_path(aes(x, y, color = id, group = id), arrow = arrow()) +
-  geom_label(aes(x, y, label = timegroup)) +
+g <- ggplot(DT_test, aes(x, y)) +
+  geom_path(arrow = arrow()) +
+  geom_label(aes(label = timegroup)) +
   theme_bw() +
   facet_wrap(~id)
 print(g)
