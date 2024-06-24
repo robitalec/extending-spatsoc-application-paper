@@ -14,4 +14,4 @@ calc_dir_corr_delay <- function(DT, window) {
 # TODO: if so, refactor package to use throughout
 # TODO: check chmatch
 
-# TODO: is there some way to avoid double calculating
+# TODO: is there some way to avoid double calculating, with dyadID?
