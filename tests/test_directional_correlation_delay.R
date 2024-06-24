@@ -28,13 +28,15 @@ DT_test <- rbindlist(list(
   DT_template[, .(x, y, timegroup = timegroup + 3, id = 'D')]
 ))
 
-DT_fogo <- fread('../prepare-locs/output/2023-10-12_NL-Fogo-Caribou-Telemetry.csv')
+DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
 
 
 # Test --------------------------------------------------------------------
 calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
-calc_dir_corr_delay(DT_test, window = 3) |> print()
+edge_test <- edge_az(DT_test, NULL, id = 'id', coords = c('x', 'y'),
+                     timegroup = 'timegroup', returnDist = TRUE)
+calc_dir_corr_delay_from_DT(edge_test, window = 3) |> print()
 
 
 # Test where exaggerated window size
@@ -49,17 +51,15 @@ expect_equal(
   calc_dir_corr_delay(DT_test, window = 100)
 )
 
-
+# Test with Fogo
 group_times(DT_fogo, 'datetime', '5 minutes')
 calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
 edges <- edge_az(DT_fogo, threshold = NULL, id = 'id', coords = c('x_proj', 'y_proj'),
                  timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-# TODO: why ID1 / ID2 empty? when returnDist = FALSE
-calc_dir_corr_delay(edges[distance < 5], 2)
-# TODO: precursor to this function should be group_pts
-# TODO: then !! figure out a run of group function or something
-#       it cant be/shouldnt be all data
-# TODO: profile
+calc_dir_corr_delay(edges[distance < 50], 2)
+
+# TODO: test ID1, ID2 are never empty
+
 
 # Plot --------------------------------------------------------------------
 g <- ggplot(DT_test, aes(x, y)) +
