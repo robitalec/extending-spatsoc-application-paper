@@ -7,18 +7,19 @@
 # what about edge_az following edge_dist with a threshold but
 #  computes the az difference in radians (with 2pi check) and also returns dist
 # that could be passed to calc dir corr delay and directly
-calc_dir_corr_delay <- function(DT, edges, window) {
+calc_dir_corr_delay <- function(DT, window) {
   setorder(DT, timegroup)
-  setorder(edges, timegroup)
-  # id_tg <- DT[, .(ID1 = unique(id), focal_az = az),
-  #             by = .(tg = timegroup)][!is.na(focal_az)]
-  edges[DT, focal_az := az, on = .(ID1 == id, timegroup)]
+  # setorder(edges, timegroup)
+  # id_tg <- DT[, .(ID1 = unique(ID1)),
+  #             by = .(tg = timegroup)]#[!is.na(focal_az)]
+  # edges[DT, focal_az := az, on = .(ID1 == id, timegroup)]
   # id_tg <- edges[DT, .(focal_az = az), on = .(ID1 == id, timegroup)]
   # setnames(id_tg, 'timegroup', 'tg')
-  id_tg[, {
-    DT[between(timegroup, tg - window, tg + window) & id == .BY$ID2][,
-       .(delay = tg - timegroup[which.min(focal_az - az)])]
-  }, by = .(ID1, ID2, tg)]
+  DT[, {
+    DT[between(timegroup, tg - window, tg + window) & ID2 != .BY$ID1][,
+       .(delay = tg - timegroup[which.min(diff_az)]),
+       by = ID2]
+  }, by = .(ID1, ID2, tg = timegroup)]
 }
 # Note: results must be saved like edge_ functions
 # Naming: edge_dir_delay?
