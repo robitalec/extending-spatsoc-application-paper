@@ -1,4 +1,12 @@
-calc_dir_corr_delay <- function(DT, window) {
+# because we don't anticipate a user wants to calculate this metric
+#  for all rows, consider the precursor steps
+# group_times for temporal grouping
+# edge_dist for distance between individuals, with some threshold
+# return distance = true to allow comparing the distance to the resulting metric
+
+# what about edge_az following edge_dist with a threshold but
+#  computes the az difference in radians (with 2pi check) and also returns dist
+# that could be passed to calc dir corr delay and directly
 calc_dir_corr_delay <- function(DT, edges, window) {
   setorder(DT, timegroup)
   setorder(edges, timegroup)
