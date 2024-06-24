@@ -52,9 +52,10 @@ expect_equal(
 
 group_times(DT_fogo, 'datetime', '5 minutes')
 calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-edges <- edge_dist(DT_fogo, 50, id = 'id', coords = c('x_proj', 'y_proj'),
-                   timegroup = 'timegroup', fillNA = FALSE)
-calc_dir_corr_delay(DT_fogo, edges, 2)
+edges <- edge_az(DT_fogo, threshold = NULL, id = 'id', coords = c('x_proj', 'y_proj'),
+                 timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
+# TODO: why ID1 / ID2 empty? when returnDist = FALSE
+calc_dir_corr_delay(edges[distance < 5], 2)
 # TODO: precursor to this function should be group_pts
 # TODO: then !! figure out a run of group function or something
 #       it cant be/shouldnt be all data
