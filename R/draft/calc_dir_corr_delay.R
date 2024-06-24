@@ -8,6 +8,8 @@ calc_dir_corr_delay <- function(DT, window) {
        by = .(ID2 = id)]
   }, by = .(ID1, tg)]
 }
+# Note: results must be saved like edge_ functions
+# Naming: edge_dir_delay?
 # TODO: consider using new env() functionality from data.table
 # TODO: if so, refactor package to use throughout
 # TODO: check chmatch

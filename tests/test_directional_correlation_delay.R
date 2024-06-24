@@ -53,7 +53,9 @@ expect_equal(
 group_times(DT_fogo, 'datetime', '5 minutes')
 calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
 calc_dir_corr_delay(DT_fogo, 2)
-bench::mark(calc_dir_corr_delay(DT_fogo, 2))
+# TODO: precursor to this function should be group_pts
+# TODO: then !! figure out a run of group function or something
+#       it cant be/shouldnt be all data
 # TODO: profile
 
 # Plot --------------------------------------------------------------------
