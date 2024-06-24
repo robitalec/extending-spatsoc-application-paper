@@ -103,21 +103,30 @@ edge_az <- function(DT = NULL,
         as.matrix(stats::dist(.SD[, 2:3], method = 'euclidean'))
       diag(distMatrix) <- NA
 
+      azMatrix <-
+        as.matrix(stats::dist(.SD[, 4], method = 'euclidean'))
+      # TODO: can it actually be > 2 * pi?
+      # azMatrix[azMatrix > (2 * pi)] <- azMatrix[azMatrix > (2 * pi)] - (2 * pi)
+      diag(azMatrix) <- NA
+
+
       if (returnDist) {
         l <- data.table::data.table(
           ID1 = .SD[[1]][rep(seq_len(nrow(distMatrix)), ncol(distMatrix))],
           ID2 = .SD[[1]][rep(seq_len(ncol(distMatrix)), each = nrow(distMatrix))],
-          distance = c(distMatrix)
+          distance = c(distMatrix),
+          diff_az = c(azMatrix)
         )[ID1 != ID2]
       } else {
         l <- data.table::data.table(
           ID1 = .SD[[1]][rep(seq_len(nrow(distMatrix)), ncol(distMatrix))],
-          ID2 = .SD[[1]][rep(seq_len(ncol(distMatrix)), each = nrow(distMatrix))]
+          ID2 = .SD[[1]][rep(seq_len(ncol(distMatrix)), each = nrow(distMatrix))],
+          diff_az = c(azMatrix)
         )[ID1 != ID2]
       }
       l
     },
-    by = splitBy, .SDcols = c(id, coords)]
+    by = splitBy, .SDcols = c(id, coords, 'az')]
   } else {
     edges <- DT[, {
 
