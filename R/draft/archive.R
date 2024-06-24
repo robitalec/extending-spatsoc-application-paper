@@ -1,4 +1,4 @@
-calc_dir_corr_delay <- function(DT, window = 5) {
+zz_dir_corr_delay <- function(DT, window = 5) {
   calc_az(DT)
   dyads <- CJ(
     ID1 = unique(DT$id),
