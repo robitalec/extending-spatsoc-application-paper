@@ -33,7 +33,7 @@ DT_fogo <- fread('../prepare-locs/output/2023-10-12_NL-Fogo-Caribou-Telemetry.cs
 
 
 # Test --------------------------------------------------------------------
-calc_az(DT_test)
+calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
 calc_dir_corr_delay(DT_test, window = 3) |> print()
 
 
