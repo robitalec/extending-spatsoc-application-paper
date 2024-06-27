@@ -57,11 +57,13 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
   theme_bw()
-g2 <- ggplot(fiss_fus,
-             aes(timegroup,  dyad_fusion_id, color = dyadID, group = dyad_fusion_id)) +
+g2 <- ggplot(fiss_fus[!is.na(runID)],
+             aes(timegroup,  dyadID, shape = factor(runID), group = runID)) +
   geom_line() +
   geom_point() +
+  labs(shape = 'runID') +
   theme_bw()
+
 print(g / g2)
 
 
