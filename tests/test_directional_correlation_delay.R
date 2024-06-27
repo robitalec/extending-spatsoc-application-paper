@@ -15,18 +15,20 @@ targets::tar_source('R/draft')
 
 # Data --------------------------------------------------------------------
 DT_template <- data.table(
-  x = c(0, 10),
-  y = c(0, 20),
-  timegroup = c(4, 5),
+  x = c(0, 10, 10, 0, 0),
+  y = c(0, 0, 10, 10, 0),
+  timegroup = seq.int(5),
   id =  'A'
 )
 
 DT_test <- rbindlist(list(
   DT_template,
-  DT_template[, .(x, y, timegroup = timegroup + 1, id = 'B')],
-  DT_template[, .(x, y, timegroup = timegroup + 2, id = 'C')],
-  DT_template[, .(x, y, timegroup = timegroup + 3, id = 'D')]
-))
+  DT_template[, .(x = x - 1, y = y - 1, timegroup = timegroup + 1, id = 'B')],
+  DT_template[, .(x = x - 3, y = y - 3, timegroup = timegroup + 2, id = 'C')],
+  data.table(x = c(20, 20, -20), y = c(-20, -20, -20), timegroup = c(1, 2, 1),
+             id = c('C', 'C', 'B'))
+))[timegroup > 0]
+setorder(DT_test, 'timegroup')
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
