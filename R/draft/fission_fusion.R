@@ -7,20 +7,19 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
   unique_edges[, within := distance < threshold]
   unique_edges[, tg_diff := c(NA, diff(timegroup)), by = dyadID]
   unique_edges[, run_id := fifelse(
+  unique_edges[, runID := fifelse(
     within,
-    rleid(tg_diff <= 1 + max_missing_obs & within),
     rleid((tg_diff <= 1 + n_max_missing)),
     NA_integer_),
   by = dyadID]
 
   if (!is.null(min_run_len)) {
-    unique_edges[!is.na(run_id),
-                 by = .(dyadID, run_id)]
+    unique_edges[!is.na(runID),
                  runID := fifelse(.N >= min_run_len, runID, NA_integer_),
+                 by = .(dyadID, runID)]
   }
 
-  unique_edges[!is.na(run_id), dyad_fusion_id := .GRP, by = .(dyadID, run_id)]
-  unique_edges[, c('within', 'tg_diff', 'run_id') := NULL]
+  unique_edges[!is.na(runID), runID := .GRP, by = .(dyadID, runID)]
 
   # return merged?
   # edges[unique_edges, dyad_fusion_id := dyad_fusion_id, on = .(timegroup, dyadID)]
