@@ -35,10 +35,19 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 
 # Test --------------------------------------------------------------------
+edges <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
+                   coords = c('x', 'y'), returnDist = TRUE, fillNA = FALSE)
 calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
+dyad_id(edges, 'ID1', 'ID2')
+fiss_fus <- fission_fusion(edges, threshold = 20,
+                           min_run_len = 1, n_max_missing = 0)
+
+calc_dir_corr_delay(DT_test, fiss_fus, window = 2)
+
+
 edge_test <- edge_az(DT_test, NULL, id = 'id', coords = c('x', 'y'),
                      timegroup = 'timegroup', returnDist = TRUE)
-calc_dir_corr_delay_from_DT(edge_test, window = 3) |> print()
+calc_dir_corr_delay(edge_test, window = 3) |> print()
 
 
 # Test where exaggerated window size
@@ -54,11 +63,11 @@ expect_equal(
 )
 
 # Test with Fogo
-group_times(DT_fogo, 'datetime', '5 minutes')
-calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-edges <- edge_az(DT_fogo, threshold = NULL, id = 'id', coords = c('x_proj', 'y_proj'),
-                 timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-calc_dir_corr_delay(edges[distance < 50], 2)
+# group_times(DT_fogo, 'datetime', '5 minutes')
+# calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+# edges <- edge_az(DT_fogo, threshold = NULL, id = 'id', coords = c('x_proj', 'y_proj'),
+#                  timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
+# calc_dir_corr_delay(edges[distance < 50], 2)
 
 # TODO: test ID1, ID2 are never empty
 
