@@ -5,3 +5,4 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
   setorder(unique_edges, 'timegroup')
 
   unique_edges[, within := distance < threshold]
+  unique_edges[, tg_diff := c(NA, diff(timegroup)), by = dyadID]
