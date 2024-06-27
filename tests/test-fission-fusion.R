@@ -46,7 +46,7 @@ edges <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x', 'y'), returnDist = TRUE)
 dyad_id(edges, 'ID1', 'ID2')
 fiss_fus <- fission_fusion(edges, threshold = 10,
-                           min_run_len = 3, n_max_missing = 1)
+                           min_run_len = 1, n_max_missing = 1)
 print(fiss_fus[dyadID == 'A-C'])
 
 fiss_fus[order(timegroup)]
