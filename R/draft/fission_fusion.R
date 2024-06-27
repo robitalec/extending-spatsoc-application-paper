@@ -17,3 +17,13 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
                  run_id := fifelse(.N >= min_run_len, run_id, NA),
                  by = .(dyadID, run_id)]
   }
+
+  unique_edges[!is.na(run_id), dyad_fusion_id := .GRP, by = .(dyadID, run_id)]
+  unique_edges[, c('within', 'tg_diff', 'run_id') := NULL]
+
+  # return merged?
+  # edges[unique_edges, dyad_fusion_id := dyad_fusion_id, on = .(timegroup, dyadID)]
+  # return(edges)
+
+  return(unique_edges)
+}
