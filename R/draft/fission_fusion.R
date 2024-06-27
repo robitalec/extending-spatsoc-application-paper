@@ -9,14 +9,14 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
   unique_edges[, run_id := fifelse(
     within,
     rleid(tg_diff <= 1 + max_missing_obs & within),
-    NA),
     rleid((tg_diff <= 1 + n_max_missing)),
+    NA_integer_),
   by = dyadID]
 
   if (!is.null(min_run_len)) {
     unique_edges[!is.na(run_id),
-                 run_id := fifelse(.N >= min_run_len, run_id, NA),
                  by = .(dyadID, run_id)]
+                 runID := fifelse(.N >= min_run_len, runID, NA_integer_),
   }
 
   unique_edges[!is.na(run_id), dyad_fusion_id := .GRP, by = .(dyadID, run_id)]
