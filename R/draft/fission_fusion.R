@@ -19,13 +19,15 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
   }
 
   unique_edges[!is.na(runID), runID := .GRP, by = .(dyadID, runID)]
-
-  # return merged?
-  # edges[unique_edges, dyad_fusion_id := dyad_fusion_id, on = .(timegroup, dyadID)]
-  # return(edges)
+  unique_edges[, c('within', 'tg_diff') := NULL]
 
   return(unique_edges)
 }
 
 # TODO: move to vignette
 # unique_edges[!is.na(run_id), dyad_run_len := max(timegroup) - min(timegroup), by = .(dyadID, run_id)]
+
+# TODO: consider
+# return merged?
+# edges[unique_edges, dyad_fusion_id := dyad_fusion_id, on = .(timegroup, dyadID)]
+# return(edges)
