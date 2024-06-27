@@ -30,7 +30,7 @@ DT_test <- rbindlist(list(
   DT_template,
   DT_template[, .(x, y = y * -1, timegroup, id = 'B')],
   DT_template[, .(x, y = y - 5, timegroup, id = 'C')]
-))[!(id == 'C' & timegroup == 4)]
+))[!(id == 'C' & timegroup == 4)][!(id == 'C' & timegroup %in% c(6, 7))]
 
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
