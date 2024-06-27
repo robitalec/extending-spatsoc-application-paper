@@ -73,12 +73,8 @@ expect_equal(
 
 
 # Plot --------------------------------------------------------------------
-g <- ggplot(DT_test, aes(x, y)) +
+g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
-  theme_bw() +
-  facet_wrap(~id)
+  theme_bw()
 print(g)
-
-
-
