@@ -6,3 +6,8 @@ fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
 
   unique_edges[, within := distance < threshold]
   unique_edges[, tg_diff := c(NA, diff(timegroup)), by = dyadID]
+  unique_edges[, run_id := fifelse(
+    within,
+    rleid(tg_diff <= 1 + max_missing_obs & within),
+    NA),
+  by = dyadID]
