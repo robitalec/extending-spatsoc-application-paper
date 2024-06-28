@@ -46,12 +46,15 @@ dyad_id(edges_test, 'ID1', 'ID2')
 fission_fusion(edges_test, threshold = 10, n_min_length = 1, n_max_missing = 1)
 
 print(edges_test[dyadID == 'A-C'])
+group_times(DT_fogo, 'datetime', '10 minutes')
+setorder(DT_fogo, timegroup)
+edges <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
+                   coords = c('x_proj', 'y_proj'), returnDist = TRUE, fillNA = FALSE)
 dyad_id(edges, 'ID1', 'ID2')
-fiss_fus <- fission_fusion(edges, threshold = 10,
-                           min_run_len = 1, n_max_missing = 1)
-print(fiss_fus[dyadID == 'A-C'])
+fission_fusion(edges, threshold = 50, n_min_length = 1, n_max_missing = 1)
 
-fiss_fus[order(timegroup)]
+print(edges[dyadID == 'FO2016008-FO2017007'])
+
 
 
 # Plot --------------------------------------------------------------------
