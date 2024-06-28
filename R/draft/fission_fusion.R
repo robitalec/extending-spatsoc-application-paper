@@ -22,7 +22,8 @@ fission_fusion <- function(edges, threshold = 50,
   unique_edges[!is.na(fusionID), fusionID := .GRP, by = .(dyadID, fusionID)]
   unique_edges[, c('within', 'tg_diff') := NULL]
 
-  return(unique_edges)
+  edges[unique_edges, fusionID := fusionID, on = .(timegroup, dyadID)]
+  return(edges)
 }
 
 # TODO: move to vignette
