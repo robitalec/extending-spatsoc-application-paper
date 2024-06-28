@@ -19,15 +19,22 @@ calc_dir_corr_delay <- function(DT, edges, window) {
   id_tg[, min_tg := fifelse(tg - window < min(tg), min(tg), tg - window), by = fusionID]
   id_tg[, max_tg := fifelse(tg + window < min(tg), min(tg), tg + window), by = fusionID]
 
-  id_tg <- fusion[, .(ID1 = unique(ID1)),
-              by = .(tg = timegroup)]
+  id_tg[, delay_tg := {
+    # This:
+    # which.min(DT[timegroup == .BY$tg & id == ID1, az]  -
+    #             DT[between(timegroup, min_tg, max_tg) & id == ID2, az])
 
-  id_tg[, {
-    DT[between(timegroup, tg - window, tg + window) & id != .BY$ID1][,
-                                                                     # TODO: caution if timegroup = 1, delay will be -1 without any valid observations
-                                                                     .(delay = tg - timegroup[which.min(focal_az - az)]),
-                                                                     by = id]
-  }, by = .(ID1, tg)]
+    # OR:
+    focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
+    DT[between(timegroup, min_tg, max_tg) & id == ID2,
+       timegroup[abs(which.max(focal_az - az))]]
+    # DT[between(timegroup, tg - window, tg + window) & id != .BY$ID1][,
+     # TODO: caution if timegroup = 1, delay will be -1 without any valid observations
+     # .(delay = tg - timegroup[which.min(focal_az - az)]),
+     # by = id]
+  }, by = .(dyadID, tg)]
+
+  # TODO more fifelse
 
   # id_tg <- DT[, .(ID1 = unique(ID1)),
   #             by = .(tg = timegroup)]#[!is.na(focal_az)]
@@ -35,14 +42,14 @@ calc_dir_corr_delay <- function(DT, edges, window) {
   # id_tg <- edges[DT, .(focal_az = az), on = .(ID1 == id, timegroup)]
   # setnames(id_tg, 'timegroup', 'tg')
   # TODO: returnDist = TRUE option and if TRUE then check col exists
-  DT[, {
-    DT[between(timegroup, tg - window, tg + window) & ID2 != .BY$ID1][,{
-      min_diff_az <- which.min(diff_az)
-      .(delay = tg - timegroup[min_diff_az],
-        distance = distance[min_diff_az])
-    },
-       by = ID2]
-  }, by = .(ID1, ID2, tg = timegroup)]
+  # DT[, {
+  #   DT[between(timegroup, tg - window, tg + window) & ID2 != .BY$ID1][,{
+  #     min_diff_az <- which.min(diff_az)
+  #     .(delay = tg - timegroup[min_diff_az],
+  #       distance = distance[min_diff_az])
+  #   },
+  #      by = ID2]
+  # }, by = .(ID1, ID2, tg = timegroup)]
 }
 # Note: results must be saved like edge_ functions
 # Naming: edge_dir_delay?
