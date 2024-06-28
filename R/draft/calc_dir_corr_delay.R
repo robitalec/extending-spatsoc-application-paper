@@ -10,7 +10,12 @@
 calc_dir_corr_delay <- function(DT, edges, window) {
   setorder(DT, timegroup)
 
-  fusion[, ID1 := tstrsplit(dyadID, '-', keep = 1)]
+  id_tg <- edges[!is.na(fusionID), .(
+    tg = unique(timegroup),
+    dyadID = unique(dyadID),
+    ID1 = first(ID1),
+    ID2 = first(ID2)
+    ), by = fusionID]
 
   id_tg <- fusion[, .(ID1 = unique(ID1)),
               by = .(tg = timegroup)]
