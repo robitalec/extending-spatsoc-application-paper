@@ -16,6 +16,8 @@ calc_dir_corr_delay <- function(DT, edges, window) {
     ID1 = first(ID1),
     ID2 = first(ID2)
     ), by = fusionID]
+  id_tg[, min_tg := fifelse(tg - window < min(tg), min(tg), tg - window), by = fusionID]
+  id_tg[, max_tg := fifelse(tg + window < min(tg), min(tg), tg + window), by = fusionID]
 
   id_tg <- fusion[, .(ID1 = unique(ID1)),
               by = .(tg = timegroup)]
