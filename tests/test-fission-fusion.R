@@ -46,6 +46,8 @@ dyad_id(edges_test, 'ID1', 'ID2')
 fission_fusion(edges_test, threshold = 10, n_min_length = 1, n_max_missing = 1)
 
 print(edges_test[dyadID == 'A-C'])
+
+
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
 edges <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
@@ -72,4 +74,21 @@ g2 <- ggplot(edges_test[!is.na(fusionID)],
 print(g / g2)
 
 
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 100]
+g <- ggplot(sub_fogo,
+            aes(x_proj, y_proj, color = id)) +
+  geom_path() +
+  geom_label(aes(label = timegroup),
+            data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
+  theme_bw()
+sub_edges <- edges[ID1 %in% c('FO2016008', 'FO2017007') &
+                     ID2 %in% c('FO2016008', 'FO2017007') &
+                     timegroup < 100]
+g2 <- ggplot(sub_edges,
+             aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point() +
+  labs(shape = 'fusionID') +
+  theme_bw()
 
+print(g / g2)
