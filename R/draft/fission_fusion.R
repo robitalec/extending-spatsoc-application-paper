@@ -13,9 +13,9 @@ fission_fusion <- function(edges, threshold = 50,
     NA_integer_),
   by = dyadID]
 
-  if (!is.null(min_run_len)) {
+  if (!is.null(n_min_length)) {
     unique_edges[!is.na(fusionID),
-                 fusionID := fifelse(.N >= min_run_len, fusionID, NA_integer_),
+                 fusionID := fifelse(.N >= n_min_length, fusionID, NA_integer_),
                  by = .(dyadID, fusionID)]
   }
 
