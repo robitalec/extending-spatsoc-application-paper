@@ -39,11 +39,13 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 # Test --------------------------------------------------------------------
 setorder(DT_test, timegroup)
-group_pts(DT_test, threshold = 5, timegroup = 'timegroup',
-          coords = c('x', 'y'), id = 'id')
 
-edges <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
+edges_test <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x', 'y'), returnDist = TRUE)
+dyad_id(edges_test, 'ID1', 'ID2')
+fission_fusion(edges_test, threshold = 10, n_min_length = 1, n_max_missing = 1)
+
+print(edges_test[dyadID == 'A-C'])
 dyad_id(edges, 'ID1', 'ID2')
 fiss_fus <- fission_fusion(edges, threshold = 10,
                            min_run_len = 1, n_max_missing = 1)
@@ -57,11 +59,11 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
   theme_bw()
-g2 <- ggplot(fiss_fus[!is.na(runID)],
-             aes(timegroup,  dyadID, shape = factor(runID), group = runID)) +
+g2 <- ggplot(edges_test[!is.na(fusionID)],
+             aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point() +
-  labs(shape = 'runID') +
+  labs(shape = 'fusionID') +
   theme_bw()
 
 print(g / g2)
