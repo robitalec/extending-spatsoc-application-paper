@@ -7,6 +7,9 @@ calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
     by = id]
 }
 
+# https://postgis.net/docs/ST_Azimuth.html
+
+
 # TODO: option for projected coordinates?
 
 # TODO: lead/lag?
