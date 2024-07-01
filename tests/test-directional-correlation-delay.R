@@ -42,7 +42,7 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 setorder(DT_test, timegroup)
 
-threshold <- 15
+threshold <- 20
 edges_test <- edge_dist(DT_test, threshold = threshold, id = 'id',
                         timegroup = 'timegroup', coords = c('x', 'y'),
                         returnDist = TRUE, fillNA = FALSE)
@@ -50,22 +50,22 @@ dyad_id(edges_test, 'ID1', 'ID2')
 fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
 print(edges_test[dyadID == 'A-B'])
+print(edges_test[dyadID == 'C-D'])
 
 calc_az(DT_test, coords = c('x', 'y'), projection = 4326)[]
-dir_delay_test <- calc_dir_corr_delay(DT_test, edges_test, window = 1)[]
-
+dir_delay_test <- calc_dir_corr_delay(DT_test, edges_test, window = 1)
 
 
 # Test where exaggerated window size
 expect_equal(
-  calc_dir_corr_delay(DT_test, window = 3),
-  calc_dir_corr_delay(DT_test, window = 10)
+  calc_dir_corr_delay(DT_test, edges_test, window = 3),
+  calc_dir_corr_delay(DT_test, edges_test, window = 10)
 )
 
 # Even more exaggerated
 expect_equal(
-  calc_dir_corr_delay(DT_test, window = 3),
-  calc_dir_corr_delay(DT_test, window = 100)
+  calc_dir_corr_delay(DT_test, edges_test, window = 3),
+  calc_dir_corr_delay(DT_test, edges_test, window = 100)
 )
 
 # Test with Fogo
@@ -88,4 +88,3 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
   theme_bw()
-print(g)
