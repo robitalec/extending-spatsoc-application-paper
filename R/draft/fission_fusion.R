@@ -1,27 +1,29 @@
-fission_fusion <- function(edges, threshold = 50, min_run_len = 2,
-                           n_max_missing = 0)  {
+fission_fusion <- function(edges, threshold = 50,
+                           n_min_length = 2, n_max_missing = 0)  {
+  # TODO: check for dyadID
   unique_edges <- unique(edges[, .(dyadID, timegroup, distance)])
 
   setorder(unique_edges, 'timegroup')
 
   unique_edges[, within := distance < threshold]
   unique_edges[, tg_diff := shift(timegroup, -1, fill = -999) - timegroup, by = dyadID]
-  unique_edges[, runID := fifelse(
+  unique_edges[, fusionID := fifelse(
     within,
     rleid((tg_diff <= 1 + n_max_missing)),
     NA_integer_),
   by = dyadID]
 
-  if (!is.null(min_run_len)) {
-    unique_edges[!is.na(runID),
-                 runID := fifelse(.N >= min_run_len, runID, NA_integer_),
-                 by = .(dyadID, runID)]
+  if (!is.null(n_min_length)) {
+    unique_edges[!is.na(fusionID),
+                 fusionID := fifelse(.N >= n_min_length, fusionID, NA_integer_),
+                 by = .(dyadID, fusionID)]
   }
 
-  unique_edges[!is.na(runID), runID := .GRP, by = .(dyadID, runID)]
+  unique_edges[!is.na(fusionID), fusionID := .GRP, by = .(dyadID, fusionID)]
   unique_edges[, c('within', 'tg_diff') := NULL]
 
-  return(unique_edges)
+  edges[unique_edges, fusionID := fusionID, on = .(timegroup, dyadID)]
+  return(edges)
 }
 
 # TODO: move to vignette
