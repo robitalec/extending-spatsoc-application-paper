@@ -77,7 +77,7 @@ dyad_id(edges, 'ID1', 'ID2')
 fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
 calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_corr_delay <- calc_dir_corr_delay(DT_fogo, edges, window = 2)
+dir_delay_fogo <- calc_dir_corr_delay(DT_fogo, edges, window = 2)
 
 
 
