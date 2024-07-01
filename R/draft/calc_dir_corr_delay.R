@@ -1,4 +1,5 @@
 calc_dir_corr_delay <- function(DT, edges, window) {
+  stopifnot('dyadID' %in% colnames(edges))
   setorder(DT, timegroup)
 
   id_tg <- edges[!is.na(fusionID), .(
