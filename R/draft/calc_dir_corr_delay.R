@@ -11,11 +11,6 @@ calc_dir_corr_delay <- function(DT, edges, window) {
   id_tg[, max_tg := fifelse(tg + window < min(tg), min(tg), tg + window), by = fusionID]
 
   id_tg[, delay_tg := {
-    # This:
-    # which.min(DT[timegroup == .BY$tg & id == ID1, az]  -
-    #             DT[between(timegroup, min_tg, max_tg) & id == ID2, az])
-
-    # OR:
     focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
     DT[between(timegroup, min_tg, max_tg) & id == ID2,
        timegroup[which.min(abs(focal_az -  az))]]
