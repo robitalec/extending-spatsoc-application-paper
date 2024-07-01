@@ -14,21 +14,28 @@ targets::tar_source('R/draft')
 
 
 # Data --------------------------------------------------------------------
-DT_template <- data.table(
-  x = c(0, 10, 10, 0, 0),
-  y = c(0, 0, 10, 10, 0),
-  timegroup = seq.int(5),
+DT_A <- data.table(
+  x = c(-10, -5, 0, 10, 10, 0),
+  y = c(1, 1, 1, 1, 11, 11),
   id =  'A'
-)
+)[, timegroup := seq.int(.N)]
 
-DT_test <- rbindlist(list(
-  DT_template,
-  DT_template[, .(x = x - 1, y = y - 1, timegroup = timegroup + 1, id = 'B')],
-  DT_template[, .(x = x - 3, y = y - 3, timegroup = timegroup + 2, id = 'C')],
-  data.table(x = c(30, 20, -20), y = c(-30, -20, -20), timegroup = c(1, 2, 1),
-             id = c('C', 'C', 'B'))
-))[timegroup > 0]
-setorder(DT_test, 'timegroup')
+DT_B <- data.table(
+  x = c(1, 1, 11, 11, 1),
+  y = c(-10, 0, 0, 10,  10),
+  id =  'B'
+)[, timegroup := seq.int(.N)]
+
+DT_test  <- rbindlist(list(
+  DT_A, DT_B
+))
+#
+# DT_test <- rbindlist(list(
+#   DT_template,
+#   DT_template[, .(x, y = y * -1, timegroup, id = 'B')],
+#   DT_template[, .(x, y = y - 5, timegroup, id = 'C')]
+# ))[!(id == 'C' & timegroup == 4)][!(id == 'C' & timegroup %in% c(6, 7))]
+
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
