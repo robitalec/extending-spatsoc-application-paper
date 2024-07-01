@@ -27,7 +27,7 @@ calc_dir_corr_delay <- function(DT, edges, window) {
     # OR:
     focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
     DT[between(timegroup, min_tg, max_tg) & id == ID2,
-       timegroup[abs(which.max(focal_az - az))]]
+       timegroup[which.min(abs(focal_az -  az))]]
     # DT[between(timegroup, tg - window, tg + window) & id != .BY$ID1][,
      # TODO: caution if timegroup = 1, delay will be -1 without any valid observations
      # .(delay = tg - timegroup[which.min(focal_az - az)]),
