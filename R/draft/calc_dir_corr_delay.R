@@ -30,15 +30,3 @@ calc_dir_corr_delay <- function(DT, edges, window) {
   ), use.names = TRUE)
 
 }
-
-# Note: results must be saved like edge_ functions
-# Naming: edge_dir_delay?
-# TODO: consider using new env() functionality from data.table
-# TODO: if so, refactor package to use throughout
-# TODO: check chmatch
-
-# TODO: is there some way to avoid double calculating, with dyadID?
-
-# TODO: if only one observation eg. run of 1 observations grouped
-#       what should we return?
-# TODO: profile
