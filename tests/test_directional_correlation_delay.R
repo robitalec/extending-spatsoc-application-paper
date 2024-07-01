@@ -44,13 +44,17 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 setorder(DT_test, timegroup)
 
-edges_test <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
-                        coords = c('x', 'y'), returnDist = TRUE)
+threshold <- 50
+edges_test <- edge_dist(DT_test, threshold = threshold, id = 'id',
+                        timegroup = 'timegroup', coords = c('x', 'y'),
+                        returnDist = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
-fission_fusion(edges_test, threshold = 10, n_min_length = 1, n_max_missing = 1)
-calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
+fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)
 
-calc_dir_corr_delay(DT_test, edges_test, window = 2)[]
+print(edges_test[dyadID == 'A-B'])
+
+calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
+calc_dir_corr_delay(DT_test, edges_test, window = 1)[]
 
 
 
