@@ -88,3 +88,24 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
   theme_bw()
+
+g_delay <- ggplot(dir_delay_test) +
+  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
+  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
+  theme_bw()
+print(g / g_delay)
+
+
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
+g <- ggplot(sub_fogo,
+            aes(x_proj, y_proj, color = id)) +
+  geom_path() +
+  geom_label(aes(label = timegroup),
+             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
+  theme_bw()
+g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
+  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
+  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
+  theme_bw()
+
+print(g / g2)
