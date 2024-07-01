@@ -14,7 +14,7 @@ calc_dir_corr_delay <- function(DT, edges, window) {
   id_tg[, delay_tg := {
     focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
     DT[between(timegroup, min_tg, max_tg) & id == ID2,
-       timegroup[which.min(abs(focal_az -  az))]]
+       timegroup[which.min(delta_rad(focal_az, az))]]
   }, by = .(tg,  dyadID)]
 
   id_tg[, dir_corr_delay := tg - delay_tg]
