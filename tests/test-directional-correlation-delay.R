@@ -5,6 +5,8 @@ library(sf)
 library(lwgeom)
 library(spatsoc)
 library(testthat)
+library(scico)
+library(patchwork)
 
 
 
