@@ -15,8 +15,19 @@ calc_dir_corr_delay <- function(DT, edges, window) {
     focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
     DT[between(timegroup, min_tg, max_tg) & id == ID2,
        timegroup[which.min(abs(focal_az -  az))]]
+  }, by = .(tg,  dyadID)]
 
-  # TODO more fifelse
+  id_tg[, dir_corr_delay := tg - delay_tg]
+
+  setnames(id_tg,  c('tg'), c('timegroup'))
+  set(id_tg, j = c('min_tg', 'max_tg','delay_tg'), value = NULL)
+  setorder(id_tg, timegroup, ID1, ID2, dir_corr_delay)
+
+  rbindlist(list(
+    id_tg,
+    id_tg[, .(timegroup,  dyadID, fusionID,
+              ID1 = ID2, ID2 = ID1, dir_corr_delay = - dir_corr_delay)]
+  ), use.names = TRUE)
 
 }
 
