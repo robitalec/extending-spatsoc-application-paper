@@ -67,13 +67,18 @@ expect_equal(
 )
 
 # Test with Fogo
-# group_times(DT_fogo, 'datetime', '5 minutes')
-# calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-# edges <- edge_az(DT_fogo, threshold = NULL, id = 'id', coords = c('x_proj', 'y_proj'),
-#                  timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-# calc_dir_corr_delay(edges[distance < 50], 2)
+threshold <- 50
+group_times(DT_fogo, 'datetime', '5 minutes')
 
-# TODO: test ID1, ID2 are never empty
+edges <- edge_dist(DT_fogo, threshold = threshold,
+                   id = 'id', coords = c('x_proj', 'y_proj'),
+                   timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
+dyad_id(edges, 'ID1', 'ID2')
+fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
+
+calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+dir_corr_delay <- calc_dir_corr_delay(DT_fogo, edges, window = 2)
+
 
 
 # Plot --------------------------------------------------------------------
