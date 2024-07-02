@@ -69,7 +69,8 @@ g2 <- ggplot(edges_test[!is.na(fusionID)],
   geom_line() +
   geom_point() +
   labs(shape = 'fusionID') +
-  theme_bw()
+  theme_bw() +
+  xlim(edges_test[, min(timegroup)], edges_test[, max(timegroup)])
 
 print(g / g2)
 
@@ -89,6 +90,7 @@ g2 <- ggplot(sub_edges,
   geom_line() +
   geom_point() +
   labs(shape = 'fusionID') +
-  theme_bw()
+  theme_bw() +
+  xlim(sub_edges[, min(timegroup)], sub_edges[, max(timegroup)])
 
 print(g / g2)
