@@ -14,6 +14,12 @@ fission_fusion <- function(edges,
     0,
     timegroup - shift(timegroup, 1)),
   by = dyadID]
+
+  unique_edges[, within_diff := fifelse(
+    timegroup == min(timegroup),
+    within,
+    shift(within, 1) & shift(within, -1)),
+  by = dyadID]
   unique_edges[, fusionID := fifelse(
     within,
     rleid((tg_diff <= 1 + n_max_missing)),
