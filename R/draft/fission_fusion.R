@@ -1,6 +1,6 @@
 fission_fusion <- function(edges, threshold = 50,
                            n_min_length = 2, n_max_missing = 0)  {
-  # TODO: check for dyadID
+  stopifnot('dyadID' %in% colnames(edges))
   unique_edges <- unique(edges[, .(dyadID, timegroup, distance)])
 
   setorder(unique_edges, 'timegroup')
