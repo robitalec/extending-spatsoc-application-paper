@@ -24,6 +24,8 @@ Dominance hierarchies
 
 “correlation between leadership and dominance is consistent with a trend in ‘despotic’ social mammals” from Akos_2014
 
+Extend past reviews of dyadic sociality metrics and availability 
+
 Extending spatsoc to bring access
 - Given lack of diversity in species, study regions 
 - Lack of code availability 
