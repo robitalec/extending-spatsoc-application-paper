@@ -22,9 +22,9 @@ fission_fusion <- function(edges,
   by = dyadID]
   unique_edges[, fusionID := fifelse(
     within,
-    rleid((tg_diff <= 1 + n_max_missing)),
+    rleid(tg_diff <= 1 + n_max_missing),
     NA_integer_),
-  by = dyadID]
+    by = dyadID]
 
   if (!is.null(n_min_length) || n_min_length > 0) {
     unique_edges[!is.na(fusionID),
