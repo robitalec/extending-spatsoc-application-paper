@@ -50,12 +50,12 @@ print(edges_test[dyadID == 'A-C'])
 
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
-edges <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
+edges_fogo <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x_proj', 'y_proj'), returnDist = TRUE, fillNA = FALSE)
-dyad_id(edges, 'ID1', 'ID2')
-fission_fusion(edges, threshold = 50, n_min_length = 1, n_max_missing = 1)
+dyad_id(edges_fogo, 'ID1', 'ID2')
+fission_fusion(edges_fogo, threshold = 50, n_min_length = 1, n_max_missing = 1)
 
-print(edges[dyadID == 'FO2016008-FO2017007'])
+print(edges_fogo[dyadID == 'FO2016008-FO2017007'])
 
 
 
@@ -82,7 +82,7 @@ g <- ggplot(sub_fogo,
   geom_label(aes(label = timegroup),
             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
   theme_bw()
-sub_edges <- edges[ID1 %in% c('FO2016008', 'FO2017007') &
+sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                      ID2 %in% c('FO2016008', 'FO2017007') &
                      timegroup < 100]
 g2 <- ggplot(sub_edges,
