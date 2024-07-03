@@ -43,9 +43,14 @@ setorder(DT_test, timegroup)
 edges_test <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x', 'y'), returnDist = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
-fission_fusion(edges_test, threshold = 10, n_min_length = 1, n_max_missing = 1)
+f_min0_miss0_splitF <- fission_fusion(
+  copy(edges_test), threshold = 10, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
+f_min1_miss1_splitT <- fission_fusion(
+  copy(edges_test), threshold = 10, n_min_length = 1, n_max_missing = 1, allow_split = TRUE)
+f_min0_miss_1_splitF <- fission_fusion(
+  copy(edges_test), threshold = 10, n_min_length = 0, n_max_missing = 1, allow_split = FALSE)
 
-print(edges_test[dyadID == 'A-C'])
+print(f_min0_miss0_splitF[dyadID == 'A-B'])
 
 
 group_times(DT_fogo, 'datetime', '10 minutes')
@@ -62,18 +67,29 @@ print(edges_fogo[dyadID == 'FO2016008-FO2017007'])
 # Plot --------------------------------------------------------------------
 g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
-  geom_label(aes(label = timegroup)) +
-  theme_bw()
-g2 <- ggplot(edges_test[!is.na(fusionID)],
+  geom_label(aes(label = timegroup))
+
+g2.1 <- ggplot(f_min0_miss0_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 0, maximum missing: 0, allow split: FALSE')
+g2.2 <- ggplot(f_min1_miss1_splitT[!is.na(fusionID)],
              aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point(size = 3) +
-  labs(shape = 'fusionID') +
-  theme_bw() +
-  xlim(edges_test[, min(timegroup)], edges_test[, max(timegroup)])
+  labs(title = 'Minimum obs: 1, maximum missing: 1, allow split: TRUE')
+g2.3 <- ggplot(f_min0_miss_1_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 0, maximum missing: 1, allow split: FALSE')
 
-print(g / g2)
-
+g / (g2.1 / g2.2 / g2.3 *
+       xlim(edges_test[, min(timegroup)], edges_test[, max(timegroup)]) *
+       guides(shape = 'none')) &
+       labs(shape = 'fusionID') &
+        theme_bw()
 
 max_tg <- 50
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
