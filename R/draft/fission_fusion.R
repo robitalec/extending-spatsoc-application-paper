@@ -16,6 +16,8 @@ fission_fusion <- function(edges,
                                      shift(within, -1) & shift(within, 1)),
                  by = dyadID]
   }
+  unique_edges[, within_rleid := rleid(within), by = dyadID]
+  unique_edges[!(within), within_rleid := NA_integer_]
     timegroup == min(timegroup),
     0,
     timegroup - shift(timegroup, 1)),
