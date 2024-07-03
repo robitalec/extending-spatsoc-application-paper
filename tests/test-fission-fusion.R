@@ -67,7 +67,7 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
 g2 <- ggplot(edges_test[!is.na(fusionID)],
              aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
-  geom_point() +
+  geom_point(size = 3) +
   labs(shape = 'fusionID') +
   theme_bw() +
   xlim(edges_test[, min(timegroup)], edges_test[, max(timegroup)])
@@ -88,7 +88,7 @@ sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
 g2 <- ggplot(sub_edges,
              aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
-  geom_point() +
+  geom_point(size = 3) +
   labs(shape = 'fusionID') +
   theme_bw() +
   xlim(sub_edges[, min(timegroup)], sub_edges[, max(timegroup)])
