@@ -28,6 +28,11 @@ fission_fusion <- function(edges,
   unique_edges[!is.na(within_rleid),
                both_rleid := rleid(within_rleid, tg_diff <= 1 + n_max_missing),
                by = dyadID]
+
+  if (n_min_length > 0) {
+    unique_edges[!is.na(both_rleid),
+                 both_rleid := fifelse(.N >= n_min_length, both_rleid, NA_integer_),
+                 by = .(dyadID, both_rleid)]
   }
 
   unique_edges[!is.na(fusionID), fusionID := .GRP, by = .(dyadID, fusionID)]
