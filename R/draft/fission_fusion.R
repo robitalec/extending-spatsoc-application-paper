@@ -9,7 +9,13 @@ fission_fusion <- function(edges,
   setorder(unique_edges, 'timegroup')
 
   unique_edges[, within := distance < threshold]
-  unique_edges[, tg_diff := fifelse(
+
+  if (allow_split) {
+    unique_edges[, within := fifelse(within | timegroup == min(timegroup),
+                                     within,
+                                     shift(within, -1) & shift(within, 1)),
+                 by = dyadID]
+  }
     timegroup == min(timegroup),
     0,
     timegroup - shift(timegroup, 1)),
