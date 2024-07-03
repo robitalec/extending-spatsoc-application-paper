@@ -41,7 +41,3 @@ fission_fusion <- function(edges,
   edges[unique_edges, fusionID := fusionID, on = .(timegroup, dyadID)]
   return(edges)
 }
-
-# TODO: move to vignette
-# unique_edges[!is.na(run_id), dyad_run_len := max(timegroup) - min(timegroup), by = .(dyadID, run_id)]
-
