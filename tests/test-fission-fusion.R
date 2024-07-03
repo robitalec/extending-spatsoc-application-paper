@@ -75,7 +75,8 @@ g2 <- ggplot(edges_test[!is.na(fusionID)],
 print(g / g2)
 
 
-sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 100]
+max_tg <- 50
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
 g <- ggplot(sub_fogo,
             aes(x_proj, y_proj, color = id)) +
   geom_path() +
@@ -84,13 +85,13 @@ g <- ggplot(sub_fogo,
   theme_bw()
 sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                      ID2 %in% c('FO2016008', 'FO2017007') &
-                     timegroup < 100]
+                     timegroup < max_tg]
 g2 <- ggplot(sub_edges,
              aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point(size = 3) +
   labs(shape = 'fusionID') +
   theme_bw() +
-  xlim(sub_edges[, min(timegroup)], sub_edges[, max(timegroup)])
+  xlim(sub_edges[, min(timegroup)], max_tg)
 
 print(g / g2)
