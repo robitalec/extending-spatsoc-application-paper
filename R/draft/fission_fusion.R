@@ -25,21 +25,9 @@ fission_fusion <- function(edges,
     timegroup - shift(timegroup, 1)),
     by = .(dyadID, within_rleid)]
 
-  unique_edges[, within_diff := fifelse(
-    timegroup == min(timegroup),
-    within,
-    shift(within, 1) & shift(within, -1)),
-  by = dyadID]
-  unique_edges[, fusionID := fifelse(
-    within,
-    rleid(tg_diff <= 1 + n_max_missing),
-    NA_integer_),
-    by = dyadID]
-
-  if (!is.null(n_min_length) || n_min_length > 0) {
-    unique_edges[!is.na(fusionID),
-                 fusionID := fifelse(.N >= n_min_length, fusionID, NA_integer_),
-                 by = .(dyadID, fusionID)]
+  unique_edges[!is.na(within_rleid),
+               both_rleid := rleid(within_rleid, tg_diff <= 1 + n_max_missing),
+               by = dyadID]
   }
 
   unique_edges[!is.na(fusionID), fusionID := .GRP, by = .(dyadID, fusionID)]
