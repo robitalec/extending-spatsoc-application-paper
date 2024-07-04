@@ -8,8 +8,11 @@ fission_fusion <- function(edges,
 
   setorder(unique_edges, 'timegroup')
 
+  # Check if edge distance less than threshold
   unique_edges[, within := distance < threshold]
 
+  # If allow split, check if previously within threshold, and
+  #   difference between before, after timegroups is only 1
   if (allow_split) {
     unique_edges[, within := fifelse(within | timegroup == min(timegroup),
                                      within,
@@ -18,15 +21,19 @@ fission_fusion <- function(edges,
                  by = dyadID]
   }
 
+  # Runs of within
   unique_edges[, within_rleid := rleid(within), by = dyadID]
   unique_edges[!(within), within_rleid := NA_integer_]
 
+  # Check timegroup difference, unless first obs for dyad
   unique_edges[, tg_diff := fifelse(within,
                                     timegroup - shift(timegroup) <= 1 |
                                       timegroup == min(timegroup),
                                     NA),
                by = dyadID]
 
+  # If missing obs allowed, adjust timegroup difference to allow as long as
+  #   previously within threshold distance
   if (n_max_missing > 0) {
     unique_edges[, tg_diff := fifelse(tg_diff,
                                           tg_diff,
@@ -35,19 +42,25 @@ fission_fusion <- function(edges,
                                             1 + n_max_missing),
                  by = dyadID]
   }
+
+  # Get runs on within and timegroup difference. Adjust if runs of isolated
+  #  observations together (eg. within T, T but timegroup diff F, F)
   unique_edges[(within), both_rleid := rleid(within_rleid, tg_diff), by = dyadID]
   unique_edges[(within) & !(tg_diff),
                both_rleid := (both_rleid + seq.int(.N)) * -1,
                by = dyadID]
 
+  # If n minimum length > 0, check nrows and return NA if less than min
   if (n_min_length > 0) {
     unique_edges[!is.na(both_rleid),
                  both_rleid := fifelse(.N >= n_min_length, both_rleid, NA_integer_),
                  by = .(dyadID, both_rleid)]
   }
 
+  # Set fusion id on runs and dyad id
   unique_edges[!is.na(both_rleid), fusionID := .GRP, by = .(dyadID, both_rleid)]
 
+  # Merge fusion id onto input edges
   edges[unique_edges, fusionID := fusionID, on = .(timegroup, dyadID)]
   return(edges)
 }
