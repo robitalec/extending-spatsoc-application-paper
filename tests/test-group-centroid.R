@@ -34,12 +34,29 @@ group_pts(DT, threshold = 50, id = 'ID',
 
 
 # Test --------------------------------------------------------------------
+DT_sub_solo <- DT[group %in% DT[, .N, group][N == 1, group]]
+
 xcol <- 'X'
 ycol <- 'Y'
-group_centroid(DT, xcol, ycol)
-print(DT)
+group_centroid(DT_sub_solo, xcol, ycol)
 
-calc_dist_from_group_centroid(DT, xcol, ycol)
-print(DT)
+calc_dist_from_group_centroid(DT_sub_solo, xcol, ycol)
+expect_equal(DT_sub_solo$dist_from_group_centroid, rep(0, nrow(DT_sub_solo)))
+
+
+
+DT_sub <- DT[group %in% DT[, .N, group][N > 1, group]]
+
+xcol <- 'X'
+ycol <- 'Y'
+group_centroid(DT_sub, xcol, ycol)
+
+calc_dist_from_group_centroid(DT_sub, xcol, ycol)
+
+print(hist(DT_sub$dist_from_group_centroid))
+
+
+
+
 
 # Plot --------------------------------------------------------------------
