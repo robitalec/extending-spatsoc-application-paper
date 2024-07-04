@@ -13,9 +13,11 @@ fission_fusion <- function(edges,
   if (allow_split) {
     unique_edges[, within := fifelse(within | timegroup == min(timegroup),
                                      within,
-                                     shift(within, -1) & shift(within, 1)),
+                                     shift(within, -1) & shift(within, 1) &
+                                       timegroup - shift(timegroup, 1) == 1),
                  by = dyadID]
   }
+
   unique_edges[, within_rleid := rleid(within), by = dyadID]
   unique_edges[!(within), within_rleid := NA_integer_]
 
