@@ -1,6 +1,6 @@
 fission_fusion <- function(edges,
                            threshold = 50,
-                           n_min_length = 2,
+                           n_min_length = 0,
                            n_max_missing = 0,
                            allow_split = FALSE)  {
   stopifnot('dyadID' %in% colnames(edges))
