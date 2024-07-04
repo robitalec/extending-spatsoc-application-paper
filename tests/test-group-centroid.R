@@ -40,8 +40,8 @@ xcol <- 'X'
 ycol <- 'Y'
 group_centroid(DT_sub_solo, xcol, ycol)
 
-calc_dist_from_group_centroid(DT_sub_solo, xcol, ycol)
-expect_equal(DT_sub_solo$dist_from_group_centroid, rep(0, nrow(DT_sub_solo)))
+calc_dist_to_group_centroid(DT_sub_solo, xcol, ycol)
+expect_equal(DT_sub_solo$dist_to_group_centroid, rep(0, nrow(DT_sub_solo)))
 
 
 
@@ -51,9 +51,9 @@ xcol <- 'X'
 ycol <- 'Y'
 group_centroid(DT_sub, xcol, ycol)
 
-calc_dist_from_group_centroid(DT_sub, xcol, ycol)
+calc_dist_to_group_centroid(DT_sub, xcol, ycol)
 
-print(hist(DT_sub$dist_from_group_centroid))
+print(hist(DT_sub$dist_to_group_centroid))
 
 
 
