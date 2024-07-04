@@ -34,9 +34,12 @@ group_pts(DT, threshold = 50, id = 'ID',
 
 
 # Test --------------------------------------------------------------------
-group_centroid(DT, 'X', 'Y')
+xcol <- 'X'
+ycol <- 'Y'
+group_centroid(DT, xcol, ycol)
+print(DT)
 
-
-
+calc_dist_from_group_centroid(DT, xcol, ycol)
+print(DT)
 
 # Plot --------------------------------------------------------------------
