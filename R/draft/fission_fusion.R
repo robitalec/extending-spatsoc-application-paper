@@ -35,6 +35,9 @@ fission_fusion <- function(edges,
                                             1 + n_max_missing),
                  by = dyadID]
   }
+  unique_edges[(within), both_rleid := rleid(within_rleid, tg_diff), by = dyadID]
+  unique_edges[(within) & !(tg_diff),
+               both_rleid := (both_rleid + seq.int(.N)) * -1,
                by = dyadID]
 
   if (n_min_length > 0) {
