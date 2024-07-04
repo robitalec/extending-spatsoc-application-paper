@@ -36,10 +36,10 @@ fission_fusion <- function(edges,
   #   previously within threshold distance
   if (n_max_missing > 0) {
     unique_edges[, tg_diff := fifelse(tg_diff,
-                                          tg_diff,
-                                          shift(within, -1) &
-                                            timegroup - shift(timegroup, 1) >=
-                                            1 + n_max_missing),
+                                      tg_diff,
+                                      shift(within, 1) &
+                                        (timegroup - shift(timegroup, 1)) <=
+                                        (1 + n_max_missing)),
                  by = dyadID]
   }
 
