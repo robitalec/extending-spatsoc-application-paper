@@ -27,7 +27,7 @@ fission_fusion <- function(edges,
 
   # Check timegroup difference, unless first obs for dyad
   unique_edges[, tg_diff := fifelse(within,
-                                    timegroup - shift(timegroup) <= 1 |
+                                    timegroup - shift(timegroup, 1) <= 1 |
                                       timegroup == min(timegroup),
                                     NA),
                by = dyadID]
