@@ -10,7 +10,9 @@ calc_dir_to_group_centroid <- function(DT, xcol, ycol) {
 
 
   DT[, dir_to_group_centroid :=
+       # TODO: if atan2(0, 0) then return NaN
        atan2(.SD[[group_xcol]] - .SD[[xcol]],
               (.SD[[group_ycol]] - .SD[[ycol]]))]
+
   return(DT[])
 }
