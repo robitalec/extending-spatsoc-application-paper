@@ -97,29 +97,40 @@ g2.3 <- ggplot(f_min0_miss_1_splitF[!is.na(fusionID)],
   geom_point(size = 3) +
   labs(title = 'Minimum obs: 0, maximum missing: 1, allow split: FALSE')
 
-g / (g2.1 / g2.2 / g2.3 *
+print(g / (g2.1 / g2.2 / g2.3 *
        xlim(edges_test[, min(timegroup)], edges_test[, max(timegroup)]) *
        guides(shape = 'none')) &
        labs(shape = 'fusionID') &
-        theme_bw()
+        scale_shape_manual(values = seq.int(10)) &
+        theme_bw())
 
-max_tg <- 50
-sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
+
 g <- ggplot(sub_fogo,
             aes(x_proj, y_proj, color = id)) +
   geom_path() +
   geom_label(aes(label = timegroup),
             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
   theme_bw()
-sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
-                     ID2 %in% c('FO2016008', 'FO2017007') &
-                     timegroup < max_tg]
-g2 <- ggplot(sub_edges,
-             aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+
+g2.1 <- ggplot(fogo_min0_miss0_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape= factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point(size = 3) +
-  labs(shape = 'fusionID') +
-  theme_bw() +
-  xlim(sub_edges[, min(timegroup)], max_tg)
+  labs(title = 'Minimum obs: 0, maximum missing: 0, allow split: FALSE')
+g2.2 <- ggplot(fogo_min1_miss1_splitT[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 1, maximum missing: 1, allow split: TRUE')
+g2.3 <- ggplot(fogo_min0_miss_1_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 0, maximum missing: 1, allow split: FALSE')
 
-print(g / g2)
+print(g / (g2.1 / g2.2 / g2.3 *
+             xlim(0, 50) *
+             guides(shape = 'none')) &
+        labs(shape = 'fusionID') &
+        scale_shape_manual(values = seq.int(15)) &
+        theme_bw())
