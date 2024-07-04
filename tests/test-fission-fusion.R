@@ -67,12 +67,12 @@ sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
 
 fogo_min0_miss0_splitF <- fission_fusion(
   copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-fogo_min1_miss1_splitT <- fission_fusion(
-  copy(sub_edges), threshold = 50, n_min_length = 1, n_max_missing = 1, allow_split = TRUE)
-fogo_min0_miss_1_splitF <- fission_fusion(
-  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 1, allow_split = FALSE)
+fogo_min2_miss1_splitT <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
+fogo_min2_miss0_splitF <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
 
-print(fogo_min0_miss_1_splitF[dyadID == 'FO2016008-FO2017007'])
+print(fogo_min0_miss0_splitF[dyadID == 'FO2016008-FO2017007'])
 
 
 
@@ -117,16 +117,16 @@ g2.1 <- ggplot(fogo_min0_miss0_splitF[!is.na(fusionID)],
   geom_line() +
   geom_point(size = 3) +
   labs(title = 'Minimum obs: 0, maximum missing: 0, allow split: FALSE')
-g2.2 <- ggplot(fogo_min1_miss1_splitT[!is.na(fusionID)],
+g2.2 <- ggplot(fogo_min2_miss1_splitT[!is.na(fusionID)],
                aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point(size = 3) +
-  labs(title = 'Minimum obs: 1, maximum missing: 1, allow split: TRUE')
-g2.3 <- ggplot(fogo_min0_miss_1_splitF[!is.na(fusionID)],
+  labs(title = 'Minimum obs: 2, maximum missing: 1, allow split: TRUE')
+g2.3 <- ggplot(fogo_min2_miss0_splitF[!is.na(fusionID)],
                aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
   geom_line() +
   geom_point(size = 3) +
-  labs(title = 'Minimum obs: 0, maximum missing: 1, allow split: FALSE')
+  labs(title = 'Minimum obs: 2, maximum missing: 0, allow split: FALSE')
 
 print(g / (g2.1 / g2.2 / g2.3 *
              xlim(0, 50) *
