@@ -58,9 +58,21 @@ setorder(DT_fogo, timegroup)
 edges_fogo <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x_proj', 'y_proj'), returnDist = TRUE, fillNA = FALSE)
 dyad_id(edges_fogo, 'ID1', 'ID2')
-fission_fusion(edges_fogo, threshold = 50, n_min_length = 1, n_max_missing = 1)
 
-print(edges_fogo[dyadID == 'FO2016008-FO2017007'])
+max_tg <- 50
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
+sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
+                          ID2 %in% c('FO2016008', 'FO2017007') &
+                          timegroup < max_tg]
+
+fogo_min0_miss0_splitF <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
+fogo_min1_miss1_splitT <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 1, n_max_missing = 1, allow_split = TRUE)
+fogo_min0_miss_1_splitF <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 1, allow_split = FALSE)
+
+print(fogo_min0_miss_1_splitF[dyadID == 'FO2016008-FO2017007'])
 
 
 
