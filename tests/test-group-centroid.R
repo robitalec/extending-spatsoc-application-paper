@@ -65,7 +65,7 @@ calc_dir_to_group_centroid(DT_sub, xcol, ycol)
 # Plot --------------------------------------------------------------------
 theme_set(theme_bw())
 g1 <- ggplot(DT_sub) +
-  geom_histogram(aes(dist_to_group_centroid), bins = 30) +
+  geom_histogram(aes(dist_to_group_centroid), binwidth = 1) +
   labs(x = 'Distance to group centroid', y = '')
 g2 <- ggplot(DT_sub) +
   geom_histogram(aes(rank_dist_to_group_centroid), binwidth = 1) +
