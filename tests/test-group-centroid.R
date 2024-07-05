@@ -8,7 +8,7 @@ library(ggplot2)
 library(spatsoc)
 library(testthat)
 library(patchwork)
-
+library(ggdist)
 
 
 # Functions ---------------------------------------------------------------
@@ -44,7 +44,7 @@ calc_dist_to_group_centroid(DT_sub_solo, xcol, ycol)
 expect_equal(DT_sub_solo$dist_to_group_centroid, rep(0, nrow(DT_sub_solo)))
 
 calc_dir_to_group_centroid(DT_sub_solo, xcol, ycol)
-expect_equal(DT_sub_solo$dir_to_group_centroid, rep(0, nrow(DT_sub_solo)))
+expect_equal(DT_sub_solo$dir_to_group_centroid, rep(NaN, nrow(DT_sub_solo)))
 
 
 
@@ -55,14 +55,25 @@ ycol <- 'Y'
 group_centroid(DT_sub, xcol, ycol)
 
 calc_dist_to_group_centroid(DT_sub, xcol, ycol)
-
-print(hist(DT_sub$dist_to_group_centroid))
-
+calc_dist_to_group_centroid(DT_sub, xcol, ycol, return_rank = TRUE)
 calc_dir_to_group_centroid(DT_sub, xcol, ycol)
 
-print(hist(DT_sub$dir_to_group_centroid))
 
 
 
 
 # Plot --------------------------------------------------------------------
+theme_set(theme_bw())
+g1 <- ggplot(DT_sub) +
+  geom_histogram(aes(dist_to_group_centroid), bins = 30) +
+  labs(x = 'Distance to group centroid', y = '')
+g2 <- ggplot(DT_sub) +
+  geom_histogram(aes(rank_dist_to_group_centroid), binwidth = 1) +
+  labs(x = 'Rank distance to group centroid', y = '')
+g3 <- ggplot(DT_sub) +
+  geom_histogram(aes(dir_to_group_centroid), bins = 30) +
+  labs(x = 'Direction to group centroid', y = '')
+g4 <- ggplot(DT_sub) +
+  stat_halfeye(aes(dist_to_group_centroid, factor(rank_dist_to_group_centroid))) +
+  labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
+print(g1 + g2 + g3 + g4)
