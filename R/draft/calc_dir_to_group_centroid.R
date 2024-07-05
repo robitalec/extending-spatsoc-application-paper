@@ -8,11 +8,12 @@ calc_dir_to_group_centroid <- function(DT, xcol, ycol) {
   stopifnot(group_xcol %in% colnames(DT))
   stopifnot(group_ycol %in% colnames(DT))
 
-
-  DT[, dir_to_group_centroid :=
-       # TODO: if atan2(0, 0) then return NaN
-       atan2(.SD[[group_xcol]] - .SD[[xcol]],
-              (.SD[[group_ycol]] - .SD[[ycol]]))]
-
+  DT[, dir_to_group_centroid := fifelse(
+    .SD[[xcol]] == .SD[[group_xcol]] &
+      .SD[[ycol]] == .SD[[group_ycol]],
+    NaN,
+    atan2(.SD[[group_xcol]] - .SD[[xcol]],
+          (.SD[[group_ycol]] - .SD[[ycol]]))
+  )]
   return(DT[])
 }
