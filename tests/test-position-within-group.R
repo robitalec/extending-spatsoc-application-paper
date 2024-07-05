@@ -35,3 +35,12 @@ DT_test <- rbindlist(list(
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
+
+
+
+# Test --------------------------------------------------------------------
+group_pts(DT_test, 5, 'id', c('x', 'y'), timegroup = 'timegroup')
+calc_az(DT_test, coords = c('x', 'y'), projection = 4326)
+group_centroid(DT_test, 'x', 'y', 'group')
+
+DT_test[, group_az := mean(az), by = group]
