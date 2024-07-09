@@ -42,7 +42,10 @@ mat <- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)),
 print(mat %*% (xy - origin))
 print((mat %*% (xy - origin))[2,1])
 
-print(position_within_group(DT_test, coords = c('x', 'y')))
+group_centroid(DT_test, 'x', 'y')
+position_within_group(DT_test, coords = c('x', 'y'))
+print(DT_test)
+
 
 
 DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
