@@ -7,10 +7,12 @@ position_within_group <- function(DT, coords = c('x', 'y')) {
 
   DT[, group_az := mean(az), by = group]
 
-  DT[, #dist_along_group_az :=
-       (matrix(c(cos(group_az), -sin(group_az), sin(group_az), cos(group_az)),
+  DT[, dist_along_group_az :=
+       last(matrix(c(cos(.SD[['group_az']]), -sin(.SD[['group_az']]),
+                 sin(.SD[['group_az']]), cos(.SD[['group_az']])),
                byrow = TRUE, ncol = 2) %*%
-          (c(.SD[[1]], .SD[[2]]) - c(.SD[[3]], .SD[[4]]))),
-     .SDcols = c('group_az', coords, paste0('group_mean_', coords))]
+          (c(.SD[[2]] - .SD[[4]], .SD[[3]] - .SD[[5]]))),
+     .SDcols = c('group_az', coords, paste0('group_mean_', coords)),
+     by = group]
 
 }
