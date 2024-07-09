@@ -19,27 +19,15 @@ targets::tar_source('R/draft')
 
 
 # Data --------------------------------------------------------------------
-DT_template <- data.table(
-  x = seq(10, 80, by = 10),
-  y = c(20, 1, 1, 15, 1, 15, 15, 15),
-  timegroup = seq.int(8),
-  id =  'A'
 DT_test <- data.table(
-  x = 2,
-  y = 1,
-  group_mean_x = 1,
+  x = 4,
+  y = 7,
+  group_mean_x = 2,
   group_mean_y = 1,
-  group_az = 1.3
+  az = CircStats::rad(45),
+  group_az = CircStats::rad(45),
+  group = 1
 )
-
-DT_test <- data.table(
-  x = 2,
-  y = 4,
-  group_mean_x = 1,
-  group_mean_y = 1,
-  group_az = 0.6435
-)
-
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
