@@ -43,3 +43,15 @@ mat <- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)),
 print(mat %*% (xy - origin))
 
 print(position_within_group(DT_test, coords = c('x', 'y')))
+
+
+DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
+group_pts(DT_fogo, threshold = 50, id = 'id',
+          coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
+group_centroid(DT_fogo, 'x_proj', 'y_proj')
+calc_az(DT_fogo, c('x_proj', 'y_proj'), DT_fogo[1, epsg_proj])
+
+position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'))
+
+
