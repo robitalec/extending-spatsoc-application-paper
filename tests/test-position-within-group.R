@@ -19,15 +19,14 @@ targets::tar_source('R/draft')
 
 
 # Data --------------------------------------------------------------------
-DT_test <- CJ(
-  x = 4,
-  y = 7,
-  group_mean_x = 2,
-  group_mean_y = 1,
-  az = CircStats::rad(45),
-  group_az = CircStats::rad(45),
-  group = c(1, 2)
-)[, x := c(4, 5)]
+n <- 10
+DT_test <- data.table(
+  x = runif(n, -10, 10),
+  y = runif(n, -10, 10),
+  id = LETTERS[seq.int(n)],
+  az = runif(n, CircStats::rad(0), CircStats::rad(360)),
+  group = 1
+)
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
