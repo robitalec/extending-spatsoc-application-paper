@@ -73,3 +73,17 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   lims(x = c(-10, 10), y = c(-10, 10))
 
 print(g)
+
+
+sel_group <- DT_fogo[, .N, group][N > 6, sample(group, 1)]
+sub_fogo <- DT_fogo[group == sel_group]
+slope_fogo <- sub_fogo[1, tan(group_az)]
+intercept_fogo <- sub_fogo[1, slope_fogo * -group_mean_x_proj + group_mean_y_proj]
+g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
+  geom_point() +
+  geom_label(aes(label = format(dist_along_group_az, digits = 2))) +
+  geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
+  geom_abline(slope = slope_fogo, intercept = intercept_fogo) +
+  theme_bw()
+
+print(g_fogo)
