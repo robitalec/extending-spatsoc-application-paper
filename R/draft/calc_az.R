@@ -1,16 +1,26 @@
 calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
   setorder(DT, timegroup)
-  DT[, az := c(
-    units::drop_units(
-      lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = coords, crs = projection))),
-    NA),
-    by = id]
+
+  if (st_is_longlat(projection)) {
+    DT[, az := c(
+      units::drop_units(
+        lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = coords, crs = projection))),
+      NA),
+      by = id]
+  } else {
+    DT[, az := c(
+      units::drop_units(
+        lwgeom::st_geod_azimuth(st_transform(
+          st_as_sf(.SD, coords = coords, crs = projection),
+          crs =  4326))),
+      NA),
+      by = id]
+
+  }
 }
 
 # https://postgis.net/docs/ST_Azimuth.html
 
-
-# TODO: option for projected coordinates?
 
 # TODO: lead/lag?
 
