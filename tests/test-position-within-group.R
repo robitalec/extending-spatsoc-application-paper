@@ -41,6 +41,7 @@ mat <- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)),
               byrow = TRUE, ncol = 2)
 
 print(mat %*% (xy - origin))
+print((mat %*% (xy - origin))[2,1])
 
 print(position_within_group(DT_test, coords = c('x', 'y')))
 
