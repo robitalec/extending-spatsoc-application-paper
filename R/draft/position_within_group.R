@@ -6,4 +6,11 @@ position_within_group <- function(DT, coords = c('x', 'y')) {
   # TODO: check if az in radians not degrees
 
   DT[, group_az := mean(az), by = group]
+
+  DT[, #dist_along_group_az :=
+       (matrix(c(cos(group_az), -sin(group_az), sin(group_az), cos(group_az)),
+               byrow = TRUE, ncol = 2) %*%
+          (c(.SD[[1]], .SD[[2]]) - c(.SD[[3]], .SD[[4]]))),
+     .SDcols = c('group_az', coords, paste0('group_mean_', coords))]
+
 }
