@@ -13,5 +13,5 @@ position_within_group <- function(DT, coords = c('x', 'y')) {
                byrow = TRUE, ncol = 2) %*%
           (c(.SD[[2]] - .SD[[4]], .SD[[3]] - .SD[[5]])))[2,],
      .SDcols = c('group_az', coords, paste0('group_mean_', coords)),
-
+     by = .I]
 }
