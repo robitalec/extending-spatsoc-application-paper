@@ -56,5 +56,20 @@ group_centroid(DT_fogo, 'x_proj', 'y_proj')
 calc_az(DT_fogo, c('x_proj', 'y_proj'), DT_fogo[1, epsg_proj])
 
 position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'))
+DT_fogo
 
 
+# Plot --------------------------------------------------------------------
+slope <- DT_test[1, tan(group_az)]
+intercept <- DT_test[1, slope * -group_mean_x + group_mean_y]
+g <- ggplot(DT_test, aes(x, y, color = id)) +
+  geom_point() +
+  geom_label(aes(label = format(dist_along_group_az, digits = 2))) +
+  geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
+  geom_vline(xintercept = 0, linewidth = 0.3) +
+  geom_hline(yintercept = 0, linewidth = 0.3) +
+  geom_abline(slope = slope, intercept = intercept) +
+  theme_bw() +
+  lims(x = c(-10, 10), y = c(-10, 10))
+
+print(g)
