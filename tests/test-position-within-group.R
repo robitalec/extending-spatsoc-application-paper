@@ -64,16 +64,18 @@ print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
 
 # Plot --------------------------------------------------------------------
 slope <- DT_test[1, tan(group_az)]
-intercept <- DT_test[1, slope * -group_mean_x + group_mean_y]
+intercept <- DT_test[1, group_mean_y - slope * group_mean_x]
+intercept_inv <-  DT_test[1, group_mean_y - (-1/slope) * group_mean_x]
 g <- ggplot(DT_test, aes(x, y, color = id)) +
-  geom_point() +
-  geom_label(aes(label = format(dist_along_group_az, digits = 2))) +
-  geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
-  geom_vline(xintercept = 0, linewidth = 0.3) +
-  geom_hline(yintercept = 0, linewidth = 0.3) +
   geom_abline(slope = slope, intercept = intercept) +
+  geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
+  geom_point() +
+  geom_label(aes(label = format(dist_along_group_az, digits = 2)),
+             nudge_y = 0.4) +
+  geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
   theme_bw() +
-  lims(x = c(-10, 10), y = c(-10, 10))
+  lims(x = c(-10, 10), y = c(-10, 10)) +
+  coord_fixed()
 
 print(g)
 
