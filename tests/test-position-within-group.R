@@ -48,10 +48,10 @@ position_within_group(DT_test, coords = c('x', 'y'))
 print(DT_test)
 
 
-
+threshold <- 50
 DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
-group_pts(DT_fogo, threshold = 50, id = 'id',
+group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
 group_centroid(DT_fogo, 'x_proj', 'y_proj')
 calc_az(DT_fogo, c('x_proj', 'y_proj'), DT_fogo[1, epsg_proj])
