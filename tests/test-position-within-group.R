@@ -10,7 +10,7 @@ library(lwgeom)
 library(spatsoc)
 library(testthat)
 library(patchwork)
-
+library(ggdist)
 
 
 # Functions ---------------------------------------------------------------
