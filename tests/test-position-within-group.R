@@ -101,7 +101,8 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_fixed() +
-  guides(color = 'none')
+  guides(color = 'none') +
+  scale_x_continuous(expand = expansion(add = 10))
 
 DT_fogo[, N_by_group := .N, group]
 g_fogo_hist <- ggplot(DT_fogo[N_by_group > 1]) +
@@ -119,4 +120,4 @@ g_fogo_dist <- ggplot(DT_fogo[N_by_group > 1]) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
-print(g_fogo_dist + ((g_fogo_hist + g_fogo_hist2) / g_fogo))
+print(g_fogo_dist + ((g_fogo_hist / g_fogo_hist2) / g_fogo))
