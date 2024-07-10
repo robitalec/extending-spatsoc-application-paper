@@ -57,7 +57,9 @@ group_centroid(DT_fogo, 'x_proj', 'y_proj')
 calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
 
 position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'))
-DT_fogo
+print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
+              .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
+                group_az, dist_along_group_az)])
 
 
 # Plot --------------------------------------------------------------------
