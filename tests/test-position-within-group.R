@@ -71,10 +71,9 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
   geom_point() +
-  geom_label(aes(label = format(dist_along_group_az, digits = 2)),
-             nudge_y = 0.4) +
-  geom_label(aes(label = format(rank_dist_along_group_az, digits = 2)),
-             nudge_y = -0.4) +
+  geom_text(aes(label = paste0(format(dist_along_group_az, digits = 1),
+                              ' (', rank_dist_along_group_az, ')')),
+            nudge_y = 0.4) +
   geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
   theme_bw() +
   lims(x = c(-10, 10), y = c(-10, 10)) +
@@ -90,9 +89,10 @@ intercept_fogo <- sub_fogo[1, group_mean_y_proj - slope_fogo * group_mean_x_proj
 intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mean_x_proj)]
 
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
-  geom_point() +
-  geom_label(aes(label = format(dist_along_group_az, digits = 2)),
-             nudge_y = 1.2) +
+  geom_point(size = 0.8) +
+  geom_text(aes(label = paste0(format(dist_along_group_az, digits = 1),
+                               ' (', rank_dist_along_group_az, ')')),
+                nudge_y = 2) +
   geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
   geom_abline(slope = slope_fogo, intercept = intercept_fogo) +
   geom_abline(slope = -1/slope_fogo, intercept = intercept_inv_fogo,
