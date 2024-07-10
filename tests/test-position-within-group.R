@@ -54,7 +54,7 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
 group_centroid(DT_fogo, 'x_proj', 'y_proj')
-calc_az(DT_fogo, c('x_proj', 'y_proj'), DT_fogo[1, epsg_proj])
+calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
 
 position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'))
 DT_fogo
