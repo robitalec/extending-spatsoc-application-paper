@@ -107,5 +107,8 @@ g_fogo_hist <- ggplot(DT_fogo[N_by_group > 1]) +
   geom_histogram(aes(dist_along_group_az), binwidth = 1) +
   theme_bw()
 
+g_fogo_hist2 <- ggplot(DT_fogo[N_by_group > 1]) +
+  geom_histogram(aes(rank_dist_along_group_az), binwidth = 1) +
+  theme_bw()
 
 print(g_fogo + g_fogo_hist)
