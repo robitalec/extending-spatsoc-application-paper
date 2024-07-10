@@ -36,11 +36,12 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 theta <- CircStats::rad(45)
 origin <- c(2, 1)
 xy <- c(4, 7)
-mat <- matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)),
+mat <- matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)),
               byrow = TRUE, ncol = 2)
-
+# matrix(c('cos(theta)',  'sin(theta)', '-sin(theta)', 'cos(theta)'),
+#        byrow = TRUE, ncol = 2)
 print(mat %*% (xy - origin))
-print((mat %*% (xy - origin))[2,1])
+print((mat %*% (xy - origin))[1,1])
 
 group_centroid(DT_test, 'x', 'y')
 position_within_group(DT_test, coords = c('x', 'y'))
