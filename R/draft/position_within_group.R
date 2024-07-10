@@ -1,4 +1,5 @@
-position_within_group <- function(DT, coords = c('x', 'y')) {
+position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
+                                  return_rank = FALSE) {
 
   xcol <- first(coords)
   ycol <- last(coords)
