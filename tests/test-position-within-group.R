@@ -73,6 +73,8 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_point() +
   geom_label(aes(label = format(dist_along_group_az, digits = 2)),
              nudge_y = 0.4) +
+  geom_label(aes(label = format(rank_dist_along_group_az, digits = 2)),
+             nudge_y = -0.4) +
   geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
   theme_bw() +
   lims(x = c(-10, 10), y = c(-10, 10)) +
