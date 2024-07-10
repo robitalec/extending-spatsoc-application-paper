@@ -21,4 +21,13 @@ position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
        cos(.SD[[group_az_col]]) * (.SD[[xcol]] - .SD[[xcol_group]]) +
        sin(.SD[[group_az_col]]) * (.SD[[ycol]] - .SD[[ycol_group]]),
      by = .I]
+
+  if (return_rank) {
+    DT[, N_by_group := .N, by = c(group)]
+    DT[, rank_dist_along_group_az :=
+         frank(dist_along_group_az),
+       by = c(group)]
+  }
+
+  return(DT)
 }
