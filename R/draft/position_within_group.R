@@ -7,7 +7,7 @@ position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
   ycol_group <- paste0('group_mean_', ycol)
 
   stopifnot('az' %in% colnames(DT))
-  stopifnot('group' %in% colnames(DT))
+  stopifnot(group %in% colnames(DT))
   stopifnot(xcol %in% colnames(DT))
   stopifnot(ycol %in% colnames(DT))
   stopifnot(xcol_group %in% colnames(DT))
@@ -15,7 +15,7 @@ position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
   # TODO: check if az in radians not degrees
 
   group_az_col <- 'group_az'
-  DT[, c(group_az_col) := mean(az), by = group]
+  DT[, c(group_az_col) := mean(az), by = c(group)]
 
   DT[, dist_along_group_az :=
        cos(.SD[[group_az_col]]) * (.SD[[xcol]] - .SD[[xcol_group]]) +
