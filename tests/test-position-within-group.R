@@ -83,12 +83,19 @@ print(g)
 sel_group <- DT_fogo[, .N, group][N > 6, sample(group, 1)]
 sub_fogo <- DT_fogo[group == sel_group]
 slope_fogo <- sub_fogo[1, tan(group_az)]
-intercept_fogo <- sub_fogo[1, slope_fogo * -group_mean_x_proj + group_mean_y_proj]
+intercept_fogo <- sub_fogo[1, group_mean_y_proj - slope_fogo * group_mean_x_proj]
+intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mean_x_proj)]
+
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_point() +
-  geom_label(aes(label = format(dist_along_group_az, digits = 2))) +
+  geom_label(aes(label = format(dist_along_group_az, digits = 2)),
+             nudge_y = 1.2) +
   geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
   geom_abline(slope = slope_fogo, intercept = intercept_fogo) +
+  geom_abline(slope = -1/slope_fogo, intercept = intercept_inv_fogo,
+              linewidth = 0.2) +
+  theme_bw() +
+  coord_fixed()
   theme_bw()
 
 print(g_fogo)
