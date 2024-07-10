@@ -98,21 +98,25 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_abline(slope = -1/slope_fogo, intercept = intercept_inv_fogo,
               linewidth = 0.2) +
   theme_bw() +
-  coord_fixed()
-
-
+  labs(x = '', y = '') +
+  theme(axis.text = element_blank(), axis.ticks = element_blank()) +
+  coord_fixed() +
+  guides(color = 'none')
 
 DT_fogo[, N_by_group := .N, group]
 g_fogo_hist <- ggplot(DT_fogo[N_by_group > 1]) +
   geom_histogram(aes(dist_along_group_az), binwidth = 1) +
+  labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_fogo_hist2 <- ggplot(DT_fogo[N_by_group > 1]) +
   geom_histogram(aes(rank_dist_along_group_az), binwidth = 1) +
+  labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_fogo_dist <- ggplot(DT_fogo[N_by_group > 1]) +
   stat_halfeye(aes(dist_along_group_az, factor(rank_dist_along_group_az))) +
-  labs(x = 'Distance along group az', y = 'Rank distance along group az')
+  labs(x = 'Distance along group az', y = 'Rank distance along group az') +
+  theme_bw()
 
-print(g_fogo + g_fogo_hist + g_fogo_hist2 + g_fogo_dist)
+print(g_fogo_dist + ((g_fogo_hist + g_fogo_hist2) / g_fogo))
