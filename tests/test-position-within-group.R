@@ -111,4 +111,8 @@ g_fogo_hist2 <- ggplot(DT_fogo[N_by_group > 1]) +
   geom_histogram(aes(rank_dist_along_group_az), binwidth = 1) +
   theme_bw()
 
-print(g_fogo + g_fogo_hist)
+g_fogo_dist <- ggplot(DT_fogo[N_by_group > 1]) +
+  stat_halfeye(aes(dist_along_group_az, factor(rank_dist_along_group_az))) +
+  labs(x = 'Distance along group az', y = 'Rank distance along group az')
+
+print(g_fogo + g_fogo_hist + g_fogo_hist2 + g_fogo_dist)
