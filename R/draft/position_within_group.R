@@ -13,7 +13,8 @@ position_within_group <- function(DT, coords = c('x', 'y')) {
   stopifnot(ycol_group %in% colnames(DT))
   # TODO: check if az in radians not degrees
 
-  DT[, group_az := mean(az), by = group]
+  group_az_col <- 'group_az'
+  DT[, c(group_az_col) := mean(az), by = group]
 
   DT[, dist_along_group_az :=
        (matrix(c(cos(.SD[['group_az']]), -sin(.SD[['group_az']]),
