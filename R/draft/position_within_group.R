@@ -1,5 +1,7 @@
+# ties.method = 'average' by default, see ?frank
+# if 1.5, 2.5, etc - points have exactly same location, possible error missed in prep
 position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
-                                  return_rank = FALSE) {
+                                  return_rank = FALSE, ties.method = 'average') {
 
   xcol <- first(coords)
   ycol <- last(coords)
@@ -25,7 +27,7 @@ position_within_group <- function(DT, coords = c('x', 'y'), group = 'group',
   if (return_rank) {
     DT[, N_by_group := .N, by = c(group)]
     DT[, rank_dist_along_group_az :=
-         frank(-dist_along_group_az),
+         frank(-dist_along_group_az, ties.method = ties.method),
        by = c(group)]
   }
 
