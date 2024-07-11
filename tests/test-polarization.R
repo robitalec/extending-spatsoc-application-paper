@@ -30,3 +30,7 @@ DT_test <- data.table(
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
+
+# Test --------------------------------------------------------------------
+calc_polarization(DT_test)
+print(DT_test)
