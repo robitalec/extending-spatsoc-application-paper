@@ -18,11 +18,11 @@ calc_dir_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
      .SDcols = last(coords), by = c(group)]
 
   DT[!group %in% check_has_leader$group, dir_to_leader := fifelse(
-    .SD[[xcol]] == .SD[['temp_leader_xcol']] &
-      .SD[[ycol]] == .SD[['temp_leader_ycol']],
+    .SD[[first(coords)]] == .SD[['temp_leader_xcol']] &
+      .SD[[last(coords)]] == .SD[['temp_leader_ycol']],
     NaN,
-    atan2(.SD[['temp_leader_xcol']] - .SD[[xcol]],
-          (.SD[['temp_leader_ycol']] - .SD[[ycol]]))
+    atan2(.SD[['temp_leader_xcol']] - .SD[[first(coords)]],
+          (.SD[['temp_leader_ycol']] - .SD[[last(coords)]]))
   )]
   return(DT)
 }
