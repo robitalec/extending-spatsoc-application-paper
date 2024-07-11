@@ -36,6 +36,9 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 group_centroid(DT_test, 'x', 'y')
 position_within_group(DT_test, coords = c('x', 'y'), return_rank = TRUE)
+calc_dist_to_leader(DT_test, coords = c('x', 'y'), group = 'group')[]
+
+
 threshold <- 50
 coords <- c('x_proj', 'y_proj')
 DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
