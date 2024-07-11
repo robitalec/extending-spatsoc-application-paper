@@ -33,3 +33,16 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 
 
+# Test --------------------------------------------------------------------
+group_centroid(DT_test, 'x', 'y')
+position_within_group(DT_test, coords = c('x', 'y'), return_rank = TRUE)
+threshold <- 50
+coords <- c('x_proj', 'y_proj')
+DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
+group_pts(DT_fogo, threshold = threshold, id = 'id',
+          coords = coords, timegroup = 'timegroup')
+group_centroid(DT_fogo, first(coords), last(coords))
+calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
+
+position_within_group(DT_fogo, coords = coords, return_rank = TRUE)
