@@ -122,3 +122,13 @@ DT_mean_rank <- rbindlist(lapply(min_group_sizes, function(min_size) {
           by = id]
 }))
 
+g_fogo_mean_rank <- ggplot(DT_mean_rank) +
+  geom_point(aes(mean_rank, id, color = factor(min_group_size))) +
+  labs(x = 'Mean rank dist along group axis', y = '',
+       color = 'Min group size') +
+  scale_x_reverse(limits = c(10, 1)) +
+  theme_bw() +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+
+
+print(g_fogo + g_fogo_t_lead / g_fogo_mean_rank + plot_layout(guides = 'collect'))
