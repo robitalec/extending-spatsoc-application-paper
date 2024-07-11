@@ -55,6 +55,10 @@ position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'),
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
                 group_az, dist_along_group_az, rank_dist_along_group_az)])
+DT_fogo[, N_by_group := .N, group]
+
+
+
 # Plot --------------------------------------------------------------------
 slope <- DT_test[1, tan(group_az)]
 intercept <- DT_test[1, group_mean_y - slope * group_mean_x]
