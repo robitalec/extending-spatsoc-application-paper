@@ -5,7 +5,6 @@ calc_dist_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
   stopifnot('rank_dist_along_group_az' %in% colnames(DT))
 
   DT[, temp_N_by_group := .N, by = c(group)]
-  setorder(DT, 'rank_dist_along_group_az')
   DT[, dist_to_leader := fifelse(temp_N_by_group > 1,
                                  as.matrix(dist(cbind(.SD), diag = TRUE))[, 1],
                                  0),
