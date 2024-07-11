@@ -34,7 +34,8 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 calc_polarization(DT_test)
 print(DT_test)
-
+print(paste0('swaRm::pol_order() = ', swaRm::pol_order(DT_test$az)))
+print(paste0('CircStats::r.test() = ', CircStats::r.test(DT_test$az)$r.bar))
 
 threshold <- 50
 DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
