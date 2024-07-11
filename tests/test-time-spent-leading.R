@@ -105,3 +105,12 @@ DT_time_leading <- rbindlist(lapply(min_group_sizes, function(min_size) {
             time_spent_leading = sum(rank_dist_along_group_az == 1) / .N),
           by = id]
 }))
+
+g_fogo_t_lead <- ggplot(DT_time_leading) +
+  geom_point(aes(time_spent_leading, id, color = factor(min_group_size))) +
+  labs(x = 'Time spent leading group', y = '',
+       color = 'Min group size') +
+  xlim(0, 1) +
+  theme_bw() +
+  theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
+
