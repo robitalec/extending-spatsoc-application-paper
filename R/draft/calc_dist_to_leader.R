@@ -6,7 +6,16 @@ calc_dist_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
 
   DT[, temp_N_by_group := .N, by = c(group)]
 
-  DT[, dist_to_leader := fifelse(
+  check_has_leader <- DT[, .(has_leader = any(rank_dist_along_group_az == 1)),
+                         by = c(group)][!(has_leader)]
+
+  if (check_has_leader[, .N > 0]) {
+    warning('groups found missing leader (rank_dist_along_group_az == 1): \n',
+            check_has_leader[, paste(group, collapse = ', ')])
+  }
+
+  DT[!group %in% check_has_leader$group,
+     dist_to_leader := fifelse(
     temp_N_by_group > 1,
     as.matrix(dist(cbind(.SD[[1]], .SD[[2]])))[, which(.SD[[3]] == 1)],
                                  0),
