@@ -46,3 +46,15 @@ calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
 
 calc_polarization(DT_fogo)
 
+
+
+# Plot --------------------------------------------------------------------
+g <- ggplot(DT_test, aes(x, y, color = id)) +
+  geom_point() +
+  geom_text(aes(label = paste0(format(az, digits = 1))),
+            nudge_y = 0.4) +
+  theme_bw() +
+  labs(title = paste0('Polarization: ', format(DT_test[1, polarization], digits = 2))) +
+  coord_fixed()
+
+print(g)
