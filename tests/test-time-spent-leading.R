@@ -97,3 +97,11 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
+
+min_group_sizes <- c(2, 3, 4)
+DT_time_leading <- rbindlist(lapply(min_group_sizes, function(min_size) {
+  DT_fogo[N_by_group > min_size,
+          .(min_group_size = min_size,
+            time_spent_leading = sum(rank_dist_along_group_az == 1) / .N),
+          by = id]
+}))
