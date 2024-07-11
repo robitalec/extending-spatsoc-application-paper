@@ -114,3 +114,11 @@ g_fogo_t_lead <- ggplot(DT_time_leading) +
   theme_bw() +
   theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
 
+min_group_sizes <- c(2, 3, 4)
+DT_mean_rank <- rbindlist(lapply(min_group_sizes, function(min_size) {
+  DT_fogo[N_by_group > min_size,
+          .(min_group_size = min_size,
+            mean_rank = mean(rank_dist_along_group_az)),
+          by = id]
+}))
+
