@@ -49,12 +49,10 @@ calc_polarization(DT_fogo)
 
 
 # Plot --------------------------------------------------------------------
-g <- ggplot(DT_test, aes(x, y, color = id)) +
-  geom_point() +
-  geom_text(aes(label = paste0(format(az, digits = 1))),
-            nudge_y = 0.4) +
+g <- ggplot(DT_test, aes(CircStats::deg(az))) +
+  stat_dotsinterval(binwidth = NA) +
   theme_bw() +
-  labs(title = paste0('Polarization: ', format(DT_test[1, polarization], digits = 2))) +
-  coord_fixed()
+  xlim(0, 360) +
+  labs(title = paste0('Polarization: ', format(DT_test[1, polarization], digits = 2)))
 
 print(g)
