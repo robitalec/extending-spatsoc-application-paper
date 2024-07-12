@@ -462,17 +462,6 @@ that of bird j and therefore j is leading
 
 Note: hierarchical networks can be generated using $\tau^{*}_{ij}$
 
-spatsoc::edge_bearing
-
-or 
-
-edge_dist
-edge_nn
-
-bearing argg
-
---> 
-
 ## Behavioural zones
 
 TODO
@@ -493,9 +482,6 @@ of their perception.
 
 ## Fission fusion
 
-```{r}
-tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
-```
 
 
 Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
@@ -507,24 +493,9 @@ Arguments:
 
 
 
-## Not selected
+(TODO: cite table of definitions from review)
 
-- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca, 
-- corrMove (diffusive movement correlation, drift movement correlation,
-overall component movement correlation)
-- metrics relating to posture
-- static interaction eg. home range overlap
-- voronoi
-- HMM
-- change point detection
-- mFLICA 
-  - available
-- FLOCK
-- LPD
-- Granger causality
-- Influence maximization
-
-
-# Case study
+```{r}
+tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
+```
 
