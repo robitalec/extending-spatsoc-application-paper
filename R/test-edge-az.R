@@ -44,3 +44,13 @@ calc_az(DT_test, projection = 4326)
 edges_test <- edge_az(DT_test, threshold = NULL, id = 'id', timegroup = 'timegroup',
                         coords = c('x', 'y'), returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
+# Plot --------------------------------------------------------------------
+g <- ggplot(DT_test, aes(x, y, color = id)) +
+  geom_path(arrow = arrow()) +
+  geom_label(aes(label = timegroup))
+
+g2 <- ggplot(edges_test,  aes(timegroup, dyadID, color = diff_az)) +
+  geom_point(size = 5) +
+  scale_color_viridis_c()
+
+print(g / g2 & theme_bw())
