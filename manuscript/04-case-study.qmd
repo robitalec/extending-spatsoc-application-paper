@@ -171,5 +171,33 @@ We aim to provide users with accessible, flexible functions that will
 help them identify leader follower patterns, fission fusion dynamics and 
 potentially dominance behaviours in their own animal telemetry data. 
 
+## Position relative to groups
+
+Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new 
+set of functions are now available to measure individuals position relative within
+spatiotemporal groups. 
+
+After identifying spatiotemporal groups with eg. `group_pts`, we 
+can measure the group centroid.  
+
+```{r}
+#| eval: false
+#| echo: true
+xcol <- 'X'
+ycol <- 'Y'
+groupcol <- 'group'
+group_centroid(DT, xcol, ycol, group = groupcol)
+```
+
+```{r}
+#| eval: false
+#| echo: true
+xcol <- 'X'
+ycol <- 'Y'
+groupcol <- 'group'
+group_pts(DT, threshold = 5, id = 'ID', 
+                coords = c('X', 'Y'), timegroup = 'timegroup')
+group_centroid(DT, xcol, ycol, group = groupcol)
+```
 # Case study
 
