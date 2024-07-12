@@ -350,60 +350,86 @@ print(g / (g_dist + g_dir))
 ```
 
 
+## Bearings
 
-## Directional correlation delay
+Next, we can use individuals' bearings to explore interindividual 
+direction, alignment between individuals and polarization in groups. TODO: references related eg. direction between individuals
+(always L / R), polarization of flock, etc
 
-The directional correlation delay [@Nagy_2010] of individuals i, j is 
+```{r}
+#| echo: true
+#| eval: false
 
-$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
+calc_polarization(DT)
+```
 
-where 
+```{r}
+#| echo: false
+#| eval: true
+calc_polarization(DT)
 
-- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of bird i at time t
-- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of bird j at time t + $\tau$
-- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
-- Calculated only where pairs of individuals were less than 100 m apart
+sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
+sub <- DT[group %in% sel_group]
+g <- ggplot(sub, aes(CircStats::deg(az))) +
+  stat_dotsinterval(binwidth = 10, overflow = "keep", dotsize = 1) +
+  geom_text(x = 50, y = 0.75,
+            aes(label = format(polarization, digits = 2))) +
+  theme_bw() +
+  facet_grid(group~.)
+
+print(g)
+```
+
+Directional alignment is the difference between two individuals' 
+bearings. Given the similarity to `edge_dist`, this functionality
+is provided under a similar name: `edge_az`. 
+
+```{r}
+#| echo: true
+#| eval: false
+directional_align <- edge_az(DT, threshold = NULL, id = 'id',
+                             timegroup = 'timegroup',
+                        coords = coords, returnDist = TRUE, fillNA = TRUE)
+
+```
+
+```{r}
+#| echo: false
+#| eval: true
+directional_align <- edge_az(DT, threshold = NULL, id = 'id',
+                             timegroup = 'timegroup',
+                        coords = coords, returnDist = TRUE, fillNA = TRUE)
+dyad_id(directional_align, 'ID1', 'ID2')
+
+sel_group <- DT[N_by_group > 2, sample(group, 1)]
+sub <- DT[id %in% DT[group == sel_group, id] &
+                      between(timegroup,
+                              DT[group == sel_group, first(timegroup) - 1],
+                              DT[group == sel_group, first(timegroup) + 2])]
+g <- ggplot(sub, aes(X, Y, color = id)) +
+  geom_path(arrow = arrow()) +
+  geom_label(aes(label = timegroup), data  = sub[timegroup == min(timegroup)]) +
+  guides(color = 'none') +
+  labs(x = '', y = '')
+
+sub_edges <- directional_align[(ID1 %in% DT[group == sel_group, id] &
+                          ID2 %in% DT[group == sel_group, id]) &
+                          between(timegroup,
+                                DT[group == sel_group, first(timegroup) - 1],
+                                DT[group == sel_group, first(timegroup) + 2])]
+g2 <- ggplot(sub_edges,
+                  aes(factor(timegroup), dyadID, color = diff_az)) +
+  geom_point(size = 5) +
+  scale_color_viridis_c() +
+  labs(x = 'Timegroup', y = '')
+
+print(g / g2 & theme_bw())
+
+```
 
 
-The maximum value of the directional correlation function $C_{ij}$ is at
-$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
-delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
-individuals, ignoring hierarchy changes caused by other individuals.
+TODO: interindividual difference in bearing
 
-- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
-- Negative values indicate that flight directional changes of bird i fall behind
-that of bird j and therefore j is leading
-
-Hierarchical networks can be generated using $\tau^{*}_{ij}$
-
-
-
-## Position within group, rank position within group, time spent leading group, distance and direction to leader
-
-The position within group is the position along the front-to-back axis of the
-group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's bearing (eg.
-[@Burns_2012]). The time spent leading group is an aggregate metric of the time
-in the first rank position within group. The distance to leader is the 
-geographic distance to the focal individual's group leader. The direction to 
-leader is the absolute bearing to the focal individual's group leader. 
-
-<!-- 
-- front-back distance along group's axis of movement [@Quera_2023]
-- ordinal 1-6 position along group's traveling direction [@Burns_2012]
-- relative positional ranks on the front-to-back axis were determined 
-by multiplying their x–y locations by a rotation matrix based on the heading 
-of the centroid [@Harel_2021]
-- space transformation from geographical space to relative positions with respect
-to group center and movement direction [@Andrienko_2013]
-
-
-- note group leader defined using {spatsoc} functions, or manually, 
-using focal obs or other tools
-
-- group = distance threshold
-- at each step
-- ?how to compare rank across varying sized groups
 -->
 
 ## Distance, direction and rank distance to group centroid
