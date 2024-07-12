@@ -165,5 +165,11 @@ nearest_neighbours <- edge_nn(
 tinytable::tt(nearest_neighbours[1:5])
 ```
 
+Building on these functions, {spatsoc}'s new functionality provides 
+a finer understanding of an individual's behaviour with respect to conspecifics. 
+We aim to provide users with accessible, flexible functions that will 
+help them identify leader follower patterns, fission fusion dynamics and 
+potentially dominance behaviours in their own animal telemetry data. 
+
 # Case study
 
