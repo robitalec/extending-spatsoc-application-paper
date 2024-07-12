@@ -79,6 +79,7 @@ sub_fogo <- DT_fogo[id %in% DT_fogo[group == sel_group, id] &
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup), data  = sub_fogo[timegroup == min(timegroup)]) +
+  guides(color = 'none') +
   labs(x = 'x', y = '')
 
 sub_edges <- edges_fogo[(ID1 %in% DT_fogo[group == sel_group, id] &
