@@ -475,6 +475,8 @@ bearing argg
 
 ## Behavioural zones
 
+TODO
+
 The behavioural zones metric metric assigns neighbours to three non-overlapping
 behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
 around an individual within which neighbours are expected to move away to 
