@@ -66,3 +66,30 @@ g2 <- ggplot(edges_test,  aes(timegroup, dyadID, color = diff_az)) +
   scale_color_viridis_c()
 
 print(g / g2 & theme_bw())
+
+
+group_pts(DT_fogo, threshold = 50, id = 'id', coords = c('x_proj', 'y_proj'),
+          timegroup = 'timegroup')
+DT_fogo[, N_by_group := .N, group]
+sel_group <- DT_fogo[N_by_group == 4, sample(group, 1)]
+sub_fogo <- DT_fogo[id %in% DT_fogo[group == sel_group, id] &
+                      between(timegroup,
+                              DT_fogo[group == sel_group, first(timegroup) - 1],
+                              DT_fogo[group == sel_group, first(timegroup) + 2])]
+g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
+  geom_path(arrow = arrow()) +
+  geom_label(aes(label = timegroup), data  = sub_fogo[timegroup == min(timegroup)]) +
+  labs(x = 'x', y = '')
+
+sub_edges <- edges_fogo[(ID1 %in% DT_fogo[group == sel_group, id] &
+                          ID2 %in% DT_fogo[group == sel_group, id]) &
+                          between(timegroup,
+                                DT_fogo[group == sel_group, first(timegroup) - 1],
+                                DT_fogo[group == sel_group, first(timegroup) + 2])]
+g2_fogo <- ggplot(sub_edges,
+                  aes(factor(timegroup), dyadID, color = diff_az)) +
+  geom_point(size = 5) +
+  scale_color_viridis_c() +
+  labs(x = 'Timegroup', y = '')
+
+print(g_fogo / g2_fogo & theme_bw())
