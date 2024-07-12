@@ -14,3 +14,68 @@ targets::tar_source('R')
 
 
 # Case study
+
+Functionality previously available in {spatsoc} includes spatiotemporal grouping,
+edge list generation and data-stream permutations (Robitaille et al. 2019). 
+These functions have allowed users to detect interactions between individuals, 
+measure coocurrence within and across species, and generate social networks
+from telemetry data. (TODO: cite examples citing spatsoc)
+
+Spatiotemporal grouping can be performed given a telemetry dataset, 
+temporal and spatial thresholds, and one of three grouping functions:
+`group_pts`, `group_lines` or `group_polys`. Each return a unique identifier
+for each spatiotemporal group, defined using point based distances, 
+linear trajectory overlap or home range overlap, respectively. 
+
+
+For example, the suggested `group_pts` workflow 
+with example data from the package: 
+
+```{r}
+#| eval: false
+#| echo: true
+
+# Load packages
+library(data.table)
+library(spatsoc)
+
+# Read example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+# Temporal grouping
+group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+
+# Spatial grouping with timegroup
+group_pts(DT, threshold = 5, id = 'ID',
+          coords = c('X', 'Y'), timegroup = 'timegroup')
+
+```
+
+```{r}
+#| echo: false
+# Load packages
+library(data.table)
+suppressPackageStartupMessages(library(spatsoc))
+
+# Read example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+# Temporal grouping
+DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+setorder(DT, timegroup)
+
+# Spatial grouping with timegroup
+DT <- group_pts(DT, threshold = 5, id = 'ID', 
+                coords = c('X', 'Y'), timegroup = 'timegroup')
+
+tinytable::tt(DT[order(timegroup)][1:5])
+```
+
+# Case study
+
