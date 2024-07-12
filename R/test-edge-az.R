@@ -59,7 +59,7 @@ dyad_id(edges_fogo, 'ID1', 'ID2')
 # Plot --------------------------------------------------------------------
 g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
-  geom_label(aes(label = timegroup))
+  geom_label(aes(label = timegroup), data = DT_test[timegroup == min(timegroup)])
 
 g2 <- ggplot(edges_test,  aes(timegroup, dyadID, color = diff_az)) +
   geom_point(size = 5) +
