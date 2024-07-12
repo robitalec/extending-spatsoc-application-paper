@@ -199,5 +199,29 @@ group_pts(DT, threshold = 5, id = 'ID',
                 coords = c('X', 'Y'), timegroup = 'timegroup')
 group_centroid(DT, xcol, ycol, group = groupcol)
 ```
+
+Then we can measure each individual's direction and distance to the group centroid. 
+TODO: insert refs with examples of biological interpretation of distance and direction to 
+group centroid. 
+
+```{r}
+#| echo: true
+#| eval: false
+calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+calc_dir_to_group_centroid(DT, xcol, ycol)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+g1 <- ggplot(DT) +
+  geom_histogram(aes(dir_to_group_centroid), bins = 30) +
+  labs(x = 'Direction to group centroid', y = '')
+g2 <- ggplot(DT) +
+  stat_halfeye(aes(dist_to_group_centroid, factor(rank_dist_to_group_centroid))) +
+  labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
+
+g1 + g2
+```
 # Case study
 
