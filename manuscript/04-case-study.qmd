@@ -223,5 +223,73 @@ g2 <- ggplot(DT) +
 
 g1 + g2
 ```
+
+After considering how individuals are positioned relative to the group centroid, 
+we can also measure how individuals are positioned relative to the average 
+group direction. To do so, we rotate the coordinate system around the 
+group centroid by the average bearing of all individuals in the group. Then 
+we take the distance along this new axis to the measure of front-back position
+within the group. TODO: refs where this is used, extended biological interpretation
+
+```{r}
+#| eval: false
+#| echo: true
+coords <- c('x', 'y')
+projection <- 32636
+calc_az(DT, coords, projection = projection)
+position_within_group(DT, coords, return_rank = TRUE)
+```
+
+```{r}
+#| eval: true
+#| echo: false
+coords <- c('X', 'Y')
+projection <- 32636
+setnames(DT, 'ID', 'id')
+calc_az(DT, coords, projection = projection)
+position_within_group(DT, coords, return_rank = TRUE)
+
+sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
+sub_DT <- DT[group == sel_group]
+slope <- sub_DT[1, tan(group_az)]
+intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
+intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
+
+g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
+  geom_point(size = 0.8) +
+  geom_text(aes(label = paste0(format(dist_along_group_az, digits = 1),
+                               ' (', rank_dist_along_group_az, ')')),
+                nudge_y = 2) +
+  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+  geom_abline(slope = slope, intercept = intercept) +
+  geom_abline(slope = -1/slope, intercept = intercept_inv,
+              linewidth = 0.2) +
+  theme_bw() +
+  labs(x = '', y = '') +
+  theme(axis.text = element_blank(), axis.ticks = element_blank()) +
+  coord_fixed() +
+  guides(color = 'none') +
+  scale_x_continuous(expand = expansion(add = 10))
+
+DT[, N_by_group := .N, group]
+g_hist <- ggplot(DT[N_by_group > 1]) +
+  geom_histogram(aes(dist_along_group_az), binwidth = 1) +
+  labs(x = 'Distance along group az', y = '') +
+  theme_bw()
+
+g_hist2 <- ggplot(DT[N_by_group > 1]) +
+  geom_histogram(aes(rank_dist_along_group_az), binwidth = 1) +
+  labs(x = 'Rank distance along group az', y = '') +
+  theme_bw()
+
+g_dist <- ggplot(DT[N_by_group > 1]) +
+  stat_halfeye(aes(dist_along_group_az, factor(rank_dist_along_group_az))) +
+  labs(x = 'Distance along group az', y = 'Rank distance along group az') +
+  theme_bw()
+
+print(g_dist + ((g_hist / g_hist2) / g_pos))
+
+```
+
 # Case study
 
