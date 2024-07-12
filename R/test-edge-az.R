@@ -37,3 +37,10 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 
 
+# Test --------------------------------------------------------------------
+setorder(DT_test, timegroup)
+
+calc_az(DT_test, projection = 4326)
+edges_test <- edge_az(DT_test, threshold = NULL, id = 'id', timegroup = 'timegroup',
+                        coords = c('x', 'y'), returnDist = TRUE, fillNA = TRUE)
+dyad_id(edges_test, 'ID1', 'ID2')
