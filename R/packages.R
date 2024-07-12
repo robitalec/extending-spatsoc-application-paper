@@ -9,6 +9,7 @@ library(ggplot2)
 library(ggdist)
 library(forcats)
 library(rnaturalearth)
+library(patchwork)
 
 library(tinytable)
 library(scales)
@@ -19,6 +20,5 @@ library(sf)
 library(tidygeocoder)
 
 library(rgnparser)
-
 
 library(testthat)
