@@ -141,6 +141,7 @@ edge_az <- function(DT = NULL,
 
       w <- which(distMatrix < threshold, arr.ind = TRUE)
 
+      # TODO: use which for azMatrix
       if (returnDist) {
         l <- list(ID1 = .SD[[1]][w[, 1]],
                   ID2 = .SD[[1]][w[, 2]],
