@@ -430,60 +430,37 @@ print(g / g2 & theme_bw())
 
 TODO: interindividual difference in bearing
 
--->
+## Lagged differences in bearing
 
-## Distance, direction and rank distance to group centroid
+The directional correlation delay [@Nagy_2010] of individuals i, j is 
 
-The group centroid is the mean of individual locations in a group. The
-distance to group centroid is the distance between an individual's location
-and the group centroid. The direction to group centroid is the absolute
-bearing from an individual's location and the group centroid. The rank distance
-to group centroid is the ordinal rank of individuals' distances from the 
-group centroid. 
+$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
+
+where 
+
+- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of bird i at time t
+- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of bird j at time t + $\tau$
+- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
+- Calculated only where pairs of individuals were less than 100 m apart
 
 
-## Polarization, directional alignment and interindividual direction
+The maximum value of the directional correlation function $C_{ij}$ is at
+$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
+delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
+individuals, ignoring hierarchy changes caused by other individuals.
 
-Polarization measures the uniformity of bearings in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
-in different directions and values near 1 indicate that bearings point in 
-similar directions. 
+- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
+- Negative values indicate that flight directional changes of bird i fall behind
+that of bird j and therefore j is leading
 
-```{r}
-#| echo: true
 
-# Random bearings (radians)
-h <- runif(25, 0, 2 * pi)
 
-library(swaRm)
-pol_order(h)
 
-library(CircStats)
-r.test(h)
 
-# Also interesting
-circ.range(h)
-```
 
-Directional alignment measures the pairwise differences in bearing between
-individuals. Interindividual direction measures the pairwise bearings
-between individual locations. 
 
-```{r}
-#| eval: false
-# Mock code
-# NN directions
-edge_bearing(DT, only_nn = TRUE)
 
-# All neighbours 
-edge_bearing(DT, only_nn = FALSE)
-
-# Or as arg
-edge_dist(DT, ..., bearing = TRUE)
-edge_nn(DT, ..., bearing = TRUE)
-```
-
-<!--
+Note: hierarchical networks can be generated using $\tau^{*}_{ij}$
 
 spatsoc::edge_bearing
 
