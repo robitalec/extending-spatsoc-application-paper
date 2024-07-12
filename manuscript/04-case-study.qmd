@@ -1,0 +1,16 @@
+---
+title: "Case study"
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+targets::tar_source('R')
+```
+
+
+
+# Case study
