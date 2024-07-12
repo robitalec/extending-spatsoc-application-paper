@@ -77,5 +77,93 @@ DT <- group_pts(DT, threshold = 5, id = 'ID',
 tinytable::tt(DT[order(timegroup)][1:5])
 ```
 
+Users can also measure dyadic interindividual 
+distance using the `edge_dist` function, and identify nearest neighbors using 
+the `edge_nn` function. For example: 
+
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Load packages
+library(data.table)
+library(spatsoc)
+
+# Read example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+# Temporal grouping
+DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+
+# Interindividual distance with maximum distance threshold set at 50 m
+interindividual_dist <- edge_dist(
+  DT,
+  threshold = 100,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = TRUE
+)
+
+# Identifying nearest neighbours, optionally returning interindividual distance
+nearest_neighbours <- edge_nn(
+  DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE
+)
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+library(data.table)
+suppressPackageStartupMessages(library(spatsoc))
+
+# Read example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+# Temporal grouping
+DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+setorder(DT, timegroup)
+
+# Interindividual distance with maximum distance threshold set at 50 m
+interindividual_dist <- edge_dist(
+  DT,
+  threshold = 100,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = TRUE
+)
+tinytable::tt(interindividual_dist[1:5])
+```
+
+```{r}
+#| echo: false
+#| eval: true
+
+# Nearest neighbours, optionally returning interindividual distance
+nearest_neighbours <- edge_nn(
+  DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE
+)
+tinytable::tt(nearest_neighbours[1:5])
+```
+
 # Case study
 
