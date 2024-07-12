@@ -56,3 +56,17 @@ g <- ggplot(DT_test, aes(CircStats::deg(az))) +
   labs(title = paste0('Polarization: ', format(DT_test[1, polarization], digits = 2)))
 
 print(g)
+
+
+
+sel_group <- DT_fogo[, .N, group][N > 6, sample(group, 5)]
+sub_fogo <- DT_fogo[group %in% sel_group]
+g_fogo <- ggplot(sub_fogo, aes(CircStats::deg(az))) +
+  stat_dotsinterval(binwidth = 10, overflow = "keep", dotsize = 1) +
+  geom_text(x = 50, y = 0.75,
+            aes(label = format(polarization, digits = 2))) +
+  theme_bw() +
+  facet_grid(group~.)
+
+print(g_fogo)
+
