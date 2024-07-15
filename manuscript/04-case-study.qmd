@@ -190,8 +190,8 @@ group_centroid(DT, xcol, ycol, group = groupcol)
 ```
 
 ```{r}
-#| eval: false
-#| echo: true
+#| eval: true
+#| echo: false
 xcol <- 'X'
 ycol <- 'Y'
 groupcol <- 'group'
