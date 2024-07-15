@@ -78,7 +78,7 @@ tinytable::tt(DT[order(timegroup)][1:5])
 ```
 
 Users can also measure dyadic interindividual 
-distance using the `edge_dist` function, and identify nearest neighbors using 
+distance using the `edge_dist` function and identify nearest neighbors using 
 the `edge_nn` function. For example: 
 
 
@@ -195,9 +195,10 @@ group_centroid(DT, xcol, ycol, group = groupcol)
 xcol <- 'X'
 ycol <- 'Y'
 groupcol <- 'group'
-group_pts(DT, threshold = 5, id = 'ID', 
+DT <- group_pts(DT, threshold = 5, id = 'ID', 
                 coords = c('X', 'Y'), timegroup = 'timegroup')
-group_centroid(DT, xcol, ycol, group = groupcol)
+cent <- group_centroid(DT, xcol, ycol, group = groupcol)
+tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, group_mean_Y)])
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
@@ -214,8 +215,9 @@ calc_dir_to_group_centroid(DT, xcol, ycol)
 ```{r}
 #| echo: false
 #| eval: true
-calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
-calc_dir_to_group_centroid(DT, xcol, ycol)
+#| warning: false
+dist_dir_cent <- calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+dist_dir_cent <- calc_dir_to_group_centroid(DT, xcol, ycol)
 g1 <- ggplot(DT) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
@@ -261,7 +263,7 @@ g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
   geom_text(aes(label = paste0(format(dist_along_group_az, digits = 1),
                                ' (', rank_dist_along_group_az, ')')),
-                nudge_y = 2) +
+                nudge_y = 0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
@@ -289,8 +291,8 @@ g_dist <- ggplot(DT[N_by_group > 1]) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
-print(g_dist + ((g_hist / g_hist2) / g_pos))
-
+print(g_pos)
+print(g_dist + (g_hist / g_hist2))
 ```
 
 ## Position relative to leader
@@ -310,8 +312,8 @@ calc_dir_to_leader(DT, coords = coords, group = groupcol)
 ```{r}
 #| eval: true
 #| echo: false
-calc_dist_to_leader(DT, coords = coords, group = groupcol)
-calc_dir_to_leader(DT, coords = coords, group = groupcol)
+DT <- calc_dist_to_leader(DT, coords = coords, group = groupcol)
+DT <- calc_dir_to_leader(DT, coords = coords, group = groupcol)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
@@ -321,11 +323,11 @@ intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 1.5) +
+  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 0.5) +
   geom_text(aes(label = paste0(format(dist_to_leader, digits = 2),
                                ', ',
                                format(dir_to_leader, digits = 2),
-                               ' rad')), nudge_y = -1.5) +
+                               ' rad')), nudge_y = -0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
@@ -337,26 +339,28 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT, aes(dist_to_leader, factor(rank_dist_along_group_az))) +
+g_dist <- ggplot(DT, aes(CircStats::deg(dir_to_leader), 
+                         factor(rank_dist_along_group_az))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dir_to_leader, factor(rank_dist_along_group_az))) +
+g_dir <- ggplot(DT, aes(dist_to_leader, factor(rank_dist_along_group_az))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()
 
-print(g / (g_dist + g_dir))
-
+print(g)
+print(g_dist + g_dir)
 ```
 
 
 ## Bearings
 
-Next, we can use individuals' bearings to explore interindividual 
-direction, alignment between individuals and polarization in groups. TODO: references related eg. direction between individuals
-(always L / R), polarization of flock, etc
+Next, we can use individuals' bearings to explore interindividual direction,
+alignment between individuals and polarization in groups. TODO: references
+related eg. direction between individuals (always L / R), polarization of flock,
+etc
 
 ```{r}
 #| echo: true
@@ -367,7 +371,7 @@ calc_polarization(DT)
 ```{r}
 #| echo: false
 #| eval: true
-calc_polarization(DT)
+DT <- calc_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]
@@ -388,10 +392,15 @@ is provided under a similar name: `edge_az`.
 ```{r}
 #| echo: true
 #| eval: false
-directional_align <- edge_az(DT, threshold = NULL, id = 'id',
-                             timegroup = 'timegroup',
-                        coords = coords, returnDist = TRUE, fillNA = TRUE)
-
+directional_align <- edge_az(
+  DT,
+  threshold = NULL,
+  id = 'id',
+  timegroup = 'timegroup',
+  coords = coords,
+  returnDist = TRUE,
+  fillNA = TRUE
+)
 ```
 
 ```{r}
@@ -400,7 +409,7 @@ directional_align <- edge_az(DT, threshold = NULL, id = 'id',
 directional_align <- edge_az(DT, threshold = NULL, id = 'id',
                              timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
-dyad_id(directional_align, 'ID1', 'ID2')
+directional_align <- dyad_id(directional_align, 'ID1', 'ID2')
 
 sel_group <- DT[N_by_group > 2, sample(group, 1)]
 sub <- DT[id %in% DT[group == sel_group, id] &
@@ -429,7 +438,11 @@ print(g / g2 & theme_bw())
 ```
 
 
-TODO: interindividual difference in bearing
+Interindividual direction measures the pairwise bearings
+between individual locations. 
+
+TODO: interindividual difference in bearing code and example
+
 
 ## Lagged differences in bearing
 
@@ -465,8 +478,6 @@ Note: hierarchical networks can be generated using $\tau^{*}_{ij}$
 
 ## Behavioural zones
 
-TODO
-
 The behavioural zones metric metric assigns neighbours to three non-overlapping
 behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
 around an individual within which neighbours are expected to move away to 
@@ -480,10 +491,10 @@ of their perception.
 
 ![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
 
+TODO: code and example
+
 
 ## Fission fusion
-
-
 
 Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
 Arguments: 
