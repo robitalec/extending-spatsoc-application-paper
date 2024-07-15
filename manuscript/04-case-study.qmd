@@ -136,6 +136,8 @@ DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 # Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
 setorder(DT, timegroup)
+#| echo: false
+#| eval: true
 
 # Interindividual distance with maximum distance threshold set at 50 m
 interindividual_dist <- edge_dist(
