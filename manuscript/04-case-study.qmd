@@ -214,6 +214,8 @@ calc_dir_to_group_centroid(DT, xcol, ycol)
 ```{r}
 #| echo: false
 #| eval: true
+calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+calc_dir_to_group_centroid(DT, xcol, ycol)
 g1 <- ggplot(DT) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
@@ -359,7 +361,6 @@ direction, alignment between individuals and polarization in groups. TODO: refer
 ```{r}
 #| echo: true
 #| eval: false
-
 calc_polarization(DT)
 ```
 
