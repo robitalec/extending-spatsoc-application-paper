@@ -7,6 +7,7 @@ library(data.table)
 
 library(ggplot2)
 library(ggdist)
+library(scico)
 library(forcats)
 library(rnaturalearth)
 library(patchwork)
