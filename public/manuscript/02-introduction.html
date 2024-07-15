@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.5.54">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="dcterms.date" content="2024-07-15">
-<title>Methods – spatsoc paper 2</title>
+<title>Introduction – spatsoc paper 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,40 +17,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -97,32 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
+}</script>
 </head>
 <body class="nav-sidebar floating">
 
@@ -131,7 +72,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manuscript/01-abstract.html">Manuscript</a></li><li class="breadcrumb-item"><a href="../manuscript/03-methods.html">Methods</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manuscript/01-abstract.html">Manuscript</a></li><li class="breadcrumb-item"><a href="../manuscript/02-introduction.html">Introduction</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -173,13 +114,13 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../manuscript/02-introduction.html" class="sidebar-item-text sidebar-link">
+  <a href="../manuscript/02-introduction.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../manuscript/03-methods.html" class="sidebar-item-text sidebar-link active">
+  <a href="../manuscript/03-methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
   </div>
 </li>
@@ -213,28 +154,12 @@ window.Quarto = {
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li>
-<a href="#selecting-metrics" id="toc-selecting-metrics" class="nav-link active" data-scroll-target="#selecting-metrics">Selecting metrics</a>
-  <ul class="collapse">
-<li><a href="#directional-correlation-delay" id="toc-directional-correlation-delay" class="nav-link" data-scroll-target="#directional-correlation-delay">Directional correlation delay</a></li>
-  <li><a href="#position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" id="toc-position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" class="nav-link" data-scroll-target="#position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader">Position within group, rank position within group, time spent leading group, distance and direction to leader</a></li>
-  <li><a href="#distance-direction-and-rank-distance-to-group-centroid" id="toc-distance-direction-and-rank-distance-to-group-centroid" class="nav-link" data-scroll-target="#distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</a></li>
-  <li><a href="#polarization-directional-alignment-and-interindividual-direction" id="toc-polarization-directional-alignment-and-interindividual-direction" class="nav-link" data-scroll-target="#polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</a></li>
-  <li><a href="#behavioural-zones" id="toc-behavioural-zones" class="nav-link" data-scroll-target="#behavioural-zones">Behavioural zones</a></li>
-  <li><a href="#fission-fusion" id="toc-fission-fusion" class="nav-link" data-scroll-target="#fission-fusion">Fission fusion</a></li>
-  <li><a href="#not-selected" id="toc-not-selected" class="nav-link" data-scroll-target="#not-selected">Not selected</a></li>
-  </ul>
-</li>
-  <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study">Case study</a></li>
-  </ul></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manuscript/01-abstract.html">Manuscript</a></li><li class="breadcrumb-item"><a href="../manuscript/03-methods.html">Methods</a></li></ol></nav><div class="quarto-title">
-<h1 class="title">Methods</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../manuscript/01-abstract.html">Manuscript</a></li><li class="breadcrumb-item"><a href="../manuscript/02-introduction.html">Introduction</a></li></ol></nav><div class="quarto-title">
+<h1 class="title">Introduction</h1>
 </div>
 
 
@@ -254,279 +179,10 @@ window.Quarto = {
   
 
 
-</header><section id="selecting-metrics" class="level1"><h1>Selecting metrics</h1>
-<p>Criteria:</p>
-<ul>
-<li>highly cited, unavailable</li>
-<li>direct extension of available functions in spatsoc</li>
-<li>biology</li>
-</ul>
-<p>For each</p>
-<ul>
-<li>Citation</li>
-<li>Interpretation, <strong>emphasis on biology</strong>
-</li>
-<li>Formula</li>
-<li>Code example</li>
-<li>Similar terms? eg. see metric synonyms</li>
-</ul>
-<section id="directional-correlation-delay" class="level2"><h2 class="anchored" data-anchor-id="directional-correlation-delay">Directional correlation delay</h2>
-<p>The directional correlation delay <span class="citation" data-cites="Nagy_2010">[@Nagy_2010]</span> of individuals i, j is</p>
-<p><span class="math display">\[C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}\]</span></p>
-<p>where</p>
-<ul>
-<li>
-<span class="math inline">\(\overrightarrow{v_{i}}(t)\)</span> is the normalized velocity of bird i at time t</li>
-<li>
-<span class="math inline">\(\overrightarrow{v_{j}}(t + \tau)\)</span> is the normalized velocity of bird j at time t + <span class="math inline">\(\tau\)</span>
-</li>
-<li>Note that <span class="math inline">\(C_{ij}(\tau)\)</span> = <span class="math inline">\(C_{ji}(-\tau)\)</span>
-</li>
-<li>Calculated only where pairs of individuals were less than 100 m apart</li>
-</ul>
-<p>The maximum value of the directional correlation function <span class="math inline">\(C_{ij}\)</span> is at <span class="math inline">\(C_{ij}(\tau^{*}_{ij})\)</span> where <span class="math inline">\(\tau^{*}_{ij}\)</span> is the directional correlation delay time. <span class="math inline">\(\tau^{*}_{ij}\)</span> values focus on the relationship in pairs of individuals, ignoring hierarchy changes caused by other individuals.</p>
-<ul>
-<li>Note that <span class="math inline">\(\tau^{*}_{ij}\)</span> = <span class="math inline">\(-\tau^{*}_{ji}\)</span>
-</li>
-<li>Negative values indicate that flight directional changes of bird i fall behind that of bird j and therefore j is leading</li>
-</ul>
-<p>Hierarchical networks can be generated using <span class="math inline">\(\tau^{*}_{ij}\)</span></p>
-</section><section id="position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader" class="level2"><h2 class="anchored" data-anchor-id="position-within-group-rank-position-within-group-time-spent-leading-group-distance-and-direction-to-leader">Position within group, rank position within group, time spent leading group, distance and direction to leader</h2>
-<p>The position within group is the position along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Quera_2023 Harel_2021">[@Quera_2023; @Harel_2021]</span>). The rank position within group is the ordinal rank along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Burns_2012">[@Burns_2012]</span>). The time spent leading group is an aggregate metric of the time in the first rank position within group. The distance to leader is the geographic distance to the focal individual’s group leader. The direction to leader is the absolute bearing to the focal individual’s group leader.</p>
-<!-- 
-- front-back distance along group's axis of movement [@Quera_2023]
-- ordinal 1-6 position along group's traveling direction [@Burns_2012]
-- relative positional ranks on the front-to-back axis were determined 
-by multiplying their x–y locations by a rotation matrix based on the heading 
-of the centroid [@Harel_2021]
-- space transformation from geographical space to relative positions with respect
-to group center and movement direction [@Andrienko_2013]
+</header>
 
 
-- note group leader defined using {spatsoc} functions, or manually, 
-using focal obs or other tools
-
-- group = distance threshold
-- at each step
-- ?how to compare rank across varying sized groups
--->
-</section><section id="distance-direction-and-rank-distance-to-group-centroid" class="level2"><h2 class="anchored" data-anchor-id="distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</h2>
-<p>The group centroid is the mean of individual locations in a group. The distance to group centroid is the distance between an individual’s location and the group centroid. The direction to group centroid is the absolute bearing from an individual’s location and the group centroid. The rank distance to group centroid is the ordinal rank of individuals’ distances from the group centroid.</p>
-</section><section id="polarization-directional-alignment-and-interindividual-direction" class="level2"><h2 class="anchored" data-anchor-id="polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</h2>
-<p>Polarization measures the uniformity of bearings in a group of individuals <span class="citation" data-cites="Wang_2022">[@Wang_2022]</span> on a scale of 0-1 where values near 0 indicate that bearings point in different directions and values near 1 indicate that bearings point in similar directions.</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Random bearings (radians)</span></span>
-<span><span class="va">h</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">25</span>, <span class="fl">0</span>, <span class="fl">2</span> <span class="op">*</span> <span class="va">pi</span><span class="op">)</span></span>
-<span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://swarm-lab.github.io/swaRm/">swaRm</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://swarm-lab.github.io/swaRm/reference/pol_order.html">pol_order</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.182356</code></pre>
-</div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">CircStats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: MASS</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'MASS'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:patchwork':
-
-    area</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: boot</code></pre>
-</div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/r.test.html">r.test</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$r.bar
-[1] 0.182356
-
-$p.value
-[1] 0.4397722</code></pre>
-</div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Also interesting</span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/circ.range.html">circ.range</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    range
-1 5.38694</code></pre>
-</div>
-</div>
-<p>Directional alignment measures the pairwise differences in bearing between individuals. Interindividual direction measures the pairwise bearings between individual locations.</p>
-<!--
-
-spatsoc::edge_bearing
-
-or 
-
-edge_dist
-edge_nn
-
-bearing argg
-
--->
-</section><section id="behavioural-zones" class="level2"><h2 class="anchored" data-anchor-id="behavioural-zones">Behavioural zones</h2>
-<p>The behavioural zones metric metric assigns neighbours to three non-overlapping behavioural zones [Couzin_2002]. The “zone of repulsion” is the minimum distance around an individual within which neighbours are expected to move away to avoid collisions. The “zone of orientation” is the next zone around an individual beyond the “zone of repulsion” within which neighbours are expected to orient themselves to the movement of their neighbours. The “zone of attraction” is the last zone around an individual within which neighbours are expected to be attracted to the position of the focal individual. Notably, there is a possibly “blind volume” behind the individual representing the limits of their perception.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="Couzin_et_al_2002_Fig_1.png" class="img-fluid figure-img"></p>
-<figcaption>Figure from Couzin et al 2002</figcaption></figure>
-</div>
-</section><section id="fission-fusion" class="level2"><h2 class="anchored" data-anchor-id="fission-fusion">Fission fusion</h2>
-<div class="cell">
-<div class="cell-output-display">
- 
-
-  
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_ulb3cucqgpcd2e0b2yaz</title>
-<style>
-.table td.tinytable_css_s8x1wyzgt4zx3fku777n, .table th.tinytable_css_s8x1wyzgt4zx3fku777n {    border-bottom: solid 0.1em #d3d8dc; }
-    </style>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-    </script><div class="container">
-      <table class="table table-borderless" id="tinytable_ulb3cucqgpcd2e0b2yaz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-<thead><tr>
-<th scope="col">study_id</th>
-                <th scope="col">definitions_of_leader_initiator_etc</th>
-              </tr></thead>
-<tbody>
-<tr>
-<td>Baden 2016       </td>
-                  <td>NA                                                                                                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Aguilar-Melo 2018</td>
-                  <td>fission when gte 1 were not observed with a group for 2 consecutive scans; fusion when gte 1 who were previously not observed with group are observed with group for 2 consecutive scans                                                                                                                                          </td>
-                </tr>
-<tr>
-<td>Barocas 2016     </td>
-                  <td>fission and fusion defined as joining and leaving group in subsequent observations                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Haydon 2008      </td>
-                  <td>fusion where solitary to grouped and fission where grouped to solitary                                                                                                                                                                                                                                                            </td>
-                </tr>
-<tr>
-<td>Fortin 2009      </td>
-                  <td>group/fusion when within 100 m; fission when two or more consecutive locations separated by &gt; 100 m                                                                                                                                                                                                                               </td>
-                </tr>
-<tr>
-<td>Body 2015        </td>
-                  <td>fusion gte 2 groups merging into one; fission one group splitting into gte 2                                                                                                                                                                                                                                                      </td>
-                </tr>
-<tr>
-<td>DellaLibera 2023 </td>
-                  <td>define a fission and fusion event if one or more individuals left or  joined the group, respectively. in the rare cases of missing data, missing individuals are not considered as having changed group membership, and individual ‘disappearances’ and ‘reappearances’ in the dataset are not considered as fission–fusion events</td>
-                </tr>
-<tr>
-<td>Wielgus 2020     </td>
-                  <td>group where simultaneously within 1 km or &gt;= 1 km for &lt;= 2 hr; fusion where together then different by one time step; fission reverse                                                                                                                                                                                             </td>
-                </tr>
-<tr>
-<td>Nishikawa 2014   </td>
-                  <td>converged when IID less than 20 m; separated when IID greater than 20  m; converged and separated synonymous with fission fusion                                                                                                                                                                                                  </td>
-                </tr>
-<tr>
-<td>Krueger 2014     </td>
-                  <td>NA                                                                                                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Lesmerises 2018  </td>
-                  <td>grouped/fission fusion if within 50 m for two relocations; to minimize the false fission events, considered dyad valid if together at t0,  t2, but apart at t1; if one missing GPS location, dyad valid if before and after missing loc distance was &lt;50 m                                                                        </td>
-                </tr>
-<tr>
-<td>Merkle 2015      </td>
-                  <td>group defined as within 100 m within 24 hours                                                                                                                                                                                                                                                                                     </td>
-                </tr>
-</tbody>
-</table>
-</div>
-
-    <script>
-      function styleCell_tinytable_jlf4ubddw2fkx3uscc70(i, j, css_id) {
-        var table = document.getElementById("tinytable_ulb3cucqgpcd2e0b2yaz");
-        table.rows[i].cells[j].classList.add(css_id);
-      }
-      function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_ulb3cucqgpcd2e0b2yaz');
-        var newRow = table.insertRow(i);
-        var newCell = newRow.insertCell(0);
-        newCell.setAttribute("colspan", colspan);
-        // newCell.innerText = content;
-        // this may be unsafe, but innerText does not interpret <br>
-        newCell.innerHTML = content;
-      }
-      function spanCell_tinytable_jlf4ubddw2fkx3uscc70(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_ulb3cucqgpcd2e0b2yaz");
-        const targetRow = table.rows[i];
-        const targetCell = targetRow.cells[j];
-        for (let r = 0; r < rowspan; r++) {
-          // Only start deleting cells to the right for the first row (r == 0)
-          if (r === 0) {
-            // Delete cells to the right of the target cell in the first row
-            for (let c = colspan - 1; c > 0; c--) {
-              if (table.rows[i + r].cells[j + c]) {
-                table.rows[i + r].deleteCell(j + c);
-              }
-            }
-          }
-          // For rows below the first, delete starting from the target column
-          if (r > 0) {
-            for (let c = colspan - 1; c >= 0; c--) {
-              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
-                table.rows[i + r].deleteCell(j);
-              }
-            }
-          }
-        }
-        // Set rowspan and colspan of the target cell
-        targetCell.rowSpan = rowspan;
-        targetCell.colSpan = colspan;
-      }
-
-window.addEventListener('load', function () { styleCell_tinytable_jlf4ubddw2fkx3uscc70(0, 0, 'tinytable_css_s8x1wyzgt4zx3fku777n') })
-window.addEventListener('load', function () { styleCell_tinytable_jlf4ubddw2fkx3uscc70(0, 1, 'tinytable_css_s8x1wyzgt4zx3fku777n') })
-    </script>
-</div>
-</div>
-<p>Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. Arguments:</p>
-<ul>
-<li>Minimum run length indicating the number of successive fixes that are required to establish a fusion event</li>
-<li>Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event</li>
-<li>Threshold distance to define a fusion event</li>
-</ul></section><section id="not-selected" class="level2"><h2 class="anchored" data-anchor-id="not-selected">Not selected</h2>
-<ul>
-<li>wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, HAI, IAB, Cr, Ca,</li>
-<li>corrMove (diffusive movement correlation, drift movement correlation, overall component movement correlation)</li>
-<li>metrics relating to posture</li>
-<li>static interaction eg. home range overlap</li>
-<li>voronoi</li>
-<li>HMM</li>
-<li>change point detection</li>
-<li>mFLICA
-<ul>
-<li>available</li>
-</ul>
-</li>
-<li>FLOCK</li>
-<li>LPD</li>
-<li>Granger causality</li>
-<li>Influence maximization</li>
-</ul></section></section><section id="case-study" class="level1"><h1>Case study</h1>
-
-
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
