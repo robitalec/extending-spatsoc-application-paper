@@ -546,7 +546,6 @@ g2 <- ggplot(sub_edges,
   labs(x = 'Timegroup', y = '')
 
 print(g / g2 & theme_bw())
-
 ```
 
 
@@ -558,35 +557,68 @@ TODO: interindividual difference in bearing code and example
 
 ## Lagged differences in bearing
 
-The directional correlation delay [@Nagy_2010] of individuals i, j is 
+The directional correlation delay [@Nagy_2010] is the time delay at which 
+an individual's bearing is most similar to a conspecific. For example, 
+the directional correlation delay for B-A is 10 seconds if individual A 
+makes a westerly movement 10 seconds before individual B. 
 
-$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
+```{r}
+#| eval: false
+#| echo: true
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
-where 
+# Temporal grouping
+DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
 
-- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of bird i at time t
-- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of bird j at time t + $\tau$
-- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
-- Calculated only where pairs of individuals were less than 100 m apart
+# Interindividual distance with maximum distance threshold set at 50 m
+interindividual_dist <- edge_dist(
+  DT,
+  threshold = 100,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = TRUE
+)
 
+fission_fusion(
+  interindividual_dist,
+  threshold = 50, 
+  n_min_length = 0, 
+  n_max_missing = 0, 
+  allow_split = FALSE
+)
+```
 
-The maximum value of the directional correlation function $C_{ij}$ is at
-$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
-delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
-individuals, ignoring hierarchy changes caused by other individuals.
+```{r}
+#| eval: true
+#| echo: false
+DT_fogo <- DT_fogo[timegroup < 50]
 
-- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
-- Negative values indicate that flight directional changes of bird i fall behind
-that of bird j and therefore j is leading
+calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+dir_delay_fogo <- calc_dir_corr_delay(DT_fogo, edges_fogo, window = 2)
 
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
+g <- ggplot(sub_fogo,
+            aes(x_proj, y_proj, color = id)) +
+  geom_path() +
+  geom_label(aes(label = timegroup),
+             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
+  theme_bw()
+g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
+  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
+  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
+  theme_bw()
 
+print(g / g2)
 
-
-
-
+```
 
 
 Note: hierarchical networks can be generated using $\tau^{*}_{ij}$
+
+TODO: example of hierarchical networks
 
 ## Behavioural zones
 
@@ -605,21 +637,4 @@ of their perception.
 
 TODO: code and example
 
-
-## Fission fusion
-
-Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
-Arguments: 
-
-- Minimum run length indicating the number of successive fixes that are required to establish a fusion event
-- Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event
-- Threshold distance to define a fusion event
-
-
-
-(TODO: cite table of definitions from review)
-
-```{r}
-tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
-```
 
