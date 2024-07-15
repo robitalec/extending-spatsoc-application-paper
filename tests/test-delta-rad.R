@@ -1,0 +1,12 @@
+# === Test delta ra -------------------------------------------------------
+source('R/draft/delta_rad.R')
+expect_equal(delta_rad(0.1, 0.2, TRUE), 0.1)
+expect_equal(delta_rad(0.1, 0.2 + 2 * pi, TRUE), 0.1)
+expect_equal(delta_rad(0.1, 0.2 - 2 * pi, TRUE), 0.1)
+expect_equal(delta_rad(0.1 + 2 * pi, 0.2, TRUE), 0.1)
+expect_equal(delta_rad(0.1 - 2 * pi, 0.2, TRUE), 0.1)
+expect_equal(delta_rad(0.2, 0.1, TRUE), -0.1)
+expect_equal(delta_rad(0.2 + 2 * pi, 0.1, TRUE), -0.1)
+expect_equal(delta_rad(0.2 - 2 * pi, 0.1, TRUE), -0.1)
+expect_equal(delta_rad(0.2, 0.1 + 2 * pi, TRUE), -0.1)
+expect_equal(delta_rad(0.2, 0.1 - 2 * pi, TRUE), -0.1)
