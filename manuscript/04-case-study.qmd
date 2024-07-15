@@ -173,7 +173,7 @@ We aim to provide users with accessible, flexible functions that will
 help them identify leader follower patterns, fission fusion dynamics and 
 potentially dominance behaviours in their own animal telemetry data. 
 
-## Position relative to groups
+## Position within groups
 
 Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new 
 set of functions are now available to measure individuals position relative within
