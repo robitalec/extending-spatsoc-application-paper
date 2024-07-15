@@ -357,6 +357,110 @@ print(g_dist + g_dir)
 ```
 
 
+## Fission fusion
+
+Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
+Arguments: 
+
+- Minimum run length indicating the number of successive fixes that are required to establish a fusion event
+- Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event
+- Threshold distance to define a fusion event
+
+See Table Sup B: varying definitions of fission fusion
+
+```{r}
+#| eval: false
+#| echo: true
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+# Temporal grouping
+DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+
+# Interindividual distance with maximum distance threshold set at 50 m
+interindividual_dist <- edge_dist(
+  DT,
+  threshold = 100,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = TRUE
+)
+
+fission_fusion(
+  interindividual_dist,
+  threshold = 50, 
+  n_min_length = 0, 
+  n_max_missing = 0, 
+  allow_split = FALSE
+)
+```
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| fig-height: 10
+max_tg <- 50
+threshold <- 50
+DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
+DT_fogo <- group_times(DT_fogo, 'datetime', '10 minutes')
+DT_fogo <- setorder(DT_fogo, timegroup)
+edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
+                   id = 'id', coords = c('x_proj', 'y_proj'),
+                   timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
+edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
+fission_fusion(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
+
+sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
+sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
+                          ID2 %in% c('FO2016008', 'FO2017007') &
+                          timegroup < max_tg]
+
+fogo_min0_miss0_splitF <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
+fogo_min2_miss1_splitT <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
+fogo_min2_miss0_splitF <- fission_fusion(
+  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
+
+g <- ggplot(sub_fogo,
+            aes(x_proj, y_proj, color = id)) +
+  geom_path() +
+  geom_label(aes(label = timegroup),
+            data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
+  theme_bw() + 
+  labs(x = '', y = '')
+
+g2.1 <- ggplot(fogo_min0_miss0_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape= factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 0, maximum missing: 0, allow split: FALSE',
+       y = '')
+g2.2 <- ggplot(fogo_min2_miss1_splitT[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 2, maximum missing: 1, allow split: TRUE',
+       y = '')
+g2.3 <- ggplot(fogo_min2_miss0_splitF[!is.na(fusionID)],
+               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
+  geom_line() +
+  geom_point(size = 3) +
+  labs(title = 'Minimum obs: 2, maximum missing: 0, allow split: FALSE',
+       y = '')
+
+print(g / (g2.1 / g2.2 / g2.3 *
+             xlim(0, 50) *
+             guides(shape = 'none')) &
+        labs(shape = 'fusionID') &
+        scale_shape_manual(values = seq.int(15)) &
+        theme_bw())
+```
+
+
 ## Bearings
 
 Next, we can use individuals' bearings to explore interindividual direction,
