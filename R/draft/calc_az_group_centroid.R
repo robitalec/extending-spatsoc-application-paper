@@ -1,3 +1,7 @@
+#' Calculate absolute azimuth to group centroid
+#'
+#' @param DT expects group_mean columns generated with group_centroid
+#' @param coords character vector of column names for x, y
 calc_az_group_centroid <- function(DT, coords = NULL) {
   pre <- 'group_mean_'
 
