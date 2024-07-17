@@ -539,8 +539,8 @@ g <- ggplot(sub, aes(CircStats::deg(az))) +
 print(g)
 ```
 
-Directional alignment is the difference between two individuals' 
-bearings. Given the similarity to `edge_dist`, this functionality
+Directional alignment is the relative difference between two individuals' 
+azimuths. Given the similarity to `edge_dist`, this functionality
 is provided under a similar name: `edge_az`. 
 
 ```{r}
@@ -591,10 +591,10 @@ print(g / g2 & theme_bw())
 ```
 
 
-Interindividual direction measures the pairwise bearings
-between individual locations. 
+Interindividual direction measures the absolute azimuth between individuals. 
 
-TODO: interindividual difference in bearing code and example
+(TODO)
+<!-- TODO: interindividual difference in bearing code and example -->
 
 
 ## Lagged differences in bearing
