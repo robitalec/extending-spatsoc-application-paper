@@ -1,4 +1,4 @@
-calc_dist_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
+calc_dist_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
   stopifnot(first(coords) %in% colnames(DT))
   stopifnot(last(coords) %in% colnames(DT))
   stopifnot(group %in% colnames(DT))
