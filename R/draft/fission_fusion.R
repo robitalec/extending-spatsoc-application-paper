@@ -3,7 +3,17 @@ fission_fusion <- function(edges,
                            n_min_length = 0,
                            n_max_missing = 0,
                            allow_split = FALSE)  {
+
   stopifnot('dyadID' %in% colnames(edges))
+  stopifnot('timegroup' %in% colnames(edges))
+  stopifnot('distance' %in% colnames(edges))
+
+  stopifnot(is.numeric(threshold))
+  stopifnot(is.numeric(n_min_length))
+  stopifnot(is.numeric(n_max_missing))
+
+  stopifnot(threshold < 0)
+
   unique_edges <- unique(edges[, .(dyadID, timegroup, distance)])
 
   setorder(unique_edges, 'timegroup')
