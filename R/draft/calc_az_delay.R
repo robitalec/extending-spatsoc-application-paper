@@ -6,7 +6,23 @@
 #' @param edges edges generated with edges_dist
 #' @param window integer window in timegroups generated with group_times
 calc_az_delay <- function(DT, id = NULL, edges, window = NULL) {
+  stopifnot(!is.null(id))
+  stopifnot(!is.null(windows))
+
+  stopifnot(id %in% colnames(DT))
+
+  setnames(DT, id, 'id')
+
   stopifnot('dyadID' %in% colnames(edges))
+  stopifnot('timegroup' %in% colnames(edges))
+  stopifnot('fusionID' %in% colnames(edges))
+  stopifnot('dyadID' %in% colnames(edges))
+
+  stopifnot('az' %in% colnames(DT))
+  stopifnot('timegroup' %in% colnames(DT))
+
+  # TODO: check window isnt in colnames
+
   setorder(DT, timegroup)
 
   id_tg <- edges[!is.na(fusionID), .(
@@ -14,7 +30,7 @@ calc_az_delay <- function(DT, id = NULL, edges, window = NULL) {
     dyadID = unique(dyadID),
     ID1 = first(ID1),
     ID2 = first(ID2)
-    ), by = fusionID]
+  ), by = fusionID]
   id_tg[, min_tg := data.table::fifelse(tg - window < min(tg), min(tg), tg - window),
         by = fusionID]
   id_tg[, max_tg := data.table::fifelse(tg + window < min(tg), min(tg), tg + window),
