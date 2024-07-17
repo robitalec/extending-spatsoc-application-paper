@@ -599,10 +599,27 @@ Interindividual direction measures the absolute azimuth between individuals.
 
 ## Lagged differences in bearing
 
-The directional correlation delay [@Nagy_2010] is the time delay at which 
-an individual's bearing is most similar to a conspecific. For example, 
-the directional correlation delay for B-A is 10 seconds if individual A 
-makes a westerly movement 10 seconds before individual B. 
+The directional correlation delay [@Nagy_2010] of individuals i, j is given by
+
+$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
+
+where 
+
+- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of individual i at time t
+- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of individual j at time t + $\tau$
+- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
+- Calculated only where pairs of individuals were less than 100 m apart
+
+The maximum value of the directional correlation function $C_{ij}$ is at
+$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
+delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
+individuals, ignoring hierarchy changes caused by other individuals.
+
+- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
+- Negative values indicate that flight directional changes of individual
+i falls behind that of individual j and therefore j is leading
+
+Hierarchical networks can be generated using $\tau^{*}_{ij}$. 
 
 ```{r}
 #| eval: false
@@ -658,9 +675,7 @@ print(g / g2)
 ```
 
 
-Note: hierarchical networks can be generated using $\tau^{*}_{ij}$
-
-TODO: example of hierarchical networks
+<!-- TODO: example of hierarchical networks -->
 
 ## Behavioural zones
 
