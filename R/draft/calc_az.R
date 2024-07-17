@@ -1,5 +1,6 @@
 calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
   setorder(DT, timegroup)
+calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
 
   if (st_is_longlat(projection)) {
     DT[, az := c(
