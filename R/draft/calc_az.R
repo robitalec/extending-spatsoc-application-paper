@@ -1,4 +1,5 @@
-calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
+#' Calclulate absolute sequential azimuth
+#'
 #' Ensure input DT is ordered by datetime or timegroup using
 #' eg. setorder(DT, timegroup)
 calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
