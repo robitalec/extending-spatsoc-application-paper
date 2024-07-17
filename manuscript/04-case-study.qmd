@@ -196,7 +196,8 @@ set of functions are now available to measure individuals position relative with
 spatiotemporal groups. 
 
 After identifying spatiotemporal groups with eg. `group_pts`, we 
-can measure the group centroid.  
+can measure the group centroid. The group centroid is defined as the 
+the mean of individual locations in a group. 
 
 ```{r}
 #| eval: false
