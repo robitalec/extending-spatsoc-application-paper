@@ -7,7 +7,7 @@ calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
       units::drop_units(
         lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = coords, crs = projection))),
       NA),
-      by = id]
+      by = c(id)]
   } else {
     DT[, az := c(
       units::drop_units(
@@ -15,7 +15,7 @@ calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
           st_as_sf(.SD, coords = coords, crs = projection),
           crs =  4326))),
       NA),
-      by = id]
+      by = c(id)]
 
   }
 }
