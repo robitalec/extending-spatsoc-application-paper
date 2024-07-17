@@ -679,19 +679,21 @@ print(g / g2)
 
 ## Behavioural zones
 
-The behavioural zones metric metric assigns neighbours to three non-overlapping
+The behavioural zones metric assigns neighbours to three non-overlapping
 behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
-around an individual within which neighbours are expected to move away to 
-avoid collisions. The "zone of orientation" is the next zone around an 
-individual beyond the "zone of repulsion" within which neighbours are expected
-to orient themselves to the movement of their neighbours. The "zone of
-attraction" is the last zone around an individual within which neighbours are 
-expected to be attracted to the position of the focal individual. Notably, 
-there is a possibly "blind volume" behind the individual representing the limits
-of their perception. 
+around an individual within which neighbours are expected to move away to avoid
+collisions. The "zone of orientation" is the next zone around an individual
+beyond the "zone of repulsion" within which neighbours are expected to orient
+themselves to the movement of their neighbours. The "zone of attraction" is the
+farthest zone around an individual within which neighbours are expected to be
+attracted to the position of the focal individual. Notably, there is a possibly
+"blind volume" behind the individual representing the limits of their
+perception.
 
 ![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
 
-TODO: code and example
+(TODO)
+
+<!-- TODO: code and example -->
 
 
