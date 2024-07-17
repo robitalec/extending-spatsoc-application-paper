@@ -27,7 +27,7 @@ calc_dist_group_centroid <- function(DT, coords, group = 'group',
   if (return_rank) {
     DT[, N_by_group := .N, by = c(group)]
     DT[, rank_dist_to_group_centroid :=
-         rank(dist_to_group_centroid),
+         data.table::frank(dist_to_group_centroid),
        by = c(group)]
   }
   return(DT[])
