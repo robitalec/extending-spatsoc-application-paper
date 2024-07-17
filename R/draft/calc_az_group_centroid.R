@@ -1,4 +1,4 @@
-calc_dir_to_group_centroid <- function(DT, xcol, ycol) {
+calc_az_group_centroid <- function(DT, xcol, ycol) {
   pre <- 'group_mean_'
   group_xcol <- paste0(pre, xcol)
   group_ycol <- paste0(pre, ycol)

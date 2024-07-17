@@ -43,7 +43,7 @@ group_centroid(DT_sub_solo, xcol, ycol)
 calc_dist_to_group_centroid(DT_sub_solo, xcol, ycol)
 expect_equal(DT_sub_solo$dist_to_group_centroid, rep(0, nrow(DT_sub_solo)))
 
-calc_dir_to_group_centroid(DT_sub_solo, xcol, ycol)
+calc_az_group_centroid(DT_sub_solo, xcol, ycol)
 expect_equal(DT_sub_solo$dir_to_group_centroid, rep(NaN, nrow(DT_sub_solo)))
 
 
@@ -56,7 +56,7 @@ group_centroid(DT_sub, xcol, ycol)
 
 calc_dist_to_group_centroid(DT_sub, xcol, ycol)
 calc_dist_to_group_centroid(DT_sub, xcol, ycol, return_rank = TRUE)
-calc_dir_to_group_centroid(DT_sub, xcol, ycol)
+calc_az_group_centroid(DT_sub, xcol, ycol)
 
 
 
