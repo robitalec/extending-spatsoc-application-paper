@@ -505,15 +505,16 @@ print(g / (g2.1 * #/ g2.2 / g2.3 *
 ## Bearings
 
 Next, we can use individuals' bearings to explore interindividual direction,
-alignment between individuals and polarization in groups. TODO: references
-related eg. direction between individuals (always L / R), polarization of flock,
-etc
+directional alignment and group polarization.  
 
-Polarization measures the uniformity of bearings in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
-in different directions and values near 1 indicate that bearings point in 
+<!-- TODO: references -->
+<!-- related eg. direction between individuals (always L / R), polarization of flock, -->
+<!-- etc -->
+
+Polarization measures the uniformity of absolute azimuth in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that azimuths point
+in different directions and values near 1 indicate that azimuths point in 
 similar directions. 
-
 
 ```{r}
 #| echo: true
