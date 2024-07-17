@@ -221,8 +221,13 @@ tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, gr
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
-TODO: insert refs with examples of biological interpretation of distance and direction to 
+The distance to group centroid is the distance between from the focal
+individual to the group centroid. The direction to group centroid is the absolute
+azimuth from the focal individual to the group centroid. The rank distance
+to group centroid is the ordinal rank of individuals' distances to the 
 group centroid. 
+<!-- TODO: insert refs with examples of biological interpretation of distance and direction to  -->
+<!-- group centroid.  -->
 
 ```{r}
 #| echo: true
