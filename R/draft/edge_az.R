@@ -1,4 +1,4 @@
-#' Az difference based edge lists
+#' Azimuth difference based edge lists
 #' @family Edge-list generation
 edge_az <- function(DT = NULL,
                     threshold,
@@ -103,10 +103,10 @@ edge_az <- function(DT = NULL,
         as.matrix(stats::dist(.SD[, 2:3], method = 'euclidean'))
       diag(distMatrix) <- NA
 
-      azMatrix <-
-        as.matrix(stats::dist(.SD[, 4], method = 'euclidean'))
-      # TODO: can it actually be > 2 * pi?
-      # azMatrix[azMatrix > (2 * pi)] <- azMatrix[azMatrix > (2 * pi)] - (2 * pi)
+      # TODO: fix use delta_rad
+      # azMatrix <-
+      #   as.matrix(stats::dist(.SD[, 4], method = 'manhattan'))
+      # azMatrix <- (azMatrix + pi) %% (2 * pi) - pi
       diag(azMatrix) <- NA
 
       if (returnDist) {
