@@ -100,32 +100,9 @@ DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 # Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
-
-# Interindividual distance with maximum distance threshold set at 50 m
-interindividual_dist <- edge_dist(
-  DT,
-  threshold = 100,
-  id = 'ID',
-  coords = c('X', 'Y'),
-  timegroup = 'timegroup',
-  returnDist = TRUE,
-  fillNA = TRUE
-)
-
-# Identifying nearest neighbours, optionally returning interindividual distance
-nearest_neighbours <- edge_nn(
-  DT,
-  id = 'ID',
-  coords = c('X', 'Y'),
-  timegroup = 'timegroup',
-  returnDist = TRUE
-)
 ```
 
-
-
 ```{r}
-#| label: "edge setup"
 #| echo: false
 #| eval: true
 
@@ -139,20 +116,34 @@ DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 # Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 ```
 
+```{r}
+#| echo: true
+#| eval: false
+# Interindividual distance with maximum distance threshold set at 50 m
+interindividual_dist <- edge_dist(
+  DT,
+  threshold = 50,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = TRUE
+)
+
+```
 
 ```{r}
 #| label: "IID"
 #| echo: false
 #| eval: true
 
-# Interindividual distance with maximum distance threshold set at 50 m
 interindividual_dist <- edge_dist(
   DT,
-  threshold = 100,
+  threshold = spatial_threshold,
   id = 'ID',
   coords = c('X', 'Y'),
   timegroup = 'timegroup',
@@ -160,6 +151,20 @@ interindividual_dist <- edge_dist(
   fillNA = TRUE
 )
 tinytable::tt(interindividual_dist[1:5])
+```
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Identifying nearest neighbours, optionally returning interindividual distance
+nearest_neighbours <- edge_nn(
+  DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE
+)
 ```
 
 ```{r}
