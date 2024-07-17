@@ -393,14 +393,21 @@ print(g_dist + g_dir)
 
 ## Fission fusion
 
-Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
-Arguments: 
+Given the variability in defining fission fusion dynamics in the literature, we
+developed a flexible function that allows users to both use their system
+specific definitions and at the same time easily compare to results to other
+definitions. 
 
-- Minimum run length indicating the number of successive fixes that are required to establish a fusion event
-- Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event
-- Threshold distance to define a fusion event
+Function arguments: 
+- `threshold`: spatial distance threshold to establish a fusion event
+- `n_min_length`: the minimum number of successive fixes that are required to 
+establish a fusion event
+- `n_max_missing`: the maximum number of allowable missed observations for 
+either individual in a dyad within a fusion event
+- `allow_split`: if fusion events allow a temporary spatial splitting for one
+observation without resulting in a fission event
 
-See Table Sup B: varying definitions of fission fusion
+<!-- See Table Sup B: varying definitions of fission fusion -->
 
 ```{r}
 #| eval: false
