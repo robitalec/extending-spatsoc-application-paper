@@ -31,4 +31,5 @@ calc_dir_corr_delay <- function(DT, edges, window) {
               ID1 = ID2, ID2 = ID1, dir_corr_delay = - dir_corr_delay)]
   ), use.names = TRUE)
 
+  return(out)
 }
