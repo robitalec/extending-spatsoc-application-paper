@@ -1,3 +1,7 @@
+#' Calculate the directional correlation delay
+#'
+#' Temporal delay in absolute azimuth between individuals
+#'
 #' @param DT relocation data
 #' @param edges edges generated with edges_dist
 #' @param window integer window in timegroups generated with group_times
