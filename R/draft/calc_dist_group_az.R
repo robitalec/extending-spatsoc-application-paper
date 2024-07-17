@@ -1,5 +1,3 @@
-# ties.method = 'average' by default, see ?frank
-# if 1.5, 2.5, etc - points have exactly same location, possible error missed in prep
 #' Calculate distance along group's average azimuth
 #'
 #' Given a group of individuals, calculate average azimuth. Shift the coordinate
