@@ -5,7 +5,7 @@
 #' @param DT relocation data
 #' @param edges edges generated with edges_dist
 #' @param window integer window in timegroups generated with group_times
-calc_az_delay <- function(DT, edges, window) {
+calc_az_delay <- function(DT, id = NULL, edges, window = NULL) {
   stopifnot('dyadID' %in% colnames(edges))
   setorder(DT, timegroup)
 
