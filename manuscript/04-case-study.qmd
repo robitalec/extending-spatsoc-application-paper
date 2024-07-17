@@ -257,7 +257,16 @@ we can also measure how individuals are positioned relative to the average
 group direction. To do so, we rotate the coordinate system around the 
 group centroid by the average bearing of all individuals in the group. Then 
 we take the distance along this new axis to the measure of front-back position
-within the group. TODO: refs where this is used, extended biological interpretation
+within the group. 
+<!-- TODO: refs where this is used, extended biological interpretation -->
+
+The position within group is the position along the front-to-back axis of the
+group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+[@Burns_2012]). The time spent leading group is an aggregate metric of the time
+in the first rank position within group. The distance to leader is the 
+geographic distance from the focal individual to the group's leader. The direction to 
+leader is the absolute azimuth from the focal individual to the group's leader. 
 
 ```{r}
 #| eval: false
