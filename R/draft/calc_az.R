@@ -7,20 +7,19 @@ calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
   stopifnot(!is.null(coords))
   stopifnot(!is.null(projection))
 
-  if (st_is_longlat(projection)) {
+  if (sf::st_is_longlat(projection)) {
     DT[, az := c(
       units::drop_units(
-        lwgeom::st_geod_azimuth(st_as_sf(.SD, coords = coords, crs = projection))),
+        lwgeom::st_geod_azimuth(sf::st_as_sf(.SD, coords = coords, crs = projection))),
       NA),
       by = c(id)]
   } else {
     DT[, az := c(
       units::drop_units(
-        lwgeom::st_geod_azimuth(st_transform(
-          st_as_sf(.SD, coords = coords, crs = projection),
+        lwgeom::st_geod_azimuth(sf::st_transform(
+          sf::st_as_sf(.SD, coords = coords, crs = projection),
           crs =  4326))),
       NA),
       by = c(id)]
-
   }
 }
