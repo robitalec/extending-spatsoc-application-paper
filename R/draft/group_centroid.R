@@ -1,3 +1,11 @@
+#' Group centroid
+#'
+#' Mean of individual locations in each group
+#'
+#' @param DT expecting group generated with eg. group_pts
+#' @param coords character vector of column names for x, y
+#' @param group group column default 'group'
+#' @param na.rm if NAs should be removed in calculating mean location
 group_centroid <- function(DT, coords, group = 'group', na.rm = FALSE) {
   stopifnot(length(coords) == 2)
 
