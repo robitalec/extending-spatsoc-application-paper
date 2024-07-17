@@ -42,7 +42,7 @@ DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
-calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
+calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), 4326)
 
 calc_polarization(DT_fogo)
 

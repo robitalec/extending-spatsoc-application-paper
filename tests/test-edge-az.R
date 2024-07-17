@@ -39,17 +39,17 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 # Test --------------------------------------------------------------------
 setorder(DT_test, timegroup)
-
-calc_az(DT_test, projection = 4326)
+coords <- c('x', 'y')
+calc_az_sequential(DT_test, id = 'id', coords = coords, projection = 4326)
 edges_test <- edge_az(DT_test, threshold = NULL, id = 'id', timegroup = 'timegroup',
-                        coords = c('x', 'y'), returnDist = TRUE, fillNA = TRUE)
+                        coords = coords, returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
 
 
 
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
-calc_az(DT_fogo, c('x_long', 'y_lat'), projection = 4326)
+calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), projection = 4326)
 edges_fogo <- edge_az(DT_fogo, threshold = NULL, id = 'id', timegroup = 'timegroup',
                         coords = c('x_proj', 'y_proj'), returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_fogo, 'ID1', 'ID2')

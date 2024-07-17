@@ -35,7 +35,7 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 # Test --------------------------------------------------------------------
 group_centroid(DT_test, 'x', 'y')
-position_within_group(DT_test, coords = c('x', 'y'), return_rank = TRUE)
+calc_dist_group_az(DT_test, coords = c('x', 'y'), return_rank = TRUE)
 
 DT_test[, leader := rank_dist_along_group_az == 1, .(timegroup, id)]
 DT_test[, time_spent_leading := sum(leader), by = id]
@@ -48,9 +48,9 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
 group_centroid(DT_fogo, 'x_proj', 'y_proj')
-calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
+calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), 4326)
 
-position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'),
+calc_dist_group_az(DT_fogo, coords = c('x_proj', 'y_proj'),
                       return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,

@@ -44,7 +44,7 @@ print(mat %*% (xy - origin))
 print((mat %*% (xy - origin))[1,1])
 
 group_centroid(DT_test, 'x', 'y')
-position_within_group(DT_test, coords = c('x', 'y'), return_rank = TRUE)
+calc_dist_group_az(DT_test, coords = c('x', 'y'), return_rank = TRUE)
 print(DT_test)
 
 
@@ -54,9 +54,9 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
 group_centroid(DT_fogo, 'x_proj', 'y_proj')
-calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
+calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), 4326)
 
-position_within_group(DT_fogo, coords = c('x_proj', 'y_proj'),
+calc_dist_group_az(DT_fogo, coords = c('x_proj', 'y_proj'),
                       return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,

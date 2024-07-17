@@ -52,20 +52,20 @@ fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missin
 print(edges_test[dyadID == 'A-B'])
 print(edges_test[dyadID == 'C-D'])
 
-calc_az(DT_test, coords = c('x', 'y'), projection = 4326)[]
-dir_delay_test <- calc_dir_corr_delay(DT_test, edges_test, window = 1)
+calc_az_sequential(DT_test, coords = c('x', 'y'), projection = 4326)[]
+dir_delay_test <- calc_az_delay(DT_test, edges_test, window = 1)
 
 
 # Test where exaggerated window size
 expect_equal(
-  calc_dir_corr_delay(DT_test, edges_test, window = 3),
-  calc_dir_corr_delay(DT_test, edges_test, window = 10)
+  calc_az_delay(DT_test, edges_test, window = 3),
+  calc_az_delay(DT_test, edges_test, window = 10)
 )
 
 # Even more exaggerated
 expect_equal(
-  calc_dir_corr_delay(DT_test, edges_test, window = 3),
-  calc_dir_corr_delay(DT_test, edges_test, window = 100)
+  calc_az_delay(DT_test, edges_test, window = 3),
+  calc_az_delay(DT_test, edges_test, window = 100)
 )
 
 # Test with Fogo
@@ -78,8 +78,8 @@ edges <- edge_dist(DT_fogo, threshold = threshold,
 dyad_id(edges, 'ID1', 'ID2')
 fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
-calc_az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_delay_fogo <- calc_dir_corr_delay(DT_fogo, edges, window = 2)
+calc_az_sequential(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+dir_delay_fogo <- calc_az_delay(DT_fogo, edges, window = 2)
 
 
 
