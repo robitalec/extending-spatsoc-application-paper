@@ -2,7 +2,7 @@
 #'
 #' Ensure input DT is ordered by datetime or timegroup using
 #' eg. setorder(DT, timegroup)
-calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
+calc_az_sequential <- function(DT, id = NULL, coords = NULL, projection = NULL) {
   stopifnot(!is.null(id))
   stopifnot(!is.null(coords))
   stopifnot(!is.null(projection))

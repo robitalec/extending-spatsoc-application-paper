@@ -47,7 +47,7 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, first(coords), last(coords))
-calc_az(DT_fogo, c('x_long', 'y_lat'), 4326)
+calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), 4326)
 
 position_within_group(DT_fogo, coords = coords, return_rank = TRUE)
 calc_dist_to_leader(DT_fogo, coords = coords, group = 'group')
