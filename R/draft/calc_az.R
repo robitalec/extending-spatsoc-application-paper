@@ -1,5 +1,6 @@
 calc_az <- function(DT, coords = c('x', 'y'), projection = NULL) {
-  setorder(DT, timegroup)
+#' Ensure input DT is ordered by datetime or timegroup using
+#' eg. setorder(DT, timegroup)
 calc_az <- function(DT, id = NULL, coords = NULL, projection = NULL) {
   stopifnot(!is.null(id))
   stopifnot(!is.null(coords))
