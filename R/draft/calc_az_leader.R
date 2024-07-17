@@ -1,7 +1,7 @@
 #' Calculate absolute azimuth to group leader
 #'
 #' Leader as identified using calc_dist_group_az by first position along
-#' group axis of movement (returnRank = TRUE)
+#' group axis of movement (return_rank = TRUE)
 #'
 #' @param DT
 #' @param coords character vector columns names for x and y
