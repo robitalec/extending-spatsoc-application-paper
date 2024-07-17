@@ -49,7 +49,7 @@ DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 group_times(DT, datetime = 'datetime', threshold = '20 minutes')
 
 # Spatial grouping with timegroup
-group_pts(DT, threshold = 5, id = 'ID',
+group_pts(DT, threshold = 50, id = 'ID',
           coords = c('X', 'Y'), timegroup = 'timegroup')
 
 ```
@@ -67,11 +67,13 @@ DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 # Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+temporal_threshold <- '20 minutes'
+spatial_threshold <- 50
+DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 
 # Spatial grouping with timegroup
-DT <- group_pts(DT, threshold = 5, id = 'ID', 
+DT <- group_pts(DT, threshold = spatial_threshold, id = 'ID', 
                 coords = c('X', 'Y'), timegroup = 'timegroup')
 
 tinytable::tt(DT[order(timegroup)][1:5])
