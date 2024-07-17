@@ -1,5 +1,10 @@
-calc_az_group_centroid <- function(DT, xcol, ycol) {
+calc_az_group_centroid <- function(DT, coords = NULL) {
   pre <- 'group_mean_'
+
+  stopifnot(length(coords) == 2)
+
+  xcol <- first(coords)
+  ycol <- last(coords)
   group_xcol <- paste0(pre, xcol)
   group_ycol <- paste0(pre, ycol)
 

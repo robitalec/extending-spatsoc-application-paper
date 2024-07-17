@@ -1,4 +1,7 @@
-group_centroid <- function(DT, xcol, ycol, group = 'group', na.rm = FALSE) {
+group_centroid <- function(DT, coords, group = 'group', na.rm = FALSE) {
+  xcol <- first(coords)
+  ycol <- last(coords)
+
   stopifnot(xcol %in% colnames(DT))
   stopifnot(ycol %in% colnames(DT))
   stopifnot(group %in% colnames(DT))

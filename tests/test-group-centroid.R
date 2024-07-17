@@ -36,29 +36,24 @@ group_pts(DT, threshold = 50, id = 'ID',
 # Test --------------------------------------------------------------------
 DT_sub_solo <- DT[group %in% DT[, .N, group][N == 1, group]]
 
-xcol <- 'X'
-ycol <- 'Y'
-group_centroid(DT_sub_solo, xcol, ycol)
+coords <- c('X', 'Y')
+group_centroid(DT_sub_solo, coords)
 
-calc_dist_group_centroid(DT_sub_solo, xcol, ycol)
+calc_dist_group_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$dist_to_group_centroid, rep(0, nrow(DT_sub_solo)))
 
-calc_az_group_centroid(DT_sub_solo, xcol, ycol)
+calc_az_group_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$dir_to_group_centroid, rep(NaN, nrow(DT_sub_solo)))
 
 
 
 DT_sub <- DT[group %in% DT[, .N, group][N > 1, group]]
 
-xcol <- 'X'
-ycol <- 'Y'
-group_centroid(DT_sub, xcol, ycol)
+group_centroid(DT_sub, coords)
 
-calc_dist_group_centroid(DT_sub, xcol, ycol)
-calc_dist_group_centroid(DT_sub, xcol, ycol, return_rank = TRUE)
-calc_az_group_centroid(DT_sub, xcol, ycol)
-
-
+calc_dist_group_centroid(DT_sub, coords)
+calc_dist_group_centroid(DT_sub, coords, return_rank = TRUE)
+calc_az_group_centroid(DT_sub, coords)
 
 
 

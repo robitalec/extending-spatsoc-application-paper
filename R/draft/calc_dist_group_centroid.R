@@ -1,6 +1,11 @@
-calc_dist_group_centroid <- function(DT, xcol, ycol, group = 'group',
-                                        return_rank = FALSE) {
+calc_dist_group_centroid <- function(DT, coords, group = 'group',
+                                     return_rank = FALSE) {
   pre <- 'group_mean_'
+
+  stopifnot(length(coords) == 2)
+
+  xcol <- first(coords)
+  ycol <- last(coords)
   group_xcol <- paste0(pre, xcol)
   group_ycol <- paste0(pre, ycol)
 
