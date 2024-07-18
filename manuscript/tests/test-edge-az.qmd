@@ -1,0 +1,14 @@
+---
+title: 'edge_az()'
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| echo: true
+#| eval: true
+#| file: tests/test-edge-az.R
+```
+

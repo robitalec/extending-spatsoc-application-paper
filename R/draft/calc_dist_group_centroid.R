@@ -1,6 +1,15 @@
-calc_dist_to_group_centroid <- function(DT, xcol, ycol, group = 'group',
-                                        return_rank = FALSE) {
+#' Calculate distance to group centroid
+#'
+#' @param DT expects group_mean columns generated with group_centroid
+#' @param coords character vector of column names for x, y
+calc_dist_group_centroid <- function(DT, coords, group = 'group',
+                                     return_rank = FALSE) {
   pre <- 'group_mean_'
+
+  stopifnot(length(coords) == 2)
+
+  xcol <- first(coords)
+  ycol <- last(coords)
   group_xcol <- paste0(pre, xcol)
   group_ycol <- paste0(pre, ycol)
 
@@ -18,7 +27,7 @@ calc_dist_to_group_centroid <- function(DT, xcol, ycol, group = 'group',
   if (return_rank) {
     DT[, N_by_group := .N, by = c(group)]
     DT[, rank_dist_to_group_centroid :=
-         rank(dist_to_group_centroid),
+         data.table::frank(dist_to_group_centroid),
        by = c(group)]
   }
   return(DT[])
