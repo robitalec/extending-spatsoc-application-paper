@@ -42,13 +42,15 @@ calc_az_leader(DT_test, coords = coords, group = 'group')[]
 
 
 threshold <- 50
+id <- 'id'
 coords <- c('x_proj', 'y_proj')
 DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
 group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
-group_pts(DT_fogo, threshold = threshold, id = 'id',
+group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
-group_centroid(DT_fogo, first(coords), last(coords))
-calc_az_sequential(DT_fogo, coords, 4326)
+group_centroid(DT_fogo, coords = coords)
+calc_az_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 
 calc_dist_group_az(DT_fogo, coords = coords, return_rank = TRUE)
 calc_dist_leader(DT_fogo, coords = coords, group = 'group')
