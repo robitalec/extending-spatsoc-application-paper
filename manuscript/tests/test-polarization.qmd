@@ -1,0 +1,14 @@
+---
+title: 'calc_polarization()'
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| echo: true
+#| eval: true
+#| file: tests/test-polarization.R
+```
+
