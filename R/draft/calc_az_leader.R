@@ -34,5 +34,6 @@ calc_az_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
     atan2(.SD[['temp_leader_ycol']] - .SD[[last(coords)]],
           (.SD[['temp_leader_xcol']] - .SD[[first(coords)]]))
   )]
+  DT[, c('temp_leader_xcol', 'temp_leader_ycol') := NULL]
   return(DT)
 }
