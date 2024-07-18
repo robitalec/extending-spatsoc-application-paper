@@ -28,7 +28,6 @@ calc_dist_group_az <- function(DT, coords = c('x', 'y'), group = 'group',
   stopifnot(ycol %in% colnames(DT))
   stopifnot(xcol_group %in% colnames(DT))
   stopifnot(ycol_group %in% colnames(DT))
-  # TODO: check if az in radians not degrees
 
   group_az_col <- 'group_az'
   DT[, c(group_az_col) := mean(az), by = c(group)]
