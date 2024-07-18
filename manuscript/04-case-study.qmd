@@ -77,54 +77,45 @@ temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
+
+# Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 
 # Spatial grouping with timegroup
-DT <- group_pts(DT, threshold = spatial_threshold, id = 'ID', 
-                coords = c('X', 'Y'), timegroup = 'timegroup')
+DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
+                coords = coords, timegroup = 'timegroup')
 
 tinytable::tt(DT[order(timegroup)][1:5])
 ```
 
-Users can also measure dyadic interindividual 
-distance using the `edge_dist` function and identify nearest neighbors using 
-the `edge_nn` function. For example: 
-
-
-```{r}
-#| echo: true
-#| eval: false
-# Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
-```
+Users can also measure dyadic interindividual distance using the `edge_dist`
+function and identify nearest neighbors using the `edge_nn` function. For
+example:
 
 ```{r}
 #| echo: true
 #| eval: false
-# Interindividual distance with maximum distance threshold set at 50 m
 interindividual_dist <- edge_dist(
   DT,
-  threshold = 50,
-  id = 'ID',
-  coords = c('X', 'Y'),
+  threshold = spatial_threshold,
+  id = id,
+  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
 )
-
 ```
 
 ```{r}
 #| label: "IID"
 #| echo: false
 #| eval: true
-
 interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
-  id = 'ID',
-  coords = c('X', 'Y'),
+  id = id,
+  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -135,12 +126,10 @@ tinytable::tt(interindividual_dist[1:5])
 ```{r}
 #| echo: true
 #| eval: false
-
-# Identifying nearest neighbours, optionally returning interindividual distance
 nearest_neighbours <- edge_nn(
   DT,
-  id = 'ID',
-  coords = c('X', 'Y'),
+  id = id,
+  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -150,12 +139,10 @@ nearest_neighbours <- edge_nn(
 #| label: "nn"
 #| echo: false
 #| eval: true
-
-# Nearest neighbours, optionally returning interindividual distance
 nearest_neighbours <- edge_nn(
   DT,
-  id = 'ID',
-  coords = c('X', 'Y'),
+  id = id,
+  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -181,21 +168,15 @@ the mean of individual locations in a group.
 ```{r}
 #| eval: false
 #| echo: true
-xcol <- 'X'
-ycol <- 'Y'
-groupcol <- 'group'
-group_centroid(DT, xcol, ycol, group = groupcol)
+group_centroid(DT, coords = coords)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
-xcol <- 'X'
-ycol <- 'Y'
-groupcol <- 'group'
-DT <- group_pts(DT, threshold = 5, id = 'ID', 
-                coords = c('X', 'Y'), timegroup = 'timegroup')
-cent <- group_centroid(DT, xcol, ycol, group = groupcol)
+DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
+                coords = coords, timegroup = 'timegroup')
+cent <- group_centroid(DT, coords = coords)
 tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, group_mean_Y)])
 ```
 
@@ -211,16 +192,16 @@ group centroid.
 ```{r}
 #| echo: true
 #| eval: false
-calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
-calc_dir_to_group_centroid(DT, xcol, ycol)
+calc_dist_to_group_centroid(DT, coords, return_rank = TRUE)
+calc_dir_to_group_centroid(DT, coords)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
-dist_dir_cent <- calc_dir_to_group_centroid(DT, xcol, ycol)
+dist_dir_cent <- calc_dist_to_group_centroid(DT, coords, return_rank = TRUE)
+dist_dir_cent <- calc_dir_to_group_centroid(DT, coords)
 g1 <- ggplot(DT) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
@@ -250,21 +231,18 @@ leader is the absolute azimuth from the focal individual to the group's leader.
 ```{r}
 #| eval: false
 #| echo: true
-coords <- c('x', 'y')
 projection <- 32636
-calc_az(DT, coords, projection = projection)
-position_within_group(DT, coords, return_rank = TRUE)
+calc_az(DT, id = id, coords = coords, projection = projection)
+position_within_group(DT, coords = coords, return_rank = TRUE)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
 #| warning: false
-coords <- c('X', 'Y')
 projection <- 32636
-setnames(DT, 'ID', 'id')
-calc_az(DT, coords, projection = projection)
-position_within_group(DT, coords, return_rank = TRUE)
+calc_az(DT, id = id, coords = coords, projection = projection)
+position_within_group(DT, coords = coords, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
@@ -317,8 +295,8 @@ group.
 ```{r}
 #| eval: false
 #| echo: true
-calc_dist_to_leader(DT, coords = coords, group = groupcol)
-calc_dir_to_leader(DT, coords = coords, group = groupcol)
+calc_dist_to_leader(DT, coords = coords)
+calc_dir_to_leader(DT, coords = coords)
 ```
 
 
@@ -326,8 +304,8 @@ calc_dir_to_leader(DT, coords = coords, group = groupcol)
 #| eval: true
 #| echo: false
 #| warning: false
-DT <- calc_dist_to_leader(DT, coords = coords, group = groupcol)
-DT <- calc_dir_to_leader(DT, coords = coords, group = groupcol)
+DT <- calc_dist_to_leader(DT, coords = coords)
+DT <- calc_dir_to_leader(DT, coords = coords)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
@@ -391,26 +369,10 @@ observation without resulting in a fission event
 ```{r}
 #| eval: false
 #| echo: true
-# Cast the character column to POSIXct
-DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-
-# Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
-
-# Interindividual distance with maximum distance threshold set at 50 m
-interindividual_dist <- edge_dist(
-  DT,
-  threshold = 100,
-  id = 'ID',
-  coords = c('X', 'Y'),
-  timegroup = 'timegroup',
-  returnDist = TRUE,
-  fillNA = TRUE
-)
-
-fission_fusion(
+# Fission fusion events using interinvidiual distance calculed with edge_dist
+fusion_events <- fission_fusion(
   interindividual_dist,
-  threshold = 50, 
+  threshold = spatial_threshold, 
   n_min_length = 0, 
   n_max_missing = 0, 
   allow_split = FALSE
@@ -424,11 +386,14 @@ fission_fusion(
 #| fig-height: 10
 max_tg <- 50
 threshold <- 50
+id <- 'id'
+coords <- c('x_proj', 'y_proj')
+
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 DT_fogo <- group_times(DT_fogo, 'datetime', '10 minutes')
 DT_fogo <- setorder(DT_fogo, timegroup)
 edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
-                   id = 'id', coords = c('x_proj', 'y_proj'),
+                   id = id, coords = coords,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
 edges_fogo <- fission_fusion(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
@@ -439,11 +404,11 @@ sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                           timegroup < max_tg]
 
 fogo_min0_miss0_splitF <- fission_fusion(
-  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
+  copy(sub_edges), threshold = spatial_threshold, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
 fogo_min2_miss1_splitT <- fission_fusion(
-  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
+  copy(sub_edges), threshold = spatial_threshold, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
 fogo_min2_miss0_splitF <- fission_fusion(
-  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
+  copy(sub_edges), threshold = spatial_threshold, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
 
 g <- ggplot(sub_fogo,
             aes(x_proj, y_proj, color = id)) +
@@ -498,6 +463,7 @@ similar directions.
 ```{r}
 #| echo: true
 #| eval: false
+# Calculate polarization using azimuth from calc_az_sequential()
 calc_polarization(DT)
 ```
 
@@ -528,7 +494,7 @@ is provided under a similar name: `edge_az`.
 directional_align <- edge_az(
   DT,
   threshold = NULL,
-  id = 'id',
+  id = id,
   timegroup = 'timegroup',
   coords = coords,
   returnDist = TRUE,
@@ -539,7 +505,7 @@ directional_align <- edge_az(
 ```{r}
 #| echo: false
 #| eval: true
-directional_align <- edge_az(DT, threshold = NULL, id = 'id',
+directional_align <- edge_az(DT, threshold = NULL, id = id,
                              timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 directional_align <- dyad_id(directional_align, 'ID1', 'ID2')
@@ -607,22 +573,22 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$.
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 # Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 
 # Interindividual distance with maximum distance threshold set at 50 m
 interindividual_dist <- edge_dist(
   DT,
   threshold = 100,
-  id = 'ID',
-  coords = c('X', 'Y'),
+  id = id,
+  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
 )
 
-fission_fusion(
+fusion_events <- fission_fusion(
   interindividual_dist,
-  threshold = 50, 
+  threshold = spatial_threshold, 
   n_min_length = 0, 
   n_max_missing = 0, 
   allow_split = FALSE
