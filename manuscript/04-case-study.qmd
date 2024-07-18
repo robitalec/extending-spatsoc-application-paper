@@ -87,37 +87,8 @@ the `edge_nn` function. For example:
 ```{r}
 #| echo: true
 #| eval: false
-
-# Load packages
-library(data.table)
-library(spatsoc)
-
-# Read example data
-DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
-
-# Cast the character column to POSIXct
-DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-
-# Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = '20 minutes')
-```
-
-```{r}
-#| echo: false
-#| eval: true
-
-library(data.table)
-suppressPackageStartupMessages(library(spatsoc))
-
-# Read example data
-DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
-
-# Cast the character column to POSIXct
-DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-
 # Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
-setorder(DT, timegroup)
 ```
 
 ```{r}
