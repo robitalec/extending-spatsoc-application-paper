@@ -59,6 +59,26 @@ calc_az_group_centroid(DT_sub, coords)
 
 # Plot --------------------------------------------------------------------
 theme_set(theme_bw())
+
+sel_group <- DT_sub[N_by_group > 4, sample(group, 1)]
+sub_fogo <- DT_sub[group == sel_group]
+
+g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
+  geom_point(size = 0.8) +
+  geom_text(aes(label = paste0(format(dist_to_group_centroid, digits = 2),
+                               ', ',
+                               format(dir_to_group_centroid, digits = 2),
+                               ' rad')), nudge_y = -1.5) +
+  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+  theme_bw() +
+  labs(x = '', y = '') +
+  theme(axis.text = element_blank(), axis.ticks = element_blank()) +
+  coord_fixed() +
+  guides(color = 'none') +
+  scale_x_continuous(expand = expansion(add = 10))
+
+print(g_fogo)
+
 g1 <- ggplot(DT_sub) +
   geom_histogram(aes(dist_to_group_centroid), binwidth = 1) +
   labs(x = 'Distance to group centroid', y = '')

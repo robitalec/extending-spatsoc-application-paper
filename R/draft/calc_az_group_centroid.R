@@ -21,8 +21,8 @@ calc_az_group_centroid <- function(DT, coords = NULL) {
     .SD[[xcol]] == .SD[[group_xcol]] &
       .SD[[ycol]] == .SD[[group_ycol]],
     NaN,
-    atan2(.SD[[group_xcol]] - .SD[[xcol]],
-          (.SD[[group_ycol]] - .SD[[ycol]]))
+    atan2(.SD[[group_ycol]] - .SD[[ycol]],
+          (.SD[[group_xcol]] - .SD[[xcol]]))
   )]
   return(DT[])
 }
