@@ -45,12 +45,18 @@ DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 # Cast the character column to POSIXct
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
+# Set variables
+temporal_threshold  <- '20 minutes'
+spatial_threshold <- 50
+id <- 'ID'
+coords <- c('X', 'Y')
+
 # Temporal grouping
-group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 
 # Spatial grouping with timegroup
-group_pts(DT, threshold = 50, id = 'ID',
-          coords = c('X', 'Y'), timegroup = 'timegroup')
+group_pts(DT, threshold = spatial_threshold, id = id,
+          coords = coords, timegroup = 'timegroup')
 
 ```
 
@@ -66,9 +72,11 @@ DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 # Cast the character column to POSIXct
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
-# Temporal grouping
-temporal_threshold <- '20 minutes'
+# Set variables
+temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
+id <- 'ID'
+coords <- c('X', 'Y')
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 
