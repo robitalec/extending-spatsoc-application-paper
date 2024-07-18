@@ -34,10 +34,11 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 
 # Test --------------------------------------------------------------------
-group_centroid(DT_test, 'x', 'y')
-calc_dist_group_az(DT_test, coords = c('x', 'y'), return_rank = TRUE)
-calc_dist_leader(DT_test, coords = c('x', 'y'), group = 'group')
-calc_az_leader(DT_test, coords = c('x', 'y'), group = 'group')[]
+coords <- c('x', 'y')
+group_centroid(DT_test, coords = coords)
+calc_dist_group_az(DT_test, coords = coords, return_rank = TRUE)
+calc_dist_leader(DT_test, coords = coords, group = 'group')
+calc_az_leader(DT_test, coords = coords, group = 'group')[]
 
 
 threshold <- 50
@@ -47,7 +48,7 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, first(coords), last(coords))
-calc_az_sequential(DT_fogo, c('x_long', 'y_lat'), 4326)
+calc_az_sequential(DT_fogo, coords, 4326)
 
 calc_dist_group_az(DT_fogo, coords = coords, return_rank = TRUE)
 calc_dist_leader(DT_fogo, coords = coords, group = 'group')

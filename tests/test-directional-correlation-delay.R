@@ -43,8 +43,10 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 setorder(DT_test, timegroup)
 
 threshold <- 20
-edges_test <- edge_dist(DT_test, threshold = threshold, id = 'id',
-                        timegroup = 'timegroup', coords = c('x', 'y'),
+coords <- c('x', 'y')
+id <- 'id'
+edges_test <- edge_dist(DT_test, threshold = threshold, id = id,
+                        timegroup = 'timegroup', coords = coords,
                         returnDist = TRUE, fillNA = FALSE)
 dyad_id(edges_test, 'ID1', 'ID2')
 fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
@@ -52,34 +54,36 @@ fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missin
 print(edges_test[dyadID == 'A-B'])
 print(edges_test[dyadID == 'C-D'])
 
-calc_az_sequential(DT_test, coords = c('x', 'y'), projection = 4326)[]
-dir_delay_test <- calc_az_delay(DT_test, edges_test, window = 1)
+calc_az_sequential(DT_test, coords = coords, projection = 4326)[]
+dir_delay_test <- calc_az_delay(DT_test, id = id, edges_test, window = 1)
 
 
 # Test where exaggerated window size
 expect_equal(
-  calc_az_delay(DT_test, edges_test, window = 3),
-  calc_az_delay(DT_test, edges_test, window = 10)
+  calc_az_delay(DT_test, id, edges_test, window = 3),
+  calc_az_delay(DT_test, id, edges_test, window = 10)
 )
 
 # Even more exaggerated
 expect_equal(
-  calc_az_delay(DT_test, edges_test, window = 3),
-  calc_az_delay(DT_test, edges_test, window = 100)
+  calc_az_delay(DT_test, id, edges_test, window = 3),
+  calc_az_delay(DT_test, id, edges_test, window = 100)
 )
 
 # Test with Fogo
 threshold <- 50
+coords <- c('x_proj', 'y_proj')
+id <- 'id'
 group_times(DT_fogo, 'datetime', '5 minutes')
 
 edges <- edge_dist(DT_fogo, threshold = threshold,
-                   id = 'id', coords = c('x_proj', 'y_proj'),
+                   id = id, coords = coords,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 dyad_id(edges, 'ID1', 'ID2')
 fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
 calc_az_sequential(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_delay_fogo <- calc_az_delay(DT_fogo, edges, window = 2)
+dir_delay_fogo <- calc_az_delay(DT_fogo, id, edges, window = 2)
 
 
 
