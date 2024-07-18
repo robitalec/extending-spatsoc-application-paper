@@ -1,0 +1,14 @@
+---
+title: 'group_centroid(), calc_dist_group_centroid(), calc_az_group_centroid()'
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| echo: true
+#| eval: true
+#| file: tests/test-group-centroid.R
+```
+

@@ -1,4 +1,5 @@
 # === Test delta rad -------------------------------------------------------
+library(testthat)
 source('R/draft/delta_rad.R')
 expect_equal(delta_rad(0.1, 0.2, TRUE), 0.1)
 expect_equal(delta_rad(0.1, 0.2 + 2 * pi, TRUE), 0.1)

@@ -7,7 +7,7 @@
 #' @param window integer window in timegroups generated with group_times
 calc_az_delay <- function(DT, id = NULL, edges, window = NULL) {
   stopifnot(!is.null(id))
-  stopifnot(!is.null(windows))
+  stopifnot(!is.null(window))
 
   stopifnot(id %in% colnames(DT))
 

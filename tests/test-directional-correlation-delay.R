@@ -54,7 +54,7 @@ fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missin
 print(edges_test[dyadID == 'A-B'])
 print(edges_test[dyadID == 'C-D'])
 
-calc_az_sequential(DT_test, coords = coords, projection = 4326)[]
+calc_az_sequential(DT_test, id = id, coords = coords, projection = 4326)[]
 dir_delay_test <- calc_az_delay(DT_test, id = id, edges_test, window = 1)
 
 
@@ -82,7 +82,7 @@ edges <- edge_dist(DT_fogo, threshold = threshold,
 dyad_id(edges, 'ID1', 'ID2')
 fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
-calc_az_sequential(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
+calc_az_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 dir_delay_fogo <- calc_az_delay(DT_fogo, id, edges, window = 2)
 
 

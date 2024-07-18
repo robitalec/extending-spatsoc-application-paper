@@ -20,7 +20,7 @@ fission_fusion <- function(edges,
   stopifnot(is.numeric(n_min_length))
   stopifnot(is.numeric(n_max_missing))
 
-  stopifnot(threshold < 0)
+  stopifnot(threshold >= 0)
 
   unique_edges <- unique(edges[, .(dyadID, timegroup, distance)])
 
