@@ -1,6 +1,6 @@
 #' Calculate distance to leader
 #'
-#' Leader as identified using calc_dist_group_az by first position along
+#' Leader as identified using group_leader by first position along
 #' group axis of movement (return_rank = TRUE)
 #'
 #' @param DT
@@ -10,15 +10,15 @@ calc_dist_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
   stopifnot(first(coords) %in% colnames(DT))
   stopifnot(last(coords) %in% colnames(DT))
   stopifnot(group %in% colnames(DT))
-  stopifnot('rank_dist_along_group_az' %in% colnames(DT))
+  stopifnot('rank_dist_group_bearing' %in% colnames(DT))
 
   DT[, temp_N_by_group := .N, by = c(group)]
 
-  check_has_leader <- DT[, .(has_leader = any(rank_dist_along_group_az == 1)),
+  check_has_leader <- DT[, .(has_leader = any(rank_dist_group_bearing == 1)),
                          by = c(group)][!(has_leader)]
 
   if (check_has_leader[, .N > 0]) {
-    warning('groups found missing leader (rank_dist_along_group_az == 1): \n',
+    warning('groups found missing leader (rank_dist_group_bearing == 1): \n',
             check_has_leader[, paste(group, collapse = ', ')])
   }
 
@@ -27,7 +27,7 @@ calc_dist_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
     temp_N_by_group > 1,
     as.matrix(dist(cbind(.SD[[1]], .SD[[2]])))[, which(.SD[[3]] == 1)],
                                  0),
-     .SDcols = c(coords, 'rank_dist_along_group_az'),
+     .SDcols = c(coords, 'rank_dist_group_bearing'),
      by = c(group)]
   DT[, temp_N_by_group := NULL]
   return(DT)

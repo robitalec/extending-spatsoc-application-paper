@@ -1,5 +1,5 @@
 ---
-title: 'calc_dist_group_az()'
+title: 'group_leader()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
