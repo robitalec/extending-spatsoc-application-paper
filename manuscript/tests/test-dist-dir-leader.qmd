@@ -1,5 +1,5 @@
 ---
-title: 'calc_dist_group_az(), calc_dist_leader(), calc_az_leader()'
+title: 'calc_dist_group_az(), calc_dist_leader(), bearing_to_leader()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
