@@ -125,7 +125,7 @@ edge_az <- function(DT = NULL,
       }
       l
     },
-    by = splitBy, .SDcols = c(id, coords, 'az')]
+    by = splitBy, .SDcols = c(id, coords, 'bearing')]
   } else {
     edges <- DT[, {
 
@@ -154,7 +154,7 @@ edge_az <- function(DT = NULL,
       }
       l
     },
-    by = splitBy, .SDcols = c(id, coords, 'az')]
+    by = splitBy, .SDcols = c(id, coords, 'bearing')]
   }
 
 
