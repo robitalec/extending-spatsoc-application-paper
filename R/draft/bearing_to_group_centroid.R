@@ -1,8 +1,8 @@
-#' Calculate absolute azimuth to group centroid
+#' Calculate absolute bearing to group centroid
 #'
 #' @param DT expects group_mean columns generated with group_centroid
 #' @param coords character vector of column names for x, y
-calc_az_group_centroid <- function(DT, coords = NULL) {
+bearing_to_group_centroid <- function(DT, coords = NULL) {
   pre <- 'group_mean_'
 
   stopifnot(length(coords) == 2)
@@ -17,7 +17,7 @@ calc_az_group_centroid <- function(DT, coords = NULL) {
   stopifnot(group_xcol %in% colnames(DT))
   stopifnot(group_ycol %in% colnames(DT))
 
-  DT[, dir_to_group_centroid := fifelse(
+  DT[, bearing_to_centroid := fifelse(
     .SD[[xcol]] == .SD[[group_xcol]] &
       .SD[[ycol]] == .SD[[group_ycol]],
     NaN,
