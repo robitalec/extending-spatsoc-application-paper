@@ -27,7 +27,7 @@ bearing_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
   DT[, temp_leader_ycol := .SD[which(rank_dist_along_group_bearing == 1)],
      .SDcols = last(coords), by = c(group)]
 
-  DT[!group %in% check_has_leader$group, dir_to_leader := fifelse(
+  DT[!group %in% check_has_leader$group, bearing_leader := fifelse(
     .SD[[first(coords)]] == .SD[['temp_leader_xcol']] &
       .SD[[last(coords)]] == .SD[['temp_leader_ycol']],
     NaN,
