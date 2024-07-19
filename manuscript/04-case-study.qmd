@@ -489,13 +489,13 @@ similar directions.
 ```{r}
 #| echo: true
 #| eval: false
-calc_polarization(DT)
+bearing_polarization(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-DT <- calc_polarization(DT)
+DT <- bearing_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]

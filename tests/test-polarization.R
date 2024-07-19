@@ -32,13 +32,13 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 
 
 # Test --------------------------------------------------------------------
-calc_polarization(DT_test, az = 'az')
+bearing_polarization(DT_test, az = 'az')
 print(DT_test)
 print(paste0('swaRm::pol_order() = ', swaRm::pol_order(DT_test$az)))
 print(paste0('CircStats::r.test() = ', CircStats::r.test(DT_test$az)$r.bar))
 
 DT_test[, az_degree := CircStats::deg(az)]
-calc_polarization(DT_test, az = 'az_degree', degree = TRUE)
+bearing_polarization(DT_test, az = 'az_degree', degree = TRUE)
 print(DT_test)
 # Note: swaRm::pol_order expects headings in radians
 print(paste0('swaRm::pol_order() = ', swaRm::pol_order(DT_test$az_degree)))
@@ -56,7 +56,7 @@ group_pts(DT_fogo, threshold = threshold, id = 'id',
           coords = c('x_proj', 'y_proj'), timegroup = 'timegroup')
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 
-calc_polarization(DT_fogo)
+bearing_polarization(DT_fogo)
 
 
 
