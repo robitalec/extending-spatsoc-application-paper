@@ -214,9 +214,9 @@ g1 + g2
 ```
 
 After considering how individuals are positioned relative to the group centroid, 
-we can also measure how individuals are positioned relative to the average 
+we can also measure how individuals are positioned relative to the mean 
 group direction. To do so, we rotate the coordinate system around the 
-group centroid by the average bearing of all individuals in the group. Then 
+group centroid by the mean bearing of all individuals in the group. Then 
 we take the distance along this new axis to the measure of front-back position
 within the group. 
 <!-- TODO: refs where this is used, extended biological interpretation -->
