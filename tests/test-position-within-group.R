@@ -58,7 +58,7 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, coords)
-calc_az_sequential(DT_fogo, id, coords, 4326)
+bearing_sequential(DT_fogo, id, coords, 4326)
 
 calc_dist_group_az(DT_fogo, coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],

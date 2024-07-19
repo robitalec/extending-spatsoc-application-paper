@@ -54,7 +54,7 @@ group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 
 group_centroid(DT_fogo, coords)
-calc_az_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 
 calc_dist_group_az(DT_fogo, az = 'az', coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
