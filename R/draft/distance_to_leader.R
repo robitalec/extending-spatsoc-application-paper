@@ -24,9 +24,10 @@ distance_to_leader <- function(DT, coords = c('x', 'y'), group = 'group') {
 
   DT[!group %in% check_has_leader$group,
      dist_leader := fifelse(
-    temp_N_by_group > 1,
-    as.matrix(dist(cbind(.SD[[1]], .SD[[2]])))[, which(.SD[[3]] == 1)],
-                                 0),
+       temp_N_by_group > 1,
+       as.matrix(dist(cbind(.SD[[1]], .SD[[2]])))[, which(.SD[[3]] == 1)],
+       0
+     ),
      .SDcols = c(coords, 'rank_dist_along_group_bearing'),
      by = c(group)]
   DT[, temp_N_by_group := NULL]
