@@ -219,7 +219,7 @@ group centroid.
 ```{r}
 #| echo: true
 #| eval: false
-calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+calc_dist_group_centroid(DT, xcol, ycol, return_rank = TRUE)
 calc_dir_to_group_centroid(DT, xcol, ycol)
 ```
 
@@ -227,13 +227,13 @@ calc_dir_to_group_centroid(DT, xcol, ycol)
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+dist_dir_cent <- calc_dist_group_centroid(DT, xcol, ycol, return_rank = TRUE)
 dist_dir_cent <- calc_dir_to_group_centroid(DT, xcol, ycol)
 g1 <- ggplot(DT) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g2 <- ggplot(DT) +
-  stat_halfeye(aes(dist_to_group_centroid, factor(rank_dist_to_group_centroid))) +
+  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
 g1 + g2
