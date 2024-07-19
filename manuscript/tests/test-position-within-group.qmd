@@ -9,6 +9,6 @@ execute:
 ```{r}
 #| echo: true
 #| eval: true
-#| file: tests/test-position-within-group.R
+#| file: tests/test-group-leader.R
 ```
 
