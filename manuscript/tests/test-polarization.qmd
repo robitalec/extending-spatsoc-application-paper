@@ -1,5 +1,5 @@
 ---
-title: 'calc_polarization()'
+title: 'bearing_polarization()'
 date: "`r Sys.Date()`"
 toc: true
 execute:

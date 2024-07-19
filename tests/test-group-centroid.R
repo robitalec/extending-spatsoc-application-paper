@@ -39,10 +39,10 @@ DT_sub_solo <- DT[group %in% DT[, .N, group][N == 1, group]]
 coords <- c('X', 'Y')
 group_centroid(DT_sub_solo, coords)
 
-calc_dist_group_centroid(DT_sub_solo, coords)
-expect_equal(DT_sub_solo$dist_to_group_centroid, rep(0, nrow(DT_sub_solo)))
+distance_to_group_centroid(DT_sub_solo, coords)
+expect_equal(DT_sub_solo$dist_group_centroid, rep(0, nrow(DT_sub_solo)))
 
-calc_az_group_centroid(DT_sub_solo, coords)
+bearing_to_group_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$dir_to_group_centroid, rep(NaN, nrow(DT_sub_solo)))
 
 
@@ -51,9 +51,9 @@ DT_sub <- DT[group %in% DT[, .N, group][N > 1, group]]
 
 group_centroid(DT_sub, coords)
 
-calc_dist_group_centroid(DT_sub, coords)
-calc_dist_group_centroid(DT_sub, coords, return_rank = TRUE)
-calc_az_group_centroid(DT_sub, coords)
+distance_to_group_centroid(DT_sub, coords)
+distance_to_group_centroid(DT_sub, coords, return_rank = TRUE)
+bearing_to_group_centroid(DT_sub, coords)
 
 
 
@@ -65,7 +65,7 @@ sub_fogo <- DT_sub[group == sel_group]
 
 g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_to_group_centroid, digits = 2),
+  geom_text(aes(label = paste0(format(dist_group_centroid, digits = 2),
                                ', ',
                                format(dir_to_group_centroid, digits = 2),
                                ' rad')), nudge_y = -1.5) +
@@ -80,15 +80,15 @@ g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
 print(g_fogo)
 
 g1 <- ggplot(DT_sub) +
-  geom_histogram(aes(dist_to_group_centroid), binwidth = 1) +
+  geom_histogram(aes(dist_group_centroid), binwidth = 1) +
   labs(x = 'Distance to group centroid', y = '')
 g2 <- ggplot(DT_sub) +
-  geom_histogram(aes(rank_dist_to_group_centroid), binwidth = 1) +
+  geom_histogram(aes(rank_dist_group_centroid), binwidth = 1) +
   labs(x = 'Rank distance to group centroid', y = '')
 g3 <- ggplot(DT_sub) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g4 <- ggplot(DT_sub) +
-  stat_halfeye(aes(dist_to_group_centroid, factor(rank_dist_to_group_centroid))) +
+  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 print(g1 + g2 + g3 + g4)

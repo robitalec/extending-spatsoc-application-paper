@@ -2,7 +2,7 @@
 #'
 #' @param DT expects group_mean columns generated with group_centroid
 #' @param coords character vector of column names for x, y
-calc_dist_group_centroid <- function(DT, coords, group = 'group',
+distance_to_group_centroid <- function(DT, coords, group = 'group',
                                      return_rank = FALSE) {
   pre <- 'group_mean_'
 
@@ -20,14 +20,14 @@ calc_dist_group_centroid <- function(DT, coords, group = 'group',
   stopifnot(group %in% colnames(DT))
 
 
-  DT[, dist_to_group_centroid :=
+  DT[, dist_group_centroid :=
        sqrt((.SD[[xcol]] - .SD[[group_xcol]])^2 +
               (.SD[[ycol]] - .SD[[group_ycol]])^2)]
 
   if (return_rank) {
     DT[, N_by_group := .N, by = c(group)]
-    DT[, rank_dist_to_group_centroid :=
-         data.table::frank(dist_to_group_centroid),
+    DT[, rank_dist_group_centroid :=
+         data.table::frank(dist_group_centroid),
        by = c(group)]
   }
   return(DT[])

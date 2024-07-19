@@ -219,7 +219,7 @@ group centroid.
 ```{r}
 #| echo: true
 #| eval: false
-calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+calc_dist_group_centroid(DT, xcol, ycol, return_rank = TRUE)
 calc_dir_to_group_centroid(DT, xcol, ycol)
 ```
 
@@ -227,13 +227,13 @@ calc_dir_to_group_centroid(DT, xcol, ycol)
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- calc_dist_to_group_centroid(DT, xcol, ycol, return_rank = TRUE)
+dist_dir_cent <- calc_dist_group_centroid(DT, xcol, ycol, return_rank = TRUE)
 dist_dir_cent <- calc_dir_to_group_centroid(DT, xcol, ycol)
 g1 <- ggplot(DT) +
   geom_histogram(aes(dir_to_group_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g2 <- ggplot(DT) +
-  stat_halfeye(aes(dist_to_group_centroid, factor(rank_dist_to_group_centroid))) +
+  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
 g1 + g2
@@ -273,8 +273,8 @@ intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_along_group_az, digits = 1),
-                               ' (', rank_dist_along_group_az, ')')),
+  geom_text(aes(label = paste0(format(dist_group_bearing, digits = 1),
+                               ' (', rank_dist_group_bearing, ')')),
                 nudge_y = 0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
@@ -289,17 +289,17 @@ g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
 
 DT[, N_by_group := .N, group]
 g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(dist_along_group_az), binwidth = 1) +
+  geom_histogram(aes(dist_group_bearing), binwidth = 1) +
   labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_dist_along_group_az), binwidth = 1) +
+  geom_histogram(aes(rank_dist_group_bearing), binwidth = 1) +
   labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(dist_along_group_az, factor(rank_dist_along_group_az))) +
+  stat_halfeye(aes(dist_group_bearing, factor(rank_dist_group_bearing))) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
@@ -316,7 +316,7 @@ group.
 ```{r}
 #| eval: false
 #| echo: true
-calc_dist_to_leader(DT, coords = coords, group = groupcol)
+distance_to_leader(DT, coords = coords, group = groupcol)
 calc_dir_to_leader(DT, coords = coords, group = groupcol)
 ```
 
@@ -325,7 +325,7 @@ calc_dir_to_leader(DT, coords = coords, group = groupcol)
 #| eval: true
 #| echo: false
 #| warning: false
-DT <- calc_dist_to_leader(DT, coords = coords, group = groupcol)
+DT <- distance_to_leader(DT, coords = coords, group = groupcol)
 DT <- calc_dir_to_leader(DT, coords = coords, group = groupcol)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
@@ -336,8 +336,8 @@ intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 0.5) +
-  geom_text(aes(label = paste0(format(dist_to_leader, digits = 2),
+  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
+  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
                                format(dir_to_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
@@ -353,12 +353,12 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   scale_x_continuous(expand = expansion(add = 10))
 
 g_dist <- ggplot(DT, aes(CircStats::deg(dir_to_leader), 
-                         factor(rank_dist_along_group_az))) +
+                         factor(rank_dist_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_to_leader, factor(rank_dist_along_group_az))) +
+g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()
@@ -400,7 +400,7 @@ interindividual_dist <- edge_dist(
   fillNA = TRUE
 )
 
-fission_fusion(
+fusion_id(
   interindividual_dist,
   threshold = 50, 
   n_min_length = 0, 
@@ -423,18 +423,18 @@ edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
                    id = 'id', coords = c('x_proj', 'y_proj'),
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
-edges_fogo <- fission_fusion(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
+edges_fogo <- fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
 sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                           ID2 %in% c('FO2016008', 'FO2017007') &
                           timegroup < max_tg]
 
-fogo_min0_miss0_splitF <- fission_fusion(
+fogo_min0_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-fogo_min2_miss1_splitT <- fission_fusion(
+fogo_min2_miss1_splitT <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
-fogo_min2_miss0_splitF <- fission_fusion(
+fogo_min2_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
 
 g <- ggplot(sub_fogo,
@@ -489,13 +489,13 @@ similar directions.
 ```{r}
 #| echo: true
 #| eval: false
-calc_polarization(DT)
+bearing_polarization(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-DT <- calc_polarization(DT)
+DT <- bearing_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]
@@ -594,7 +594,7 @@ interindividual_dist <- edge_dist(
   fillNA = TRUE
 )
 
-fission_fusion(
+fusion_id(
   interindividual_dist,
   threshold = 50, 
   n_min_length = 0, 
