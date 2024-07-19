@@ -24,7 +24,7 @@ DT_test <- data.table(
   x = runif(n, -10, 10),
   y = runif(n, -10, 10),
   id = LETTERS[seq.int(n)],
-  az = runif(n, CircStats::rad(0), CircStats::rad(360)),
+  bearing = runif(n, CircStats::rad(0), CircStats::rad(360)),
   group = 1
 )
 
@@ -58,12 +58,12 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, coords)
-bearing_sequential(DT_fogo, id, coords, 4326)
+bearing_sequential(DT_fogo, id, c('x_long', 'y_lat'), 4326)
 
 group_leader(DT_fogo, coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
-              .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_bearing, dist_group_bearing, rank_dist_along_group_bearing)])
+              .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj, group_mean_y_proj,
+                group_bearing, dist_along_group_bearing, rank_dist_along_group_bearing)])
 
 
 # Plot --------------------------------------------------------------------
@@ -74,7 +74,7 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
   geom_point() +
-  geom_text(aes(label = paste0(format(dist_group_bearing, digits = 1),
+  geom_text(aes(label = paste0(format(dist_along_group_bearing, digits = 1),
                               ' (', rank_dist_along_group_bearing, ')')),
             nudge_y = 0.4) +
   geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
@@ -93,7 +93,7 @@ intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mea
 
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_group_bearing, digits = 1),
+  geom_text(aes(label = paste0(format(dist_along_group_bearing, digits = 1),
                                ' (', rank_dist_along_group_bearing, ')')),
                 nudge_y = 2) +
   geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
@@ -109,18 +109,18 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
 
 DT_fogo[, N_by_group := .N, group]
 g_fogo_hist <- ggplot(DT_fogo[N_by_group > 1]) +
-  geom_histogram(aes(dist_group_bearing), binwidth = 1) +
-  labs(x = 'Distance along group az', y = '') +
+  geom_histogram(aes(dist_along_group_bearing), binwidth = 1) +
+  labs(x = 'Distance along group bearing', y = '') +
   theme_bw()
 
 g_fogo_hist2 <- ggplot(DT_fogo[N_by_group > 1]) +
   geom_histogram(aes(rank_dist_along_group_bearing), binwidth = 1) +
-  labs(x = 'Rank distance along group az', y = '') +
+  labs(x = 'Rank distance along group bearing', y = '') +
   theme_bw()
 
 g_fogo_dist <- ggplot(DT_fogo[N_by_group > 1]) +
-  stat_halfeye(aes(dist_group_bearing, factor(rank_dist_along_group_bearing))) +
-  labs(x = 'Distance along group az', y = 'Rank distance along group az') +
+  stat_halfeye(aes(dist_along_group_bearing, factor(rank_dist_along_group_bearing))) +
+  labs(x = 'Distance along group bearing', y = 'Rank distance along group bearing') +
   theme_bw()
 
 print(g_fogo_dist + ((g_fogo_hist / g_fogo_hist2) / g_fogo))
