@@ -1,6 +1,6 @@
 #' Directional correlation delay edge lists
 #'
-#' Temporal delay in absolute azimuth between individuals
+#' Temporal delay in absolute bearing between individuals
 #'
 #' @param DT relocation data
 #' @param edges edges generated with edges_dist
@@ -18,7 +18,7 @@ edge_delay <- function(DT, id = NULL, edges, window = NULL) {
   stopifnot('fusionID' %in% colnames(edges))
   stopifnot('dyadID' %in% colnames(edges))
 
-  stopifnot('az' %in% colnames(DT))
+  stopifnot('bearing' %in% colnames(DT))
   stopifnot('timegroup' %in% colnames(DT))
 
   # TODO: check window isnt in colnames
@@ -37,9 +37,9 @@ edge_delay <- function(DT, id = NULL, edges, window = NULL) {
         by = fusionID]
 
   id_tg[, delay_tg := {
-    focal_az <- DT[timegroup == .BY$tg & id == ID1, az]
+    focal_bearing <- DT[timegroup == .BY$tg & id == ID1, bearing]
     DT[between(timegroup, min_tg, max_tg) & id == ID2,
-       timegroup[which.min(delta_rad(focal_az, az))]]
+       timegroup[which.min(delta_rad(focal_bearing, bearing))]]
   }, by = .(tg,  dyadID)]
 
   id_tg[, dir_corr_delay := tg - delay_tg]
