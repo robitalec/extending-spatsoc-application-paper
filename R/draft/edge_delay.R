@@ -1,11 +1,11 @@
-#' Calculate the directional correlation delay
+#' Directional correlation delay edge lists
 #'
 #' Temporal delay in absolute azimuth between individuals
 #'
 #' @param DT relocation data
 #' @param edges edges generated with edges_dist
 #' @param window integer window in timegroups generated with group_times
-calc_az_delay <- function(DT, id = NULL, edges, window = NULL) {
+edge_delay <- function(DT, id = NULL, edges, window = NULL) {
   stopifnot(!is.null(id))
   stopifnot(!is.null(window))
 
