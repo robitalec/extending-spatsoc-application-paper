@@ -43,7 +43,7 @@ distance_to_group_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$dist_group_centroid, rep(0, nrow(DT_sub_solo)))
 
 bearing_to_group_centroid(DT_sub_solo, coords)
-expect_equal(DT_sub_solo$dir_to_group_centroid, rep(NaN, nrow(DT_sub_solo)))
+expect_equal(DT_sub_solo$bearing_centroid, rep(NaN, nrow(DT_sub_solo)))
 
 
 
@@ -67,7 +67,7 @@ g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
   geom_point(size = 0.8) +
   geom_text(aes(label = paste0(format(dist_group_centroid, digits = 2),
                                ', ',
-                               format(dir_to_group_centroid, digits = 2),
+                               format(bearing_centroid, digits = 2),
                                ' rad')), nudge_y = -1.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   theme_bw() +
@@ -86,7 +86,7 @@ g2 <- ggplot(DT_sub) +
   geom_histogram(aes(rank_dist_group_centroid), binwidth = 1) +
   labs(x = 'Rank distance to group centroid', y = '')
 g3 <- ggplot(DT_sub) +
-  geom_histogram(aes(dir_to_group_centroid), bins = 30) +
+  geom_histogram(aes(bearing_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g4 <- ggplot(DT_sub) +
   stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +

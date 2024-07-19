@@ -24,7 +24,7 @@ DT_test <- data.table(
   x = runif(n, -10, 10),
   y = runif(n, -10, 10),
   id = LETTERS[seq.int(n)],
-  az = runif(n, CircStats::rad(0), CircStats::rad(360)),
+  bearing = runif(n, CircStats::rad(0), CircStats::rad(360)),
   timegroup = 1,
   group = 1
 )
@@ -57,7 +57,7 @@ distance_to_leader(DT_fogo, coords = coords, group = 'group')
 bearing_to_leader(DT_fogo, coords = coords, group = 'group')
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_bearing, dist_group_bearing, rank_dist_along_group_bearing,
+                group_bearing, dist_along_group_bearing, rank_dist_along_group_bearing,
                 dist_leader, bearing_leader)])
 
 
@@ -118,3 +118,4 @@ g_dir <- ggplot(DT_fogo, aes(bearing_leader, factor(rank_dist_along_group_bearin
   theme_bw()
 
 print(g_fogo / (g_dist + g_dir))
+
