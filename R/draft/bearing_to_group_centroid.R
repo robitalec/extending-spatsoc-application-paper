@@ -17,7 +17,7 @@ bearing_to_group_centroid <- function(DT, coords = NULL) {
   stopifnot(group_xcol %in% colnames(DT))
   stopifnot(group_ycol %in% colnames(DT))
 
-  DT[, bearing_to_centroid := fifelse(
+  DT[, bearing_centroid := fifelse(
     .SD[[xcol]] == .SD[[group_xcol]] &
       .SD[[ycol]] == .SD[[group_ycol]],
     NaN,
