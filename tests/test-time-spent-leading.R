@@ -37,9 +37,9 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 coords <- c('x', 'y')
 
 group_centroid(DT_test, coords = coords)
-calc_dist_group_az(DT_test, coords = coords, return_rank = TRUE)
+group_leader(DT_test, coords = coords, return_rank = TRUE)
 
-DT_test[, leader := rank_dist_along_group_az == 1, .(timegroup, id)]
+DT_test[, leader := rank_dist_group_bearing == 1, .(timegroup, id)]
 DT_test[, time_spent_leading := sum(leader), by = id]
 print(DT_test)
 
@@ -54,12 +54,12 @@ group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 
 group_centroid(DT_fogo, coords)
-calc_az_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 
-calc_dist_group_az(DT_fogo, az = 'az', coords = coords, return_rank = TRUE)
+group_leader(DT_fogo, az = 'az', coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_az, dist_along_group_az, rank_dist_along_group_az)])
+                group_az, dist_group_bearing, rank_dist_group_bearing)])
 DT_fogo[, N_by_group := .N, group]
 
 
@@ -72,7 +72,7 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
   geom_point() +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 0.5) +
+  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
   geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
   theme_bw() +
   lims(x = c(-10, 10), y = c(-10, 10)) +
@@ -90,7 +90,7 @@ intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mea
 
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 2) +
+  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 2) +
   geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
   geom_abline(slope = slope_fogo, intercept = intercept_fogo) +
   geom_abline(slope = -1/slope_fogo, intercept = intercept_inv_fogo,
@@ -107,7 +107,7 @@ min_group_sizes <- c(2, 3, 4)
 DT_time_leading <- rbindlist(lapply(min_group_sizes, function(min_size) {
   DT_fogo[N_by_group > min_size,
           .(min_group_size = min_size,
-            time_spent_leading = sum(rank_dist_along_group_az == 1) / .N),
+            time_spent_leading = sum(rank_dist_group_bearing == 1) / .N),
           by = id]
 }))
 
@@ -123,7 +123,7 @@ min_group_sizes <- c(2, 3, 4)
 DT_mean_rank <- rbindlist(lapply(min_group_sizes, function(min_size) {
   DT_fogo[N_by_group > min_size,
           .(min_group_size = min_size,
-            mean_rank = mean(rank_dist_along_group_az)),
+            mean_rank = mean(rank_dist_group_bearing)),
           by = id]
 }))
 

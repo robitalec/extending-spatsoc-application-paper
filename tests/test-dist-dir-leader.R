@@ -36,9 +36,9 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 coords <- c('x', 'y')
 group_centroid(DT_test, coords = coords)
-calc_dist_group_az(DT_test, coords = coords, return_rank = TRUE)
-calc_dist_leader(DT_test, coords = coords, group = 'group')
-calc_az_leader(DT_test, coords = coords, group = 'group')[]
+group_leader(DT_test, coords = coords, return_rank = TRUE)
+distance_to_leader(DT_test, coords = coords, group = 'group')
+bearing_to_leader(DT_test, coords = coords, group = 'group')[]
 
 
 threshold <- 50
@@ -50,15 +50,15 @@ group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, coords = coords)
-calc_az_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 
-calc_dist_group_az(DT_fogo, coords = coords, return_rank = TRUE)
-calc_dist_leader(DT_fogo, coords = coords, group = 'group')
-calc_az_leader(DT_fogo, coords = coords, group = 'group')
+group_leader(DT_fogo, coords = coords, return_rank = TRUE)
+distance_to_leader(DT_fogo, coords = coords, group = 'group')
+bearing_to_leader(DT_fogo, coords = coords, group = 'group')
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_az, dist_along_group_az, rank_dist_along_group_az,
-                dist_to_leader, dir_to_leader)])
+                group_az, dist_group_bearing, rank_dist_group_bearing,
+                dist_leader, dir_to_leader)])
 
 
 
@@ -70,8 +70,8 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
   geom_point() +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 0.5) +
-  geom_text(aes(label = paste0(format(dist_to_leader, digits = 2),
+  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
+  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
                                format(dir_to_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
@@ -91,8 +91,8 @@ intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mea
 
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_az), nudge_y = 1.5) +
-  geom_text(aes(label = paste0(format(dist_to_leader, digits = 2),
+  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 1.5) +
+  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
                                format(dir_to_leader, digits = 2),
                                ' rad')), nudge_y = -1.5) +
@@ -107,12 +107,12 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT_fogo, aes(dist_to_leader, factor(rank_dist_along_group_az))) +
+g_dist <- ggplot(DT_fogo, aes(dist_leader, factor(rank_dist_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT_fogo, aes(dir_to_leader, factor(rank_dist_along_group_az))) +
+g_dir <- ggplot(DT_fogo, aes(dir_to_leader, factor(rank_dist_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()

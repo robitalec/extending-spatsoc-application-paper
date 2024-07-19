@@ -43,11 +43,11 @@ setorder(DT_test, timegroup)
 edges_test <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
                    coords = c('x', 'y'), returnDist = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
-f_min0_miss0_splitF <- fission_fusion(
+f_min0_miss0_splitF <- fusion_id(
   copy(edges_test), threshold = 10, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-f_min1_miss1_splitT <- fission_fusion(
+f_min1_miss1_splitT <- fusion_id(
   copy(edges_test), threshold = 10, n_min_length = 1, n_max_missing = 1, allow_split = TRUE)
-f_min0_miss_1_splitF <- fission_fusion(
+f_min0_miss_1_splitF <- fusion_id(
   copy(edges_test), threshold = 10, n_min_length = 0, n_max_missing = 1, allow_split = FALSE)
 
 print(f_min0_miss0_splitF[dyadID == 'A-B'])
@@ -65,11 +65,11 @@ sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                           ID2 %in% c('FO2016008', 'FO2017007') &
                           timegroup < max_tg]
 
-fogo_min0_miss0_splitF <- fission_fusion(
+fogo_min0_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-fogo_min2_miss1_splitT <- fission_fusion(
+fogo_min2_miss1_splitT <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
-fogo_min2_miss0_splitF <- fission_fusion(
+fogo_min2_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
 
 print(fogo_min0_miss0_splitF[dyadID == 'FO2016008-FO2017007'])

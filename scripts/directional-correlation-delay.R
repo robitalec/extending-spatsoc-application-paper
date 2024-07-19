@@ -33,7 +33,7 @@ abs_diff_rad <- function(x,  y) {
   fifelse(d > 2 * pi | is.na(d), d - (2 * pi), d)
 }
 
-calc_az_delay <- function(DT, window = 5) {
+edge_delay <- function(DT, window = 5) {
   calc_az(DT)
   dyads <- CJ(
     ID1 = unique(DT$id),
@@ -53,7 +53,7 @@ calc_az_delay <- function(DT, window = 5) {
         .SDcols = colnames(dyads)]
 }
 
-calc_az_delay_zz <- function(DT, window = 5) {
+edge_delay_zz <- function(DT, window = 5) {
   calc_az(DT)
 
 
@@ -328,7 +328,7 @@ DT_test <- rbindlist(list(
 ), use.names = TRUE)
 setorder(DT_test, timegroup)
 # DT_test <- na.omit(DT_test)#[datetime %in% na.omit(DT_test)[, .N, datetime][N == 3, datetime]]
-calc_az_delay(DT_test, window  = 1)[ID1 == 'A']
+edge_delay(DT_test, window  = 1)[ID1 == 'A']
 # Error in st_as_sf.data.frame(.SD, coords = c("x", "y"), crs = 4326) :
   # missing values in coordinates not allowed
 g <- ggplot(DT_test) +

@@ -1,5 +1,5 @@
 ---
-title: 'fission_fusion()'
+title: 'fusion_id()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
