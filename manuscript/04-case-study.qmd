@@ -316,7 +316,7 @@ group.
 ```{r}
 #| eval: false
 #| echo: true
-calc_dist_to_leader(DT, coords = coords, group = groupcol)
+distance_to_leader(DT, coords = coords, group = groupcol)
 calc_dir_to_leader(DT, coords = coords, group = groupcol)
 ```
 
@@ -325,7 +325,7 @@ calc_dir_to_leader(DT, coords = coords, group = groupcol)
 #| eval: true
 #| echo: false
 #| warning: false
-DT <- calc_dist_to_leader(DT, coords = coords, group = groupcol)
+DT <- distance_to_leader(DT, coords = coords, group = groupcol)
 DT <- calc_dir_to_leader(DT, coords = coords, group = groupcol)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
@@ -337,7 +337,7 @@ intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
   geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
-  geom_text(aes(label = paste0(format(dist_to_leader, digits = 2),
+  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
                                format(dir_to_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
@@ -358,7 +358,7 @@ g_dist <- ggplot(DT, aes(CircStats::deg(dir_to_leader),
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_to_leader, factor(rank_dist_group_bearing))) +
+g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()
