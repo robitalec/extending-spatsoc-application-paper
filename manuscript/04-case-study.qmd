@@ -400,7 +400,7 @@ interindividual_dist <- edge_dist(
   fillNA = TRUE
 )
 
-fission_fusion(
+fusion_id(
   interindividual_dist,
   threshold = 50, 
   n_min_length = 0, 
@@ -423,18 +423,18 @@ edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
                    id = 'id', coords = c('x_proj', 'y_proj'),
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
-edges_fogo <- fission_fusion(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
+edges_fogo <- fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
 sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
                           ID2 %in% c('FO2016008', 'FO2017007') &
                           timegroup < max_tg]
 
-fogo_min0_miss0_splitF <- fission_fusion(
+fogo_min0_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-fogo_min2_miss1_splitT <- fission_fusion(
+fogo_min2_miss1_splitT <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
-fogo_min2_miss0_splitF <- fission_fusion(
+fogo_min2_miss0_splitF <- fusion_id(
   copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
 
 g <- ggplot(sub_fogo,
@@ -594,7 +594,7 @@ interindividual_dist <- edge_dist(
   fillNA = TRUE
 )
 
-fission_fusion(
+fusion_id(
   interindividual_dist,
   threshold = 50, 
   n_min_length = 0, 

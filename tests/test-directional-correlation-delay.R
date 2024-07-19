@@ -49,7 +49,7 @@ edges_test <- edge_dist(DT_test, threshold = threshold, id = id,
                         timegroup = 'timegroup', coords = coords,
                         returnDist = TRUE, fillNA = FALSE)
 dyad_id(edges_test, 'ID1', 'ID2')
-fission_fusion(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
+fusion_id(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
 print(edges_test[dyadID == 'A-B'])
 print(edges_test[dyadID == 'C-D'])
@@ -80,7 +80,7 @@ edges <- edge_dist(DT_fogo, threshold = threshold,
                    id = id, coords = coords,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 dyad_id(edges, 'ID1', 'ID2')
-fission_fusion(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
+fusion_id(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
 
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 dir_delay_fogo <- edge_delay(DT_fogo, id, edges, window = 2)
