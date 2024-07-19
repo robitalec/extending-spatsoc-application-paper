@@ -57,23 +57,23 @@ distance_to_leader(DT_fogo, coords = coords, group = 'group')
 bearing_to_leader(DT_fogo, coords = coords, group = 'group')
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_az, dist_group_bearing, rank_dist_group_bearing,
-                dist_leader, dir_to_leader)])
+                group_bearing, dist_group_bearing, rank_dist_along_group_bearing,
+                dist_leader, bearing_leader)])
 
 
 
 # Plot --------------------------------------------------------------------
-slope <- DT_test[1, tan(group_az)]
+slope <- DT_test[1, tan(group_bearing)]
 intercept <- DT_test[1, group_mean_y - slope * group_mean_x]
 intercept_inv <-  DT_test[1, group_mean_y - (-1/slope) * group_mean_x]
 g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv, linewidth = 0.3) +
   geom_point() +
-  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
+  geom_text(aes(label = rank_dist_along_group_bearing), nudge_y = 0.5) +
   geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
-                               format(dir_to_leader, digits = 2),
+                               format(bearing_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
   geom_point(color = 'black', aes(group_mean_x, group_mean_y)) +
   theme_bw() +
@@ -85,16 +85,16 @@ print(g)
 
 sel_group <- DT_fogo[N_by_group > 6, sample(group, 1)]
 sub_fogo <- DT_fogo[group == sel_group]
-slope_fogo <- sub_fogo[1, tan(group_az)]
+slope_fogo <- sub_fogo[1, tan(group_bearing)]
 intercept_fogo <- sub_fogo[1, group_mean_y_proj - slope_fogo * group_mean_x_proj]
 intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mean_x_proj)]
 
 g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 1.5) +
+  geom_text(aes(label = rank_dist_along_group_bearing), nudge_y = 1.5) +
   geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
-                               format(dir_to_leader, digits = 2),
+                               format(bearing_leader, digits = 2),
                                ' rad')), nudge_y = -1.5) +
   geom_point(color = 'black', aes(group_mean_x_proj, group_mean_y_proj)) +
   geom_abline(slope = slope_fogo, intercept = intercept_fogo) +
@@ -107,12 +107,12 @@ g_fogo <- ggplot(sub_fogo, aes(x_proj, y_proj, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT_fogo, aes(dist_leader, factor(rank_dist_group_bearing))) +
+g_dist <- ggplot(DT_fogo, aes(dist_leader, factor(rank_dist_along_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT_fogo, aes(dir_to_leader, factor(rank_dist_group_bearing))) +
+g_dir <- ggplot(DT_fogo, aes(bearing_leader, factor(rank_dist_along_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()

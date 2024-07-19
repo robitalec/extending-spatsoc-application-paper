@@ -62,6 +62,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 
 ```{r}
 #| echo: false
+
 # Load packages
 library(data.table)
 suppressPackageStartupMessages(library(spatsoc))
@@ -200,12 +201,12 @@ bearing_to_group_centroid(DT, coords)
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- dist_to_group_centroid(DT, coords, return_rank = TRUE)
-dist_dir_cent <- bearing_to_group_centroid(DT, coords)
-g1 <- ggplot(DT) +
-  geom_histogram(aes(bearing_to_group_centroid), bins = 30) +
+dist_dir_cent <- distance_to_group_centroid(cent, coords, return_rank = TRUE)
+dist_dir_cent <- bearing_to_group_centroid(cent, coords)
+g1 <- ggplot(dist_dir_cent) +
+  geom_histogram(aes(bearing_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
-g2 <- ggplot(DT) +
+g2 <- ggplot(dist_dir_cent) +
   stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
@@ -241,19 +242,19 @@ position_within_group(DT, coords = coords, return_rank = TRUE)
 #| echo: false
 #| warning: false
 projection <- 32636
-az(DT, id = id, coords = coords, projection = projection)
-position_within_group(DT, coords = coords, return_rank = TRUE)
+bearing_sequential(DT, id = id, coords = coords, projection = projection)
+group_leader(DT, coords = coords, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_az)]
+slope <- sub_DT[1, tan(group_bearing)]
 intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_group_bearing, digits = 1),
-                               ' (', rank_dist_group_bearing, ')')),
+  geom_text(aes(label = paste0(format(dist_along_group_bearing, digits = 1),
+                               ' (', rank_dist_along_group_bearing, ')')),
                 nudge_y = 0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
@@ -268,17 +269,17 @@ g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
 
 DT[, N_by_group := .N, group]
 g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(dist_group_bearing), binwidth = 1) +
+  geom_histogram(aes(dist_along_group_bearing), binwidth = 1) +
   labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_dist_group_bearing), binwidth = 1) +
+  geom_histogram(aes(rank_dist_along_group_bearing), binwidth = 1) +
   labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(dist_group_bearing, factor(rank_dist_group_bearing))) +
+  stat_halfeye(aes(dist_along_group_bearing, factor(rank_dist_along_group_bearing))) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
@@ -309,16 +310,16 @@ DT <- bearing_to_leader(DT, coords = coords)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_az)]
+slope <- sub[1, tan(group_bearing)]
 intercept <- sub[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_group_bearing), nudge_y = 0.5) +
+  geom_text(aes(label = rank_dist_along_group_bearing), nudge_y = 0.5) +
   geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
-                               format(bearing_to_leader, digits = 2),
+                               format(bearing_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
@@ -331,13 +332,13 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT, aes(CircStats::deg(bearing_to_leader), 
-                         factor(rank_dist_group_bearing))) +
+g_dist <- ggplot(DT, aes(bearing_leader, 
+                         factor(rank_dist_along_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_group_bearing))) +
+g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_along_group_bearing))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()
@@ -474,9 +475,9 @@ DT <- bearing_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]
-g <- ggplot(sub, aes(CircStats::deg(az))) +
-  stat_dotsinterval(binwidth = 10, overflow = "keep", dotsize = 1) +
-  geom_text(x = 50, y = 0.75,
+g <- ggplot(sub, aes(bearing)) +
+  stat_dotsinterval(binwidth = 0.1, overflow = "keep", dotsize = 1) +
+  geom_text(x = 0, y = 0.75,
             aes(label = format(polarization, digits = 2))) +
   theme_bw() +
   facet_grid(group~.)
@@ -504,7 +505,8 @@ directional_align <- edge_az(
 
 ```{r}
 #| echo: false
-#| eval: true
+#| eval: false
+# TODO: fix
 directional_align <- edge_az(DT, threshold = NULL, id = id,
                              timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
@@ -599,9 +601,9 @@ fusion_events <- fusion_id(
 #| eval: true
 #| echo: false
 DT_fogo <- DT_fogo[timegroup < 50]
-
-az(DT_fogo, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_delay_fogo <- dir_corr_delay(DT_fogo, edges_fogo, window = 2)
+id <- 'id'
+bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+dir_delay_fogo <- edge_delay(DT_fogo, id = id, edges = edges_fogo, window = 2)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
 g <- ggplot(sub_fogo,
