@@ -24,7 +24,7 @@ DT_test <- data.table(
   x = runif(n, -10, 10),
   y = runif(n, -10, 10),
   id = LETTERS[seq.int(n)],
-  az = runif(n, CircStats::rad(0), CircStats::rad(360)),
+  bearing = runif(n, CircStats::rad(0), CircStats::rad(360)),
   timegroup = 1,
   group = 1
 )
@@ -59,7 +59,7 @@ bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection =
 group_leader(DT_fogo, az = 'az', coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_bearing, dist_group_bearing, rank_dist_along_group_bearing)])
+                group_bearing, dist_along_group_bearing, rank_dist_along_group_bearing)])
 DT_fogo[, N_by_group := .N, group]
 
 
