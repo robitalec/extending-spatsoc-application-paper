@@ -1,4 +1,4 @@
-# === Test edge az --------------------------------------------------------
+# === Test edge bearing ---------------------------------------------------
 
 
 
@@ -42,7 +42,7 @@ setorder(DT_test, timegroup)
 coords <- c('x', 'y')
 id <- 'id'
 bearing_sequential(DT_test, id = id, coords = coords, projection = 4326)
-edges_test <- edge_az(DT_test, threshold = NULL, id = id, timegroup = 'timegroup',
+edges_test <- edge_bearing(DT_test, threshold = NULL, id = id, timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
 
@@ -54,7 +54,7 @@ id <- 'id'
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-edges_fogo <- edge_az(DT_fogo, threshold = NULL, id = id, timegroup = 'timegroup',
+edges_fogo <- edge_bearing(DT_fogo, threshold = NULL, id = id, timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_fogo, 'ID1', 'ID2')
 
@@ -65,7 +65,7 @@ g <- ggplot(DT_test, aes(x, y, color = id)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup), data = DT_test[timegroup == min(timegroup)])
 
-g2 <- ggplot(edges_test,  aes(timegroup, dyadID, color = diff_az)) +
+g2 <- ggplot(edges_test,  aes(timegroup, dyadID, color = diff_bearing)) +
   geom_point(size = 5) +
   scale_color_viridis_c()
 
@@ -92,7 +92,7 @@ sub_edges <- edges_fogo[(ID1 %in% DT_fogo[group == sel_group, id] &
                                 DT_fogo[group == sel_group, first(timegroup) - 1],
                                 DT_fogo[group == sel_group, first(timegroup) + 2])]
 g2_fogo <- ggplot(sub_edges,
-                  aes(factor(timegroup), dyadID, color = diff_az)) +
+                  aes(factor(timegroup), dyadID, color = diff_bearing)) +
   geom_point(size = 5) +
   scale_color_viridis_c() +
   labs(x = 'Timegroup', y = '')
