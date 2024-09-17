@@ -36,6 +36,7 @@ DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.cs
 # Test --------------------------------------------------------------------
 coords <- c('x', 'y')
 group_centroid(DT_test, coords = coords)
+group_bearing(DT_test, bearing = 'bearing', group = 'group')
 group_leader(DT_test, coords = coords, return_rank = TRUE)
 distance_to_leader(DT_test, coords = coords, group = 'group')
 bearing_to_leader(DT_test, coords = coords, group = 'group')[]
@@ -51,7 +52,7 @@ group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
 group_centroid(DT_fogo, coords = coords)
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-
+group_bearing(DT_fogo)
 group_leader(DT_fogo, coords = coords, return_rank = TRUE)
 distance_to_leader(DT_fogo, coords = coords, group = 'group')
 bearing_to_leader(DT_fogo, coords = coords, group = 'group')
