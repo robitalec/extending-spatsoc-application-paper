@@ -1,6 +1,6 @@
-#' Azimuth difference based edge lists
+#' Bearing difference based edge lists
 #' @family Edge-list generation
-edge_az <- function(DT = NULL,
+edge_bearing <- function(DT = NULL,
                     threshold,
                     id = NULL,
                     coords = NULL,
