@@ -56,9 +56,8 @@ group_pts(DT_fogo, threshold = threshold, id = id,
 
 group_centroid(DT_fogo, coords)
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-
-group_leader(DT_fogo, az = 'az', coords = coords, return_rank = TRUE)
 group_bearing(DT_fogo)
+group_leader(DT_fogo, coords = coords, return_rank = TRUE)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
                 group_bearing, dist_along_group_bearing, rank_dist_along_group_bearing)])
@@ -67,7 +66,7 @@ DT_fogo[, N_by_group := .N, group]
 
 
 # Plot --------------------------------------------------------------------
-slope <- DT_test[1, tan(group_bearing)]
+slope <- DT_test[1, tan(group_mean_bearing)]
 intercept <- DT_test[1, group_mean_y - slope * group_mean_x]
 intercept_inv <-  DT_test[1, group_mean_y - (-1/slope) * group_mean_x]
 g <- ggplot(DT_test, aes(x, y, color = id)) +
@@ -86,7 +85,7 @@ print(g)
 
 sel_group <- DT_fogo[N_by_group > 6, sample(group, 1)]
 sub_fogo <- DT_fogo[group == sel_group]
-slope_fogo <- sub_fogo[1, tan(group_bearing)]
+slope_fogo <- sub_fogo[1, tan(group_mean_bearing)]
 intercept_fogo <- sub_fogo[1, group_mean_y_proj - slope_fogo * group_mean_x_proj]
 intercept_inv_fogo <- sub_fogo[1, group_mean_y_proj - (-1/slope_fogo * group_mean_x_proj)]
 
