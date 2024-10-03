@@ -11,7 +11,7 @@ execute:
 targets::tar_source('R')
 ```
 
-?how does this stand alone w/o history of networks
+<!-- ?how does this stand alone w/o history of networks -->
 
 
 <!-- P1: Quantitative characteristics of social dynamics -->

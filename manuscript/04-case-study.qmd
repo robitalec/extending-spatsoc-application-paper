@@ -243,11 +243,12 @@ position_within_group(DT, coords = coords, return_rank = TRUE)
 #| warning: false
 projection <- 32636
 bearing_sequential(DT, id = id, coords = coords, projection = projection)
+group_bearing(DT)
 group_leader(DT, coords = coords, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_bearing)]
+slope <- sub_DT[1, tan(group_mean_bearing)]
 intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
 
@@ -310,7 +311,7 @@ DT <- bearing_to_leader(DT, coords = coords)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_bearing)]
+slope <- sub[1, tan(group_mean_bearing)]
 intercept <- sub[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 
@@ -371,6 +372,7 @@ observation without resulting in a fission event
 #| eval: false
 #| echo: true
 # Fission fusion events using interinvidiual distance calculated with edge_dist
+dyad_id(interindividual_dist, 'ID1', 'ID2')
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold, 
