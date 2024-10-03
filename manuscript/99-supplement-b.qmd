@@ -118,6 +118,25 @@ count_met[order(-N, V1),
 ```
 
 
+### Not selected
+
+- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca, 
+- corrMove (diffusive movement correlation, drift movement correlation,
+overall component movement correlation)
+- metrics relating to posture
+- static interaction eg. home range overlap
+- voronoi
+- HMM
+- change point detection
+- mFLICA 
+  - available
+- FLOCK
+- LPD
+- Granger causality
+- Influence maximization
+
+
 ## Temporal
 
 ```{r}
