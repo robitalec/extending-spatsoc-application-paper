@@ -9,10 +9,14 @@ execute:
 ```{r}
 #| include: false
 targets::tar_source('R')
-tar_load(count_metric)
 tar_load(taxized)
 tar_load(geocoded)
 tar_load(review)
+tar_load(counted)
+count_code_avail <- counted$count_analysis_code_availability
+count_prog_lang <- counted$count_prog_lang
+count_software <- counted$count_software
+count_metric <- counted$count_metric
 ```
 
 
