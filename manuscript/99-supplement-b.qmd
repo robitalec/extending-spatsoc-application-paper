@@ -47,9 +47,7 @@ count_metric <- counted$count_metric
 ## Code availability
 
 ```{r}
-tar_load(count_analysis_code_availability)
-
-count_analysis_code_availability[, .N, V1][, .(
+count_code_avail[, .N, V1][, .(
   `Code availability` = V1,
   N = paste_n_percent(N)
 )] |> tt()
@@ -60,22 +58,18 @@ count_analysis_code_availability[, .N, V1][, .(
 
 ## Programming language / GUI program
 
-```{r}
-tar_load(count_programming_language)
-```
-
-Out of `r count_programming_language[, uniqueN(covidence_number)]` articles, 
-`r count_programming_language[is.na(V1), .N]` did not list a programming 
+Out of `r count_prog_lang[, uniqueN(covidence_number)]` articles, 
+`r count_prog_lang[is.na(V1), .N]` did not list a programming 
 language or GUI program.  Of the 
-`r count_programming_language[!is.na(V1), uniqueN(covidence_number)]` 
-that did, `r count_programming_language[, .N, covidence_number][N > 1, .N]` 
+`r count_prog_lang[!is.na(V1), uniqueN(covidence_number)]` 
+that did, `r count_prog_lang[, .N, covidence_number][N > 1, .N]` 
 articles listed more than one programming 
 language or GUI program, therefore the total 
 count below will be greater than the number of articles. 
 
 
 ```{r}
-count_prog <- count_programming_language[!is.na(V1), .N, V1]
+count_prog <- count_prog_lang[!is.na(V1), .N, V1]
 
 count_prog[order(-N), 
            .(`Programming language / GUI software` = V1, 
@@ -85,12 +79,6 @@ count_prog[order(-N),
 
 
 ## Software packages
-
-```{r}
-tar_load(count_software)
-tar_load(software_meta)
-```
-
 
 Out of `r count_software[, uniqueN(covidence_number)]` articles, 
 `r count_software[is.na(V1), .N]` did not list a software package.
@@ -102,9 +90,9 @@ articles listed more than one software package
 count below will be greater than the number of articles. 
 
 ```{r}
-count_soft <- count_software[!is.na(V1), .N, V1]
+count_soft_na_rm <- count_software[!is.na(V1), .N, V1]
 
-count_soft[order(-N),
+count_soft_na_rm[order(-N),
            .(`Software package` = V1,
              N = paste_n_percent(N))] |>
   tt()
@@ -121,10 +109,6 @@ software_meta |>
 ## Metrics
 
 ```{r}
-tar_load(count_metric)
-```
-
-```{r}
 count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
 
 count_met[order(-N, V1), 
@@ -135,11 +119,6 @@ count_met[order(-N, V1),
 
 
 ## Temporal
-
-```{r}
-#| include: false
-tar_load(review)
-```
 
 ```{r}
 ggplot(review) + 
@@ -154,11 +133,8 @@ ggplot(review) +
 ## Geographic
 
 ```{r}
-tar_load(geocoded)
 countries <- ne_countries()
-```
 
-```{r}
 crs <- 8857
 
 ggplot() + 
@@ -174,10 +150,6 @@ ggplot() +
 ## Species
 
 ```{r}
-tar_load(taxized)
-```
-
-```{r}
 #| fig-height: 9
 ggplot(taxized) + 
   geom_bar(aes(y = fct_infreq(species)),
@@ -186,6 +158,8 @@ ggplot(taxized) +
   theme_bw() + 
   labs(x = 'Count', y = 'Species')
 ```
+
+
 ## Fission fusion
 
 ```{r}
