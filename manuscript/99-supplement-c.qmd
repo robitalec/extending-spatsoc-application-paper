@@ -1,0 +1,15 @@
+---
+title: "Supplement C: Scoping Review Results - Selected Metrics"
+date: "`r Sys.Date()`"
+toc: true
+execute:
+  echo: false
+---
+
+```{r}
+#| include: false
+tar_load(count_metric)
+tar_load(taxized)
+tar_load(geocoded)
+tar_load(review)
+```
