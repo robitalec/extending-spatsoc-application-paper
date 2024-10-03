@@ -30,6 +30,10 @@ For each
 - Code example
 - Similar terms? eg. see metric synonyms
 
+See list of not selected metrics (Supplement  B), including already available 
+functions in eg. {wildlifeDI}, metrics relating to posture,
+static interaction eg. home range overlap, ...
+
 
 ## Directional correlation delay
 
@@ -168,35 +172,15 @@ of their perception.
 
 ## Fission fusion
 
-```{r}
-tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
-```
+Given the variability in defining fission fusion dynamics in the literature
+(Supplement B), we developed a flexible function that allows users to both use
+their system specific definitions and at the same time easily compare to results
+to other definitions.
 
-
-Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
 Arguments: 
 
-- Minimum run length indicating the number of successive fixes that are required to establish a fusion event
-- Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event
+- Minimum run length indicating the number of successive fixes that are required 
+to establish a fusion event
+- Maximum missed observations indicating the number of allowable missed 
+observations for either individual in a dyad within a fission event
 - Threshold distance to define a fusion event
-
-
-
-## Not selected
-
-- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca, 
-- corrMove (diffusive movement correlation, drift movement correlation,
-overall component movement correlation)
-- metrics relating to posture
-- static interaction eg. home range overlap
-- voronoi
-- HMM
-- change point detection
-- mFLICA 
-  - available
-- FLOCK
-- LPD
-- Granger causality
-- Influence maximization
-

@@ -52,32 +52,16 @@ c(
     )
   ),
   tar_target(
-    count_programming_language,
-    count_list(review, 'programming_language')
-  ),
-  tar_target(
-    count_software,
-    count_list(review, 'software_package_s_used')
-  ),
-  tar_target(
-    count_analysis_code_availability,
-    count_list(review, 'analysis_code_availability')
-  ),
-  tar_target(
-    count_raw_metric,
-    count_list(review, 'metric_used_or_described')
-  ),
-  tar_target(
-    count_metric,
-    count_list(review, 'metric_agg')
-  ),
-  tar_target(
     geocoded,
     geocode_studies(review)
   ),
   tar_target(
     taxized,
     taxize_studies(review)
+  ),
+  tar_target(
+    counted,
+    count_studies(review)
   ),
   tar_quarto(
     site,
