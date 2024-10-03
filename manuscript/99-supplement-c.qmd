@@ -13,3 +13,7 @@ tar_load(taxized)
 tar_load(geocoded)
 tar_load(review)
 ```
+
+
+- highlighting unavailability of selected metrics despite high use in literature
+- detailed justification of not selected metrics
