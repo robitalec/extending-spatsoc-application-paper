@@ -11,25 +11,53 @@ execute:
 targets::tar_source('R')
 ```
 
-Animal social dynamics have broad implications for survival, resource
-availability and disease transmission. Methods and open source tools are
-available for deriving social networks from animal telemetry data. These
-approaches derive network structure from aggregated contact rates or home range
-overlap. However, when used alone, these methods disregard further inferences on
-intragroup social dynamics that can be derived from animal telemetry data.
+Animal social dynamics have broad implications in ecology including resource
+availability, disease transmission and collective behaviour. Social network
+analysis can measure the structure of social systems, the consequences of an
+individual's position in a network, the spread of disease or information across
+networks, and the influence of the environment (Farine and Whitehead 2015). Open
+source tools have been developed to derive social networks from animal telemetry
+data (Robitaille et al 2019) using aggregated association rates or home range
+overlap. The methods have been used to measure contact rates to measure social
+cohesion (Bracken 2021), human-wildlife conflict (Boudreau 2021), socioecology
+and resource availability (Peignier2019),  community structure (Sunga 2021),
+influence of stress of social proximity (Keshavarzi 2023), social patterns in
+non-social species (Heeres 2024).
 
+However, many other facets of group living need to be measured to fully
+understand animal social systems (King et al 2018). There are additional types
+of dyadic relationships including genetic, affiliative, agonistic, and
+cooperative (Farine and Whitehead 2015). There are also interactions between
+spatial and social phenotypes and environments (Webber et al 2023). Using direct
+observations, researchers have studied intragroup social dynamics including
+social foraging (Barnard 1981, Giraldeau 1986, Hirsch 2020), spatial position
+within groups (Krause 1994, Monus 2008) and the influence of individual traits
+such as age, sex and dominance (Furuichi 1983, King 2009, Teichroeb 2015).
+Unfortunately, direct observations can be labor-intensive to collect and
+susceptible to observer bias (Smith 2021), with low spatial and temporal
+resolution making them imperfect for studies of collective movement (King 2011).
 
+There are expanded opportunities to understand animal social systems by pairing
+advances in remote tracking technology with emerging approaches to measuring
+intragroup social dynamics. The availability and resolution of remote tracking
+data continues to improve (Kays 2015, Nathan 2022, Kays 2022) and there are over
+two decades of research on measuring the interaction between moving individuals
+from the study of "moving point objects" in GISciences (Laube 2002, Dodge 2008,
+Andersson 2008) to group coordination of moving groups (Couzin 2002,
+Herbert-Read 2011) and leadership and decision making (Nagy 2010, King 2011,
+Strandburg-Peshkin 2015). Despite this, we suggest the availability of open
+source tools (Hampton 2015, Wilson 2017, Powers 2019) is the missing piece
+between the call to integrate technology enhanced research with
+multidisciplinary approaches to better understand animal social systems. (King
+2023, Couzin 2023).
 
-Despite the number of developed metrics, increased computing power and
-availability of animal telemetry data, there are few available tools in the R
-language ecosystem for measuring intragroup dynamics. Here we present N (~11)
-new functions for the R package {spatsoc} (Robitaille et al. 2019) for measuring
-intragroup dynamics. We conducted a scoping review to identify metrics
-applicable to spatiotemporal data used in ecological studies focused on dyadic
-interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
-resulting metrics, we selected those with a high number of citations (as a
-measure of value for the target audience) and unavailability in the R
-programming language, either through R packages or supplemental materials in the
-literature. We will demonstrate these new functions through a case study and
-discuss biological interpretation.
+Here we present N (~11) new functions for the R package {spatsoc} (Robitaille et
+al. 2019) for measuring intragroup dynamics. We conducted a scoping review to
+identify metrics applicable to spatiotemporal data used in ecological studies
+focused on dyadic interactions, dominance hierarchies and leadership patterns
+(Sup A, B). Of the resulting metrics, we selected those with a high number of
+citations (as a measure of value for the target audience) and unavailability in
+the R programming language, either through R packages or supplemental materials
+in the literature. We will demonstrate these new functions through a case study
+and discuss biological interpretation.
 
