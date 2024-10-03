@@ -13,8 +13,6 @@ targets::tar_source('R')
 
 
 
-# Case study
-
 Functionality previously available in {spatsoc} includes spatiotemporal grouping,
 edge list generation and data-stream permutations (Robitaille et al. 2019). 
 These functions have allowed users to detect interactions between individuals, 

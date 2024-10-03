@@ -1,5 +1,5 @@
 ---
-title: "Supplement C: Scoping Review Results - Selected Metrics"
+title: "Supplement C: Selected Metrics"
 date: "`r Sys.Date()`"
 toc: true
 execute:
