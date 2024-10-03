@@ -8,6 +8,7 @@ execute:
 
 ```{r}
 #| include: false
+targets::tar_source('R')
 tar_load(count_metric)
 tar_load(taxized)
 tar_load(geocoded)
