@@ -40,7 +40,7 @@ resolution making them imperfect for studies of collective movement (King 2011).
 There are expanded opportunities to understand animal social systems by pairing
 advances in remote tracking technology with emerging approaches to measuring
 intragroup social dynamics. The availability and resolution of remote tracking
-data continues to improve (Kays 2015, Nathan 2022, Kays 2022) and there are over
+data continues to improve (Kays 2015, Nathan 2022, Kays 2022). There are over
 two decades of research on measuring the interaction between moving individuals
 from the study of "moving point objects" in GISciences (Laube 2002, Dodge 2008,
 Andersson 2008) to group coordination of moving groups (Couzin 2002,
