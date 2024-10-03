@@ -30,6 +30,10 @@ For each
 - Code example
 - Similar terms? eg. see metric synonyms
 
+See list of not selected metrics (Supplement  B), including already available 
+functions in eg. {wildlifeDI}, metrics relating to posture,
+static interaction eg. home range overlap, ...
+
 
 ## Directional correlation delay
 
