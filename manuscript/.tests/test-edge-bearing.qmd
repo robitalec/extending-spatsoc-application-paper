@@ -1,5 +1,5 @@
 ---
-title: 'edge_az()'
+title: 'edge_bearing()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
@@ -9,6 +9,6 @@ execute:
 ```{r}
 #| echo: true
 #| eval: true
-#| file: tests/test-edge-az.R
+#| file: tests/test-edge-bearing.R
 ```
 
