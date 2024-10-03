@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2024-07-15">
+<meta name="dcterms.date" content="2024-10-03">
 <title>Case study – spatsoc paper 2</title>
 <style>
 code{white-space: pre-wrap;}
@@ -197,6 +197,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../manuscript/06-box.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Box 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-a.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement A: Scoping Review Methods</span></a>
   </div>
@@ -205,6 +211,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-b.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement B: Scoping Review Results</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manuscript/99-supplement-c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Supplement C: Scoping Review Results - Selected Metrics</span></a>
   </div>
 </li>
       </ul>
@@ -243,7 +255,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2024</p>
+      <p class="date">October 3, 2024</p>
     </div>
   </div>
   
@@ -267,12 +279,18 @@ window.Quarto = {
 <span><span class="co"># Cast the character column to POSIXct</span></span>
 <span><span class="va">DT</span><span class="op">[</span>, <span class="va">datetime</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">datetime</span>, tz <span class="op">=</span> <span class="st">'UTC'</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
+<span><span class="co"># Set variables</span></span>
+<span><span class="va">temporal_threshold</span>  <span class="op">&lt;-</span> <span class="st">'20 minutes'</span></span>
+<span><span class="va">spatial_threshold</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
+<span><span class="va">id</span> <span class="op">&lt;-</span> <span class="st">'ID'</span></span>
+<span><span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span></span>
+<span></span>
 <span><span class="co"># Temporal grouping</span></span>
-<span><span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="st">'20 minutes'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="va">temporal_threshold</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Spatial grouping with timegroup</span></span>
-<span><span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_pts.html">group_pts</a></span><span class="op">(</span><span class="va">DT</span>, threshold <span class="op">=</span> <span class="fl">5</span>, id <span class="op">=</span> <span class="st">'ID'</span>,</span>
-<span>          coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span>, timegroup <span class="op">=</span> <span class="st">'timegroup'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_pts.html">group_pts</a></span><span class="op">(</span><span class="va">DT</span>, threshold <span class="op">=</span> <span class="va">spatial_threshold</span>, id <span class="op">=</span> <span class="va">id</span>,</span>
+<span>          coords <span class="op">=</span> <span class="va">coords</span>, timegroup <span class="op">=</span> <span class="st">'timegroup'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -281,9 +299,9 @@ window.Quarto = {
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_quv27ttj3ue13fv0iok6</title>
+<title>tinytable_s7axvhwtn6o9kg5gm9rh</title>
 <style>
-.table td.tinytable_css_vz939dgqh4y9cy6cl87t, .table th.tinytable_css_vz939dgqh4y9cy6cl87t {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_dlxyuaq17t21j9ru2d82, .table th.tinytable_css_dlxyuaq17t21j9ru2d82 {    border-bottom: solid 0.1em #d3d8dc; }
     </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
     MathJax = {
@@ -295,7 +313,7 @@ window.Quarto = {
       }
     };
     </script><div class="container">
-      <table class="table table-borderless" id="tinytable_quv27ttj3ue13fv0iok6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_s7axvhwtn6o9kg5gm9rh" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col">ID</th>
                 <th scope="col">X</th>
@@ -362,12 +380,12 @@ window.Quarto = {
 </div>
 
     <script>
-      function styleCell_tinytable_0eiaakfz6eitw6nhg2u6(i, j, css_id) {
-        var table = document.getElementById("tinytable_quv27ttj3ue13fv0iok6");
+      function styleCell_tinytable_2fd8254i50g4h0z2ezes(i, j, css_id) {
+        var table = document.getElementById("tinytable_s7axvhwtn6o9kg5gm9rh");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_quv27ttj3ue13fv0iok6');
+        var table = document.getElementById('tinytable_s7axvhwtn6o9kg5gm9rh');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -375,8 +393,8 @@ window.Quarto = {
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_tinytable_0eiaakfz6eitw6nhg2u6(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_quv27ttj3ue13fv0iok6");
+      function spanCell_tinytable_2fd8254i50g4h0z2ezes(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_s7axvhwtn6o9kg5gm9rh");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -403,50 +421,27 @@ window.Quarto = {
         targetCell.colSpan = colspan;
       }
 
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 0, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 1, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 2, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 3, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 4, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 5, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 6, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
-window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6nhg2u6(0, 7, 'tinytable_css_vz939dgqh4y9cy6cl87t') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 0, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 1, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 2, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 3, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 4, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 5, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 6, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
+window.addEventListener('load', function () { styleCell_tinytable_2fd8254i50g4h0z2ezes(0, 7, 'tinytable_css_dlxyuaq17t21j9ru2d82') })
     </script>
 </div>
 </div>
 <p>Users can also measure dyadic interindividual distance using the <code>edge_dist</code> function and identify nearest neighbors using the <code>edge_nn</code> function. For example:</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load packages</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://r-datatable.com">data.table</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/spatsoc/">spatsoc</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Read example data</span></span>
-<span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdatatable.gitlab.io/data.table/reference/fread.html">fread</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"DT.csv"</span>, package <span class="op">=</span> <span class="st">"spatsoc"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Cast the character column to POSIXct</span></span>
-<span><span class="va">DT</span><span class="op">[</span>, <span class="va">datetime</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">datetime</span>, tz <span class="op">=</span> <span class="st">'UTC'</span><span class="op">)</span><span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Temporal grouping</span></span>
-<span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="st">'20 minutes'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Interindividual distance with maximum distance threshold set at 50 m</span></span>
-<span><span class="va">interindividual_dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_dist.html">edge_dist</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">interindividual_dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_dist.html">edge_dist</a></span><span class="op">(</span></span>
 <span>  <span class="va">DT</span>,</span>
-<span>  threshold <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  id <span class="op">=</span> <span class="st">'ID'</span>,</span>
-<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span>,</span>
+<span>  threshold <span class="op">=</span> <span class="va">spatial_threshold</span>,</span>
+<span>  id <span class="op">=</span> <span class="va">id</span>,</span>
+<span>  coords <span class="op">=</span> <span class="va">coords</span>,</span>
 <span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
 <span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  fillNA <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Identifying nearest neighbours, optionally returning interindividual distance</span></span>
-<span><span class="va">nearest_neighbours</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_nn.html">edge_nn</a></span><span class="op">(</span></span>
-<span>  <span class="va">DT</span>,</span>
-<span>  id <span class="op">=</span> <span class="st">'ID'</span>,</span>
-<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span>,</span>
-<span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
-<span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
@@ -456,9 +451,9 @@ window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_lfd55d0pbhm9afifscr2</title>
+<title>tinytable_nqnrn5u1bqqeysvweegg</title>
 <style>
-.table td.tinytable_css_hepefwll9xqcxutehere, .table th.tinytable_css_hepefwll9xqcxutehere {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_l7wajc0h143bmdznsgoo, .table th.tinytable_css_l7wajc0h143bmdznsgoo {    border-bottom: solid 0.1em #d3d8dc; }
     </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
     MathJax = {
@@ -470,7 +465,7 @@ window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6
       }
     };
     </script><div class="container">
-      <table class="table table-borderless" id="tinytable_lfd55d0pbhm9afifscr2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_nqnrn5u1bqqeysvweegg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col">timegroup</th>
                 <th scope="col">ID1</th>
@@ -482,43 +477,43 @@ window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6
 <td>1</td>
                   <td>A</td>
                   <td>NA</td>
-                  <td>       NA</td>
+                  <td>      NA</td>
                 </tr>
 <tr>
 <td>1</td>
                   <td>B</td>
                   <td>G </td>
-                  <td> 5.782904</td>
+                  <td>5.782904</td>
                 </tr>
 <tr>
 <td>1</td>
                   <td>C</td>
                   <td>NA</td>
-                  <td>       NA</td>
+                  <td>      NA</td>
                 </tr>
 <tr>
 <td>1</td>
                   <td>D</td>
                   <td>NA</td>
-                  <td>       NA</td>
+                  <td>      NA</td>
                 </tr>
 <tr>
 <td>1</td>
                   <td>E</td>
-                  <td>H </td>
-                  <td>65.061671</td>
+                  <td>NA</td>
+                  <td>      NA</td>
                 </tr>
 </tbody>
 </table>
 </div>
 
     <script>
-      function styleCell_tinytable_l12szciustj7qrrzct3b(i, j, css_id) {
-        var table = document.getElementById("tinytable_lfd55d0pbhm9afifscr2");
+      function styleCell_tinytable_5ez499cuqv5m2yg1ga11(i, j, css_id) {
+        var table = document.getElementById("tinytable_nqnrn5u1bqqeysvweegg");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_lfd55d0pbhm9afifscr2');
+        var table = document.getElementById('tinytable_nqnrn5u1bqqeysvweegg');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -526,8 +521,8 @@ window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_tinytable_l12szciustj7qrrzct3b(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_lfd55d0pbhm9afifscr2");
+      function spanCell_tinytable_5ez499cuqv5m2yg1ga11(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_nqnrn5u1bqqeysvweegg");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -554,12 +549,21 @@ window.addEventListener('load', function () { styleCell_tinytable_0eiaakfz6eitw6
         targetCell.colSpan = colspan;
       }
 
-window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qrrzct3b(0, 0, 'tinytable_css_hepefwll9xqcxutehere') })
-window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qrrzct3b(0, 1, 'tinytable_css_hepefwll9xqcxutehere') })
-window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qrrzct3b(0, 2, 'tinytable_css_hepefwll9xqcxutehere') })
-window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qrrzct3b(0, 3, 'tinytable_css_hepefwll9xqcxutehere') })
+window.addEventListener('load', function () { styleCell_tinytable_5ez499cuqv5m2yg1ga11(0, 0, 'tinytable_css_l7wajc0h143bmdznsgoo') })
+window.addEventListener('load', function () { styleCell_tinytable_5ez499cuqv5m2yg1ga11(0, 1, 'tinytable_css_l7wajc0h143bmdznsgoo') })
+window.addEventListener('load', function () { styleCell_tinytable_5ez499cuqv5m2yg1ga11(0, 2, 'tinytable_css_l7wajc0h143bmdznsgoo') })
+window.addEventListener('load', function () { styleCell_tinytable_5ez499cuqv5m2yg1ga11(0, 3, 'tinytable_css_l7wajc0h143bmdznsgoo') })
     </script>
 </div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">nearest_neighbours</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_nn.html">edge_nn</a></span><span class="op">(</span></span>
+<span>  <span class="va">DT</span>,</span>
+<span>  id <span class="op">=</span> <span class="va">id</span>,</span>
+<span>  coords <span class="op">=</span> <span class="va">coords</span>,</span>
+<span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
+<span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -568,9 +572,9 @@ window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qr
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_5ki2it7k6u6br8a33khk</title>
+<title>tinytable_7ez4ozcteojc2x21j224</title>
 <style>
-.table td.tinytable_css_ao0bzec51rim6ennmrwu, .table th.tinytable_css_ao0bzec51rim6ennmrwu {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_6tn9hahftkyrjul9xv2o, .table th.tinytable_css_6tn9hahftkyrjul9xv2o {    border-bottom: solid 0.1em #d3d8dc; }
     </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
     MathJax = {
@@ -582,7 +586,7 @@ window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qr
       }
     };
     </script><div class="container">
-      <table class="table table-borderless" id="tinytable_5ki2it7k6u6br8a33khk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_7ez4ozcteojc2x21j224" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col">timegroup</th>
                 <th scope="col">ID</th>
@@ -625,12 +629,12 @@ window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qr
 </div>
 
     <script>
-      function styleCell_tinytable_ahr56ak1lzwbimavu8l3(i, j, css_id) {
-        var table = document.getElementById("tinytable_5ki2it7k6u6br8a33khk");
+      function styleCell_tinytable_aeuu1sw8v0n2mmapy407(i, j, css_id) {
+        var table = document.getElementById("tinytable_7ez4ozcteojc2x21j224");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_5ki2it7k6u6br8a33khk');
+        var table = document.getElementById('tinytable_7ez4ozcteojc2x21j224');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -638,8 +642,8 @@ window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qr
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_tinytable_ahr56ak1lzwbimavu8l3(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_5ki2it7k6u6br8a33khk");
+      function spanCell_tinytable_aeuu1sw8v0n2mmapy407(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_7ez4ozcteojc2x21j224");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -666,33 +670,33 @@ window.addEventListener('load', function () { styleCell_tinytable_l12szciustj7qr
         targetCell.colSpan = colspan;
       }
 
-window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbimavu8l3(0, 0, 'tinytable_css_ao0bzec51rim6ennmrwu') })
-window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbimavu8l3(0, 1, 'tinytable_css_ao0bzec51rim6ennmrwu') })
-window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbimavu8l3(0, 2, 'tinytable_css_ao0bzec51rim6ennmrwu') })
-window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbimavu8l3(0, 3, 'tinytable_css_ao0bzec51rim6ennmrwu') })
+window.addEventListener('load', function () { styleCell_tinytable_aeuu1sw8v0n2mmapy407(0, 0, 'tinytable_css_6tn9hahftkyrjul9xv2o') })
+window.addEventListener('load', function () { styleCell_tinytable_aeuu1sw8v0n2mmapy407(0, 1, 'tinytable_css_6tn9hahftkyrjul9xv2o') })
+window.addEventListener('load', function () { styleCell_tinytable_aeuu1sw8v0n2mmapy407(0, 2, 'tinytable_css_6tn9hahftkyrjul9xv2o') })
+window.addEventListener('load', function () { styleCell_tinytable_aeuu1sw8v0n2mmapy407(0, 3, 'tinytable_css_6tn9hahftkyrjul9xv2o') })
     </script>
 </div>
 </div>
 <p>Building on these functions, {spatsoc}’s new functionality provides a finer understanding of an individual’s behaviour with respect to conspecifics. We aim to provide users with accessible, flexible functions that will help them identify leader follower patterns, fission fusion dynamics and potentially dominance behaviours in their own animal telemetry data.</p>
 <section id="position-within-groups" class="level2"><h2 class="anchored" data-anchor-id="position-within-groups">Position within groups</h2>
 <p>Extending {spatsoc}’s abilities to identify spatiotemporal groups, a new set of functions are now available to measure individuals position relative within spatiotemporal groups.</p>
-<p>After identifying spatiotemporal groups with eg. <code>group_pts</code>, we can measure the group centroid.</p>
+<p>After identifying spatiotemporal groups with eg. <code>group_pts</code>, we can measure the group centroid. The group centroid is defined as the the mean of individual locations in a group.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">xcol</span> <span class="op">&lt;-</span> <span class="st">'X'</span></span>
-<span><span class="va">ycol</span> <span class="op">&lt;-</span> <span class="st">'Y'</span></span>
-<span><span class="va">groupcol</span> <span class="op">&lt;-</span> <span class="st">'group'</span></span>
-<span><span class="fu">group_centroid</span><span class="op">(</span><span class="va">DT</span>, <span class="va">xcol</span>, <span class="va">ycol</span>, group <span class="op">=</span> <span class="va">groupcol</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">group_centroid</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>group column will be overwritten by this function</code></pre>
+</div>
 <div class="cell-output-display">
  
 
   
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_e87m3czhrb1xe5x9tvtu</title>
+<title>tinytable_p22k3iecw92lwxby0coy</title>
 <style>
-.table td.tinytable_css_ehu4wjtlee6yr7rwiall, .table th.tinytable_css_ehu4wjtlee6yr7rwiall {    border-bottom: solid 0.1em #d3d8dc; }
+.table td.tinytable_css_mn5iogmneyh2tv6jpb34, .table th.tinytable_css_mn5iogmneyh2tv6jpb34 {    border-bottom: solid 0.1em #d3d8dc; }
     </style>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
     MathJax = {
@@ -704,7 +708,7 @@ window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbim
       }
     };
     </script><div class="container">
-      <table class="table table-borderless" id="tinytable_e87m3czhrb1xe5x9tvtu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_p22k3iecw92lwxby0coy" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col">ID</th>
                 <th scope="col">X</th>
@@ -733,8 +737,8 @@ window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbim
                   <td>2016-11-01 00:01:02</td>
                   <td>1</td>
                   <td>2</td>
-                  <td>699640.2</td>
-                  <td>5509638</td>
+                  <td>699637.9</td>
+                  <td>5509637</td>
                 </tr>
 <tr>
 <td>C</td>
@@ -771,12 +775,12 @@ window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbim
 </div>
 
     <script>
-      function styleCell_tinytable_67tn2zumxa82uigruc5z(i, j, css_id) {
-        var table = document.getElementById("tinytable_e87m3czhrb1xe5x9tvtu");
+      function styleCell_tinytable_bks23hkp1c4fzz0hiqfu(i, j, css_id) {
+        var table = document.getElementById("tinytable_p22k3iecw92lwxby0coy");
         table.rows[i].cells[j].classList.add(css_id);
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_e87m3czhrb1xe5x9tvtu');
+        var table = document.getElementById('tinytable_p22k3iecw92lwxby0coy');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -784,8 +788,8 @@ window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbim
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_tinytable_67tn2zumxa82uigruc5z(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_e87m3czhrb1xe5x9tvtu");
+      function spanCell_tinytable_bks23hkp1c4fzz0hiqfu(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_p22k3iecw92lwxby0coy");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -812,21 +816,21 @@ window.addEventListener('load', function () { styleCell_tinytable_ahr56ak1lzwbim
         targetCell.colSpan = colspan;
       }
 
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 0, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 1, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 2, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 3, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 4, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 5, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 6, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
-window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82uigruc5z(0, 7, 'tinytable_css_ehu4wjtlee6yr7rwiall') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 0, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 1, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 2, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 3, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 4, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 5, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 6, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
+window.addEventListener('load', function () { styleCell_tinytable_bks23hkp1c4fzz0hiqfu(0, 7, 'tinytable_css_mn5iogmneyh2tv6jpb34') })
     </script>
 </div>
 </div>
-<p>Then we can measure each individual’s direction and distance to the group centroid. TODO: insert refs with examples of biological interpretation of distance and direction to group centroid.</p>
+<p>Then we can measure each individual’s direction and distance to the group centroid. The distance to group centroid is the distance between from the focal individual to the group centroid. The direction to group centroid is the absolute azimuth from the focal individual to the group centroid. The rank distance to group centroid is the ordinal rank of individuals’ distances to the group centroid. <!-- TODO: insert refs with examples of biological interpretation of distance and direction to  --> <!-- group centroid.  --></p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">calc_dist_to_group_centroid</span><span class="op">(</span><span class="va">DT</span>, <span class="va">xcol</span>, <span class="va">ycol</span>, return_rank <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="fu">calc_dir_to_group_centroid</span><span class="op">(</span><span class="va">DT</span>, <span class="va">xcol</span>, <span class="va">ycol</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">distance_to_group_centroid</span><span class="op">(</span><span class="va">DT</span>, <span class="va">coords</span>, return_rank <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">bearing_to_group_centroid</span><span class="op">(</span><span class="va">DT</span>, <span class="va">coords</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -836,12 +840,12 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </div>
 </div>
 </div>
-<p>After considering how individuals are positioned relative to the group centroid, we can also measure how individuals are positioned relative to the average group direction. To do so, we rotate the coordinate system around the group centroid by the average bearing of all individuals in the group. Then we take the distance along this new axis to the measure of front-back position within the group. TODO: refs where this is used, extended biological interpretation</p>
+<p>After considering how individuals are positioned relative to the group centroid, we can also measure how individuals are positioned relative to the mean group direction. To do so, we rotate the coordinate system around the group centroid by the mean bearing of all individuals in the group. Then we take the distance along this new axis to the measure of front-back position within the group. <!-- TODO: refs where this is used, extended biological interpretation --></p>
+<p>The position within group is the position along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Quera_2023 Harel_2021">[@Quera_2023; @Harel_2021]</span>). The rank position within group is the ordinal rank along the front-to-back axis of the group’s bearing (eg. <span class="citation" data-cites="Burns_2012">[@Burns_2012]</span>). The time spent leading group is an aggregate metric of the time in the first rank position within group. The distance to leader is the geographic distance from the focal individual to the group’s leader. The direction to leader is the absolute azimuth from the focal individual to the group’s leader.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">coords</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'x'</span>, <span class="st">'y'</span><span class="op">)</span></span>
-<span><span class="va">projection</span> <span class="op">&lt;-</span> <span class="fl">32636</span></span>
-<span><span class="fu">calc_az</span><span class="op">(</span><span class="va">DT</span>, <span class="va">coords</span>, projection <span class="op">=</span> <span class="va">projection</span><span class="op">)</span></span>
-<span><span class="fu">position_within_group</span><span class="op">(</span><span class="va">DT</span>, <span class="va">coords</span>, return_rank <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">projection</span> <span class="op">&lt;-</span> <span class="fl">32636</span></span>
+<span><span class="fu">az</span><span class="op">(</span><span class="va">DT</span>, id <span class="op">=</span> <span class="va">id</span>, coords <span class="op">=</span> <span class="va">coords</span>, projection <span class="op">=</span> <span class="va">projection</span><span class="op">)</span></span>
+<span><span class="fu">position_within_group</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span>, return_rank <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -860,8 +864,8 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </section><section id="position-relative-to-leader" class="level2"><h2 class="anchored" data-anchor-id="position-relative-to-leader">Position relative to leader</h2>
 <p>Taking a simple, dynamic definition of leadership, we can identify the distance and direction of each individual to the leader of each spatiotemporal group.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">calc_dist_to_leader</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span>, group <span class="op">=</span> <span class="va">groupcol</span><span class="op">)</span></span>
-<span><span class="fu">calc_dir_to_leader</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span>, group <span class="op">=</span> <span class="va">groupcol</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">distance_to_leader</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span><span class="op">)</span></span>
+<span><span class="fu">bearing_to_leader</span><span class="op">(</span><span class="va">DT</span>, coords <span class="op">=</span> <span class="va">coords</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -878,34 +882,15 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </div>
 </div>
 </section><section id="fission-fusion" class="level2"><h2 class="anchored" data-anchor-id="fission-fusion">Fission fusion</h2>
-<p>Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. Arguments:</p>
-<ul>
-<li>Minimum run length indicating the number of successive fixes that are required to establish a fusion event</li>
-<li>Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event</li>
-<li>Threshold distance to define a fusion event</li>
-</ul>
-<p>See Table Sup B: varying definitions of fission fusion</p>
+<p>Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions.</p>
+<p>Function arguments: - <code>threshold</code>: spatial distance threshold to establish a fusion event - <code>n_min_length</code>: the minimum number of successive fixes that are required to establish a fusion event - <code>n_max_missing</code>: the maximum number of allowable missed observations for either individual in a dyad within a fusion event - <code>allow_split</code>: if fusion events allow a temporary spatial splitting for one observation without resulting in a fission event</p>
+<!-- See Table Sup B: varying definitions of fission fusion -->
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cast the character column to POSIXct</span></span>
-<span><span class="va">DT</span><span class="op">[</span>, <span class="va">datetime</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">datetime</span>, tz <span class="op">=</span> <span class="st">'UTC'</span><span class="op">)</span><span class="op">]</span></span>
-<span></span>
-<span><span class="co"># Temporal grouping</span></span>
-<span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="st">'20 minutes'</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Interindividual distance with maximum distance threshold set at 50 m</span></span>
-<span><span class="va">interindividual_dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_dist.html">edge_dist</a></span><span class="op">(</span></span>
-<span>  <span class="va">DT</span>,</span>
-<span>  threshold <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  id <span class="op">=</span> <span class="st">'ID'</span>,</span>
-<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span>,</span>
-<span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
-<span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  fillNA <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">fission_fusion</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Fission fusion events using interinvidiual distance calculated with edge_dist</span></span>
+<span><span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/dyad_id.html">dyad_id</a></span><span class="op">(</span><span class="va">interindividual_dist</span>, <span class="st">'ID1'</span>, <span class="st">'ID2'</span><span class="op">)</span></span>
+<span><span class="va">fusion_events</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/fusion_id.html">fusion_id</a></span><span class="op">(</span></span>
 <span>  <span class="va">interindividual_dist</span>,</span>
-<span>  threshold <span class="op">=</span> <span class="fl">50</span>, </span>
+<span>  threshold <span class="op">=</span> <span class="va">spatial_threshold</span>, </span>
 <span>  n_min_length <span class="op">=</span> <span class="fl">0</span>, </span>
 <span>  n_max_missing <span class="op">=</span> <span class="fl">0</span>, </span>
 <span>  allow_split <span class="op">=</span> <span class="cn">FALSE</span></span>
@@ -920,10 +905,14 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </div>
 </div>
 </section><section id="bearings" class="level2"><h2 class="anchored" data-anchor-id="bearings">Bearings</h2>
-<p>Next, we can use individuals’ bearings to explore interindividual direction, alignment between individuals and polarization in groups. TODO: references related eg. direction between individuals (always L / R), polarization of flock, etc</p>
-<p>Polarization measures the uniformity of bearings in a group of individuals <span class="citation" data-cites="Wang_2022">[@Wang_2022]</span> on a scale of 0-1 where values near 0 indicate that bearings point in different directions and values near 1 indicate that bearings point in similar directions.</p>
+<p>Next, we can use individuals’ bearings to explore interindividual direction, directional alignment and group polarization.</p>
+<!-- TODO: references -->
+<!-- related eg. direction between individuals (always L / R), polarization of flock, -->
+<!-- etc -->
+<p>Polarization measures the uniformity of absolute azimuth in a group of individuals <span class="citation" data-cites="Wang_2022">[@Wang_2022]</span> on a scale of 0-1 where values near 0 indicate that azimuths point in different directions and values near 1 indicate that azimuths point in similar directions.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">calc_polarization</span><span class="op">(</span><span class="va">DT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Calculate polarization using azimuth from az_sequential()</span></span>
+<span><span class="fu">bearing_polarization</span><span class="op">(</span><span class="va">DT</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -933,51 +922,62 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </div>
 </div>
 </div>
-<p>Directional alignment is the difference between two individuals’ bearings. Given the similarity to <code>edge_dist</code>, this functionality is provided under a similar name: <code>edge_az</code>.</p>
+<p>Directional alignment is the relative difference between two individuals’ azimuths. Given the similarity to <code>edge_dist</code>, this functionality is provided under a similar name: <code>edge_az</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">directional_align</span> <span class="op">&lt;-</span> <span class="fu">edge_az</span><span class="op">(</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">directional_align</span> <span class="op">&lt;-</span> <span class="fu">edge_az</span><span class="op">(</span></span>
 <span>  <span class="va">DT</span>,</span>
 <span>  threshold <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  id <span class="op">=</span> <span class="st">'id'</span>,</span>
+<span>  id <span class="op">=</span> <span class="va">id</span>,</span>
 <span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
 <span>  coords <span class="op">=</span> <span class="va">coords</span>,</span>
 <span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  fillNA <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure"><p><img src="04-case-study_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Interindividual direction measures the pairwise bearings between individual locations.</p>
-<p>TODO: interindividual difference in bearing code and example</p>
+<p>Interindividual direction measures the absolute azimuth between individuals.</p>
+<p>(TODO) <!-- TODO: interindividual difference in bearing code and example --></p>
 </section><section id="lagged-differences-in-bearing" class="level2"><h2 class="anchored" data-anchor-id="lagged-differences-in-bearing">Lagged differences in bearing</h2>
-<p>The directional correlation delay <span class="citation" data-cites="Nagy_2010">[@Nagy_2010]</span> is the time delay at which an individual’s bearing is most similar to a conspecific. For example, the directional correlation delay for B-A is 10 seconds if individual A makes a westerly movement 10 seconds before individual B.</p>
+<p>The directional correlation delay <span class="citation" data-cites="Nagy_2010">[@Nagy_2010]</span> of individuals i, j is given by</p>
+<p><span class="math display">\[C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}\]</span></p>
+<p>where</p>
+<ul>
+<li>
+<span class="math inline">\(\overrightarrow{v_{i}}(t)\)</span> is the normalized velocity of individual i at time t</li>
+<li>
+<span class="math inline">\(\overrightarrow{v_{j}}(t + \tau)\)</span> is the normalized velocity of individual j at time t + <span class="math inline">\(\tau\)</span>
+</li>
+<li>Note that <span class="math inline">\(C_{ij}(\tau)\)</span> = <span class="math inline">\(C_{ji}(-\tau)\)</span>
+</li>
+<li>Calculated only where pairs of individuals were less than 100 m apart</li>
+</ul>
+<p>The maximum value of the directional correlation function <span class="math inline">\(C_{ij}\)</span> is at <span class="math inline">\(C_{ij}(\tau^{*}_{ij})\)</span> where <span class="math inline">\(\tau^{*}_{ij}\)</span> is the directional correlation delay time. <span class="math inline">\(\tau^{*}_{ij}\)</span> values focus on the relationship in pairs of individuals, ignoring hierarchy changes caused by other individuals.</p>
+<ul>
+<li>Note that <span class="math inline">\(\tau^{*}_{ij}\)</span> = <span class="math inline">\(-\tau^{*}_{ji}\)</span>
+</li>
+<li>Negative values indicate that flight directional changes of individual i falls behind that of individual j and therefore j is leading</li>
+</ul>
+<p>Hierarchical networks can be generated using <span class="math inline">\(\tau^{*}_{ij}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cast the character column to POSIXct</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Cast the character column to POSIXct</span></span>
 <span><span class="va">DT</span><span class="op">[</span>, <span class="va">datetime</span> <span class="op">:=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html">as.POSIXct</a></span><span class="op">(</span><span class="va">datetime</span>, tz <span class="op">=</span> <span class="st">'UTC'</span><span class="op">)</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># Temporal grouping</span></span>
-<span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="st">'20 minutes'</span><span class="op">)</span></span>
+<span><span class="va">DT</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/group_times.html">group_times</a></span><span class="op">(</span><span class="va">DT</span>, datetime <span class="op">=</span> <span class="st">'datetime'</span>, threshold <span class="op">=</span> <span class="va">temporal_threshold</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Interindividual distance with maximum distance threshold set at 50 m</span></span>
 <span><span class="va">interindividual_dist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/edge_dist.html">edge_dist</a></span><span class="op">(</span></span>
 <span>  <span class="va">DT</span>,</span>
 <span>  threshold <span class="op">=</span> <span class="fl">100</span>,</span>
-<span>  id <span class="op">=</span> <span class="st">'ID'</span>,</span>
-<span>  coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'X'</span>, <span class="st">'Y'</span><span class="op">)</span>,</span>
+<span>  id <span class="op">=</span> <span class="va">id</span>,</span>
+<span>  coords <span class="op">=</span> <span class="va">coords</span>,</span>
 <span>  timegroup <span class="op">=</span> <span class="st">'timegroup'</span>,</span>
 <span>  returnDist <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  fillNA <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">fission_fusion</span><span class="op">(</span></span>
+<span><span class="va">fusion_events</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://docs.ropensci.org/spatsoc/reference/fusion_id.html">fusion_id</a></span><span class="op">(</span></span>
 <span>  <span class="va">interindividual_dist</span>,</span>
-<span>  threshold <span class="op">=</span> <span class="fl">50</span>, </span>
+<span>  threshold <span class="op">=</span> <span class="va">spatial_threshold</span>, </span>
 <span>  n_min_length <span class="op">=</span> <span class="fl">0</span>, </span>
 <span>  n_max_missing <span class="op">=</span> <span class="fl">0</span>, </span>
 <span>  allow_split <span class="op">=</span> <span class="cn">FALSE</span></span>
@@ -991,15 +991,15 @@ window.addEventListener('load', function () { styleCell_tinytable_67tn2zumxa82ui
 </div>
 </div>
 </div>
-<p>Note: hierarchical networks can be generated using <span class="math inline">\(\tau^{*}_{ij}\)</span></p>
-<p>TODO: example of hierarchical networks</p>
+<!-- TODO: example of hierarchical networks -->
 </section><section id="behavioural-zones" class="level2"><h2 class="anchored" data-anchor-id="behavioural-zones">Behavioural zones</h2>
-<p>The behavioural zones metric metric assigns neighbours to three non-overlapping behavioural zones [Couzin_2002]. The “zone of repulsion” is the minimum distance around an individual within which neighbours are expected to move away to avoid collisions. The “zone of orientation” is the next zone around an individual beyond the “zone of repulsion” within which neighbours are expected to orient themselves to the movement of their neighbours. The “zone of attraction” is the last zone around an individual within which neighbours are expected to be attracted to the position of the focal individual. Notably, there is a possibly “blind volume” behind the individual representing the limits of their perception.</p>
+<p>The behavioural zones metric assigns neighbours to three non-overlapping behavioural zones [Couzin_2002]. The “zone of repulsion” is the minimum distance around an individual within which neighbours are expected to move away to avoid collisions. The “zone of orientation” is the next zone around an individual beyond the “zone of repulsion” within which neighbours are expected to orient themselves to the movement of their neighbours. The “zone of attraction” is the farthest zone around an individual within which neighbours are expected to be attracted to the position of the focal individual. Notably, there is a possibly “blind volume” behind the individual representing the limits of their perception.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="Couzin_et_al_2002_Fig_1.png" class="img-fluid figure-img"></p>
 <figcaption>Figure from Couzin et al 2002</figcaption></figure>
 </div>
-<p>TODO: code and example</p>
+<p>(TODO)</p>
+<!-- TODO: code and example -->
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2024-07-15">
+<meta name="dcterms.date" content="2024-10-03">
 <title>Introduction – spatsoc paper 2</title>
 <style>
 code{white-space: pre-wrap;}
@@ -138,6 +138,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../manuscript/06-box.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Box 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-a.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement A: Scoping Review Methods</span></a>
   </div>
@@ -146,6 +152,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-b.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement B: Scoping Review Results</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manuscript/99-supplement-c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Supplement C: Scoping Review Results - Selected Metrics</span></a>
   </div>
 </li>
       </ul>
@@ -170,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2024</p>
+      <p class="date">October 3, 2024</p>
     </div>
   </div>
   
@@ -179,7 +191,21 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
+</header><!-- ?how does this stand alone w/o history of networks --><!-- P1: Quantitative characteristics of social dynamics --><!-- P2: Ways they have been measured
+- bridge sentences/too many lists
+- need to measure facets
+--><p>Many facets of group living need to be measured to better interpret understand animal social systems (King et al 2018). There are additional types of dyadic relationships including genetic, affiliative, agonistic, and cooperative (Farine and Whitehead 2015). There are also interactions between spatial and social phenotypes and environments (Webber et al 2023). Using direct observations, researchers have studied intragroup social dynamics including social foraging (Barnard 1981, Giraldeau 1986, Hirsch 2020), spatial position within groups (Krause 1994, Monus 2008) and the influence of individual traits such as age, sex and dominance (Furuichi 1983, King 2009, Teichroeb 2015). Unfortunately, direct observations can be labor-intensive to collect and susceptible to observer bias (Smith 2021), with low spatial and temporal resolution making them imperfect for studies of collective movement (King 2011).</p>
+<!-- P3: How can they be measured remotely
+-  move open source to discussion 
+- expand to this and next P
+-->
+<p>There are expanded opportunities to understand animal social systems by pairing advances in remote tracking technology with emerging approaches to measuring intragroup social dynamics. The availability and resolution of remote tracking data continues to improve (Kays 2015, Nathan 2022, Kays 2022). There are over two decades of research on measuring the interaction between moving individuals from the study of “moving point objects” in GISciences (Laube 2002, Dodge 2008, Andersson 2008) to group coordination of moving groups (Couzin 2002, Herbert-Read 2011) and leadership and decision making (Nagy 2010, King 2011, Strandburg-Peshkin 2015). Despite this, we suggest the availability of open source tools (Hampton 2015, Wilson 2017, Powers 2019) is the missing piece between the call to integrate technology enhanced research with multidisciplinary approaches to better understand animal social systems. (King 2023, Couzin 2023).</p>
+<!-- P4: Spatial component explicit in spatsoc, multilayer -->
+<!-- P5: Here we present 
+- list metrics selected? point to table? mention categories of metrics?
+-->
+<p>Here we present N (~11) new functions for the R package {spatsoc} (Robitaille et al.&nbsp;2019) for measuring intragroup dynamics. We conducted a scoping review to identify metrics applicable to spatiotemporal data used in ecological studies focused on dyadic interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the resulting metrics, we selected those with a high number of citations (as a measure of value for the target audience) and unavailability in the R programming language, either through R packages or supplemental materials in the literature. We will demonstrate these new functions through a case study and discuss biological interpretation.</p>
+
 
 
 </main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.57">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2024-07-15">
+<meta name="dcterms.date" content="2024-10-03">
 <title>Methods – spatsoc paper 2</title>
 <style>
 code{white-space: pre-wrap;}
@@ -197,6 +197,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../manuscript/06-box.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Box 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-a.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement A: Scoping Review Methods</span></a>
   </div>
@@ -205,6 +211,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../manuscript/99-supplement-b.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Supplement B: Scoping Review Results</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../manuscript/99-supplement-c.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Supplement C: Scoping Review Results - Selected Metrics</span></a>
   </div>
 </li>
       </ul>
@@ -226,10 +238,8 @@ window.Quarto = {
   <li><a href="#polarization-directional-alignment-and-interindividual-direction" id="toc-polarization-directional-alignment-and-interindividual-direction" class="nav-link" data-scroll-target="#polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</a></li>
   <li><a href="#behavioural-zones" id="toc-behavioural-zones" class="nav-link" data-scroll-target="#behavioural-zones">Behavioural zones</a></li>
   <li><a href="#fission-fusion" id="toc-fission-fusion" class="nav-link" data-scroll-target="#fission-fusion">Fission fusion</a></li>
-  <li><a href="#not-selected" id="toc-not-selected" class="nav-link" data-scroll-target="#not-selected">Not selected</a></li>
   </ul>
 </li>
-  <li><a href="#case-study" id="toc-case-study" class="nav-link" data-scroll-target="#case-study">Case study</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -245,7 +255,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2024</p>
+      <p class="date">October 3, 2024</p>
     </div>
   </div>
   
@@ -270,6 +280,7 @@ window.Quarto = {
 <li>Code example</li>
 <li>Similar terms? eg. see metric synonyms</li>
 </ul>
+<p>See list of not selected metrics (Supplement B), including already available functions in eg. {wildlifeDI}, metrics relating to posture, static interaction eg. home range overlap, …</p>
 <section id="directional-correlation-delay" class="level2"><h2 class="anchored" data-anchor-id="directional-correlation-delay">Directional correlation delay</h2>
 <p>The directional correlation delay <span class="citation" data-cites="Nagy_2010">[@Nagy_2010]</span> of individuals i, j is</p>
 <p><span class="math display">\[C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}\]</span></p>
@@ -321,7 +332,7 @@ using focal obs or other tools
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://swarm-lab.github.io/swaRm/">swaRm</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://swarm-lab.github.io/swaRm/reference/pol_order.html">pol_order</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.182356</code></pre>
+<pre><code>[1] 0.1006</code></pre>
 </div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">CircStats</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -342,16 +353,16 @@ Attaching package: 'MASS'</code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/r.test.html">r.test</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$r.bar
-[1] 0.182356
+[1] 0.1006
 
 $p.value
-[1] 0.4397722</code></pre>
+[1] 0.779898</code></pre>
 </div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Also interesting</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/CircStats/man/circ.range.html">circ.range</a></span><span class="op">(</span><span class="va">h</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    range
-1 5.38694</code></pre>
+<pre><code>     range
+1 5.563412</code></pre>
 </div>
 </div>
 <p>Directional alignment measures the pairwise differences in bearing between individuals. Interindividual direction measures the pairwise bearings between individual locations.</p>
@@ -374,159 +385,16 @@ bearing argg
 <figcaption>Figure from Couzin et al 2002</figcaption></figure>
 </div>
 </section><section id="fission-fusion" class="level2"><h2 class="anchored" data-anchor-id="fission-fusion">Fission fusion</h2>
-<div class="cell">
-<div class="cell-output-display">
- 
-
-  
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>tinytable_ulb3cucqgpcd2e0b2yaz</title>
-<style>
-.table td.tinytable_css_s8x1wyzgt4zx3fku777n, .table th.tinytable_css_s8x1wyzgt4zx3fku777n {    border-bottom: solid 0.1em #d3d8dc; }
-    </style>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script><script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-    </script><div class="container">
-      <table class="table table-borderless" id="tinytable_ulb3cucqgpcd2e0b2yaz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
-<thead><tr>
-<th scope="col">study_id</th>
-                <th scope="col">definitions_of_leader_initiator_etc</th>
-              </tr></thead>
-<tbody>
-<tr>
-<td>Baden 2016       </td>
-                  <td>NA                                                                                                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Aguilar-Melo 2018</td>
-                  <td>fission when gte 1 were not observed with a group for 2 consecutive scans; fusion when gte 1 who were previously not observed with group are observed with group for 2 consecutive scans                                                                                                                                          </td>
-                </tr>
-<tr>
-<td>Barocas 2016     </td>
-                  <td>fission and fusion defined as joining and leaving group in subsequent observations                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Haydon 2008      </td>
-                  <td>fusion where solitary to grouped and fission where grouped to solitary                                                                                                                                                                                                                                                            </td>
-                </tr>
-<tr>
-<td>Fortin 2009      </td>
-                  <td>group/fusion when within 100 m; fission when two or more consecutive locations separated by &gt; 100 m                                                                                                                                                                                                                               </td>
-                </tr>
-<tr>
-<td>Body 2015        </td>
-                  <td>fusion gte 2 groups merging into one; fission one group splitting into gte 2                                                                                                                                                                                                                                                      </td>
-                </tr>
-<tr>
-<td>DellaLibera 2023 </td>
-                  <td>define a fission and fusion event if one or more individuals left or  joined the group, respectively. in the rare cases of missing data, missing individuals are not considered as having changed group membership, and individual ‘disappearances’ and ‘reappearances’ in the dataset are not considered as fission–fusion events</td>
-                </tr>
-<tr>
-<td>Wielgus 2020     </td>
-                  <td>group where simultaneously within 1 km or &gt;= 1 km for &lt;= 2 hr; fusion where together then different by one time step; fission reverse                                                                                                                                                                                             </td>
-                </tr>
-<tr>
-<td>Nishikawa 2014   </td>
-                  <td>converged when IID less than 20 m; separated when IID greater than 20  m; converged and separated synonymous with fission fusion                                                                                                                                                                                                  </td>
-                </tr>
-<tr>
-<td>Krueger 2014     </td>
-                  <td>NA                                                                                                                                                                                                                                                                                                                                </td>
-                </tr>
-<tr>
-<td>Lesmerises 2018  </td>
-                  <td>grouped/fission fusion if within 50 m for two relocations; to minimize the false fission events, considered dyad valid if together at t0,  t2, but apart at t1; if one missing GPS location, dyad valid if before and after missing loc distance was &lt;50 m                                                                        </td>
-                </tr>
-<tr>
-<td>Merkle 2015      </td>
-                  <td>group defined as within 100 m within 24 hours                                                                                                                                                                                                                                                                                     </td>
-                </tr>
-</tbody>
-</table>
-</div>
-
-    <script>
-      function styleCell_tinytable_jlf4ubddw2fkx3uscc70(i, j, css_id) {
-        var table = document.getElementById("tinytable_ulb3cucqgpcd2e0b2yaz");
-        table.rows[i].cells[j].classList.add(css_id);
-      }
-      function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_ulb3cucqgpcd2e0b2yaz');
-        var newRow = table.insertRow(i);
-        var newCell = newRow.insertCell(0);
-        newCell.setAttribute("colspan", colspan);
-        // newCell.innerText = content;
-        // this may be unsafe, but innerText does not interpret <br>
-        newCell.innerHTML = content;
-      }
-      function spanCell_tinytable_jlf4ubddw2fkx3uscc70(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_ulb3cucqgpcd2e0b2yaz");
-        const targetRow = table.rows[i];
-        const targetCell = targetRow.cells[j];
-        for (let r = 0; r < rowspan; r++) {
-          // Only start deleting cells to the right for the first row (r == 0)
-          if (r === 0) {
-            // Delete cells to the right of the target cell in the first row
-            for (let c = colspan - 1; c > 0; c--) {
-              if (table.rows[i + r].cells[j + c]) {
-                table.rows[i + r].deleteCell(j + c);
-              }
-            }
-          }
-          // For rows below the first, delete starting from the target column
-          if (r > 0) {
-            for (let c = colspan - 1; c >= 0; c--) {
-              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
-                table.rows[i + r].deleteCell(j);
-              }
-            }
-          }
-        }
-        // Set rowspan and colspan of the target cell
-        targetCell.rowSpan = rowspan;
-        targetCell.colSpan = colspan;
-      }
-
-window.addEventListener('load', function () { styleCell_tinytable_jlf4ubddw2fkx3uscc70(0, 0, 'tinytable_css_s8x1wyzgt4zx3fku777n') })
-window.addEventListener('load', function () { styleCell_tinytable_jlf4ubddw2fkx3uscc70(0, 1, 'tinytable_css_s8x1wyzgt4zx3fku777n') })
-    </script>
-</div>
-</div>
-<p>Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. Arguments:</p>
+<p>Given the variability in defining fission fusion dynamics in the literature (Supplement B), we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions.</p>
+<p>Arguments:</p>
 <ul>
 <li>Minimum run length indicating the number of successive fixes that are required to establish a fusion event</li>
 <li>Maximum missed observations indicating the number of allowable missed observations for either individual in a dyad within a fission event</li>
 <li>Threshold distance to define a fusion event</li>
-</ul></section><section id="not-selected" class="level2"><h2 class="anchored" data-anchor-id="not-selected">Not selected</h2>
-<ul>
-<li>wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, HAI, IAB, Cr, Ca,</li>
-<li>corrMove (diffusive movement correlation, drift movement correlation, overall component movement correlation)</li>
-<li>metrics relating to posture</li>
-<li>static interaction eg. home range overlap</li>
-<li>voronoi</li>
-<li>HMM</li>
-<li>change point detection</li>
-<li>mFLICA
-<ul>
-<li>available</li>
 </ul>
-</li>
-<li>FLOCK</li>
-<li>LPD</li>
-<li>Granger causality</li>
-<li>Influence maximization</li>
-</ul></section></section><section id="case-study" class="level1"><h1>Case study</h1>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
