@@ -13,7 +13,15 @@ targets::tar_source('R')
 
 ?how does this stand alone w/o history of networks
 
-However, many other facets of group living need to be measured to fully
+
+<!-- P1: Quantitative characteristics of social dynamics -->
+
+<!-- P2: Ways they have been measured
+- bridge sentences/too many lists
+- need to measure facets
+-->
+
+Many facets of group living need to be measured to better interpret
 understand animal social systems (King et al 2018). There are additional types
 of dyadic relationships including genetic, affiliative, agonistic, and
 cooperative (Farine and Whitehead 2015). There are also interactions between
@@ -26,6 +34,10 @@ Unfortunately, direct observations can be labor-intensive to collect and
 susceptible to observer bias (Smith 2021), with low spatial and temporal
 resolution making them imperfect for studies of collective movement (King 2011).
 
+<!-- P3: How can they be measured remotely
+-  move open source to discussion 
+- expand to this and next P
+-->
 There are expanded opportunities to understand animal social systems by pairing
 advances in remote tracking technology with emerging approaches to measuring
 intragroup social dynamics. The availability and resolution of remote tracking
@@ -40,6 +52,11 @@ between the call to integrate technology enhanced research with
 multidisciplinary approaches to better understand animal social systems. (King
 2023, Couzin 2023).
 
+<!-- P4: Spatial component explicit in spatsoc, multilayer -->
+
+<!-- P5: Here we present 
+- list metrics selected? point to table? mention categories of metrics?
+-->
 Here we present N (~11) new functions for the R package {spatsoc} (Robitaille et
 al. 2019) for measuring intragroup dynamics. We conducted a scoping review to
 identify metrics applicable to spatiotemporal data used in ecological studies
