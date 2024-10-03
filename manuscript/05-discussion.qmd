@@ -114,4 +114,6 @@ study species.
 `r count_code_avail[covidence_number %in% zone$covidence_number & V1 == 'Yes', .N]`
 studies had code available. To our knowledge, there are no R packages that
 provided the behavioural zones metric.
+- social networks, history of spatsoc
+- high number of studies with IID, NND
 
