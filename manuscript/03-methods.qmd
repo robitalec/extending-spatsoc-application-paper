@@ -200,6 +200,3 @@ overall component movement correlation)
 - Granger causality
 - Influence maximization
 
-
-# Case study
-
