@@ -176,3 +176,11 @@ ggplot(taxized) +
   theme_bw() + 
   labs(x = 'Count', y = 'Species')
 ```
+
+
+## Fission fusion
+
+```{r}
+tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
+```
+

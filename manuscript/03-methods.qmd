@@ -168,12 +168,7 @@ of their perception.
 
 ## Fission fusion
 
-```{r}
-tar_read(review)[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> tt()
-```
-
-
-Given the variability in defining fission fusion dynamics in the literature, we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
+Given the variability in defining fission fusion dynamics in the literature (Supplement B), we developed a flexible function that allows users to both use their system specific definitions and at the same time easily compare to results to other definitions. 
 Arguments: 
 
 - Minimum run length indicating the number of successive fixes that are required to establish a fusion event
