@@ -946,14 +946,14 @@ approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
 :::
 
 
-# Supplement A: Scoping review methods
+# Supplement A: Scoping review methods {.unnumbered}
 
 {{< include supplement/supplement-a.qmd >}}
 
-# Supplement B: Scoping review results
+# Supplement B: Scoping review results {.unnumbered}
 
 {{< include supplement/supplement-b.qmd >}}
 
-# Supplement C: Selected metrics
+# Supplement C: Selected metrics {.unnumbered}
 
 {{< include supplement/supplement-c.qmd >}}
