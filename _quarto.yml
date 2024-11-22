@@ -1,10 +1,12 @@
 project:
-  type: website
+  type: manuscript
   output-dir: public
   execute-dir: project
 
-  render:
-    - "manuscript/*"
+manuscript:
+  notebooks:
+    - notebook: supplement/supplement-b.qmd
+      title: "Supplement B: Review Results"
 
 website:
   title: "spatsoc paper 2"
@@ -24,3 +26,7 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
+    comments: false
+  docx: default
+  jats: default
+  # pdf: default

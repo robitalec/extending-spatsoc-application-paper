@@ -1,0 +1,137 @@
+# Supplement C: Selected Metrics {.unnumbered}
+
+
+```{r}
+#| include: false
+targets::tar_source('R')
+tar_load(taxized)
+tar_load(geocoded)
+tar_load(review)
+tar_load(counted)
+count_code_avail <- counted$count_analysis_code_availability
+count_prog_lang <- counted$count_prog_lang
+count_software <- counted$count_software
+count_metric <- counted$count_metric
+```
+
+
+- highlighting unavailability of selected metrics despite high use in literature
+- detailed justification of not selected metrics
+
+
+## Directional correlation delay {.unnumbered}
+
+```{r}
+count_code_avail <- tar_read(count_analysis_code_availability)
+
+dirr_del <- count_metric[V1 == 'directional correlation delay']
+```
+ 
+Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
+the directional correlation delay metric, across 
+`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
+study species. Only 
+`r count_code_avail[covidence_number %in% dirr_del$covidence_number & V1 == 'Yes', .N]` 
+study had code available using a combination of 
+MATLAB (closed source), CUDA (closed source), and Python (open source). To
+our knowledge, there are no R packages that provide this metric. 
+
+
+## Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
+
+```{r}
+pos_wi <- count_metric[V1 %in% c('position within group', 
+                                 'rank position within group',
+                                 'time spent leading group',
+                                 'distance to leader',
+                                 'direction to leader')]
+```
+
+Our review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
+the position within group, rank position within group, time spent leading 
+group metrics, distance to leader, or direction to leader metrics across 
+`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
+study species. 
+Only 
+`r count_code_avail[covidence_number %in% pos_wi$covidence_number & V1 == 'Yes', .N]`
+study had code available.  To our knowledge, there are no R packages that
+provide these metrics. 
+
+
+## Distance, direction and rank distance to group centroid {.unnumbered}
+
+```{r}
+to_grp_cent <- count_metric[V1 %in% c('direction to group centroid', 
+                                      'distance to group centroid',
+                                      'rank distance to group centroid',
+                                      'group centroid')]
+```
+
+Our review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
+the group centroid, distance to group centroid, direction to group centroid, 
+or rank distance to group centroid metrics, across 
+`r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & V1 == 'Yes', .N]`
+studies had code available. The {swaRm} package provides functionality to 
+calculate the group centroid and the distance to the group centroid. To our
+knowledge, there are no R packages that provided the direction and
+rank distance to group centroid metrics. 
+
+
+## Polarization, directional alignment and interindividual direction {.unnumbered}
+
+
+```{r}
+align <- count_metric[V1 %in% c('polarization', 
+                                'directional alignment',
+                                'interindividual direction',
+                                'nearest neighbour direction')]
+```
+
+Our review found `r align[, uniqueN(covidence_number)]` studies that used 
+the polarization, directional alignment or interindividual direction metrics, 
+across
+`r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% align$covidence_number & V1 == 'Yes', .N]`
+studies had code available. The {swaRm} package provides functionality to 
+calculate the polarization order parameter, as well as the {CircStats} package.
+To our knowledge, there are no R packages that provide the directional 
+alignment or interindividual direction metrics. 
+
+
+## Behavioural zones {.unnumbered}
+
+
+```{r}
+zone <- count_metric[V1 %in% c('zones')]
+```
+
+Our review found `r zone[, uniqueN(covidence_number)]` studies that used 
+the behavioural zones metric, 
+across
+`r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]` 
+study species. 
+`r count_code_avail[covidence_number %in% zone$covidence_number & V1 == 'Yes', .N]`
+studies had code available. To our knowledge, there are no R packages that
+provided the behavioural zones metric.
+
+
+## Not selected {.unnumbered}
+
+- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca, 
+- corrMove (diffusive movement correlation, drift movement correlation,
+overall component movement correlation)
+- metrics relating to posture
+- static interaction eg. home range overlap
+- voronoi
+- HMM
+- change point detection
+- mFLICA 
+  - available
+- FLOCK
+- LPD
+- Granger causality
+- Influence maximization
