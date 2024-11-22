@@ -1,6 +1,4 @@
----
-title: "Supplement B: Scoping Review Results"
----
+# Supplement B: Scoping Review Results
 
 ```{r}
 #| include: false
@@ -18,9 +16,9 @@ count_software <- counted$count_software
 count_metric <- counted$count_metric
 ```
 
-# Results
+## Results
 
-## PRISMA
+### PRISMA
 
 ```
 3870 references imported for screening as 3870 studies
@@ -41,7 +39,7 @@ count_metric <- counted$count_metric
 ```
 
 
-## Code availability
+### Code availability
 
 ```{r}
 count_code_avail[, .N, V1][, .(
@@ -53,7 +51,7 @@ count_code_avail[, .N, V1][, .(
 
 
 
-## Programming language / GUI program
+### Programming language / GUI program
 
 Out of `r count_prog_lang[, uniqueN(covidence_number)]` articles, 
 `r count_prog_lang[is.na(V1), .N]` did not list a programming 
@@ -75,7 +73,7 @@ count_prog[order(-N),
 ```
 
 
-## Software packages
+### Software packages
 
 Out of `r count_software[, uniqueN(covidence_number)]` articles, 
 `r count_software[is.na(V1), .N]` did not list a software package.
@@ -96,14 +94,14 @@ count_soft_na_rm[order(-N),
 ```
 
 
-### Software packages metadata
+#### Software packages metadata
 
 ```{r}
 software_meta |> 
   tt()
 ```
 
-## Metrics
+### Metrics
 
 
 ```{r}
@@ -117,7 +115,7 @@ count_met[order(-N, V1),
 
 
 
-## Temporal
+### Temporal
 
 ```{r}
 ggplot(review) + 
@@ -129,7 +127,7 @@ ggplot(review) +
 
 
 
-## Geographic
+### Geographic
 
 ```{r}
 countries <- ne_countries()
@@ -146,7 +144,7 @@ ggplot() +
 
 
 
-## Species
+### Species
 
 ```{r}
 #| fig-height: 9
@@ -159,7 +157,7 @@ ggplot(taxized) +
 ```
 
 
-## Fission fusion
+### Fission fusion
 
 ```{r}
 review[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> 
