@@ -26,3 +26,7 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
+    comments: false
+  docx: default
+  jats: default
+  # pdf: default
