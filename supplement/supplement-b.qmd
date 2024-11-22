@@ -1,6 +1,4 @@
----
-title: "Supplement B: Scoping Review Results"
----
+# Supplement B: Scoping Review Results {.unnumbered}
 
 ```{r}
 #| include: false

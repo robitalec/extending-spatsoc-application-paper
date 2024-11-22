@@ -1,6 +1,4 @@
----
-title: "Supplement C: Selected Metrics"
----
+# Supplement C: Selected Metrics {.unnumbered}
 
 
 ```{r}
