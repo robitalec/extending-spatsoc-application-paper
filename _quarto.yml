@@ -3,8 +3,6 @@ project:
   output-dir: public
   execute-dir: project
 
-  render:
-    - "manuscript/*"
 
 website:
   title: "spatsoc paper 2"
