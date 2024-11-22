@@ -900,8 +900,60 @@ non-social species (Heeres 2024).
 
 <!-- Association is only one layer of the animal social system -->
 
+# Box 1
+
+
+Producer-scrounger dynamics describe two strategies of social foragers:
+“producers” are those who discover patches and “scroungers” are those who join
+patches discovered by others. This concept can be applied to animal telemetry
+data by evaluating the position of individuals within groups, the individual’s
+arrival timing to forage patches and characteristics of forage patches.
+Individuals balance predation risk and foraging success by adjusting their
+spatial position within groups  (Teichroeb 2015, Hirsch 2019), and the foraging
+strategy selected by an individual can be influenced by the size of forage
+patches (Hansen 2016).
+
+Leader-follower patterns in groups of moving animals can be studied both to
+determine factors that causally influence leadership, and for the influence of
+leader-follower strategies on foraging success and downstream fitness. Applied
+to animal telemetry, leadership can be defined simply by identifying the
+individual at the foremost position along the front-to-back axis of the group’s
+bearing (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
+calculating the  directional correlation delay (Nagy 2010), the temporal delay
+of shared directional movements between individuals. Leadership in a group of
+moving animals can inform animal decision making, group coordination, and
+migratory patterns (Flack 2018, Weesner 2023, Quera 2023, Kano 2021).
+
+Individual traits can influence behaviors related to intragroup dynamics.
+Dominance is related to foraging success (Caraco 1989, Teichroeb 2015) and
+choice of foraging strategy (King 2009, Aplin and Morand-Ferron 2017, Lee 2016).
+Dominant, aggressive, grooming and other interindividual behaviors are typically
+measured using focal observations.  However, some metrics have been developed
+for remotely estimating dominance behaviors. The directional correlation delay
+can be used to derive hierarchies of leadership which can be a proxy for
+dominance relationships in certain species (Flack 2013, Akos 2014). Movement
+patterns that estimate dominance relationships can be identified from animal
+telemetry including movement initiations (Amornbunchornvej 2018),
+approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
+(Evans 2018).
+
+
+
 # References {.unnumbered}
 
 :::{#refs}
 
 :::
+
+
+# Supplement A: Scoping review methods
+
+{{< include supplement/supplement-a.qmd >}}
+
+# Supplement B: Scoping review results
+
+{{< include supplement/supplement-b.qmd >}}
+
+# Supplement C: Selected metrics
+
+{{< include supplement/supplement-c.qmd >}}

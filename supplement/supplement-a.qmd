@@ -1,16 +1,8 @@
 ---
 title: "Supplement A: Scoping Review Methods"
-date: "`r Sys.Date()`"
-toc: true
 execute:
   echo: false
 ---
-
-```{r}
-#| include: false
-targets::tar_source('R')
-```
-
 
 We conducted a scoping review to identify metrics used in ecology studies
 focusing on dyadic interactions, dominance hierarchies and leadership patterns.
@@ -142,7 +134,8 @@ Discussion points, etc
 ## Table A.1
 
 ```{r}
-tar_source('R')
+#| echo: false
+targets::tar_source('R')
 options("tinytable_print_output"="markdown")
 tar_read(benchmark_papers) |> tt()
 ```
@@ -150,6 +143,7 @@ tar_read(benchmark_papers) |> tt()
 ## Table A.2
 
 ```{r}
-options("tinytable_print_output"=NULL)
+#| echo: false
+options("tinytable_print_output" = NULL)
 tar_read(search_strings) |> tt()
 ```

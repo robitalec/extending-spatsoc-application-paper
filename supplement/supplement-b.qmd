@@ -1,9 +1,5 @@
 ---
 title: "Supplement B: Scoping Review Results"
-date: "`r Sys.Date()`"
-toc: true
-execute:
-  echo: false
 ---
 
 ```{r}
