@@ -3,6 +3,16 @@ project:
   output-dir: public
   execute-dir: project
 
+manuscript:
+  notebooks:
+    - notebook: notebooks/box-1.qmd
+      title: Box 1
+    - notebook: notebooks/supplement-a.qmd
+      title: "Supplement A: Scoping Review Methods"
+    - notebook: notebooks/supplement-b.qmd
+      title: "Supplement B: Scoping Review Results"
+    - notebook: notebooks/supplement-c.qmd
+      title: "Supplement C: Selected Metrics"
 
 website:
   title: "spatsoc paper 2"
