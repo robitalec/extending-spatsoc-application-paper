@@ -30,9 +30,7 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
-    comments: false
-  docx: default
-  jats: default
-  # pdf: default      hypothesis: true
+    comments:
       hypothesis: true
-    # csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+  # typst:
+  #   csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
