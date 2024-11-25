@@ -2,11 +2,15 @@ project:
   type: manuscript
   output-dir: public
   execute-dir: project
+  render:
+    - "!tests"
 
-manuscript:
-  notebooks:
-    - notebook: supplement/supplement-b.qmd
-      title: "Supplement B: Review Results"
+# manuscript:
+  # notebooks:
+  #   - notebook: supplement/supplement-b.qmd
+  #     title: "Supplement B: Review Results"
+  # appendices:
+  #   - supplement/supplement-b.qmd
 
 website:
   title: "spatsoc paper 2"
