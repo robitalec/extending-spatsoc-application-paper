@@ -14,8 +14,7 @@ library(patchwork)
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
-
+# fusion_id released in {spatsoc} v0.2.4
 
 
 # Data --------------------------------------------------------------------
