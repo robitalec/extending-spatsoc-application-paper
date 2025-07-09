@@ -44,7 +44,7 @@ distance_to_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$distance_centroid, rep(0, nrow(DT_sub_solo)))
 
 direction_to_centroid(DT_sub_solo, coords)
-expect_equal(DT_sub_solo$direction_centroid, rep(NaN, nrow(DT_sub_solo)))
+expect_equal(DT_sub_solo$direction_centroid, rep(as_units(NaN, 'rad'), nrow(DT_sub_solo)))
 
 
 
