@@ -1,4 +1,4 @@
-# === Test group centroid -------------------------------------------------
+# === Test centroid group -------------------------------------------------
 
 
 
@@ -9,15 +9,16 @@ library(spatsoc)
 library(testthat)
 library(patchwork)
 library(ggdist)
+library(units)
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
-
+# centroid_group released in {spatsoc} v0.2.5
+# direction_to_centroid released in {spatsoc} v0.2.6
+# distance_to_centroid released in {spatsoc} v0.2.6
 
 
 # Data --------------------------------------------------------------------
-# from ?group_pts
 # Read example data
 DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 
