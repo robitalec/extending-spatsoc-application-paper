@@ -80,15 +80,15 @@ g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
 print(g_fogo)
 
 g1 <- ggplot(DT_sub) +
-  geom_histogram(aes(dist_group_centroid), binwidth = 1) +
+  geom_histogram(aes(distance_centroid), binwidth = 1) +
   labs(x = 'Distance to group centroid', y = '')
 g2 <- ggplot(DT_sub) +
-  geom_histogram(aes(rank_dist_group_centroid), binwidth = 1) +
+  geom_histogram(aes(rank_distance_centroid), binwidth = 1) +
   labs(x = 'Rank distance to group centroid', y = '')
 g3 <- ggplot(DT_sub) +
-  geom_histogram(aes(bearing_centroid), bins = 30) +
+  geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g4 <- ggplot(DT_sub) +
-  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
+  stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 print(g1 + g2 + g3 + g4)
