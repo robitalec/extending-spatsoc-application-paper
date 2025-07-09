@@ -6,3 +6,7 @@
 _targets
 
 /.quarto/
+index.aux
+index.log
+index.pdf
+index.tex

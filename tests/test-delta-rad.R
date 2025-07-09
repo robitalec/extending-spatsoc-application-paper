@@ -1,6 +1,9 @@
 # === Test delta rad -------------------------------------------------------
 library(testthat)
 source('R/draft/delta_rad.R')
+
+
+# Adapted from https://gist.github.com/bradphelan/7fe21ad8ebfcb43696b8
 expect_equal(delta_rad(0.1, 0.2, TRUE), 0.1)
 expect_equal(delta_rad(0.1, 0.2 + 2 * pi, TRUE), 0.1)
 expect_equal(delta_rad(0.1, 0.2 - 2 * pi, TRUE), 0.1)

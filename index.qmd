@@ -1,17 +1,248 @@
 ---
-title: "Case study"
-date: "`r Sys.Date()`"
-toc: true
-execute:
-  echo: false
+title: spatsoc paper 2
+author:
+  - name: Alec L. Robitaille
+    orcid: 0000-0002-4706-1762
+    corresponding: true
+    email: robit.alec@gmail.com
+    # roles:
+    affiliations:
+      - Memorial University of Newfoundland and Labrador
+  - name: Quinn M. R. Webber
+    orcid: 0000-0002-0434-9360
+    corresponding: false
+    # roles: []
+    affiliations:
+      - Guelph University
+  - name: Eric Vander Wal
+    orcid: 0000-0002-8534-4317
+    corresponding: false
+    affiliations:
+      - Memorial University of Newfoundland and Labrador
+keywords:
+  - R
+  - social dynamics
+  - collective movement
+abstract: | 
+  1. Beyond social networks, dyadic measures
+  2. Extending social networks derived from GPS using detailed dyadic measures beyond rates of association
+  3. Linking social processes to spatial/geography environment, hint at selection
+  4. Expanding spatsoc to version N by including important and unavailable methods in R 
+plain-language-summary: |
+  New functions for the R package {spatsoc} to measure animal intragroup social dynamics
+# key-points:
+date: last-modified
+bibliography: references/references.bib
+# citation:
+  # container-title: 
+number-sections: true
 ---
+
+# Introduction
 
 ```{r}
 #| include: false
 targets::tar_source('R')
 ```
 
+Many facets of group living need to be measured to better interpret
+understand animal social systems (King et al 2018). There are additional types
+of dyadic relationships including genetic, affiliative, agonistic, and
+cooperative (Farine and Whitehead 2015). There are also interactions between
+spatial and social phenotypes and environments (Webber et al 2023). Using direct
+observations, researchers have studied intragroup social dynamics including
+social foraging (Barnard 1981, Giraldeau 1986, Hirsch 2020), spatial position
+within groups (Krause 1994, Monus 2008) and the influence of individual traits
+such as age, sex and dominance (Furuichi 1983, King 2009, Teichroeb 2015).
+Unfortunately, direct observations can be labor-intensive to collect and
+susceptible to observer bias (Smith 2021), with low spatial and temporal
+resolution making them imperfect for studies of collective movement (King 2011).
 
+There are expanded opportunities to understand animal social systems by pairing
+advances in remote tracking technology with emerging approaches to measuring
+intragroup social dynamics. The availability and resolution of remote tracking
+data continues to improve (Kays 2015, Nathan 2022, Kays 2022). There are over
+two decades of research on measuring the interaction between moving individuals
+from the study of "moving point objects" in GISciences (Laube 2002, Dodge 2008,
+Andersson 2008) to group coordination of moving groups (Couzin 2002,
+Herbert-Read 2011) and leadership and decision making (Nagy 2010, King 2011,
+Strandburg-Peshkin 2015). Despite this, we suggest the availability of open
+source tools (Hampton 2015, Wilson 2017, Powers 2019) is the missing piece
+between the call to integrate technology enhanced research with
+multidisciplinary approaches to better understand animal social systems. (King
+2023, Couzin 2023).
+
+Here we present N (~11) new functions for the R package {spatsoc} (Robitaille et
+al. 2019) for measuring intragroup dynamics. We conducted a scoping review to
+identify metrics applicable to spatiotemporal data used in ecological studies
+focused on dyadic interactions, dominance hierarchies and leadership patterns
+(Sup A, B). Of the resulting metrics, we selected those with a high number of
+citations (as a measure of value for the target audience) and unavailability in
+the R programming language, either through R packages or supplemental materials
+in the literature. We will demonstrate these new functions through a case study
+and discuss biological interpretation.
+
+
+# Methods
+
+## Selecting metrics
+
+**TODO**
+
+<!--
+Criteria: 
+
+- highly cited, unavailable
+- direct extension of available functions in spatsoc
+- biology
+
+
+For each
+
+- Citation
+- Interpretation, **emphasis on biology**
+- Formula
+- Code example
+- Similar terms? eg. see metric synonyms
+
+See list of not selected metrics (Supplement  B), including already available 
+functions in eg. {wildlifeDI}, metrics relating to posture,
+static interaction eg. home range overlap, ...
+
+-->
+
+## Directional correlation delay
+
+The directional correlation delay [@Nagy_2010] of individuals i, j is 
+
+$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
+
+where 
+
+- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of bird i at time t
+- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of bird j at time t + $\tau$
+- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
+- Calculated only where pairs of individuals were less than 100 m apart
+
+
+The maximum value of the directional correlation function $C_{ij}$ is at
+$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
+delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
+individuals, ignoring hierarchy changes caused by other individuals.
+
+- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
+- Negative values indicate that flight directional changes of bird i fall behind
+that of bird j and therefore j is leading
+
+Hierarchical networks can be generated using $\tau^{*}_{ij}$
+
+
+
+## Position within group, rank position within group, time spent leading group, distance and direction to leader
+
+The position within group is the position along the front-to-back axis of the
+group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+[@Burns_2012]). The time spent leading group is an aggregate metric of the time
+in the first rank position within group. The distance to leader is the 
+geographic distance to the focal individual's group leader. The direction to 
+leader is the absolute bearing to the focal individual's group leader. 
+
+<!-- 
+- front-back distance along group's axis of movement [@Quera_2023]
+- ordinal 1-6 position along group's traveling direction [@Burns_2012]
+- relative positional ranks on the front-to-back axis were determined 
+by multiplying their x–y locations by a rotation matrix based on the heading 
+of the centroid [@Harel_2021]
+- space transformation from geographical space to relative positions with respect
+to group center and movement direction [@Andrienko_2013]
+
+
+- note group leader defined using {spatsoc} functions, or manually, 
+using focal obs or other tools
+
+- group = distance threshold
+- at each step
+- ?how to compare rank across varying sized groups
+-->
+
+## Distance, direction and rank distance to group centroid
+
+The group centroid is the mean of individual locations in a group. The
+distance to group centroid is the distance between an individual's location
+and the group centroid. The direction to group centroid is the absolute
+bearing from an individual's location and the group centroid. The rank distance
+to group centroid is the ordinal rank of individuals' distances from the 
+group centroid. 
+
+
+## Polarization, directional alignment and interindividual direction
+
+Polarization measures the uniformity of bearings in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
+in different directions and values near 1 indicate that bearings point in 
+similar directions. 
+
+```{r}
+#| echo: true
+
+# Random bearings (radians)
+h <- runif(25, 0, 2 * pi)
+
+library(swaRm)
+pol_order(h)
+
+library(CircStats)
+r.test(h)
+
+# Also interesting
+circ.range(h)
+```
+
+Directional alignment measures the pairwise differences in bearing between
+individuals. Interindividual direction measures the pairwise bearings
+between individual locations. 
+
+```{r}
+
+# TODO
+
+```
+
+
+## Behavioural zones
+
+The behavioural zones metric metric assigns neighbours to three non-overlapping
+behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
+around an individual within which neighbours are expected to move away to 
+avoid collisions. The "zone of orientation" is the next zone around an 
+individual beyond the "zone of repulsion" within which neighbours are expected
+to orient themselves to the movement of their neighbours. The "zone of
+attraction" is the last zone around an individual within which neighbours are 
+expected to be attracted to the position of the focal individual. Notably, 
+there is a possibly "blind volume" behind the individual representing the limits
+of their perception. 
+
+![Figure from Couzin et al 2002](references/Couzin_et_al_2002_Fig_1.png)
+
+
+## Fission fusion
+
+Given the variability in defining fission fusion dynamics in the literature
+(Supplement B), we developed a flexible function that allows users to both use
+their system specific definitions and at the same time easily compare to results
+to other definitions.
+
+Arguments: 
+
+- Minimum run length indicating the number of successive fixes that are required 
+to establish a fusion event
+- Maximum missed observations indicating the number of allowable missed 
+observations for either individual in a dyad within a fission event
+- Threshold distance to define a fusion event
+
+
+# Case study
 
 Functionality previously available in {spatsoc} includes spatiotemporal grouping,
 edge list generation and data-stream permutations (Robitaille et al. 2019). 
@@ -637,10 +868,85 @@ attracted to the position of the focal individual. Notably, there is a possibly
 "blind volume" behind the individual representing the limits of their
 perception.
 
-![Figure from Couzin et al 2002](Couzin_et_al_2002_Fig_1.png)
+![Figure from Couzin et al 2002](references/Couzin_et_al_2002_Fig_1.png)
 
 (TODO)
 
 <!-- TODO: code and example -->
 
 
+
+# Discussion
+
+- social networks, history of spatsoc
+- high number of studies in review with IID, NND
+
+Animal social dynamics have broad implications in ecology including resource
+availability, disease transmission and collective behaviour. Social network
+analysis can measure the structure of social systems, the consequences of an
+individual's position in a network, the spread of disease or information across
+networks, and the influence of the environment (Farine and Whitehead 2015). Open
+source tools have been developed to derive social networks from animal telemetry
+data (Robitaille et al 2019) using aggregated association rates or home range
+overlap. The methods have been used to measure contact rates to measure social
+cohesion (Bracken 2021), human-wildlife conflict (Boudreau 2021), socioecology
+and resource availability (Peignier2019),  community structure (Sunga 2021),
+influence of stress of social proximity (Keshavarzi 2023), social patterns in
+non-social species (Heeres 2024).
+
+# Conclusion
+
+<!-- Test model only conclusions with increase species, increase systems given flexible powerful freely available functions -->
+
+<!-- Association is only one layer of the animal social system -->
+
+# Box 1 {.unnumbered}
+
+Producer-scrounger dynamics describe two strategies of social foragers:
+“producers” are those who discover patches and “scroungers” are those who join
+patches discovered by others. This concept can be applied to animal telemetry
+data by evaluating the position of individuals within groups, the individual’s
+arrival timing to forage patches and characteristics of forage patches.
+Individuals balance predation risk and foraging success by adjusting their
+spatial position within groups  (Teichroeb 2015, Hirsch 2019), and the foraging
+strategy selected by an individual can be influenced by the size of forage
+patches (Hansen 2016).
+
+Leader-follower patterns in groups of moving animals can be studied both to
+determine factors that causally influence leadership, and for the influence of
+leader-follower strategies on foraging success and downstream fitness. Applied
+to animal telemetry, leadership can be defined simply by identifying the
+individual at the foremost position along the front-to-back axis of the group’s
+bearing (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
+calculating the  directional correlation delay (Nagy 2010), the temporal delay
+of shared directional movements between individuals. Leadership in a group of
+moving animals can inform animal decision making, group coordination, and
+migratory patterns (Flack 2018, Weesner 2023, Quera 2023, Kano 2021).
+
+Individual traits can influence behaviors related to intragroup dynamics.
+Dominance is related to foraging success (Caraco 1989, Teichroeb 2015) and
+choice of foraging strategy (King 2009, Aplin and Morand-Ferron 2017, Lee 2016).
+Dominant, aggressive, grooming and other interindividual behaviors are typically
+measured using focal observations.  However, some metrics have been developed
+for remotely estimating dominance behaviors. The directional correlation delay
+can be used to derive hierarchies of leadership which can be a proxy for
+dominance relationships in certain species (Flack 2013, Akos 2014). Movement
+patterns that estimate dominance relationships can be identified from animal
+telemetry including movement initiations (Amornbunchornvej 2018),
+approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
+(Evans 2018).
+
+
+
+# References {.unnumbered}
+
+:::{#refs}
+
+:::
+
+
+{{< include supplement/supplement-a.qmd >}}
+
+{{< include supplement/supplement-b.qmd >}}
+
+{{< include supplement/supplement-c.qmd >}}
