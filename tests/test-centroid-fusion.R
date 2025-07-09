@@ -12,10 +12,12 @@ library(ggdist)
 library(units)
 
 
+
 # Functions ---------------------------------------------------------------
 # centroid_fusion released in {spatsoc} v0.2.5
 # direction_to_centroid released in {spatsoc} v0.2.6
 # distance_to_centroid released in {spatsoc} v0.2.6
+
 
 
 # Data --------------------------------------------------------------------
@@ -55,6 +57,8 @@ centroids <- centroid_fusion(
   coords = c('X', 'Y'),
   timegroup = 'timegroup', na.rm = TRUE
 )
+
+
 
 # Plot --------------------------------------------------------------------
 theme_set(theme_bw())

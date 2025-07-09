@@ -12,10 +12,12 @@ library(ggdist)
 library(units)
 
 
+
 # Functions ---------------------------------------------------------------
 # centroid_group released in {spatsoc} v0.2.5
 # direction_to_centroid released in {spatsoc} v0.2.6
 # distance_to_centroid released in {spatsoc} v0.2.6
+
 
 
 # Data --------------------------------------------------------------------
@@ -35,6 +37,7 @@ group_pts(DT, threshold = 50, id = 'ID',
 
 
 # Test --------------------------------------------------------------------
+# With solo individual
 DT_sub_solo <- DT[group %in% DT[, .N, group][N == 1, group]]
 
 coords <- c('X', 'Y')
@@ -46,8 +49,7 @@ expect_equal(DT_sub_solo$distance_centroid, rep(0, nrow(DT_sub_solo)))
 direction_to_centroid(DT_sub_solo, coords)
 expect_equal(DT_sub_solo$direction_centroid, rep(as_units(NaN, 'rad'), nrow(DT_sub_solo)))
 
-
-
+# With group with > 1 individual
 DT_sub <- DT[group %in% DT[, .N, group][N > 1, group]]
 
 centroid_group(DT_sub, coords)
