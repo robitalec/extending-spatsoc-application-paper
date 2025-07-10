@@ -23,3 +23,7 @@ library(tidygeocoder)
 library(rgnparser)
 
 library(testthat)
+
+library(units)
+
+library(spatsoc)
