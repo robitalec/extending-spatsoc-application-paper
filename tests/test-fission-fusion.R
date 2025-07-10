@@ -3,13 +3,7 @@
 
 
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(sf)
-library(lwgeom)
-library(spatsoc)
-library(testthat)
-library(patchwork)
+source('R/packages.R')
 
 
 
