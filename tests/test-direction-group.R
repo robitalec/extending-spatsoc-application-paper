@@ -67,3 +67,25 @@ g <- ggplot(sub_DT) +
 
 print(g)
 
+
+
+
+
+# Bug ---------------------------------------------------------------------
+# library(ggplot2)
+# library(units)
+#
+# df <- expand.grid(x = 1:10, y=1:10)
+#
+# set.seed(1)
+# df$angle <- runif(100, 0, 2*pi)
+# # df$angle <- as_units(runif(100, 0, 2*pi), 'rad')
+# df$speed <- runif(100, 0, sqrt(0.1 * df$x))
+# # df$speed <- as_units(runif(100, 0, sqrt(0.1 * df$x)), 'cm')
+# # df$x <- as_units(df$x, 'cm')
+# # df$y <- as_units(df$y, 'cm')
+#
+# ggplot(df, aes(x, y)) +
+#   geom_point() +
+#   geom_spoke(aes(angle = angle), radius = 0.5)
+
