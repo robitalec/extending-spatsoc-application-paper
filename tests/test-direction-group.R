@@ -41,7 +41,7 @@ direction_step(
 )
 DT[, .(direction, set_units(direction, 'degree'))]
 
-# Calculation group direction
+# Calculate group direction
 direction_group(DT, direction = 'direction', group = 'group')
 
 

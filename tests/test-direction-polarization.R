@@ -40,7 +40,7 @@ direction_step(
   projection = 32736
 )
 
-# Calculation direction_polarization
+# Calculate direction_polarization
 direction_polarization(DT, direction = 'direction', group = 'group')
 
 
