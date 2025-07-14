@@ -47,7 +47,7 @@ direction_group(DT, direction = 'direction', group = 'group')
 
 
 # Plot --------------------------------------------------------------------
-# Package data
+# Centroid for figure
 centroid_group(DT, coords = c('X', 'Y'))
 sub_DT <- DT[group == DT[, .N, group][N > 4][, sample(group, 1)]]
 
