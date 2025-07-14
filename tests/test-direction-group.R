@@ -50,8 +50,11 @@ direction_group(DT, direction = 'direction', group = 'group')
 # Package data
 centroid_group(DT, coords = c('X', 'Y'))
 sub_DT <- DT[group == DT[, .N, group][N > 4][, sample(group, 1)]]
+
+# Drop units due to bug below
 sub_DT[, direction := drop_units(direction)]
 sub_DT[, group_direction := drop_units(group_direction)]
+
 g <- ggplot(sub_DT) +
   geom_spoke(arrow = arrow(),
              aes(x = X, y = Y, angle = direction, radius = 10,
