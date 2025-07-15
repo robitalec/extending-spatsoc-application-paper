@@ -61,52 +61,56 @@ edges_test <- edge_dist(
 
 dyad_id(edges_test, id1 = 'ID1', id2 = 'ID2')
 
-# Test --------------------------------------------------------------------
-setorder(DT_test, timegroup)
+fusion_id(edges_test, threshold = 20)
 
-threshold <- 20
-coords <- c('x', 'y')
-id <- 'id'
-edges_test <- edge_dist(DT_test, threshold = threshold, id = id,
-                        timegroup = 'timegroup', coords = coords,
-                        returnDist = TRUE, fillNA = FALSE)
-dyad_id(edges_test, 'ID1', 'ID2')
-fusion_id(edges_test, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
-
-print(edges_test[dyadID == 'A-B'])
-print(edges_test[dyadID == 'C-D'])
-
-bearing_sequential(DT_test, id = id, coords = coords, projection = 4326)[]
-dir_delay_test <- edge_delay(DT_test, id = id, edges_test, window = 1)
-
-
-# Test where exaggerated window size
-expect_equal(
-  edge_delay(DT_test, id, edges_test, window = 3),
-  edge_delay(DT_test, id, edges_test, window = 10)
+delay_test <- edge_delay(
+  edges = edges_test,
+  DT = DT_test,
+  window = 3,
+  id = 'ID'
 )
 
-# Even more exaggerated
-expect_equal(
-  edge_delay(DT_test, id, edges_test, window = 3),
-  edge_delay(DT_test, id, edges_test, window = 100)
+
+# {spatsoc} example data
+# Temporal grouping
+group_times(DT, datetime = 'datetime', threshold = '20 minutes')
+
+# Calculate direction
+direction_step(
+  DT = DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  projection = 32736
 )
 
-# Test with Fogo
-threshold <- 50
-coords <- c('x_proj', 'y_proj')
-id <- 'id'
-group_times(DT_fogo, 'datetime', '5 minutes')
+# Distance based edge list generation
+edges <- edge_dist(
+  DT,
+  threshold = 100,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = FALSE
+)
 
-edges <- edge_dist(DT_fogo, threshold = threshold,
-                   id = id, coords = coords,
-                   timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-dyad_id(edges, 'ID1', 'ID2')
-fusion_id(edges, threshold = threshold, n_min_length = 1, n_max_missing = 1)[]
+# Generate dyad id
+dyad_id(edges, id1 = 'ID1', id2 = 'ID2')
 
-bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_delay_fogo <- edge_delay(DT_fogo, id, edges, window = 2)
+# Generate fusion id
+fusion_id(edges, threshold = 100)
 
+# Directional correlation delay
+window <- 2
+delay <- edge_delay(
+  edges = edges,
+  DT = DT,
+  window = window,
+  id = 'ID'
+)
+
+# Print
+print(delay[, mean(dir_corr_delay, na.rm = TRUE), by = .(ID1, ID2)][V1 > 0])
 
 
 # Plot --------------------------------------------------------------------
