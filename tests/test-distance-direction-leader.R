@@ -1,36 +1,60 @@
-# === Test dist dir leader ------------------------------------------------
+# === Test distance_to_leader, direction_to_leader ------------------------
 
 
 
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(sf)
-library(lwgeom)
-library(spatsoc)
-library(testthat)
-library(patchwork)
-library(ggdist)
+source('R/packages.R')
+
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
+# distance_to_leader released in {spatsoc} v0.2.7
+# direction_to_leader released in {spatsoc} v0.2.7
 
 
 
 # Data --------------------------------------------------------------------
-n <- 10
-DT_test <- data.table(
-  x = runif(n, -10, 10),
-  y = runif(n, -10, 10),
-  id = LETTERS[seq.int(n)],
-  bearing = runif(n, CircStats::rad(0), CircStats::rad(360)),
-  timegroup = 1,
-  group = 1
+# {spatsoc} example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+
+
+
+# Test --------------------------------------------------------------------
+# Set order using data.table::setorder
+setorder(DT, datetime)
+
+# Group times
+group_times(DT, 'datetime', '1 minute')
+
+# Spatial grouping with timegroup
+group_pts(DT, threshold = 50, id = 'ID',
+          coords = c('X', 'Y'), timegroup = 'timegroup')
+
+# Calculate direction for package data
+direction_step(
+  DT = DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  projection = 32736
 )
 
-DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
+# Calculate group centroid
+centroid_group(DT, coords = c('X', 'Y'), group = 'group', na.rm = TRUE)
 
+# Calculate group direction
+direction_group(DT)
+
+# Calculate leader in terms of position along group direction
+leader_direction_group(DT, coords = c('X', 'Y'), return_rank = TRUE)
+
+# Calculate direction to leader
+direction_to_leader(DT, coords = c('X', 'Y'))
+
+# Calculate distance to leader
+distance_to_leader(DT, coords = c('X', 'Y'))
 
 
 # Test --------------------------------------------------------------------
