@@ -1,17 +1,23 @@
+# === Test edge_delay -----------------------------------------------------
+
+
+
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(sf)
-library(lwgeom)
-library(spatsoc)
-library(testthat)
-library(scico)
-library(patchwork)
+source('R/packages.R')
 
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
+# edge_delay released in {spatsoc} v0.2.8
+
+
+
+# Data --------------------------------------------------------------------
+# {spatsoc} example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 
 
