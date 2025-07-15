@@ -1,40 +1,27 @@
-# === Test time spent leading ---------------------------------------------
+# === Test leader_direction_group -----------------------------------------
 
 
 
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(sf)
-library(lwgeom)
-library(spatsoc)
-library(testthat)
-library(patchwork)
-library(ggdist)
+source('R/packages.R')
+
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
+# leader_direction_group released in {spatsoc} v0.2.7
 
 
 
 # Data --------------------------------------------------------------------
-n <- 10
-DT_test <- data.table(
-  x = runif(n, -10, 10),
-  y = runif(n, -10, 10),
-  id = LETTERS[seq.int(n)],
-  bearing = runif(n, CircStats::rad(0), CircStats::rad(360)),
-  timegroup = 1,
-  group = 1
-)
+# {spatsoc} example data
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 
-DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
+# Cast the character column to POSIXct
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 
 
 # Test --------------------------------------------------------------------
-coords <- c('x', 'y')
 
 group_bearing(DT_test)
 group_centroid(DT_test, coords = coords)
