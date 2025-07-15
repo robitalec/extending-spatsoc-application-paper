@@ -113,13 +113,15 @@ delay <- edge_delay(
 print(delay[, mean(dir_corr_delay, na.rm = TRUE), by = .(ID1, ID2)][V1 > 0])
 
 
+
 # Plot --------------------------------------------------------------------
-g <- ggplot(DT_test, aes(x, y, color = id)) +
+# Test data
+g <- ggplot(DT_test, aes(X, Y, color = ID)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup)) +
   theme_bw()
 
-g_delay <- ggplot(dir_delay_test) +
+g_delay <- ggplot(delay_test) +
   geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
   scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
   theme_bw()
