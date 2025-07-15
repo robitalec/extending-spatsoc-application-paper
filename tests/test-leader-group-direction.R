@@ -22,34 +22,36 @@ DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 
 # Test --------------------------------------------------------------------
+# Set order using data.table::setorder
+setorder(DT, datetime)
 
-group_bearing(DT_test)
-group_centroid(DT_test, coords = coords)
-group_leader(DT_test, coords = coords, return_rank = TRUE)
+# Group times
+group_times(DT, 'datetime', '1 minute')
 
-DT_test[, leader := rank_dist_along_group_bearing == 1, .(timegroup, id)]
-DT_test[, time_spent_leading := sum(leader), by = id]
-print(DT_test)
+# Spatial grouping with timegroup
+group_pts(DT, threshold = 50, id = 'ID',
+          coords = c('X', 'Y'), timegroup = 'timegroup')
 
+# Calculate direction for package data
+direction_step(
+  DT = DT,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  projection = 32736
+)
 
-threshold <- 50
-coords <- c('x_proj', 'y_proj')
-id <- 'id'
+# Calculate group centroid
+centroid_group(DT, coords = c('X', 'Y'), group = 'group', na.rm = TRUE)
 
-DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
-group_pts(DT_fogo, threshold = threshold, id = id,
-          coords = coords, timegroup = 'timegroup')
+# Calculate group direction
+direction_group(DT)
 
-group_centroid(DT_fogo, coords)
-bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-group_bearing(DT_fogo)
-group_leader(DT_fogo, coords = coords, return_rank = TRUE)
-print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
-              .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj,
-                group_bearing, dist_along_group_bearing, rank_dist_along_group_bearing)])
-DT_fogo[, N_by_group := .N, group]
+# Calculate leader in terms of position along group direction
+leader_direction_group(DT, coords = c('X', 'Y'), return_rank = TRUE)
 
+print(DT[group == DT[, .N, group][N > 3, sample(group, 1)],
+         .(ID, timegroup, group, X, Y,
+           group_direction, position_group_direction, rank_position_group_direction)])
 
 
 # Plot --------------------------------------------------------------------
