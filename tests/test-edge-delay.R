@@ -21,29 +21,45 @@ DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 
 
-# Data --------------------------------------------------------------------
+# Test --------------------------------------------------------------------
+# Test data
 DT_A <- data.table(
-  x = c(-5, -5, 0, 14, 10, 0),
-  y = c(5, 3, 1, 1, 11, 11),
-  id =  'A'
+  X = c(-5, -5, 0, 14, 10, 0),
+  Y = c(5, 3, 1, 1, 11, 11),
+  ID =  'A'
 )[, timegroup := seq.int(.N)]
 
 DT_B <- data.table(
-  x = c(-1, -1, 15, 9, 1),
-  y = c(-10, -3, 0, 10,  10),
-  id =  'B'
+  X = c(-1, -1, 15, 9, 1),
+  Y = c(-10, -3, 0, 10,  10),
+  ID =  'B'
 )[, timegroup := seq.int(.N)]
 
-DT_C <- DT_A[, .(x = rev(x) - 40, y = rev(y), id = 'C', timegroup)]
-DT_D <- DT_B[, .(x = rev(x) - 40, y = rev(y), id = 'D', timegroup)]
+DT_C <- DT_A[, .(X = rev(X) - 40, Y = rev(Y), ID = 'C', timegroup)]
+DT_D <- DT_B[, .(X = rev(X) - 40, Y = rev(Y), ID = 'D', timegroup)]
 
 DT_test  <- rbindlist(list(
   DT_A, DT_B, DT_C, DT_D
 ))
 
-DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
+direction_step(
+  DT = DT_test,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  projection = 32736
+)
 
+edges_test <- edge_dist(
+  DT_test,
+  threshold = 20,
+  id = 'ID',
+  coords = c('X', 'Y'),
+  timegroup = 'timegroup',
+  returnDist = TRUE,
+  fillNA = FALSE
+)
 
+dyad_id(edges_test, id1 = 'ID1', id2 = 'ID2')
 
 # Test --------------------------------------------------------------------
 setorder(DT_test, timegroup)
