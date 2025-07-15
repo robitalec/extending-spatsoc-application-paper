@@ -1,23 +1,21 @@
-# === Test group centroid -------------------------------------------------
+# === Test centroid group -------------------------------------------------
 
 
 
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(spatsoc)
-library(testthat)
-library(patchwork)
-library(ggdist)
+source('R/packages.R')
+
+
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
+# centroid_group released in {spatsoc} v0.2.5
+# direction_to_centroid released in {spatsoc} v0.2.6
+# distance_to_centroid released in {spatsoc} v0.2.6
 
 
 
 # Data --------------------------------------------------------------------
-# from ?group_pts
 # Read example data
 DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 
@@ -34,42 +32,41 @@ group_pts(DT, threshold = 50, id = 'ID',
 
 
 # Test --------------------------------------------------------------------
+# With solo individual
 DT_sub_solo <- DT[group %in% DT[, .N, group][N == 1, group]]
 
 coords <- c('X', 'Y')
-group_centroid(DT_sub_solo, coords)
+centroid_group(DT_sub_solo, coords)
 
-distance_to_group_centroid(DT_sub_solo, coords)
-expect_equal(DT_sub_solo$dist_group_centroid, rep(0, nrow(DT_sub_solo)))
+distance_to_centroid(DT_sub_solo, coords)
+expect_equal(DT_sub_solo$distance_centroid, rep(0, nrow(DT_sub_solo)))
 
-bearing_to_group_centroid(DT_sub_solo, coords)
-expect_equal(DT_sub_solo$bearing_centroid, rep(NaN, nrow(DT_sub_solo)))
+direction_to_centroid(DT_sub_solo, coords)
+expect_equal(DT_sub_solo$direction_centroid, rep(as_units(NaN, 'rad'), nrow(DT_sub_solo)))
 
-
-
+# With group with > 1 individual
 DT_sub <- DT[group %in% DT[, .N, group][N > 1, group]]
 
-group_centroid(DT_sub, coords)
+centroid_group(DT_sub, coords)
 
-distance_to_group_centroid(DT_sub, coords)
-distance_to_group_centroid(DT_sub, coords, return_rank = TRUE)
-bearing_to_group_centroid(DT_sub, coords)
+distance_to_centroid(DT_sub, coords)
+distance_to_centroid(DT_sub, coords, return_rank = TRUE)
+direction_to_centroid(DT_sub, coords)
 
 
 
 # Plot --------------------------------------------------------------------
 theme_set(theme_bw())
 
-sel_group <- DT_sub[N_by_group > 4, sample(group, 1)]
-sub_fogo <- DT_sub[group == sel_group]
-
+# sub_fogo <- DT_sub[group == DT_sub[, .N, group][N > 4][, sample(group, 1)]]
+sub_fogo <- DT_sub[group == 1027]
 g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_group_centroid, digits = 2),
+  geom_text(aes(label = paste0(format(distance_centroid, digits = 2),
                                ', ',
-                               format(bearing_centroid, digits = 2),
-                               ' rad')), nudge_y = -1.5) +
-  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+                               format(direction_centroid, digits = 2))),
+            nudge_y = -1.5) +
+  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
   theme_bw() +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
@@ -80,15 +77,15 @@ g_fogo <- ggplot(sub_fogo, aes(X, Y, color = ID)) +
 print(g_fogo)
 
 g1 <- ggplot(DT_sub) +
-  geom_histogram(aes(dist_group_centroid), binwidth = 1) +
+  geom_histogram(aes(distance_centroid), binwidth = 1) +
   labs(x = 'Distance to group centroid', y = '')
 g2 <- ggplot(DT_sub) +
-  geom_histogram(aes(rank_dist_group_centroid), binwidth = 1) +
+  geom_histogram(aes(rank_distance_centroid), binwidth = 1) +
   labs(x = 'Rank distance to group centroid', y = '')
 g3 <- ggplot(DT_sub) +
-  geom_histogram(aes(bearing_centroid), bins = 30) +
+  geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g4 <- ggplot(DT_sub) +
-  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
+  stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 print(g1 + g2 + g3 + g4)

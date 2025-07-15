@@ -3,18 +3,12 @@
 
 
 # Packages ----------------------------------------------------------------
-library(data.table)
-library(ggplot2)
-library(sf)
-library(lwgeom)
-library(spatsoc)
-library(testthat)
-library(patchwork)
+source('R/packages.R')
 
 
 
 # Functions ---------------------------------------------------------------
-targets::tar_source('R/draft')
+# fusion_id released in {spatsoc} v0.2.4
 
 
 
@@ -32,12 +26,12 @@ DT_test <- rbindlist(list(
   DT_template[, .(x, y = y - 5, timegroup, id = 'C')]
 ))[!(id == 'C' & timegroup %in% c(3, 5, 6))]
 
-
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 
 
 
 # Test --------------------------------------------------------------------
+# With template data
 setorder(DT_test, timegroup)
 
 edges_test <- edge_dist(DT_test, threshold = 50, id = 'id', timegroup = 'timegroup',
@@ -52,7 +46,7 @@ f_min0_miss_1_splitF <- fusion_id(
 
 print(f_min0_miss0_splitF[dyadID == 'A-B'])
 
-
+# With Fogo data
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
 edges_fogo <- edge_dist(DT_fogo, threshold = 50, id = 'id', timegroup = 'timegroup',
@@ -103,6 +97,7 @@ print(g / (g2.1 / g2.2 / g2.3 *
        labs(shape = 'fusionID') &
         scale_shape_manual(values = seq.int(10)) &
         theme_bw())
+
 
 
 g <- ggplot(sub_fogo,
