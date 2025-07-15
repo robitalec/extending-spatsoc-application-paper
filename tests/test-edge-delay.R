@@ -128,16 +128,24 @@ g_delay <- ggplot(delay_test) +
 print(g / g_delay)
 
 
-sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
-g <- ggplot(sub_fogo,
-            aes(x_proj, y_proj, color = id)) +
+# {spatsoc} example data
+sub_fusionID <- delay[, .N, fusionID][N == 10, sample(fusionID, 1)]
+sub_DT <- DT[timegroup %in% delay[fusionID == sub_fusionID, timegroup] &
+               ID %in% delay[fusionID == sub_fusionID, c(ID1, ID2)]]
+sub_delay <- delay[fusionID == sub_fusionID]
+
+g <- ggplot(sub_DT,
+            aes(X, Y, color = ID)) +
   geom_path() +
   geom_label(aes(label = timegroup),
-             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
+             data = sub_DT) +
   theme_bw()
-g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
-  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
-  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
-  theme_bw()
+g2 <- ggplot(sub_delay) +
+  geom_point(aes(timegroup, interaction(ID1, ID2),
+                 color = factor(dir_corr_delay)),
+             size = 5) +
+  scale_color_scico_d(palette = 'vik', begin = 0.7, end = 0.3) +
+  theme_bw() +
+  labs(color = 'Directional\ncorrelation delay')
 
 print(g / g2)
