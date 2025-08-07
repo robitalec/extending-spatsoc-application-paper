@@ -407,7 +407,7 @@ centroid_group(DT, coords = coords)
 DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
                 coords = coords, timegroup = 'timegroup')
 cent <- centroid_group(DT, coords = coords)
-tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, group_mean_Y)])
+tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, centroid_X, centroid_Y)])
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
@@ -473,20 +473,21 @@ leader_direction_group(DT, coords = coords, return_rank = TRUE)
 projection <- 32636
 direction_step(DT, id = id, coords = coords, projection = projection)
 direction_group(DT)
+centroid_group(DT, coords = coords)
 leader_direction_group(DT, coords = coords, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_mean_direction)]
-intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
-intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
+slope <- sub_DT[1, tan(group_direction)]
+intercept <- sub_DT[1, centroid_Y - slope * centroid_X]
+intercept_inv <- sub_DT[1, centroid_Y - (-1/slope * centroid_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
   geom_text(aes(label = paste0(format(dist_along_direction_group, digits = 1),
                                ' (', rank_dist_along_direction_group, ')')),
                 nudge_y = 0.5) +
-  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
               linewidth = 0.2) +
@@ -538,11 +539,11 @@ direction_to_leader(DT, coords = coords)
 DT <- distance_to_leader(DT, coords = coords)
 DT <- direction_to_leader(DT, coords = coords)
 
-sel_group <- DT[N_by_group > 3, sample(group, 1)]
+sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_mean_direction)]
-intercept <- sub[1, group_mean_Y - slope * group_mean_X]
-intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
+slope <- sub[1, tan(group_direction)]
+intercept <- sub[1, centroid_Y - slope * centroid_X]
+intercept_inv <- sub[1, centroid_Y - (-1/slope * centroid_X)]
 
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
@@ -551,7 +552,7 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
                                ', ',
                                format(direction_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
-  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
               linewidth = 0.2) +
