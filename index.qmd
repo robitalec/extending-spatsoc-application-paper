@@ -49,46 +49,46 @@ Animal social dynamics have broad implications in ecology including resource
 availability, disease transmission and collective behaviour. Social network
 analysis can measure the structure of social systems, the consequences of an
 individual's position in a network, the spread of disease or information across
-networks, and the influence of the environment (Farine and Whitehead 2015). Open
-source tools have been developed to derive social networks from animal telemetry
-data (Robitaille et al 2019) using aggregated association rates or home range
-overlap. The methods have been used to measure contact rates to measure social
-cohesion (Bracken 2021), human-wildlife conflict (Boudreau 2021), socioecology
-and resource availability (Peignier2019),  community structure (Sunga 2021),
-influence of stress of social proximity (Keshavarzi 2023), social patterns in
-non-social species (Heeres 2024).
+networks, and the influence of the environment [@Farine_2015]. Open source tools
+have been developed to derive social networks from animal telemetry data
+[@Robitaille_2019] using aggregated association rates or home range overlap. The
+methods have been used to measure contact rates to measure social cohesion
+[@Bracken_2022], human-wildlife conflict [@Boudreau_2022], socioecology and
+resource availability [@Peignier_2019],  community structure [@Sunga_2021],
+influence of stress of social proximity [@Keshavarzi_2023], social patterns in
+non-social species [@Heeres_2024].
 
-Many facets of group living need to be measured to better
-understand animal social systems (King et al 2018). There are additional types
-of dyadic relationships including genetic, affiliative, agonistic, and
-cooperative (Farine and Whitehead 2015). There are also interactions between
-spatial and social phenotypes and environments (Webber et al 2023). Using direct
-observations, researchers have studied intragroup social dynamics including
-social foraging (Barnard 1981, Giraldeau 1986, Hirsch 2020), spatial position
-within groups (Krause 1994, Monus 2008) and the influence of individual traits
-such as age, sex and dominance (Furuichi 1983, King 2009, Teichroeb 2015).
-Unfortunately, direct observations can be labor-intensive to collect and
-susceptible to observer bias (Smith 2021), with low spatial and temporal
-resolution making them imperfect for studies of collective movement (King 2011).
+Many facets of group living need to be measured to better understand animal
+social systems [@King_2018]. There are additional types of dyadic relationships
+including genetic, affiliative, agonistic, and cooperative [@Farine_2015]. There
+are also interactions between spatial and social phenotypes and environments
+[@Webber_2023]. Using direct observations, researchers have studied intragroup
+social dynamics including social foraging [@Barnard_1981; @Giraldeau_1986;
+@Hirsch_2020], spatial position within groups [@Krause_1994; @Monus_2008] and
+the influence of individual traits such as age, sex and dominance
+[@Furuichi_1983; @King_2009; @Teichroeb_2015]. Unfortunately, direct
+observations can be labor-intensive to collect and susceptible to observer bias
+[@Smith_2021], with low spatial and temporal resolution making them imperfect
+for studies of collective movement [@King_2018].
 
 There are expanded opportunities to understand animal social systems by pairing
 advances in remote tracking technology with emerging approaches to measuring
 intragroup social dynamics. The availability and resolution of remote tracking
-data continues to improve (Kays 2015, Nathan 2022, Kays 2022). There are over
+data continues to improve [@Kays_2015; @Kays_2022; @Nathan_2022]. There are over
 two decades of research on measuring the interaction between moving individuals
-from the study of "moving point objects" in GISciences (Laube 2002, Dodge 2008,
-Andersson 2008) to group coordination of moving groups (Couzin 2002,
-Herbert-Read 2011) and leadership and decision making (Nagy 2010, King 2011,
-Strandburg-Peshkin 2015). Despite this, we suggest the availability of open
-source tools (Hampton 2015, Wilson 2017, Powers 2019) is the missing piece
+from the study of "moving point objects" in GISciences [@Andersson_2008;
+@Dodge_2008; @Laube_2005] to group coordination of moving groups [@Couzin_2002;
+@Herbert-Read_2011] and leadership and decision making [@King_2011; @Nagy_2010;
+@Strandburg-Peshkin_2015]. Despite this, we suggest the availability of open
+source tools [@Hampton_2015; @Powers_2019; @Wilson_2017] is the missing piece
 between the call to integrate technology enhanced research with
-multidisciplinary approaches to better understand animal social systems. (King
-2023, Couzin 2023).
+multidisciplinary approaches to better understand animal social systems
+[@Couzin_2023; @King_2018].
 
 Here we present 
 `r length(grep('cent|dir|dista|ali|del|zon', ls('package:spatsoc'), value = TRUE))` 
-new functions for the R package {spatsoc} (Robitaille et al. 2019) for
-measuring intragroup dynamics. We conducted a scoping review to identify metrics
+new functions for the R package {spatsoc} [@Robitaille_2019] for measuring
+intragroup dynamics. We conducted a scoping review to identify metrics
 applicable to spatiotemporal data used in ecological studies focused on dyadic
 interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
 resulting metrics, we selected those with a high number of citations (as a
