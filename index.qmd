@@ -141,12 +141,12 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 ## Position within group, rank position within group, time spent leading group, distance and direction to leader
 
 The position within group is the position along the front-to-back axis of the
-group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+group's direction (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's direction (eg.
 [@Burns_2012]). The time spent leading group is an aggregate metric of the time
 in the first rank position within group. The distance to leader is the 
 geographic distance to the focal individual's group leader. The direction to 
-leader is the absolute bearing to the focal individual's group leader. 
+leader is the absolute direction to the focal individual's group leader. 
 
 <!-- 
 - front-back distance along group's axis of movement [@Quera_2023]
@@ -171,22 +171,22 @@ using focal obs or other tools
 The group centroid is the mean of individual locations in a group. The
 distance to group centroid is the distance between an individual's location
 and the group centroid. The direction to group centroid is the absolute
-bearing from an individual's location and the group centroid. The rank distance
+direction from an individual's location and the group centroid. The rank distance
 to group centroid is the ordinal rank of individuals' distances from the 
 group centroid. 
 
 
 ## Polarization, directional alignment and interindividual direction
 
-Polarization measures the uniformity of bearings in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
-in different directions and values near 1 indicate that bearings point in 
+Polarization measures the uniformity of directions in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
+in different directions and values near 1 indicate that directions point in 
 similar directions. 
 
 ```{r}
 #| echo: true
 
-# Random bearings (radians)
+# Random directions (radians)
 h <- runif(25, 0, 2 * pi)
 
 library(swaRm)
@@ -199,8 +199,8 @@ r.test(h)
 circ.range(h)
 ```
 
-Directional alignment measures the pairwise differences in bearing between
-individuals. Interindividual direction measures the pairwise bearings
+Directional alignment measures the pairwise differences in direction between
+individuals. Interindividual direction measures the pairwise directions
 between individual locations. 
 
 ```{r}
@@ -413,7 +413,7 @@ tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, gr
 Then we can measure each individual's direction and distance to the group centroid. 
 The distance to group centroid is the distance between from the focal
 individual to the group centroid. The direction to group centroid is the absolute
-azimuth from the focal individual to the group centroid. The rank distance
+direction from the focal individual to the group centroid. The rank distance
 to group centroid is the ordinal rank of individuals' distances to the 
 group centroid. 
 <!-- TODO: insert refs with examples of biological interpretation of distance and direction to  -->
@@ -445,18 +445,18 @@ g1 + g2
 After considering how individuals are positioned relative to the group centroid, 
 we can also measure how individuals are positioned relative to the mean 
 group direction. To do so, we rotate the coordinate system around the 
-group centroid by the mean bearing of all individuals in the group. Then 
+group centroid by the mean direction of all individuals in the group. Then 
 we take the distance along this new axis to the measure of front-back position
 within the group. 
 <!-- TODO: refs where this is used, extended biological interpretation -->
 
 The position within group is the position along the front-to-back axis of the
-group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+group's direction (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's direction (eg.
 [@Burns_2012]). The time spent leading group is an aggregate metric of the time
 in the first rank position within group. The distance to leader is the 
 geographic distance from the focal individual to the group's leader. The direction to 
-leader is the absolute azimuth from the focal individual to the group's leader. 
+leader is the absolute direction from the focal individual to the group's leader. 
 
 ```{r}
 #| eval: false
@@ -678,25 +678,25 @@ print(g / (g2.1 * #/ g2.2 / g2.3 *
 ```
 
 
-## Bearings
+## Directions
 
-Next, we can use individuals' bearings to explore interindividual direction,
+Next, we can use individuals' directions to explore interindividual direction,
 directional alignment and group polarization.  
 
 <!-- TODO: references -->
 <!-- related eg. direction between individuals (always L / R), polarization of flock, -->
 <!-- etc -->
 
-Polarization measures the uniformity of absolute azimuth in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that azimuths point
-in different directions and values near 1 indicate that azimuths point in 
+Polarization measures the uniformity of absolute direction in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
+in different directions and values near 1 indicate that directions point in 
 similar directions. 
 
 ```{r}
 #| echo: true
 #| eval: false
-# Calculate polarization using azimuth from az_sequential()
 bearing_polarization(DT)
+# Calculate polarization using direction from az_sequential()
 ```
 
 ```{r}
@@ -717,8 +717,8 @@ print(g)
 ```
 
 Directional alignment is the relative difference between two individuals' 
-azimuths. Given the similarity to `edge_dist`, this functionality
-is provided under a similar name: `edge_az`. 
+directions. Given the similarity to `edge_dist`, this functionality
+is provided under a similar name: `edge_alignment`. 
 
 ```{r}
 #| echo: true
@@ -769,13 +769,13 @@ print(g / g2 & theme_bw())
 ```
 
 
-Interindividual direction measures the absolute azimuth between individuals. 
+Interindividual direction measures the absolute direction between individuals. 
 
 (TODO)
-<!-- TODO: interindividual difference in bearing code and example -->
+<!-- TODO: interindividual difference in direction code and example -->
 
 
-## Lagged differences in bearing
+## Lagged differences in direction
 
 The directional correlation delay [@Nagy_2010] of individuals i, j is given by
 
@@ -917,7 +917,7 @@ determine factors that causally influence leadership, and for the influence of
 leader-follower strategies on foraging success and downstream fitness. Applied
 to animal telemetry, leadership can be defined simply by identifying the
 individual at the foremost position along the front-to-back axis of the group’s
-bearing (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
+direction (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
 calculating the  directional correlation delay (Nagy 2010), the temporal delay
 of shared directional movements between individuals. Leadership in a group of
 moving animals can inform animal decision making, group coordination, and
