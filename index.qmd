@@ -85,15 +85,17 @@ between the call to integrate technology enhanced research with
 multidisciplinary approaches to better understand animal social systems. (King
 2023, Couzin 2023).
 
-Here we present N (~11) new functions for the R package {spatsoc} (Robitaille et
-al. 2019) for measuring intragroup dynamics. We conducted a scoping review to
-identify metrics applicable to spatiotemporal data used in ecological studies
-focused on dyadic interactions, dominance hierarchies and leadership patterns
-(Sup A, B). Of the resulting metrics, we selected those with a high number of
-citations (as a measure of value for the target audience) and unavailability in
-the R programming language, either through R packages or supplemental materials
-in the literature. We will demonstrate these new functions through a case study
-and discuss biological interpretation.
+Here we present 
+`r length(grep('cent|dir|dista|ali|del|zon', ls('package:spatsoc'), value = TRUE))` 
+new functions for the R package {spatsoc} (Robitaille et al. 2019) for
+measuring intragroup dynamics. We conducted a scoping review to identify metrics
+applicable to spatiotemporal data used in ecological studies focused on dyadic
+interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
+resulting metrics, we selected those with a high number of citations (as a
+measure of value for the target audience) and unavailability in the R
+programming language, either through R packages or supplemental materials in the
+literature. We will demonstrate these new functions through a case study and
+discuss biological interpretation.
 
 
 # Methods
