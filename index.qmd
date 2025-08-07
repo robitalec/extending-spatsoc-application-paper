@@ -462,8 +462,8 @@ leader is the absolute direction from the focal individual to the group's leader
 #| eval: false
 #| echo: true
 projection <- 32636
-az(DT, id = id, coords = coords, projection = projection)
-position_within_group(DT, coords = coords, return_rank = TRUE)
+direction_step(DT, id = id, coords = coords, projection = projection)
+leader_direction_group(DT, coords = coords, return_rank = TRUE)
 ```
 
 ```{r}
@@ -471,20 +471,20 @@ position_within_group(DT, coords = coords, return_rank = TRUE)
 #| echo: false
 #| warning: false
 projection <- 32636
-bearing_sequential(DT, id = id, coords = coords, projection = projection)
-group_bearing(DT)
-group_leader(DT, coords = coords, return_rank = TRUE)
+direction_step(DT, id = id, coords = coords, projection = projection)
+direction_group(DT)
+leader_direction_group(DT, coords = coords, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_mean_bearing)]
+slope <- sub_DT[1, tan(group_mean_direction)]
 intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_along_group_bearing, digits = 1),
-                               ' (', rank_dist_along_group_bearing, ')')),
+  geom_text(aes(label = paste0(format(dist_along_direction_group, digits = 1),
+                               ' (', rank_dist_along_direction_group, ')')),
                 nudge_y = 0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
@@ -499,17 +499,17 @@ g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
 
 DT[, N_by_group := .N, group]
 g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(dist_along_group_bearing), binwidth = 1) +
+  geom_histogram(aes(dist_along_direction_group), binwidth = 1) +
   labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_dist_along_group_bearing), binwidth = 1) +
+  geom_histogram(aes(rank_dist_along_direction_group), binwidth = 1) +
   labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(dist_along_group_bearing, factor(rank_dist_along_group_bearing))) +
+  stat_halfeye(aes(dist_along_direction_group, factor(rank_dist_along_direction_group))) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
