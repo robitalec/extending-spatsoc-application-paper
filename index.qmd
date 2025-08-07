@@ -723,7 +723,7 @@ is provided under a similar name: `edge_alignment`.
 ```{r}
 #| echo: true
 #| eval: false
-directional_align <- edge_az(
+directional_align <- edge_alignment(
   DT,
   threshold = NULL,
   id = id,
@@ -738,7 +738,7 @@ directional_align <- edge_az(
 #| echo: false
 #| eval: false
 # TODO: fix
-directional_align <- edge_az(DT, threshold = NULL, id = id,
+directional_align <- edge_alignment(DT, threshold = NULL, id = id,
                              timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 directional_align <- dyad_id(directional_align, 'ID1', 'ID2')
