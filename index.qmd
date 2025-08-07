@@ -13,7 +13,7 @@ author:
     corresponding: false
     # roles: []
     affiliations:
-      - Guelph University
+      - University of Guelph
   - name: Eric Vander Wal
     orcid: 0000-0002-8534-4317
     corresponding: false
