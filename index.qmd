@@ -527,7 +527,7 @@ group.
 #| eval: false
 #| echo: true
 distance_to_leader(DT, coords = coords)
-bearing_to_leader(DT, coords = coords)
+direction_to_leader(DT, coords = coords)
 ```
 
 
@@ -536,20 +536,20 @@ bearing_to_leader(DT, coords = coords)
 #| echo: false
 #| warning: false
 DT <- distance_to_leader(DT, coords = coords)
-DT <- bearing_to_leader(DT, coords = coords)
+DT <- direction_to_leader(DT, coords = coords)
 
 sel_group <- DT[N_by_group > 3, sample(group, 1)]
 sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_mean_bearing)]
+slope <- sub[1, tan(group_mean_direction)]
 intercept <- sub[1, group_mean_Y - slope * group_mean_X]
 intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
 
 g <- ggplot(sub, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_bearing), nudge_y = 0.5) +
+  geom_text(aes(label = rank_dist_along_direction_group), nudge_y = 0.5) +
   geom_text(aes(label = paste0(format(dist_leader, digits = 2),
                                ', ',
-                               format(bearing_leader, digits = 2),
+                               format(direction_leader, digits = 2),
                                ' rad')), nudge_y = -0.5) +
   geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
   geom_abline(slope = slope, intercept = intercept) +
@@ -562,13 +562,13 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT, aes(bearing_leader, 
-                         factor(rank_dist_along_group_bearing))) +
+g_dist <- ggplot(DT, aes(direction_leader, 
+                         factor(rank_dist_along_direction_group))) +
   stat_halfeye() +
   labs(x = 'Direction to leader', y = 'Rank along group az') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_along_group_bearing))) +
+g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_along_direction_group))) +
   stat_halfeye() +
   labs(x = 'Distance to leader', y = 'Rank along group az') +
   theme_bw()
@@ -695,18 +695,18 @@ similar directions.
 ```{r}
 #| echo: true
 #| eval: false
-bearing_polarization(DT)
 # Calculate polarization using direction from az_sequential()
+direction_polarization(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-DT <- bearing_polarization(DT)
+DT <- direction_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]
-g <- ggplot(sub, aes(bearing)) +
+g <- ggplot(sub, aes(direction)) +
   stat_dotsinterval(binwidth = 0.1, overflow = "keep", dotsize = 1) +
   geom_text(x = 0, y = 0.75,
             aes(label = format(polarization, digits = 2))) +
