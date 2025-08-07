@@ -398,7 +398,7 @@ the mean of individual locations in a group.
 ```{r}
 #| eval: false
 #| echo: true
-group_centroid(DT, coords = coords)
+centroid_group(DT, coords = coords)
 ```
 
 ```{r}
@@ -406,7 +406,7 @@ group_centroid(DT, coords = coords)
 #| echo: false
 DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
                 coords = coords, timegroup = 'timegroup')
-cent <- group_centroid(DT, coords = coords)
+cent <- centroid_group(DT, coords = coords)
 tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, group_mean_Y)])
 ```
 
@@ -422,18 +422,18 @@ group centroid.
 ```{r}
 #| echo: true
 #| eval: false
-distance_to_group_centroid(DT, coords, return_rank = TRUE)
-bearing_to_group_centroid(DT, coords)
+distance_to_centroid(DT, coords, return_rank = TRUE)
+direction_to_centroid(DT, coords)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- distance_to_group_centroid(cent, coords, return_rank = TRUE)
-dist_dir_cent <- bearing_to_group_centroid(cent, coords)
+dist_dir_cent <- distance_to_centroid(cent, coords, return_rank = TRUE)
+dist_dir_cent <- direction_to_centroid(cent, coords)
 g1 <- ggplot(dist_dir_cent) +
-  geom_histogram(aes(bearing_centroid), bins = 30) +
+  geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g2 <- ggplot(dist_dir_cent) +
   stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
