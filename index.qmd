@@ -833,7 +833,7 @@ fusion_events <- fusion_id(
 #| echo: false
 DT_fogo <- DT_fogo[timegroup < 50]
 id <- 'id'
-bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+direction_step(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
 dir_delay_fogo <- edge_delay(DT_fogo, id = id, edges = edges_fogo, window = 2)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
