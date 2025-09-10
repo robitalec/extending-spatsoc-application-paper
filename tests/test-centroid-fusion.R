@@ -63,7 +63,8 @@ centroids <- centroid_fusion(
 # Plot --------------------------------------------------------------------
 theme_set(theme_bw())
 
-sub_centroid <- centroids[fusionID == sample(fusionID, 1)]
+sub_fusionID <- centroids[, .N, fusionID][N > 9, sample(fusionID, 1)]
+sub_centroid <- centroids[fusionID == sub_fusionID]
 sub_DT <- DT[timegroup %in% sub_centroid[, timegroup] &
                ID %in% sub_centroid[, c(ID1, ID2)]]
 g_DT <- ggplot() +
