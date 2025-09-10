@@ -68,6 +68,8 @@ sub_centroid <- centroids[fusionID == sub_fusionID]
 sub_DT <- DT[timegroup %in% sub_centroid[, timegroup] &
                ID %in% sub_centroid[, c(ID1, ID2)]]
 g_DT <- ggplot() +
+  geom_path(data = sub_centroid, aes(centroid_X, centroid_Y),
+            linewidth = 0.3) +
   geom_point(data = sub_DT, aes(X, Y, color = ID), size = 2) +
   geom_point(data = sub_centroid, aes(centroid_X, centroid_Y),
              color = 'black', size = 2) +
