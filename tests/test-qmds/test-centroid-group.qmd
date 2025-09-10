@@ -1,5 +1,5 @@
 ---
-title: 'group_centroid(), distance_to_group_centroid(), bearing_to_group_centroid()'
+title: 'centroid_group(), distance_to_group_centroid(), bearing_to_group_centroid()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
