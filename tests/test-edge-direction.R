@@ -1,4 +1,4 @@
-# === Test edge bearing ---------------------------------------------------
+# === Test edge direction --------------------------------------------------
 
 
 
@@ -42,7 +42,7 @@ setorder(DT_test, timegroup)
 coords <- c('x', 'y')
 id <- 'id'
 bearing_sequential(DT_test, id = id, coords = coords, projection = 4326)
-edges_test <- edge_bearing(DT_test, threshold = NULL, id = id, timegroup = 'timegroup',
+edges_test <- edge_direction(DT_test, threshold = NULL, id = id, timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_test, 'ID1', 'ID2')
 
@@ -54,7 +54,7 @@ id <- 'id'
 group_times(DT_fogo, 'datetime', '10 minutes')
 setorder(DT_fogo, timegroup)
 bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-edges_fogo <- edge_bearing(DT_fogo, threshold = NULL, id = id, timegroup = 'timegroup',
+edges_fogo <- edge_direction(DT_fogo, threshold = NULL, id = id, timegroup = 'timegroup',
                         coords = coords, returnDist = TRUE, fillNA = TRUE)
 dyad_id(edges_fogo, 'ID1', 'ID2')
 

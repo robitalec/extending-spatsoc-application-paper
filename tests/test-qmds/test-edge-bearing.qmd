@@ -1,5 +1,5 @@
 ---
-title: 'edge_bearing()'
+title: 'edge_direction()'
 date: "`r Sys.Date()`"
 toc: true
 execute:
