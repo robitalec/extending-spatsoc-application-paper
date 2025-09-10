@@ -59,10 +59,10 @@ DT_fogo[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 group_times(DT_fogo, datetime = 'datetime', threshold = '20 minutes')
 group_pts(DT_fogo, threshold = threshold, id = id,
           coords = coords, timegroup = 'timegroup')
-bearing_sequential(DT_fogo, id, c('x_long', 'y_lat'), 4326)
 group_bearing(DT_fogo, bearing = 'bearing', group = 'group')
 group_leader(DT_fogo, group_bearing = 'group_mean_bearing', coords = coords, return_rank = TRUE)
 centroid_group(DT_fogo, coords)
+direction_step(DT_fogo, id, c('x_long', 'y_lat'), 4326)
 print(DT_fogo[group == DT_fogo[, .N, group][N > 3, sample(group, 1)],
               .(id, timegroup, group, x_proj, y_proj, group_mean_x_proj, group_mean_y_proj,
                 group_mean_bearing, dist_along_group_bearing, rank_dist_along_group_bearing)])
