@@ -90,3 +90,51 @@ Applied packages:
 
 All of {move2}, {amt} and {sftrack} calculate direction between a focal individual's locations (=step direction). None of these calculate the direction between an individual and something else - eg. a conspecific, or a group centroid.
 
+
+## Results
+
+Comparing direction calculations in established packages, in terms of 
+results returned:
+
+### {lwgeom} and `atan2`
+```{r}
+xy_spatsoc[, direction := c(lwgeom::st_geod_azimuth(geometry),
+													 as_units(NA, 'rad'))]
+xy_spatsoc[, direction_atan2 := c(atan2(diff(Y), diff(X)), NA)]
+
+range(xy_spatsoc$direction, na.rm = TRUE)
+range(xy_spatsoc$direction_atan2, na.rm = TRUE)
+hist(drop_units(xy_spatsoc$direction) - xy_spatsoc$direction_atan2, 
+     main = 'lwgeom::st_geod_azimuth with geographic - atan2 with projected')
+```
+
+
+### {sftrack}
+```{r}
+met_sftrack <- step_metrics(xy_sftrack)
+
+xy_sftrack$geometry <- st_transform_proj(xy_sftrack$geometry, st_crs(26914))
+met_sftrack_proj <- step_metrics(xy_sftrack)
+
+range(met_sftrack$abs_angle, na.rm = TRUE)
+range(met_sftrack_proj$abs_angle, na.rm = TRUE)
+hist(met_sftrack$abs_angle - met_sftrack_proj$abs_angle, 
+     main = 'sf_track with lonlat - projected')
+```
+
+
+
+## {move2}
+
+```{r}
+az <- mt_azimuth(dplyr::filter(xy_move2,!sf::st_is_empty(xy_move2)))
+xy_move2_proj <- xy_move2
+xy_move2_proj$geometry <- lwgeom::st_transform_proj(xy_move2$geometry, st_crs(32715))
+st_crs(xy_move2_proj$geometry) <- NA
+az_proj_but_na <- mt_azimuth(dplyr::filter(xy_move2_proj,!sf::st_is_empty(xy_move2)))
+
+range(az, na.rm = TRUE)
+range(az_proj_but_na, na.rm = TRUE)
+hist(az - az_proj_but_na, main = 'move2 lonlat - projected but NA CRS')
+# Note: move2 doesn't accept projected coordinates with non-NA CRS
+```
