@@ -16,3 +16,41 @@ library(sftrack)
 library(amt)
 library(move2)
 ```
+
+### Setup data
+
+```{r}
+#| results: "hide"
+# {move2}
+xy_move2 <- mt_read(mt_example())
+
+# {amt}
+data("amt_fisher")
+xy_amt <- make_track(amt_fisher, x_, y_, t_)
+coords_amt <- c('x_', 'y_')
+xy_amt_sf <- st_as_sf(amt_fisher, coords = coords_amt, crs = 5070)
+
+# {spatsoc}
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+group_times(DT, 'datetime', '10 minutes')
+crs <- 32736
+splitBy <- NULL
+timegroup <- 'timegroup'
+threshold_sf <- units::as_units(50, 'm')
+threshold <- 50
+coords <- c('X', 'Y')
+id <- 'ID'
+source('../../spatsoc/R/get_sf.R')
+xy_spatsoc <- get_sf(DT, coords = coords, crs = crs)
+
+# {sftrack}
+data(raccoon)
+raccoon$timestamp <- as.POSIXct(as.POSIXlt(raccoon$timestamp, tz = "EST5EDT"))
+xy_sftrack <- as_sftrack(
+	data = raccoon,
+	coords = c("longitude","latitude"),
+	time = "timestamp",
+	group = "animal_id",
+	crs = 4326)
+```
