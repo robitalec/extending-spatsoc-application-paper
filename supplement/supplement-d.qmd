@@ -1,1 +1,18 @@
 # Supplement D: Comparison of direction calculations {.unnumbered}
+
+## Setup
+
+### Load packages
+
+```{r}
+library(data.table)
+library(units)
+library(lwgeom)
+library(sf)
+
+library(spatsoc)
+
+library(sftrack)
+library(amt)
+library(move2)
+```
