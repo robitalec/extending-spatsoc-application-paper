@@ -539,23 +539,19 @@ direction_to_leader(DT, coords = coords)
 DT <- distance_to_leader(DT, coords = coords)
 DT <- direction_to_leader(DT, coords = coords)
 
-sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
-sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_direction)]
-intercept <- sub[1, centroid_Y - slope * centroid_X]
-intercept_inv <- sub[1, centroid_Y - (-1/slope * centroid_X)]
+DT[, N_by_group := .N, group]
 
-g <- ggplot(sub, aes(X, Y, color = id)) +
-  geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_direction_group), nudge_y = 0.5) +
-  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
-                               ', ',
-                               format(direction_leader, digits = 2),
-                               ' rad')), nudge_y = -0.5) +
+sub_DT <- DT[group == DT[N_by_group > 6, sample(group, 1)]]
+
+g_DT <- ggplot(sub_DT, aes(X, Y, color = ID)) +
+  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
+                 radius = max(position_group_direction)), color = 'grey30',
+             arrow = arrow()) +
+  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
+                 radius = min(position_group_direction)), color = 'grey30') +
   geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
-  geom_abline(slope = slope, intercept = intercept) +
-  geom_abline(slope = -1/slope, intercept = intercept_inv,
-              linewidth = 0.2) +
+  geom_point(size = 2) +
+  geom_text(aes(label = rank_position_group_direction), nudge_y = 2, size = 6) +
   theme_bw() +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
@@ -564,17 +560,17 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   scale_x_continuous(expand = expansion(add = 10))
 
 g_dist <- ggplot(DT, aes(direction_leader, 
-                         factor(rank_dist_along_direction_group))) +
+                         factor(rank_position_group_direction))) +
   stat_halfeye() +
-  labs(x = 'Direction to leader', y = 'Rank along group az') +
+  labs(x = 'Direction to leader', y = 'Rank along group direction') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_along_direction_group))) +
+g_dir <- ggplot(DT, aes(distance_leader, factor(rank_position_group_direction))) +
   stat_halfeye() +
-  labs(x = 'Distance to leader', y = 'Rank along group az') +
+  labs(x = 'Distance to leader', y = 'Rank along group direction') +
   theme_bw()
 
-print(g)
+print(g_DT)
 print(g_dist + g_dir)
 ```
 
