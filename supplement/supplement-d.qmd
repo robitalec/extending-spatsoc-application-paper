@@ -1,0 +1,140 @@
+# Supplement D: Comparison of direction calculations {.unnumbered}
+
+## Setup
+
+### Load packages
+
+```{r}
+library(data.table)
+library(units)
+library(lwgeom)
+library(sf)
+
+library(spatsoc)
+
+library(sftrack)
+library(amt)
+library(move2)
+```
+
+### Setup data
+
+```{r}
+#| results: "hide"
+# {move2}
+xy_move2 <- mt_read(mt_example())
+
+# {amt}
+data("amt_fisher")
+xy_amt <- make_track(amt_fisher, x_, y_, t_)
+coords_amt <- c('x_', 'y_')
+xy_amt_sf <- st_as_sf(amt_fisher, coords = coords_amt, crs = 5070)
+
+# {spatsoc}
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
+group_times(DT, 'datetime', '10 minutes')
+crs <- 32736
+splitBy <- NULL
+timegroup <- 'timegroup'
+threshold_sf <- units::as_units(50, 'm')
+threshold <- 50
+coords <- c('X', 'Y')
+id <- 'ID'
+source('../../spatsoc/R/get_sf.R')
+xy_spatsoc <- get_sf(DT, coords = coords, crs = crs)
+
+# {sftrack}
+data(raccoon)
+raccoon$timestamp <- as.POSIXct(as.POSIXlt(raccoon$timestamp, tz = "EST5EDT"))
+xy_sftrack <- as_sftrack(
+	data = raccoon,
+	coords = c("longitude","latitude"),
+	time = "timestamp",
+	group = "animal_id",
+	crs = 4326)
+```
+
+## Functionality
+
+Comparing direction calculations in established packages, in terms of 
+functionality provided. 
+
+Spatial packages:
+
+- {sf} does not include a direction function since it is not in the Simple Feature standard. 
+- {lwgeom} calculates direction in the function `st_geod_azimuth` using the liblwgeom library. It does not accept NAs or empty geometries. It requires geographic coordinates. 
+
+```{r}
+#| error: TRUE
+# Error: due to empty geometries
+az <- st_geod_azimuth(xy_move2)
+az <- st_geod_azimuth(xy_move2[!st_is_empty(xy_move2),])
+head(az)
+```
+
+```{r}
+#| error: TRUE
+# Error: due to projected coordinates, not longlat
+az <- st_geod_azimuth(xy_amt_sf)
+az <- st_geod_azimuth(st_transform(xy_amt_sf, 4326))
+head(az)
+```
+- {geosphere} calculates direction in [geosphere::bearing](https://github.com/rspatial/geosphere/blob/b215d4e569cc026903638b4653c27bdd7b2e1fb9/src/a_geodesic.cpp#L67-L77). It requires geographic coordinates. 
+
+Applied packages:
+
+- {move2} calculates direction in the function [`mt_azimuth`](https://gitlab.com/bartk/move2/-/blob/main/R/mt_azimuth.R?ref_type=heads) using `lwgeom::st_geod_azimuth` for geographic coordinates or `atan2` for projected coordinates
+- {amt} calculates direction in the function `direction_abs` using `geosphere::bearing` for geographic coordinates and `atan2(diff_y, diff_x)` for projected coordinates
+- {sftrack} calculates direction in the function [`step_direction`](https://github.com/mablab/sftrack/blob/HEAD/R/step_calculation.R#L143-L150) using `atan2` for projected coordinates and `geosphere::bearing` for geographic coordinates. 
+
+All of {move2}, {amt} and {sftrack} calculate direction between a focal individual's locations (=step direction). None of these calculate the direction between an individual and something else - eg. a conspecific, or a group centroid.
+
+
+## Results
+
+Comparing direction calculations in established packages, in terms of 
+results returned:
+
+### {lwgeom} and `atan2`
+```{r}
+xy_spatsoc[, direction := c(lwgeom::st_geod_azimuth(geometry),
+													 as_units(NA, 'rad'))]
+xy_spatsoc[, direction_atan2 := c(atan2(diff(Y), diff(X)), NA)]
+
+range(xy_spatsoc$direction, na.rm = TRUE)
+range(xy_spatsoc$direction_atan2, na.rm = TRUE)
+hist(drop_units(xy_spatsoc$direction) - xy_spatsoc$direction_atan2, 
+     main = 'lwgeom::st_geod_azimuth with geographic - atan2 with projected')
+```
+
+
+### {sftrack}
+```{r}
+met_sftrack <- step_metrics(xy_sftrack)
+
+xy_sftrack$geometry <- st_transform_proj(xy_sftrack$geometry, st_crs(26914))
+met_sftrack_proj <- step_metrics(xy_sftrack)
+
+range(met_sftrack$abs_angle, na.rm = TRUE)
+range(met_sftrack_proj$abs_angle, na.rm = TRUE)
+hist(met_sftrack$abs_angle - met_sftrack_proj$abs_angle, 
+     main = 'sf_track with lonlat - projected')
+```
+
+
+
+## {move2}
+
+```{r}
+az <- mt_azimuth(dplyr::filter(xy_move2,!sf::st_is_empty(xy_move2)))
+xy_move2_proj <- xy_move2
+xy_move2_proj$geometry <- lwgeom::st_transform_proj(xy_move2$geometry, st_crs(32715))
+st_crs(xy_move2_proj$geometry) <- NA
+az_proj_but_na <- mt_azimuth(dplyr::filter(xy_move2_proj,!sf::st_is_empty(xy_move2)))
+
+range(az, na.rm = TRUE)
+range(az_proj_but_na, na.rm = TRUE)
+hist(az - az_proj_but_na, main = 'move2 lonlat - projected but NA CRS')
+# Note: move2 doesn't accept projected coordinates with non-NA CRS
+```
