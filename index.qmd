@@ -321,8 +321,7 @@ DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 
 # Spatial grouping with timegroup
-DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
-                coords = coords, timegroup = 'timegroup')
+DT <- group_pts(DT, threshold = spatial_threshold, id = id, timegroup = 'timegroup')
 
 tinytable::tt(DT[order(timegroup)][1:5])
 ```
@@ -338,7 +337,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -353,7 +351,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -367,7 +364,6 @@ tinytable::tt(interindividual_dist[1:5])
 nearest_neighbours <- edge_nn(
   DT,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -380,7 +376,6 @@ nearest_neighbours <- edge_nn(
 nearest_neighbours <- edge_nn(
   DT,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -401,21 +396,22 @@ spatiotemporal groups.
 
 After identifying spatiotemporal groups with eg. `group_pts`, we 
 can measure the group centroid. The group centroid is defined as the 
-the mean of individual locations in a group. 
+the mean of individual locations in a group.
+<!-- TODO: describe spatial measures -->
 
 ```{r}
 #| eval: false
 #| echo: true
-centroid_group(DT, coords = coords)
+centroid_group(DT)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
 DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
-                coords = coords, timegroup = 'timegroup')
-cent <- centroid_group(DT, coords = coords)
-tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, centroid_X, centroid_Y)])
+                timegroup = 'timegroup')
+cent <- centroid_group(DT)
+tinytable::tt(cent[1:5, .(ID, datetime, timegroup, group, geometry, centroid)])
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
@@ -424,22 +420,23 @@ individual to the group centroid. The direction to group centroid is the absolut
 direction from the focal individual to the group centroid. The rank distance
 to group centroid is the ordinal rank of individuals' distances to the 
 group centroid. 
+<!-- TODO: describe spatial measures -->
 <!-- TODO: insert refs with examples of biological interpretation of distance and direction to  -->
 <!-- group centroid.  -->
 
 ```{r}
 #| echo: true
 #| eval: false
-distance_to_centroid(DT, coords, return_rank = TRUE)
-direction_to_centroid(DT, coords)
+distance_to_centroid(DT, return_rank = TRUE)
+direction_to_centroid(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- distance_to_centroid(cent, coords, return_rank = TRUE)
-dist_dir_cent <- direction_to_centroid(cent, coords)
+dist_dir_cent <- distance_to_centroid(cent, return_rank = TRUE)
+dist_dir_cent <- direction_to_centroid(cent)
 g1 <- ggplot(dist_dir_cent) +
   geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
@@ -456,6 +453,7 @@ group direction. To do so, we rotate the coordinate system around the
 group centroid by the mean direction of all individuals in the group. Then 
 we take the distance along this new axis to the measure of front-back position
 within the group. 
+<!-- TODO: describe spatial measures -->
 <!-- TODO: refs where this is used, extended biological interpretation -->
 
 The position within group is the position along the front-to-back axis of the
@@ -466,23 +464,23 @@ in the first rank position within group. The distance to leader is the
 geographic distance from the focal individual to the group's leader. The direction to 
 leader is the absolute direction from the focal individual to the group's leader. 
 
+<!-- TODO: describe spatial measures -->
+
 ```{r}
 #| eval: false
 #| echo: true
-projection <- 32636
-direction_step(DT, id = id, coords = coords, projection = projection)
-leader_direction_group(DT, coords = coords, return_rank = TRUE)
+direction_step(DT, id = id)
+leader_direction_group(DT, return_rank = TRUE)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
 #| warning: false
-projection <- 32636
-direction_step(DT, id = id, coords = coords, projection = projection)
+direction_step(DT, id = id)
 direction_group(DT)
-centroid_group(DT, coords = coords)
-leader_direction_group(DT, coords = coords, return_rank = TRUE)
+centroid_group(DT)
+leader_direction_group(DT, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
@@ -535,8 +533,8 @@ group.
 ```{r}
 #| eval: false
 #| echo: true
-distance_to_leader(DT, coords = coords)
-direction_to_leader(DT, coords = coords)
+distance_to_leader(DT)
+direction_to_leader(DT)
 ```
 
 
@@ -544,8 +542,8 @@ direction_to_leader(DT, coords = coords)
 #| eval: true
 #| echo: false
 #| warning: false
-DT <- distance_to_leader(DT, coords = coords)
-DT <- direction_to_leader(DT, coords = coords)
+DT <- distance_to_leader(DT)
+DT <- direction_to_leader(DT)
 
 DT[, N_by_group := .N, group]
 
@@ -687,6 +685,7 @@ print(g / (g2.1 * #/ g2.2 / g2.3 *
 
 Next, we can use individuals' directions to explore interindividual direction,
 directional alignment and group polarization.  
+<!-- TODO: describe spatial measures -->
 
 <!-- TODO: references -->
 <!-- related eg. direction between individuals (always L / R), polarization of flock, -->
@@ -733,7 +732,6 @@ directional_align <- edge_alignment(
   threshold = NULL,
   id = id,
   timegroup = 'timegroup',
-  coords = coords,
   returnDist = TRUE,
   fillNA = TRUE
 )
@@ -775,6 +773,7 @@ print(g / g2 & theme_bw())
 
 
 Interindividual direction measures the absolute direction between individuals. 
+<!-- TODO: describe spatial measures -->
 
 (TODO)
 <!-- TODO: interindividual difference in direction code and example -->
@@ -818,7 +817,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = 100,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -838,7 +836,7 @@ fusion_events <- fusion_id(
 #| echo: false
 DT_fogo <- DT_fogo[timegroup < 50]
 id <- 'id'
-direction_step(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
+direction_step(DT_fogo, id = id)
 dir_delay_fogo <- edge_delay(DT_fogo, id = id, edges = edges_fogo, window = 2)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
