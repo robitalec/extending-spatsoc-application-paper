@@ -279,6 +279,10 @@ temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
+utm <- 32736
+
+# Setup DT for geometry interface
+get_geometry(DT, coords = coords, crs = utm)
 
 # Temporal grouping
 group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
@@ -307,6 +311,10 @@ temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
+utm <- 32736
+
+# Setup DT for geometry interface
+get_geometry(DT, coords = coords, crs = utm)
 
 # Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
