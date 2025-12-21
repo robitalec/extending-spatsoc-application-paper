@@ -484,23 +484,28 @@ leader_direction_group(DT, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_direction)]
+# TODO: as.numeric since tan on units returns units
+slope <- sub_DT[1, as.numeric(tan(group_direction))]
+sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
+# TODO: fix intercept / inv from centroid_X
 intercept <- sub_DT[1, centroid_Y - slope * centroid_X]
 intercept_inv <- sub_DT[1, centroid_Y - (-1/slope * centroid_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_along_direction_group, digits = 1),
-                               ' (', rank_dist_along_direction_group, ')')),
-                nudge_y = 0.5) +
-  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
+  geom_text(aes(geometry = geometry, 
+                   label = paste0(format(position_group_direction, digits = 1),
+                               ' (', rank_position_group_direction, ')')),
+                nudge_y = 0.5, data = sub_DT) +
+  # geom_sf(color = 'black', data = sub_DT, aes(geometry = centroid)) +
+  # geom_sf(color = 'black', data = sub_DT, aes(geometry = geometry)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
               linewidth = 0.2) +
   theme_bw() +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_fixed() +
+  coord_sf() +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
