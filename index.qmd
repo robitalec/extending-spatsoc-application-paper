@@ -511,17 +511,17 @@ g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
 
 DT[, N_by_group := .N, group]
 g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(dist_along_direction_group), binwidth = 1) +
+  geom_histogram(aes(position_group_direction), binwidth = 1) +
   labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_dist_along_direction_group), binwidth = 1) +
+  geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
   labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(dist_along_direction_group, factor(rank_dist_along_direction_group))) +
+  stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
