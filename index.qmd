@@ -441,7 +441,7 @@ g1 <- ggplot(dist_dir_cent) +
   geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g2 <- ggplot(dist_dir_cent) +
-  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
+  stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
 g1 + g2
