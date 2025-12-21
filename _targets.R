@@ -9,7 +9,9 @@ targets::tar_source('R')
 fp_met_thes <- file.path('map', 'metric-thesaurus.csv')
 
 
-c(
+
+# Targets: Review ---------------------------------------------------------
+targets_review <- c(
   tar_file_read(
     raw_review,
     file.path('map', 'review.csv'),
