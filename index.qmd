@@ -784,6 +784,7 @@ Interindividual direction measures the absolute direction between individuals.
 <!-- TODO: describe spatial measures -->
 
 ```{r}
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 dyad_directions <- edge_direction(
   interindividual_dist,
   DT,
