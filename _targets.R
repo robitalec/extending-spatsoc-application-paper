@@ -1,5 +1,11 @@
+# === spatsoc paper 2 -----------------------------------------------------
+# Alec L. Robitaille
+
+
+# Source functions, packages
 targets::tar_source('R')
 
+# Variables
 fp_met_thes <- file.path('map', 'metric-thesaurus.csv')
 
 
