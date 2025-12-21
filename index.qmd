@@ -554,6 +554,8 @@ DT[, N_by_group := .N, group]
 
 sub_DT <- DT[group == DT[N_by_group > 6, sample(group, 1)]]
 
+# TODO: fix geom_spoke with sfc column
+sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
 g_DT <- ggplot(sub_DT, aes(X, Y, color = ID)) +
   geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
                  radius = max(position_group_direction)), color = 'grey30',
