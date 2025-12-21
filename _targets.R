@@ -76,3 +76,11 @@ targets_review <- c(
     path = '.'
   )
 )
+
+
+
+# Targets: Figures --------------------------------------------------------
+targets_figures <- c(
+
+)
+
