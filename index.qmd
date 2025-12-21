@@ -775,8 +775,14 @@ print(g / g2 & theme_bw())
 Interindividual direction measures the absolute direction between individuals. 
 <!-- TODO: describe spatial measures -->
 
-(TODO)
-<!-- TODO: interindividual difference in direction code and example -->
+```{r}
+dyad_directions <- edge_direction(
+  interindividual_dist,
+  DT,
+  id = 'ID',
+  timegroup = 'timegroup'
+)
+```
 
 
 ## Lagged differences in direction
