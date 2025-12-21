@@ -628,14 +628,15 @@ fusion_events <- fusion_id(
 #| fig-height: 10
 max_tg <- 50
 threshold <- 50
-id <- 'id'
-coords <- c('x_proj', 'y_proj')
+id_fogo <- 'id'
+coords_fogo <- c('x_proj', 'y_proj')
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
 DT_fogo <- group_times(DT_fogo, 'datetime', '10 minutes')
 DT_fogo <- setorder(DT_fogo, timegroup)
+# TODO: rm reassigns where not needed
 edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
-                   id = id, coords = coords,
+                   id = id_fogo, coords = coords_fogo,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
 edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
 edges_fogo <- fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
