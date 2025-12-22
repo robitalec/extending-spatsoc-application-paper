@@ -276,7 +276,7 @@ targets_review <- c(
     dl_metric_thesaurus,
     write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                      sheet = 'metric-thesaurus',
-                     file = fp_met_thes),
+                     file = filepath_thesaurus),
     cue = tar_cue('always')
   ),
   tar_target(
