@@ -52,6 +52,51 @@ allow_split <- FALSE
 window <- 3
 
 
+
+# Targets: Spatiotemporal groups ------------------------------------------
+targets_spatiotemporal_groups <- c(
+  tar_target(
+    input_data,
+    fread(filepath),
+    description = 'fread(filepath)'
+  ),
+
+  tar_target(
+    prepared_geometry,
+    get_geometry(input_data, coords = coords, crs = utm),
+    description = 'get_geometry()'
+  ),
+
+  tar_target(
+    prepared_dates,
+    prep_dates(
+      DT = prepared_geometry,
+      datetime = datetime
+    ),
+    description = 'prep_dates()'
+  ),
+
+  tar_target(
+    temporal_groups,
+    group_times(
+      DT = prepared_dates,
+      datetime = datetime,
+      threshold = temporal_threshold
+    ),
+    description = 'group_times()'
+  ),
+
+  tar_target(
+    spatial_groups,
+    group_pts(
+      DT = temporal_groups,
+      threshold = spatial_threshold,
+      id = id,
+      timegroup = timegroup
+    ),
+    description = 'group_pts()'
+  )
+)
 # Targets: Review ---------------------------------------------------------
 targets_review <- c(
   tar_file_read(
