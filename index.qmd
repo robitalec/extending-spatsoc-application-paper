@@ -632,14 +632,14 @@ id_fogo <- 'id'
 coords_fogo <- c('x_proj', 'y_proj')
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
-DT_fogo <- group_times(DT_fogo, 'datetime', '10 minutes')
-DT_fogo <- setorder(DT_fogo, timegroup)
-# TODO: rm reassigns where not needed
+get_geometry(DT_fogo, coords_fogo, DT_fogo[1, epsg_proj])
+group_times(DT_fogo, 'datetime', '10 minutes')
+setorder(DT_fogo, timegroup)
 edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
                    id = id_fogo, coords = coords_fogo,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
-edges_fogo <- fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
+dyad_id(edges_fogo, 'ID1', 'ID2')
+fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
 sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
