@@ -54,22 +54,22 @@ targets_review <- c(
   ),
   tar_target(
     review,
-    prep_review(
+    review_prep(
       raw_review,
       metric_synonyms
     )
   ),
   tar_target(
     geocoded,
-    geocode_studies(review)
+    review_geocode(review)
   ),
   tar_target(
     taxized,
-    taxize_studies(review)
+    review_taxize(review)
   ),
   tar_target(
     counted,
-    count_studies(review)
+    review_count(review)
   ),
   tar_quarto(
     site,
