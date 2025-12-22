@@ -854,9 +854,8 @@ fusion_events <- fusion_id(
 #| eval: true
 #| echo: false
 DT_fogo <- DT_fogo[timegroup < 50]
-id <- 'id'
-direction_step(DT_fogo, id = id)
-dir_delay_fogo <- edge_delay(DT_fogo, id = id, edges = edges_fogo, window = 2)
+direction_step(DT_fogo, id = id_fogo)
+dir_delay_fogo <- edge_delay(DT_fogo, id = id_fogo, edges = edges_fogo, window = 2)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
 g <- ggplot(sub_fogo,
