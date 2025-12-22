@@ -793,6 +793,10 @@ dyad_directions <- edge_direction(
 )
 ```
 
+#| echo: false
+ggplot(dyad_directions[
+  timegroup %in% DT[group == sel_group, unique(timegroup)]]) +
+  geom_point(aes(distance, direction_dyad))
 
 ## Lagged differences in direction
 
