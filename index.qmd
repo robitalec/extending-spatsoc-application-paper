@@ -865,8 +865,10 @@ g <- ggplot(sub_fogo,
              data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
   theme_bw()
 g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
-  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
-  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
+  geom_point(aes(timegroup, interaction(ID1, ID2), fill = direction_delay),
+             shape = 23, color = 'black',
+             size = 5) +
+  scale_fill_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
   theme_bw()
 
 print(g / g2)
