@@ -257,6 +257,14 @@ targets_intragroup_dynamics <- c(
   )
 )
 
+
+
+
+# Targets: Figures --------------------------------------------------------
+targets_figures <- c(
+
+)
+
 # Targets: Review ---------------------------------------------------------
 targets_review <- c(
   tar_file_read(
@@ -326,10 +334,6 @@ targets_review <- c(
 
 
 
-# Targets: Figures --------------------------------------------------------
-targets_figures <- c(
-
-)
 
 
 # Targets: All ------------------------------------------------------------
