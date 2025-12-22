@@ -1,5 +1,11 @@
-prep_review <- function(DT, metric_synonyms = NULL) {
-  setnames(DT, make_clean_names(colnames(DT)))
+#' Review prep
+#'
+#' @param DT input data.table
+#' @param metric_synonyms synonyms of metrics
+#'
+#' @returns prepared review data.table
+review_prep <- function(DT, metric_synonyms = NULL) {
+  data.table::setnames(DT, janitor::make_clean_names(colnames(DT)))
 
   if (!is.null(metric_synonyms)) {
     DT[, metric_agg := metric_synonyms[
