@@ -597,6 +597,7 @@ specific definitions and at the same time easily compare to results to other
 definitions. 
 
 Function arguments: 
+
 - `threshold`: spatial distance threshold to establish a fusion event
 - `n_min_length`: the minimum number of successive fixes that are required to 
 establish a fusion event
