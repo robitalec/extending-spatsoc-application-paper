@@ -175,19 +175,6 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
-    distance_edges,
-    edge_dist(
-      DT = temporal_groups,
-      threshold = spatial_threshold,
-      id = id,
-      timegroup = timegroup,
-      returnDist = returnDist,
-      fillNA = fillNA
-    ),
-    description = 'edge_dist()'
-  ),
-
-  tar_target(
     id_dyads,
     dyad_id(
       DT = distance_edges,
