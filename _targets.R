@@ -325,12 +325,19 @@ targets_review <- c(
   tar_target(
     counted,
     review_count(review)
-  ),
-  tar_quarto(
-    site,
-    path = '.'
   )
 )
+
+
+
+# Targets: Quarto ---------------------------------------------------------
+# TODO: quarto render
+# targets_quarto <- c(
+#   tar_quarto(
+#     site,
+#     path = '.'
+#   )
+# )
 
 
 
