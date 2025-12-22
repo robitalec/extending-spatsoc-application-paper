@@ -122,6 +122,141 @@ targets_distance_edge_lists <- c(
 )
 
 
+
+# Targets: Intragroup dynamics --------------------------------------------
+targets_intragroup_dynamics <- c(
+  tar_target(
+    step_directions,
+    direction_step(
+      DT = spatial_groups,
+      id = id
+    )
+  ),
+
+  tar_target(
+    group_directions,
+    direction_group(
+      DT = step_directions
+    ),
+    description = 'direction_group()'
+  ),
+
+  tar_target(
+    group_centroids,
+    centroid_group(
+      DT = group_directions
+    ),
+    description = 'centroid_group()'
+  ),
+
+  tar_target(
+    group_direction_leaders,
+    leader_direction_group(
+      DT = group_centroids,
+      return_rank = TRUE
+    ),
+    description = 'leader_direction_group()'
+  ),
+
+  tar_target(
+    direction_to_group_dir_leaders,
+    direction_to_leader(
+      DT = group_direction_leaders
+    ),
+    description = 'direction_to_leader()'
+  ),
+
+  tar_target(
+    distance_to_group_dir_leaders,
+    distance_to_leader(
+      group_direction_leaders
+    ),
+    description = 'distance_to_leader()'
+  ),
+
+  tar_target(
+    distance_edges,
+    edge_dist(
+      DT = temporal_groups,
+      threshold = spatial_threshold,
+      id = id,
+      timegroup = timegroup,
+      returnDist = returnDist,
+      fillNA = fillNA
+    ),
+    description = 'edge_dist()'
+  ),
+
+  tar_target(
+    id_dyads,
+    dyad_id(
+      DT = distance_edges,
+      id1 = id1,
+      id2 = id2
+    ),
+    description = 'dyad_id()'
+  ),
+
+  tar_target(
+    id_fusions,
+    fusion_id(
+      edges = id_dyads,
+      threshold = spatial_threshold,
+      n_min_length = n_min_length,
+      n_max_missing = n_max_missing,
+      allow_split = allow_split
+    ),
+    description = 'fusion_id()'
+  ),
+
+  tar_target(
+    delay_edges,
+    edge_delay(
+      edges = id_fusions,
+      DT = step_directions,
+      window = window,
+      id = id
+    ),
+    description = 'edge_delay()'
+  ),
+
+  tar_target(
+    edge_delay_leaders,
+    leader_edge_delay(
+      edges = delay_edges
+    ),
+    description = 'leader_edge_delay()'
+  ),
+
+  tar_target(
+    fusion_centroids,
+    centroid_fusion(
+      edges = id_fusions,
+      DT = temporal_groups,
+      id = id
+    ),
+    description = 'centroid_fusion()'
+  ),
+
+  tar_target(
+    dyad_centroids,
+    centroid_dyad(
+      edges = id_dyads,
+      DT = temporal_groups,
+      id = id
+    ),
+    description = 'centroid_dyad()'
+  ),
+
+  tar_target(
+    polarization,
+    direction_polarization(
+      DT = step_directions
+    ),
+    description = 'direction_polarization()'
+  )
+)
+
 # Targets: Review ---------------------------------------------------------
 targets_review <- c(
   tar_file_read(
