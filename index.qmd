@@ -793,10 +793,19 @@ dyad_directions <- edge_direction(
 )
 ```
 
+```{r}
 #| echo: false
-ggplot(dyad_directions[
-  timegroup %in% DT[group == sel_group, unique(timegroup)]]) +
-  geom_point(aes(distance, direction_dyad))
+dyad_directions[DT, geometry := geometry,
+                on = .(ID1 == ID, timegroup == timegroup)]
+sel_DT <- DT[group == sel_group]
+sub_dirs <- dyad_directions[timegroup %in% sel_DT$timegroup & ID1 %in% sel_DT$ID][
+                              dyadID %in% first(dyadID)]
+sub_dirs[, geometry := st_sfc(geometry, recompute_bbox = TRUE)]
+ggplot(sub_dirs) +
+  geom_sf(aes(geometry = geometry)) + 
+  geom_sf_text(aes(geometry = geometry, label = round(direction_dyad, 2))) +
+  theme_void()
+```
 
 ## Lagged differences in direction
 
