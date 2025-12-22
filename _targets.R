@@ -107,7 +107,8 @@ targets_distance_edge_lists <- c(
       DT = temporal_groups,
       threshold = spatial_threshold,
       id = id,
-      timegroup = timegroup
+      timegroup = timegroup,
+      returnDist = TRUE
     )
   ),
 
