@@ -141,12 +141,12 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$
 ## Position within group, rank position within group, time spent leading group, distance and direction to leader
 
 The position within group is the position along the front-to-back axis of the
-group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+group's direction (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's direction (eg.
 [@Burns_2012]). The time spent leading group is an aggregate metric of the time
 in the first rank position within group. The distance to leader is the 
 geographic distance to the focal individual's group leader. The direction to 
-leader is the absolute bearing to the focal individual's group leader. 
+leader is the absolute direction to the focal individual's group leader. 
 
 <!-- 
 - front-back distance along group's axis of movement [@Quera_2023]
@@ -171,22 +171,22 @@ using focal obs or other tools
 The group centroid is the mean of individual locations in a group. The
 distance to group centroid is the distance between an individual's location
 and the group centroid. The direction to group centroid is the absolute
-bearing from an individual's location and the group centroid. The rank distance
+direction from an individual's location and the group centroid. The rank distance
 to group centroid is the ordinal rank of individuals' distances from the 
 group centroid. 
 
 
 ## Polarization, directional alignment and interindividual direction
 
-Polarization measures the uniformity of bearings in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that bearings point
-in different directions and values near 1 indicate that bearings point in 
+Polarization measures the uniformity of directions in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
+in different directions and values near 1 indicate that directions point in 
 similar directions. 
 
 ```{r}
 #| echo: true
 
-# Random bearings (radians)
+# Random directions (radians)
 h <- runif(25, 0, 2 * pi)
 
 library(swaRm)
@@ -199,8 +199,8 @@ r.test(h)
 circ.range(h)
 ```
 
-Directional alignment measures the pairwise differences in bearing between
-individuals. Interindividual direction measures the pairwise bearings
+Directional alignment measures the pairwise differences in direction between
+individuals. Interindividual direction measures the pairwise directions
 between individual locations. 
 
 ```{r}
@@ -279,6 +279,10 @@ temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
+utm <- 32736
+
+# Setup DT for geometry interface
+get_geometry(DT, coords = coords, crs = utm)
 
 # Temporal grouping
 group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
@@ -307,14 +311,17 @@ temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
+utm <- 32736
+
+# Setup DT for geometry interface
+get_geometry(DT, coords = coords, crs = utm)
 
 # Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
 
 # Spatial grouping with timegroup
-DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
-                coords = coords, timegroup = 'timegroup')
+DT <- group_pts(DT, threshold = spatial_threshold, id = id, timegroup = 'timegroup')
 
 tinytable::tt(DT[order(timegroup)][1:5])
 ```
@@ -330,7 +337,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -345,7 +351,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -359,7 +364,6 @@ tinytable::tt(interindividual_dist[1:5])
 nearest_neighbours <- edge_nn(
   DT,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -372,7 +376,6 @@ nearest_neighbours <- edge_nn(
 nearest_neighbours <- edge_nn(
   DT,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE
 )
@@ -393,50 +396,52 @@ spatiotemporal groups.
 
 After identifying spatiotemporal groups with eg. `group_pts`, we 
 can measure the group centroid. The group centroid is defined as the 
-the mean of individual locations in a group. 
+the mean of individual locations in a group.
+<!-- TODO: describe spatial measures -->
 
 ```{r}
 #| eval: false
 #| echo: true
-group_centroid(DT, coords = coords)
+centroid_group(DT)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
 DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
-                coords = coords, timegroup = 'timegroup')
-cent <- group_centroid(DT, coords = coords)
-tinytable::tt(cent[1:5, .(ID, X, Y, datetime, timegroup, group, group_mean_X, group_mean_Y)])
+                timegroup = 'timegroup')
+cent <- centroid_group(DT)
+tinytable::tt(cent[1:5, .(ID, datetime, timegroup, group, geometry, centroid)])
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
 The distance to group centroid is the distance between from the focal
 individual to the group centroid. The direction to group centroid is the absolute
-azimuth from the focal individual to the group centroid. The rank distance
+direction from the focal individual to the group centroid. The rank distance
 to group centroid is the ordinal rank of individuals' distances to the 
 group centroid. 
+<!-- TODO: describe spatial measures -->
 <!-- TODO: insert refs with examples of biological interpretation of distance and direction to  -->
 <!-- group centroid.  -->
 
 ```{r}
 #| echo: true
 #| eval: false
-distance_to_group_centroid(DT, coords, return_rank = TRUE)
-bearing_to_group_centroid(DT, coords)
+distance_to_centroid(DT, return_rank = TRUE)
+direction_to_centroid(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- distance_to_group_centroid(cent, coords, return_rank = TRUE)
-dist_dir_cent <- bearing_to_group_centroid(cent, coords)
+dist_dir_cent <- distance_to_centroid(cent, return_rank = TRUE)
+dist_dir_cent <- direction_to_centroid(cent)
 g1 <- ggplot(dist_dir_cent) +
-  geom_histogram(aes(bearing_centroid), bins = 30) +
+  geom_histogram(aes(direction_centroid), bins = 30) +
   labs(x = 'Direction to group centroid', y = '')
 g2 <- ggplot(dist_dir_cent) +
-  stat_halfeye(aes(dist_group_centroid, factor(rank_dist_group_centroid))) +
+  stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
   labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
 g1 + g2
@@ -445,71 +450,78 @@ g1 + g2
 After considering how individuals are positioned relative to the group centroid, 
 we can also measure how individuals are positioned relative to the mean 
 group direction. To do so, we rotate the coordinate system around the 
-group centroid by the mean bearing of all individuals in the group. Then 
+group centroid by the mean direction of all individuals in the group. Then 
 we take the distance along this new axis to the measure of front-back position
 within the group. 
+<!-- TODO: describe spatial measures -->
 <!-- TODO: refs where this is used, extended biological interpretation -->
 
 The position within group is the position along the front-to-back axis of the
-group's bearing (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's bearing (eg.
+group's direction (eg. [@Quera_2023; @Harel_2021]). The rank position within group
+is the ordinal rank along the front-to-back axis of the group's direction (eg.
 [@Burns_2012]). The time spent leading group is an aggregate metric of the time
 in the first rank position within group. The distance to leader is the 
 geographic distance from the focal individual to the group's leader. The direction to 
-leader is the absolute azimuth from the focal individual to the group's leader. 
+leader is the absolute direction from the focal individual to the group's leader. 
+
+<!-- TODO: describe spatial measures -->
 
 ```{r}
 #| eval: false
 #| echo: true
-projection <- 32636
-az(DT, id = id, coords = coords, projection = projection)
-position_within_group(DT, coords = coords, return_rank = TRUE)
+direction_step(DT, id = id)
+leader_direction_group(DT, return_rank = TRUE)
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
 #| warning: false
-projection <- 32636
-bearing_sequential(DT, id = id, coords = coords, projection = projection)
-group_bearing(DT)
-group_leader(DT, coords = coords, return_rank = TRUE)
+direction_step(DT, id = id)
+direction_group(DT)
+centroid_group(DT)
+leader_direction_group(DT, return_rank = TRUE)
 
 sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
 sub_DT <- DT[group == sel_group]
-slope <- sub_DT[1, tan(group_mean_bearing)]
-intercept <- sub_DT[1, group_mean_Y - slope * group_mean_X]
-intercept_inv <- sub_DT[1, group_mean_Y - (-1/slope * group_mean_X)]
+# TODO: as.numeric since tan on units returns units
+slope <- sub_DT[1, as.numeric(tan(group_direction))]
+sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
+# TODO: fix intercept / inv from centroid_X
+intercept <- sub_DT[1, centroid_Y - slope * centroid_X]
+intercept_inv <- sub_DT[1, centroid_Y - (-1/slope * centroid_X)]
 
 g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
   geom_point(size = 0.8) +
-  geom_text(aes(label = paste0(format(dist_along_group_bearing, digits = 1),
-                               ' (', rank_dist_along_group_bearing, ')')),
-                nudge_y = 0.5) +
-  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
+  geom_text(aes(geometry = geometry, 
+                   label = paste0(format(position_group_direction, digits = 1),
+                               ' (', rank_position_group_direction, ')')),
+                nudge_y = 0.5, data = sub_DT) +
+  # geom_sf(color = 'black', data = sub_DT, aes(geometry = centroid)) +
+  # geom_sf(color = 'black', data = sub_DT, aes(geometry = geometry)) +
   geom_abline(slope = slope, intercept = intercept) +
   geom_abline(slope = -1/slope, intercept = intercept_inv,
               linewidth = 0.2) +
   theme_bw() +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_fixed() +
+  coord_sf() +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
 DT[, N_by_group := .N, group]
 g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(dist_along_group_bearing), binwidth = 1) +
+  geom_histogram(aes(position_group_direction), binwidth = 1) +
   labs(x = 'Distance along group az', y = '') +
   theme_bw()
 
 g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_dist_along_group_bearing), binwidth = 1) +
+  geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
   labs(x = 'Rank distance along group az', y = '') +
   theme_bw()
 
 g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(dist_along_group_bearing, factor(rank_dist_along_group_bearing))) +
+  stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
   labs(x = 'Distance along group az', y = 'Rank distance along group az') +
   theme_bw()
 
@@ -526,8 +538,8 @@ group.
 ```{r}
 #| eval: false
 #| echo: true
-distance_to_leader(DT, coords = coords)
-bearing_to_leader(DT, coords = coords)
+distance_to_leader(DT)
+direction_to_leader(DT)
 ```
 
 
@@ -535,26 +547,24 @@ bearing_to_leader(DT, coords = coords)
 #| eval: true
 #| echo: false
 #| warning: false
-DT <- distance_to_leader(DT, coords = coords)
-DT <- bearing_to_leader(DT, coords = coords)
+DT <- distance_to_leader(DT)
+DT <- direction_to_leader(DT)
 
-sel_group <- DT[N_by_group > 3, sample(group, 1)]
-sub <- DT[group == sel_group]
-slope <- sub[1, tan(group_mean_bearing)]
-intercept <- sub[1, group_mean_Y - slope * group_mean_X]
-intercept_inv <- sub[1, group_mean_Y - (-1/slope * group_mean_X)]
+DT[, N_by_group := .N, group]
 
-g <- ggplot(sub, aes(X, Y, color = id)) +
-  geom_point(size = 0.8) +
-  geom_text(aes(label = rank_dist_along_group_bearing), nudge_y = 0.5) +
-  geom_text(aes(label = paste0(format(dist_leader, digits = 2),
-                               ', ',
-                               format(bearing_leader, digits = 2),
-                               ' rad')), nudge_y = -0.5) +
-  geom_point(color = 'black', aes(group_mean_X, group_mean_Y)) +
-  geom_abline(slope = slope, intercept = intercept) +
-  geom_abline(slope = -1/slope, intercept = intercept_inv,
-              linewidth = 0.2) +
+sub_DT <- DT[group == DT[N_by_group > 6, sample(group, 1)]]
+
+# TODO: fix geom_spoke with sfc column
+sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
+g_DT <- ggplot(sub_DT, aes(X, Y, color = ID)) +
+  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
+                 radius = max(position_group_direction)), color = 'grey30',
+             arrow = arrow()) +
+  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
+                 radius = min(position_group_direction)), color = 'grey30') +
+  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
+  geom_point(size = 2) +
+  geom_text(aes(label = rank_position_group_direction), nudge_y = 2, size = 6) +
   theme_bw() +
   labs(x = '', y = '') +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
@@ -562,18 +572,18 @@ g <- ggplot(sub, aes(X, Y, color = id)) +
   guides(color = 'none') +
   scale_x_continuous(expand = expansion(add = 10))
 
-g_dist <- ggplot(DT, aes(bearing_leader, 
-                         factor(rank_dist_along_group_bearing))) +
+g_dist <- ggplot(DT, aes(direction_leader, 
+                         factor(rank_position_group_direction))) +
   stat_halfeye() +
-  labs(x = 'Direction to leader', y = 'Rank along group az') +
+  labs(x = 'Direction to leader', y = 'Rank along group direction') +
   theme_bw()
 
-g_dir <- ggplot(DT, aes(dist_leader, factor(rank_dist_along_group_bearing))) +
+g_dir <- ggplot(DT, aes(distance_leader, factor(rank_position_group_direction))) +
   stat_halfeye() +
-  labs(x = 'Distance to leader', y = 'Rank along group az') +
+  labs(x = 'Distance to leader', y = 'Rank along group direction') +
   theme_bw()
 
-print(g)
+print(g_DT)
 print(g_dist + g_dir)
 ```
 
@@ -587,6 +597,7 @@ specific definitions and at the same time easily compare to results to other
 definitions. 
 
 Function arguments: 
+
 - `threshold`: spatial distance threshold to establish a fusion event
 - `n_min_length`: the minimum number of successive fixes that are required to 
 establish a fusion event
@@ -618,17 +629,18 @@ fusion_events <- fusion_id(
 #| fig-height: 10
 max_tg <- 50
 threshold <- 50
-id <- 'id'
-coords <- c('x_proj', 'y_proj')
+id_fogo <- 'id'
+coords_fogo <- c('x_proj', 'y_proj')
 
 DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
-DT_fogo <- group_times(DT_fogo, 'datetime', '10 minutes')
-DT_fogo <- setorder(DT_fogo, timegroup)
+get_geometry(DT_fogo, coords_fogo, DT_fogo[1, epsg_proj])
+group_times(DT_fogo, 'datetime', '10 minutes')
+setorder(DT_fogo, timegroup)
 edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
-                   id = id, coords = coords,
+                   id = id_fogo, coords = coords_fogo,
                    timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-edges_fogo <- dyad_id(edges_fogo, 'ID1', 'ID2')
-edges_fogo <- fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
+dyad_id(edges_fogo, 'ID1', 'ID2')
+fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
 sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
@@ -678,35 +690,36 @@ print(g / (g2.1 * #/ g2.2 / g2.3 *
 ```
 
 
-## Bearings
+## Directions
 
-Next, we can use individuals' bearings to explore interindividual direction,
+Next, we can use individuals' directions to explore interindividual direction,
 directional alignment and group polarization.  
+<!-- TODO: describe spatial measures -->
 
 <!-- TODO: references -->
 <!-- related eg. direction between individuals (always L / R), polarization of flock, -->
 <!-- etc -->
 
-Polarization measures the uniformity of absolute azimuth in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that azimuths point
-in different directions and values near 1 indicate that azimuths point in 
+Polarization measures the uniformity of absolute direction in a group of individuals 
+[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
+in different directions and values near 1 indicate that directions point in 
 similar directions. 
 
 ```{r}
 #| echo: true
 #| eval: false
-# Calculate polarization using azimuth from az_sequential()
-bearing_polarization(DT)
+# Calculate polarization using direction from az_sequential()
+direction_polarization(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-DT <- bearing_polarization(DT)
+DT <- direction_polarization(DT)
 
 sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
 sub <- DT[group %in% sel_group]
-g <- ggplot(sub, aes(bearing)) +
+g <- ggplot(sub, aes(direction)) +
   stat_dotsinterval(binwidth = 0.1, overflow = "keep", dotsize = 1) +
   geom_text(x = 0, y = 0.75,
             aes(label = format(polarization, digits = 2))) +
@@ -717,18 +730,17 @@ print(g)
 ```
 
 Directional alignment is the relative difference between two individuals' 
-azimuths. Given the similarity to `edge_dist`, this functionality
-is provided under a similar name: `edge_az`. 
+directions. Given the similarity to `edge_dist`, this functionality
+is provided under a similar name: `edge_alignment`. 
 
 ```{r}
 #| echo: true
 #| eval: false
-directional_align <- edge_az(
+directional_align <- edge_alignment(
   DT,
   threshold = NULL,
   id = id,
   timegroup = 'timegroup',
-  coords = coords,
   returnDist = TRUE,
   fillNA = TRUE
 )
@@ -736,31 +748,31 @@ directional_align <- edge_az(
 
 ```{r}
 #| echo: false
-#| eval: false
+#| eval: true
 # TODO: fix
-directional_align <- edge_az(DT, threshold = NULL, id = id,
-                             timegroup = 'timegroup',
-                        coords = coords, returnDist = TRUE, fillNA = TRUE)
-directional_align <- dyad_id(directional_align, 'ID1', 'ID2')
+directional_align <- edge_alignment(DT, id = id)
+dyad_id(directional_align, 'ID1', 'ID2')
 
 sel_group <- DT[N_by_group > 2, sample(group, 1)]
-sub <- DT[id %in% DT[group == sel_group, id] &
-                      between(timegroup,
-                              DT[group == sel_group, first(timegroup) - 1],
-                              DT[group == sel_group, first(timegroup) + 2])]
-g <- ggplot(sub, aes(X, Y, color = id)) +
+sub <- DT[ID %in% DT[group == sel_group, ID] &
+  between(
+    timegroup,
+    DT[group == sel_group, min(timegroup) - 1],
+    DT[group == sel_group, max(timegroup) + 2]
+  )]
+g <- ggplot(sub, aes(X, Y, color = ID)) +
   geom_path(arrow = arrow()) +
   geom_label(aes(label = timegroup), data  = sub[timegroup == min(timegroup)]) +
   guides(color = 'none') +
   labs(x = '', y = '')
 
-sub_edges <- directional_align[(ID1 %in% DT[group == sel_group, id] &
-                          ID2 %in% DT[group == sel_group, id]) &
+sub_edges <- directional_align[(ID1 %in% DT[group == sel_group, ID] &
+                          ID2 %in% DT[group == sel_group, ID]) &
                           between(timegroup,
-                                DT[group == sel_group, first(timegroup) - 1],
-                                DT[group == sel_group, first(timegroup) + 2])]
+                                DT[group == sel_group, min(timegroup) - 1],
+                                DT[group == sel_group, max(timegroup) + 2])]
 g2 <- ggplot(sub_edges,
-                  aes(factor(timegroup), dyadID, color = diff_az)) +
+                  aes(factor(timegroup), dyadID, color = direction_diff)) +
   geom_point(size = 5) +
   scale_color_viridis_c() +
   labs(x = 'Timegroup', y = '')
@@ -769,13 +781,34 @@ print(g / g2 & theme_bw())
 ```
 
 
-Interindividual direction measures the absolute azimuth between individuals. 
+Interindividual direction measures the absolute direction between individuals. 
+<!-- TODO: describe spatial measures -->
 
-(TODO)
-<!-- TODO: interindividual difference in bearing code and example -->
+```{r}
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+dyad_directions <- edge_direction(
+  interindividual_dist,
+  DT,
+  id = 'ID',
+  timegroup = 'timegroup'
+)
+```
 
+```{r}
+#| echo: false
+dyad_directions[DT, geometry := geometry,
+                on = .(ID1 == ID, timegroup == timegroup)]
+sel_DT <- DT[group == sel_group]
+sub_dirs <- dyad_directions[timegroup %in% sel_DT$timegroup & ID1 %in% sel_DT$ID][
+                              dyadID %in% first(dyadID)]
+sub_dirs[, geometry := st_sfc(geometry, recompute_bbox = TRUE)]
+ggplot(sub_dirs) +
+  geom_sf(aes(geometry = geometry)) + 
+  geom_sf_text(aes(geometry = geometry, label = round(direction_dyad, 2))) +
+  theme_void()
+```
 
-## Lagged differences in bearing
+## Lagged differences in direction
 
 The directional correlation delay [@Nagy_2010] of individuals i, j is given by
 
@@ -813,7 +846,6 @@ interindividual_dist <- edge_dist(
   DT,
   threshold = 100,
   id = id,
-  coords = coords,
   timegroup = 'timegroup',
   returnDist = TRUE,
   fillNA = TRUE
@@ -832,9 +864,8 @@ fusion_events <- fusion_id(
 #| eval: true
 #| echo: false
 DT_fogo <- DT_fogo[timegroup < 50]
-id <- 'id'
-bearing_sequential(DT_fogo, id = id, coords = c('x_long', 'y_lat'), projection = 4326)
-dir_delay_fogo <- edge_delay(DT_fogo, id = id, edges = edges_fogo, window = 2)
+direction_step(DT_fogo, id = id_fogo)
+dir_delay_fogo <- edge_delay(DT_fogo, id = id_fogo, edges = edges_fogo, window = 2)
 
 sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
 g <- ggplot(sub_fogo,
@@ -844,8 +875,10 @@ g <- ggplot(sub_fogo,
              data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
   theme_bw()
 g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
-  geom_point(aes(timegroup, interaction(ID1, ID2), color = dir_corr_delay), size = 5) +
-  scale_color_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
+  geom_point(aes(timegroup, interaction(ID1, ID2), fill = direction_delay),
+             shape = 23, color = 'black',
+             size = 5) +
+  scale_fill_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
   theme_bw()
 
 print(g / g2)
@@ -917,7 +950,7 @@ determine factors that causally influence leadership, and for the influence of
 leader-follower strategies on foraging success and downstream fitness. Applied
 to animal telemetry, leadership can be defined simply by identifying the
 individual at the foremost position along the front-to-back axis of the group’s
-bearing (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
+direction (Quera 2023, Harel 2021). Alternatively, leadership can be identified by
 calculating the  directional correlation delay (Nagy 2010), the temporal delay
 of shared directional movements between individuals. Leadership in a group of
 moving animals can inform animal decision making, group coordination, and

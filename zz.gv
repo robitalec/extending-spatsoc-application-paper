@@ -3,13 +3,13 @@ digraph {
   fread -> group_times
   group_times -> {group_pts; edge_dist; calc_az_sequential}
 
-  group_pts -> group_centroid
-  group_centroid -> {dist_to_group_centroid; az_to_group_centroid}
+  group_pts -> centroid_group
+  centroid_group -> {dist_to_group_centroid; az_to_group_centroid}
 
   group_pts -> calc_dir_corr_delay
   edge_dist -> calc_dir_corr_delay
 
-  {calc_az_sequential; group_centroid} -> position_within_group -> {dist_to_leader; az_to_leader}
+  {calc_az_sequential; centroid_group} -> position_within_group -> {dist_to_leader; az_to_leader}
   calc_az_sequential -> polarization
 
   calc_az_sequential -> directional_alignment
