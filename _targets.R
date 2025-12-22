@@ -97,6 +97,31 @@ targets_spatiotemporal_groups <- c(
     description = 'group_pts()'
   )
 )
+
+
+# Targets: Distance based edge-lists --------------------------------------
+targets_distance_edge_lists <- c(
+  tar_target(
+    distance_edges,
+    edge_dist(
+      DT = temporal_groups,
+      threshold = spatial_threshold,
+      id = id,
+      timegroup = timegroup
+    )
+  ),
+
+  tar_target(
+    nn_edges,
+    edge_nn(
+      DT = temporal_groups,
+      id = id,
+      timegroup = timegroup
+    )
+  )
+)
+
+
 # Targets: Review ---------------------------------------------------------
 targets_review <- c(
   tar_file_read(
