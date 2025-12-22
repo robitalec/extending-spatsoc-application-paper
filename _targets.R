@@ -2,12 +2,54 @@
 # Alec L. Robitaille
 
 
-# Source functions, packages
+
+# Packages ----------------------------------------------------------------
+source('R/packages.R')
+
+
+
+# Functions ---------------------------------------------------------------
 targets::tar_source('R')
 
-# Variables
-fp_met_thes <- file.path('map', 'metric-thesaurus.csv')
 
+
+# Options -----------------------------------------------------------------
+tar_option_set(format = 'qs')
+
+
+
+# Variables ---------------------------------------------------------------
+# Review
+filepath_thesaurus <- file.path('map', 'metric-thesaurus.csv')
+
+# Spatiotemporal grouping
+filepath <- system.file('extdata', 'DT.csv', package = 'spatsoc')
+temporal_threshold <- '10 minutes'
+spatial_threshold <- 50
+
+datetime <- 'datetime'
+id <- 'ID'
+coords <- c('X', 'Y')
+utm <- 32736
+
+timegroup <- 'timegroup'
+group <- 'group'
+
+# edge_dist
+returnDist <- TRUE
+fillNA <- FALSE
+
+# dyad_id
+id1 <- 'ID1'
+id2 <- 'ID2'
+
+# fusion_id
+n_min_length <- 3
+n_max_missing <- 1
+allow_split <- FALSE
+
+# edge_delay
+window <- 3
 
 
 # Targets: Review ---------------------------------------------------------
