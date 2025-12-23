@@ -151,6 +151,22 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
+    direction_to_centroids,
+    direction_to_centroid(
+      DT = group_centroids
+    ),
+    description = 'direction_to_centroid()'
+  ),
+
+  tar_target(
+    distance_to_centroids,
+    distance_to_centroid(
+      DT = direction_to_centroids
+    ),
+    description = 'distance_to_centroid()'
+  ),
+
+  tar_target(
     group_direction_leaders,
     leader_direction_group(
       DT = group_centroids,
