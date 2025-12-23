@@ -1,4 +1,4 @@
-fig_pos_wi_group <- function(DT) {
+plot_pos_wi_group <- function(DT) {
   g1 <- ggplot(DT) +
     geom_histogram(aes(direction_centroid), bins = 30) +
     labs(x = 'Direction to group centroid', y = '')
