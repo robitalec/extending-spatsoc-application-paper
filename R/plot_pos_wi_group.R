@@ -7,5 +7,6 @@ plot_pos_wi_group <- function(DT) {
     stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
     labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
-  g1 + g2
+  g1 + g2 +
+    plot_annotation(tag_levels = 'A', tag_suffix = ')')
 }
