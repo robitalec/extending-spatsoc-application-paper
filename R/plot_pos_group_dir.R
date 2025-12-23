@@ -46,8 +46,8 @@ plot_pos_group_dir <- function(DT) {
     geom_histogram(aes(position_group_direction), binwidth = 1) +
     labs(x = 'Distance along group direction', y = '')
 
-    geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
   # g_hist2 <- ggplot(DT[N_by_group > 1]) +
+  #   geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
   #   labs(x = 'Rank distance along group az', y = '')
 
   g_dist <- ggplot(DT[N_by_group > 1]) +
@@ -57,6 +57,6 @@ plot_pos_group_dir <- function(DT) {
 
   list(
     positions = g_pos,
-    dist_dir = (g_dist + (g_hist / g_hist2))
+    dist_dir = (g_dist + (g_hist))
   )
 }
