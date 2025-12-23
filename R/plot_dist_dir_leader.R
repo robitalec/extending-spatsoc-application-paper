@@ -16,5 +16,6 @@ plot_dist_dir_leader <- function(DT) {
     labs(x = 'Distance to leader', y = 'Rank along group direction') +
     theme_bw()
 
-  g_dist + g_dir
+  g_dist + g_dir +
+    plot_annotation(tag_levels = 'A', tag_suffix = ')')
 }

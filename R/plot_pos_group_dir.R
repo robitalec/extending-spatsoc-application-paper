@@ -17,7 +17,7 @@ plot_pos_group_dir <- function(DT) {
         radius = max(as.numeric(position_group_direction)),
         angle = as.numeric(group_direction)
       ),
-      arrow = arrow()
+      arrow = arrow(length = unit(0.2, 'inches'))
     ) +
     geom_spoke(
       aes(radius = 20, angle = as.numeric(direction)),
@@ -42,7 +42,7 @@ plot_pos_group_dir <- function(DT) {
     coord_sf() +
     guides(color = 'none') +
     scale_x_continuous(expand = expansion(add = 10))
-
+  g_pos
   g_hist <- ggplot(DT[N_by_group > 1]) +
     geom_histogram(aes(units::as_units(position_group_direction, 'm')), binwidth = 1) +
     labs(x = 'Distance along group direction', y = '')
@@ -60,6 +60,7 @@ plot_pos_group_dir <- function(DT) {
 
   list(
     positions = g_pos,
-    dist_dir = (g_dist + (g_hist))
+    dist_dir = g_dist + g_hist +
+      plot_annotation(tag_levels = 'A', tag_suffix = ')')
   )
 }
