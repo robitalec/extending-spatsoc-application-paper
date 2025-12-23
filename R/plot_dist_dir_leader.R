@@ -8,13 +8,15 @@ plot_dist_dir_leader <- function(DT) {
                            factor(rank_position_group_direction))) +
     stat_halfeye() +
     labs(x = 'Direction to leader', y = 'Rank along group direction') +
-    theme_bw()
+    theme_bw() +
+    scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
   g_dir <- ggplot(DT, aes(units::as_units(distance_leader, 'm'),
                           factor(rank_position_group_direction))) +
     stat_halfeye() +
     labs(x = 'Distance to leader', y = 'Rank along group direction') +
-    theme_bw()
+    theme_bw() +
+    scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
   g_dist + g_dir +
     plot_annotation(tag_levels = 'A', tag_suffix = ')')
