@@ -1,7 +1,8 @@
 plot_pos_group_dir <- function(DT) {
   DT[, N_by_group := .N, group]
-  # sel_group <- DT[N_by_group > 3, sample(group, 1)]
-  sel_group <- 1025
+  sel_group <- DT[N_by_group > 3, sample(group, 1)]
+  print(sel_group)
+  sel_group <- 932
   sub_DT <- DT[group == sel_group]
 
   sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
