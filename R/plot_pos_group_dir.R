@@ -42,15 +42,15 @@ plot_pos_group_dir <- function(DT) {
     guides(color = 'none') +
     scale_x_continuous(expand = expansion(add = 10))
 
-  g_hist <- ggplot(DT) +
+  g_hist <- ggplot(DT[N_by_group > 1]) +
     geom_histogram(aes(position_group_direction), binwidth = 1) +
     labs(x = 'Distance along group az', y = '')
 
-  g_hist2 <- ggplot(DT) +
     geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
     labs(x = 'Rank distance along group az', y = '')
+  # g_hist2 <- ggplot(DT[N_by_group > 1]) +
 
-  g_dist <- ggplot(DT) +
+  g_dist <- ggplot(DT[N_by_group > 1]) +
     stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
     labs(x = 'Distance along group az', y = 'Rank distance along group az')
 
