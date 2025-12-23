@@ -266,7 +266,10 @@ targets_intragroup_dynamics <- c(
 
 # Targets: Figures --------------------------------------------------------
 targets_figures <- c(
-
+  tar_target(
+    fig_pos_wi_group,
+    plot_pos_wi_group(distance_to_centroids)
+  )
 )
 
 # Targets: Review ---------------------------------------------------------
