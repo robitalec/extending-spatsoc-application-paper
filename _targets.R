@@ -188,7 +188,7 @@ targets_intragroup_dynamics <- c(
   tar_target(
     distance_to_group_dir_leaders,
     distance_to_leader(
-      group_direction_leaders
+      DT = direction_to_group_dir_leaders
     ),
     description = 'distance_to_leader()'
   ),
