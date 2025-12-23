@@ -271,6 +271,10 @@ targets_figures <- c(
   tar_target(
     fig_pos_wi_group,
     plot_pos_wi_group(distance_to_centroids)
+  ),
+  tar_target(
+    fig_pos_group_dir,
+    plot_pos_group_dir(group_direction_leaders)
   )
 )
 
