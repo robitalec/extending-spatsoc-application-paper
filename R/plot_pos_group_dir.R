@@ -54,6 +54,7 @@ plot_pos_group_dir <- function(DT) {
     stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
     labs(x = 'Distance along group direction',
          y = 'Rank distance along group direction') +
+    scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
   list(
     positions = g_pos,
