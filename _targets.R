@@ -245,6 +245,16 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
+    direction_edges,
+    edge_direction(
+      edges = fusion_centroids,
+      DT = spatial_groups,
+      id = id
+    ),
+    description = 'edge_direction()'
+  ),
+
+  tar_target(
     dyad_centroids,
     centroid_dyad(
       edges = id_dyads,
