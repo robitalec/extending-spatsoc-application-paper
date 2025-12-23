@@ -275,6 +275,10 @@ targets_figures <- c(
   tar_target(
     fig_pos_group_dir,
     plot_pos_group_dir(group_direction_leaders)
+  ),
+  tar_target(
+    fig_dist_dir_leader,
+    plot_dist_dir_leader(distance_to_group_dir_leaders)
   )
 )
 
