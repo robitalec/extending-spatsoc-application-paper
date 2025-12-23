@@ -44,7 +44,7 @@ plot_pos_group_dir <- function(DT) {
     scale_x_continuous(expand = expansion(add = 10))
 
   g_hist <- ggplot(DT[N_by_group > 1]) +
-    geom_histogram(aes(position_group_direction), binwidth = 1) +
+    geom_histogram(aes(units::as_units(position_group_direction, 'm')), binwidth = 1) +
     labs(x = 'Distance along group direction', y = '')
 
   # g_hist2 <- ggplot(DT[N_by_group > 1]) +
@@ -52,7 +52,8 @@ plot_pos_group_dir <- function(DT) {
   #   labs(x = 'Rank distance along group az', y = '')
 
   g_dist <- ggplot(DT[N_by_group > 1]) +
-    stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
+    stat_halfeye(aes(units::as_units(position_group_direction, 'm'),
+                     factor(rank_position_group_direction))) +
     labs(x = 'Distance along group direction',
          y = 'Rank distance along group direction') +
     scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))

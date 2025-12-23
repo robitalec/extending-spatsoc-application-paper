@@ -10,7 +10,8 @@ plot_dist_dir_leader <- function(DT) {
     labs(x = 'Direction to leader', y = 'Rank along group direction') +
     theme_bw()
 
-  g_dir <- ggplot(DT, aes(distance_leader, factor(rank_position_group_direction))) +
+  g_dir <- ggplot(DT, aes(units::as_units(distance_leader, 'm'),
+                          factor(rank_position_group_direction))) +
     stat_halfeye() +
     labs(x = 'Distance to leader', y = 'Rank along group direction') +
     theme_bw()
