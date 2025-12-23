@@ -290,7 +290,7 @@ targets_review <- c(
     write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                      sheet = 'metric-thesaurus',
                      file = filepath_thesaurus),
-    cue = tar_cue('always')
+    cue = tar_cue_age(dl_metric_thesaurus, age = as.difftime(7, units = 'days'))
   ),
   tar_target(
     benchmark_papers,
@@ -318,7 +318,7 @@ targets_review <- c(
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                sheet = 'software-meta',
                col_types = 'c'),
-    cue = tar_cue('always')
+    cue = tar_cue_age(software_meta, age = as.difftime(7, units = 'days'))
   ),
   tar_target(
     review,
