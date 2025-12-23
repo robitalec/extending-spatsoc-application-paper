@@ -51,6 +51,8 @@ allow_split <- FALSE
 # edge_delay
 window <- 3
 
+# ggplot theme
+theme_set(theme_bw())
 
 
 # Targets: Spatiotemporal groups ------------------------------------------
