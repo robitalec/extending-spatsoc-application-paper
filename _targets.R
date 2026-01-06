@@ -296,6 +296,10 @@ targets_figures <- c(
   tar_target(
     fig_fusion_events,
     plot_fusion_events(direction_edges, spatial_groups)
+  ),
+  tar_target(
+    fig_dir_polarization,
+    plot_dir_polarization(polarization)
   )
 )
 
