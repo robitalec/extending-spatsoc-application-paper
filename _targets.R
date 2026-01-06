@@ -46,7 +46,7 @@ id2 <- 'ID2'
 # fusion_id
 n_min_length <- 3
 n_max_missing <- 1
-allow_split <- FALSE
+allow_split <- TRUE
 
 # edge_delay
 window <- 3
