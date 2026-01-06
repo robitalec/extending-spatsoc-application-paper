@@ -54,6 +54,9 @@ window <- 3
 # ggplot theme
 theme_set(theme_bw())
 
+# fontsize
+font_size <- 16
+
 
 # Targets: Spatiotemporal groups ------------------------------------------
 targets_spatiotemporal_groups <- c(
