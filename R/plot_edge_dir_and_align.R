@@ -1,4 +1,4 @@
-plot_dir_align <- function(DT, alignment) {
+plot_edge_dir_and_align <- function(DT, edges) {
   DT[, N_by_group := .N, group]
   sel_group <- DT[N_by_group > 2, sample(group, 1)]
   sel_group <- 1048 #1011
@@ -16,13 +16,15 @@ plot_dir_align <- function(DT, alignment) {
     scale_color_viridis_d(end = 0.5) +
     labs(x = '', y = '')
 
-  tab <- alignment[(ID1 == 'F' & ID2 %in% sel_ids) &
+  tab <- edges[(ID1 %in% sel_ids & ID2 %in% sel_ids) &
                      between(timegroup,
                              DT[group == sel_group, min(timegroup) - 1],
                              DT[group == sel_group, max(timegroup) + 1]),
     .(timegroup = timegroup - min(timegroup) + 1,
       ID1, ID2, direction_diff =
-        units::as_units(round(direction_diff, digits = 2), 'rad'))
+        units::as_units(round(direction_diff, digits = 2), 'rad'),
+      direction_dyad =
+        round(direction_dyad, digits = 2))
   ]
 
   g_tab <- ggplot() + annotation_custom(
