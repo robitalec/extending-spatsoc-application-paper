@@ -234,7 +234,7 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
-    edge_delay_leaders,
+    delay_leaders,
     leader_edge_delay(
       edges = delay_edges
     ),
@@ -326,6 +326,10 @@ targets_figures <- c(
   tar_target(
     fig_edge_dir_and_align,
     plot_edge_dir_and_align(spatial_groups, direction_edges)
+  ),
+  tar_target(
+    fig_edge_delay,
+    plot_edge_delay(delay_edges, delay_leaders, spatial_groups)
   )
 )
 
