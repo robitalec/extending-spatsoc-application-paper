@@ -252,16 +252,6 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
-    direction_edges,
-    edge_direction(
-      edges = fusion_centroids,
-      DT = spatial_groups,
-      id = id
-    ),
-    description = 'edge_direction()'
-  ),
-
-  tar_target(
     dyad_centroids,
     centroid_dyad(
       edges = id_dyads,
@@ -286,6 +276,25 @@ targets_intragroup_dynamics <- c(
       id = id
     ),
     description = 'edge_alignment()'
+  ),
+
+  tar_target(
+    alignment_dyad_ids,
+    dyad_id(
+      DT = alignment,
+      id1 = id1,
+      id2 = id2
+    )
+  ),
+
+  tar_target(
+    direction_edges,
+    edge_direction(
+      edges = alignment_dyad_ids,
+      DT = spatial_groups,
+      id = id
+    ),
+    description = 'edge_direction()'
   )
 )
 
@@ -308,15 +317,15 @@ targets_figures <- c(
   ),
   tar_target(
     fig_fusion_events,
-    plot_fusion_events(direction_edges, spatial_groups)
+    plot_fusion_events(fusion_centroids, spatial_groups)
   ),
   tar_target(
     fig_dir_polarization,
     plot_dir_polarization(polarization)
   ),
   tar_target(
-    fig_dir_align,
-    plot_dir_align(spatial_groups, alignment)
+    fig_edge_dir_and_align,
+    plot_edge_dir_and_align(spatial_groups, direction_edges)
   )
 )
 
