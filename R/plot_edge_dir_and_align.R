@@ -32,6 +32,6 @@ plot_edge_dir_and_align <- function(DT, edges) {
   )
 
   (g / g_tab &
-    theme_void()) +
+    theme_void(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }

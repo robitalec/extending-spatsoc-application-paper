@@ -36,16 +36,17 @@ plot_pos_group_dir <- function(DT) {
     geom_label(aes(
       label = paste(format(position_group_direction, digits = 1), 'm')
     ), ) +
-    theme_bw() +
+    theme_bw(base_size = font_size) +
     labs(x = '', y = '') +
     theme(axis.text = element_blank(), axis.ticks = element_blank()) +
     coord_sf() +
     guides(color = 'none') +
     scale_x_continuous(expand = expansion(add = 10))
-  g_pos
+
   g_hist <- ggplot(DT[N_by_group > 1]) +
     geom_histogram(aes(units::as_units(position_group_direction, 'm')), binwidth = 1) +
-    labs(x = 'Distance along group direction', y = '')
+    labs(x = 'Distance along group direction', y = '') +
+    theme_bw(base_size = font_size)
 
   # g_hist2 <- ggplot(DT[N_by_group > 1]) +
   #   geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
@@ -60,7 +61,7 @@ plot_pos_group_dir <- function(DT) {
 
   list(
     positions = g_pos,
-    dist_dir = g_dist + g_hist +
+    dist_dir = (g_dist + g_hist) +
       plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
   )
 }
