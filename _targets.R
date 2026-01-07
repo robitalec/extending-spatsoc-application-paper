@@ -300,6 +300,10 @@ targets_figures <- c(
   tar_target(
     fig_dir_polarization,
     plot_dir_polarization(polarization)
+  ),
+  tar_target(
+    fig_dir_align,
+    plot_dir_align(direction_alignment)
   )
 )
 
