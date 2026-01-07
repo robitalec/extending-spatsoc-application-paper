@@ -11,35 +11,34 @@ plot_fusion_events <- function(edges, DT) {
                                               unique(timegroup),
                                               max(timegroup) + c(1:2))]]
 
-  g <- ggplot() +
+  g <- ggplot(sub_DT) +
     geom_point(aes(X, Y, color = ID), alpha = 1,
-               data = sub_DT[!timegroup %in% fused_timegroups]) +
-    geom_path(aes(X, Y, color = ID), #arrow = arrow(),
-              data = sub_DT[timegroup <= min(fused_timegroups)],
-              linewidth = 0.4, linetype = 2) +
-    geom_path(aes(X, Y, color = ID), arrow = arrow(),
-              data = sub_DT[timegroup >= max(fused_timegroups)],
-              linewidth = 0.4, linetype = 2) +
+               data = sub_DT[!timegroup %in% fused_timegroups &
+                               timegroup != max(timegroup)]) +
+    geom_path(aes(X, Y, color = ID),
+              linewidth = 1, linetype = 1) +
+    geom_path(aes(X, Y, color = ID), arrow = arrow(length = unit(0.2, "inches")),
+              linewidth = 1, linetype = 1) +
     geom_path(data = sub_edges,
               aes(x = centroid_X, y = centroid_Y),
-              linewidth = 0.5) +
+              linewidth = 10, alpha = 0.4) +
     geom_point(data = sub_edges,
                aes(x = centroid_X, y = centroid_Y),
-               color = 'grey20') +
+               color = 'black', size = 3) +
     guides(color = element_blank()) +
-    scale_color_viridis_d(end = 0.7, begin = 0.2) +
+    scale_color_viridis_d(end = 0.5, begin = 0.2) +
     labs(x = '', y = '') +
     coord_fixed()
 
   tab <- sub_edges[
-    ID1 %in% sub_edges$ID1 &
+    ID1 == 'A' &
       (is.na(ID2) | ID2 %in% sub_edges$ID2) &
       between(
         timegroup,
-        min(sub_edges$timegroup), # - 1,
-        max(sub_edges$timegroup) # + 1
+        min(sub_edges$timegroup) - 1,
+        max(sub_edges$timegroup) + 1
       ),
-    .(timegroup, ID1, ID2, fusionID,
+    .(timegroup = seq.int(.N) + 1, ID1, ID2,
       distance = round(units::as_units(distance, 'm'), 2))
   ]
 
@@ -47,7 +46,7 @@ plot_fusion_events <- function(edges, DT) {
     tableGrob(tab, theme = ttheme_default(base_size = font_size), rows = NULL)
   )
 
-  g / g_tab &
-    theme_void() +
+  (g / g_tab &
+    theme_void(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }
