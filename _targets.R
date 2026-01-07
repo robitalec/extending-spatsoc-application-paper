@@ -316,7 +316,7 @@ targets_figures <- c(
   ),
   tar_target(
     fig_dir_align,
-    plot_dir_align(direction_alignment)
+    plot_dir_align(spatial_groups, alignment)
   )
 )
 
