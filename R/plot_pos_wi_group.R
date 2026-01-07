@@ -9,5 +9,5 @@ plot_pos_wi_group <- function(DT) {
     labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
 
   g1 + g2 +
-    plot_annotation(tag_levels = 'A', tag_suffix = ')')
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }

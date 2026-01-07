@@ -51,12 +51,16 @@ allow_split <- TRUE
 # edge_delay
 window <- 3
 
+# Plotting
 # ggplot theme
 theme_set(theme_bw())
 
 # fontsize
 font_size <- 16
 
+# Patchwork tags
+tag_levels <- 'A'
+tag_suffix <- ')'
 
 # Targets: Spatiotemporal groups ------------------------------------------
 targets_spatiotemporal_groups <- c(

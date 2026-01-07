@@ -61,6 +61,6 @@ plot_pos_group_dir <- function(DT) {
   list(
     positions = g_pos,
     dist_dir = g_dist + g_hist +
-      plot_annotation(tag_levels = 'A', tag_suffix = ')')
+      plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
   )
 }

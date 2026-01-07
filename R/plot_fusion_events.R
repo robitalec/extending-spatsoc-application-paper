@@ -49,5 +49,6 @@ plot_fusion_events <- function(edges, DT) {
   )
 
   g / g_tab &
-    theme_void()
+    theme_void() +
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }

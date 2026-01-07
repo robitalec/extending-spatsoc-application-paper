@@ -19,5 +19,5 @@ plot_dist_dir_leader <- function(DT) {
     scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
   g_dist + g_dir +
-    plot_annotation(tag_levels = 'A', tag_suffix = ')')
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }
