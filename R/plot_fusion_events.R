@@ -40,8 +40,7 @@ plot_fusion_events <- function(edges, DT) {
         max(sub_edges$timegroup) # + 1
       ),
     .(timegroup, ID1, ID2, fusionID,
-      distance = round(units::as_units(distance, 'm'), 2),
-      direction_dyad = round(direction_dyad, 2))
+      distance = round(units::as_units(distance, 'm'), 2))
   ]
 
   g_tab <- ggplot() + annotation_custom(
