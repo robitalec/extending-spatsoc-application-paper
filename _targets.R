@@ -277,6 +277,15 @@ targets_intragroup_dynamics <- c(
       DT = step_directions
     ),
     description = 'direction_polarization()'
+  ),
+
+  tar_target(
+    alignment,
+    edge_alignment(
+      DT = step_directions,
+      id = id
+    ),
+    description = 'edge_alignment()'
   )
 )
 
