@@ -1,7 +1,7 @@
 # Supplement A: Scoping Review Methods {.unnumbered}
 
 We conducted a scoping review to identify metrics used in ecology studies
-focusing on dyadic interactions, dominance hierarchies and leadership patterns.
+for measuring dyadic interactions, dominance hierarchies and leadership patterns.
 We focused on metrics applicable to spatiotemporal data such as GPS telemetry.
 We used two databases of academic literature: Web of Science and Scopus. We
 established a test list of nine benchmark papers (Supplement A: Table 1) that
