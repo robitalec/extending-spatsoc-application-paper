@@ -290,40 +290,26 @@ group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 # Spatial grouping with timegroup
 group_pts(DT, threshold = spatial_threshold, id = id,
           coords = coords, timegroup = 'timegroup')
-
 ```
 
 ```{r}
 #| echo: false
 
-# Load packages
-library(data.table)
-suppressPackageStartupMessages(library(spatsoc))
-
-# Read example data
+# TODO: remove once all processing is in targets
 DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
-
-# Cast the character column to POSIXct
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-
-# Set variables
 temporal_threshold  <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
 utm <- 32736
-
-# Setup DT for geometry interface
 get_geometry(DT, coords = coords, crs = utm)
-
-# Temporal grouping
 DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 setorder(DT, timegroup)
-
-# Spatial grouping with timegroup
 DT <- group_pts(DT, threshold = spatial_threshold, id = id, timegroup = 'timegroup')
 
 tinytable::tt(DT[order(timegroup)][1:5])
+tinytable::tt(tar_read(spatial_groups)[order(timegroup)][1:5])
 ```
 
 Users can also measure dyadic interindividual distance using the `edge_dist`
@@ -341,21 +327,14 @@ interindividual_dist <- edge_dist(
   returnDist = TRUE,
   fillNA = TRUE
 )
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
 #| label: "IID"
 #| echo: false
 #| eval: true
-interindividual_dist <- edge_dist(
-  DT,
-  threshold = spatial_threshold,
-  id = id,
-  timegroup = 'timegroup',
-  returnDist = TRUE,
-  fillNA = TRUE
-)
-tinytable::tt(interindividual_dist[1:5])
+tinytable::tt(tar_read(distance_edges)[1:5])
 ```
 
 ```{r}
@@ -367,19 +346,14 @@ nearest_neighbours <- edge_nn(
   timegroup = 'timegroup',
   returnDist = TRUE
 )
+dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
 #| label: "nn"
 #| echo: false
 #| eval: true
-nearest_neighbours <- edge_nn(
-  DT,
-  id = id,
-  timegroup = 'timegroup',
-  returnDist = TRUE
-)
-tinytable::tt(nearest_neighbours[1:5])
+tinytable::tt(tar_read(nn_edges)[1:5])
 ```
 
 Building on these functions, {spatsoc}'s new functionality provides 
@@ -435,16 +409,8 @@ direction_to_centroid(DT)
 #| echo: false
 #| eval: true
 #| warning: false
-dist_dir_cent <- distance_to_centroid(cent, return_rank = TRUE)
-dist_dir_cent <- direction_to_centroid(cent)
-g1 <- ggplot(dist_dir_cent) +
-  geom_histogram(aes(direction_centroid), bins = 30) +
-  labs(x = 'Direction to group centroid', y = '')
-g2 <- ggplot(dist_dir_cent) +
-  stat_halfeye(aes(distance_centroid, factor(rank_distance_centroid))) +
-  labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid')
-
-g1 + g2
+#| fig-cap: "Position within group"
+tar_read(fig_pos_wi_group)
 ```
 
 After considering how individuals are positioned relative to the group centroid, 
@@ -476,57 +442,16 @@ leader_direction_group(DT, return_rank = TRUE)
 ```{r}
 #| eval: true
 #| echo: false
+#| fig-cap: "Position within group"
+tar_read(fig_pos_group_dir)$positions
+```
+
+```{r}
+#| eval: true
+#| echo: false
 #| warning: false
-direction_step(DT, id = id)
-direction_group(DT)
-centroid_group(DT)
-leader_direction_group(DT, return_rank = TRUE)
-
-sel_group <- DT[, .N, group][N > 3, sample(group, 1)]
-sub_DT <- DT[group == sel_group]
-# TODO: as.numeric since tan on units returns units
-slope <- sub_DT[1, as.numeric(tan(group_direction))]
-sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
-# TODO: fix intercept / inv from centroid_X
-intercept <- sub_DT[1, centroid_Y - slope * centroid_X]
-intercept_inv <- sub_DT[1, centroid_Y - (-1/slope * centroid_X)]
-
-g_pos <- ggplot(sub_DT, aes(X, Y, color = id)) +
-  geom_point(size = 0.8) +
-  geom_text(aes(geometry = geometry, 
-                   label = paste0(format(position_group_direction, digits = 1),
-                               ' (', rank_position_group_direction, ')')),
-                nudge_y = 0.5, data = sub_DT) +
-  # geom_sf(color = 'black', data = sub_DT, aes(geometry = centroid)) +
-  # geom_sf(color = 'black', data = sub_DT, aes(geometry = geometry)) +
-  geom_abline(slope = slope, intercept = intercept) +
-  geom_abline(slope = -1/slope, intercept = intercept_inv,
-              linewidth = 0.2) +
-  theme_bw() +
-  labs(x = '', y = '') +
-  theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_sf() +
-  guides(color = 'none') +
-  scale_x_continuous(expand = expansion(add = 10))
-
-DT[, N_by_group := .N, group]
-g_hist <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(position_group_direction), binwidth = 1) +
-  labs(x = 'Distance along group az', y = '') +
-  theme_bw()
-
-g_hist2 <- ggplot(DT[N_by_group > 1]) +
-  geom_histogram(aes(rank_position_group_direction), binwidth = 1) +
-  labs(x = 'Rank distance along group az', y = '') +
-  theme_bw()
-
-g_dist <- ggplot(DT[N_by_group > 1]) +
-  stat_halfeye(aes(position_group_direction, factor(rank_position_group_direction))) +
-  labs(x = 'Distance along group az', y = 'Rank distance along group az') +
-  theme_bw()
-
-print(g_pos)
-print(g_dist + (g_hist / g_hist2))
+#| fig-cap: "Distance and direction to leader direction group"
+tar_read(fig_pos_group_dir)$dist_dir
 ```
 
 ## Position relative to leader
@@ -546,45 +471,7 @@ direction_to_leader(DT)
 ```{r}
 #| eval: true
 #| echo: false
-#| warning: false
-DT <- distance_to_leader(DT)
-DT <- direction_to_leader(DT)
-
-DT[, N_by_group := .N, group]
-
-sub_DT <- DT[group == DT[N_by_group > 6, sample(group, 1)]]
-
-# TODO: fix geom_spoke with sfc column
-sub_DT[, c('centroid_X', 'centroid_Y') := data.frame(st_coordinates(centroid))]
-g_DT <- ggplot(sub_DT, aes(X, Y, color = ID)) +
-  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
-                 radius = max(position_group_direction)), color = 'grey30',
-             arrow = arrow()) +
-  geom_spoke(aes(x = centroid_X, y = centroid_Y, angle = drop_units(group_direction),
-                 radius = min(position_group_direction)), color = 'grey30') +
-  geom_point(color = 'black', aes(centroid_X, centroid_Y)) +
-  geom_point(size = 2) +
-  geom_text(aes(label = rank_position_group_direction), nudge_y = 2, size = 6) +
-  theme_bw() +
-  labs(x = '', y = '') +
-  theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_fixed() +
-  guides(color = 'none') +
-  scale_x_continuous(expand = expansion(add = 10))
-
-g_dist <- ggplot(DT, aes(direction_leader, 
-                         factor(rank_position_group_direction))) +
-  stat_halfeye() +
-  labs(x = 'Direction to leader', y = 'Rank along group direction') +
-  theme_bw()
-
-g_dir <- ggplot(DT, aes(distance_leader, factor(rank_position_group_direction))) +
-  stat_halfeye() +
-  labs(x = 'Distance to leader', y = 'Rank along group direction') +
-  theme_bw()
-
-print(g_DT)
-print(g_dist + g_dir)
+tar_read(fig_dist_dir_leader)
 ```
 
 
@@ -611,7 +498,7 @@ observation without resulting in a fission event
 ```{r}
 #| eval: false
 #| echo: true
-# Fission fusion events using interinvidiual distance calculated with edge_dist
+# Fission fusion events using interindividual distance calculated with edge_dist
 dyad_id(interindividual_dist, 'ID1', 'ID2')
 fusion_events <- fusion_id(
   interindividual_dist,
@@ -627,66 +514,7 @@ fusion_events <- fusion_id(
 #| echo: false
 #| eval: true
 #| fig-height: 10
-max_tg <- 50
-threshold <- 50
-id_fogo <- 'id'
-coords_fogo <- c('x_proj', 'y_proj')
-
-DT_fogo <- fread('../prepare-locs/output/2024-01-26_NL-Fogo-Caribou-Telemetry.csv')
-get_geometry(DT_fogo, coords_fogo, DT_fogo[1, epsg_proj])
-group_times(DT_fogo, 'datetime', '10 minutes')
-setorder(DT_fogo, timegroup)
-edges_fogo <- edge_dist(DT_fogo, threshold = threshold,
-                   id = id_fogo, coords = coords_fogo,
-                   timegroup = 'timegroup', fillNA = FALSE, returnDist = TRUE)
-dyad_id(edges_fogo, 'ID1', 'ID2')
-fusion_id(edges_fogo, threshold = threshold, n_min_length = 1, n_max_missing = 1)
-
-sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < max_tg]
-sub_edges <- edges_fogo[ID1 %in% c('FO2016008', 'FO2017007') &
-                          ID2 %in% c('FO2016008', 'FO2017007') &
-                          timegroup < max_tg]
-
-fogo_min0_miss0_splitF <- fusion_id(
-  copy(sub_edges), threshold = 50, n_min_length = 0, n_max_missing = 0, allow_split = FALSE)
-fogo_min2_miss1_splitT <- fusion_id(
-  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 1, allow_split = TRUE)
-fogo_min2_miss0_splitF <- fusion_id(
-  copy(sub_edges), threshold = 50, n_min_length = 2, n_max_missing = 0, allow_split = FALSE)
-
-g <- ggplot(sub_fogo,
-            aes(x_proj, y_proj, color = id)) +
-  geom_path() +
-  geom_label(aes(label = timegroup),
-            data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
-  theme_bw() + 
-  labs(x = '', y = '')
-
-g2.1 <- ggplot(fogo_min0_miss0_splitF[!is.na(fusionID)],
-               aes(timegroup,  dyadID, shape= factor(fusionID), group = fusionID)) +
-  geom_line() +
-  geom_point(size = 3) +
-  labs(#title = 'Minimum obs: 0, maximum missing: 0, allow split: FALSE',
-       y = '')
-g2.2 <- ggplot(fogo_min2_miss1_splitT[!is.na(fusionID)],
-               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
-  geom_line() +
-  geom_point(size = 3) +
-  labs(title = 'Minimum obs: 2, maximum missing: 1, allow split: TRUE',
-       y = '')
-g2.3 <- ggplot(fogo_min2_miss0_splitF[!is.na(fusionID)],
-               aes(timegroup,  dyadID, shape = factor(fusionID), group = fusionID)) +
-  geom_line() +
-  geom_point(size = 3) +
-  labs(title = 'Minimum obs: 2, maximum missing: 0, allow split: FALSE',
-       y = '')
-# TODO: fix
-print(g / (g2.1 * #/ g2.2 / g2.3 *
-             xlim(0, 50) *
-             guides(shape = 'none')) &
-        labs(shape = 'fusionID') &
-        scale_shape_manual(values = seq.int(15)) &
-        theme_bw())
+tar_read(fig_fusion_events)
 ```
 
 
@@ -708,25 +536,14 @@ similar directions.
 ```{r}
 #| echo: true
 #| eval: false
-# Calculate polarization using direction from az_sequential()
 direction_polarization(DT)
 ```
 
 ```{r}
 #| echo: false
 #| eval: true
-DT <- direction_polarization(DT)
-
-sel_group <- DT[, .N, group][N > 2, sample(group, 5)]
-sub <- DT[group %in% sel_group]
-g <- ggplot(sub, aes(direction)) +
-  stat_dotsinterval(binwidth = 0.1, overflow = "keep", dotsize = 1) +
-  geom_text(x = 0, y = 0.75,
-            aes(label = format(polarization, digits = 2))) +
-  theme_bw() +
-  facet_grid(group~.)
-
-print(g)
+#| fig-height: 10
+tar_read(fig_dir_polarization)
 ```
 
 Directional alignment is the relative difference between two individuals' 
@@ -737,76 +554,33 @@ is provided under a similar name: `edge_alignment`.
 #| echo: true
 #| eval: false
 directional_align <- edge_alignment(
-  DT,
-  threshold = NULL,
+  DT = DT,
   id = id,
-  timegroup = 'timegroup',
-  returnDist = TRUE,
-  fillNA = TRUE
+  signed = FALSE
 )
 ```
-
-```{r}
-#| echo: false
-#| eval: true
-# TODO: fix
-directional_align <- edge_alignment(DT, id = id)
-dyad_id(directional_align, 'ID1', 'ID2')
-
-sel_group <- DT[N_by_group > 2, sample(group, 1)]
-sub <- DT[ID %in% DT[group == sel_group, ID] &
-  between(
-    timegroup,
-    DT[group == sel_group, min(timegroup) - 1],
-    DT[group == sel_group, max(timegroup) + 2]
-  )]
-g <- ggplot(sub, aes(X, Y, color = ID)) +
-  geom_path(arrow = arrow()) +
-  geom_label(aes(label = timegroup), data  = sub[timegroup == min(timegroup)]) +
-  guides(color = 'none') +
-  labs(x = '', y = '')
-
-sub_edges <- directional_align[(ID1 %in% DT[group == sel_group, ID] &
-                          ID2 %in% DT[group == sel_group, ID]) &
-                          between(timegroup,
-                                DT[group == sel_group, min(timegroup) - 1],
-                                DT[group == sel_group, max(timegroup) + 2])]
-g2 <- ggplot(sub_edges,
-                  aes(factor(timegroup), dyadID, color = direction_diff)) +
-  geom_point(size = 5) +
-  scale_color_viridis_c() +
-  labs(x = 'Timegroup', y = '')
-
-print(g / g2 & theme_bw())
-```
-
 
 Interindividual direction measures the absolute direction between individuals. 
 <!-- TODO: describe spatial measures -->
 
 ```{r}
-dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+#| echo: true
+#| eval: false
 dyad_directions <- edge_direction(
-  interindividual_dist,
-  DT,
-  id = 'ID',
-  timegroup = 'timegroup'
+  edges = interindividual_dist,
+  DT = DT,
+  id = id
 )
 ```
 
+
 ```{r}
 #| echo: false
-dyad_directions[DT, geometry := geometry,
-                on = .(ID1 == ID, timegroup == timegroup)]
-sel_DT <- DT[group == sel_group]
-sub_dirs <- dyad_directions[timegroup %in% sel_DT$timegroup & ID1 %in% sel_DT$ID][
-                              dyadID %in% first(dyadID)]
-sub_dirs[, geometry := st_sfc(geometry, recompute_bbox = TRUE)]
-ggplot(sub_dirs) +
-  geom_sf(aes(geometry = geometry)) + 
-  geom_sf_text(aes(geometry = geometry, label = round(direction_dyad, 2))) +
-  theme_void()
+#| eval: true
+#| fig-cap: ""
+tar_read(fig_edge_dir_and_align)
 ```
+
 
 ## Lagged differences in direction
 
@@ -835,54 +609,19 @@ Hierarchical networks can be generated using $\tau^{*}_{ij}$.
 ```{r}
 #| eval: false
 #| echo: true
-# Cast the character column to POSIXct
-DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
-
-# Temporal grouping
-DT <- group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
-
-# Interindividual distance with maximum distance threshold set at 50 m
-interindividual_dist <- edge_dist(
-  DT,
-  threshold = 100,
-  id = id,
-  timegroup = 'timegroup',
-  returnDist = TRUE,
-  fillNA = TRUE
-)
-
-fusion_events <- fusion_id(
-  interindividual_dist,
-  threshold = spatial_threshold, 
-  n_min_length = 0, 
-  n_max_missing = 0, 
-  allow_split = FALSE
+delay <- edge_delay(
+  edges = fusion_events,
+  DT = DT,
+  window = 3,
+  id = id
 )
 ```
 
 ```{r}
 #| eval: true
 #| echo: false
-DT_fogo <- DT_fogo[timegroup < 50]
-direction_step(DT_fogo, id = id_fogo)
-dir_delay_fogo <- edge_delay(DT_fogo, id = id_fogo, edges = edges_fogo, window = 2)
-
-sub_fogo <- DT_fogo[id %in% c('FO2016008', 'FO2017007') & timegroup < 50]
-g <- ggplot(sub_fogo,
-            aes(x_proj, y_proj, color = id)) +
-  geom_path() +
-  geom_label(aes(label = timegroup),
-             data = sub_fogo[timegroup %in% c(min(timegroup), max(timegroup))]) +
-  theme_bw()
-g2 <- ggplot(dir_delay_fogo[dyadID == 'FO2016008-FO2017007' & timegroup < 50]) +
-  geom_point(aes(timegroup, interaction(ID1, ID2), fill = direction_delay),
-             shape = 23, color = 'black',
-             size = 5) +
-  scale_fill_scico(midpoint = 0, palette = 'vik', begin = 0.8, end = 0.2) +
-  theme_bw()
-
-print(g / g2)
-
+#| fig-cap: ''
+tar_read(fig_edge_delay)
 ```
 
 
@@ -901,13 +640,29 @@ attracted to the position of the focal individual. Notably, there is a possibly
 "blind volume" behind the individual representing the limits of their
 perception.
 
-![Figure from Couzin et al 2002](references/Couzin_et_al_2002_Fig_1.png)
 
-(TODO)
+<!-- figure adapted from couzin et al 2002 --> 
 
-<!-- TODO: code and example -->
+```{r}
+#| eval: false
+#| echo: true
+zone_thresholds <- c(10, 25, 50)
+zone_labels <- c('repulsion', 'orientation', 'attraction')
+blind_volume <- 3
+delay <- edge_zones(
+  interindividual_dist,
+  zone_thresholds = zone_thresholds,
+  zone_labels = zone_labels,
+  blind_volume = blind_volume
+)
+```
 
-
+```{r}
+#| eval: true
+#| echo: false
+#| fig-cap: ''
+tar_read(fig_edge_zones)
+```
 
 # Discussion
 

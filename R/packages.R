@@ -1,5 +1,6 @@
 library(targets)
 library(tarchetypes)
+library(qs)
 
 library(janitor)
 
@@ -11,6 +12,7 @@ library(scico)
 library(forcats)
 library(rnaturalearth)
 library(patchwork)
+library(gridExtra)
 
 library(tinytable)
 library(scales)
