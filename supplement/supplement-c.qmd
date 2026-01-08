@@ -14,10 +14,11 @@ count_software <- counted$count_software
 count_metric <- counted$count_metric
 ```
 
-
+<!--
+TODO:
 - highlighting unavailability of selected metrics despite high use in literature
 - detailed justification of not selected metrics
-
+-->
 
 ## Directional correlation delay {.unnumbered}
 
@@ -117,6 +118,8 @@ provided the behavioural zones metric.
 
 
 ## Not selected {.unnumbered}
+
+<!-- TODO: add reasoning -->
 
 - wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
 HAI, IAB, Cr, Ca, 

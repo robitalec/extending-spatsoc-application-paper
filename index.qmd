@@ -138,7 +138,8 @@ Functionality previously available in {spatsoc} includes spatiotemporal grouping
 edge list generation and data-stream permutations (Robitaille et al. 2019). 
 These functions have allowed users to detect interactions between individuals, 
 measure coocurrence within and across species, and generate social networks
-from telemetry data. (TODO: cite examples citing spatsoc)
+from telemetry data. 
+<!-- (TODO: cite examples citing spatsoc) -->
 
 Spatiotemporal grouping can be performed given a telemetry dataset, 
 temporal and spatial thresholds, and one of three grouping functions:
