@@ -297,6 +297,17 @@ targets_intragroup_dynamics <- c(
       id = id
     ),
     description = 'edge_direction()'
+  ),
+
+  tar_target(
+    zones_edges,
+    edge_zones(
+      edge_direction(id_dyads, step_directions, id = id),
+      zone_thresholds = zone_thresholds,
+      zone_labels = zone_labels,
+      blind_volume = blind_volume
+    ),
+    description = 'edge_zones()'
   )
 )
 
