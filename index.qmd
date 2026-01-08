@@ -297,14 +297,13 @@ within the group.
 <!-- TODO: refs where this is used, extended biological interpretation -->
 
 The position within group is the position along the front-to-back axis of the
-group's direction (eg. [@Quera_2023; @Harel_2021]). The rank position within group
-is the ordinal rank along the front-to-back axis of the group's direction (eg.
-[@Burns_2012]). The time spent leading group is an aggregate metric of the time
-in the first rank position within group. The distance to leader is the 
-geographic distance from the focal individual to the group's leader. The direction to 
-leader is the absolute direction from the focal individual to the group's leader. 
-
-<!-- TODO: describe spatial measures -->
+group's direction (eg. [@Quera_2023; @Harel_2021; @Andrienko_2013]). The rank
+position within group is the ordinal rank along the front-to-back axis of the
+group's direction (eg. [@Burns_2012]). The time spent leading group is an
+aggregate metric of the time in the first rank position within group. The
+distance to leader is the geographic distance from the focal individual to the
+group's leader. The direction to leader is the absolute direction from the focal
+individual to the group's leader.
 
 ```{r}
 #| eval: false
@@ -352,10 +351,11 @@ tar_read(fig_dist_dir_leader)
 
 ## Fission fusion
 
-Given the variability in defining fission fusion dynamics in the literature, we
-developed a flexible function that allows users to both use their system
-specific definitions and at the same time easily compare to results to other
-definitions. 
+Given the variability in defining fission fusion dynamics in the literature
+(Supplement B: Scoping Review Results), we developed a flexible function that
+allows users to both use their system specific definitions and at the same time
+easily compare to results to other definitions.
+
 <!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
 Supplement B: .... Table -->
 
