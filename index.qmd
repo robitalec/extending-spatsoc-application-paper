@@ -101,18 +101,20 @@ discuss biological interpretation.
 
 # Methods
 
-## Selecting metrics
+We conducted a scoping review to identify metrics used in ecology studies for
+measuring dyadic interactions, dominance hierarchies and leadership patterns. We
+focused on metrics applicable to spatiotemporal data such as GPS telemetry. See
+details in Supplement A: Scoping Review Methods.
 
-**TODO**
+Metrics were selected for inclusion in {spatsoc} based on their relative
+importance as measured by frequency of use in the review, as well as their lack
+of availability in R packages when the review was conducted. Some metrics were
+specifically not chosen for inclusion such as metrics relating to posture,
+static interaction or home range overlap and metrics based on statistical models
+such as Hidden Markov model and Granger causality. A full list of metrics not
+selected is in Supplement C: Selected Metrics.
 
 <!--
-Criteria: 
-
-- highly cited, unavailable
-- direct extension of available functions in spatsoc
-- biology
-
-
 For each
 
 - Citation
