@@ -343,6 +343,10 @@ targets_figures <- c(
   tar_target(
     fig_edge_delay,
     plot_edge_delay(delay_edges, delay_leaders, step_directions)
+  ),
+  tar_target(
+    fig_edge_zones,
+    plot_edge_zones(edges_zones)
   )
 )
 
