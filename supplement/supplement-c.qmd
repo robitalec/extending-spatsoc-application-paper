@@ -8,7 +8,7 @@ tar_load(taxized)
 tar_load(geocoded)
 tar_load(review)
 tar_load(counted)
-count_code_avail <- counted$count_analysis_code_availability
+count_code_avail <- counted$count_code_avail
 count_prog_lang <- counted$count_prog_lang
 count_software <- counted$count_software
 count_metric <- counted$count_metric
@@ -22,8 +22,6 @@ count_metric <- counted$count_metric
 ## Directional correlation delay {.unnumbered}
 
 ```{r}
-count_code_avail <- tar_read(count_analysis_code_availability)
-
 dirr_del <- count_metric[V1 == 'directional correlation delay']
 ```
  
