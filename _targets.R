@@ -56,12 +56,18 @@ zone_thresholds <- c(10, 25, 50)
 zone_labels <- c('repulsion', 'orientation', 'attraction')
 blind_volume <- 3
 
+# Plotting
 # fontsize
 font_size <- 16
+
+# ggplot theme
+theme_set(theme_bw(base_size = font_size,))
 
 # Patchwork tags
 tag_levels <- 'A'
 tag_suffix <- ')'
+
+
 
 # Targets: Spatiotemporal groups ------------------------------------------
 targets_spatiotemporal_groups <- c(
