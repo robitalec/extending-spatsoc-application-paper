@@ -499,7 +499,6 @@ observation without resulting in a fission event
 #| eval: false
 #| echo: true
 # Fission fusion events using interindividual distance calculated with edge_dist
-dyad_id(interindividual_dist, 'ID1', 'ID2')
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold, 
