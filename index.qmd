@@ -384,10 +384,8 @@ centroid_group(DT)
 ```{r}
 #| eval: true
 #| echo: false
-DT <- group_pts(DT, threshold = spatial_threshold, id = id, 
-                timegroup = 'timegroup')
-cent <- centroid_group(DT)
-tinytable::tt(cent[1:5, .(ID, datetime, timegroup, group, geometry, centroid)])
+tar_load(group_centroids)
+tinytable::tt(group_centroids[1:5, .(ID, datetime, timegroup, group, geometry, centroid)])
 ```
 
 Then we can measure each individual's direction and distance to the group centroid. 
