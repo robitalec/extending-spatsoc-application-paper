@@ -286,18 +286,13 @@ targets_intragroup_dynamics <- c(
   ),
 
   tar_target(
-    alignment_dyad_ids,
-    dyad_id(
-      DT = alignment,
-      id1 = id1,
-      id2 = id2
-    )
-  ),
-
-  tar_target(
     direction_edges,
     edge_direction(
-      edges = alignment_dyad_ids,
+      edges = dyad_id(
+        DT = alignment,
+        id1 = id1,
+        id2 = id2
+      ),
       DT = spatial_groups,
       id = id
     ),
