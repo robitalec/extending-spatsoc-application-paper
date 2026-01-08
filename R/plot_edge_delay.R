@@ -1,5 +1,5 @@
 plot_edge_delay <- function(edges, leaders, DT) {
-  sel_fusion <- edges[, .N, fusionID][N == 6][, sample(fusionID, 1)]
+  sel_fusion <- edges[dyadID == 'C-G'][, .N, fusionID][N == 6]$fusionID[[1]]
   sub_edges <- edges[fusionID == sel_fusion]
   sel_dyad <- first(sub_edges$dyadID)
   sel_ids <- sort(unique(sub_edges$ID1))
