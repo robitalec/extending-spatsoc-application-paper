@@ -114,6 +114,8 @@ static interaction or home range overlap and metrics based on statistical models
 such as Hidden Markov model and Granger causality. A full list of metrics not
 selected is in Supplement C: Selected Metrics.
 
+<!-- TODO: table of new functions, brief description, "family" -->
+
 <!--
 For each
 
@@ -354,6 +356,8 @@ Given the variability in defining fission fusion dynamics in the literature, we
 developed a flexible function that allows users to both use their system
 specific definitions and at the same time easily compare to results to other
 definitions. 
+<!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
+Supplement B: .... Table -->
 
 Function arguments: 
 
@@ -420,6 +424,8 @@ tar_read(fig_dir_polarization)
 Directional alignment is the relative difference between two individuals' 
 directions. Given the similarity to `edge_dist`, this functionality
 is provided under a similar name: `edge_alignment`. 
+
+<!-- TODO: this similarity is edge-list generating -->
 
 ```{r}
 #| echo: true
@@ -512,7 +518,7 @@ attracted to the position of the focal individual. Notably, there is a possibly
 perception.
 
 
-<!-- figure adapted from couzin et al 2002 --> 
+<!-- figure adapted from Couzin et al 2002 --> 
 
 ```{r}
 #| eval: false
