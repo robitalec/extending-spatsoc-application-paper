@@ -346,7 +346,7 @@ targets_figures <- c(
   ),
   tar_target(
     fig_edge_zones,
-    plot_edge_zones(edges_zones)
+    plot_edge_zones(zones_edges)
   )
 )
 
