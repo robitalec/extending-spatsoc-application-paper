@@ -51,9 +51,10 @@ allow_split <- TRUE
 # edge_delay
 window <- 3
 
-# Plotting
-# ggplot theme
-theme_set(theme_bw())
+# edge_zones
+zone_thresholds <- c(10, 25, 50)
+zone_labels <- c('repulsion', 'orientation', 'attraction')
+blind_volume <- 3
 
 # fontsize
 font_size <- 16
