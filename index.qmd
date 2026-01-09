@@ -135,7 +135,7 @@ static interaction eg. home range overlap, ...
 # Case study
 
 Functionality previously available in {spatsoc} includes spatiotemporal grouping,
-edge list generation and data-stream permutations (Robitaille et al. 2019). 
+distance based edge-list generation and data-stream permutations (Robitaille et al. 2019). 
 These functions have allowed users to detect interactions between individuals, 
 measure coocurrence within and across species, and generate social networks
 from telemetry data. 
@@ -143,13 +143,15 @@ from telemetry data.
 
 Spatiotemporal grouping can be performed given a telemetry dataset, 
 temporal and spatial thresholds, and one of three grouping functions:
-`group_pts`, `group_lines` or `group_polys`. Each return a unique identifier
-for each spatiotemporal group, defined using point based distances, 
-linear trajectory overlap or home range overlap, respectively. 
+`group_pts`, `group_lines` or `group_polys`. These return a unique identifier
+for each spatiotemporal group defined using point based distances, 
+linear trajectory overlap and home range overlap, respectively. 
 
 
 For example, the suggested `group_pts` workflow 
 with example data from the package: 
+
+<!-- TODO: note get_geometry --> 
 
 ```{r}
 #| eval: false
@@ -189,9 +191,8 @@ DT <- tar_read(spatial_groups)
 tinytable::tt(DT[order(timegroup)][1:5])
 ```
 
-Users can also measure dyadic interindividual distance using the `edge_dist`
-function and identify nearest neighbors using the `edge_nn` function. For
-example:
+Users can also measure interindividual distance using the `edge_dist` function
+and identify nearest neighbors using the `edge_nn` function. For example:
 
 ```{r}
 #| echo: true
@@ -233,22 +234,19 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 tinytable::tt(tar_read(nn_edges)[1:5])
 ```
 
-Building on these functions, {spatsoc}'s new functionality provides 
-a finer understanding of an individual's behaviour with respect to conspecifics. 
-We aim to provide users with accessible, flexible functions that will 
-help them identify leader follower patterns, fission fusion dynamics and 
-potentially dominance behaviours in their own animal telemetry data. 
+Building on these, {spatsoc}'s new functions provides a finer understanding of
+an individual's behaviour with respect to conspecifics. We aim to provide users
+with accessible, flexible functions that will help to identify leader follower
+patterns, fission fusion dynamics and potentially dominance behaviours from
+animal telemetry data in their ecological systems.
 
 ## Position within groups
 
-Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new 
-set of functions are now available to measure individuals position relative within
-spatiotemporal groups. 
-
-After identifying spatiotemporal groups with eg. `group_pts`, we 
-can measure the group centroid. The group centroid is defined as the 
-the mean of individual locations in a group.
-<!-- TODO: describe spatial measures -->
+Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new set of
+functions are now available to measure individuals position relative within
+spatiotemporal groups. After identifying spatiotemporal groups with eg.
+`group_pts`, we can measure the group centroid, as defined by the mean of
+individual locations in a group.
 
 ```{r}
 #| eval: false
@@ -260,18 +258,22 @@ centroid_group(DT)
 #| eval: true
 #| echo: false
 tar_load(group_centroids)
-tinytable::tt(group_centroids[1:5, .(ID, datetime, timegroup, group, geometry, centroid)])
+tinytable::tt(
+  group_centroids[
+    1:5, 
+    .(ID, datetime, timegroup, group, geometry, centroid)]
+)
 ```
 
-Then we can measure each individual's direction and distance to the group centroid. 
-The distance to group centroid is the distance between from the focal
-individual to the group centroid. The direction to group centroid is the absolute
-direction from the focal individual to the group centroid. The rank distance
-to group centroid is the ordinal rank of individuals' distances to the 
-group centroid. 
-<!-- TODO: describe spatial measures -->
-<!-- TODO: insert refs with examples of biological interpretation of distance and direction to  -->
-<!-- group centroid.  -->
+Then we can measure each individual's direction and distance to the group
+centroid. The distance to group centroid is the geographic distance from the
+focal individual to the group centroid. The direction to group centroid is the
+absolute direction from the focal individual to the group centroid. The rank
+distance to group centroid is the ordinal rank of distances to the group
+centroid within each spatiotemporal group. Spatial position within groups 
+with respect to the group centroid has been studied in relation to 
+predation risk [@Heesen_2014], sex differences [@Inoue_2018], and leadership
+[@Jolles_2017; @Kano_2021].
 
 ```{r}
 #| echo: true
@@ -288,23 +290,15 @@ direction_to_centroid(DT)
 tar_read(fig_pos_wi_group)
 ```
 
-After considering how individuals are positioned relative to the group centroid, 
-we can also measure how individuals are positioned relative to the mean 
-group direction. To do so, we rotate the coordinate system around the 
-group centroid by the mean direction of all individuals in the group. Then 
-we take the distance along this new axis to the measure of front-back position
-within the group. 
-<!-- TODO: describe spatial measures -->
-<!-- TODO: refs where this is used, extended biological interpretation -->
-
-The position within group is the position along the front-to-back axis of the
-group's direction (eg. [@Quera_2023; @Harel_2021; @Andrienko_2013]). The rank
-position within group is the ordinal rank along the front-to-back axis of the
-group's direction (eg. [@Burns_2012]). The time spent leading group is an
-aggregate metric of the time in the first rank position within group. The
-distance to leader is the geographic distance from the focal individual to the
-group's leader. The direction to leader is the absolute direction from the focal
-individual to the group's leader.
+After considering how individuals are positioned relative to the group centroid,
+we can also measure how individuals are positioned relative to the mean group
+direction. To do so, we rotate the coordinate system around the group centroid
+by the mean direction of all individuals in the group and take the distance
+along this new axis as the measure of front-back position within the group (eg.
+[@Quera_2023; @Harel_2021; @Andrienko_2013]). The rank position within group is
+the ordinal rank along the front-to-back axis of the group's direction (eg.
+[@Burns_2012]). The time spent leading group is an aggregate metric of the time
+in the first rank position within group. 
 
 ```{r}
 #| eval: false
@@ -319,6 +313,10 @@ leader_direction_group(DT, return_rank = TRUE)
 #| fig-cap: "Position within group"
 tar_read(fig_pos_group_dir)$positions
 ```
+
+The distance to leader is the geographic distance from the focal individual to
+the group's leader. The direction to leader is the absolute direction from the
+focal individual to the group's leader.
 
 ```{r}
 #| eval: true
