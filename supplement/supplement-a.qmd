@@ -81,6 +81,8 @@ including only papers that provided sufficient information are retained.
 
 ## Form {.unnumbered}
 
+<!-- TODO: use listing --> 
+```
 Covidence #
 
 Study ID
@@ -125,21 +127,19 @@ Code availability
 - Other comments about code availability
 
 Discussion points, etc
-
-
-## Table A.1 {.unnumbered}
+```
 
 ```{r}
 #| echo: false
+#| tbl-cap: 'Table S-A.1 Benchmark papers'
 targets::tar_source('R')
 options("tinytable_print_output"="markdown")
 tar_read(benchmark_papers) |> tt()
 ```
 
-## Table A.2 {.unnumbered}
-
 ```{r}
 #| echo: false
+#| tbl-cap: 'Table S-A.2 Search strings'
 options("tinytable_print_output" = NULL)
 tar_read(search_strings) |> tt()
 ```
