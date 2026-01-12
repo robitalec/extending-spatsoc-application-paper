@@ -15,12 +15,14 @@ review_count <- function(DT) {
   count_analysis_code_availability <- count_list(DT, 'analysis_code_availability')
   count_raw_metric <- count_list(DT, 'metric_used_or_described')
   count_metric <- count_list(DT, 'metric_agg')
+  count_dom_metric <- count_list(DT, 'dominance_metric_agg')
 
   list(
     count_prog_lang = count_programming_language,
     count_software = count_software,
     count_code_avail = count_analysis_code_availability,
     count_metric = count_metric,
-    count_raw_metric = count_raw_metric
+    count_raw_metric = count_raw_metric,
+    count_dom_metric = count_dom_metric
   )
 }
