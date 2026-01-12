@@ -426,7 +426,9 @@ targets_review <- c(
     review,
     review_prep(
       raw_review,
-      metric_synonyms
+      metric_thesaurus = metric_thesaurus,
+      metric_definitions = metric_definitions,
+      dominance_thesaurus = dominance_thesaurus
     )
   ),
   tar_target(
