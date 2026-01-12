@@ -70,7 +70,7 @@ review_taxize <- function(DT) {
 
   setDT(DT_out)
   setnames(DT_out,
-           c('canonicalsimple', 'quality'),
+           c('fix_parse', 'quality'),
            c('parsed_species', 'parse_quality'))
 
   return(DT_out[parse_quality == 1])
