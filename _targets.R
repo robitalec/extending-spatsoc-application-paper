@@ -371,11 +371,28 @@ targets_review <- c(
     cue = tar_cue_age(dl_metric_thesaurus, age = as.difftime(7, units = 'days'))
   ),
   tar_target(
+    dl_metric_definitions,
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'metric-definitions',
+                     file = filepath_definitions),
+    cue = tar_cue_age(dl_metric_definitions, age = as.difftime(7, units = 'days'))
+  ),
+  tar_target(
     dl_dominance_thesaurus,
     write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
                      sheet = 'dominance-thesaurus',
                      file = filepath_dominance_thesaurus),
     cue = tar_cue_age(dl_dominance_thesaurus, age = as.difftime(7, units = 'days'))
+  ),
+  tar_file_read(
+    metric_thesaurus,
+    dl_metric_thesaurus,
+    fread(!!.x)
+  ),
+  tar_file_read(
+    metric_definitions,
+    dl_metric_definitions,
+    fread(!!.x)
   ),
   tar_file_read(
     dominance_thesaurus,
@@ -397,11 +414,6 @@ targets_review <- c(
       read_sheet(
         '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
         sheet = 'iterative search'))[, last(.SD)[, .(String)], Source]
-  ),
-  tar_file_read(
-    metric_synonyms,
-    dl_metric_thesaurus,
-    fread(!!.x)
   ),
   tar_target(
     software_meta,
