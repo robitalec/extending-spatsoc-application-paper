@@ -43,6 +43,17 @@ review_taxize <- function(DT) {
     by.y = 'verbatim'
   )
 
+  # Trim any subspecies etc "Genus species [X Y Z ...]"
+  DT_out[, fix_parse := do.call(
+    paste,
+    tstrsplit(canonicalsimple, ' ', keep = 1:2)
+  )]
+
+  message('Trim any rank below species:\n',
+          'reducing number of unique species from ',
+          DT_out[, uniqueN(canonicalsimple)],
+          ' to ',
+          DT_out[, uniqueN(fix_parse)])
   setDT(DT_out)
   setnames(DT_out,
            c('canonicalsimple', 'quality'),
