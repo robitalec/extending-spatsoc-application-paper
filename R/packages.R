@@ -13,6 +13,7 @@ library(forcats)
 library(rnaturalearth)
 library(patchwork)
 library(gridExtra)
+library(hexbin)
 
 library(tinytable)
 library(scales)
