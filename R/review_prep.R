@@ -32,5 +32,9 @@ review_prep <- function(DT, metric_thesaurus = NULL, metric_definitions = NULL,
 
   DT[, yr := tstrsplit(study_id, ' ', keep = 2, type.convert = TRUE)]
 
+  # Manual fixes
+  DT[grepl('forecast (cross correlation)', software_package_s_used),
+     software_package_s_used := 'forecast']
+
   return(DT)
 }
