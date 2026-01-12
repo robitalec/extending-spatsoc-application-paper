@@ -23,9 +23,10 @@ tar_option_set(format = 'qs')
 data_folder <- 'data'
 
 # Review
-filepath_thesaurus <- file.path('map', 'metric-thesaurus.csv')
 filepath_thesaurus <- file.path(data_folder, 'metric-thesaurus.csv')
 filepath_definitions <- file.path(data_folder, 'metric-definitions.csv')
+filepath_dominance_thesaurus <- file.path(data_folder,
+                                          'metric-dominance-thesaurus.csv')
 
 # Spatiotemporal grouping
 filepath <- system.file('extdata', 'DT.csv', package = 'spatsoc')
@@ -368,6 +369,18 @@ targets_review <- c(
                      sheet = 'metric-thesaurus',
                      file = filepath_thesaurus),
     cue = tar_cue_age(dl_metric_thesaurus, age = as.difftime(7, units = 'days'))
+  ),
+  tar_target(
+    dl_dominance_thesaurus,
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'dominance-thesaurus',
+                     file = filepath_dominance_thesaurus),
+    cue = tar_cue_age(dl_dominance_thesaurus, age = as.difftime(7, units = 'days'))
+  ),
+  tar_file_read(
+    dominance_thesaurus,
+    dl_dominance_thesaurus,
+    fread(!!.x)
   ),
   tar_target(
     benchmark_papers,
