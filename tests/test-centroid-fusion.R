@@ -55,7 +55,7 @@ centroids <- centroid_fusion(
   DT,
   id = 'ID',
   coords = c('X', 'Y'),
-  timegroup = 'timegroup', na.rm = TRUE
+  timegroup = 'timegroup'
 )
 
 
