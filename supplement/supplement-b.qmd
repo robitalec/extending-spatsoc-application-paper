@@ -152,12 +152,10 @@ review[definition_category == 'group', .(study_id, definition)] |>
 #### Count of metrics measuring intragroup dynamics {.unnumbered}
 
 ```{r}
-count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
-
-count_met[order(-N, V1), 
-          .(`Metric` = V1, 
-            N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))] |> 
-  tt()
+count_metric[, .N, metric_agg][order(-N), .(
+  `Metric` = metric_agg,
+  N = paste_n_percent(N)
+)] |> tt()
 ```
 
 ### Definitions of leadership {.unnumbered}
@@ -177,10 +175,8 @@ review[definition_category == 'fission fusion', .(study_id, definition)] |>
 #### Count of methods measuring dominance {.unnumbered}
 
 ```{r}
-count_dom <- count_dom_metric[, .(N = uniqueN(covidence_number)), V1]
-
-count_dom[order(-N, V1), 
-          .(`Metric` = V1, 
-            N = paste_n_percent(N, count_dom_metric[, uniqueN(covidence_number)]))] |> 
-  tt()
+count_dom_metric[, .N, dominance_metric_agg][order(-N), .(
+  `Dominance metric` = dominance_metric_agg,
+  N = paste_n_percent(N)
+)] |> tt()
 ```
