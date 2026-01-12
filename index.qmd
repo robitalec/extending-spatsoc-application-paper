@@ -310,27 +310,18 @@ leader_direction_group(DT, return_rank = TRUE)
 ```{r}
 #| eval: true
 #| echo: false
-#| fig-cap: "Position within group"
-tar_read(fig_pos_group_dir)$positions
+#| fig-cap: "Position along group direction"
+tar_read(fig_pos_group_dir)
 ```
 
-The distance to leader is the geographic distance from the focal individual to
-the group's leader. The direction to leader is the absolute direction from the
-focal individual to the group's leader.
-
-```{r}
-#| eval: true
-#| echo: false
-#| warning: false
-#| fig-cap: "Distance and direction to leader direction group"
-tar_read(fig_pos_group_dir)$dist_dir
-```
 
 ## Position relative to leader
 
-Taking a simple, dynamic definition of leadership, we can identify the 
-distance and direction of each individual to the leader of each spatiotemporal
-group. 
+Taking this simple, dynamic definition of leadership, we can identify the
+distance and direction of individuals to the leader of each spatiotemporal
+group. The distance to leader is the geographic distance from the focal
+individual to the group's leader and the direction to leader is the absolute
+direction from the focal individual to the group's leader.
 
 ```{r}
 #| eval: false
@@ -338,7 +329,6 @@ group.
 distance_to_leader(DT)
 direction_to_leader(DT)
 ```
-
 
 ```{r}
 #| eval: true
