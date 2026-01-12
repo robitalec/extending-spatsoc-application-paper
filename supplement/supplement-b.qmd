@@ -133,13 +133,10 @@ ggplot() +
 ### Species {.unnumbered}
 
 ```{r}
-#| fig-height: 9
-ggplot(taxized) + 
-  geom_bar(aes(y = fct_infreq(species)),
-           fill = 'grey70',
-           linewidth = 0.1) +
-  theme_bw() + 
-  labs(x = 'Count', y = 'Species')
+taxized[, .N, parsed_species][order(-N), .(
+  Species = parsed_species,
+  N = paste_n_percent(N)
+)] |> tt() |> style_tt(j = "Species", italic = TRUE)
 ```
 
 
