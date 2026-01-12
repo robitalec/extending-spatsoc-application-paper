@@ -32,7 +32,8 @@ authors, and manual screening identified an additional N duplicates.
 
 Articles were screened out based on the following criteria:
 
-- Study does not describe dyadic or group metric related to leadership or dominance (eg. [@Papageorgiou_2020])
+- Study does not describe dyadic or group metric related to leadership or 
+dominance (eg. @Papageorgiou_2020)
 - Study describes metric that is not applicable to spatiotemporal data 
 (eg. focal observations @Ballesta_2021)
 - Study does not describe metric beyond static interaction (eg. home range or 
