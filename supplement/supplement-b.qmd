@@ -14,6 +14,7 @@ count_code_avail <- counted$count_code_avail
 count_prog_lang <- counted$count_prog_lang
 count_software <- counted$count_software
 count_metric <- counted$count_metric
+count_dom_metric <- counted$count_dom_metric
 ```
 
 ## Results {.unnumbered}
@@ -47,8 +48,6 @@ count_code_avail[, .N, V1][, .(
   N = paste_n_percent(N)
 )] |> tt()
 ```
-
-
 
 
 ### Programming language / GUI program {.unnumbered}
@@ -101,19 +100,6 @@ software_meta |>
   tt()
 ```
 
-### Metrics {.unnumbered}
-
-
-```{r}
-count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
-
-count_met[order(-N, V1), 
-          .(`Metric` = V1, 
-            N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))] |> 
-  tt()
-```
-
-
 
 ### Temporal {.unnumbered}
 
@@ -157,10 +143,47 @@ ggplot(taxized) +
 ```
 
 
-### Fission fusion {.unnumbered}
+### Metrics {.unnumbered}
+
+#### Definitions of spatiotemporal groups {.unnumbered}
 
 ```{r}
-review[grepl('fission', metric_agg), .(study_id, definitions_of_leader_initiator_etc)] |> 
+review[definition_category == 'group', .(study_id, definition)] |>
   tt()
 ```
 
+#### Count of metrics measuring intragroup dynamics {.unnumbered}
+
+```{r}
+count_met <- count_metric[, .(N = uniqueN(covidence_number)), V1]
+
+count_met[order(-N, V1), 
+          .(`Metric` = V1, 
+            N = paste_n_percent(N, count_metric[, uniqueN(covidence_number)]))] |> 
+  tt()
+```
+
+### Definitions of leadership {.unnumbered}
+
+```{r}
+review[definition_category == 'leadership', .(study_id, definition)] |>
+  tt()
+```
+
+### Definitions of fission fusion {.unnumbered}
+
+```{r}
+review[definition_category == 'fission fusion', .(study_id, definition)] |>
+  tt()
+```
+
+#### Count of methods measuring dominance {.unnumbered}
+
+```{r}
+count_dom <- count_dom_metric[, .(N = uniqueN(covidence_number)), V1]
+
+count_dom[order(-N, V1), 
+          .(`Metric` = V1, 
+            N = paste_n_percent(N, count_dom_metric[, uniqueN(covidence_number)]))] |> 
+  tt()
+```
