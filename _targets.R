@@ -19,8 +19,13 @@ tar_option_set(format = 'qs')
 
 
 # Variables ---------------------------------------------------------------
+# Data folder
+data_folder <- 'data'
+
 # Review
 filepath_thesaurus <- file.path('map', 'metric-thesaurus.csv')
+filepath_thesaurus <- file.path(data_folder, 'metric-thesaurus.csv')
+filepath_definitions <- file.path(data_folder, 'metric-definitions.csv')
 
 # Spatiotemporal grouping
 filepath <- system.file('extdata', 'DT.csv', package = 'spatsoc')
@@ -354,7 +359,7 @@ targets_figures <- c(
 targets_review <- c(
   tar_file_read(
     raw_review,
-    file.path('map', 'review.csv'),
+    file.path(data_folder, 'review.csv'),
     fread(!!.x)
   ),
   tar_target(
