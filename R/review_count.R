@@ -6,7 +6,8 @@
 review_count <- function(DT) {
   count_list <- function(DT, col) {
     count <- DT[, strsplit(.SD[[1]], ';'), .SDcols = col, by = covidence_number]
-    count[, (paste0('n_', col)) := trimws(V1)]
+    count[, (col) := trimws(V1)]
+    count[, V1 := NULL]
     return(count)
   }
 

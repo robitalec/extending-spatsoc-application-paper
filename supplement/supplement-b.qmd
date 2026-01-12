@@ -43,8 +43,8 @@ count_dom_metric <- counted$count_dom_metric
 ### Code availability {.unnumbered}
 
 ```{r}
-count_code_avail[, .N, V1][, .(
-  `Code availability` = V1,
+count_code_avail[, .N, analysis_code_availability][order(-N), .(
+  `Code availability` = analysis_code_availability,
   N = paste_n_percent(N)
 )] |> tt()
 ```
@@ -52,44 +52,44 @@ count_code_avail[, .N, V1][, .(
 
 ### Programming language / GUI program {.unnumbered}
 
-Out of `r count_prog_lang[, uniqueN(covidence_number)]` articles, 
-`r count_prog_lang[is.na(V1), .N]` did not list a programming 
+```{r}
+list_prog <- count_prog_lang[, uniqueN(covidence_number), .(prog = !is.na(programming_language))]
+unique_prog_lang <- count_prog_lang[, uniqueN(programming_language), covidence_number]
+```
+
+Out of `r list_prog[, sum(V1)]` articles, 
+`r list_prog[!(prog), sum(V1)]` did not list a programming 
 language or GUI program.  Of the 
-`r count_prog_lang[!is.na(V1), uniqueN(covidence_number)]` 
-that did, `r count_prog_lang[, .N, covidence_number][N > 1, .N]` 
+`r list_prog[(prog), sum(V1)]` 
+that did, `r unique_prog_lang[V1 > 1, uniqueN(covidence_number)]` 
 articles listed more than one programming 
 language or GUI program, therefore the total 
 count below will be greater than the number of articles. 
 
-
 ```{r}
-count_prog <- count_prog_lang[!is.na(V1), .N, V1]
-
-count_prog[order(-N), 
-           .(`Programming language / GUI software` = V1, 
-             N = paste_n_percent(N))] |> 
-  tt()
+count_prog_lang[, .N, programming_language][order(-N), .(
+  `Programming language` = programming_language,
+  N = paste_n_percent(N)
+)] |> tt()
 ```
 
 
 ### Software packages {.unnumbered}
 
 Out of `r count_software[, uniqueN(covidence_number)]` articles, 
-`r count_software[is.na(V1), .N]` did not list a software package.
+`r count_software[is.na(software_package_s_used), .N]` did not list a software package.
 Of the 
-`r count_software[!is.na(V1), uniqueN(covidence_number)]` 
+`r count_software[!is.na(software_package_s_used), uniqueN(covidence_number)]` 
 that did, `r count_software[, .N, covidence_number][N > 1, .N]` 
 articles listed more than one software package 
 , therefore the total 
 count below will be greater than the number of articles. 
 
 ```{r}
-count_soft_na_rm <- count_software[!is.na(V1), .N, V1]
-
-count_soft_na_rm[order(-N),
-           .(`Software package` = V1,
-             N = paste_n_percent(N))] |>
-  tt()
+count_software[, .N, software_package_s_used][order(-N), .(
+  `Software package used` = software_package_s_used,
+  N = paste_n_percent(N)
+)] |> tt()
 ```
 
 
