@@ -121,9 +121,9 @@ provided the behavioural zones metric.
 
 <!-- TODO: add reasoning -->
 
-- wildlifeDI (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca, 
-- corrMove (diffusive movement correlation, drift movement correlation,
+- {wildlifeDI} (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca)
+- {corrMove} (diffusive movement correlation, drift movement correlation,
 overall component movement correlation)
 - metrics relating to posture
 - static interaction eg. home range overlap
