@@ -38,6 +38,8 @@ bibliography: references/references.bib
 number-sections: true
 ---
 
+<!-- TODO: abstract above -->
+
 # Introduction
 
 ```{r}
