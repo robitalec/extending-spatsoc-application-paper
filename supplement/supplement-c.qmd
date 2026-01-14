@@ -26,7 +26,7 @@ TODO:
 dirr_del <- count_metric[metric_agg == 'directional correlation delay']
 ```
  
-Our review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
+Our scoping review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
 the directional correlation delay metric, across 
 `r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
 study species. Only 
@@ -47,7 +47,7 @@ pos_wi <- count_metric[metric_agg %in% c('position within group',
                                  'direction to leader')]
 ```
 
-Our review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
+Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
 the position within group, rank position within group, time spent leading 
 group metrics, distance to leader, or direction to leader metrics across 
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
@@ -67,7 +67,7 @@ to_grp_cent <- count_metric[metric_agg %in% c('direction to group centroid',
                                       'group centroid')]
 ```
 
-Our review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
+Our scoping review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
 the group centroid, distance to group centroid, direction to group centroid, 
 or rank distance to group centroid metrics, across 
 `r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
@@ -89,7 +89,7 @@ align <- count_metric[metric_agg %in% c('polarization',
                                 'nearest neighbour direction')]
 ```
 
-Our review found `r align[, uniqueN(covidence_number)]` studies that used 
+Our scoping review found `r align[, uniqueN(covidence_number)]` studies that used 
 the polarization, directional alignment or interindividual direction metrics, 
 across
 `r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
@@ -109,7 +109,7 @@ interindividual direction metrics.
 zone <- count_metric[metric_agg %in% c('zones')]
 ```
 
-Our review found `r zone[, uniqueN(covidence_number)]` studies that used 
+Our scoping review found `r zone[, uniqueN(covidence_number)]` studies that used 
 the behavioural zones metric, 
 across
 `r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]` 
