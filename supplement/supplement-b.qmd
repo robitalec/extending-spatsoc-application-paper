@@ -103,7 +103,7 @@ TODO: consider removing?
 software_meta |> 
   tt()
 -->
-
+ 
 ```{r}
 #| echo: false
 #| label: fig-temp
@@ -125,8 +125,9 @@ countries <- ne_countries()
 
 ggplot() + 
   geom_sf(data = countries) + 
-  geom_hex(aes(long, lat), alpha = 0.7, data = geocoded[!is.na(long)]) + 
-  coord_sf(crs = crs, default_crs = 4326) + 
+  geom_hex(aes(long, lat), alpha = 1, 
+           bins = 20, data = geocoded[!is.na(long)]) + 
+  coord_sf(crs = 54030, default_crs = 4326) + 
   theme_void() + 
   theme(legend.position = 'bottom')
 ```
