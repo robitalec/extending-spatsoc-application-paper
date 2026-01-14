@@ -23,20 +23,20 @@ count_dom_metric <- counted$count_dom_metric
 
 ```
 3870 references imported for screening as 3870 studies
-  128 duplicates identified manually
-  799 duplicates identified by Covidence
+	128 duplicates identified manually
+	799 duplicates identified by Covidence
 2943 studies screened against title and abstract
-  2527 studies excluded
+	2527 studies excluded
 416 studies assessed for full-text eligibility
-  262 studies excluded
-    171  Does not discuss dyadic metric
-    86  Metric not applicable to spatiotemporal data
-    2  Book chapter
-    2  Full text not in English
-    1  Thesis
-  0 studies ongoing
-  0 studies awaiting classification
-154 studies included
+	275 studies excluded
+		184  Does not discuss dyadic measure
+		86  Metric not applicable to spatiotemporal data
+		2  Book chapter
+		2  Full text not in English
+		1  Thesis
+	0 studies ongoing
+	0 studies awaiting classification
+141 studies included
 ```
 
 
