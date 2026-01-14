@@ -122,20 +122,21 @@ behavioural zones metric.
 
 ## Not selected {.unnumbered}
 
-<!-- TODO: add reasoning -->
+The following metrics were not selected due to their availability in 
+existing R packages:
 
-- {wildlifeDI} (DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca)
-- {corrMove} (diffusive movement correlation, drift movement correlation,
-overall component movement correlation)
+- {wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca
+- {corrMove}: diffusive movement correlation, drift movement correlation,
+overall component movement correlation
+- {changepoint}: change point analysis
+
+The following metrics were not selected due to their availability in 
+code availability accompanying publications:
+
+- mFLICA provided in code accompanying @Amornbunchornvej_2018
+
+The follow metrics were not selected due to the expected input data differing 
+from existing {spatsoc} functions (XYT):
+
 - metrics relating to posture
-- static interaction eg. home range overlap
-- voronoi
-- HMM
-- change point detection
-- mFLICA 
-  - available
-- FLOCK
-- LPD
-- Granger causality
-- Influence maximization
