@@ -80,67 +80,26 @@ language or software package used. In all cases, counts are presented as an
 overall frequency including papers with missing fields.
 
 
-## Form {.unnumbered}
-
-<!-- TODO: use listing --> 
-```
-Covidence #
-
-Study ID
-
-Title
-
-Reviewer Name
-
-Study information
-
-- Type of study
-  - Empirical
-  - Simulation
-  - Algorithm
-  - Model
-  - Review
-  - Other
-- Species
-- Region
-
-Dyadic social metric
-
-- Metric used or described
-- Software package(s) used
-- Citation for metric if not introduced in this current paper
-- Interpretation
-- Data input required
-- Definitions of "leader", "initiator", etc
-
-Dominance
-
-- Dominance metric
-- Interpretation
-- Citation for dominance metric if not introduced in this paper
-
-Code availability
-
-- Analysis code availability
-- Programming language
-- Analysis code link
-- Analysis code availability location
-- Other comments about code availability
-
-Discussion points, etc
+```{r}
+#| echo: false
+#| label: tbl-form
+#| tbl-cap: "Data extraction form for scoping review to identify metrics for studying intragroup dynamics"
+data.table::fread('data/form.csv') |>
+  tinytable::tt()
 ```
 
 ```{r}
 #| echo: false
-#| tbl-cap: 'Table S-A.1 Benchmark papers'
-targets::tar_source('R')
-options("tinytable_print_output"="markdown")
-tar_read(benchmark_papers) |> tt()
+#| label: tbl-benchmark
+#| tbl-cap: "Benchmark papers used to evaluate iterative search results for scoping review"
+targets::tar_read(benchmark_papers) |> 
+  tinytable::tt()
 ```
 
 ```{r}
 #| echo: false
-#| tbl-cap: 'Table S-A.2 Search strings'
-options("tinytable_print_output" = NULL)
-tar_read(search_strings) |> tt()
+#| label: tbl-search-strings
+#| tbl-cap: "Search strings for scoping review using Web of Science and Scopus"
+targets::tar_read(search_strings) |> 
+  tinytable::tt()
 ```
