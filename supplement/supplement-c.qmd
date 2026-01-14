@@ -32,8 +32,9 @@ the directional correlation delay metric, across
 study species. Only 
 `r count_code_avail[covidence_number %in% dirr_del$covidence_number & analysis_code_availability == 'Yes', .N]` 
 study had code available using a combination of 
-MATLAB (closed source), CUDA (closed source), and Python (open source). To
-our knowledge, there are no R packages that provide this metric. 
+MATLAB (closed source), CUDA (closed source), and Python (open source). At the
+time when the scoping review was conducted, to the best of our knowledge, there
+were no R packages that provide this metric.
 
 
 ## Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
@@ -53,8 +54,8 @@ group metrics, distance to leader, or direction to leader metrics across
 study species. 
 Only 
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
-study had code available.  To our knowledge, there are no R packages that
-provide these metrics. 
+study had code available. At the time when the scoping review was conducted, to
+the best of our knowledge, there were no R packages that provide these metrics.
 
 
 ## Distance, direction and rank distance to group centroid {.unnumbered}
@@ -73,9 +74,9 @@ or rank distance to group centroid metrics, across
 study species. 
 `r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & analysis_code_availability == 'Yes', .N]`
 studies had code available. The {swaRm} package provides functionality to 
-calculate the group centroid and the distance to the group centroid. To our
-knowledge, there are no R packages that provided the direction and
-rank distance to group centroid metrics. 
+calculate the group centroid and the distance to the group centroid. At the
+time when the scoping review was conducted, to the best of our knowledge, there
+were no R packages that provide the rank to distance to group centroid metric. 
 
 
 ## Polarization, directional alignment and interindividual direction {.unnumbered}
@@ -94,10 +95,11 @@ across
 `r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% align$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. The {swaRm} package provides functionality to 
-calculate the polarization order parameter, as well as the {CircStats} package.
-To our knowledge, there are no R packages that provide the directional 
-alignment or interindividual direction metrics. 
+studies had code available. The  {CircStats} package provides functionality to 
+calculate the polarization order parameter, as well as the {swaRm} package.
+At the time when the scoping review was conducted, to the best of our knowledge,
+there were no R packages that provide the directional alignment or
+interindividual direction metrics.
 
 
 ## Behavioural zones {.unnumbered}
@@ -113,8 +115,9 @@ across
 `r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]` 
 study species. 
 `r count_code_avail[covidence_number %in% zone$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. To our knowledge, there are no R packages that
-provided the behavioural zones metric.
+studies had code available. At the time when the scoping review was conducted,
+to the best of our knowledge, there were no R packages that provide the
+behavioural zones metric.
 
 
 ## Not selected {.unnumbered}
