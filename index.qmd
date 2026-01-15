@@ -137,7 +137,7 @@ static interaction eg. home range overlap, ...
 # Case study
 
 Functionality previously available in {spatsoc} includes spatiotemporal grouping,
-distance based edge-list generation and data-stream permutations (Robitaille et al. 2019). 
+distance based edge-list generation and data-stream permutations [@Robitaille_2019]. 
 These functions have allowed users to detect interactions between individuals, 
 measure coocurrence within and across species, and generate social networks
 from telemetry data. 
@@ -148,7 +148,6 @@ temporal and spatial thresholds, and one of three grouping functions:
 `group_pts`, `group_lines` or `group_polys`. These return a unique identifier
 for each spatiotemporal group defined using point based distances, 
 linear trajectory overlap and home range overlap, respectively. 
-
 
 For example, the suggested `group_pts` workflow 
 with example data from the package: 
