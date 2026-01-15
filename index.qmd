@@ -149,7 +149,17 @@ temporal and spatial thresholds, and one of three grouping functions:
 for each spatiotemporal group defined using point based distances, 
 linear trajectory overlap and home range overlap, respectively. 
 
-with example data from the package: 
+`get_geometry` is a new helper function added to {spatsoc} to provide an 
+alternative interface for providing coordinates and, optionally, coordinate
+reference system. Instead of providing the names to columns for the X and Y 
+coordinates using the `coords` argument, the `get_geometry` function adds
+a simple feature geometry list column (`sfc`) using the {sf} package [@Pebesma_2018].
+The geometry method is used by default for all {spatsoc} functions requiring 
+coordinates when the `coords` argument is left null. The following examples and
+case study will illustrate the geometry interface throughout. 
+
+
+For example, the suggested `group_pts` workflow with the example data from the package and the `get_geometry()` helper function: 
 
 <!-- TODO: note get_geometry --> 
 
