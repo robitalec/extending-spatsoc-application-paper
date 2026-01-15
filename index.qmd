@@ -198,7 +198,9 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 ```{r}
 #| echo: false
 DT <- tar_read(spatial_groups)
-tinytable::tt(DT[order(timegroup)][1:5])
+sel_groups <- DT[, .N, by = group][between(N, 2, 3), sample(group, 3)]
+tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
+  1:5, .(ID, datetime, geometry, timegroup, group)])
 ```
 
 Users can also measure interindividual distance using the `edge_dist` function
