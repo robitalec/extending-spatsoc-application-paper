@@ -94,27 +94,27 @@ intragroup dynamics. We conducted a scoping review to identify metrics
 applicable to spatiotemporal data used in ecological studies focused on dyadic
 interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
 resulting metrics, we selected those with a high number of citations (as a
-measure of value for the target audience) and unavailability in the R
+measure of value for the target audience) and lack of availability in the R
 programming language, either through R packages or supplemental materials in the
 literature. We will demonstrate these new functions through a case study and
 discuss biological interpretation.
 
-<!-- update count if include randomization method --> 
+<!-- TODO: update count if include randomization method --> 
 
 # Methods
 
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We
-focused on metrics applicable to spatiotemporal data such as GPS telemetry. See
-details in Supplement A: Scoping Review Methods.
+focused on metrics applicable to spatiotemporal data such as animal movement data.
+See details in Supplement A: Scoping Review Methods.
 
 Metrics were selected for inclusion in {spatsoc} based on their relative
 importance as measured by frequency of use in the review, as well as their lack
 of availability in R packages when the review was conducted. Some metrics were
 specifically not chosen for inclusion such as metrics relating to posture,
-static interaction or home range overlap and metrics based on statistical models
-such as Hidden Markov model and Granger causality. A full list of metrics not
-selected is in Supplement C: Selected Metrics.
+metrics relating to static interaction or home range overlap and metrics based
+on statistical models such as Hidden Markov model and Granger causality. A full
+list of metrics not selected is in Supplement C: Selected Metrics.
 
 <!-- TODO: table of new functions, brief description, "family" -->
 
@@ -149,7 +149,6 @@ temporal and spatial thresholds, and one of three grouping functions:
 for each spatiotemporal group defined using point based distances, 
 linear trajectory overlap and home range overlap, respectively. 
 
-For example, the suggested `group_pts` workflow 
 with example data from the package: 
 
 <!-- TODO: note get_geometry --> 
