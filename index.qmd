@@ -273,7 +273,7 @@ absolute direction from the focal individual to the group centroid. The rank
 distance to group centroid is the ordinal rank of distances to the group
 centroid within each spatiotemporal group. Spatial position within groups 
 with respect to the group centroid has been studied in relation to 
-predation risk [@Heesen_2014], sex differences [@Inoue_2018], and leadership
+predation risk [@Heesen_2015], sex differences [@Inoue_2019], and leadership
 [@Jolles_2017; @Kano_2021].
 
 ```{r}

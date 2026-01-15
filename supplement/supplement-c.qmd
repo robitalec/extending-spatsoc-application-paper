@@ -134,7 +134,8 @@ overall component movement correlation
 The following metrics were not selected due to their availability in 
 code availability accompanying publications:
 
-- mFLICA provided in code accompanying @Amornbunchornvej_2018
+- mFLICA provided in code accompanying @Amornbunchornvej_2018 and R package 
+[@Amornbunchornvej_2021]
 
 The follow metrics were not selected due to the expected input data differing 
 from existing {spatsoc} functions (XYT):
