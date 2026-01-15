@@ -88,7 +88,7 @@ multidisciplinary approaches to better understand animal social systems
 [@Couzin_2023; @King_2018].
 
 Here we present 
-`r length(grep('cent|dir|dista|ali|del|zon|lead|get', ls('package:spatsoc')))`
+`r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions for the R package {spatsoc} [@Robitaille_2019] for measuring
 intragroup dynamics. We conducted a scoping review to identify metrics
 applicable to spatiotemporal data used in ecological studies focused on dyadic
