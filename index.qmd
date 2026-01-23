@@ -388,13 +388,14 @@ either individual in a dyad within a fusion event
 - `allow_split`: if fusion events allow a temporary spatial splitting for one
 observation without resulting in a fission event
 
-<!-- See Table Sup B: varying definitions of fission fusion -->
+<!-- See Table Sup B: varying definitions of fission fusion 
+TODO: mention from edge_dist
+-->
 
 ```{r}
 #| label: calc-fusion
 #| eval: false
 #| echo: true
-# Fission fusion events using interindividual distance calculated with edge_dist
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold, 
