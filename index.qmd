@@ -43,6 +43,7 @@ number-sections: true
 # Introduction
 
 ```{r}
+#| label: setup
 #| include: false
 targets::tar_source('R')
 ```
@@ -164,6 +165,7 @@ package and the `get_geometry()` helper function:
 <!-- TODO: note get_geometry --> 
 
 ```{r}
+#| label: calc-group-pts
 #| eval: false
 #| echo: true
 
@@ -196,6 +198,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 ```
 
 ```{r}
+#| label: tbl-group-pts
 #| echo: false
 DT <- tar_read(spatial_groups)
 sel_groups <- DT[, .N, by = group][between(N, 2, 3), sample(group, 3)]
@@ -207,6 +210,7 @@ Users can also measure interindividual distance using the `edge_dist` function
 and identify nearest neighbors using the `edge_nn` function. For example:
 
 ```{r}
+#| label: calc-edge-dist
 #| echo: true
 #| eval: false
 interindividual_dist <- edge_dist(
@@ -221,13 +225,14 @@ dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
-#| label: "IID"
+#| label: tbl-edge-dist
 #| echo: false
 #| eval: true
 tinytable::tt(tar_read(distance_edges)[1:5])
 ```
 
 ```{r}
+#| label: calc-edge-nn
 #| echo: true
 #| eval: false
 nearest_neighbours <- edge_nn(
@@ -240,7 +245,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
-#| label: "nn"
+#| label: fig-edge-nn
 #| echo: false
 #| eval: true
 tinytable::tt(tar_read(nn_edges)[1:5])
@@ -261,12 +266,14 @@ spatiotemporal groups. After identifying spatiotemporal groups with eg.
 individual locations in a group.
 
 ```{r}
+#| label: calc-cent-group
 #| eval: false
 #| echo: true
 centroid_group(DT)
 ```
 
 ```{r}
+#| label: tbl-cent-group
 #| eval: true
 #| echo: false
 tar_load(group_centroids)
@@ -288,6 +295,7 @@ predation risk [@Heesen_2015], sex differences [@Inoue_2019], and leadership
 [@Jolles_2017; @Kano_2021].
 
 ```{r}
+#| label: calc-dist-dir-cent
 #| echo: true
 #| eval: false
 distance_to_centroid(DT, return_rank = TRUE)
@@ -295,6 +303,7 @@ direction_to_centroid(DT)
 ```
 
 ```{r}
+#| label: fig-dist-dir-cent
 #| echo: false
 #| eval: true
 #| warning: false
@@ -313,6 +322,7 @@ the ordinal rank along the front-to-back axis of the group's direction (eg.
 in the first rank position within group. 
 
 ```{r}
+#| label: calc-leader-dir-group
 #| eval: false
 #| echo: true
 direction_step(DT, id = id)
@@ -320,6 +330,7 @@ leader_direction_group(DT, return_rank = TRUE)
 ```
 
 ```{r}
+#| label: fig-leader-dir-group
 #| eval: true
 #| echo: false
 #| fig-cap: "Position along group direction"
@@ -336,6 +347,7 @@ individual to the group's leader and the direction to leader is the absolute
 direction from the focal individual to the group's leader.
 
 ```{r}
+#| label: calc-dist-dir-lead
 #| eval: false
 #| echo: true
 distance_to_leader(DT)
@@ -343,6 +355,7 @@ direction_to_leader(DT)
 ```
 
 ```{r}
+#| label: fig-dist-dir-lead
 #| eval: true
 #| echo: false
 tar_read(fig_dist_dir_leader)
@@ -373,6 +386,7 @@ observation without resulting in a fission event
 <!-- See Table Sup B: varying definitions of fission fusion -->
 
 ```{r}
+#| label: calc-fusion
 #| eval: false
 #| echo: true
 # Fission fusion events using interindividual distance calculated with edge_dist
@@ -387,6 +401,7 @@ fusion_events <- fusion_id(
 
 
 ```{r}
+#| label: fig-fusion
 #| echo: false
 #| eval: true
 #| fig-height: 10
@@ -410,12 +425,14 @@ in different directions and values near 1 indicate that directions point in
 similar directions. 
 
 ```{r}
+#| label: calc-dir-pol
 #| echo: true
 #| eval: false
 direction_polarization(DT)
 ```
 
 ```{r}
+#| label: fig-dir-pol
 #| echo: false
 #| eval: true
 #| fig-height: 10
@@ -429,6 +446,7 @@ is provided under a similar name: `edge_alignment`.
 <!-- TODO: this similarity is edge-list generating -->
 
 ```{r}
+#| label: calc-edge-align
 #| echo: true
 #| eval: false
 directional_align <- edge_alignment(
@@ -442,6 +460,7 @@ Interindividual direction measures the absolute direction between individuals.
 <!-- TODO: describe spatial measures -->
 
 ```{r}
+#| label: calc-edge-dir
 #| echo: true
 #| eval: false
 dyad_directions <- edge_direction(
@@ -453,6 +472,7 @@ dyad_directions <- edge_direction(
 
 
 ```{r}
+#| label: fig-edge-align-dir
 #| echo: false
 #| eval: true
 #| fig-cap: ""
@@ -485,6 +505,7 @@ i falls behind that of individual j and therefore j is leading
 Hierarchical networks can be generated using $\tau^{*}_{ij}$. 
 
 ```{r}
+#| label: calc-edge-delay
 #| eval: false
 #| echo: true
 delay <- edge_delay(
@@ -496,6 +517,7 @@ delay <- edge_delay(
 ```
 
 ```{r}
+#| label: fig-edge-delay
 #| eval: true
 #| echo: false
 #| fig-cap: ''
@@ -522,6 +544,7 @@ perception.
 <!-- figure adapted from Couzin et al 2002 --> 
 
 ```{r}
+#| label: calc-edge-zones
 #| eval: false
 #| echo: true
 zone_thresholds <- c(10, 25, 50)
@@ -536,6 +559,7 @@ delay <- edge_zones(
 ```
 
 ```{r}
+#| label: fig-edge-zones
 #| eval: true
 #| echo: false
 #| fig-cap: ''
