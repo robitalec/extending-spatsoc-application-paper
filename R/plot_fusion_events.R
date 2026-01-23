@@ -25,7 +25,7 @@ plot_fusion_events <- function(edges, DT) {
     geom_point(data = sub_edges,
                aes(x = centroid_X, y = centroid_Y),
                color = 'black', size = 3) +
-    guides(color = element_blank()) +
+    guides(color = 'none') +
     scale_color_viridis_d(end = 0.5, begin = 0.2) +
     labs(x = '', y = '') +
     coord_fixed()
