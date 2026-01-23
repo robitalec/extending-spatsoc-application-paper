@@ -199,6 +199,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 
 ```{r}
 #| label: tbl-group-pts
+#| tbl-cap: "Spatiotemporal grouping with `group_pts()` using the new geometry interface"
 #| echo: false
 DT <- tar_read(spatial_groups)
 sel_groups <- DT[, .N, by = group][between(N, 2, 3), sample(group, 3)]
@@ -228,6 +229,7 @@ dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-dist
 #| echo: false
 #| eval: true
+#| tbl-cap: "Measuring interindividual distances with `edge_dist()`"
 tinytable::tt(tar_read(distance_edges)[1:5])
 ```
 
@@ -248,6 +250,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 #| label: fig-edge-nn
 #| echo: false
 #| eval: true
+#| tbl-cap: "Measuring nearest neighbours with `edge_nn()`"
 tinytable::tt(tar_read(nn_edges)[1:5])
 ```
 
@@ -276,6 +279,7 @@ centroid_group(DT)
 #| label: tbl-cent-group
 #| eval: true
 #| echo: false
+#| tbl-cap: "Measuring spatiotemporal group centroids with `centroid_group()`"
 tar_load(group_centroids)
 tinytable::tt(
   group_centroids[
@@ -307,8 +311,8 @@ direction_to_centroid(DT)
 #| echo: false
 #| eval: true
 #| warning: false
-#| fig-cap: "Position within group"
 tar_read(fig_pos_wi_group)
+#| fig-cap: "Measuring distance and direction to group centroids with `distance_to_centroid()` and `direction_to_centroid()"
 ```
 
 After considering how individuals are positioned relative to the group centroid,
@@ -333,7 +337,7 @@ leader_direction_group(DT, return_rank = TRUE)
 #| label: fig-leader-dir-group
 #| eval: true
 #| echo: false
-#| fig-cap: "Position along group direction"
+#| fig-cap: "Measuring position along front-back position within group with `leader_direction_group()`"
 tar_read(fig_pos_group_dir)
 ```
 
@@ -358,6 +362,7 @@ direction_to_leader(DT)
 #| label: fig-dist-dir-lead
 #| eval: true
 #| echo: false
+#| fig-cap: "Measuring distance and direction to group leader using `distance_to_leader()` and `direction_to_leader()`"
 tar_read(fig_dist_dir_leader)
 ```
 
@@ -405,6 +410,7 @@ fusion_events <- fusion_id(
 #| echo: false
 #| eval: true
 #| fig-height: 10
+#| fig-cap: "Identifying fusion events using `fusion_id()`"
 tar_read(fig_fusion_events)
 ```
 
@@ -436,6 +442,7 @@ direction_polarization(DT)
 #| echo: false
 #| eval: true
 #| fig-height: 10
+#| fig-cap: "Measuring direction polarization with `direction_polarization()`"
 tar_read(fig_dir_polarization)
 ```
 
