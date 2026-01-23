@@ -323,8 +323,8 @@ targets_intragroup_dynamics <- c(
 # Targets: Figures --------------------------------------------------------
 targets_figures <- c(
   tar_target(
-    fig_pos_wi_group,
-    plot_pos_wi_group(distance_to_centroids)
+    fig_dist_dir_cent,
+    plot_dist_dir_cent(distance_to_centroids)
   ),
   tar_target(
     fig_pos_group_dir,

@@ -311,8 +311,8 @@ direction_to_centroid(DT)
 #| echo: false
 #| eval: true
 #| warning: false
-tar_read(fig_pos_wi_group)
 #| fig-cap: "Measuring distance and direction to group centroids with `distance_to_centroid()` and `direction_to_centroid()"
+tar_read(fig_dist_dir_cent)
 ```
 
 After considering how individuals are positioned relative to the group centroid,
