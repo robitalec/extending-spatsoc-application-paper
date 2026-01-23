@@ -158,8 +158,8 @@ The geometry method is used by default for all {spatsoc} functions requiring
 coordinates when the `coords` argument is left null. The following examples and
 case study will illustrate the geometry interface throughout. 
 
-
-For example, the suggested `group_pts` workflow with the example data from the package and the `get_geometry()` helper function: 
+For example, the suggested `group_pts` workflow with the example data from the
+package and the `get_geometry()` helper function:
 
 <!-- TODO: note get_geometry --> 
 
