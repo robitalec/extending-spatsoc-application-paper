@@ -326,11 +326,10 @@ After considering how individuals are positioned relative to the group centroid,
 we can also measure how individuals are positioned relative to the mean group
 direction. To do so, we rotate the coordinate system around the group centroid
 by the mean direction of all individuals in the group and take the distance
-along this new axis as the measure of front-back position within the group (eg.
-[@Quera_2023; @Harel_2021; @Andrienko_2013]). The rank position within group is
-the ordinal rank along the front-to-back axis of the group's direction (eg.
-[@Burns_2012]). The time spent leading group is an aggregate metric of the time
-in the first rank position within group. 
+along this new axis as the measure of front-back position within the group
+[@Quera_2023; @Harel_2021; @Andrienko_2013]. The rank position within group is
+the ordinal rank along the front-to-back axis of the group's direction
+[@Burns_2012]. 
 
 ```{r}
 #| label: calc-leader-dir-group
