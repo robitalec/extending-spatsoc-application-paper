@@ -205,7 +205,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 #| tbl-cap: "Spatiotemporal groups measured using group_times and group_pts. group_times returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold."
 #| echo: false
 DT <- tar_read(spatial_groups)
-sel_groups <- DT[, .N, by = group][between(N, 2, 3), sample(group, 3)]
+sel_groups <- DT[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
 tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
   seq.int(6), .(ID, datetime, geometry, timegroup, group)])
 ```
