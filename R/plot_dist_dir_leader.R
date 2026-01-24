@@ -4,13 +4,13 @@ plot_dist_dir_leader <- function(DT) {
   sel_group <- 932
   sub_DT <- DT[group == sel_group]
 
-  g_dist <- ggplot(DT, aes(direction_leader,
+  g_dir <- ggplot(DT, aes(direction_leader,
                            factor(rank_position_group_direction))) +
     stat_halfeye() +
     labs(x = 'Direction to leader', y = 'Rank along group direction') +
     scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
-  g_dir <- ggplot(DT, aes(units::as_units(distance_leader, 'm'),
+  g_dist <- ggplot(DT, aes(units::as_units(distance_leader, 'm'),
                           factor(rank_position_group_direction))) +
     stat_halfeye() +
     labs(x = 'Distance to leader', y = 'Rank along group direction') +
