@@ -30,15 +30,14 @@ plot_fusion_events <- function(edges, DT) {
     labs(x = '', y = '') +
     coord_fixed()
 
-  tab <- sub_edges[
-    ID1 == 'A' &
-      (is.na(ID2) | ID2 %in% sub_edges$ID2) &
+  tab <- edges[
+    ID1 == 'A' & ID2 %in% c(NA_character_, 'C') &
       between(
         timegroup,
-        min(sub_edges$timegroup) - 1,
-        max(sub_edges$timegroup) + 1
+        666, #min(sub_edges$timegroup) - 1,
+        673 #max(sub_edges$timegroup) + 1
       ),
-    .(timegroup = seq.int(.N) + 1, ID1, ID2,
+    .(timegroup = timegroup - min(timegroup) + 1, ID1, ID2,
       distance = round(units::as_units(distance, 'm'), 2))
   ]
 
@@ -46,7 +45,7 @@ plot_fusion_events <- function(edges, DT) {
     tableGrob(tab, theme = ttheme_default(base_size = font_size), rows = NULL)
   )
 
-  (g / g_tab &
+  (g + g_tab &
     theme_void(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }
