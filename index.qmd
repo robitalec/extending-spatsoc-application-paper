@@ -432,10 +432,11 @@ directional alignment and group polarization.
 <!-- related eg. direction between individuals (always L / R), polarization of flock, -->
 <!-- etc -->
 
-Polarization measures the uniformity of absolute direction in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
-in different directions and values near 1 indicate that directions point in 
-similar directions. 
+Polarization measures the uniformity of absolute direction in a group of
+individuals [@Wang_2022; @Jolles_2017] on a scale of 0-1 where values near 0
+indicate that individuals are moving in completely different directions (or
+"non-aligned") and values near 1 indicate that individuals are moving in similar
+directions or ("aligned").
 
 ```{r}
 #| label: calc-dir-pol
