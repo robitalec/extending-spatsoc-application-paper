@@ -202,7 +202,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 
 ```{r}
 #| label: tbl-group-pts
-#| tbl-cap: "Spatiotemporal grouping with `group_pts()` using the new geometry interface"
+#| tbl-cap: "Spatiotemporal groups measured using group_times and group_pts. group_times returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold."
 #| echo: false
 DT <- tar_read(spatial_groups)
 sel_groups <- DT[, .N, by = group][between(N, 2, 3), sample(group, 3)]
@@ -232,8 +232,7 @@ dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-dist
 #| echo: false
 #| eval: true
-#| tbl-cap: "Measuring interindividual distances with `edge_dist()`"
-tinytable::tt(tar_read(distance_edges)[1:5])
+#| tbl-cap: "Distance based edge-lists measured using edge_dist. Using the 'timegroup' returned by group_times, edge_dist returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs where an individual is not within the provided distance threshold can be returned if 'fillNA' is TRUE."
 ```
 
 ```{r}
@@ -253,8 +252,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 #| label: fig-edge-nn
 #| echo: false
 #| eval: true
-#| tbl-cap: "Measuring nearest neighbours with `edge_nn()`"
-tinytable::tt(tar_read(nn_edges)[1:5])
+#| tbl-cap: "Distance based edge-lists measured using edge_nn. Using the 'timegroup' returned by group_times, edge_nn returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'."
 ```
 
 Building on these, {spatsoc}'s new functions provides a finer understanding of
