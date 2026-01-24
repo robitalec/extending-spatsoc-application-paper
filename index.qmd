@@ -405,9 +405,9 @@ TODO: mention from edge_dist
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold, 
-  n_min_length = 0, 
-  n_max_missing = 0, 
-  allow_split = FALSE
+  n_min_length = 3, 
+  n_max_missing = 1, 
+  allow_split = TRUE
 )
 ```
 
