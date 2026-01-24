@@ -139,7 +139,8 @@ targets_distance_edge_lists <- c(
     edge_nn(
       DT = temporal_groups,
       id = id,
-      timegroup = timegroup
+      timegroup = timegroup,
+      returnDist = TRUE
     )
   )
 )
