@@ -252,7 +252,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
-#| label: fig-edge-nn
+#| label: tbl-edge-nn
 #| echo: false
 #| eval: true
 #| tbl-cap: "Distance based edge-lists measured using edge_nn. Using the 'timegroup' returned by group_times, edge_nn returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'."
