@@ -424,8 +424,9 @@ tar_read(fig_fusion_events)
 
 ## Directions
 
-Next, we can use individuals' directions to explore interindividual direction,
-directional alignment and group polarization.  
+Next, we can use individuals' movement directions to explore group polarization, interindividual direction, and
+directional alignment.
+
 <!-- TODO: describe spatial measures -->
 
 <!-- TODO: references -->
