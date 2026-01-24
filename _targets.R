@@ -130,7 +130,8 @@ targets_distance_edge_lists <- c(
       threshold = spatial_threshold,
       id = id,
       timegroup = timegroup,
-      returnDist = TRUE
+      returnDist = TRUE,
+      fillNA = TRUE
     )
   ),
 
