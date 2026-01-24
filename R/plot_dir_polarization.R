@@ -18,7 +18,7 @@ plot_dir_polarization <- function(DT) {
          aes(direction, i_group, group = i_group)) +
     geom_line(linewidth = 0.3) +
     geom_point() +
-    facet_grid(~cut_interval(round(polarization, digits = 1), 5)) +
+    facet_wrap(~cut_interval(round(polarization, digits = 1), 4)) +
     theme_bw(base_size = font_size) +
     theme(axis.text.y = element_blank(),
           axis.ticks.y = element_blank(),
