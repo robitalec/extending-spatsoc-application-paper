@@ -288,11 +288,9 @@ centroid_group(DT)
 #| echo: false
 #| tbl-cap: "Group centroids measured using centroid_group. Using the 'group' column returned by group_pts, centroid_group returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group."
 tar_load(group_centroids)
-tinytable::tt(
-  group_centroids[
-    1:5, 
-    .(ID, datetime, timegroup, group, geometry, centroid)]
-)
+sel_groups <- group_centroids[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
+tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
+  seq.int(6), .(ID, timegroup, group, geometry, centroid)])
 ```
 
 Then we can measure each individual's direction and distance to the group
