@@ -92,8 +92,8 @@ Here we present
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions for the R package {spatsoc} [@Robitaille_2019] for measuring
 intragroup dynamics. We conducted a scoping review to identify metrics
-applicable to spatiotemporal data used in ecological studies focused on dyadic
-interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
+that were  applicable to spatiotemporal data, and focused on dyadic
+interactions, dominance hierarchies and leadership patterns. Of the
 resulting metrics, we selected those with a high number of citations (as a
 measure of value for the target audience) and lack of availability in the R
 programming language, either through R packages or supplemental materials in the
@@ -106,16 +106,16 @@ discuss biological interpretation.
 
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We
-focused on metrics applicable to spatiotemporal data such as animal movement data.
-See details in Supplement A: Scoping Review Methods.
-
-Metrics were selected for inclusion in {spatsoc} based on their relative
-importance as measured by frequency of use in the review, as well as their lack
-of availability in R packages when the review was conducted. Some metrics were
-specifically not chosen for inclusion such as metrics relating to posture,
-metrics relating to static interaction or home range overlap and metrics based
-on statistical models such as Hidden Markov model and Granger causality. A full
-list of metrics not selected is in Supplement C: Selected Metrics.
+focused on metrics applicable to spatiotemporal data such as animal movement
+data. See details in Supplement A: Scoping Review Methods and Supplement B:
+Scoping Review Results. Metrics were selected for inclusion in {spatsoc} based
+on their relative importance as measured by frequency of use in the review, as
+well as their lack of availability in R packages when the review was conducted.
+Some metrics were specifically not chosen for inclusion such as metrics relating
+to posture, metrics relating to static interaction or home range overlap and
+metrics based on statistical models such as Hidden Markov model and Granger
+causality. A full list of metrics not selected is in Supplement C: Selected
+Metrics.
 
 <!-- TODO: table of new functions, brief description, "family" -->
 
@@ -137,27 +137,30 @@ static interaction eg. home range overlap, ...
 
 # Case study
 
-Functionality previously available in {spatsoc} includes spatiotemporal grouping,
-distance based edge-list generation and data-stream permutations [@Robitaille_2019]. 
-These functions have allowed users to detect interactions between individuals, 
-measure coocurrence within and across species, and generate social networks
-from telemetry data. 
+Functionality previously available in {spatsoc} includes spatiotemporal
+grouping, distance based edge-list generation and data-stream permutations
+[@Robitaille_2019]. These functions have allowed users to detect interactions
+between individuals, measure co-occurrence within and across species, and
+generate social networks from telemetry data.
 <!-- (TODO: cite examples citing spatsoc) -->
 
-Spatiotemporal grouping can be performed given a telemetry dataset, 
-temporal and spatial thresholds, and one of three grouping functions:
-`group_pts`, `group_lines` or `group_polys`. These return a unique identifier
-for each spatiotemporal group defined using point based distances, 
-linear trajectory overlap and home range overlap, respectively. 
+Spatiotemporal grouping can be performed given animal movement data, temporal
+and spatial thresholds, and one of three grouping functions: `group_pts`,
+`group_lines` or `group_polys`. These return a unique identifier for each
+spatiotemporal group defined by point-based distances, linear trajectory
+overlap and home range overlap, respectively.
 
-`get_geometry` is a new helper function added to {spatsoc} to provide an 
+`get_geometry` is a new helper function added to {spatsoc} to provide an
 alternative interface for providing coordinates and, optionally, coordinate
-reference system. Instead of providing the names to columns for the X and Y 
-coordinates using the `coords` argument, the `get_geometry` function adds
-a simple feature geometry list column (`sfc`) using the {sf} package [@Pebesma_2018].
-The geometry method is used by default for all {spatsoc} functions requiring 
-coordinates when the `coords` argument is left null. The following examples and
-case study will illustrate the geometry interface throughout. 
+reference system. Instead of providing the names to columns for the X and Y
+coordinates using the `coords` argument, the `get_geometry` function adds a
+simple feature geometry list column (`sfc`) using the {sf} package
+[@Pebesma_2018]. The geometry method is used by default for all {spatsoc}
+functions requiring coordinates when the `coords` argument is left null. This
+interface also extends {spatsoc} to allow users to provide coordinates in any of
+the many coordinate reference systems, both projected and longlat degrees, that
+the {sf} package supports. The following examples and case study will illustrate
+the geometry interface throughout.
 
 For example, the suggested `group_pts` workflow with the example data from the
 package and the `get_geometry()` helper function:
