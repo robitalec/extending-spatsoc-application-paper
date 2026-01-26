@@ -564,7 +564,8 @@ interaction [@Lukeman_2010], predator evasion [@Klamser_2021].
 zone_thresholds <- c(10, 25, 50)
 zone_labels <- c('repulsion', 'orientation', 'attraction')
 blind_volume <- 3
-delay <- edge_zones(
+
+zones <- edge_zones(
   interindividual_dist,
   zone_thresholds = zone_thresholds,
   zone_labels = zone_labels,
