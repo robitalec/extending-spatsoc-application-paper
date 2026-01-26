@@ -526,6 +526,16 @@ delay <- edge_delay(
 ```
 
 ```{r}
+#| label: calc-leader-delay
+#| eval: false
+#| echo: true
+leader_delay <- leader_edge_delay(
+  delay,
+  threshold = 0.5
+)
+```
+
+```{r}
 #| label: fig-edge-delay
 #| eval: true
 #| echo: false
