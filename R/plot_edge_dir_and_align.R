@@ -23,10 +23,12 @@ plot_edge_dir_and_align <- function(DT, edges) {
                              DT[group == sel_group, min(timegroup) - 1],
                              DT[group == sel_group, max(timegroup) + 1]),
     .(timegroup = timegroup - min(timegroup) + 1,
-      ID1, ID2, direction_diff =
-        units::as_units(round(direction_diff, digits = 2), 'rad'),
+      ID1, ID2,
       direction_dyad =
-        round(direction_dyad, digits = 2))
+        round(direction_dyad, digits = 2),
+      direction_diff =
+        units::as_units(round(direction_diff, digits = 2), 'rad')
+      )
   ]
 
   g_tab <- ggplot() + annotation_custom(
