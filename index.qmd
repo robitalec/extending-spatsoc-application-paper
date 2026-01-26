@@ -202,7 +202,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 
 ```{r}
 #| label: tbl-group-pts
-#| tbl-cap: "Spatiotemporal groups measured using group_times and group_pts. group_times returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold."
+#| tbl-cap: "Spatiotemporal groups measured using group_times() and group_pts(). group_times() returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts() returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold."
 #| echo: false
 DT <- tar_read(spatial_groups)
 sel_groups <- DT[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
@@ -232,7 +232,7 @@ dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-dist
 #| echo: false
 #| eval: true
-#| tbl-cap: "Distance based edge-lists measured using edge_dist. Using the 'timegroup' column returned by group_times, edge_dist returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE."
+#| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE."
 tar_load(distance_edges)
 sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
@@ -255,7 +255,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-nn
 #| echo: false
 #| eval: true
-#| tbl-cap: "Distance based edge-lists measured using edge_nn. Using the 'timegroup' column returned by group_times, edge_nn returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'."
+#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'."
 tar_load(nn_edges)
 sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
@@ -286,7 +286,7 @@ centroid_group(DT)
 #| label: tbl-cent-group
 #| eval: true
 #| echo: false
-#| tbl-cap: "Group centroids measured using centroid_group. Using the 'group' column returned by group_pts, centroid_group returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group."
+#| tbl-cap: "Group centroids measured using centroid_group(). Using the 'group' column returned by group_pts(), centroid_group() returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group."
 tar_load(group_centroids)
 sel_groups <- group_centroids[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
 tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
@@ -316,7 +316,7 @@ direction_to_centroid(DT)
 #| echo: false
 #| eval: true
 #| warning: false
-#| fig-cap: "A) Distance and B) direction to group centroids measured using distance_to_centroid and direction_to_centroid. Using the 'centroid' column returned by centroid_group, distance_to_centroid and direction_to_centroid return the columns 'distance_centroid' and 'direction_centroid' representing the focal individual's distance and direction to the group centroid. Optionally, the rank distance to the group centroid can be returned by distance_to_centroid if 'return_rank' is true."
+#| fig-cap: "A) Distance and B) direction to group centroids measured using distance_to_centroid() and direction_to_centroid(). Using the 'centroid' column returned by centroid_group, distance_to_centroid() and direction_to_centroid() return the columns 'distance_centroid' and 'direction_centroid' representing the focal individual's distance and direction to the group centroid. Optionally, the rank distance to the group centroid can be returned by distance_to_centroid() if 'return_rank' is true."
 tar_read(fig_dist_dir_cent)
 ```
 
@@ -343,7 +343,7 @@ leader_direction_group(DT, return_rank = TRUE)
 #| label: fig-leader-dir-group
 #| eval: true
 #| echo: false
-#| fig-cap: "A) Example spatiotemporal group showing relative positions of individuals with respect to the group centroid and mean group direction. B) Position along the group direction measured using leader_direction_group. Using the 'direction' column returned by direction_step and 'group' column returned by group_pts, leader_direction_group returns a column named 'position_group_direction' indicating the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
+#| fig-cap: "A) Example spatiotemporal group showing relative positions of individuals with respect to the group centroid and mean group direction. B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step() and 'group' column returned by group_pts(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
 tar_read(fig_pos_group_dir)
 ```
 
@@ -365,7 +365,7 @@ direction_to_leader(DT)
 #| label: fig-dist-dir-lead
 #| eval: true
 #| echo: false
-#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'position_group_direction' column returned by leader_direction_group, distance_to_leader and direction_to_leader return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group."
+#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group."
 tar_read(fig_dist_dir_leader)
 ```
 
@@ -413,7 +413,7 @@ fusion_events <- fusion_id(
 #| label: fig-fusion
 #| echo: false
 #| eval: true
-#| fig-cap: "A) Example locations for individuals 'A' and 'C' showing fusion event lasting three observations. B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist and the dyad id returned by dyad_id, fusion_id identifies fusion events according to user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
+#| fig-cap: "A) Example locations for individuals 'A' and 'C' showing fusion event lasting three observations. B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
 tar_read(fig_fusion_events)
 ```
 
@@ -446,7 +446,7 @@ direction_polarization(DT)
 #| label: fig-dir-pol
 #| echo: false
 #| eval: true
-#| fig-cap: "Direction polarization measured using direction_polarization. Using the 'direction' column returned by direction_step and 'group' column returned by group_pts, direction_polarization returns a column named 'polarization' indicating the polarization in directions in each spatiotemporal group. Ranges of directions shown for a sample of groups in four equal interval categories of direction polarization. Values of polarization range from 0 (non-alignment) to 1 (alignment)."
+#| fig-cap: "Direction polarization measured using direction_polarization(). Using the 'direction' column returned by direction_step() and 'group' column returned by group_pts(), direction_polarization() returns a column named 'polarization' indicating the polarization in directions in each spatiotemporal group. Ranges of directions shown for a sample of groups in four equal interval categories of direction polarization. Values of polarization range from 0 (non-alignment) to 1 (alignment)."
 tar_read(fig_dir_polarization)
 ```
 
@@ -486,7 +486,7 @@ dyad_directions <- edge_direction(
 #| label: fig-edge-align-dir
 #| echo: false
 #| eval: true
-#| fig-cap: ""
+#| fig-cap: "A) Example locations for individuals 'E' and 'F' showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by `group_times()`, edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighboring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is false. "
 tar_read(fig_edge_dir_and_align)
 ```
 
@@ -531,7 +531,8 @@ delay <- edge_delay(
 #| label: fig-edge-delay
 #| eval: true
 #| echo: false
-#| fig-cap: ''
+
+#| fig-cap: "A) Example directional correlation delay for focal individual (ID1) 'C' and neighbour (ID2) 'G' indicating individual 'C' had a movement direction most similar to individual 'G' at the temporal delay of 0. Using the fusion events identified by fusion_id() and the 'direction' column returned by direction_step(), edge_delay() returns a column named 'direction_delay' representing the temporal delay at which the focal individual's movement direction is most similar to their neighbour's within a temporal window. B) Example movement directions for neighbour 'G' in the temporal window of timegroups 1-3 (set using argument 'window'). C) Aggregated directional delay using leader_edge_delay(). Using the 'direction_delay' column returned by edge_delay(), the leader_edge_delay() function returns a column named 'mean_direction_delay_delay' representing the mean directional correlation delay between two individuals and a column named 'mean_direction_delay' that represents the the mean correlation delay for each focal individual and all observed neighbours. Optionally, a threshold difference in direction can be used to subset the temporal delays included in the calculation of mean directional delay with the argument 'threshold'."
 tar_read(fig_edge_delay)
 ```
 
@@ -573,7 +574,7 @@ delay <- edge_zones(
 #| label: fig-edge-zones
 #| eval: true
 #| echo: false
-#| fig-cap: ''
+#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or range of interindividual directions that are beyond the visual perception of the focal individual."
 tar_read(fig_edge_zones)
 ```
 
