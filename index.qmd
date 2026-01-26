@@ -459,13 +459,13 @@ neighbour, can be measured using `edge_direction()`. Like `edge_alignment()`,
 the interindividual directions are returned by in an edge-list format.
 
 ```{r}
-#| label: calc-edge-align
+#| label: calc-edge-dir
 #| echo: true
 #| eval: false
-directional_align <- edge_alignment(
+dyad_directions <- edge_direction(
+  edges = interindividual_dist,
   DT = DT,
-  id = id,
-  signed = FALSE
+  id = id
 )
 ```
 
@@ -476,13 +476,13 @@ are returned in an edge-list format similar to `edge_dist()` and other edge-list
 generating functions.
 
 ```{r}
-#| label: calc-edge-dir
+#| label: calc-edge-align
 #| echo: true
 #| eval: false
-dyad_directions <- edge_direction(
-  edges = interindividual_dist,
+directional_align <- edge_alignment(
   DT = DT,
-  id = id
+  id = id,
+  signed = FALSE
 )
 ```
 
