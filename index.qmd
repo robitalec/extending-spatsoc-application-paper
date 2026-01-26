@@ -373,53 +373,6 @@ tar_read(fig_dist_dir_leader)
 
 
 
-## Fission fusion
-
-Given the variability in defining fission fusion dynamics in the literature
-(Supplement B: Scoping Review Results), the `fusion_id()` function flexibly
-allows users to both use specific threshold and definitions that match their
-study species and research questions and easily compare their results to
-previously published work by using the same thresholds and definitions.
-
-<!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
-Supplement B: .... Table -->
-
-Function arguments: 
-
-- `threshold`: spatial distance threshold to establish a fusion event
-- `n_min_length`: the minimum number of successive fixes that are required to 
-establish a fusion event
-- `n_max_missing`: the maximum number of allowable missed observations for 
-either individual in a dyad within a fusion event
-- `allow_split`: if fusion events allow a temporary spatial splitting for one
-observation without resulting in a fission event
-
-<!-- See Table Sup B: varying definitions of fission fusion 
-TODO: mention from edge_dist
--->
-
-```{r}
-#| label: calc-fusion
-#| eval: false
-#| echo: true
-fusion_events <- fusion_id(
-  interindividual_dist,
-  threshold = spatial_threshold, 
-  n_min_length = 3, 
-  n_max_missing = 1, 
-  allow_split = TRUE
-)
-```
-
-
-```{r}
-#| label: fig-fusion
-#| echo: false
-#| eval: true
-#| fig-cap: "A) Example locations for individuals 'A' and 'C' showing fusion event lasting three observations. B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
-tar_read(fig_fusion_events)
-```
-
 
 ## Directions
 
@@ -496,6 +449,95 @@ directional_align <- edge_alignment(
 tar_read(fig_edge_dir_and_align)
 ```
 
+## Behavioural zones
+
+The behavioural zones are non-overlapping regions around a focal individual
+[@Couzin_2002] measured using `edge_zones()`. The distance from the focal
+individual to each neighbour is used to assign the neighbours to behavioural
+zones. In addition, the direction from the focal individual to each neighbour
+can be used to determine if the neighbour is within a "blind volume" outside of
+the individual's visual perception. @Couzin_2002 defined three non-overlapping
+zones: 1) the "zone of repulsion" at a minimum distance around the focal
+individual within which neighbours are expected to move away to avoid
+collisions, 2) the "zone of orientation" around the focal individual beyond the
+"zone of repulsion" within which neighbours are expected to orient themselves to
+the movement of their neighbours, and 3) the "zone of attraction" beyond the
+"zone of orientation" where neighbours are expected to e attracted to the
+position of the focal individual. The `edge_zones()` is designed to allow for
+flexible definitions of zones including distance thresholds, zone labels and
+blind volume thresholds. The behavioural zones metric has been used to study the
+impact of differences in individual movement speed [@Klamser_2021], the rules of
+interaction [@Lukeman_2010], predator evasion [@Klamser_2021].
+
+```{r}
+#| label: calc-edge-zones
+#| eval: false
+#| echo: true
+zone_thresholds <- c(10, 25, 50)
+zone_labels <- c('repulsion', 'orientation', 'attraction')
+blind_volume <- 3
+
+zones <- edge_zones(
+  interindividual_dist,
+  zone_thresholds = zone_thresholds,
+  zone_labels = zone_labels,
+  blind_volume = blind_volume
+)
+```
+
+```{r}
+#| label: fig-edge-zones
+#| eval: true
+#| echo: false
+#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or range of interindividual directions that are beyond the visual perception of the focal individual."
+tar_read(fig_edge_zones)
+```
+
+
+## Fission fusion
+
+Given the variability in defining fission fusion dynamics in the literature
+(Supplement B: Scoping Review Results), the `fusion_id()` function flexibly
+allows users to both use specific threshold and definitions that match their
+study species and research questions and easily compare their results to
+previously published work by using the same thresholds and definitions. The
+`threshold` argument defines the spatial distance threshold to establish a
+fusion event. The `n_min_length` argument defines the minimum number of
+successive fixes that are required to establish a fusion event. The
+`n_max_missing` defines the maximum number of allowable missed observations for
+either individual in a dyad within a fusion event. The `allow_split` argument
+defines if fusion events allow a temporary spatial splitting for one observation
+without resulting in a fission event.
+
+
+<!-- See Table Sup B: varying definitions of fission fusion 
+TODO: mention from edge_dist
+-->
+<!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
+Supplement B: .... Table -->
+
+```{r}
+#| label: calc-fusion
+#| eval: false
+#| echo: true
+fusion_events <- fusion_id(
+  interindividual_dist,
+  threshold = spatial_threshold, 
+  n_min_length = 3, 
+  n_max_missing = 1, 
+  allow_split = TRUE
+)
+```
+
+
+```{r}
+#| label: fig-fusion
+#| echo: false
+#| eval: true
+#| fig-cap: "A) Example locations for individuals 'A' and 'C' showing fusion event lasting three observations. B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
+tar_read(fig_fusion_events)
+```
+
 
 ## Directional correlation delay
 
@@ -545,52 +587,6 @@ leader_delay <- leader_edge_delay(
 tar_read(fig_edge_delay)
 ```
 
-
-<!-- TODO: example of hierarchical networks -->
-
-## Behavioural zones
-
-The behavioural zones are non-overlapping regions around a focal individual
-[@Couzin_2002] measured using `edge_zones()`. The distance from the focal
-individual to each neighbour is used to assign the neighbours to behavioural
-zones. In addition, the direction from the focal individual to each neighbour
-can be used to determine if the neighbour is within a "blind volume" outside of
-the individual's visual perception. @Couzin_2002 defined three non-overlapping
-zones: 1) the "zone of repulsion" at a minimum distance around the focal
-individual within which neighbours are expected to move away to avoid
-collisions, 2) the "zone of orientation" around the focal individual beyond the
-"zone of repulsion" within which neighbours are expected to orient themselves to
-the movement of their neighbours, and 3) the "zone of attraction" beyond the
-"zone of orientation" where neighbours are expected to e attracted to the
-position of the focal individual. The `edge_zones()` is designed to allow for
-flexible definitions of zones including distance thresholds, zone labels and
-blind volume thresholds. The behavioural zones metric has been used to study the
-impact of differences in individual movement speed [@Klamser_2021], the rules of
-interaction [@Lukeman_2010], predator evasion [@Klamser_2021].
-
-```{r}
-#| label: calc-edge-zones
-#| eval: false
-#| echo: true
-zone_thresholds <- c(10, 25, 50)
-zone_labels <- c('repulsion', 'orientation', 'attraction')
-blind_volume <- 3
-
-zones <- edge_zones(
-  interindividual_dist,
-  zone_thresholds = zone_thresholds,
-  zone_labels = zone_labels,
-  blind_volume = blind_volume
-)
-```
-
-```{r}
-#| label: fig-edge-zones
-#| eval: true
-#| echo: false
-#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or range of interindividual directions that are beyond the visual perception of the focal individual."
-tar_read(fig_edge_zones)
-```
 
 # Discussion
 
