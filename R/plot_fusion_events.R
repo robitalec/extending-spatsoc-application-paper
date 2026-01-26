@@ -45,7 +45,7 @@ plot_fusion_events <- function(edges, DT) {
     tableGrob(tab, theme = ttheme_default(base_size = font_size), rows = NULL)
   )
 
-  (g + g_tab &
+  (g / g_tab &
     theme_void(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
 }
