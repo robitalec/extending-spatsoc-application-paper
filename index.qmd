@@ -328,7 +328,7 @@ by the mean direction of all individuals in the group and take the distance
 along this new axis as the measure of front-back position within the group
 [@Quera_2023; @Harel_2021; @Andrienko_2013] using the function
 `leader_direction_group()`. The rank of individual's positions within
-spatiotemporal groups [used in eg. @Burns_2012] can be optionally returned with the argument
+spatiotemporal groups [@Burns_2012] can be optionally returned with the argument
 `return_rank = TRUE`.
 
 ```{r}
