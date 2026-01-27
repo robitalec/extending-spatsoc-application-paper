@@ -156,7 +156,7 @@ reference system. Instead of providing the names to columns for the X and Y
 coordinates using the `coords` argument, the `get_geometry()` function adds a
 simple feature geometry list column (`sfc`) using the {sf} package
 [@Pebesma_2018]. The geometry method is used by default for all {spatsoc}
-functions requiring coordinates when the `coords` argument is left null. This
+functions that require coordinates when the `coords` argument is left null. This
 interface also extends {spatsoc} to allow users to provide coordinates in any of
 the many coordinate reference systems, both projected and longlat degrees, that
 the {sf} package supports. The following examples and case study will illustrate
