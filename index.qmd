@@ -490,7 +490,7 @@ zones <- edge_zones(
 #| label: fig-edge-zones
 #| eval: true
 #| echo: false
-#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or range of interindividual directions that are beyond the visual perception of the focal individual."
+#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or range of interindividual directions that are beyond the visual perception of the focal individual. Example shows positions of neighbour 'E' in behavioural zones with respect to focal individual 'G' across the sample period."
 tar_read(fig_edge_zones)
 ```
 
