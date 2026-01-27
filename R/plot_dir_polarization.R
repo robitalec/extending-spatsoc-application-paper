@@ -14,8 +14,9 @@ plot_dir_polarization <- function(DT) {
   sub_DT <- DT[group %in% sel_groups]
   sub_DT[, i_group := .GRP, group]
 
+  setnames(sub_DT, 'direction', 'Direction')
   ggplot(sub_DT,
-         aes(direction, i_group, group = i_group)) +
+         aes(Direction, i_group, group = i_group)) +
     geom_line(linewidth = 0.3) +
     geom_point() +
     facet_wrap(~cut_interval(round(polarization, digits = 1), 4)) +
