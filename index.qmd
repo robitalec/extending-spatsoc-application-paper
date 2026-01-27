@@ -296,7 +296,7 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
 Then we can measure each individual's distance and direction to the group
 centroid using `distance_to_centroid()` and `direction_to_centroid()`. The
 distance to group centroid is the geographic distance from the focal individual
-to the group centroid. The direction to group centroid is the absolute direction
+to the group centroid. The direction to group centroid is the direction
 from the focal individual to the group centroid. The rank of individual's
 distances to the group centroid can be optionally returned using the argument
 `return_rank`. Spatial position within groups with respect to the group centroid
@@ -350,8 +350,8 @@ Taking this simple, dynamic definition of leadership, we can identify the
 distance and direction of individuals to the leader of each spatiotemporal group
 using `distance_to_leader()` and `direction_to_leader()`. The distance to leader
 is the geographic distance from the focal individual to the group's leader and
-the direction to leader is the absolute direction from the focal individual to
 the group's leader.
+the direction to leader is the direction from the focal individual to
 
 ```{r}
 #| label: calc-dist-dir-lead
