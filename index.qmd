@@ -463,7 +463,7 @@ individual within which neighbours are expected to move away to avoid
 collisions, 2) the "zone of orientation" around the focal individual beyond the
 "zone of repulsion" within which neighbours are expected to orient themselves to
 the movement of their neighbours, and 3) the "zone of attraction" beyond the
-"zone of orientation" where neighbours are expected to e attracted to the
+"zone of orientation" where neighbours are expected to be attracted to the
 position of the focal individual. The `edge_zones()` is designed to allow for
 flexible definitions of zones including distance thresholds, zone labels and
 blind volume thresholds. The behavioural zones metric has been used to study the
