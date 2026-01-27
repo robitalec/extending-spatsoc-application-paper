@@ -498,7 +498,7 @@ tar_read(fig_edge_zones)
 ## Fission fusion
 
 Given the variability in defining fission fusion dynamics in the literature
-(Supplement B: Scoping Review Results), the `fusion_id()` function flexibly
+(Supplement B: Scoping Review Results: [Table @tbl-defn-fission]), the
 `fusion_id()` function flexibly allows users to both use specific threshold and
 definitions that match their study species and research questions and easily
 compare their results to previously published work by using the same thresholds
