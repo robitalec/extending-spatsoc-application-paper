@@ -351,11 +351,12 @@ Taking this simple, dynamic definition of leadership, we can identify the
 distance and direction of individuals to the leader of each spatiotemporal group
 using `distance_to_leader()` and `direction_to_leader()`. The distance to leader
 is the geographic distance from the focal individual to the group's leader and
-the direction to leader is the direction from the focal individual to
-the group's leader. The front-back position within the group, and distance and
+the direction to leader is the direction from the focal individual to the
+group's leader. The front-back position within the group, and distance and
 direction to the group leader has been used to study interaction rules
-[@Weesner_2023], leadership [@Quera_2023; @Sárová_2010], risk avoidance [@Josephs_2016],
-and how reproduction influences social structure [@Perez-Barberia_2018].
+[@Weesner_2023], leadership [@Quera_2023; @Sarova_2010], risk avoidance
+[@Josephs_2016], and how reproduction influences social structure
+[@Perez-Barberia_2018].
 
 ```{r}
 #| label: calc-dist-dir-lead
