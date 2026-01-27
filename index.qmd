@@ -537,6 +537,7 @@ fusion_events <- fusion_id(
 #| label: fig-fusion
 #| echo: false
 #| eval: true
+#| fig-width: 5
 #| fig-cap: "A) Example locations for individuals 'A' and 'C' showing fusion event lasting three observations. B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
 tar_read(fig_fusion_events)
 ```
