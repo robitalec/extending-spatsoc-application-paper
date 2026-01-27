@@ -374,8 +374,6 @@ direction_to_leader(DT)
 tar_read(fig_dist_dir_leader)
 ```
 
-
-
 ## Directions
 
 Next, we can use an individual's movement direction and the direction to
@@ -388,7 +386,7 @@ values near 1 indicate that individuals are moving in similar directions or
 ("aligned"). Polarization in the movement direction of groups of animals has
 been used to study cognition [@Wang_2022], learning [@Vega-Trejo_2020], the
 influence of habitat [@Strandburg-Peshkin_2017] and individual differences
-[@Jolles_2017; @Jolles_2018] in collective behaviour.
+[@Jolles_2017] in collective behaviour.
 
 ```{r}
 #| label: calc-dir-pol
