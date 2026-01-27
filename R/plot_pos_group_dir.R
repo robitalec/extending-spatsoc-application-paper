@@ -14,33 +14,26 @@ plot_pos_group_dir <- function(DT) {
   g_xy <- ggplot(sub_DT, aes(x = X, y = Y)) +
     geom_spoke(
       aes(centroid_X, centroid_Y,
-        radius = max(as.numeric(position_group_direction)),
+        radius = 30,
         angle = as.numeric(group_direction)
       ),
       arrow = arrow(length = unit(0.2, 'inches'))
     ) +
     geom_spoke(
-      aes(radius = 20, angle = as.numeric(direction)),
+      aes(radius = 10, angle = as.numeric(direction)),
       arrow = arrow(length = unit(0.1, 'inches')),
       color = 'grey30'
     ) +
-    geom_spoke(aes(centroid_X, centroid_Y,
-      radius = -min(as.numeric(position_group_direction)),
-      angle = pi + as.numeric(group_direction)
-    )) +
     geom_abline(
       slope = -1 / slope, intercept = intercept_inv,
       linewidth = 0.2
     ) +
-    geom_point(aes(centroid_X, centroid_Y), size = 2) +
-    geom_label(aes(
-      label = paste(format(position_group_direction, digits = 1), 'm')
-    ), ) +
+    geom_point(aes(centroid_X, centroid_Y), size = 1) +
+    geom_point(aes(X, Y), size = 0.5) +
     labs(x = '', y = '') +
     theme(axis.text = element_blank(), axis.ticks = element_blank()) +
     coord_fixed() +
-    guides(color = 'none') +
-    scale_x_continuous(expand = expansion(add = 10))
+    guides(color = 'none')
 
   g_pos <- ggplot(DT[N_by_group > 1]) +
     stat_halfeye(aes(units::as_units(position_group_direction, 'm'),
