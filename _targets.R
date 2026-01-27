@@ -67,7 +67,7 @@ blind_volume <- 3
 font_size <- 16
 
 # ggplot theme
-theme_set(theme_bw(base_size = font_size,))
+theme_set(theme_bw(base_size = font_size))
 
 # Patchwork tags
 tag_levels <- 'A'
