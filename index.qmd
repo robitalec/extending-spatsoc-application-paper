@@ -202,7 +202,7 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 
 ```{r}
 #| label: tbl-group-pts
-#| tbl-cap: "Spatiotemporal groups measured using group_times() and group_pts(). group_times() returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts() returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold."
+#| tbl-cap: "Spatiotemporal groups measured using group_times() and group_pts(). group_times() returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts() returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold. Example output showing a subset of three spatiotemporal groups."
 #| echo: false
 DT <- tar_read(spatial_groups)
 sel_groups <- DT[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
@@ -232,7 +232,7 @@ dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-dist
 #| echo: false
 #| eval: true
-#| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE."
+#| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and neighbour 'ID2'."
 tar_load(distance_edges)
 sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
@@ -255,7 +255,7 @@ dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 #| label: tbl-edge-nn
 #| echo: false
 #| eval: true
-#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'."
+#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and nearest neighbour 'ID2'."
 tar_load(nn_edges)
 sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
@@ -286,7 +286,7 @@ centroid_group(DT)
 #| label: tbl-cent-group
 #| eval: true
 #| echo: false
-#| tbl-cap: "Group centroids measured using centroid_group(). Using the 'group' column returned by group_pts(), centroid_group() returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group."
+#| tbl-cap: "Group centroids measured using centroid_group(). Using the 'group' column returned by group_pts(), centroid_group() returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group. Example output showing a subset of the centroids for three spatiotemporal groups."
 tar_load(group_centroids)
 sel_groups <- group_centroids[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
 tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
