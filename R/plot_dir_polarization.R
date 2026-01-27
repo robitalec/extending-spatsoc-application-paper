@@ -17,8 +17,8 @@ plot_dir_polarization <- function(DT) {
   setnames(sub_DT, 'direction', 'Direction')
   ggplot(sub_DT,
          aes(Direction, i_group, group = i_group)) +
-    geom_line(linewidth = 0.3) +
-    geom_point() +
+    geom_line(linewidth = 0.4) +
+    geom_point(size = 0.8) +
     facet_wrap(~cut_interval(round(polarization, digits = 1), 4)) +
     theme_bw(base_size = font_size) +
     theme(axis.text.y = element_blank(),
