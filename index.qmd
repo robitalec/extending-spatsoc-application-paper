@@ -317,6 +317,8 @@ direction_to_centroid(DT)
 #| echo: false
 #| eval: true
 #| warning: false
+#| fig-height: 4
+#| fig-width: 8
 #| fig-cap: "A) Distance and B) direction to group centroids measured using distance_to_centroid() and direction_to_centroid(). Using the 'centroid' column returned by centroid_group, distance_to_centroid() and direction_to_centroid() return the columns 'distance_centroid' and 'direction_centroid' representing the focal individual's distance and direction to the group centroid. Optionally, the rank distance to the group centroid can be returned by distance_to_centroid() if 'return_rank' is true."
 tar_read(fig_dist_dir_cent)
 ```
