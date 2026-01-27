@@ -495,7 +495,7 @@ tar_read(fig_edge_zones)
 ```
 
 
-## Fission fusion
+## Fusion events
 
 Given the variability in defining fission fusion dynamics in the literature
 (Supplement B: Scoping Review Results: [Table @tbl-defn-fission]), the
