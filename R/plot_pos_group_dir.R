@@ -38,9 +38,9 @@ plot_pos_group_dir <- function(DT) {
   g_pos <- ggplot(DT[N_by_group > 1]) +
     stat_halfeye(aes(units::as_units(position_group_direction, 'm'),
                      factor(rank_position_group_direction))) +
-    labs(x = 'Position along group direction',
-         y = 'Rank along group direction') +
     scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
+    labs(x = 'Position group direction',
+         y = 'Rank position group direction') +
 
   (g_xy / g_pos) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
