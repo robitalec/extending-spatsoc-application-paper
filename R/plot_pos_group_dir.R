@@ -36,7 +36,7 @@ plot_pos_group_dir <- function(DT) {
     guides(color = 'none')
 
   g_pos <- ggplot(DT[N_by_group > 1]) +
-    stat_halfeye(aes(units::as_units(position_group_direction, 'm'),
+    stat_pointinterval(aes(units::as_units(position_group_direction, 'm'),
                      factor(rank_position_group_direction))) +
     scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
     labs(x = 'Position group direction',

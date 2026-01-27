@@ -1,8 +1,8 @@
 plot_dist_dir_cent <- function(DT) {
   DT <- DT[rank_distance_centroid != 1.5]
   g_dist <- ggplot(DT) +
-    stat_halfeye(aes(x = units::as_units(distance_centroid, 'm'),
-                     y = factor(rank_distance_centroid))) +
+    stat_pointinterval(aes(x = units::as_units(distance_centroid, 'm'),
+                           y = factor(rank_distance_centroid))) +
     labs(x = 'Distance to group centroid', y = 'Rank distance to group centroid') +
     scale_y_discrete(limits = rev(levels(factor(DT$rank_distance_centroid))))
 
