@@ -16,7 +16,10 @@ plot_edge_dir_and_align <- function(DT, edges) {
                fill = 'white',
                data  = sub[timegroup != max(timegroup)]) +
     scale_color_viridis_d(end = 0.5) +
-    labs(x = '', y = '')
+    labs(x = '', y = '') +
+    coord_fixed() +
+    scale_x_continuous(expand = expansion(mult = 0.1)) +
+    scale_y_continuous(expand = expansion(mult = 0.1))
 
   tab <- edges[(ID1 %in% sel_ids & ID2 %in% sel_ids) &
                      between(timegroup,
