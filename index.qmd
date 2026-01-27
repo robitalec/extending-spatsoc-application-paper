@@ -300,8 +300,9 @@ to the group centroid. The direction to group centroid is the direction
 from the focal individual to the group centroid. The rank of individual's
 distances to the group centroid can be optionally returned using the argument
 `return_rank`. Spatial position within groups with respect to the group centroid
-has been studied in relation to predation risk [@Heesen_2015], sex differences
-[@Inoue_2019], and leadership [@Jolles_2017; @Kano_2021].
+has been studied in relation to predation risk [@Heesen_2015;
+@Herbert-Read_2017], leadership [@Jolles_2017; @Kano_2021] and group cohesion
+[@Harel_2021; @Bracken_2022].
 
 ```{r}
 #| label: calc-dist-dir-cent
@@ -327,7 +328,7 @@ by the mean direction of all individuals in the group and take the distance
 along this new axis as the measure of front-back position within the group
 [@Quera_2023; @Harel_2021; @Andrienko_2013] using the function
 `leader_direction_group()`. The rank of individual's positions within
-spatiotemporal groups [@Burns_2012] can be optionally returned with the argument
+spatiotemporal groups [used in eg. @Burns_2012] can be optionally returned with the argument
 `return_rank = TRUE`.
 
 ```{r}
@@ -350,8 +351,11 @@ Taking this simple, dynamic definition of leadership, we can identify the
 distance and direction of individuals to the leader of each spatiotemporal group
 using `distance_to_leader()` and `direction_to_leader()`. The distance to leader
 is the geographic distance from the focal individual to the group's leader and
-the group's leader.
 the direction to leader is the direction from the focal individual to
+the group's leader. The front-back position within the group, and distance and
+direction to the group leader has been used to study interaction rules
+[@Weesner_2023], leadership [@Quera_2023; @Sárová_2010], risk avoidance [@Josephs_2016],
+and how reproduction influences social structure [@Perez-Barberia_2018].
 
 ```{r}
 #| label: calc-dist-dir-lead
@@ -374,22 +378,17 @@ tar_read(fig_dist_dir_leader)
 
 ## Directions
 
-Next, we can explore group polarization, interindividual direction, and
-directional alignment using each individual's movement directions and the
-directions between individuals.
-
-<!-- TODO: describe spatial measures -->
-
-<!-- TODO: references -->
-<!-- related eg. direction between individuals (always L / R), polarization of flock, -->
-<!-- etc -->
-
-We can measure polarization, the uniformity of movement directions in a group of
-individuals, [@Wang_2022; @Jolles_2017] using `direction_polarization()`.
-Polarization is represented on a scale of 0-1 where values near 0 indicate that
-individuals in a group are moving in completely different directions (or
-"non-aligned") and values near 1 indicate that individuals are moving in similar
-directions or ("aligned").
+Next, we can use an individual's movement direction and the direction to
+neighbors to explore polarization, interindividual direction, and directional
+alignment. We can measure polarization, the uniformity of movement directions in
+a group of individuals, using `direction_polarization()`. Polarization is
+represented on a scale of 0-1 where values near 0 indicate that individuals in a
+group are moving in completely different directions (or "non-aligned") and
+values near 1 indicate that individuals are moving in similar directions or
+("aligned"). Polarization in the movement direction of groups of animals has
+been used to study cognition [@Wang_2022], learning [@Vega-Trejo_2020], the
+influence of habitat [@Strandburg-Peshkin_2017] and individual differences
+[@Jolles_2017; @Jolles_2018] in collective behaviour.
 
 ```{r}
 #| label: calc-dir-pol
@@ -409,6 +408,9 @@ tar_read(fig_dir_polarization)
 The interindividual direction, or direction from a focal individual to a
 neighbour, can be measured using `edge_direction()`. Like `edge_alignment()`,
 the interindividual directions are returned by in an edge-list format.
+Interindividual direction has been used to study risk exposure in schooling fish
+[@Lemasson_2014], coordinated movement [@Herbert-Read_2016] and mass migration
+[@Torney_2018].
 
 ```{r}
 #| label: calc-edge-dir
@@ -422,10 +424,11 @@ dyad_directions <- edge_direction(
 ```
 
 The directional alignment, or relative difference between two individuals'
-directions, [used in eg. @Pettit_2013; @Nishikawa_2021; @Strandburg-Peshkin_2015] 
-can be measured using `edge_alignment()`. The differences in movement directions 
-are returned in an edge-list format similar to `edge_dist()` and other edge-list
-generating functions.
+directions, can be measured using `edge_alignment()`. The differences in
+movement directions are returned in an edge-list format similar to `edge_dist()`
+and other edge-list generating functions. Directional alignment has been used to
+study leadership [@Sarova_2010], decision making [@Strandburg-Peshkin_2015], and
+information transfer [@Sumpter_2018].
 
 ```{r}
 #| label: calc-edge-align
@@ -464,8 +467,8 @@ the movement of their neighbours, and 3) the "zone of attraction" beyond the
 position of the focal individual. The `edge_zones()` is designed to allow for
 flexible definitions of zones including distance thresholds, zone labels and
 blind volume thresholds. The behavioural zones metric has been used to study the
-impact of differences in individual movement speed [@Klamser_2021], the rules of
-interaction [@Lukeman_2010], predator evasion [@Klamser_2021].
+impact of individual movement speed and predator evasion [@Klamser_2021] and
+identifying rules of interaction in large animal groups [@Lukeman_2010].
 
 ```{r}
 #| label: calc-edge-zones
@@ -496,17 +499,19 @@ tar_read(fig_edge_zones)
 
 Given the variability in defining fission fusion dynamics in the literature
 (Supplement B: Scoping Review Results), the `fusion_id()` function flexibly
-allows users to both use specific threshold and definitions that match their
-study species and research questions and easily compare their results to
-previously published work by using the same thresholds and definitions. The
-`threshold` argument defines the spatial distance threshold to establish a
-fusion event. The `n_min_length` argument defines the minimum number of
-successive fixes that are required to establish a fusion event. The
+`fusion_id()` function flexibly allows users to both use specific threshold and
+definitions that match their study species and research questions and easily
+compare their results to previously published work by using the same thresholds
+and definitions. The `threshold` argument defines the spatial distance threshold
+to establish a fusion event. The `n_min_length` argument defines the minimum
+number of successive fixes that are required to establish a fusion event. The
 `n_max_missing` defines the maximum number of allowable missed observations for
 either individual in a dyad within a fusion event. The `allow_split` argument
 defines if fusion events allow a temporary spatial splitting for one observation
-without resulting in a fission event.
-
+without resulting in a fission event. Identification of fusion events has been
+used to study resource seasonality [@Baden_2016], information transfer
+[@Barocas_2016], decision making [@Merkle_2015], and habitat selection
+[@Fortin_2009].
 
 <!-- See Table Sup B: varying definitions of fission fusion 
 TODO: mention from edge_dist
