@@ -147,21 +147,30 @@ taxized[, .N, parsed_species][order(-N), .(
 
 ```{r}
 #| echo: false
-#| label: tbl-defn-spattemp-groups
-#| tbl-cap: "Review of definitions of spatiotemporal groups in references screened for full text extraction of scoping review"
-review[definition_category == 'group', .(study_id, definition)] |>
-  tt()
-```
-
-
-```{r}
-#| echo: false
 #| label: tbl-count-metrics
 #| tbl-cap: "Count of metrics used to measure intragroup dynamics in references screened for full text extraction of scoping review"
 count_metric[, .N, metric_agg][order(-N), .(
   `Metric` = metric_agg,
   N = paste_n_percent(N)
 )] |> tt()
+```
+
+```{r}
+#| echo: false
+#| label: tbl-count-metrics-dominance
+#| tbl-cap: "Count of metrics used to measure dominance in references screened for full text extraction of scoping review"
+count_dom_metric[, .N, dominance_metric_agg][order(-N), .(
+  `Dominance metric` = dominance_metric_agg,
+  N = paste_n_percent(N)
+)] |> tt()
+```
+
+```{r}
+#| echo: false
+#| label: tbl-defn-spattemp-groups
+#| tbl-cap: "Review of definitions of spatiotemporal groups in references screened for full text extraction of scoping review"
+review[definition_category == 'group', .(study_id, definition)] |>
+  tt()
 ```
 
 ```{r}
@@ -178,14 +187,4 @@ review[definition_category == 'leadership', .(study_id, definition)] |>
 #| tbl-cap: "Review of definitions of fission-fusion in references screened for full text extraction of scoping review"
 review[definition_category == 'fission fusion', .(study_id, definition)] |>
   tt()
-```
-
-```{r}
-#| echo: false
-#| label: tbl-count-metrics-dominance
-#| tbl-cap: "Count of metrics used to measure dominance in references screened for full text extraction of scoping review"
-count_dom_metric[, .N, dominance_metric_agg][order(-N), .(
-  `Dominance metric` = dominance_metric_agg,
-  N = paste_n_percent(N)
-)] |> tt()
 ```
