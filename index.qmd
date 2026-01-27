@@ -320,8 +320,6 @@ direction_to_centroid(DT)
 tar_read(fig_dist_dir_cent)
 ```
 
-## Position relative to leader
-
 After considering how individuals are positioned relative to the group centroid,
 we can also measure how individuals are positioned relative to the mean group
 direction. To do so, we rotate the coordinate system around the group centroid
