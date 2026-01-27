@@ -38,10 +38,11 @@ plot_pos_group_dir <- function(DT) {
   g_pos <- ggplot(DT[N_by_group > 1]) +
     stat_pointinterval(aes(units::as_units(position_group_direction, 'm'),
                      factor(rank_position_group_direction))) +
-    scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
     labs(x = 'Position group direction',
          y = 'Rank position group direction') +
+    scale_y_discrete(limits = rev(levels(factor(DT$rank_position_group_direction))))
 
-  (g_xy / g_pos) +
-    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+  (g_xy + g_pos) +
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
+    plot_layout(widths = 1, heights = 1)
 }
