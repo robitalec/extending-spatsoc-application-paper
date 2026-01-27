@@ -163,7 +163,8 @@ the {sf} package supports. The following examples and case study will illustrate
 the geometry interface throughout.
 
 For example, the suggested `group_pts()` workflow with the example data from the
-package and the `get_geometry()` helper function:
+package and the `get_geometry()` helper function to identify spatiotemporal 
+groups ([Table @tbl-group-pts]):
 
 <!-- TODO: note get_geometry --> 
 
@@ -211,7 +212,8 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
 ```
 
 Users can also measure interindividual distance using the `edge_dist()` function
-and identify nearest neighbors using the `edge_nn()` function. For example:
+([Table @tbl-edge-dist]) and identify nearest neighbors using `edge_nn()` function
+([Table @tbl-edge-nn]). For example:
 
 ```{r}
 #| label: calc-edge-dist
@@ -273,7 +275,8 @@ Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new set of
 functions are now available to measure individuals position relative within
 spatiotemporal groups. After identifying spatiotemporal groups with eg.
 `group_pts()`, we can measure the group centroid, as defined by the mean of
-individual locations in a group, using `centroid_group()`.
+individual locations in a group, using `centroid_group()` ([Table
+@tbl-cent-group]).
 
 ```{r}
 #| label: calc-cent-group
@@ -294,13 +297,13 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
 ```
 
 Then we can measure each individual's distance and direction to the group
-centroid using `distance_to_centroid()` and `direction_to_centroid()`. The
-distance to group centroid is the geographic distance from the focal individual
-to the group centroid. The direction to group centroid is the direction
-from the focal individual to the group centroid. The rank of individual's
-distances to the group centroid can be optionally returned using the argument
-`return_rank`. Spatial position within groups with respect to the group centroid
-has been studied in relation to predation risk [@Heesen_2015;
+centroid using `distance_to_centroid()` and `direction_to_centroid()` ([Figure
+@fig-dist-dir-cent]). The distance to group centroid is the geographic distance
+from the focal individual to the group centroid. The direction to group centroid
+is the direction from the focal individual to the group centroid. The rank of
+individual's distances to the group centroid can be optionally returned using
+the argument `return_rank`. Spatial position within groups with respect to the
+group centroid has been studied in relation to predation risk [@Heesen_2015;
 @Herbert-Read_2017], leadership [@Jolles_2017; @Kano_2021] and group cohesion
 [@Harel_2021; @Bracken_2022].
 
@@ -328,8 +331,8 @@ we can also measure how individuals are positioned relative to the mean group
 direction. To do so, we rotate the coordinate system around the group centroid
 by the mean direction of all individuals in the group and take the distance
 along this new axis as the measure of front-back position within the group
-[@Quera_2023; @Harel_2021; @Andrienko_2013] using the function
-`leader_direction_group()`. The rank of individual's positions within
+[@Quera_2023; @Harel_2021; @Andrienko_2013] using `leader_direction_group()`
+([Figure fig-leader-dir-group]). The rank of individual's positions within
 spatiotemporal groups [@Burns_2012] can be optionally returned with the argument
 `return_rank = TRUE`.
 
@@ -351,14 +354,14 @@ tar_read(fig_pos_group_dir)
 
 Taking this simple, dynamic definition of leadership, we can identify the
 distance and direction of individuals to the leader of each spatiotemporal group
-using `distance_to_leader()` and `direction_to_leader()`. The distance to leader
-is the geographic distance from the focal individual to the group's leader and
-the direction to leader is the direction from the focal individual to the
-group's leader. The front-back position within the group, and distance and
-direction to the group leader has been used to study interaction rules
-[@Weesner_2023], leadership [@Quera_2023; @Sarova_2010], risk avoidance
-[@Josephs_2016], and how reproduction influences social structure
-[@Perez-Barberia_2018].
+using `distance_to_leader()` and `direction_to_leader()` ([Figure
+@fig-dist-dir-lead]). The distance to leader is the geographic distance from the
+focal individual to the group's leader and the direction to leader is the
+direction from the focal individual to the group's leader. The front-back
+position within the group, and distance and direction to the group leader has
+been used to study interaction rules [@Weesner_2023], leadership [@Quera_2023;
+@Sarova_2010], risk avoidance [@Josephs_2016], and how reproduction influences
+social structure [@Perez-Barberia_2018].
 
 ```{r}
 #| label: calc-dist-dir-lead
@@ -381,14 +384,14 @@ tar_read(fig_dist_dir_leader)
 Next, we can use an individual's movement direction and the direction to
 neighbors to explore polarization, interindividual direction, and directional
 alignment. We can measure polarization, the uniformity of movement directions in
-a group of individuals, using `direction_polarization()`. Polarization is
-represented on a scale of 0-1 where values near 0 indicate that individuals in a
-group are moving in completely different directions (or "non-aligned") and
-values near 1 indicate that individuals are moving in similar directions or
-("aligned"). Polarization in the movement direction of groups of animals has
-been used to study cognition [@Wang_2022], learning [@Vega-Trejo_2020], the
-influence of habitat [@Strandburg-Peshkin_2017] and individual differences
-[@Jolles_2017] in collective behaviour.
+a group of individuals, using `direction_polarization()` ([Figure
+@fig-dir-pol]). Polarization is represented on a scale of 0-1 where values near
+0 indicate that individuals in a group are moving in completely different
+directions (or "non-aligned") and values near 1 indicate that individuals are
+moving in similar directions or ("aligned"). Polarization in the movement
+direction of groups of animals has been used to study cognition [@Wang_2022],
+learning [@Vega-Trejo_2020], the influence of habitat [@Strandburg-Peshkin_2017]
+and individual differences [@Jolles_2017] in collective behaviour.
 
 ```{r}
 #| label: calc-dir-pol
@@ -406,11 +409,11 @@ tar_read(fig_dir_polarization)
 ```
 
 The interindividual direction, or direction from a focal individual to a
-neighbour, can be measured using `edge_direction()`. Like `edge_alignment()`,
-the interindividual directions are returned by in an edge-list format.
-Interindividual direction has been used to study risk exposure in schooling fish
-[@Lemasson_2014], coordinated movement [@Herbert-Read_2016] and mass migration
-[@Torney_2018].
+neighbour, can be measured using `edge_direction()` ([Figure
+@fig-edge-align-dir]). Like `edge_alignment()`, the interindividual directions
+are returned by in an edge-list format. Interindividual direction has been used
+to study risk exposure in schooling fish [@Lemasson_2014], coordinated movement
+[@Herbert-Read_2016] and mass migration [@Torney_2018].
 
 ```{r}
 #| label: calc-edge-dir
@@ -424,11 +427,12 @@ dyad_directions <- edge_direction(
 ```
 
 The directional alignment, or relative difference between two individuals'
-directions, can be measured using `edge_alignment()`. The differences in
-movement directions are returned in an edge-list format similar to `edge_dist()`
-and other edge-list generating functions. Directional alignment has been used to
-study leadership [@Sarova_2010], decision making [@Strandburg-Peshkin_2015], and
-information transfer [@Sumpter_2018].
+directions, can be measured using `edge_alignment()` ([Figure
+@fig-edge-align-dir]). The differences in movement directions are returned in an
+edge-list format similar to `edge_dist()` and other edge-list generating
+functions. Directional alignment has been used to study leadership
+[@Sarova_2010], decision making [@Strandburg-Peshkin_2015], and information
+transfer [@Sumpter_2018].
 
 ```{r}
 #| label: calc-edge-align
@@ -452,23 +456,24 @@ tar_read(fig_edge_dir_and_align)
 
 ## Behavioural zones
 
-The behavioural zones are non-overlapping regions around a focal individual
-[@Couzin_2002] measured using `edge_zones()`. The distance from the focal
-individual to each neighbour is used to assign the neighbours to behavioural
-zones. In addition, the direction from the focal individual to each neighbour
-can be used to determine if the neighbour is within a "blind volume" outside of
-the individual's visual perception. @Couzin_2002 defined three non-overlapping
-zones: 1) the "zone of repulsion" at a minimum distance around the focal
-individual within which neighbours are expected to move away to avoid
-collisions, 2) the "zone of orientation" around the focal individual beyond the
-"zone of repulsion" within which neighbours are expected to orient themselves to
-the movement of their neighbours, and 3) the "zone of attraction" beyond the
-"zone of orientation" where neighbours are expected to be attracted to the
-position of the focal individual. The `edge_zones()` is designed to allow for
-flexible definitions of zones including distance thresholds, zone labels and
-blind volume thresholds. The behavioural zones metric has been used to study the
-impact of individual movement speed and predator evasion [@Klamser_2021] and
-identifying rules of interaction in large animal groups [@Lukeman_2010].
+The behavioural zones [@Couzin_2002], or non-overlapping behavioural regions
+around a focal individual, can measured using `edge_zones()` ([Figure
+@fig-edge-zones]). The distance from the focal individual to each neighbour is
+used to assign the neighbours to behavioural zones. In addition, the direction
+from the focal individual to each neighbour can be used to determine if the
+neighbour is within a "blind volume" outside of the individual's visual
+perception. @Couzin_2002 defined three non-overlapping zones: 1) the "zone of
+repulsion" at a minimum distance around the focal individual within which
+neighbours are expected to move away to avoid collisions, 2) the "zone of
+orientation" around the focal individual beyond the "zone of repulsion" within
+which neighbours are expected to orient themselves to the movement of their
+neighbours, and 3) the "zone of attraction" beyond the "zone of orientation"
+where neighbours are expected to be attracted to the position of the focal
+individual. The `edge_zones()` is designed to allow for flexible definitions of
+zones including distance thresholds, zone labels and blind volume thresholds.
+The behavioural zones metric has been used to study the impact of individual
+movement speed and predator evasion [@Klamser_2021] and identifying rules of
+interaction in large animal groups [@Lukeman_2010].
 
 ```{r}
 #| label: calc-edge-zones
@@ -497,14 +502,17 @@ tar_read(fig_edge_zones)
 
 ## Fusion events
 
-Given the variability in defining fission fusion dynamics in the literature
-(Supplement B: Scoping Review Results: [Table @tbl-defn-fission]), the
-`fusion_id()` function flexibly allows users to both use specific threshold and
-definitions that match their study species and research questions and easily
-compare their results to previously published work by using the same thresholds
-and definitions. The `threshold` argument defines the spatial distance threshold
-to establish a fusion event. The `n_min_length` argument defines the minimum
-number of successive fixes that are required to establish a fusion event. The
+Fusion events, or temporal periods where two individiuals are within a given
+threshold distance from each other, can be identified using `fusion_id()`
+([Figure @fig-fusion]). Given the variability in defining fission fusion dynamics
+in the literature (Supplement B: Scoping Review Results - [Table
+@tbl-defn-fission]), the `fusion_id()` function flexibly
+allows users to both use specific threshold and definitions that match their
+study species and research questions and easily compare their results to
+previously published work by using the same thresholds and definitions. The
+`threshold` argument defines the spatial distance threshold to establish a
+fusion event. The `n_min_length` argument defines the minimum number of
+successive fixes that are required to establish a fusion event. The
 `n_max_missing` defines the maximum number of allowable missed observations for
 either individual in a dyad within a fusion event. The `allow_split` argument
 defines if fusion events allow a temporary spatial splitting for one observation
@@ -512,12 +520,6 @@ without resulting in a fission event. Identification of fusion events has been
 used to study resource seasonality [@Baden_2016], information transfer
 [@Barocas_2016], decision making [@Merkle_2015], and habitat selection
 [@Fortin_2009].
-
-<!-- See Table Sup B: varying definitions of fission fusion 
-TODO: mention from edge_dist
--->
-<!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
-Supplement B: .... Table -->
 
 ```{r}
 #| label: calc-fusion
@@ -547,18 +549,19 @@ tar_read(fig_fusion_events)
 
 The directional correlation delay [@Nagy_2010], or the temporal delay at which
 two individual's movement directions are most similar, can be measured using
-`edge_delay()`. The function compares a focal individual's movement directions
-at time $t$ to all of the movement direction's of a neighbor within a temporal
-window to determine the temporal lag at which the neighbor's movement directions
-are most similar to the focal individual. The directional correlation delay
-ranges from negative values indicating the focal individual's direction is most
-similar to the neighbor's previous movement direction to positive values
-indicating the focal individual's direction is most similar to the neighbor's
-future movement direction. The directional correlation delay can be aggregated
-to determine mean directional correlation delay using `leader_edge_delay()`. The
-mean directional correlation delay can be used to measure leadership patterns
-and generate hierarchical leadership networks depending on the study system
-[@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023; @Akos_2014].
+`edge_delay()` [Figure @fig-edge-delay]. The function compares a focal
+individual's movement directions at time $t$ to all of the movement direction's
+of a neighbor within a temporal window to determine the temporal lag at which
+the neighbor's movement directions are most similar to the focal individual. The
+directional correlation delay ranges from negative values indicating the focal
+individual's direction is most similar to the neighbor's previous movement
+direction to positive values indicating the focal individual's direction is most
+similar to the neighbor's future movement direction. The directional correlation
+delay can be aggregated to determine mean directional correlation delay using
+`leader_edge_delay()`. The mean directional correlation delay can be used to
+measure leadership patterns and generate hierarchical leadership networks
+depending on the study system [@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023;
+@Akos_2014].
 
 ```{r}
 #| label: calc-edge-delay
