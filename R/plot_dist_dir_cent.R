@@ -1,4 +1,5 @@
 plot_dist_dir_cent <- function(DT) {
+  DT <- DT[rank_distance_centroid != 1.5]
   g_dist <- ggplot(DT) +
     stat_halfeye(aes(x = units::as_units(distance_centroid, 'm'),
                      y = factor(rank_distance_centroid))) +
