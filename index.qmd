@@ -45,7 +45,7 @@ number-sections: true
 ```{r}
 #| label: setup
 #| include: false
-targets::tar_source('R')
+targets::tar_source('_targets.R')
 ```
 
 Animal social dynamics have broad implications in ecology including resource
