@@ -353,7 +353,7 @@ leader_direction_group(DT, return_rank = TRUE)
 #| label: fig-leader-dir-group
 #| eval: true
 #| echo: false
-#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'group' column returned by group_pts(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
+#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'centroid' column returned by centroid_group(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
 tar_read(fig_pos_group_dir)
 ```
 
