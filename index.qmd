@@ -331,19 +331,21 @@ tar_read(fig_dist_dir_cent)
 
 After considering how individuals are positioned relative to the group centroid,
 we can also measure how individuals are positioned relative to the mean group
-direction. To do so, we rotate the coordinate system around the group centroid
-by the mean direction of all individuals in the group and take the distance
-along this new axis as the measure of front-back position within the group
-[@Quera_2023; @Harel_2021; @Andrienko_2013] using `leader_direction_group()`
-([Figure fig-leader-dir-group]). The rank of individual's positions within
-spatiotemporal groups [@Burns_2012] can be optionally returned with the argument
-`return_rank = TRUE`.
+direction. To do so, we first calculate each individual's movement direction
+with `direction_step()` and the group's mean direction with `direction_group()`.
+Then rotate the coordinate system around the group centroid by the group's mean
+direction and take the distance along this new axis as the measure of front-back
+position within the group [@Quera_2023; @Harel_2021; @Andrienko_2013] using
+`leader_direction_group()` ([Figure fig-leader-dir-group]). The rank of
+individual's positions within spatiotemporal groups [@Burns_2012] can be
+optionally returned when the argument 'return_rank' is true.
 
 ```{r}
 #| label: calc-leader-dir-group
 #| eval: false
 #| echo: true
 direction_step(DT, id = id)
+direction_group(DT)
 leader_direction_group(DT, return_rank = TRUE)
 ```
 
@@ -351,7 +353,7 @@ leader_direction_group(DT, return_rank = TRUE)
 #| label: fig-leader-dir-group
 #| eval: true
 #| echo: false
-#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step() and 'group' column returned by group_pts(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
+#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'group' column returned by group_pts(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
 tar_read(fig_pos_group_dir)
 ```
 
