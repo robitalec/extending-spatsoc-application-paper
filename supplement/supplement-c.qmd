@@ -144,26 +144,16 @@ from existing {spatsoc} functions (XYT):
 
 ## Selected metrics
 
-The selected metrics are listed in the following table along with their 
-respective function names in {spatsoc}.
+The selected metrics are listed in Table [@tbl-new-functions]. All existing 
+functions in {spatsoc} are listed below in Table [@tbl-all-functions].
 
-| metric                                        | function name in {spatsoc} |
-|-----------------------------------------------|----------------------------|
-| Fission-fusion                                | `fusion_id`                  |
-| Group centroid                                | `centroid_group`             |
-| Dyad centroid                                 | `centroid_dyad`              |
-| Fusion centroid                               | `centroid_fusion`            |
-| Step direction                                | `direction_step`             |
-| Direction to group centroid                   | `direction_to_centroid`      |
-| Distance to group centroid                    | `distance_to_centroid`       |
-| Group direction                               | `direction_group`            |
-| Direction polarization                        | `direction_polarization`     |
-| Leader based on position within group         | `leader_direction_group`     |
-| Distance to leader                            | `distance_to_leader`         |
-| Direction to leader                           | `direction_to_leader`        |
-| Directional correlation delay                 | `edge_delay`                 |
-| Leader based on directional correlation delay | `leader_edge_delay`          |
-| Directional alignment                         | `edge_alignment`             |
-| Direction to neighbour                        | `edge_direction`             |
-| Behavioural zones                             | `edge_zones`                 |
-
+```{r}
+#| label: tbl-all-functions
+#| echo: false
+#| eval: true
+#| tbl-cap: "Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family."
+functions <- fread('data/spatsoc-functions.tsv')
+functions[, .(Function, Description, Category)] |> 
+  tt() |>
+  group_tt(i = functions$Family) 
+```
