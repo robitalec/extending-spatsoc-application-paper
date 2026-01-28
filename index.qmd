@@ -138,10 +138,6 @@ For each
 - Code example
 - Similar terms? eg. see metric synonyms
 
-See list of not selected metrics (Supplement  B), including already available 
-functions in eg. {wildlifeDI}, metrics relating to posture,
-static interaction eg. home range overlap, ...
-
 -->
 
 
@@ -175,8 +171,6 @@ the geometry interface throughout.
 For example, the suggested `group_pts()` workflow with the example data from the
 package and the `get_geometry()` helper function to identify spatiotemporal 
 groups ([Table @tbl-group-pts]):
-
-<!-- TODO: note get_geometry --> 
 
 ```{r}
 #| label: calc-group-pts
