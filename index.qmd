@@ -231,7 +231,6 @@ interindividual_dist <- edge_dist(
   returnDist = TRUE,
   fillNA = TRUE
 )
-dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
@@ -254,7 +253,6 @@ nearest_neighbours <- edge_nn(
   timegroup = 'timegroup',
   returnDist = TRUE
 )
-dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
