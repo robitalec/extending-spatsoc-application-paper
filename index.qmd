@@ -538,6 +538,11 @@ fusion_events <- fusion_id(
   n_max_missing = 1, 
   allow_split = TRUE
 )
+centroid_fusion(
+  interindividual_dist,
+  DT,
+  id = id
+)
 ```
 
 
