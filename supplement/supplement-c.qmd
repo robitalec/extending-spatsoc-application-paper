@@ -155,5 +155,6 @@ functions in {spatsoc} are listed below in Table [@tbl-all-functions].
 functions <- fread('data/spatsoc-functions.tsv')
 functions[, .(Function, Description, Category)] |> 
   tt() |>
-  group_tt(i = functions$Family) 
+  group_tt(i = functions$Family) |>
+  style_tt(align = 'l')
 ```
