@@ -329,74 +329,44 @@ direction_to_centroid(DT)
 tar_read(fig_dist_dir_cent)
 ```
 
-After considering how individuals are positioned relative to the group centroid,
-we can also measure how individuals are positioned relative to the mean group
-direction. To do so, we first calculate each individual's movement direction
-with `direction_step()` and the group's mean direction with `direction_group()`.
-Then rotate the coordinate system around the group centroid by the group's mean
-direction and take the distance along this new axis as the measure of front-back
-position within the group [@Quera_2023; @Harel_2021; @Andrienko_2013] using
-`leader_direction_group()` ([Figure fig-leader-dir-group]). The rank of
-individual's positions within spatiotemporal groups [@Burns_2012] can be
-optionally returned when the argument 'return_rank' is true.
-
-```{r}
-#| label: calc-leader-dir-group
-#| eval: false
-#| echo: true
-direction_step(DT, id = id)
-direction_group(DT)
-leader_direction_group(DT, return_rank = TRUE)
-```
-
-```{r}
-#| label: fig-leader-dir-group
-#| eval: true
-#| echo: false
-#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'centroid' column returned by centroid_group(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
-tar_read(fig_pos_group_dir)
-```
-
-Taking this simple, dynamic definition of leadership, we can identify the
-distance and direction of individuals to the leader of each spatiotemporal group
-using `distance_to_leader()` and `direction_to_leader()` ([Figure
-@fig-dist-dir-lead]). The distance to leader is the geographic distance from the
-focal individual to the group's leader and the direction to leader is the
-direction from the focal individual to the group's leader. The front-back
-position within the group, and distance and direction to the group leader has
-been used to study interaction rules [@Weesner_2023], leadership [@Quera_2023;
-@Sarova_2010], risk avoidance [@Josephs_2016], and how reproduction influences
-social structure [@Perez-Barberia_2018].
-
-```{r}
-#| label: calc-dist-dir-lead
-#| eval: false
-#| echo: true
-distance_to_leader(DT)
-direction_to_leader(DT)
-```
-
-```{r}
-#| label: fig-dist-dir-lead
-#| eval: true
-#| echo: false
-#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'rank_position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group. Note: for individuals identified as leader using 'position_group_direction', the distance is 0 and the direction is NA."
-tar_read(fig_dist_dir_leader)
-```
-
 ## Directions
 
-Next, we can use an individual's movement direction and the direction to
-neighbors to explore polarization, interindividual direction, and directional
-alignment. We can measure polarization, the uniformity of movement directions in
-a group of individuals, using `direction_polarization()` ([Figure
-@fig-dir-pol]). Polarization is represented on a scale of 0-1 where values near
-0 indicate that individuals in a group are moving in completely different
-directions (or "non-aligned") and values near 1 indicate that individuals are
-moving in similar directions or ("aligned"). Polarization in the movement
-direction of groups of animals has been used to study cognition [@Wang_2022],
-learning [@Vega-Trejo_2020], the influence of habitat [@Strandburg-Peshkin_2017]
-and individual differences [@Jolles_2017] in collective behaviour.
+Next, we can use movement directions to understand how individuals and groups
+move together. We can measure an individual's movement direction using
+`direction_step()` and the mean direction of each spatiotemporal group
+identified by `group_pts()` using `direction_group()` ([Table @tbl-dir-step-group]).
+
+```{r}
+#| label: calc-dir-step-group
+#| echo: true
+#| eval: false
+direction_step(DT, id = id)
+direction_group(DT)
+```
+
+```{r}
+#| label: fig-dir-step-group
+#| echo: false
+#| eval: true
+#| warning: false
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: "Individual and group mean directions measured using direction_step() and direction_group(). direction_step() returns the column 'direction' representing the movement direction of each individual to their next relocation. Using the spatiotemporal groups returned by group_pts, direction_group() returns the column 'group_direction' representing the mean direction of all individuals in each spatiotemporal group. Example output showing the movement directions of individuals and mean direction of two spatiotemporal groups."
+tar_load(spatial_groups)
+sel_groups <- spatial_groups[ID != 'A'][, .N, by = group][N == 3][, sample(group, 2)]
+tinytable::tt(spatial_groups[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
+```
+
+
+We can measure polarization, the uniformity of movement directions in a group of
+individuals, using `direction_polarization()` ([Figure @fig-dir-pol]).
+Polarization is represented on a scale of 0-1 where values near 0 indicate that
+individuals in a group are moving in completely different directions (or
+"non-aligned") and values near 1 indicate that individuals are moving in similar
+directions or ("aligned"). Polarization in the movement direction of groups of
+animals has been used to study cognition [@Wang_2022], learning
+[@Vega-Trejo_2020], the influence of habitat [@Strandburg-Peshkin_2017] and
+individual differences [@Jolles_2017] in collective behaviour.
 
 ```{r}
 #| label: calc-dir-pol
@@ -504,6 +474,63 @@ zones <- edge_zones(
 tar_read(fig_edge_zones)
 ```
 
+
+## Position relative to leader
+
+After considering how individuals are positioned relative to the group centroid,
+we can also measure how individuals are positioned relative to the mean group
+direction. To do so, we first calculate each individual's movement direction
+with `direction_step()` and the group's mean direction with `direction_group()`.
+Then rotate the coordinate system around the group centroid by the group's mean
+direction and take the distance along this new axis as the measure of front-back
+position within the group [@Quera_2023; @Harel_2021; @Andrienko_2013] using
+`leader_direction_group()` ([Figure fig-leader-dir-group]). The rank of
+individual's positions within spatiotemporal groups [@Burns_2012] can be
+optionally returned when the argument 'return_rank' is true.
+
+```{r}
+#| label: calc-leader-dir-group
+#| eval: false
+#| echo: true
+direction_step(DT, id = id)
+direction_group(DT)
+leader_direction_group(DT, return_rank = TRUE)
+```
+
+```{r}
+#| label: fig-leader-dir-group
+#| eval: true
+#| echo: false
+#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'centroid' column returned by centroid_group(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
+tar_read(fig_pos_group_dir)
+```
+
+Taking this simple, dynamic definition of leadership, we can identify the
+distance and direction of individuals to the leader of each spatiotemporal group
+using `distance_to_leader()` and `direction_to_leader()` ([Figure
+@fig-dist-dir-lead]). The distance to leader is the geographic distance from the
+focal individual to the group's leader and the direction to leader is the
+direction from the focal individual to the group's leader. The front-back
+position within the group, and distance and direction to the group leader has
+been used to study interaction rules [@Weesner_2023], leadership [@Quera_2023;
+@Sarova_2010], risk avoidance [@Josephs_2016], and how reproduction influences
+social structure [@Perez-Barberia_2018].
+
+```{r}
+#| label: calc-dist-dir-lead
+#| eval: false
+#| echo: true
+distance_to_leader(DT)
+direction_to_leader(DT)
+```
+
+```{r}
+#| label: fig-dist-dir-lead
+#| eval: true
+#| echo: false
+#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'rank_position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group. Note: for individuals identified as leader using 'position_group_direction', the distance is 0 and the direction is NA."
+tar_read(fig_dist_dir_leader)
+```
 
 ## Fusion events
 
