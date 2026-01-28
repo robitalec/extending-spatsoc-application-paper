@@ -380,7 +380,7 @@ direction_to_leader(DT)
 #| label: fig-dist-dir-lead
 #| eval: true
 #| echo: false
-#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group. Note: for individuals identified as leader using 'position_group_direction', the distance is 0 and the direction is NA."
+#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'rank_position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group. Note: for individuals identified as leader using 'position_group_direction', the distance is 0 and the direction is NA."
 tar_read(fig_dist_dir_leader)
 ```
 
