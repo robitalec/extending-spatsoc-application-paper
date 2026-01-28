@@ -530,6 +530,7 @@ used to study resource seasonality [@Baden_2016], information transfer
 #| label: calc-fusion
 #| eval: false
 #| echo: true
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold, 
