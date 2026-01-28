@@ -102,18 +102,6 @@ discuss biological interpretation.
 
 <!-- TODO: update count if include randomization method --> 
 
-```{r}
-#| label: tbl-new-functions
-#| echo: false
-#| eval: true
-#| tbl-cap: "New functions in the R package {spatsoc} for measuring intragroup dynamics. "
-functions <- fread('data/spatsoc-functions.tsv')
-new_functions <- functions[Category == 'New']
-new_functions[, .(Function, Description)] |> 
-  tt() |>
-  group_tt(i = new_functions$Family) 
-```
-
 # Methods
 
 We conducted a scoping review to identify metrics used in ecology studies for
@@ -129,7 +117,17 @@ metrics based on statistical models such as Hidden Markov model and Granger
 causality. A full list of metrics not selected is in Supplement C: Selected
 Metrics.
 
-<!-- TODO: table of new functions, brief description, "family" -->
+```{r}
+#| label: tbl-new-functions
+#| echo: false
+#| eval: true
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. Previously existing functions are listed in Table @tbl-all-functions."
+functions <- fread('data/spatsoc-functions.tsv')
+new_functions <- functions[Category == 'New']
+new_functions[, .(Function, Description)] |> 
+  tt() |>
+  group_tt(i = new_functions$Family) 
+```
 
 <!--
 For each
