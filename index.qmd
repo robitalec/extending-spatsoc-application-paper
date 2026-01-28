@@ -489,7 +489,7 @@ zone_labels <- c('repulsion', 'orientation', 'attraction')
 blind_volume <- 3
 
 zones <- edge_zones(
-  interindividual_dist,
+  dyad_directions,
   zone_thresholds = zone_thresholds,
   zone_labels = zone_labels,
   blind_volume = blind_volume
