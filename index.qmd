@@ -352,9 +352,9 @@ direction_group(DT)
 #| fig-height: 4
 #| fig-width: 8
 #| fig-cap: "Individual and group mean directions measured using direction_step() and direction_group(). direction_step() returns the column 'direction' representing the movement direction of each individual to their next relocation. Using the spatiotemporal groups returned by group_pts, direction_group() returns the column 'group_direction' representing the mean direction of all individuals in each spatiotemporal group. Example output showing the movement directions of individuals and mean direction of two spatiotemporal groups."
-tar_load(spatial_groups)
-sel_groups <- spatial_groups[ID != 'A'][, .N, by = group][N == 3][, sample(group, 2)]
-tinytable::tt(spatial_groups[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
+tar_load(group_directions)
+sel_groups <- group_directions[ID != 'A'][, .N, by = group][N == 3][, sample(group, 2)]
+tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
 ```
 
 
