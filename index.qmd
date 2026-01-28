@@ -90,8 +90,8 @@ multidisciplinary approaches to better understand animal social systems
 
 Here we present 
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
-new functions for the R package {spatsoc} [@Robitaille_2019] for measuring
-intragroup dynamics. We conducted a scoping review to identify metrics
+new functions in the R package {spatsoc} [@Robitaille_2019] for measuring
+intragroup dynamics ([Table @tbl-new-functions]. We conducted a scoping review to identify metrics
 that were  applicable to spatiotemporal data, and focused on dyadic
 interactions, dominance hierarchies and leadership patterns. Of the
 resulting metrics, we selected those with a high number of citations (as a
@@ -101,6 +101,18 @@ literature. We will demonstrate these new functions through a case study and
 discuss biological interpretation.
 
 <!-- TODO: update count if include randomization method --> 
+
+```{r}
+#| label: tbl-new-functions
+#| echo: false
+#| eval: true
+#| tbl-cap: "New functions in the R package {spatsoc} for measuring intragroup dynamics. "
+functions <- fread('data/spatsoc-functions.tsv')
+new_functions <- functions[Category == 'New']
+new_functions[, .(Function, Description)] |> 
+  tt() |>
+  group_tt(i = new_functions$Family) 
+```
 
 # Methods
 
