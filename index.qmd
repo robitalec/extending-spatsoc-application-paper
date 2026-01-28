@@ -260,7 +260,7 @@ nearest_neighbours <- edge_nn(
 #| label: tbl-edge-nn
 #| echo: false
 #| eval: true
-#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'ID2' are the nearest neighbour to focal individuals in the column 'ID1'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and nearest neighbour 'ID2'."
+#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'NN' are the nearest neighbour to focal individuals in the column 'ID'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'. Example output showing six observations of one timegroup with distances returned between focal individual 'ID' and nearest neighbour 'NN'."
 tar_load(nn_edges)
 sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
