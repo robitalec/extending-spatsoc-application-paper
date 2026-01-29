@@ -677,6 +677,29 @@ approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
 
 # Open science
 
+[@RCoreTeam_2025]
+
+All data and code used to produce figures are available on GitHub
+at LINK <!-- TODO: github link --> and on
+Zeonodo at LINK <!-- TODO: github link -->. The data used in this case study
+are included with the package and can be imported with:
+
+```{r}
+#| eval: false
+library(spatsoc)
+library(data.table)
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+```
+
+The code for producing the scoping review results, figures, tables and
+manuscript was developed as a reproducible pipeline with the R package {targets}
+[@Landau_2021b]. Figures and tables were constructed using {ggplot2}
+[@Wickham_2016a], {ggdist} [@Kay_2025], {patchwork} [@Pedersen_2025] and
+{tintytable} [@Arel-Bundock_2025]. The manuscript was produced using {quarto}
+[@Allaire_2024]. The {spatsoc} package gratefully depends on the R packages
+{adehabitatHR} [@Calenge_2024], {data.table} [@Barrett_2025], {igraph}
+[@Csardi_2026], {sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats}
+[@Lund_2025], {units} [@Pebesma_2016], and {rlang} [@Henry_2026].
 
 # References {.unnumbered}
 
