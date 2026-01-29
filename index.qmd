@@ -127,18 +127,6 @@ new_functions[, .(Function, Description)] |>
   style_tt(align = 'l')
 ```
 
-<!--
-For each
-
-- Citation
-- Interpretation, **emphasis on biology**
-- Formula
-- Code example
-- Similar terms? eg. see metric synonyms
-
--->
-
-
 # Case study
 
 Functionality previously available in {spatsoc} includes spatiotemporal
@@ -355,7 +343,6 @@ sel_groups <- group_directions[ID != 'A'][, .N, by = group][N == 3][, sample(gro
 tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
 ```
 
-
 We can measure polarization, the uniformity of movement directions in a group of
 individuals, using `direction_polarization()` ([Figure @fig-dir-pol]).
 Polarization is represented on a scale of 0-1 where values near 0 indicate that
@@ -417,7 +404,6 @@ directional_align <- edge_alignment(
   signed = FALSE
 )
 ```
-
 
 ```{r}
 #| label: fig-edge-align-dir
