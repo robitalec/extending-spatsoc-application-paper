@@ -701,6 +701,19 @@ manuscript was developed as a reproducible pipeline with the R package {targets}
 [@Csardi_2026], {sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats}
 [@Lund_2025], {units} [@Pebesma_2016], and {rlang} [@Henry_2026].
 
+# Acknowledgements
+
+We thank Edzer Pebesma and Dewey Dunnington for support with bug reports and
+feature requests for the {sf}, {s2} and {lwgeom} packages related to the
+development of this new functionality in {spatsoc}. We thank Martin Leclerc,
+Rick Heeres and Shane Frank for testing the package ahead of its release. We
+thank members of the Wildlife Evolutionary Ecology Lab for their comments on
+previous versions of this manuscript. We thank the rOpenSci organization
+including staff, editors, reviewers and contributors for their continued efforts
+open data, software and reproducibility.
+
+<!-- TODO: add funding, comps?-->
+
 # References {.unnumbered}
 
 :::{#refs}
