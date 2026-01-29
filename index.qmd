@@ -11,7 +11,6 @@ author:
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false
-    # roles: []
     affiliations:
       - University of Guelph
   - name: Eric Vander Wal
@@ -24,10 +23,10 @@ keywords:
   - social dynamics
   - collective movement
 abstract: | 
-  1. Beyond social networks, dyadic measures
-  2. Extending social networks derived from GPS using detailed dyadic measures beyond rates of association
-  3. Linking social processes to spatial/geography environment, hint at selection
-  4. Expanding spatsoc to version N by including important and unavailable methods in R 
+  1. Beyond social networks, various metrics can be applied to animal telemetry data to better understand intragroup social dynamics including position within groups, individual and group level movement directions, leadership patterns and lagged follower behaviours.
+  2. We identified widely used metrics that are not openly available in the R programming language using a scoping review. 
+  3. We present a case study illustrating 18 new functions in the R package {spatsoc} for measuring intragroup social dynamics with animal telemetry data.
+  4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to understand social dynamics in their study systems beyond association and spatial overlap. 
 plain-language-summary: |
   New functions for the R package {spatsoc} to measure animal intragroup social dynamics
 # key-points:
@@ -37,8 +36,6 @@ bibliography: references/references.bib
   # container-title: 
 number-sections: true
 ---
-
-<!-- TODO: abstract above -->
 
 # Introduction
 
