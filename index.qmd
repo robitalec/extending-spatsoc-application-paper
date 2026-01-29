@@ -7,7 +7,7 @@ author:
     email: robit.alec@gmail.com
     # roles:
     affiliations:
-      - Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false
@@ -17,7 +17,7 @@ author:
     orcid: 0000-0002-8534-4317
     corresponding: false
     affiliations:
-      - Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador
 keywords:
   - R
   - social dynamics
