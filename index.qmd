@@ -89,9 +89,9 @@ with multidisciplinary approaches to better understand animal social systems
 Here we present 
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions in the R package {spatsoc} [@Robitaille_2019] for measuring
-intragroup dynamics ([Table @tbl-new-functions]. We conducted a scoping review to identify metrics
-that were  applicable to spatiotemporal data, and focused on dyadic
-interactions, dominance hierarchies and leadership patterns. Of the
+intragroup dynamics ([Table @tbl-new-functions]. We conducted a scoping review
+to identify metrics that were  applicable to spatiotemporal data, and focused on
+dyadic interactions, dominance hierarchies and leadership patterns. Of the
 resulting metrics, we selected those with a high number of citations (as a
 measure of value for the target audience) and lack of availability in the R
 programming language, either through R packages or supplemental materials in the
@@ -105,15 +105,19 @@ discuss biological interpretation.
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We
 focused on metrics applicable to spatiotemporal data such as animal movement
-data. See details in Supplement A: Scoping Review Methods and Supplement B:
-Scoping Review Results. Metrics were selected for inclusion in {spatsoc} based
-on their relative importance as measured by frequency of use in the review, as
-well as their lack of availability in R packages when the review was conducted.
-Some metrics were specifically not chosen for inclusion such as metrics relating
-to posture, metrics relating to static interaction or home range overlap and
-metrics based on statistical models such as Hidden Markov model and Granger
-causality. A full list of metrics not selected is in Supplement C: Selected
-Metrics.
+data. This scoping review expands on the review conducted by @Joo_2018 by using
+interdiscplinary sources [eg. GISciences [@Miller_2021]], including metrics
+measuring group-level dynamics, leadership patterns and lagged-follower
+behaviours, as well as focusing on the open source availability of these metrics
+in the R programming language. See details in [@sec-scoping-methods: Supplement
+A: Scoping Review Methods] and Supplement B: Scoping Review Results. Metrics
+were selected for inclusion in {spatsoc} based on their relative importance as
+measured by frequency of use in the review, as well as their lack of
+availability in R packages when the review was conducted. Some metrics were
+specifically not chosen for inclusion such as metrics relating to posture,
+metrics relating to static interaction or home range overlap and metrics based
+on statistical models such as Hidden Markov model and Granger causality. A full
+list of metrics not selected is in Supplement C: Selected Metrics.
 
 ```{r}
 #| label: tbl-new-functions
