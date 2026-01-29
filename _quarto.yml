@@ -5,15 +5,7 @@ project:
   render:
     - "!tests"
 
-# manuscript:
-  # notebooks:
-  #   - notebook: supplement/supplement-b.qmd
-  #     title: "Supplement B: Review Results"
-  # appendices:
-  #   - supplement/supplement-b.qmd
-
 website:
-  title: "spatsoc paper 2"
   sidebar:
     contents: auto
     tools:
@@ -30,7 +22,4 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
-    comments:
-      hypothesis: true
-  # typst:
-  #   csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+  jats: default
