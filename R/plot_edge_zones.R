@@ -30,7 +30,6 @@ plot_edge_zones <- function(zones) {
     labs(x = NULL, y = NULL) +
     theme(aspect.ratio = 1,
           axis.ticks = element_blank(),
-          axis.text = element_blank()) +
-    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+          axis.text = element_blank())
 
 }

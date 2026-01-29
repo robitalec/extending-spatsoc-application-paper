@@ -1,0 +1,23 @@
+Category,Field
+General,Covidence #
+,Study ID
+,Title
+Study information,"Type of study (Empirical, simulation, algorithm, model, review, other)"
+,Species
+,Region
+Dyadic social metrics,Metric used or described
+,Software package(s) used
+,Citation for metric if not introduced in this paper
+,Interpretation
+,Data input required
+,"Definitions of “leader”, “initiator”, etc"
+Dominance,Dominance metric
+,Interpretation
+,Citation for dominance metric if not introduced in this paper
+Code availability,Analysis code availability
+,Programming language
+,Analysis code link
+,"Analysis code availability location (eg. GitHub, Zenodo, FigShare)"
+,Other comments about code availability
+Misc,Discussion points
+,Etc
