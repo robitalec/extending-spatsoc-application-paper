@@ -619,18 +619,25 @@ tar_read(fig_edge_delay)
 ```
 
 
-# Discussion
+# Implications
 
-- social networks, history of spatsoc
-- high number of studies in review with IID, NND
+The open source package {spatsoc} [@Robitaille_2019] for the R programming
+language [@RCoreTeam_2025] has greatly improved accessibility to methods for
+spatiotemporal grouping and social network analysis with animal telemetry data
+[eg. @Bracken_2022; @Merkle_2024; @Heeres_2024; @Albery_2025]. Despite this,
+proximity based associations are only one dimension and studying intragroup
+social dynamics will allow researchers to further understand animal social
+systems. These new functions in {spatsoc} make openly available a series of
+metrics that while commonly used in the literature have been largely absent from
+R packages so far. The lack of open source code and transparency of methods
+alongside research [Tables @tbl-code-availability, @tbl-prog, @tbl-software]
+continues to slow the progress of science by limiting the application of new
+methodology. We hope that the availability of these metrics will allow their
+applications to diverse study species, systems or research questions, including
+novel novel applications that could have management and conservation
+implications for vulnerable species [@Ramos_2021] and continued advancements in
+the collection of animal movement data in the wild [@Hughey_2018].
 
-
-
-# Conclusion
-
-<!-- Test model only conclusions with increase species, increase systems given flexible powerful freely available functions -->
-
-<!-- Association is only one layer of the animal social system -->
 
 # Box 1 {.unnumbered}
 
@@ -668,6 +675,7 @@ telemetry including movement initiations (Amornbunchornvej 2018),
 approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
 (Evans 2018).
 
+# Open science
 
 
 # References {.unnumbered}
