@@ -77,12 +77,12 @@ intragroup social dynamics. The availability and resolution of remote tracking
 data continues to improve [@Kays_2015; @Kays_2022; @Nathan_2022]. There are over
 two decades of research on measuring the interaction between moving individuals
 from the study of "moving point objects" in GISciences [@Andersson_2008;
-@Dodge_2008; @Laube_2005] to group coordination of moving groups [@Couzin_2002;
-@Herbert-Read_2011] and leadership and decision making [@King_2011; @Nagy_2010;
-@Strandburg-Peshkin_2015]. Despite this, we suggest the availability of open
-source tools [@Hampton_2015; @Powers_2019; @Wilson_2017] is the missing piece
-between the call to integrate technology enhanced research with
-multidisciplinary approaches to better understand animal social systems
+@Dodge_2008; @Laube_2005; @Miller_2021] to group coordination of moving groups
+[@Couzin_2002; @Herbert-Read_2011] and leadership and decision making
+[@King_2011; @Nagy_2010; @Strandburg-Peshkin_2015]. Despite this, we suggest the
+availability of open source tools [@Hampton_2015; @Powers_2019; @Wilson_2017] is
+the missing piece between the call to integrate technology enhanced research
+with multidisciplinary approaches to better understand animal social systems
 [@Couzin_2023; @King_2018].
 
 Here we present 
