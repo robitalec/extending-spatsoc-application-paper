@@ -85,7 +85,8 @@ overall frequency including papers with missing fields.
 #| label: tbl-form
 #| tbl-cap: "Data extraction form for scoping review to identify metrics for studying intragroup dynamics"
 data.table::fread('data/form.csv') |>
-  tinytable::tt()
+  tinytable::tt() |>
+  style_tt(align = 'l')
 ```
 
 ```{r}
@@ -93,7 +94,8 @@ data.table::fread('data/form.csv') |>
 #| label: tbl-benchmark
 #| tbl-cap: "Benchmark papers used to evaluate iterative search results for scoping review"
 targets::tar_read(benchmark_papers) |> 
-  tinytable::tt()
+  tinytable::tt() |>
+  style_tt(align = 'l')
 ```
 
 ```{r}
@@ -101,5 +103,6 @@ targets::tar_read(benchmark_papers) |>
 #| label: tbl-search-strings
 #| tbl-cap: "Search strings for scoping review using Web of Science and Scopus"
 targets::tar_read(search_strings) |> 
-  tinytable::tt()
+  tinytable::tt() |>
+  style_tt(align = 'l')
 ```
