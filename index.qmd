@@ -40,12 +40,9 @@ abstract: |
   4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to understand social dynamics in their study systems beyond association and spatial overlap. 
 plain-language-summary: |
   New functions for the R package {spatsoc} to measure animal intragroup social dynamics
-# key-points:
 date: last-modified
 bibliography: references/references.bib
 csl: references/mee.csl
-# citation:
-  # container-title: 
 number-sections: true
 ---
 
