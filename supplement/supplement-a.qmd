@@ -1,4 +1,4 @@
-# Supplement A: Scoping Review Methods {.unnumbered}
+# Supplement: Scoping review methods {#sec-scoping-methods}
 
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We

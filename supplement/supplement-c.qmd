@@ -1,4 +1,4 @@
-# Supplement C: Selected Metrics {.unnumbered}
+# Supplement: Selected metrics {#sec-selected}
 
 
 ```{r}

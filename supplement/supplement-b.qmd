@@ -1,4 +1,4 @@
-# Supplement B: Scoping Review Results {.unnumbered}
+# Supplement: Scoping review results {#sec-scoping-results}
 
 ```{r}
 #| include: false
