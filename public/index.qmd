@@ -1,50 +1,57 @@
 ---
-title: spatsoc paper 2
+title: Extending {spatsoc} to measure intragroup social dynamics
 author:
   - name: Alec L. Robitaille
     orcid: 0000-0002-4706-1762
     corresponding: true
-    email: robit.alec@gmail.com
-    # roles:
+    roles:
+      - Conceptualization
+      - Software
+      - Investigation
+      - Formal analysis
+      - Data Curation
+      - Writing - Original Draft
+      - Writing - Review & Editing
+      - Visualization
     affiliations:
-      - Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false
-    # roles: []
+    # roles: 
     affiliations:
       - University of Guelph
   - name: Eric Vander Wal
     orcid: 0000-0002-8534-4317
     corresponding: false
+    # roles: 
     affiliations:
-      - Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador
 keywords:
   - R
   - social dynamics
   - collective movement
+  - leader-follower
+  - fission-fusion
 abstract: | 
-  1. Beyond social networks, dyadic measures
-  2. Extending social networks derived from GPS using detailed dyadic measures beyond rates of association
-  3. Linking social processes to spatial/geography environment, hint at selection
-  4. Expanding spatsoc to version N by including important and unavailable methods in R 
+  1. Beyond social networks, various metrics can be applied to animal telemetry data to better understand intragroup social dynamics including position within groups, individual and group level movement directions, leadership patterns and lagged follower behaviours.
+  2. We identified widely used metrics that are not openly available in the R programming language using a scoping review. 
+  3. We present a case study illustrating 18 new functions in the R package {spatsoc} for measuring intragroup social dynamics with animal telemetry data.
+  4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to understand social dynamics in their study systems beyond association and spatial overlap. 
 plain-language-summary: |
   New functions for the R package {spatsoc} to measure animal intragroup social dynamics
-# key-points:
 date: last-modified
 bibliography: references/references.bib
-# citation:
-  # container-title: 
+csl: references/mee.csl
 number-sections: true
 ---
-
-<!-- TODO: abstract above -->
 
 # Introduction
 
 ```{r}
+#| label: setup
 #| include: false
-targets::tar_source('R')
+targets::tar_source('_targets.R')
 ```
 
 Animal social dynamics have broad implications in ecology including resource
@@ -79,83 +86,93 @@ intragroup social dynamics. The availability and resolution of remote tracking
 data continues to improve [@Kays_2015; @Kays_2022; @Nathan_2022]. There are over
 two decades of research on measuring the interaction between moving individuals
 from the study of "moving point objects" in GISciences [@Andersson_2008;
-@Dodge_2008; @Laube_2005] to group coordination of moving groups [@Couzin_2002;
-@Herbert-Read_2011] and leadership and decision making [@King_2011; @Nagy_2010;
-@Strandburg-Peshkin_2015]. Despite this, we suggest the availability of open
-source tools [@Hampton_2015; @Powers_2019; @Wilson_2017] is the missing piece
-between the call to integrate technology enhanced research with
-multidisciplinary approaches to better understand animal social systems
+@Dodge_2008; @Laube_2005; @Miller_2021] to group coordination of moving groups
+[@Couzin_2002; @Herbert-Read_2011] and leadership and decision making
+[@King_2011; @Nagy_2010; @Strandburg-Peshkin_2015]. Despite this, we suggest the
+availability of open source tools [@Hampton_2015; @Powers_2019; @Wilson_2017] is
+the missing piece between the call to integrate technology enhanced research
+with multidisciplinary approaches to better understand animal social systems
 [@Couzin_2023; @King_2018].
 
 Here we present 
-`r length(grep('cent|dir|dista|ali|del|zon|lead|get', ls('package:spatsoc')))`
-new functions for the R package {spatsoc} [@Robitaille_2019] for measuring
-intragroup dynamics. We conducted a scoping review to identify metrics
-applicable to spatiotemporal data used in ecological studies focused on dyadic
-interactions, dominance hierarchies and leadership patterns (Sup A, B). Of the
+`r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
+new functions in the R package {spatsoc} [@Robitaille_2019] for measuring
+intragroup dynamics ([Table @tbl-new-functions]). We conducted a scoping review
+to identify metrics that were  applicable to spatiotemporal data, and focused on
+dyadic interactions, dominance hierarchies and leadership patterns. Of the
 resulting metrics, we selected those with a high number of citations (as a
-measure of value for the target audience) and unavailability in the R
+measure of value for the target audience) and lack of availability in the R
 programming language, either through R packages or supplemental materials in the
 literature. We will demonstrate these new functions through a case study and
 discuss biological interpretation.
 
-<!-- update count if include randomization method --> 
+<!-- TODO: update count if include randomization method --> 
 
 # Methods
 
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We
-focused on metrics applicable to spatiotemporal data such as GPS telemetry. See
-details in Supplement A: Scoping Review Methods.
+focused on metrics applicable to spatiotemporal data such as animal movement
+data. This scoping review expands on the review conducted by @Joo_2018 by using
+interdiscplinary sources (eg. @Miller_2021), including metrics
+measuring group-level dynamics, leadership patterns and lagged-follower
+behaviours, as well as focusing on the open source availability of these metrics
+in the R programming language. See details in Supplement [@sec-scoping-methods]
+and Supplement [@sec-scoping-results] were selected for inclusion in {spatsoc}
+based on their relative importance as measured by frequency of use in the
+review, as well as their lack of availability in R packages when the review was
+conducted. Some metrics were specifically not chosen for inclusion such as
+metrics relating to posture, metrics relating to static interaction or home
+range overlap and metrics based on statistical models such as Hidden Markov
+model and Granger causality. A full list of metrics not selected is in
+Supplement [@sec-selected].
 
-Metrics were selected for inclusion in {spatsoc} based on their relative
-importance as measured by frequency of use in the review, as well as their lack
-of availability in R packages when the review was conducted. Some metrics were
-specifically not chosen for inclusion such as metrics relating to posture,
-static interaction or home range overlap and metrics based on statistical models
-such as Hidden Markov model and Granger causality. A full list of metrics not
-selected is in Supplement C: Selected Metrics.
-
-<!-- TODO: table of new functions, brief description, "family" -->
-
-<!--
-For each
-
-- Citation
-- Interpretation, **emphasis on biology**
-- Formula
-- Code example
-- Similar terms? eg. see metric synonyms
-
-See list of not selected metrics (Supplement  B), including already available 
-functions in eg. {wildlifeDI}, metrics relating to posture,
-static interaction eg. home range overlap, ...
-
--->
-
+```{r}
+#| label: tbl-new-functions
+#| echo: false
+#| eval: true
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @tbl-all-functions]."
+functions <- fread('data/spatsoc-functions.tsv')
+new_functions <- functions[Category == 'New']
+new_functions[, .(Function, Description)] |> 
+  tt() |>
+  group_tt(i = new_functions$Family) |>
+  style_tt(align = 'l')
+```
 
 # Case study
 
-Functionality previously available in {spatsoc} includes spatiotemporal grouping,
-distance based edge-list generation and data-stream permutations (Robitaille et al. 2019). 
-These functions have allowed users to detect interactions between individuals, 
-measure coocurrence within and across species, and generate social networks
-from telemetry data. 
-<!-- (TODO: cite examples citing spatsoc) -->
+Functionality previously available in {spatsoc} includes spatiotemporal
+grouping, distance based edge-list generation and data-stream permutations (see
+existing functionality in [@Robitaille_2019; @tbl-all-functions]. These
+functions have allowed users to detect interactions between individuals, measure
+co-occurrence within and across species, and generate social networks from
+animal telemetry data [eg. @Albery_2025; @Bracken_2022; @Merkle_2024; @Heeres_2024].
 
-Spatiotemporal grouping can be performed given a telemetry dataset, 
-temporal and spatial thresholds, and one of three grouping functions:
-`group_pts`, `group_lines` or `group_polys`. These return a unique identifier
-for each spatiotemporal group defined using point based distances, 
-linear trajectory overlap and home range overlap, respectively. 
+Spatiotemporal grouping can be performed given animal movement data, temporal
+and spatial thresholds, and one of three grouping functions: `group_pts()`,
+`group_lines()` or `group_polys()`. These return a unique identifier for each
+spatiotemporal group defined by point-based distances, linear trajectory
+overlap and home range overlap, respectively.
 
+`get_geometry()` is a new helper function added to {spatsoc} to provide an
+alternative interface for providing coordinates and, optionally, coordinate
+reference system. Instead of providing the names to columns for the X and Y
+coordinates using the `coords` argument, the `get_geometry()` function adds a
+simple feature geometry list column (`sfc`) using the {sf} package
+[@Pebesma_2018]. The geometry method is used by default for all {spatsoc}
+functions that require coordinates when the `coords` argument is left null. This
+interface also extends {spatsoc} to allow users to provide coordinates in any of
+the many coordinate reference systems, both projected and longlat degrees, that
+the {sf} package supports. The following examples and case study will illustrate
+the geometry interface throughout.
 
-For example, the suggested `group_pts` workflow 
-with example data from the package: 
-
-<!-- TODO: note get_geometry --> 
+For example, the suggested `group_pts()` workflow with the example data from the
+package and the `get_geometry()` helper function to identify spatiotemporal 
+groups ([Table @tbl-group-pts]):
 
 ```{r}
+#| label: calc-group-pts
 #| eval: false
 #| echo: true
 
@@ -188,15 +205,21 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 ```
 
 ```{r}
+#| label: tbl-group-pts
+#| tbl-cap: "Spatiotemporal groups measured using group_times() and group_pts(). group_times() returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts() returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold. Example output showing a subset of three spatiotemporal groups."
 #| echo: false
 DT <- tar_read(spatial_groups)
-tinytable::tt(DT[order(timegroup)][1:5])
+sel_groups <- DT[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
+tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
+  seq.int(6), .(ID, datetime, geometry, timegroup, group)])
 ```
 
-Users can also measure interindividual distance using the `edge_dist` function
-and identify nearest neighbors using the `edge_nn` function. For example:
+Users can also measure interindividual distance using the `edge_dist()` function
+([Table @tbl-edge-dist]) and identify nearest neighbors using `edge_nn()` function
+([Table @tbl-edge-nn]). For example:
 
 ```{r}
+#| label: calc-edge-dist
 #| echo: true
 #| eval: false
 interindividual_dist <- edge_dist(
@@ -207,17 +230,20 @@ interindividual_dist <- edge_dist(
   returnDist = TRUE,
   fillNA = TRUE
 )
-dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
-#| label: "IID"
+#| label: tbl-edge-dist
 #| echo: false
 #| eval: true
-tinytable::tt(tar_read(distance_edges)[1:5])
+#| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and neighbour 'ID2'."
+tar_load(distance_edges)
+sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][N > 1][, sample(timegroup, 1)]
+tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
 ```{r}
+#| label: calc-edge-nn
 #| echo: true
 #| eval: false
 nearest_neighbours <- edge_nn(
@@ -226,14 +252,16 @@ nearest_neighbours <- edge_nn(
   timegroup = 'timegroup',
   returnDist = TRUE
 )
-dyad_id(nearest_neighbours, id1 = 'ID1', id2 = 'ID2')
 ```
 
 ```{r}
-#| label: "nn"
+#| label: tbl-edge-nn
 #| echo: false
 #| eval: true
-tinytable::tt(tar_read(nn_edges)[1:5])
+#| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'NN' are the nearest neighbour to focal individuals in the column 'ID'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'. Example output showing six observations of one timegroup with distances returned between focal individual 'ID' and nearest neighbour 'NN'."
+tar_load(nn_edges)
+sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
+tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
 Building on these, {spatsoc}'s new functions provides a finer understanding of
@@ -247,37 +275,41 @@ animal telemetry data in their ecological systems.
 Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new set of
 functions are now available to measure individuals position relative within
 spatiotemporal groups. After identifying spatiotemporal groups with eg.
-`group_pts`, we can measure the group centroid, as defined by the mean of
-individual locations in a group.
+`group_pts()`, we can measure the group centroid, as defined by the mean of
+individual locations in a group, using `centroid_group()` ([Table
+@tbl-cent-group]).
 
 ```{r}
+#| label: calc-cent-group
 #| eval: false
 #| echo: true
 centroid_group(DT)
 ```
 
 ```{r}
+#| label: tbl-cent-group
 #| eval: true
 #| echo: false
+#| tbl-cap: "Group centroids measured using centroid_group(). Using the 'group' column returned by group_pts(), centroid_group() returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group. Example output showing a subset of the centroids for three spatiotemporal groups."
 tar_load(group_centroids)
-tinytable::tt(
-  group_centroids[
-    1:5, 
-    .(ID, datetime, timegroup, group, geometry, centroid)]
-)
+sel_groups <- group_centroids[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
+tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
+  seq.int(6), .(ID, timegroup, group, geometry, centroid)])
 ```
 
-Then we can measure each individual's direction and distance to the group
-centroid. The distance to group centroid is the geographic distance from the
-focal individual to the group centroid. The direction to group centroid is the
-absolute direction from the focal individual to the group centroid. The rank
-distance to group centroid is the ordinal rank of distances to the group
-centroid within each spatiotemporal group. Spatial position within groups 
-with respect to the group centroid has been studied in relation to 
-predation risk [@Heesen_2014], sex differences [@Inoue_2018], and leadership
-[@Jolles_2017; @Kano_2021].
+Then we can measure each individual's distance and direction to the group
+centroid using `distance_to_centroid()` and `direction_to_centroid()` ([Figure
+@fig-dist-dir-cent]). The distance to group centroid is the geographic distance
+from the focal individual to the group centroid. The direction to group centroid
+is the direction from the focal individual to the group centroid. The rank of
+individual's distances to the group centroid can be optionally returned using
+the argument `return_rank`. Spatial position within groups with respect to the
+group centroid has been studied in relation to predation risk [@Heesen_2015;
+@Herbert-Read_2017], leadership [@Jolles_2017; @Kano_2021] and group cohesion
+[@Harel_2021; @Bracken_2022].
 
 ```{r}
+#| label: calc-dist-dir-cent
 #| echo: true
 #| eval: false
 distance_to_centroid(DT, return_rank = TRUE)
@@ -285,153 +317,76 @@ direction_to_centroid(DT)
 ```
 
 ```{r}
+#| label: fig-dist-dir-cent
 #| echo: false
 #| eval: true
 #| warning: false
-#| fig-cap: "Position within group"
-tar_read(fig_pos_wi_group)
+#| fig-height: 4
+#| fig-width: 8
+#| fig-cap: "A) Distance and B) direction to group centroids measured using distance_to_centroid() and direction_to_centroid(). Using the 'centroid' column returned by centroid_group, distance_to_centroid() and direction_to_centroid() return the columns 'distance_centroid' and 'direction_centroid' representing the focal individual's distance and direction to the group centroid. Optionally, the rank distance to the group centroid can be returned by distance_to_centroid() if 'return_rank' is true."
+tar_read(fig_dist_dir_cent)
 ```
-
-After considering how individuals are positioned relative to the group centroid,
-we can also measure how individuals are positioned relative to the mean group
-direction. To do so, we rotate the coordinate system around the group centroid
-by the mean direction of all individuals in the group and take the distance
-along this new axis as the measure of front-back position within the group (eg.
-[@Quera_2023; @Harel_2021; @Andrienko_2013]). The rank position within group is
-the ordinal rank along the front-to-back axis of the group's direction (eg.
-[@Burns_2012]). The time spent leading group is an aggregate metric of the time
-in the first rank position within group. 
-
-```{r}
-#| eval: false
-#| echo: true
-direction_step(DT, id = id)
-leader_direction_group(DT, return_rank = TRUE)
-```
-
-```{r}
-#| eval: true
-#| echo: false
-#| fig-cap: "Position along group direction"
-tar_read(fig_pos_group_dir)
-```
-
-
-## Position relative to leader
-
-Taking this simple, dynamic definition of leadership, we can identify the
-distance and direction of individuals to the leader of each spatiotemporal
-group. The distance to leader is the geographic distance from the focal
-individual to the group's leader and the direction to leader is the absolute
-direction from the focal individual to the group's leader.
-
-```{r}
-#| eval: false
-#| echo: true
-distance_to_leader(DT)
-direction_to_leader(DT)
-```
-
-```{r}
-#| eval: true
-#| echo: false
-tar_read(fig_dist_dir_leader)
-```
-
-
-
-## Fission fusion
-
-Given the variability in defining fission fusion dynamics in the literature
-(Supplement B: Scoping Review Results), we developed a flexible function that
-allows users to both use their system specific definitions and at the same time
-easily compare to results to other definitions.
-
-<!-- TODO: add table numbers and cite them directly eg. Tab SB-3 instead of 
-Supplement B: .... Table -->
-
-Function arguments: 
-
-- `threshold`: spatial distance threshold to establish a fusion event
-- `n_min_length`: the minimum number of successive fixes that are required to 
-establish a fusion event
-- `n_max_missing`: the maximum number of allowable missed observations for 
-either individual in a dyad within a fusion event
-- `allow_split`: if fusion events allow a temporary spatial splitting for one
-observation without resulting in a fission event
-
-<!-- See Table Sup B: varying definitions of fission fusion -->
-
-```{r}
-#| eval: false
-#| echo: true
-# Fission fusion events using interindividual distance calculated with edge_dist
-fusion_events <- fusion_id(
-  interindividual_dist,
-  threshold = spatial_threshold, 
-  n_min_length = 0, 
-  n_max_missing = 0, 
-  allow_split = FALSE
-)
-```
-
-
-```{r}
-#| echo: false
-#| eval: true
-#| fig-height: 10
-tar_read(fig_fusion_events)
-```
-
 
 ## Directions
 
-Next, we can use individuals' directions to explore interindividual direction,
-directional alignment and group polarization.  
-<!-- TODO: describe spatial measures -->
-
-<!-- TODO: references -->
-<!-- related eg. direction between individuals (always L / R), polarization of flock, -->
-<!-- etc -->
-
-Polarization measures the uniformity of absolute direction in a group of individuals 
-[@Wang_2022] on a scale of 0-1 where values near 0 indicate that directions point
-in different directions and values near 1 indicate that directions point in 
-similar directions. 
+Next, we can use movement directions to understand how individuals and groups
+move together. We can measure an individual's movement direction using
+`direction_step()` and the mean direction of each spatiotemporal group
+identified by `group_pts()` using `direction_group()` ([Table @tbl-dir-step-group]).
 
 ```{r}
+#| label: calc-dir-step-group
+#| echo: true
+#| eval: false
+direction_step(DT, id = id)
+direction_group(DT)
+```
+
+```{r}
+#| label: tbl-dir-step-group
+#| echo: false
+#| eval: true
+#| warning: false
+#| tbl-cap: "Individual and group mean directions measured using direction_step() and direction_group(). direction_step() returns the column 'direction' representing the movement direction of each individual to their next relocation. Using the spatiotemporal groups returned by group_pts, direction_group() returns the column 'group_direction' representing the mean direction of all individuals in each spatiotemporal group. Example output showing the movement directions of individuals and mean direction of two spatiotemporal groups."
+tar_load(group_directions)
+sel_groups <- group_directions[ID != 'A'][, .N, by = group][N == 3][, sample(group, 2)]
+tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
+```
+
+We can measure polarization, the uniformity of movement directions in a group of
+individuals, using `direction_polarization()` ([Figure @fig-dir-pol]).
+Polarization is represented on a scale of 0-1 where values near 0 indicate that
+individuals in a group are moving in completely different directions (or
+"non-aligned") and values near 1 indicate that individuals are moving in similar
+directions or ("aligned"). Polarization in the movement direction of groups of
+animals has been used to study cognition [@Wang_2022], learning
+[@Vega-Trejo_2020], the influence of habitat [@Strandburg-Peshkin_2017] and
+individual differences [@Jolles_2017] in collective behaviour.
+
+```{r}
+#| label: calc-dir-pol
 #| echo: true
 #| eval: false
 direction_polarization(DT)
 ```
 
 ```{r}
+#| label: fig-dir-pol
 #| echo: false
 #| eval: true
-#| fig-height: 10
+#| fig-cap: "Direction polarization measured using direction_polarization(). Using the 'direction' column returned by direction_step() and 'group' column returned by group_pts(), direction_polarization() returns a column named 'polarization' indicating the polarization in directions in each spatiotemporal group. Ranges of directions shown for a sample of groups in four equal interval categories of direction polarization. Values of polarization range from 0 (non-alignment) to 1 (alignment)."
 tar_read(fig_dir_polarization)
 ```
 
-Directional alignment is the relative difference between two individuals' 
-directions. Given the similarity to `edge_dist`, this functionality
-is provided under a similar name: `edge_alignment`. 
-
-<!-- TODO: this similarity is edge-list generating -->
-
-```{r}
-#| echo: true
-#| eval: false
-directional_align <- edge_alignment(
-  DT = DT,
-  id = id,
-  signed = FALSE
-)
-```
-
-Interindividual direction measures the absolute direction between individuals. 
-<!-- TODO: describe spatial measures -->
+The interindividual direction, or direction from a focal individual to a
+neighbour, can be measured using `edge_direction()` ([Figure
+@fig-edge-align-dir]). Like `edge_alignment()`, the interindividual directions
+are returned by in an edge-list format. Interindividual direction has been used
+to study risk exposure in schooling fish [@Lemasson_2014], coordinated movement
+[@Herbert-Read_2016] and mass migration [@Torney_2018].
 
 ```{r}
+#| label: calc-edge-dir
 #| echo: true
 #| eval: false
 dyad_directions <- edge_direction(
@@ -441,40 +396,205 @@ dyad_directions <- edge_direction(
 )
 ```
 
+The directional alignment, or relative difference between two individuals'
+directions, can be measured using `edge_alignment()` ([Figure
+@fig-edge-align-dir]). The differences in movement directions are returned in an
+edge-list format similar to `edge_dist()` and other edge-list generating
+functions. Directional alignment has been used to study leadership
+[@Sarova_2010], decision making [@Strandburg-Peshkin_2015], and information
+transfer [@Sumpter_2018].
 
 ```{r}
+#| label: calc-edge-align
+#| echo: true
+#| eval: false
+directional_align <- edge_alignment(
+  DT = DT,
+  id = id,
+  signed = FALSE
+)
+```
+
+```{r}
+#| label: fig-edge-align-dir
 #| echo: false
 #| eval: true
-#| fig-cap: ""
+#| fig-cap: "A) Example locations for individuals 'E' (purple) and 'F' (blue) showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by group_times(), edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighboring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is true. "
 tar_read(fig_edge_dir_and_align)
 ```
 
+## Behavioural zones
 
-## Lagged differences in direction
-
-The directional correlation delay [@Nagy_2010] of individuals i, j is given by
-
-$$C_{ij} = [\overrightarrow{v_{i}}(t) * \overrightarrow{j}(t + \tau)]_{t}$$
-
-where 
-
-- $\overrightarrow{v_{i}}(t)$ is the normalized velocity of individual i at time t
-- $\overrightarrow{v_{j}}(t + \tau)$ is the normalized velocity of individual j at time t + $\tau$
-- Note that $C_{ij}(\tau)$ = $C_{ji}(-\tau)$
-- Calculated only where pairs of individuals were less than 100 m apart
-
-The maximum value of the directional correlation function $C_{ij}$ is at
-$C_{ij}(\tau^{*}_{ij})$ where $\tau^{*}_{ij}$ is the directional correlation
-delay time. $\tau^{*}_{ij}$ values focus on the relationship in pairs of
-individuals, ignoring hierarchy changes caused by other individuals.
-
-- Note that $\tau^{*}_{ij}$ = $-\tau^{*}_{ji}$
-- Negative values indicate that flight directional changes of individual
-i falls behind that of individual j and therefore j is leading
-
-Hierarchical networks can be generated using $\tau^{*}_{ij}$. 
+The behavioural zones [@Couzin_2002], or non-overlapping behavioural regions
+around a focal individual, can measured using `edge_zones()` ([Figure
+@fig-edge-zones]). The distance from the focal individual to each neighbour is
+used to assign the neighbours to behavioural zones. In addition, the direction
+from the focal individual to each neighbour can be used to determine if the
+neighbour is within a "blind volume" outside of the individual's visual
+perception. @Couzin_2002 defined three non-overlapping zones: 1) the "zone of
+repulsion" at a minimum distance around the focal individual within which
+neighbours are expected to move away to avoid collisions, 2) the "zone of
+orientation" around the focal individual beyond the "zone of repulsion" within
+which neighbours are expected to orient themselves to the movement of their
+neighbours, and 3) the "zone of attraction" beyond the "zone of orientation"
+where neighbours are expected to be attracted to the position of the focal
+individual. The `edge_zones()` is designed to allow for flexible definitions of
+zones including distance thresholds, zone labels and blind volume thresholds.
+The behavioural zones metric has been used to study the impact of individual
+movement speed and predator evasion [@Klamser_2021] and identifying rules of
+interaction in large animal groups [@Lukeman_2010].
 
 ```{r}
+#| label: calc-edge-zones
+#| eval: false
+#| echo: true
+zone_thresholds <- c(10, 25, 50)
+zone_labels <- c('repulsion', 'orientation', 'attraction')
+blind_volume <- 3
+
+zones <- edge_zones(
+  dyad_directions,
+  zone_thresholds = zone_thresholds,
+  zone_labels = zone_labels,
+  blind_volume = blind_volume
+)
+```
+
+```{r}
+#| label: fig-edge-zones
+#| eval: true
+#| echo: false
+#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or the range of interindividual directions that are beyond the visual perception of the focal individual. Example shows positions of neighbour 'E' in behavioural zones with respect to focal individual 'G' across the sample period."
+tar_read(fig_edge_zones)
+```
+
+
+## Position relative to leader
+
+After considering how individuals are positioned relative to the group centroid,
+we can also measure how individuals are positioned relative to the mean group
+direction. To do so, we first calculate each individual's movement direction
+with `direction_step()` and the group's mean direction with `direction_group()`.
+Then rotate the coordinate system around the group centroid by the group's mean
+direction and take the distance along this new axis as the measure of front-back
+position within the group [@Quera_2023; @Harel_2021; @Andrienko_2013] using
+`leader_direction_group()` ([Figure @fig-leader-dir-group]). The rank of
+individual's positions within spatiotemporal groups [@Burns_2012] can be
+optionally returned when the argument 'return_rank' is true.
+
+```{r}
+#| label: calc-leader-dir-group
+#| eval: false
+#| echo: true
+direction_step(DT, id = id)
+direction_group(DT)
+leader_direction_group(DT, return_rank = TRUE)
+```
+
+```{r}
+#| label: fig-leader-dir-group
+#| eval: true
+#| echo: false
+#| fig-cap: "A) Example spatiotemporal group showing relative positions and movement directions of individuals (small points and grey arrows) with respect to the group centroid and mean group direction (large point and black arrow). B) Position along the group direction measured using leader_direction_group(). Using the 'direction' column returned by direction_step(), 'group_direction' column returned by direction_group() and 'centroid' column returned by centroid_group(), leader_direction_group() returns a column named 'position_group_direction' representing the front-back position along the mean group direction. Optionally, the rank position along the mean group direction if 'return_rank' is true."
+tar_read(fig_pos_group_dir)
+```
+
+Taking this simple, dynamic definition of leadership, we can identify the
+distance and direction of individuals to the leader of each spatiotemporal group
+using `distance_to_leader()` and `direction_to_leader()` ([Figure
+@fig-dist-dir-lead]). The distance to leader is the geographic distance from the
+focal individual to the group's leader and the direction to leader is the
+direction from the focal individual to the group's leader. The front-back
+position within the group, and distance and direction to the group leader has
+been used to study interaction rules [@Weesner_2023], leadership [@Quera_2023;
+@Sarova_2010], risk avoidance [@Josephs_2016], and how reproduction influences
+social structure [@Perez-Barberia_2018].
+
+```{r}
+#| label: calc-dist-dir-lead
+#| eval: false
+#| echo: true
+distance_to_leader(DT)
+direction_to_leader(DT)
+```
+
+```{r}
+#| label: fig-dist-dir-lead
+#| eval: true
+#| echo: false
+#| fig-cap: "A) Distance and B) direction to group leaders measured using distance_to_leader and direction_to_leader. Using the 'rank_position_group_direction' column returned by leader_direction_group(), distance_to_leader() and direction_to_leader() return columns named 'distance_leader' and 'direction_leader' indicating the distance and direction of the focal individual to the leader of the spatiotemporal group. Note: for individuals identified as leader using 'position_group_direction', the distance is 0 and the direction is NA."
+tar_read(fig_dist_dir_leader)
+```
+
+## Fusion events
+
+Fusion events, or temporal periods where two individiuals are within a given
+threshold distance from each other, can be identified using `fusion_id()`
+([Figure @fig-fusion]). Given the variability in defining fission fusion dynamics
+in the literature ([@tbl-defn-fission]), the `fusion_id()` function flexibly
+allows users to both use specific threshold and definitions that match their
+study species and research questions and easily compare their results to
+previously published work by using the same thresholds and definitions. The
+`threshold` argument defines the spatial distance threshold to establish a
+fusion event. The `n_min_length` argument defines the minimum number of
+successive fixes that are required to establish a fusion event. The
+`n_max_missing` defines the maximum number of allowable missed observations for
+either individual in a dyad within a fusion event. The `allow_split` argument
+defines if fusion events allow a temporary spatial splitting for one observation
+without resulting in a fission event. Identification of fusion events has been
+used to study resource seasonality [@Baden_2016], information transfer
+[@Barocas_2016], decision making [@Merkle_2015], and habitat selection
+[@Fortin_2009].
+
+```{r}
+#| label: calc-fusion
+#| eval: false
+#| echo: true
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+fusion_events <- fusion_id(
+  interindividual_dist,
+  threshold = spatial_threshold, 
+  n_min_length = 3, 
+  n_max_missing = 1, 
+  allow_split = TRUE
+)
+centroid_fusion(
+  interindividual_dist,
+  DT,
+  id = id
+)
+```
+
+```{r}
+#| label: fig-fusion
+#| echo: false
+#| eval: true
+#| fig-width: 5
+#| fig-cap: "A) Example fusion event for individuals 'A' and 'C' with black points representing the centroid of fusion observations returned by centroid_fusion(). B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
+tar_read(fig_fusion_events)
+```
+
+
+## Directional correlation delay
+
+The directional correlation delay [@Nagy_2010], or the temporal delay at which
+two individual's movement directions are most similar, can be measured using
+`edge_delay()` ([Figure @fig-edge-delay]). The function compares a focal
+individual's movement directions at time $t$ to all of the movement direction's
+of a neighbor within a temporal window to determine the temporal lag at which
+the neighbor's movement directions are most similar to the focal individual. The
+directional correlation delay ranges from negative values indicating the focal
+individual's direction is most similar to the neighbor's previous movement
+direction to positive values indicating the focal individual's direction is most
+similar to the neighbor's future movement direction. The directional correlation
+delay can be aggregated to determine mean directional correlation delay using
+`leader_edge_delay()`. The mean directional correlation delay can be used to
+measure leadership patterns and generate hierarchical leadership networks
+depending on the study system [@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023;
+@Akos_2014].
+
+```{r}
+#| label: calc-edge-delay
 #| eval: false
 #| echo: true
 delay <- edge_delay(
@@ -486,64 +606,44 @@ delay <- edge_delay(
 ```
 
 ```{r}
-#| eval: true
-#| echo: false
-#| fig-cap: ''
-tar_read(fig_edge_delay)
-```
-
-
-<!-- TODO: example of hierarchical networks -->
-
-## Behavioural zones
-
-The behavioural zones metric assigns neighbours to three non-overlapping
-behavioural zones [Couzin_2002]. The "zone of repulsion" is the minimum distance
-around an individual within which neighbours are expected to move away to avoid
-collisions. The "zone of orientation" is the next zone around an individual
-beyond the "zone of repulsion" within which neighbours are expected to orient
-themselves to the movement of their neighbours. The "zone of attraction" is the
-farthest zone around an individual within which neighbours are expected to be
-attracted to the position of the focal individual. Notably, there is a possibly
-"blind volume" behind the individual representing the limits of their
-perception.
-
-
-<!-- figure adapted from Couzin et al 2002 --> 
-
-```{r}
+#| label: calc-leader-delay
 #| eval: false
 #| echo: true
-zone_thresholds <- c(10, 25, 50)
-zone_labels <- c('repulsion', 'orientation', 'attraction')
-blind_volume <- 3
-delay <- edge_zones(
-  interindividual_dist,
-  zone_thresholds = zone_thresholds,
-  zone_labels = zone_labels,
-  blind_volume = blind_volume
+leader_delay <- leader_edge_delay(
+  delay,
+  threshold = 0.5
 )
 ```
 
 ```{r}
+#| label: fig-edge-delay
 #| eval: true
 #| echo: false
-#| fig-cap: ''
-tar_read(fig_edge_zones)
+#| fig-height: 6
+#| fig-cap: "A) Example directional correlation delay for focal individual 'C' (ID1) and neighbour 'G' (ID2) indicating individual 'C' had a movement direction most similar to individual 'G' at the temporal delay of 0. Using the fusion events identified by fusion_id() and the 'direction' column returned by direction_step(), edge_delay() returns a column named 'direction_delay' representing the temporal delay at which the focal individual's movement direction is most similar to their neighbour's within a temporal window. B) Example movement directions for neighbour 'G' in the temporal window of timegroups 1-3 (set using argument 'window'). C) Aggregated directional delay using leader_edge_delay(). Using the 'direction_delay' column returned by edge_delay(), the leader_edge_delay() function returns a column named 'mean_direction_delay_delay' representing the mean directional correlation delay between two individuals and a column named 'mean_direction_delay' that represents the the mean correlation delay for each focal individual and all observed neighbours. Optionally, a threshold difference in direction can be used to subset the temporal delays included in the calculation of mean directional delay with the argument 'threshold'."
+tar_read(fig_edge_delay)
 ```
 
-# Discussion
 
-- social networks, history of spatsoc
-- high number of studies in review with IID, NND
+# Implications
 
+The open source package {spatsoc} [@Robitaille_2019] for the R programming
+language [@RCoreTeam_2025a] has greatly improved accessibility to methods for
+spatiotemporal grouping and social network analysis with animal telemetry data
+[eg. @Albery_2025; @Bracken_2022; @Merkle_2024; @Heeres_2024]. Despite this,
+proximity based associations are only one dimension and studying intragroup
+social dynamics will allow researchers to further understand animal social
+systems. These new functions in {spatsoc} make openly available a series of
+metrics that while commonly used in the literature have been largely absent from
+R packages so far. The lack of open source code and transparency of methods
+alongside research ([@tbl-code-availability], [@tbl-prog], [@tbl-software])
+continues to slow the progress of science by limiting the application of new
+methodology. We hope that the availability of these metrics will allow their
+applications to diverse study species, systems or research questions, including
+novel novel applications that could have management and conservation
+implications for vulnerable species [@Ramos_2021] and continued advancements in
+the collection of animal movement data in the wild [@Hughey_2018].
 
-
-# Conclusion
-
-<!-- Test model only conclusions with increase species, increase systems given flexible powerful freely available functions -->
-
-<!-- Association is only one layer of the animal social system -->
 
 # Box 1 {.unnumbered}
 
@@ -581,7 +681,42 @@ telemetry including movement initiations (Amornbunchornvej 2018),
 approach-avoidance behaviours (Strandburg-Peshkin 2015) and displacement events
 (Evans 2018).
 
+# Open science
 
+All data and code used to produce figures are available on GitHub
+at LINK <!-- TODO: github link --> and on
+Zeonodo at LINK <!-- TODO: github link -->. The data used in this case study
+are included with the package and can be imported with:
+
+```{r}
+#| eval: false
+library(spatsoc)
+library(data.table)
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+```
+
+The code for producing the scoping review results, figures, tables and
+manuscript was developed as a reproducible pipeline with the R package {targets}
+[@Landau_2021b]. Figures and tables were constructed using {ggplot2}
+[@Wickham_2016a], {ggdist} [@Kay_2025], {patchwork} [@Pedersen_2025] and
+{tintytable} [@Arel-Bundock_2025]. The manuscript was produced using {quarto}
+[@Allaire_2024]. The {spatsoc} package gratefully depends on the R packages
+{adehabitatHR} [@Calenge_2024], {data.table} [@Barrett_2025], {igraph}
+[@Csardi_2026], {sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats}
+[@Lund_2025], {units} [@Pebesma_2016], and {rlang} [@Henry_2026].
+
+# Acknowledgements
+
+We thank Edzer Pebesma and Dewey Dunnington for support with bug reports and
+feature requests for the {sf}, {s2} and {lwgeom} packages related to the
+development of this new functionality in {spatsoc}. We thank Martin Leclerc,
+Rick Heeres and Shane Frank for testing the package ahead of its release. We
+thank members of the Wildlife Evolutionary Ecology Lab for their comments on
+previous versions of this manuscript. We thank the rOpenSci organization
+including staff, editors, reviewers and contributors for their continued efforts
+to foster a community around open data, software and reproducibility.
+
+<!-- TODO: add funding, comps?-->
 
 # References {.unnumbered}
 
