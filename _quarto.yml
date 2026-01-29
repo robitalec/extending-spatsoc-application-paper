@@ -13,6 +13,7 @@ website:
         href: https://gitlab.com/robitalec/spatsoc-paper-2
 
 format:
+  jats: default
   html:
     theme:
       dark: darkly
@@ -22,4 +23,3 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
-  jats: default
