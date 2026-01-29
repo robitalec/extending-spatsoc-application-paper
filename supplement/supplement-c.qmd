@@ -14,51 +14,45 @@ count_software <- counted$count_software
 count_metric <- counted$count_metric
 ```
 
-<!--
-TODO:
-- highlighting unavailability of selected metrics despite high use in literature
-- detailed justification of not selected metrics
--->
+## Selected metrics
 
-## Directional correlation delay {.unnumbered}
+The following metrics were not selected due to their availability in 
+existing R packages:
+
+- {wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
+HAI, IAB, Cr, Ca
+- {corrMove}: diffusive movement correlation, drift movement correlation,
+overall component movement correlation
+- {changepoint}: change point analysis
+
+The following metrics were not selected due to their availability in 
+code availability accompanying publications:
+
+- mFLICA provided in code accompanying @Amornbunchornvej_2018 and R package {mFLICA}
+[@Amornbunchornvej_2021]
+
+The follow metrics were not selected due to the expected input data differing 
+from existing {spatsoc} functions (XYT):
+
+- metrics relating to posture
+
+The selected metrics are listed in [@tbl-new-functions]. All existing 
+functions in {spatsoc} are listed below in [@tbl-all-functions].
 
 ```{r}
-dirr_del <- count_metric[metric_agg == 'directional correlation delay']
-```
- 
-Our scoping review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
-the directional correlation delay metric, across 
-`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
-study species. Only 
-`r count_code_avail[covidence_number %in% dirr_del$covidence_number & analysis_code_availability == 'Yes', .N]` 
-study had code available using a combination of 
-MATLAB (closed source), CUDA (closed source), and Python (open source). At the
-time when the scoping review was conducted, to the best of our knowledge, there
-were no R packages that provide this metric.
-
-
-## Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
-
-```{r}
-pos_wi <- count_metric[metric_agg %in% c('position within group', 
-                                 'rank position within group',
-                                 'time spent leading group',
-                                 'distance to leader',
-                                 'direction to leader')]
+#| label: tbl-all-functions
+#| echo: false
+#| eval: true
+#| tbl-cap: "Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family."
+functions <- fread('data/spatsoc-functions.tsv')
+functions[, .(Function, Description, Category)] |> 
+  tt() |>
+  group_tt(i = functions$Family) |>
+  style_tt(align = 'l')
 ```
 
-Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
-the position within group, rank position within group, time spent leading 
-group metrics, distance to leader, or direction to leader metrics across 
-`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
-study species. 
-Only 
-`r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
-study had code available. At the time when the scoping review was conducted, to
-the best of our knowledge, there were no R packages that provide these metrics.
 
-
-## Distance, direction and rank distance to group centroid {.unnumbered}
+### Distance, direction and rank distance to group centroid {.unnumbered}
 
 ```{r}
 to_grp_cent <- count_metric[metric_agg %in% c('direction to group centroid', 
@@ -79,7 +73,7 @@ time when the scoping review was conducted, to the best of our knowledge, there
 were no R packages that provide the rank to distance to group centroid metric. 
 
 
-## Polarization, directional alignment and interindividual direction {.unnumbered}
+### Polarization, directional alignment and interindividual direction {.unnumbered}
 
 
 ```{r}
@@ -102,7 +96,7 @@ there were no R packages that provide the directional alignment or
 interindividual direction metrics.
 
 
-## Behavioural zones {.unnumbered}
+### Behavioural zones {.unnumbered}
 
 
 ```{r}
@@ -119,42 +113,41 @@ studies had code available. At the time when the scoping review was conducted,
 to the best of our knowledge, there were no R packages that provide the
 behavioural zones metric.
 
-
-## Not selected {.unnumbered}
-
-The following metrics were not selected due to their availability in 
-existing R packages:
-
-- {wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca
-- {corrMove}: diffusive movement correlation, drift movement correlation,
-overall component movement correlation
-- {changepoint}: change point analysis
-
-The following metrics were not selected due to their availability in 
-code availability accompanying publications:
-
-- mFLICA provided in code accompanying @Amornbunchornvej_2018 and R package 
-[@Amornbunchornvej_2021]
-
-The follow metrics were not selected due to the expected input data differing 
-from existing {spatsoc} functions (XYT):
-
-- metrics relating to posture
-
-## Selected metrics
-
-The selected metrics are listed in Table [@tbl-new-functions]. All existing 
-functions in {spatsoc} are listed below in Table [@tbl-all-functions].
+### Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
 
 ```{r}
-#| label: tbl-all-functions
-#| echo: false
-#| eval: true
-#| tbl-cap: "Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family."
-functions <- fread('data/spatsoc-functions.tsv')
-functions[, .(Function, Description, Category)] |> 
-  tt() |>
-  group_tt(i = functions$Family) |>
-  style_tt(align = 'l')
+pos_wi <- count_metric[metric_agg %in% c('position within group', 
+                                 'rank position within group',
+                                 'time spent leading group',
+                                 'distance to leader',
+                                 'direction to leader')]
 ```
+
+Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
+the position within group, rank position within group, time spent leading 
+group metrics, distance to leader, or direction to leader metrics across 
+`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
+study species. 
+Only 
+`r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
+study had code available. At the time when the scoping review was conducted, to
+the best of our knowledge, there were no R packages that provide these metrics.
+
+
+### Directional correlation delay {.unnumbered}
+
+```{r}
+dirr_del <- count_metric[metric_agg == 'directional correlation delay']
+```
+ 
+Our scoping review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
+the directional correlation delay metric, across 
+`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
+study species. Only 
+`r count_code_avail[covidence_number %in% dirr_del$covidence_number & analysis_code_availability == 'Yes', .N]` 
+study had code available using a combination of 
+MATLAB (closed source), CUDA (closed source), and Python (open source). At the
+time when the scoping review was conducted, to the best of our knowledge, there
+were no R packages that provide this metric.
+
+
