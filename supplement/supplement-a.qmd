@@ -10,21 +10,21 @@ selected databases. We used an iterative search method to fine-tune search terms
 measuring the total number of papers returned and sensitivity of the search.
 Sensitivity is defined as the proportion of potentially relevant papers returned
 from the search estimated using the number benchmark papers returned from the
-test list [@CollaborationforEnvironmentalEvidence_2022; 4.2.7]. Search terms
-were established in four categories: topic, population, method and exclusion
-(Supplement A: Table 2). Topic included terms associated with dyadic
-interactions, dominance hierarchies and leadership patterns. Population included
-terms associated with animals, wildlife and ecology. Method included terms
-associated with data collection and data types. Finally, a list of exclusion
-terms were used to remove clearly irrelevant papers. Each category of terms were
-combined with OR operators and all three categories of terms were combined with
-AND operators. The set of papers used in further steps was the combination of
-the last iteration of search terms applied to both of the Web of Science (using
-the “TS” field) and Scopus (using the “TITLE-ABS-KEY” field) databases. Only
-articles between 1980-2023 were included using the PY (Web of Science) or
-PUBYEAR (Scopus) fields. The resulting set of references were imported into
-Covidence [@VeritasHealthInnovation_2025] for deduplication, title and abstract
-screening, full text screening, and data extraction.
+test list [4.2.7 @CollaborationforEnvironmentalEvidence_2022]. Search terms were
+established in four categories: topic, population, method and exclusion. Topic
+included terms associated with dyadic interactions, dominance hierarchies and
+leadership patterns. Population included terms associated with animals, wildlife
+and ecology. Method included terms associated with data collection and data
+types. Finally, a list of exclusion terms were used to remove clearly irrelevant
+papers. Each category of terms were combined with OR operators and all three
+categories of terms were combined with AND operators. The set of papers used in
+further steps was the combination of the last iteration of search terms applied
+to both of the Web of Science (using the “TS” field) and Scopus (using the
+“TITLE-ABS-KEY” field) databases. Only articles between 1980-2023 were included
+using the PY (Web of Science) or PUBYEAR (Scopus) fields. The resulting set of
+references were imported into Covidence [@VeritasHealthInnovation_2025] for
+deduplication, title and abstract screening, full text screening, and data
+extraction.
 
 Before screening, articles were marked as duplicates using Covidence and manual
 screening. Covidence detected 799 duplicates based on title, year, volume, and
