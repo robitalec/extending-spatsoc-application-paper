@@ -714,7 +714,7 @@ Rick Heeres and Shane Frank for testing the package ahead of its release. We
 thank members of the Wildlife Evolutionary Ecology Lab for their comments on
 previous versions of this manuscript. We thank the rOpenSci organization
 including staff, editors, reviewers and contributors for their continued efforts
-open data, software and reproducibility.
+to foster a community around open data, software and reproducibility.
 
 <!-- TODO: add funding, comps?-->
 
