@@ -690,6 +690,7 @@ are included with the package and can be imported with:
 
 ```{r}
 #| eval: false
+#| echo: true
 library(spatsoc)
 library(data.table)
 DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
