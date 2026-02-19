@@ -5,13 +5,6 @@ project:
   render:
     - "!tests"
 
-website:
-  sidebar:
-    contents: auto
-    tools:
-      - icon: gitlab
-        href: https://gitlab.com/robitalec/spatsoc-paper-2
-
 format:
   jats: default
   html:
