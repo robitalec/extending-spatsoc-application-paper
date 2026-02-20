@@ -134,7 +134,7 @@ Supplement [@sec-selected].
 #| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @tbl-all-functions]."
 functions <- fread('data/spatsoc-functions.tsv')
 new_functions <- functions[Category == 'New']
-new_functions[, .(Function, Description)] |> 
+new_functions[, .(Function, Description)] |>
   tt() |>
   group_tt(i = new_functions$Family) |>
   style_tt(align = 'l')
@@ -187,7 +187,7 @@ DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 DT[, datetime := as.POSIXct(datetime, tz = 'UTC')]
 
 # Set variables
-temporal_threshold  <- '20 minutes'
+temporal_threshold <- '20 minutes'
 spatial_threshold <- 50
 id <- 'ID'
 coords <- c('X', 'Y')
@@ -200,8 +200,13 @@ get_geometry(DT, coords = coords, crs = utm)
 group_times(DT, datetime = 'datetime', threshold = temporal_threshold)
 
 # Spatial grouping with timegroup
-group_pts(DT, threshold = spatial_threshold, id = id,
-          coords = coords, timegroup = 'timegroup')
+group_pts(
+  DT,
+  threshold = spatial_threshold,
+  id = id,
+  coords = coords,
+  timegroup = 'timegroup'
+)
 ```
 
 ```{r}
@@ -209,9 +214,14 @@ group_pts(DT, threshold = spatial_threshold, id = id,
 #| tbl-cap: "Spatiotemporal groups measured using group_times() and group_pts(). group_times() returns a 'timegroup' column indicating temporal groups within the specified temporal threshold. group_pts() returns a 'group' column indicating spatiotemporal groups within the provided timegroup and specific distance threshold. Example output showing a subset of three spatiotemporal groups."
 #| echo: false
 DT <- tar_read(spatial_groups)
-sel_groups <- DT[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
+sel_groups <- DT[ID != 'A'][, .N, by = group][
+  between(N, 2, 3),
+  sample(group, 3)
+]
 tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
-  seq.int(6), .(ID, datetime, geometry, timegroup, group)])
+  seq.int(6),
+  .(ID, datetime, geometry, timegroup, group)
+])
 ```
 
 Users can also measure interindividual distance using the `edge_dist()` function
@@ -238,7 +248,9 @@ interindividual_dist <- edge_dist(
 #| eval: true
 #| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and neighbour 'ID2'."
 tar_load(distance_edges)
-sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][N > 1][, sample(timegroup, 1)]
+sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][
+  N > 1
+][, sample(timegroup, 1)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
@@ -292,9 +304,14 @@ centroid_group(DT)
 #| echo: false
 #| tbl-cap: "Group centroids measured using centroid_group(). Using the 'group' column returned by group_pts(), centroid_group() returns the column 'centroid' representing the centroid of all individual's locations in each spatiotemporal group. Example output showing a subset of the centroids for three spatiotemporal groups."
 tar_load(group_centroids)
-sel_groups <- group_centroids[ID != 'A'][, .N, by = group][between(N, 2, 3), sample(group, 3)]
+sel_groups <- group_centroids[ID != 'A'][, .N, by = group][
+  between(N, 2, 3),
+  sample(group, 3)
+]
 tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
-  seq.int(6), .(ID, timegroup, group, geometry, centroid)])
+  seq.int(6),
+  .(ID, timegroup, group, geometry, centroid)
+])
 ```
 
 Then we can measure each individual's distance and direction to the group
@@ -349,8 +366,13 @@ direction_group(DT)
 #| warning: false
 #| tbl-cap: "Individual and group mean directions measured using direction_step() and direction_group(). direction_step() returns the column 'direction' representing the movement direction of each individual to their next relocation. Using the spatiotemporal groups returned by group_pts, direction_group() returns the column 'group_direction' representing the mean direction of all individuals in each spatiotemporal group. Example output showing the movement directions of individuals and mean direction of two spatiotemporal groups."
 tar_load(group_directions)
-sel_groups <- group_directions[ID != 'A'][, .N, by = group][N == 3][, sample(group, 2)]
-tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(timegroup)][, .(ID, timegroup, group, direction, group_direction)])
+sel_groups <- group_directions[ID != 'A'][, .N, by = group][N == 3][, sample(
+  group,
+  2
+)]
+tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(
+  timegroup
+)][, .(ID, timegroup, group, direction, group_direction)])
 ```
 
 We can measure polarization, the uniformity of movement directions in a group of
@@ -553,9 +575,9 @@ used to study resource seasonality [@Baden_2016], information transfer
 dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 fusion_events <- fusion_id(
   interindividual_dist,
-  threshold = spatial_threshold, 
-  n_min_length = 3, 
-  n_max_missing = 1, 
+  threshold = spatial_threshold,
+  n_min_length = 3,
+  n_max_missing = 1,
   allow_split = TRUE
 )
 centroid_fusion(
