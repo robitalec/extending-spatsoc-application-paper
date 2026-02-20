@@ -1,21 +1,16 @@
 # === spatsoc paper 2 -----------------------------------------------------
 # Alec L. Robitaille
 
-
-
 # Packages ----------------------------------------------------------------
 source('R/packages.R')
-
 
 
 # Functions ---------------------------------------------------------------
 targets::tar_source('R')
 
 
-
 # Options -----------------------------------------------------------------
 tar_option_set(format = 'qs')
-
 
 
 # Variables ---------------------------------------------------------------
@@ -25,8 +20,10 @@ data_folder <- 'data'
 # Review
 filepath_thesaurus <- file.path(data_folder, 'metric-thesaurus.csv')
 filepath_definitions <- file.path(data_folder, 'metric-definitions.csv')
-filepath_dominance_thesaurus <- file.path(data_folder,
-                                          'metric-dominance-thesaurus.csv')
+filepath_dominance_thesaurus <- file.path(
+  data_folder,
+  'metric-dominance-thesaurus.csv'
+)
 
 # Spatiotemporal grouping
 filepath <- system.file('extdata', 'DT.csv', package = 'spatsoc')
@@ -72,7 +69,6 @@ theme_set(theme_bw(base_size = font_size))
 # Patchwork tags
 tag_levels <- 'A'
 tag_suffix <- ')'
-
 
 
 # Targets: Spatiotemporal groups ------------------------------------------
@@ -145,7 +141,6 @@ targets_distance_edge_lists <- c(
     )
   )
 )
-
 
 
 # Targets: Intragroup dynamics --------------------------------------------
@@ -320,8 +315,6 @@ targets_intragroup_dynamics <- c(
 )
 
 
-
-
 # Targets: Figures --------------------------------------------------------
 targets_figures <- c(
   tar_target(
@@ -367,24 +360,36 @@ targets_review <- c(
   ),
   tar_target(
     dl_metric_thesaurus,
-    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-                     sheet = 'metric-thesaurus',
-                     file = filepath_thesaurus),
+    write_gs4_to_csv(
+      '1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+      sheet = 'metric-thesaurus',
+      file = filepath_thesaurus
+    ),
     cue = tar_cue_age(dl_metric_thesaurus, age = as.difftime(7, units = 'days'))
   ),
   tar_target(
     dl_metric_definitions,
-    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-                     sheet = 'metric-definitions',
-                     file = filepath_definitions),
-    cue = tar_cue_age(dl_metric_definitions, age = as.difftime(7, units = 'days'))
+    write_gs4_to_csv(
+      '1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+      sheet = 'metric-definitions',
+      file = filepath_definitions
+    ),
+    cue = tar_cue_age(
+      dl_metric_definitions,
+      age = as.difftime(7, units = 'days')
+    )
   ),
   tar_target(
     dl_dominance_thesaurus,
-    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-                     sheet = 'dominance-thesaurus',
-                     file = filepath_dominance_thesaurus),
-    cue = tar_cue_age(dl_dominance_thesaurus, age = as.difftime(7, units = 'days'))
+    write_gs4_to_csv(
+      '1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+      sheet = 'dominance-thesaurus',
+      file = filepath_dominance_thesaurus
+    ),
+    cue = tar_cue_age(
+      dl_dominance_thesaurus,
+      age = as.difftime(7, units = 'days')
+    )
   ),
   tar_file_read(
     metric_thesaurus,
@@ -406,22 +411,29 @@ targets_review <- c(
     data.table(
       read_sheet(
         '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
-        sheet = 'benchmark papers'))[
-          is.na(`Removed as benchmark`),
-          .(Citation, `Indexed in WoS`)]
+        sheet = 'benchmark papers'
+      )
+    )[
+      is.na(`Removed as benchmark`),
+      .(Citation, `Indexed in WoS`)
+    ]
   ),
   tar_target(
     search_strings,
     data.table(
       read_sheet(
         '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
-        sheet = 'iterative search'))[, last(.SD)[, .(String)], Source]
+        sheet = 'iterative search'
+      )
+    )[, last(.SD)[, .(String)], Source]
   ),
   tar_target(
     software_meta,
-    read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
-               sheet = 'software-meta',
-               col_types = 'c'),
+    read_sheet(
+      '1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+      sheet = 'software-meta',
+      col_types = 'c'
+    ),
     cue = tar_cue_age(software_meta, age = as.difftime(7, units = 'days'))
   ),
   tar_target(
@@ -448,7 +460,6 @@ targets_review <- c(
 )
 
 
-
 # Targets: Quarto ---------------------------------------------------------
 # TODO: quarto render
 # targets_quarto <- c(
@@ -457,10 +468,6 @@ targets_review <- c(
 #     path = '.'
 #   )
 # )
-
-
-
-
 
 # Targets: All ------------------------------------------------------------
 # Automatically grab all the 'targets_*' lists above
