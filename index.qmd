@@ -725,10 +725,10 @@ identified from animal telemetry including movement initiations
 
 # Open science
 
-All data and code used to produce figures are available on GitHub at
-LINK <!-- TODO: github link --> and on Zeonodo at LINK
-<!-- TODO: github link -->. The data used in this case study are
-included with the package and can be imported with:
+All code used to produce this manuscript including figures and tables
+are available on GitHub at LINK <!-- TODO: github link --> and on
+Zeonodo at LINK <!-- TODO: github link -->. The data used in this case
+study are included with the package and can be imported with:
 
 ```{r}
 #| eval: false
@@ -754,12 +754,12 @@ gratefully depends on the R packages {adehabitatHR} [@Calenge_2024],
 We thank Edzer Pebesma and Dewey Dunnington for support with bug reports
 and feature requests for the {sf}, {s2} and {lwgeom} packages related to
 the development of this new functionality in {spatsoc}. We thank Martin
-Leclerc, Rick Heeres and Shane Frank for testing the package ahead of
-its release. We thank members of the Wildlife Evolutionary Ecology Lab
-for their comments on previous versions of this manuscript. We thank the
-rOpenSci organization including staff, editors, reviewers and
-contributors for their continued efforts to foster a community around
-open data, software and reproducibility.
+Leclerc, Rick Heeres and Shane Frank for testing the package's new
+functionality ahead of its release. We thank members of the Wildlife
+Evolutionary Ecology Lab for their comments on previous versions of this
+manuscript. We thank the rOpenSci organization including staff, editors,
+reviewers and contributors for their continued efforts to foster a
+community around open data, software and reproducibility.
 
 <!-- TODO: add funding, comps?-->
 
