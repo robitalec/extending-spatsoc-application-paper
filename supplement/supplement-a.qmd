@@ -93,7 +93,7 @@ data.table::fread('data/form.csv') |>
 #| echo: false
 #| label: tbl-benchmark
 #| tbl-cap: "Benchmark papers used to evaluate iterative search results for scoping review"
-targets::tar_read(benchmark_papers) |> 
+targets::tar_read(benchmark_papers) |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```
@@ -102,7 +102,7 @@ targets::tar_read(benchmark_papers) |>
 #| echo: false
 #| label: tbl-search-strings
 #| tbl-cap: "Search strings for scoping review using Web of Science and Scopus"
-targets::tar_read(search_strings) |> 
+targets::tar_read(search_strings) |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```

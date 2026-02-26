@@ -42,16 +42,26 @@ PRISMA
 #| echo: false
 #| label: tbl-code-availability
 #| tbl-cap: "Count of code availability in references screened for full text extraction of scoping review"
-count_code_avail[, .N, analysis_code_availability][order(-N), .(
-  `Code availability` = analysis_code_availability,
-  N = paste_n_percent(N)
-)] |> tt()
+count_code_avail[, .N, analysis_code_availability][
+  order(-N),
+  .(
+    `Code availability` = analysis_code_availability,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt()
 ```
 
 
 ```{r}
-list_prog <- count_prog_lang[, uniqueN(covidence_number), .(prog = !is.na(programming_language))]
-unique_prog_lang <- count_prog_lang[, uniqueN(programming_language), covidence_number]
+list_prog <- count_prog_lang[,
+  uniqueN(covidence_number),
+  .(prog = !is.na(programming_language))
+]
+unique_prog_lang <- count_prog_lang[,
+  uniqueN(programming_language),
+  covidence_number
+]
 ```
 
 Out of `r list_prog[, sum(V1)]` articles, 
@@ -67,10 +77,14 @@ count below will be greater than the number of articles.
 #| echo: false
 #| label: tbl-prog
 #| tbl-cap: "Count of programming language or GUI program used in references screened for full text extraction of scoping review"
-count_prog_lang[, .N, programming_language][order(-N), .(
-  `Programming language` = programming_language,
-  N = paste_n_percent(N)
-)] |> tt()
+count_prog_lang[, .N, programming_language][
+  order(-N),
+  .(
+    `Programming language` = programming_language,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt()
 ```
 
 
@@ -87,10 +101,14 @@ count below will be greater than the number of articles.
 #| echo: false
 #| label: tbl-software
 #| tbl-cap: "Count of software packages used in references screened for full text extraction of scoping review"
-count_software[, .N, software_package_s_used][order(-N), .(
-  `Software package used` = software_package_s_used,
-  N = paste_n_percent(N)
-)] |> tt()
+count_software[, .N, software_package_s_used][
+  order(-N),
+  .(
+    `Software package used` = software_package_s_used,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt()
 ```
 
 
@@ -108,9 +126,9 @@ software_meta |>
 #| echo: false
 #| label: fig-temp
 #| fig-cap: "Count of references screened for full text extraction across temporal period (1980-2023) of scoping review"
-ggplot(review) + 
-  geom_histogram(aes(yr), binwidth = 1) + 
-  labs(x = 'Year of publication', y = 'Count') + 
+ggplot(review) +
+  geom_histogram(aes(yr), binwidth = 1) +
+  labs(x = 'Year of publication', y = 'Count') +
   coord_cartesian(xlim = c(1980, 2024)) +
   theme_bw()
 ```
@@ -123,12 +141,16 @@ ggplot(review) +
 #| fig-cap: "Map of study regions georeferenced using {tidygeocoder} from references screened for full text extraction of scoping review"
 countries <- ne_countries()
 
-ggplot() + 
-  geom_sf(data = countries) + 
-  geom_hex(aes(long, lat), alpha = 1, 
-           bins = 20, data = geocoded[!is.na(long)]) + 
-  coord_sf(crs = 54030, default_crs = 4326) + 
-  theme_void() + 
+ggplot() +
+  geom_sf(data = countries) +
+  geom_hex(
+    aes(long, lat),
+    alpha = 1,
+    bins = 20,
+    data = geocoded[!is.na(long)]
+  ) +
+  coord_sf(crs = 54030, default_crs = 4326) +
+  theme_void() +
   theme(legend.position = 'bottom')
 ```
 
@@ -138,10 +160,15 @@ ggplot() +
 #| echo: false
 #| label: tbl-species
 #| tbl-cap: "Count of species parsed using {rgnparser} in references screened for full text extraction of scoping review"
-taxized[, .N, parsed_species][order(-N), .(
-  Species = parsed_species,
-  N = paste_n_percent(N)
-)] |> tt() |> style_tt(j = "Species", italic = TRUE)
+taxized[, .N, parsed_species][
+  order(-N),
+  .(
+    Species = parsed_species,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt() |>
+  style_tt(j = "Species", italic = TRUE)
 ```
 
 
@@ -149,20 +176,28 @@ taxized[, .N, parsed_species][order(-N), .(
 #| echo: false
 #| label: tbl-count-metrics
 #| tbl-cap: "Count of metrics used to measure intragroup dynamics in references screened for full text extraction of scoping review"
-count_metric[, .N, metric_agg][order(-N), .(
-  `Metric` = metric_agg,
-  N = paste_n_percent(N)
-)] |> tt()
+count_metric[, .N, metric_agg][
+  order(-N),
+  .(
+    `Metric` = metric_agg,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt()
 ```
 
 ```{r}
 #| echo: false
 #| label: tbl-count-metrics-dominance
 #| tbl-cap: "Count of metrics used to measure dominance in references screened for full text extraction of scoping review"
-count_dom_metric[, .N, dominance_metric_agg][order(-N), .(
-  `Dominance metric` = dominance_metric_agg,
-  N = paste_n_percent(N)
-)] |> tt()
+count_dom_metric[, .N, dominance_metric_agg][
+  order(-N),
+  .(
+    `Dominance metric` = dominance_metric_agg,
+    N = paste_n_percent(N)
+  )
+] |>
+  tt()
 ```
 
 ```{r}
