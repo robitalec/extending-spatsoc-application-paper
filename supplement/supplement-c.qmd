@@ -15,27 +15,27 @@ count_metric <- counted$count_metric
 
 ## Selected metrics
 
-The following metrics were not selected due to their availability in 
+The following metrics were not selected due to their availability in
 existing R packages:
 
-- {wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in displacement, 
-HAI, IAB, Cr, Ca
-- {corrMove}: diffusive movement correlation, drift movement correlation,
-overall component movement correlation
-- {changepoint}: change point analysis
+-   {wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in
+    displacement, HAI, IAB, Cr, Ca
+-   {corrMove}: diffusive movement correlation, drift movement
+    correlation, overall component movement correlation
+-   {changepoint}: change point analysis
 
-The following metrics were not selected due to their availability in 
+The following metrics were not selected due to their availability in
 code availability accompanying publications:
 
-- mFLICA provided in code accompanying @Amornbunchornvej_2018 and R package {mFLICA}
-[@Amornbunchornvej_2021]
+-   mFLICA provided in code accompanying @Amornbunchornvej_2018 and R
+    package {mFLICA} [@Amornbunchornvej_2021]
 
-The follow metrics were not selected due to the expected input data differing 
-from existing {spatsoc} functions (XYT):
+The follow metrics were not selected due to the expected input data
+differing from existing {spatsoc} functions (XYT):
 
-- metrics relating to posture
+-   metrics relating to posture
 
-The selected metrics are listed in [@tbl-new-functions]. All existing 
+The selected metrics are listed in [@tbl-new-functions]. All existing
 functions in {spatsoc} are listed below in [@tbl-all-functions].
 
 ```{r}
@@ -50,7 +50,6 @@ functions[, .(Function, Description, Category)] |>
   style_tt(align = 'l')
 ```
 
-
 ### Distance, direction and rank distance to group centroid {.unnumbered}
 
 ```{r}
@@ -60,20 +59,20 @@ to_grp_cent <- count_metric[metric_agg %in% c('direction to group centroid',
                                       'group centroid')]
 ```
 
-Our scoping review found `r to_grp_cent[, uniqueN(covidence_number)]` studies that used 
-the group centroid, distance to group centroid, direction to group centroid, 
-or rank distance to group centroid metrics, across 
-`r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]` 
-study species. 
+Our scoping review found `r to_grp_cent[, uniqueN(covidence_number)]`
+studies that used the group centroid, distance to group centroid,
+direction to group centroid, or rank distance to group centroid metrics,
+across
+`r taxized[covidence_number %in% to_grp_cent$covidence_number, uniqueN(species)]`
+study species.
 `r count_code_avail[covidence_number %in% to_grp_cent$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. The {swaRm} package provides functionality to 
-calculate the group centroid and the distance to the group centroid. At the
-time when the scoping review was conducted, to the best of our knowledge, there
-were no R packages that provide the rank to distance to group centroid metric. 
-
+studies had code available. The {swaRm} package provides functionality
+to calculate the group centroid and the distance to the group centroid.
+At the time when the scoping review was conducted, to the best of our
+knowledge, there were no R packages that provide the rank to distance to
+group centroid metric.
 
 ### Polarization, directional alignment and interindividual direction {.unnumbered}
-
 
 ```{r}
 align <- count_metric[metric_agg %in% c('polarization', 
@@ -82,35 +81,32 @@ align <- count_metric[metric_agg %in% c('polarization',
                                 'nearest neighbour direction')]
 ```
 
-Our scoping review found `r align[, uniqueN(covidence_number)]` studies that used 
-the polarization, directional alignment or interindividual direction metrics, 
-across
-`r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]` 
-study species. 
+Our scoping review found `r align[, uniqueN(covidence_number)]` studies
+that used the polarization, directional alignment or interindividual
+direction metrics, across
+`r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]`
+study species.
 `r count_code_avail[covidence_number %in% align$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. The  {CircStats} package provides functionality to 
-calculate the polarization order parameter, as well as the {swaRm} package.
-At the time when the scoping review was conducted, to the best of our knowledge,
-there were no R packages that provide the directional alignment or
-interindividual direction metrics.
-
+studies had code available. The {CircStats} package provides
+functionality to calculate the polarization order parameter, as well as
+the {swaRm} package. At the time when the scoping review was conducted,
+to the best of our knowledge, there were no R packages that provide the
+directional alignment or interindividual direction metrics.
 
 ### Behavioural zones {.unnumbered}
-
 
 ```{r}
 zone <- count_metric[metric_agg %in% c('zones')]
 ```
 
-Our scoping review found `r zone[, uniqueN(covidence_number)]` studies that used 
-the behavioural zones metric, 
-across
-`r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]` 
-study species. 
+Our scoping review found `r zone[, uniqueN(covidence_number)]` studies
+that used the behavioural zones metric, across
+`r taxized[covidence_number %in% zone$covidence_number, uniqueN(species)]`
+study species.
 `r count_code_avail[covidence_number %in% zone$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. At the time when the scoping review was conducted,
-to the best of our knowledge, there were no R packages that provide the
-behavioural zones metric.
+studies had code available. At the time when the scoping review was
+conducted, to the best of our knowledge, there were no R packages that
+provide the behavioural zones metric.
 
 ### Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
 
@@ -122,31 +118,29 @@ pos_wi <- count_metric[metric_agg %in% c('position within group',
                                  'direction to leader')]
 ```
 
-Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies that used 
-the position within group, rank position within group, time spent leading 
-group metrics, distance to leader, or direction to leader metrics across 
-`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]` 
-study species. 
-Only 
+Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies
+that used the position within group, rank position within group, time
+spent leading group metrics, distance to leader, or direction to leader
+metrics across
+`r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]`
+study species. Only
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
-study had code available. At the time when the scoping review was conducted, to
-the best of our knowledge, there were no R packages that provide these metrics.
-
+study had code available. At the time when the scoping review was
+conducted, to the best of our knowledge, there were no R packages that
+provide these metrics.
 
 ### Directional correlation delay {.unnumbered}
 
 ```{r}
 dirr_del <- count_metric[metric_agg == 'directional correlation delay']
 ```
- 
-Our scoping review found `r dirr_del[, uniqueN(covidence_number)]` studies that used 
-the directional correlation delay metric, across 
-`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]` 
-study species. Only 
-`r count_code_avail[covidence_number %in% dirr_del$covidence_number & analysis_code_availability == 'Yes', .N]` 
-study had code available using a combination of 
-MATLAB (closed source), CUDA (closed source), and Python (open source). At the
-time when the scoping review was conducted, to the best of our knowledge, there
-were no R packages that provide this metric.
 
-
+Our scoping review found `r dirr_del[, uniqueN(covidence_number)]`
+studies that used the directional correlation delay metric, across
+`r taxized[covidence_number %in% dirr_del$covidence_number, uniqueN(species)]`
+study species. Only
+`r count_code_avail[covidence_number %in% dirr_del$covidence_number & analysis_code_availability == 'Yes', .N]`
+study had code available using a combination of MATLAB (closed source),
+CUDA (closed source), and Python (open source). At the time when the
+scoping review was conducted, to the best of our knowledge, there were
+no R packages that provide this metric.
