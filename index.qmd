@@ -111,8 +111,6 @@ language, either through R packages or supplemental materials in the
 literature. We will demonstrate these new functions through a case study
 and discuss biological interpretation.
 
-<!-- TODO: update count if include randomization method -->
-
 # Methods
 
 We conducted a scoping review to identify metrics used in ecology
