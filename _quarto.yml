@@ -2,8 +2,6 @@ project:
   type: manuscript
   output-dir: public
   execute-dir: project
-  render:
-    - "!tests"
 
 # manuscript:
   # notebooks:
