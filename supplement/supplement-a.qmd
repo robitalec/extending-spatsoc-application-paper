@@ -1,5 +1,22 @@
 # Supplement: Scoping review methods {#sec-scoping-methods}
 
+```{r}
+#| include: false
+targets::tar_source('R')
+
+tar_load(review)
+tar_load(geocoded)
+tar_load(taxized)
+tar_load(software_meta)
+
+tar_load(counted)
+count_code_avail <- counted$count_code_avail
+count_prog_lang <- counted$count_prog_lang
+count_software <- counted$count_software
+count_metric <- counted$count_metric
+count_dom_metric <- counted$count_dom_metric
+```
+
 We conducted a scoping review to identify metrics used in ecology studies for
 measuring dyadic interactions, dominance hierarchies and leadership patterns. We
 focused on metrics applicable to spatiotemporal data such as GPS telemetry. We
