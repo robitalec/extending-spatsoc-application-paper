@@ -103,8 +103,8 @@ Here we present
 new functions in the R package {spatsoc} [@Robitaille_2019] for
 measuring intragroup dynamics ([Table @tbl-new-functions]). We conducted
 a scoping review to identify metrics that were applicable to
-spatiotemporal data, and focused on dyadic interactions, dominance
-hierarchies and leadership patterns. Of the resulting metrics, we
+spatiotemporal data, and focused on dyadic interactions, leadership
+patterns, and dominance hierarchies. Of the resulting metrics, we
 selected those with a high number of citations (as a measure of value
 for the target audience) and lack of availability in the R programming
 language, either through R packages or supplemental materials in the
