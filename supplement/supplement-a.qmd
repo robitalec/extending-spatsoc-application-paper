@@ -54,17 +54,13 @@ year, volume, and authors, and manual screening identified an additional
 
 Articles were screened out based on the following criteria:
 
--   Study does not describe dyadic or group metric related to leadership
-    or dominance (eg. @Papageorgiou_2020)
--   Study describes metric that is not applicable to spatiotemporal data
-    (eg. @Allanic_2020 used focal observations and video recordings)
--   Study does not describe metric beyond static interaction (eg.
-    @Carter_2013 used home range or spatial overlap)
--   Study does not describe metric beyond group size (eg.
-    @delMarDelgado_2021)
--   Study full text is not available in English (eg. @Bernard_2002)
--   Study is not a thesis
--   Study is not a book chapter (eg. @Bernstein_2019)
+- Study does not describe dyadic or group metric related to leadership or dominance (eg. @Papageorgiou_2020)
+- Study describes metric that is not applicable to spatiotemporal data (eg. @Allanic_2020 used focal observations and video recordings)
+- Study does not describe metric beyond static interaction (eg. @Carter_2013 used home range or spatial overlap)
+- Study does not describe metric beyond group size (eg. @delMarDelgado_2021)
+- Study full text is not available in English (eg. @Bernard_2002)
+- Study is not a thesis
+- Study is not a book chapter (eg. @Bernstein_2019)
 
 Despite a focus on animal ecology, some studies were discussed movement
 data more generically or, alternatively, specifically focused on human
