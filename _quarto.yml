@@ -2,15 +2,6 @@ project:
   type: manuscript
   output-dir: public
   execute-dir: project
-  render:
-    - "!tests"
-
-website:
-  sidebar:
-    contents: auto
-    tools:
-      - icon: gitlab
-        href: https://gitlab.com/robitalec/spatsoc-paper-2
 
 format:
   jats: default
@@ -23,3 +14,5 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
+    comments:
+      hypothesis: true

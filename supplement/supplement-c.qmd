@@ -1,6 +1,5 @@
 # Supplement: Selected metrics {#sec-selected}
 
-
 ```{r}
 #| include: false
 targets::tar_source('R')
