@@ -1,84 +1,92 @@
 # Supplement: Scoping review methods {#sec-scoping-methods}
 
-We conducted a scoping review to identify metrics used in ecology studies for
-measuring dyadic interactions, dominance hierarchies and leadership patterns. We
-focused on metrics applicable to spatiotemporal data such as GPS telemetry. We
-used two databases of academic literature: Web of Science and Scopus. We
-established a test list of nine benchmark papers (Supplement A: Table 1) that
-were relevant to our objectives and verified that each paper was indexed in our
-selected databases. We used an iterative search method to fine-tune search terms
-measuring the total number of papers returned and sensitivity of the search.
-Sensitivity is defined as the proportion of potentially relevant papers returned
-from the search estimated using the number benchmark papers returned from the
-test list [4.2.7 @CollaborationforEnvironmentalEvidence_2022]. Search terms were
-established in four categories: topic, population, method and exclusion. Topic
-included terms associated with dyadic interactions, dominance hierarchies and
-leadership patterns. Population included terms associated with animals, wildlife
-and ecology. Method included terms associated with data collection and data
-types. Finally, a list of exclusion terms were used to remove clearly irrelevant
-papers. Each category of terms were combined with OR operators and all three
-categories of terms were combined with AND operators. The set of papers used in
-further steps was the combination of the last iteration of search terms applied
-to both of the Web of Science (using the “TS” field) and Scopus (using the
-“TITLE-ABS-KEY” field) databases. Only articles between 1980-2023 were included
-using the PY (Web of Science) or PUBYEAR (Scopus) fields. The resulting set of
-references were imported into Covidence [@VeritasHealthInnovation_2025] for
-deduplication, title and abstract screening, full text screening, and data
-extraction.
+We conducted a scoping review to identify metrics used in ecology
+studies for measuring dyadic interactions, dominance hierarchies and
+leadership patterns. We focused on metrics applicable to spatiotemporal
+data such as GPS telemetry. We used two databases of academic
+literature: Web of Science and Scopus. We established a test list of
+nine benchmark papers (Supplement A: Table 1) that were relevant to our
+objectives and verified that each paper was indexed in our selected
+databases. We used an iterative search method to fine-tune search terms
+measuring the total number of papers returned and sensitivity of the
+search. Sensitivity is defined as the proportion of potentially relevant
+papers returned from the search estimated using the number benchmark
+papers returned from the test list [4.2.7
+@CollaborationforEnvironmentalEvidence_2022]. Search terms were
+established in four categories: topic, population, method and exclusion.
+Topic included terms associated with dyadic interactions, dominance
+hierarchies and leadership patterns. Population included terms
+associated with animals, wildlife and ecology. Method included terms
+associated with data collection and data types. Finally, a list of
+exclusion terms were used to remove clearly irrelevant papers. Each
+category of terms were combined with OR operators and all three
+categories of terms were combined with AND operators. The set of papers
+used in further steps was the combination of the last iteration of
+search terms applied to both of the Web of Science (using the “TS”
+field) and Scopus (using the “TITLE-ABS-KEY” field) databases. Only
+articles between 1980-2023 were included using the PY (Web of Science)
+or PUBYEAR (Scopus) fields. The resulting set of references were
+imported into Covidence [@VeritasHealthInnovation_2025] for
+deduplication, title and abstract screening, full text screening, and
+data extraction.
 
-Before screening, articles were marked as duplicates using Covidence and manual
-screening. Covidence detected 799 duplicates based on title, year, volume, and
-authors, and manual screening identified an additional 128 duplicates. 
+Before screening, articles were marked as duplicates using Covidence and
+manual screening. Covidence detected 799 duplicates based on title,
+year, volume, and authors, and manual screening identified an additional
+128 duplicates.
 
 Articles were screened out based on the following criteria:
 
-- Study does not describe dyadic or group metric related to leadership or
-dominance (eg. @Papageorgiou_2020)
-- Study describes metric that is not applicable to spatiotemporal data
-(eg. @Allanic_2020 used focal observations and video recordings)
-- Study does not describe metric beyond static interaction (eg. @Carter_2013 
-used home range or spatial overlap)
-- Study does not describe metric beyond group size (eg. @delMarDelgado_2021)
-- Study full text is not available in English (eg. @Bernard_2002)
-- Study is not a thesis 
-- Study is not a book chapter (eg. @Bernstein_2019)
+-   Study does not describe dyadic or group metric related to leadership
+    or dominance (eg. @Papageorgiou_2020)
+-   Study describes metric that is not applicable to spatiotemporal data
+    (eg. @Allanic_2020 used focal observations and video recordings)
+-   Study does not describe metric beyond static interaction (eg.
+    @Carter_2013 used home range or spatial overlap)
+-   Study does not describe metric beyond group size (eg.
+    @delMarDelgado_2021)
+-   Study full text is not available in English (eg. @Bernard_2002)
+-   Study is not a thesis
+-   Study is not a book chapter (eg. @Bernstein_2019)
 
-Despite a focus on animal ecology, some studies were discussed movement data
-more generically or, alternatively, specifically focused on human or robotic
-movement data (eg. @Long_2022). These studies were retained when the metrics
-described were deemed applicable to animal spatiotemporal movement data.
-Studies using mathematical models or simulations were largely beyond the
-scope of this review but studies were retained when the parameters used as
-inputs could be applied to spatial temporal data (eg. @Long_2015). Review
-studies were read for building the scope of the introduction and discussion
-but not included in data extraction unless they explicitly discussed 
-dyadic measures (eg. @King_2018).
+Despite a focus on animal ecology, some studies were discussed movement
+data more generically or, alternatively, specifically focused on human
+or robotic movement data (eg. @Long_2022). These studies were retained
+when the metrics described were deemed applicable to animal
+spatiotemporal movement data. Studies using mathematical models or
+simulations were largely beyond the scope of this review but studies
+were retained when the parameters used as inputs could be applied to
+spatial temporal data (eg. @Long_2015). Review studies were read for
+building the scope of the introduction and discussion but not included
+in data extraction unless they explicitly discussed dyadic measures (eg.
+@King_2018).
 
-The goals of data extraction were to record the breadth of dyadic social and
-dominance metrics applicable to spatiotemporal data, and the degree of code
-availability. General information about each study was recorded including the
-type of study (empirical, simulation, algorithm, model, or review), study
-species and study region. Dyadic social metrics for each study were listed
-including citations and interpretation for each metric used and data input
-required. Dominance metrics derived from spatiotemporal data were listed
-including citations and interpretation. Code availability was described
-including location of code (eg. Zenodo, or GitHub), programming languages and
-software packages used.
+The goals of data extraction were to record the breadth of dyadic social
+and dominance metrics applicable to spatiotemporal data, and the degree
+of code availability. General information about each study was recorded
+including the type of study (empirical, simulation, algorithm, model, or
+review), study species and study region. Dyadic social metrics for each
+study were listed including citations and interpretation for each metric
+used and data input required. Dominance metrics derived from
+spatiotemporal data were listed including citations and interpretation.
+Code availability was described including location of code (eg. Zenodo,
+or GitHub), programming languages and software packages used.
 
-Metrics identified were aggregated using a manual process to identify synonymous
-terms. This aggregation process was required due to variability in defining
-metrics during data extraction, as well as differences between authors in
-describing metrics (eg. distance to group "center", "centroid", or "center of
-mass"). Each study was geocoded using the {tidygeocoder} package [@Cambon_2021]
-and species were parsed using the {rgnparser} package [@Chamberlain_2023] which
-provides the GNparser [@Mozzherin_2026] functionality in R. We calculated
-frequency of data extracted for each categorical field including programming
-language, software package, analysis code availability, geographic region, study
-species and metric used. For many fields, authors did not provide sufficient to
-determine how metrics were calculated, eg. not including the programming
-language or software package used. In all cases, counts are presented as an
-overall frequency including papers with missing fields.
-
+Metrics identified were aggregated using a manual process to identify
+synonymous terms. This aggregation process was required due to
+variability in defining metrics during data extraction, as well as
+differences between authors in describing metrics (eg. distance to group
+"center", "centroid", or "center of mass"). Each study was geocoded
+using the {tidygeocoder} package [@Cambon_2021] and species were parsed
+using the {rgnparser} package [@Chamberlain_2023] which provides the
+GNparser [@Mozzherin_2026] functionality in R. We calculated frequency
+of data extracted for each categorical field including programming
+language, software package, analysis code availability, geographic
+region, study species and metric used. For many fields, authors did not
+provide sufficient to determine how metrics were calculated, eg. not
+including the programming language or software package used. In all
+cases, counts are presented as an overall frequency including papers
+with missing fields.
 
 ```{r}
 #| echo: false
