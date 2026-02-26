@@ -3,21 +3,6 @@ project:
   output-dir: public
   execute-dir: project
 
-# manuscript:
-  # notebooks:
-  #   - notebook: supplement/supplement-b.qmd
-  #     title: "Supplement B: Review Results"
-  # appendices:
-  #   - supplement/supplement-b.qmd
-
-website:
-  title: "spatsoc paper 2"
-  sidebar:
-    contents: auto
-    tools:
-      - icon: gitlab
-        href: https://gitlab.com/robitalec/spatsoc-paper-2
-
 format:
   html:
     theme:
@@ -30,5 +15,3 @@ format:
     code-block-border-left: false
     comments:
       hypothesis: true
-  # typst:
-  #   csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
