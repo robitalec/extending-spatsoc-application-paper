@@ -44,7 +44,7 @@ functions in {spatsoc} are listed below in [@tbl-all-functions].
 #| eval: true
 #| tbl-cap: "Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family."
 functions <- fread('data/spatsoc-functions.tsv')
-functions[, .(Function, Description, Category)] |> 
+functions[, .(Function, Description, Category)] |>
   tt() |>
   group_tt(i = functions$Family) |>
   style_tt(align = 'l')
@@ -53,10 +53,15 @@ functions[, .(Function, Description, Category)] |>
 ### Distance, direction and rank distance to group centroid {.unnumbered}
 
 ```{r}
-to_grp_cent <- count_metric[metric_agg %in% c('direction to group centroid', 
-                                      'distance to group centroid',
-                                      'rank distance to group centroid',
-                                      'group centroid')]
+to_grp_cent <- count_metric[
+  metric_agg %in%
+    c(
+      'direction to group centroid',
+      'distance to group centroid',
+      'rank distance to group centroid',
+      'group centroid'
+    )
+]
 ```
 
 Our scoping review found `r to_grp_cent[, uniqueN(covidence_number)]`
@@ -75,10 +80,15 @@ group centroid metric.
 ### Polarization, directional alignment and interindividual direction {.unnumbered}
 
 ```{r}
-align <- count_metric[metric_agg %in% c('polarization', 
-                                'directional alignment',
-                                'interindividual direction',
-                                'nearest neighbour direction')]
+align <- count_metric[
+  metric_agg %in%
+    c(
+      'polarization',
+      'directional alignment',
+      'interindividual direction',
+      'nearest neighbour direction'
+    )
+]
 ```
 
 Our scoping review found `r align[, uniqueN(covidence_number)]` studies
