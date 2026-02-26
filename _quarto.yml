@@ -2,8 +2,6 @@ project:
   type: manuscript
   output-dir: public
   execute-dir: project
-  render:
-    - "!tests"
 
 format:
   jats: default
@@ -16,3 +14,5 @@ format:
     code-copy: true
     code-link: true
     code-block-border-left: false
+    comments:
+      hypothesis: true
