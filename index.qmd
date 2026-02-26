@@ -119,7 +119,7 @@ We conducted a scoping review to identify metrics used in ecology
 studies for measuring dyadic interactions, dominance hierarchies and
 leadership patterns. We focused on metrics applicable to spatiotemporal
 data such as animal movement data. This scoping review expands on the
-review conducted by @Joo_2018 by using interdiscplinary sources (eg.
+review conducted by @Joo_2018 by using interdisciplinary sources (eg.
 @Miller_2021), including metrics measuring group-level dynamics,
 leadership patterns and lagged-follower behaviours, as well as focusing
 on the open source availability of these metrics in the R programming
