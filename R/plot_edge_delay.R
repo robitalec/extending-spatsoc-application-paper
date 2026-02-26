@@ -37,7 +37,8 @@ plot_edge_delay <- function(edges, leaders, DT) {
     tableGrob(sub_leaders, theme = ttheme_default(base_size = font_size), rows = NULL)
   )
 
-  ((g_left + g_right) / g_leaders &
+  (g_left / g_right / g_leaders &
     theme_void(base_size = font_size)) +
-    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
+    plot_layout(widths = 1, heights = c(1, 1, 3))
 }

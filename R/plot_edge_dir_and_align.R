@@ -12,19 +12,26 @@ plot_edge_dir_and_align <- function(DT, edges) {
   sub[, timegroup := timegroup - min(timegroup) + 1]
   g <- ggplot(sub, aes(X, Y, color = ID)) +
     geom_path(arrow = arrow()) +
-    geom_label(aes(label = timegroup), data  = sub[timegroup != max(timegroup)]) +
+    geom_label(aes(label = timegroup),
+               fill = 'white',
+               data  = sub[timegroup != max(timegroup)]) +
     scale_color_viridis_d(end = 0.5) +
-    labs(x = '', y = '')
+    labs(x = '', y = '') +
+    coord_fixed() +
+    scale_x_continuous(expand = expansion(mult = 0.1)) +
+    scale_y_continuous(expand = expansion(mult = 0.1))
 
   tab <- edges[(ID1 %in% sel_ids & ID2 %in% sel_ids) &
                      between(timegroup,
                              DT[group == sel_group, min(timegroup) - 1],
                              DT[group == sel_group, max(timegroup) + 1]),
     .(timegroup = timegroup - min(timegroup) + 1,
-      ID1, ID2, direction_diff =
-        units::as_units(round(direction_diff, digits = 2), 'rad'),
+      ID1, ID2,
       direction_dyad =
-        round(direction_dyad, digits = 2))
+        round(direction_dyad, digits = 2),
+      direction_diff =
+        units::as_units(round(direction_diff, digits = 2), 'rad')
+      )
   ]
 
   g_tab <- ggplot() + annotation_custom(
@@ -33,5 +40,6 @@ plot_edge_dir_and_align <- function(DT, edges) {
 
   (g / g_tab &
     theme_void(base_size = font_size)) +
-    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+    plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
+    plot_layout(widths = 1, heights = 1)
 }

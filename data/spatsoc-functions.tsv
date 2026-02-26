@@ -1,0 +1,30 @@
+Family	Function	Description	Category
+Spatial interface	get_geometry()	Setup data for geometry interface	New
+Edge-list generation	edge_dist()	Distance based edge-lists	Existing
+Edge-list generation	edge_nn()	Nearest neighbour based edge-lists	Existing
+Edge-list generation	edge_delay()	Directional correlation delay based edge-lists	New
+Edge-list generation	edge_alignment()	Directional alignment based edge-lists	New
+Edge-list generation	edge_direction()	Direction based edge-lists	New
+Edge-list generation	edge_zones()	Behavioural zones based edge-lists	New
+Dyad	dyad_id()	Identify dyads	Existing
+Dyad	fusion_id()	Identify fusion events	New
+Centroid	centroid_group()	Group centroid	New
+Centroid	centroid_dyad()	Dyad centroid	New
+Centroid	centroid_fusion()	Fusion event centroid	New
+Direction	direction_step()	Direction step	New
+Direction	direction_to_centroid()	Direction to group centroid	New
+Direction	direction_to_leader()	Direction to group leader	New
+Direction	direction_group()	Group mean direction	New
+Direction	direction_polarization()	Polarization	New
+Distance	distance_to_centroid()	Distance to group centroid	New
+Distance	distance_to_leader()	Distance to group leader	New
+Leadership	leader_direction_group()	Leadership along group direction	New
+Leadership	leader_edge_delay()	Leadership in directional correlation delay	New
+Temporal grouping	group_times()	Group times	Existing
+Spatial grouping	group_lines()	Group lines	Existing
+Spatial grouping	group_pts()	Group points	Existing
+Spatial grouping	group_polys()	Group polygons	Existing
+Social network	randomizations()	Data-stream randomizations	Existing
+Social network	get_gbi()	Group by individual matrix	Existing
+Build	build_lines()	Build lines	Existing
+Build	build_polys()	Build polygons	Existing

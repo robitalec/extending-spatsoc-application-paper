@@ -43,9 +43,34 @@ review_taxize <- function(DT) {
     by.y = 'verbatim'
   )
 
+  # Trim any subspecies etc "Genus species [X Y Z ...]"
+  DT_out[, fix_parse := do.call(
+    paste,
+    tstrsplit(canonicalsimple, ' ', keep = 1:2)
+  )]
+
+  message('Trim any rank below species:\n',
+          'reducing number of unique species from ',
+          DT_out[, uniqueN(canonicalsimple)],
+          ' to ',
+          DT_out[, uniqueN(fix_parse)])
+
+  # Manually fix species input / parsing output
+  DT_out[covidence_number == 1444, fix_parse := 'Papio ursinus']
+  DT_out[fix_parse == 'Humans NA', fix_parse := 'Homo sapiens']
+  DT_out[grepl('viginianus', fix_parse),
+         fix_parse := gsub('viginianus', 'virginianus', fix_parse)]
+  DT_out[grepl('heifer', species), fix_parse := 'Bos taurus']
+  DT_out[grepl('Holstein|Angus', species), fix_parse := 'Bos taurus']
+  DT_out[grepl('horses', species), fix_parse := 'Equus ferus']
+  DT_out[grepl('geoffroyi', fix_parse), fix_parse :=
+           gsub('geoffroyi', 'geoffroy', fix_parse)]
+  DT_out[grepl('Ciconia ciconi', fix_parse), fix_parse := 'Ciconia ciconia']
+  DT_out[, .N, fix_parse]
+
   setDT(DT_out)
   setnames(DT_out,
-           c('canonicalsimple', 'quality'),
+           c('fix_parse', 'quality'),
            c('parsed_species', 'parse_quality'))
 
   return(DT_out[parse_quality == 1])

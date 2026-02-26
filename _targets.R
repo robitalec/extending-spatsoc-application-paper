@@ -19,8 +19,14 @@ tar_option_set(format = 'qs')
 
 
 # Variables ---------------------------------------------------------------
+# Data folder
+data_folder <- 'data'
+
 # Review
-filepath_thesaurus <- file.path('map', 'metric-thesaurus.csv')
+filepath_thesaurus <- file.path(data_folder, 'metric-thesaurus.csv')
+filepath_definitions <- file.path(data_folder, 'metric-definitions.csv')
+filepath_dominance_thesaurus <- file.path(data_folder,
+                                          'metric-dominance-thesaurus.csv')
 
 # Spatiotemporal grouping
 filepath <- system.file('extdata', 'DT.csv', package = 'spatsoc')
@@ -61,7 +67,7 @@ blind_volume <- 3
 font_size <- 16
 
 # ggplot theme
-theme_set(theme_bw(base_size = font_size,))
+theme_set(theme_bw(base_size = font_size))
 
 # Patchwork tags
 tag_levels <- 'A'
@@ -124,7 +130,8 @@ targets_distance_edge_lists <- c(
       threshold = spatial_threshold,
       id = id,
       timegroup = timegroup,
-      returnDist = TRUE
+      returnDist = TRUE,
+      fillNA = TRUE
     )
   ),
 
@@ -133,7 +140,8 @@ targets_distance_edge_lists <- c(
     edge_nn(
       DT = temporal_groups,
       id = id,
-      timegroup = timegroup
+      timegroup = timegroup,
+      returnDist = TRUE
     )
   )
 )
@@ -317,8 +325,8 @@ targets_intragroup_dynamics <- c(
 # Targets: Figures --------------------------------------------------------
 targets_figures <- c(
   tar_target(
-    fig_pos_wi_group,
-    plot_pos_wi_group(distance_to_centroids)
+    fig_dist_dir_cent,
+    plot_dist_dir_cent(distance_to_centroids)
   ),
   tar_target(
     fig_pos_group_dir,
@@ -354,7 +362,7 @@ targets_figures <- c(
 targets_review <- c(
   tar_file_read(
     raw_review,
-    file.path('map', 'review.csv'),
+    file.path(data_folder, 'review.csv'),
     fread(!!.x)
   ),
   tar_target(
@@ -363,6 +371,35 @@ targets_review <- c(
                      sheet = 'metric-thesaurus',
                      file = filepath_thesaurus),
     cue = tar_cue_age(dl_metric_thesaurus, age = as.difftime(7, units = 'days'))
+  ),
+  tar_target(
+    dl_metric_definitions,
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'metric-definitions',
+                     file = filepath_definitions),
+    cue = tar_cue_age(dl_metric_definitions, age = as.difftime(7, units = 'days'))
+  ),
+  tar_target(
+    dl_dominance_thesaurus,
+    write_gs4_to_csv('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
+                     sheet = 'dominance-thesaurus',
+                     file = filepath_dominance_thesaurus),
+    cue = tar_cue_age(dl_dominance_thesaurus, age = as.difftime(7, units = 'days'))
+  ),
+  tar_file_read(
+    metric_thesaurus,
+    dl_metric_thesaurus,
+    fread(!!.x)
+  ),
+  tar_file_read(
+    metric_definitions,
+    dl_metric_definitions,
+    fread(!!.x)
+  ),
+  tar_file_read(
+    dominance_thesaurus,
+    dl_dominance_thesaurus,
+    fread(!!.x)
   ),
   tar_target(
     benchmark_papers,
@@ -380,11 +417,6 @@ targets_review <- c(
         '112TA9JMfQ6mK9tGPSnJVF6fSmfw9hnR_FB1aasoac-M',
         sheet = 'iterative search'))[, last(.SD)[, .(String)], Source]
   ),
-  tar_file_read(
-    metric_synonyms,
-    dl_metric_thesaurus,
-    fread(!!.x)
-  ),
   tar_target(
     software_meta,
     read_sheet('1YInLKBejpIUaovCnpLanXvPr8uvBEA6skpUcvFc2Ov8',
@@ -396,7 +428,9 @@ targets_review <- c(
     review,
     review_prep(
       raw_review,
-      metric_synonyms
+      metric_thesaurus = metric_thesaurus,
+      metric_definitions = metric_definitions,
+      dominance_thesaurus = dominance_thesaurus
     )
   ),
   tar_target(

@@ -4,6 +4,7 @@ project:
   execute-dir: project
 
 format:
+  jats: default
   html:
     theme:
       dark: darkly
