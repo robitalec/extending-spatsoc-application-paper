@@ -108,20 +108,23 @@ studies had code available. At the time when the scoping review was
 conducted, to the best of our knowledge, there were no R packages that
 provide the behavioural zones metric.
 
-### Position within group, rank position within group, time spent leading group, distance and direction to leader {.unnumbered}
+### Position within group, rank position within group, distance and direction to leader {.unnumbered}
 
 ```{r}
-pos_wi <- count_metric[metric_agg %in% c('position within group', 
-                                 'rank position within group',
-                                 'time spent leading group',
-                                 'distance to leader',
-                                 'direction to leader')]
+pos_wi <- count_metric[
+  metric_agg %in%
+    c(
+      'position within group',
+      'rank position within group',
+      'distance to leader',
+      'direction to leader'
+    )
+]
 ```
 
 Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies
-that used the position within group, rank position within group, time
-spent leading group metrics, distance to leader, or direction to leader
-metrics across
+that used the position within group, rank position within group, distance
+ to leader, or direction to leader metrics across
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]`
 study species. Only
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
