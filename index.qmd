@@ -147,13 +147,14 @@ new_functions[, .(Function, Description)] |>
 
 # Case study
 
-Functionality previously available in {spatsoc} includes spatiotemporal
-grouping, distance based edge-list generation and data-stream
-permutations (see existing functionality in [@Robitaille_2019;
-@tbl-all-functions]. These functions have allowed users to detect
-interactions between individuals, measure co-occurrence within and
-across species, and generate social networks from animal telemetry data
-[eg. @Albery_2025; @Bracken_2022; @Merkle_2024; @Heeres_2024].
+Functions previously available in {spatsoc} can be used to identify
+spatiotemporal grouping, generate distance based edge-lists and conduct
+data-stream permutations (see existing functionality in
+[@Robitaille_2019; @tbl-all-functions]. These functions have allowed
+users to detect interactions between individuals, measure co-occurrence
+within and across species, and generate social networks from animal
+telemetry data [eg. @Albery_2025; @Bracken_2022; @Merkle_2024;
+@Heeres_2024].
 
 Spatiotemporal grouping can be performed given animal movement data,
 temporal and spatial thresholds, and one of three grouping functions:
@@ -233,7 +234,7 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
 ```
 
 Users can also measure interindividual distance using the `edge_dist()`
-function ([Table @tbl-edge-dist]) and identify nearest neighbors using
+function ([Table @tbl-edge-dist]) and identify nearest neighbours using
 `edge_nn()` function ([Table @tbl-edge-nn]). For example:
 
 ```{r}
@@ -285,7 +286,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
 Building on these, {spatsoc}'s new functions provide a more detailed
-understanding of an individual's behaviour with respect to their
+measuring of an individual's behaviour with respect to their
 conspecifics. We aim to provide users with accessible, flexible
 functions that will help to identify leader-follower patterns, fission
 fusion dynamics and potentially dominance behaviours from animal
@@ -356,7 +357,7 @@ tar_read(fig_dist_dir_cent)
 
 ## Directions
 
-Next, we can use movement directions to understand how individuals and
+Next, we can use movement directions to measure how individuals and
 groups move together. We can measure an individual's movement direction
 using `direction_step()` and the mean direction of each spatiotemporal
 group identified by `group_pts()` using `direction_group()` ([Table
@@ -454,7 +455,7 @@ directional_align <- edge_alignment(
 #| label: fig-edge-align-dir
 #| echo: false
 #| eval: true
-#| fig-cap: "A) Example locations for individuals 'E' (purple) and 'F' (blue) showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by group_times(), edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighboring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is true."
+#| fig-cap: "A) Example locations for individuals 'E' (purple) and 'F' (blue) showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by group_times(), edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighbouring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is true."
 tar_read(fig_edge_dir_and_align)
 ```
 
@@ -501,7 +502,7 @@ zones <- edge_zones(
 #| label: fig-edge-zones
 #| eval: true
 #| echo: false
-#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbor (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or the range of interindividual directions that are beyond the visual perception of the focal individual. Example shows positions of neighbour 'E' in behavioural zones with respect to focal individual 'G' across the sample period."
+#| fig-cap: "Behavioural zones measured using edge_zones(). Using the 'distance' column returned by edge_dist(), the edge_zones() function returns the column 'zone' representing the behavioural zone of the neighbour (ID2) with respect to the focal individual (ID1). Optionally, the 'direction_dyad' column returned by edge_direction() can be used to define the blind volume, or the range of interindividual directions that are beyond the visual perception of the focal individual. Example shows positions of neighbour 'E' in behavioural zones with respect to focal individual 'G' across the sample period."
 tar_read(fig_edge_zones)
 ```
 
@@ -546,7 +547,10 @@ focal individual to the group's leader. The front-back position within
 the group, and distance and direction to the group leader has been used
 to study interaction rules [@Weesner_2023], leadership [@Quera_2023;
 @Sarova_2010], risk avoidance [@Josephs_2016], and how reproduction
-influences social structure [@Perez-Barberia_2018].
+influences social structure [@Perez-Barberia_2018]. In addition, a user
+can calculate an individual's time spent leading by calculating the rate
+each individual was in the first ranked position out of the total
+observations.
 
 ```{r}
 #| label: calc-dist-dir-lead
@@ -619,14 +623,14 @@ The directional correlation delay [@Nagy_2010], or the temporal delay at
 which two individual's movement directions are most similar, can be
 measured using `edge_delay()` ([Figure @fig-edge-delay]). The function
 measures the similarity of movement directions of the focal individual
-at time $t_{0}$ and the movement direction's of a neighbor within a
+at time $t_{0}$ and the movement direction's of a neighbour within a
 specified temporal window (eg. $t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}$).
-The temporal delay is the difference in time where the neighbor's
+The temporal delay is the difference in time where the neighbour's
 movement directions are most similar to the focal individual's. The
 directional correlation delay ranges from negative values indicating the
-focal individual's direction is most similar to the neighbor's previous
+focal individual's direction is most similar to the neighbour's previous
 movement direction to positive values indicating the focal individual's
-direction is most similar to the neighbor's future movement direction.
+direction is most similar to the neighbour's future movement direction.
 The directional correlation delay can be aggregated to determine mean
 directional correlation delay using `leader_edge_delay()`. The mean
 directional correlation delay can be used to measure leadership patterns
