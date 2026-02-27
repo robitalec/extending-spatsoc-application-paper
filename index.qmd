@@ -717,11 +717,11 @@ research questions, including long-standing ecological concepts such as:
     observations. However, some metrics have been developed for remotely
     estimating dominance behaviours. The directional correlation delay
     can be used to derive hierarchies of leadership which can be a proxy
-    for dominance relationships in certain species (Flack 2013, Akos
-    2014). Movement patterns that estimate dominance relationships can
-    be identified from animal telemetry including movement initiations
-    (Amornbunchornvej 2018), approach-avoidance behaviours
-    (Strandburg-Peshkin 2015) and displacement events (Evans 2018).
+    for dominance relationships in certain species [@Flack_2013;
+    @Akos_2014]. Dominance relationships can also be inferred from
+    animal telemetry data using movement initiations
+    [@Amornbunchornvej_2018], approach-avoidance behaviours
+    [@Strandburg-Peshkin_2015] and displacement events [@Evans_2018].
 
 The lack of open source code and transparency of methods alongside
 research ([@tbl-code-availability], [@tbl-prog], [@tbl-software])
