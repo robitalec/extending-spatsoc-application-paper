@@ -114,23 +114,24 @@ and discuss biological interpretation.
 
 # Methods
 
-We conducted a scoping review to identify metrics used in ecology
-studies for measuring dyadic interactions, dominance hierarchies and
-leadership patterns. We focused on metrics applicable to spatiotemporal
-data such as animal movement data. This scoping review expands on the
-review conducted by @Joo_2018 by using interdisciplinary sources (eg.
-@Miller_2021), including metrics measuring group-level dynamics,
-leadership patterns and lagged-follower behaviours, as well as focusing
-on the open source availability of these metrics in the R programming
-language. See details in Supplement [@sec-scoping-methods] and
-Supplement [@sec-scoping-results] were selected for inclusion in
+We conducted a scoping review to identify metrics for measuring
+intragroup social dynamics including dyadic interactions, leadership
+patterns, and dominance hierarchies. We focused on metrics applicable to
+spatiotemporal data such as animal movement data. This scoping review
+expands on the review conducted by @Joo_2018 by using interdisciplinary
+sources (eg. @Miller_2021), including metrics measuring group-level
+dynamics, leadership patterns, and lagged-follower behaviours, as well
+as focusing on the open source availability of these metrics in the R
+programming language. See details scoping review methods in Supplement
+[@sec-scoping-methods]. and Metrics were selected for inclusion in
 {spatsoc} based on their relative importance as measured by frequency of
 use in the review, as well as their lack of availability in R packages
-when the review was conducted. Some metrics were specifically not chosen
-for inclusion such as metrics relating to posture, metrics relating to
-static interaction or home range overlap and metrics based on
-statistical models such as Hidden Markov model and Granger causality. A
-full list of metrics not selected is in Supplement [@sec-selected].
+when the review was conducted (Supplement [@sec-scoping-results]). Some
+metrics were specifically not chosen for inclusion such as metrics
+relating to posture, metrics relating to static interaction or home
+range overlap and metrics based on statistical models such as Hidden
+Markov model and Granger causality. A full list of metrics not selected
+is in Supplement [@sec-selected].
 
 ```{r}
 #| label: tbl-new-functions
@@ -454,7 +455,7 @@ directional_align <- edge_alignment(
 #| label: fig-edge-align-dir
 #| echo: false
 #| eval: true
-#| fig-cap: "A) Example locations for individuals 'E' (purple) and 'F' (blue) showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by group_times(), edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighboring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is true. "
+#| fig-cap: "A) Example locations for individuals 'E' (purple) and 'F' (blue) showing concurrent movement paths in timegroups 1, 2 and 3. B) Interindividual direction and directional_alignment() using edge_direction() and edge_alignment(). Using distance based edge-lists returned by edge_dist() or edge_nn() and the 'timegroup' column returned by group_times(), edge_direction() returns a column named 'direction_dyad' representing the direction between the focal individual ('ID1') and the neighboring individual ('ID2'). Using the 'direction' column returned by direction_step(), the edge_alignment() function returns a column named 'direction_diff' representing the absolute different in movement directions between two individuals ('ID1' and 'ID2'). Optionally, the signed difference can be returned by edge_alignment() if the argument 'signed' is true."
 tar_read(fig_edge_dir_and_align)
 ```
 
@@ -467,17 +468,17 @@ each neighbour is used to assign the neighbours to behavioural zones. In
 addition, the direction from the focal individual to each neighbour can
 be used to determine if the neighbour is within a "blind volume" outside
 of the individual's visual perception. @Couzin_2002 defined three
-non-overlapping zones: 1) the "zone of repulsion" at a minimum distance
+non-overlapping zones. The "zone of repulsion" is at a minimum distance
 around the focal individual within which neighbours are expected to move
-away to avoid collisions, 2) the "zone of orientation" around the focal
+away to avoid collisions. The "zone of orientation" is around the focal
 individual beyond the "zone of repulsion" within which neighbours are
-expected to orient themselves to the movement of their neighbours, and
-3) the "zone of attraction" beyond the "zone of orientation" where
+expected to orient themselves to the movement of their neighbours. The
+"zone of attraction" is beyond the "zone of orientation" where
 neighbours are expected to be attracted to the position of the focal
-individual. The `edge_zones()` is designed to allow for flexible
-definitions of zones including distance thresholds, zone labels and
-blind volume thresholds. The behavioural zones metric has been used to
-study the impact of individual movement speed and predator evasion
+individual. The `edge_zones()` function is designed to allow for
+flexible definitions of zones including distance thresholds, zone labels
+and blind volume thresholds. The behavioural zones metric has been used
+to study the impact of individual movement speed and predator evasion
 [@Klamser_2021] and identifying rules of interaction in large animal
 groups [@Lukeman_2010].
 
@@ -511,13 +512,13 @@ After considering how individuals are positioned relative to the group
 centroid, we can also measure how individuals are positioned relative to
 the mean group direction. To do so, we first calculate each individual's
 movement direction with `direction_step()` and the group's mean
-direction with `direction_group()`. Then rotate the coordinate system
-around the group centroid by the group's mean direction and take the
-distance along this new axis as the measure of front-back position
-within the group [@Quera_2023; @Harel_2021; @Andrienko_2013] using
-`leader_direction_group()` ([Figure @fig-leader-dir-group]). The rank of
-individual's positions within spatiotemporal groups [@Burns_2012] can be
-optionally returned when the argument 'return_rank' is true.
+direction with `direction_group()`. Then `leader_direction_group()`
+rotates the coordinate system around the group centroid by the group's
+mean direction. The distance along this new axis is the measure of
+front-back position of an individual within the group [@Quera_2023;
+@Harel_2021; @Andrienko_2013] ([Figure @fig-leader-dir-group]). The rank
+of individual positions within spatiotemporal groups [@Burns_2012] can
+be optionally returned when the argument 'return_rank' is true.
 
 ```{r}
 #| label: calc-leader-dir-group
@@ -570,20 +571,20 @@ Fusion events, or temporal periods where two individiuals are within a
 given threshold distance from each other, can be identified using
 `fusion_id()` ([Figure @fig-fusion]). Given the variability in defining
 fission fusion dynamics in the literature ([@tbl-defn-fission]), the
-`fusion_id()` function flexibly allows users to both use specific
-threshold and definitions that match their study species and research
-questions and easily compare their results to previously published work
-by using the same thresholds and definitions. The `threshold` argument
-defines the spatial distance threshold to establish a fusion event. The
-`n_min_length` argument defines the minimum number of successive fixes
-that are required to establish a fusion event. The `n_max_missing`
-defines the maximum number of allowable missed observations for either
-individual in a dyad within a fusion event. The `allow_split` argument
-defines if fusion events allow a temporary spatial splitting for one
-observation without resulting in a fission event. Identification of
-fusion events has been used to study resource seasonality [@Baden_2016],
-information transfer [@Barocas_2016], decision making [@Merkle_2015],
-and habitat selection [@Fortin_2009].
+`fusion_id()` function flexibly allows users to use specific thresholds
+and definitions that match their study species and research questions.
+This will also allow users to easily compare their results to previously
+published work by using the same thresholds and definitions. The
+`threshold` argument defines the spatial distance threshold to establish
+a fusion event. The `n_min_length` argument defines the minimum number
+of successive fixes that are required to establish a fusion event. The
+`n_max_missing` defines the maximum number of allowable missed
+observations for either individual in a dyad within a fusion event. The
+`allow_split` argument defines if fusion events allow a temporary
+spatial splitting for one observation without resulting in a fission
+event. Identification of fusion events has been used to study resource
+seasonality [@Baden_2016], information transfer [@Barocas_2016],
+decision making [@Merkle_2015], and habitat selection [@Fortin_2009].
 
 ```{r}
 #| label: calc-fusion
@@ -618,19 +619,20 @@ tar_read(fig_fusion_events)
 The directional correlation delay [@Nagy_2010], or the temporal delay at
 which two individual's movement directions are most similar, can be
 measured using `edge_delay()` ([Figure @fig-edge-delay]). The function
-compares a focal individual's movement directions at time $t$ to all of
-the movement direction's of a neighbor within a temporal window to
-determine the temporal lag at which the neighbor's movement directions
-are most similar to the focal individual. The directional correlation
-delay ranges from negative values indicating the focal individual's
-direction is most similar to the neighbor's previous movement direction
-to positive values indicating the focal individual's direction is most
-similar to the neighbor's future movement direction. The directional
-correlation delay can be aggregated to determine mean directional
-correlation delay using `leader_edge_delay()`. The mean directional
-correlation delay can be used to measure leadership patterns and
-generate hierarchical leadership networks depending on the study system
-[@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023; @Akos_2014].
+measures the similarity of movement directions of the focal individual
+at time $t_{0}$ and the movement direction's of a neighbor within a
+specified temporal window (eg. $t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}$).
+The temporal delay is the difference in time where the neighbor's
+movement directions are most similar to the focal individual's. The
+directional correlation delay ranges from negative values indicating the
+focal individual's direction is most similar to the neighbor's previous
+movement direction to positive values indicating the focal individual's
+direction is most similar to the neighbor's future movement direction.
+The directional correlation delay can be aggregated to determine mean
+directional correlation delay using `leader_edge_delay()`. The mean
+directional correlation delay can be used to measure leadership patterns
+and generate hierarchical leadership networks depending on the study
+system [@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023; @Akos_2014].
 
 ```{r}
 #| label: calc-edge-delay
