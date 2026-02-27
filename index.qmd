@@ -119,18 +119,18 @@ patterns, and dominance hierarchies. We focused on metrics applicable to
 spatiotemporal data such as animal movement data. This scoping review
 expands on the review conducted by @Joo_2018 by using interdisciplinary
 sources (eg. @Miller_2021), including metrics measuring group-level
-dynamics, leadership patterns, and lagged-follower behaviours, as well
-as focusing on the open source availability of these metrics in the R
+dynamics, leadership patterns, and lagged-follower behaviours, and by
+focusing on the open source availability of these metrics in the R
 programming language. See details scoping review methods in Supplement
 [@sec-scoping-methods]. and Metrics were selected for inclusion in
 {spatsoc} based on their relative importance as measured by frequency of
-use in the review, as well as their lack of availability in R packages
-when the review was conducted (Supplement [@sec-scoping-results]). Some
-metrics were specifically not chosen for inclusion such as metrics
-relating to posture, metrics relating to static interaction or home
-range overlap and metrics based on statistical models such as Hidden
-Markov model and Granger causality. A full list of metrics not selected
-is in Supplement [@sec-selected].
+use in the review, and their lack of availability in R packages when the
+review was conducted (Supplement [@sec-scoping-results]). Some metrics
+were specifically not chosen for inclusion such as metrics relating to
+posture, metrics relating to static interaction or home range overlap
+and metrics based on statistical models such as Hidden Markov model and
+Granger causality. A full list of metrics not selected is in Supplement
+[@sec-selected].
 
 ```{r}
 #| label: tbl-new-functions
