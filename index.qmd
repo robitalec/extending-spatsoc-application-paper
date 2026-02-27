@@ -40,7 +40,7 @@ abstract: |
   1. Beyond proximity-based social networks and home range overlap, animal telemetry data can also be used to measure intragroup social dynamics including individual position within groups, individual and group level movement directions, leadership patterns and lagged follower behaviours.
   2. We used a scoping review of literature across domains, including behavioural ecology, collective movement, and GISciences, to identify widely used metrics for measuring intragroup social dynamics that are not openly available in the R programming language. 
   3. We present a case study illustrating 18 new functions for the R package {spatsoc} measuring intragroup social dynamics with animal telemetry data.
-  4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to easily apply measures of intragroup social dynamics to more comprehensively understand the multifaceted animal social behaviours in their study systems. 
+  4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to easily measure intragroup social dynamics to more comprehensively measure the multifaceted animal social behaviours in their study systems. 
 plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
