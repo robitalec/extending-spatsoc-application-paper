@@ -35,6 +35,7 @@ plot_pos_group_dir <- function(DT) {
     geom_point(aes(centroid_X, centroid_Y), size = 1) +
     geom_point(aes(X, Y), size = 0.5) +
     labs(x = '', y = '') +
+    theme_void(base_size = font_size) +
     theme(axis.text = element_blank(), axis.ticks = element_blank()) +
     coord_fixed() +
     guides(color = 'none')
@@ -47,7 +48,8 @@ plot_pos_group_dir <- function(DT) {
     labs(x = 'Position group direction', y = 'Rank position group direction') +
     scale_y_discrete(
       limits = rev(levels(factor(DT$rank_position_group_direction)))
-    )
+    ) +
+    theme_bw(base_size = font_size)
 
   (g_xy + g_pos) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
