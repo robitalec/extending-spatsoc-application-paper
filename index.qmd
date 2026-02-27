@@ -31,7 +31,7 @@ keywords:
   - R
   - animal social dynamics
   - collective movement
-  - leader follower
+  - leader-follower
   - fission fusion
   - dominance hierarchies
 abstract: | 
@@ -284,12 +284,12 @@ sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
 tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
-Building on these, {spatsoc}'s new functions provides a finer
-understanding of an individual's behaviour with respect to conspecifics.
-We aim to provide users with accessible, flexible functions that will
-help to identify leader follower patterns, fission fusion dynamics and
-potentially dominance behaviours from animal telemetry data in their
-ecological systems.
+Building on these, {spatsoc}'s new functions provide a more detailed
+understanding of an individual's behaviour with respect to their
+conspecifics. We aim to provide users with accessible, flexible
+functions that will help to identify leader-follower patterns, fission
+fusion dynamics and potentially dominance behaviours from animal
+telemetry data in their ecological systems.
 
 ## Position within groups
 
