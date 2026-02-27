@@ -30,6 +30,8 @@ author:
 keywords:
   - R
   - animal social dynamics
+  - spatiotemporal groups
+  - social network analysis
   - collective movement
   - leader-follower
   - fission fusion
