@@ -671,63 +671,66 @@ tar_read(fig_edge_delay)
 # Implications
 
 The open source package {spatsoc} [@Robitaille_2019] for the R
-programming language [@RCoreTeam_2025a] has greatly improved
-accessibility to methods for spatiotemporal grouping and social network
-analysis with animal telemetry data [eg. @Albery_2025; @Bracken_2022;
-@Merkle_2024; @Heeres_2024]. Despite this, proximity based associations
-are only one dimension and studying intragroup social dynamics will
-allow researchers to further understand animal social systems. These new
-functions in {spatsoc} make openly available a series of metrics that
-while commonly used in the literature have been largely absent from R
-packages so far. The lack of open source code and transparency of
-methods alongside research ([@tbl-code-availability], [@tbl-prog],
-[@tbl-software]) continues to slow the progress of science by limiting
-the application of new methodology. We hope that the availability of
-these metrics will allow their applications to diverse study species,
-systems or research questions, including novel novel applications that
-could have management and conservation implications for vulnerable
-species [@Ramos_2021] and continued advancements in the collection of
-animal movement data in the wild [@Hughey_2018].
+programming language [@RCoreTeam_2025a] has improved accessibility to
+methods for spatiotemporal grouping and social network analysis with
+animal telemetry data [eg. @Albery_2025; @Bracken_2022; @Merkle_2024;
+@Heeres_2024]. Despite this, proximity based associations are only one
+dimension and studying intragroup social dynamics will allow researchers
+to further measure animal social systems. The new functions in {spatsoc}
+and the accompanying case study presented here make openly available a
+series of metrics that while commonly used in the literature have been
+largely absent from R packages. Paired with the continued development of
+animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
+data collection methods [@Koger_2023; @Predrazzi_2025], the open
+availability of these metrics in R will broaden their application across
+research questions, including long-standing ecological concepts such as:
 
-# Box 1 {.unnumbered}
+-   Social foraging theory and producer-scrounger dynamics where
+    “producers” are those who discover patches and “scroungers” are
+    those who join patches discovered by others [@Barnard_1981;
+    @Vickery_1991; @Giraldeau_2000]. This concept can be applied to
+    animal telemetry data by evaluating the position of individuals
+    within groups, the individual’s arrival timing to forage patches and
+    the characteristics of forage patches. Individuals balance predation
+    risk and foraging success by adjusting their spatial position within
+    groups [@Teichroeb_2015; @Hirsch_2019], and the foraging strategy
+    selected by an individual can be influenced by the size of forage
+    patches [@Hansen_2016].
 
-Producer-scrounger dynamics describe two strategies of social foragers:
-“producers” are those who discover patches and “scroungers” are those
-who join patches discovered by others. This concept can be applied to
-animal telemetry data by evaluating the position of individuals within
-groups, the individual’s arrival timing to forage patches and
-characteristics of forage patches. Individuals balance predation risk
-and foraging success by adjusting their spatial position within groups
-(Teichroeb 2015, Hirsch 2019), and the foraging strategy selected by an
-individual can be influenced by the size of forage patches (Hansen
-2016).
+-   Leader-follower patterns in groups of moving animals can be studied
+    both to determine factors that causally influence leadership, and
+    for the influence of leader-follower strategies on foraging success
+    and downstream fitness. Applied to animal telemetry data, leadership
+    can be defined simply by identifying the individual at the foremost
+    position along the front-to-back axis of the group’s direction
+    [@Quera_2023; @Harel_2021] or by calculating the directional
+    correlation delay between individuals and building leadership
+    hierarchies [@Nagy_2010]. Leadership in a group of moving animals
+    can inform animal decision making, group coordination, and migratory
+    patterns [@Flack_2018; @Weesner_2023; @Quera_2023; @Kano_2021].
 
-Leader-follower patterns in groups of moving animals can be studied both
-to determine factors that causally influence leadership, and for the
-influence of leader-follower strategies on foraging success and
-downstream fitness. Applied to animal telemetry, leadership can be
-defined simply by identifying the individual at the foremost position
-along the front-to-back axis of the group’s direction (Quera 2023, Harel
-2021). Alternatively, leadership can be identified by calculating the
-directional correlation delay (Nagy 2010), the temporal delay of shared
-directional movements between individuals. Leadership in a group of
-moving animals can inform animal decision making, group coordination,
-and migratory patterns (Flack 2018, Weesner 2023, Quera 2023, Kano
-2021).
+-   Individual traits can influence behaviours related to intragroup
+    dynamics. Dominance is related to foraging success [@Caraco_1989;
+    @Teichroeb_2015] and choice of foraging strategy [@King_2009;
+    @Aplin_2017; @Lee_2016]. Dominant, aggressive, grooming and other
+    interindividual behaviours are typically measured using focal
+    observations. However, some metrics have been developed for remotely
+    estimating dominance behaviours. The directional correlation delay
+    can be used to derive hierarchies of leadership which can be a proxy
+    for dominance relationships in certain species (Flack 2013, Akos
+    2014). Movement patterns that estimate dominance relationships can
+    be identified from animal telemetry including movement initiations
+    (Amornbunchornvej 2018), approach-avoidance behaviours
+    (Strandburg-Peshkin 2015) and displacement events (Evans 2018).
 
-Individual traits can influence behaviors related to intragroup
-dynamics. Dominance is related to foraging success (Caraco 1989,
-Teichroeb 2015) and choice of foraging strategy (King 2009, Aplin and
-Morand-Ferron 2017, Lee 2016). Dominant, aggressive, grooming and other
-interindividual behaviors are typically measured using focal
-observations. However, some metrics have been developed for remotely
-estimating dominance behaviors. The directional correlation delay can be
-used to derive hierarchies of leadership which can be a proxy for
-dominance relationships in certain species (Flack 2013, Akos 2014).
-Movement patterns that estimate dominance relationships can be
-identified from animal telemetry including movement initiations
-(Amornbunchornvej 2018), approach-avoidance behaviours
-(Strandburg-Peshkin 2015) and displacement events (Evans 2018).
+The lack of open source code and transparency of methods alongside
+research ([@tbl-code-availability], [@tbl-prog], [@tbl-software])
+continues to slow the progress of science by limiting the broader
+application of new methods. We hope that the availability of these
+metrics in {spatsoc} will allow researchers to apply them to diverse
+study species, systems or research questions, including novel
+applications that could have management and conservation implications
+for vulnerable species [@Ramos_2021].
 
 # Open science
 
@@ -763,7 +766,7 @@ the development of this new functionality in {spatsoc}. We thank Martin
 Leclerc, Rick Heeres and Shane Frank for testing the package's new
 functionality ahead of its release. We thank members of the Wildlife
 Evolutionary Ecology Lab for their comments on previous versions of this
-manuscript. We thank the rOpenSci organization including staff, editors,
+manuscript. We thank the rOpenSci organisation including staff, editors,
 reviewers and contributors for their continued efforts to foster a
 community around open data, software and reproducibility.
 
