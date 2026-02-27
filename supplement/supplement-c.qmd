@@ -133,12 +133,12 @@ pos_wi <- count_metric[
 ```
 
 Our scoping review found `r pos_wi[, uniqueN(covidence_number)]` studies
-that used the position within group, rank position within group, distance
- to leader, or direction to leader metrics across
+that used the position within group, rank position within group,
+distance to leader, or direction to leader metrics across
 `r taxized[covidence_number %in% pos_wi$covidence_number, uniqueN(species)]`
 study species. Only
 `r count_code_avail[covidence_number %in% pos_wi$covidence_number & analysis_code_availability == 'Yes', .N]`
-study had code available. At the time when the scoping review was
+studies had code available. At the time when the scoping review was
 conducted, to the best of our knowledge, there were no R packages that
 provide these metrics.
 
