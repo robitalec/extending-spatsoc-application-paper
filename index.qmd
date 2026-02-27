@@ -57,62 +57,59 @@ number-sections: true
 targets::tar_source('_targets.R')
 ```
 
-Animal social dynamics have broad implications in ecology including
-resource availability, disease transmission and collective behaviour.
-Social network analysis can measure the structure of social systems, the
-consequences of an individual's position in a network, the spread of
-disease or information across networks, and the influence of the
-environment [@Farine_2015]. Open source tools have been developed to
-derive social networks from animal telemetry data [@Robitaille_2019]
-using aggregated association rates or home range overlap. The methods
-have been used to measure contact rates to measure social cohesion
-[@Bracken_2022], human-wildlife conflict [@Boudreau_2022], socioecology
-and resource availability [@Peignier_2019], community structure
-[@Sunga_2021], influence of stress of social proximity
-[@Keshavarzi_2023], social patterns in non-social species
-[@Heeres_2024].
+The R package {spatsoc} was developed to derive social networks from
+animal telemetry data using aggregated association rates,
+interindividual distances, and home range overlap [@Robitaille_2019].
+These methods have been used to measure social cohesion [@Bracken_2022],
+human-wildlife conflict [@Boudreau_2022], socioecology and resource
+availability [@Peignier_2019], community structure [@Sunga_2021], the
+influence of stress on social proximity [@Keshavarzi_2023], and social
+patterns in non-social species [@Heeres_2024]. Despite these substantive
+and varied applications of {spatsoc}, users lacked sufficient and
+accessible functionality for measuring the behaviour of individuals
+within social groups.
 
-Many facets of group living need to be measured to better understand
-animal social systems [@King_2018]. There are additional types of dyadic
-relationships including genetic, affiliative, agonistic, and cooperative
-[@Farine_2015]. There are also interactions between spatial and social
-phenotypes and environments [@Webber_2023]. Using direct observations,
-researchers have studied intragroup social dynamics including social
-foraging [@Barnard_1981; @Giraldeau_1986; @Hirsch_2020], spatial
-position within groups [@Krause_1994; @Monus_2008] and the influence of
-individual traits such as age, sex and dominance [@Furuichi_1983;
-@King_2009; @Teichroeb_2015]. Unfortunately, direct observations can be
-labor-intensive to collect and susceptible to observer bias
+Many facets of group living need to be considered to better measure
+animal social systems [@King_2018]. Beyond associations, there are
+additional types of dyadic relationships including genetic, affiliative,
+agonistic, and cooperative [@Farine_2015]. There are also interactions
+between spatial phenotypes, social phenotypes, and environments
+[@Webber_2023]. Using direct observations, researchers have studied
+intragroup social dynamics including social foraging [@Barnard_1981;
+@Giraldeau_1986; @Hirsch_2020], spatial position within groups
+[@Krause_1994; @Monus_2008] and the influence of individual traits such
+as age, sex, and dominance [@Furuichi_1983; @King_2009;
+@Teichroeb_2015]. Unfortunately, direct observations can be
+labour-intensive to collect and susceptible to observer bias
 [@Smith_2021], with low spatial and temporal resolution making them
 imperfect for studies of collective movement [@King_2018].
 
-There are expanded opportunities to understand animal social systems by
-pairing advances in remote tracking technology with emerging approaches
-to measuring intragroup social dynamics. The availability and resolution
-of remote tracking data continues to improve [@Kays_2015; @Kays_2022;
-@Nathan_2022]. There are over two decades of research on measuring the
-interaction between moving individuals from the study of "moving point
+There are expanded opportunities in studying animal social systems by
+pairing advances in remote tracking technology with emerging methods to
+measure intragroup social dynamics. The availability and resolution of
+remote tracking data continues to improve [@Kays_2015; @Kays_2022;
+@Nathan_2022]. There are over two decades of research on measuring
+interactions between moving individuals from the study of "moving point
 objects" in GISciences [@Andersson_2008; @Dodge_2008; @Laube_2005;
-@Miller_2021] to group coordination of moving groups [@Couzin_2002;
-@Herbert-Read_2011] and leadership and decision making [@King_2011;
-@Nagy_2010; @Strandburg-Peshkin_2015]. Despite this, we suggest the
+@Miller_2021] to group coordination [@Couzin_2002; @Herbert-Read_2011],
+leadership, and decision making [@King_2011; @Nagy_2010;
+@Strandburg-Peshkin_2015]. Despite this, we suggest the lack of
 availability of open source tools [@Hampton_2015; @Powers_2019;
 @Wilson_2017] is the missing piece between the call to integrate
 technology enhanced research with multidisciplinary approaches to better
-understand animal social systems [@Couzin_2023; @King_2018].
+study animal social systems [@Couzin_2023; @King_2018].
 
-Here we present
+We conducted a scoping review to identify metrics that were applicable
+to spatiotemporal data, and focused on dyadic interactions, leadership
+patterns, and dominance hierarchies. Of the resulting metrics, we
+selected those with a high evidence of use, and lack of availability in
+the R programming language, either through R packages or supplemental
+materials in the literature. Here we present
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions in the R package {spatsoc} [@Robitaille_2019] for
-measuring intragroup dynamics ([Table @tbl-new-functions]). We conducted
-a scoping review to identify metrics that were applicable to
-spatiotemporal data, and focused on dyadic interactions, leadership
-patterns, and dominance hierarchies. Of the resulting metrics, we
-selected those with a high number of citations (as a measure of value
-for the target audience) and lack of availability in the R programming
-language, either through R packages or supplemental materials in the
-literature. We will demonstrate these new functions through a case study
-and discuss biological interpretation.
+measuring intragroup dynamics ([Table @tbl-new-functions]). We will
+demonstrate these new functions through a case study and discuss
+biological interpretations.
 
 # Methods
 
