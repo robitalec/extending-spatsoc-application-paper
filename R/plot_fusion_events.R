@@ -1,7 +1,7 @@
 plot_fusion_events <- function(edges, DT) {
   edges[!is.na(fusionID), N_by_fusion := .N, by = fusionID]
-  sel_fusion <- edges[N_by_fusion > 5, sample(fusionID, 1)]
-  sel_fusion <- 124 #229 #264
+  # sel_fusion <- edges[between(N_by_fusion, 5, 9), sample(fusionID, 1)]
+  sel_fusion <- 300 #40 #141
   sub_edges <- edges[fusionID == sel_fusion]
   sub_edges[,
     paste0('centroid_', coords) := data.frame(st_coordinates(centroid))
