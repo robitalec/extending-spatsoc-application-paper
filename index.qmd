@@ -681,7 +681,7 @@ and the accompanying case study presented here make openly available a
 series of metrics that while commonly used in the literature have been
 largely absent from R packages. Paired with the continued development of
 animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
-data collection methods [@Koger_2023; @Predrazzi_2025], the open
+data collection methods [@Koger_2023; @Pedrazzi_2025], the open
 availability of these metrics in R will broaden their application across
 research questions, including long-standing ecological concepts such as:
 
@@ -693,7 +693,7 @@ research questions, including long-standing ecological concepts such as:
     within groups, the individual’s arrival timing to forage patches and
     the characteristics of forage patches. Individuals balance predation
     risk and foraging success by adjusting their spatial position within
-    groups [@Teichroeb_2015; @Hirsch_2019], and the foraging strategy
+    groups [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy
     selected by an individual can be influenced by the size of forage
     patches [@Hansen_2016].
 
