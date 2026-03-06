@@ -13,9 +13,9 @@ plot_fusion_events <- function(edges, DT) {
       sub_edges[, c(ID1, ID2)] &
       timegroup %in%
         sub_edges[, c(
-          min(timegroup) - c(1),
+          min(timegroup) - 1L,
           unique(timegroup),
-          max(timegroup) + c(1:2)
+          max(timegroup) + 1L
         )]
   ]
 
