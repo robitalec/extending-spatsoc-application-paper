@@ -38,7 +38,7 @@ plot_edge_dir_and_align <- function(DT, edges) {
       ID1,
       ID2,
       direction_dyad = round(direction_dyad, digits = 2),
-      direction_diff = units::as_units(round(direction_diff, digits = 2), 'rad')
+      direction_diff = round(direction_diff, digits = 2)
     )
   ]
 

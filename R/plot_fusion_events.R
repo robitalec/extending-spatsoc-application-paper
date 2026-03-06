@@ -1,7 +1,7 @@
 plot_fusion_events <- function(edges, DT) {
   edges[!is.na(fusionID), N_by_fusion := .N, by = fusionID]
-  sel_fusion <- edges[N_by_fusion > 5, sample(fusionID, 1)]
-  sel_fusion <- 124 #229 #264
+  # sel_fusion <- edges[between(N_by_fusion, 5, 9), sample(fusionID, 1)]
+  sel_fusion <- 300 #40 #141
   sub_edges <- edges[fusionID == sel_fusion]
   sub_edges[,
     paste0('centroid_', coords) := data.frame(st_coordinates(centroid))
@@ -13,9 +13,9 @@ plot_fusion_events <- function(edges, DT) {
       sub_edges[, c(ID1, ID2)] &
       timegroup %in%
         sub_edges[, c(
-          min(timegroup) - c(1),
+          min(timegroup) - 1L,
           unique(timegroup),
-          max(timegroup) + c(1:2)
+          max(timegroup) + 1L
         )]
   ]
 
@@ -53,13 +53,9 @@ plot_fusion_events <- function(edges, DT) {
     coord_fixed()
 
   tab <- edges[
-    ID1 == 'A' &
-      ID2 %in% c(NA_character_, 'C') &
-      between(
-        timegroup,
-        666, #min(sub_edges$timegroup) - 1,
-        673 #max(sub_edges$timegroup) + 1
-      ),
+    ID1 %in% c(NA_character_, sub_edges[, last(unique(ID1))]) &
+      ID2 %in% c(NA_character_, sub_edges[, first(unique(ID1))]) &
+      timegroup %in% sub_DT$timegroup,
     .(
       timegroup = timegroup - min(timegroup) + 1,
       ID1,
