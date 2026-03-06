@@ -53,13 +53,9 @@ plot_fusion_events <- function(edges, DT) {
     coord_fixed()
 
   tab <- edges[
-    ID1 == 'A' &
-      ID2 %in% c(NA_character_, 'C') &
-      between(
-        timegroup,
-        666, #min(sub_edges$timegroup) - 1,
-        673 #max(sub_edges$timegroup) + 1
-      ),
+    ID1 %in% c(NA_character_, sub_edges[, last(unique(ID1))]) &
+      ID2 %in% c(NA_character_, sub_edges[, first(unique(ID1))]) &
+      timegroup %in% sub_DT$timegroup,
     .(
       timegroup = timegroup - min(timegroup) + 1,
       ID1,
