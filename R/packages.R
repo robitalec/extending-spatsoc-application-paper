@@ -14,6 +14,7 @@ library(rnaturalearth)
 library(patchwork)
 library(gridExtra)
 library(hexbin)
+library(ggforce)
 
 library(tinytable)
 library(scales)
