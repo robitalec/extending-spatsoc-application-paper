@@ -613,7 +613,7 @@ centroid_fusion(
 #| echo: false
 #| eval: true
 #| fig-width: 5
-#| fig-cap: "A) Example fusion event for individuals 'A' and 'C' with black points representing the centroid of fusion observations returned by centroid_fusion(). B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals A and C given they are within the distance threshold at timegroups 2, 3, and 5, and 'allow_split' is true."
+#| fig-cap: "A) Example fusion event for individuals 'J' and 'C' with black points representing the centroid of fusion observations returned by centroid_fusion(). B) A fusion event identified using fusion_id. Using the distance based edge-lists measured using edge_dist() and the dyad id returned by dyad_id(), fusion_id() a returns a column named 'fusionID' representing the fusion events defined with user specified constraints: the distance threshold ('threshold'), the minimum number of observations defining a fusion event ('n_min_length'), the maximum number of missing observations from either individual in a fusion event ('n_max_missing') and if a single observation where individuals are beyond the distance threshold should result in a fission event ('allow_split'). In B), a fusion event is identified for individuals J and C given they are within the distance threshold at timegroups 2, 3, and 4. Individual J is shown at timegroups 1 and 5 with no neighbours within the threshold spatial distance (ID2 is NA)."
 tar_read(fig_fusion_events)
 ```
 
@@ -681,7 +681,7 @@ and the accompanying case study presented here make openly available a
 series of metrics that while commonly used in the literature have been
 largely absent from R packages. Paired with the continued development of
 animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
-data collection methods [@Koger_2023; @Predrazzi_2025], the open
+data collection methods [@Koger_2023; @Pedrazzi_2025], the open
 availability of these metrics in R will broaden their application across
 research questions, including long-standing ecological concepts such as:
 
@@ -693,7 +693,7 @@ research questions, including long-standing ecological concepts such as:
     within groups, the individual’s arrival timing to forage patches and
     the characteristics of forage patches. Individuals balance predation
     risk and foraging success by adjusting their spatial position within
-    groups [@Teichroeb_2015; @Hirsch_2019], and the foraging strategy
+    groups [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy
     selected by an individual can be influenced by the size of forage
     patches [@Hansen_2016].
 
