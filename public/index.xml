@@ -471,45 +471,45 @@ group_pts(
             <tbody>
               <tr>
                 <td>B</td>
-                <td>2016-11-29 14:00:54</td>
-                <td>POINT (699558 5510172)</td>
-                <td>344</td>
-                <td>1740</td>
+                <td>2017-01-10 22:00:55</td>
+                <td>POINT (697579 5511383)</td>
+                <td>852</td>
+                <td>2248</td>
               </tr>
               <tr>
                 <td>G</td>
-                <td>2016-11-29 14:00:43</td>
-                <td>POINT (699565 5510162)</td>
-                <td>344</td>
-                <td>1740</td>
+                <td>2017-01-10 22:00:24</td>
+                <td>POINT (697570 5511383)</td>
+                <td>852</td>
+                <td>2248</td>
               </tr>
               <tr>
-                <td>E</td>
-                <td>2017-01-11 20:00:41</td>
-                <td>POINT (696379 5506444)</td>
-                <td>863</td>
-                <td>5791</td>
+                <td>F</td>
+                <td>2017-02-05 08:01:17</td>
+                <td>POINT (702198 5510759)</td>
+                <td>1143</td>
+                <td>6870</td>
               </tr>
               <tr>
                 <td>I</td>
-                <td>2017-01-11 20:01:07</td>
-                <td>POINT (696378 5506470)</td>
-                <td>863</td>
-                <td>5791</td>
+                <td>2017-02-05 08:00:46</td>
+                <td>POINT (702158 5510732)</td>
+                <td>1143</td>
+                <td>6870</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td>2017-02-24 22:00:41</td>
+                <td>POINT (697481 5511872)</td>
+                <td>1351</td>
+                <td>2717</td>
               </tr>
               <tr>
                 <td>J</td>
-                <td>2017-01-11 20:00:16</td>
-                <td>POINT (696368 5506485)</td>
-                <td>863</td>
-                <td>5791</td>
-              </tr>
-              <tr>
-                <td>E</td>
-                <td>2017-01-13 20:00:40</td>
-                <td>POINT (699263 5506384)</td>
-                <td>887</td>
-                <td>5800</td>
+                <td>2017-02-24 22:00:47</td>
+                <td>POINT (697480 5511869)</td>
+                <td>1351</td>
+                <td>2717</td>
               </tr>
             </tbody>
           </table>
@@ -561,40 +561,40 @@ interindividual_dist &lt;- edge_dist(
             </thead>
             <tbody>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>A</td>
-                <td>H</td>
-                <td>15.666</td>
+                <td>F</td>
+                <td>17.64</td>
               </tr>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>A</td>
                 <td>I</td>
-                <td>8.920</td>
+                <td>16.13</td>
               </tr>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>B</td>
-                <td>G</td>
-                <td>3.123</td>
+                <td>NA</td>
+                <td>NA</td>
               </tr>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>C</td>
-                <td>NA</td>
-                <td>NA</td>
+                <td>E</td>
+                <td>14.27</td>
               </tr>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>D</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>853</td>
+                <td>1019</td>
                 <td>E</td>
-                <td>F</td>
-                <td>32.031</td>
+                <td>C</td>
+                <td>14.27</td>
               </tr>
             </tbody>
           </table>
@@ -625,7 +625,7 @@ nearest_neighbours &lt;- edge_nn(
               <col width="17%"/>
               <col width="7%"/>
               <col width="7%"/>
-              <col width="15%"/>
+              <col width="17%"/>
             </colgroup>
             <thead>
               <tr>
@@ -637,40 +637,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>1225</td>
+                <td>315</td>
                 <td>A</td>
-                <td>I</td>
-                <td>27.18</td>
+                <td>C</td>
+                <td>4054.070</td>
               </tr>
               <tr>
-                <td>1225</td>
+                <td>315</td>
                 <td>B</td>
                 <td>G</td>
-                <td>130.42</td>
+                <td>2.158</td>
               </tr>
               <tr>
-                <td>1225</td>
+                <td>315</td>
                 <td>C</td>
                 <td>I</td>
-                <td>39.97</td>
+                <td>223.786</td>
               </tr>
               <tr>
-                <td>1225</td>
+                <td>315</td>
                 <td>D</td>
-                <td>H</td>
-                <td>14241.96</td>
-              </tr>
-              <tr>
-                <td>1225</td>
-                <td>F</td>
-                <td>C</td>
-                <td>370.90</td>
-              </tr>
-              <tr>
-                <td>1225</td>
-                <td>G</td>
                 <td>J</td>
-                <td>79.64</td>
+                <td>12460.770</td>
+              </tr>
+              <tr>
+                <td>315</td>
+                <td>E</td>
+                <td>H</td>
+                <td>7.730</td>
+              </tr>
+              <tr>
+                <td>315</td>
+                <td>F</td>
+                <td>A</td>
+                <td>7035.740</td>
               </tr>
             </tbody>
           </table>
@@ -723,46 +723,46 @@ centroid_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
+                  <td>E</td>
+                  <td>499</td>
+                  <td>5547</td>
+                  <td>POINT (698312 5507990)</td>
+                  <td>POINT (698314 5507990)</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>499</td>
+                  <td>5547</td>
+                  <td>POINT (698316 5507990)</td>
+                  <td>POINT (698314 5507990)</td>
+                </tr>
+                <tr>
                   <td>B</td>
-                  <td>474</td>
-                  <td>1870</td>
-                  <td>POINT (698303 5511330)</td>
-                  <td>POINT (698300 5511328)</td>
+                  <td>896</td>
+                  <td>2292</td>
+                  <td>POINT (697362 5511507)</td>
+                  <td>POINT (697365 5511507)</td>
                 </tr>
                 <tr>
                   <td>G</td>
-                  <td>474</td>
-                  <td>1870</td>
-                  <td>POINT (698297 5511326)</td>
-                  <td>POINT (698300 5511328)</td>
+                  <td>896</td>
+                  <td>2292</td>
+                  <td>POINT (697369 5511507)</td>
+                  <td>POINT (697365 5511507)</td>
                 </tr>
                 <tr>
-                  <td>G</td>
-                  <td>1300</td>
-                  <td>7451</td>
-                  <td>POINT (699022 5507607)</td>
-                  <td>POINT (699011 5507592)</td>
-                </tr>
-                <tr>
-                  <td>J</td>
-                  <td>1300</td>
-                  <td>7451</td>
-                  <td>POINT (699000 5507576)</td>
-                  <td>POINT (699011 5507592)</td>
+                  <td>A</td>
+                  <td>1382</td>
+                  <td>1382</td>
+                  <td>POINT (704355 5509019)</td>
+                  <td>POINT (704344 5509035)</td>
                 </tr>
                 <tr>
                   <td>C</td>
-                  <td>1418</td>
-                  <td>3627</td>
-                  <td>POINT (703797 5511482)</td>
-                  <td>POINT (703796 5511480)</td>
-                </tr>
-                <tr>
-                  <td>F</td>
-                  <td>1418</td>
-                  <td>3627</td>
-                  <td>POINT (703795 5511479)</td>
-                  <td>POINT (703796 5511480)</td>
+                  <td>1382</td>
+                  <td>1382</td>
+                  <td>POINT (704345 5509027)</td>
+                  <td>POINT (704344 5509035)</td>
                 </tr>
               </tbody>
             </table>
@@ -845,7 +845,7 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="21%"/>
+                <col width="22%"/>
                 <col width="25%"/>
               </colgroup>
               <thead>
@@ -859,46 +859,46 @@ direction_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>C</td>
-                  <td>1050</td>
-                  <td>3558</td>
-                  <td>-1.518 [rad]</td>
-                  <td>-1.726 [rad]</td>
-                </tr>
-                <tr>
                   <td>E</td>
-                  <td>1050</td>
-                  <td>3558</td>
-                  <td>-2.069 [rad]</td>
-                  <td>-1.726 [rad]</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>1050</td>
-                  <td>3558</td>
-                  <td>-1.595 [rad]</td>
-                  <td>-1.726 [rad]</td>
-                </tr>
-                <tr>
-                  <td>C</td>
-                  <td>1327</td>
-                  <td>1327</td>
-                  <td>-2.087 [rad]</td>
-                  <td>-2.231 [rad]</td>
+                  <td>570</td>
+                  <td>570</td>
+                  <td>1.3651 [rad]</td>
+                  <td>1.2928 [rad]</td>
                 </tr>
                 <tr>
                   <td>F</td>
-                  <td>1327</td>
-                  <td>1327</td>
-                  <td>-2.132 [rad]</td>
-                  <td>-2.231 [rad]</td>
+                  <td>570</td>
+                  <td>570</td>
+                  <td>1.2655 [rad]</td>
+                  <td>1.2928 [rad]</td>
                 </tr>
                 <tr>
                   <td>I</td>
-                  <td>1327</td>
-                  <td>1327</td>
-                  <td>-2.526 [rad]</td>
-                  <td>-2.231 [rad]</td>
+                  <td>570</td>
+                  <td>570</td>
+                  <td>1.2921 [rad]</td>
+                  <td>1.2928 [rad]</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>1264</td>
+                  <td>1264</td>
+                  <td>-0.4478 [rad]</td>
+                  <td>-0.3103 [rad]</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>1264</td>
+                  <td>1264</td>
+                  <td>-0.2448 [rad]</td>
+                  <td>-0.3103 [rad]</td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>1264</td>
+                  <td>1264</td>
+                  <td>-0.0834 [rad]</td>
+                  <td>-0.3103 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -8618,45 +8618,45 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 <tbody>
                   <tr>
                     <td>B</td>
-                    <td>2016-11-29 14:00:54</td>
-                    <td>POINT (699558 5510172)</td>
-                    <td>344</td>
-                    <td>1740</td>
+                    <td>2017-01-10 22:00:55</td>
+                    <td>POINT (697579 5511383)</td>
+                    <td>852</td>
+                    <td>2248</td>
                   </tr>
                   <tr>
                     <td>G</td>
-                    <td>2016-11-29 14:00:43</td>
-                    <td>POINT (699565 5510162)</td>
-                    <td>344</td>
-                    <td>1740</td>
+                    <td>2017-01-10 22:00:24</td>
+                    <td>POINT (697570 5511383)</td>
+                    <td>852</td>
+                    <td>2248</td>
                   </tr>
                   <tr>
-                    <td>E</td>
-                    <td>2017-01-11 20:00:41</td>
-                    <td>POINT (696379 5506444)</td>
-                    <td>863</td>
-                    <td>5791</td>
+                    <td>F</td>
+                    <td>2017-02-05 08:01:17</td>
+                    <td>POINT (702198 5510759)</td>
+                    <td>1143</td>
+                    <td>6870</td>
                   </tr>
                   <tr>
                     <td>I</td>
-                    <td>2017-01-11 20:01:07</td>
-                    <td>POINT (696378 5506470)</td>
-                    <td>863</td>
-                    <td>5791</td>
+                    <td>2017-02-05 08:00:46</td>
+                    <td>POINT (702158 5510732)</td>
+                    <td>1143</td>
+                    <td>6870</td>
+                  </tr>
+                  <tr>
+                    <td>B</td>
+                    <td>2017-02-24 22:00:41</td>
+                    <td>POINT (697481 5511872)</td>
+                    <td>1351</td>
+                    <td>2717</td>
                   </tr>
                   <tr>
                     <td>J</td>
-                    <td>2017-01-11 20:00:16</td>
-                    <td>POINT (696368 5506485)</td>
-                    <td>863</td>
-                    <td>5791</td>
-                  </tr>
-                  <tr>
-                    <td>E</td>
-                    <td>2017-01-13 20:00:40</td>
-                    <td>POINT (699263 5506384)</td>
-                    <td>887</td>
-                    <td>5800</td>
+                    <td>2017-02-24 22:00:47</td>
+                    <td>POINT (697480 5511869)</td>
+                    <td>1351</td>
+                    <td>2717</td>
                   </tr>
                 </tbody>
               </table>
@@ -8717,40 +8717,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>A</td>
-                    <td>H</td>
-                    <td>15.666</td>
+                    <td>F</td>
+                    <td>17.64</td>
                   </tr>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>A</td>
                     <td>I</td>
-                    <td>8.920</td>
+                    <td>16.13</td>
                   </tr>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>B</td>
-                    <td>G</td>
-                    <td>3.123</td>
+                    <td>NA</td>
+                    <td>NA</td>
                   </tr>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>C</td>
-                    <td>NA</td>
-                    <td>NA</td>
+                    <td>E</td>
+                    <td>14.27</td>
                   </tr>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>D</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>853</td>
+                    <td>1019</td>
                     <td>E</td>
-                    <td>F</td>
-                    <td>32.031</td>
+                    <td>C</td>
+                    <td>14.27</td>
                   </tr>
                 </tbody>
               </table>
@@ -8788,7 +8788,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                   <col width="17%"/>
                   <col width="7%"/>
                   <col width="7%"/>
-                  <col width="15%"/>
+                  <col width="17%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8800,40 +8800,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1225</td>
+                    <td>315</td>
                     <td>A</td>
-                    <td>I</td>
-                    <td>27.18</td>
+                    <td>C</td>
+                    <td>4054.070</td>
                   </tr>
                   <tr>
-                    <td>1225</td>
+                    <td>315</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>130.42</td>
+                    <td>2.158</td>
                   </tr>
                   <tr>
-                    <td>1225</td>
+                    <td>315</td>
                     <td>C</td>
                     <td>I</td>
-                    <td>39.97</td>
+                    <td>223.786</td>
                   </tr>
                   <tr>
-                    <td>1225</td>
+                    <td>315</td>
                     <td>D</td>
-                    <td>H</td>
-                    <td>14241.96</td>
-                  </tr>
-                  <tr>
-                    <td>1225</td>
-                    <td>F</td>
-                    <td>C</td>
-                    <td>370.90</td>
-                  </tr>
-                  <tr>
-                    <td>1225</td>
-                    <td>G</td>
                     <td>J</td>
-                    <td>79.64</td>
+                    <td>12460.770</td>
+                  </tr>
+                  <tr>
+                    <td>315</td>
+                    <td>E</td>
+                    <td>H</td>
+                    <td>7.730</td>
+                  </tr>
+                  <tr>
+                    <td>315</td>
+                    <td>F</td>
+                    <td>A</td>
+                    <td>7035.740</td>
                   </tr>
                 </tbody>
               </table>
@@ -8899,46 +8899,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
+                      <td>E</td>
+                      <td>499</td>
+                      <td>5547</td>
+                      <td>POINT (698312 5507990)</td>
+                      <td>POINT (698314 5507990)</td>
+                    </tr>
+                    <tr>
+                      <td>H</td>
+                      <td>499</td>
+                      <td>5547</td>
+                      <td>POINT (698316 5507990)</td>
+                      <td>POINT (698314 5507990)</td>
+                    </tr>
+                    <tr>
                       <td>B</td>
-                      <td>474</td>
-                      <td>1870</td>
-                      <td>POINT (698303 5511330)</td>
-                      <td>POINT (698300 5511328)</td>
+                      <td>896</td>
+                      <td>2292</td>
+                      <td>POINT (697362 5511507)</td>
+                      <td>POINT (697365 5511507)</td>
                     </tr>
                     <tr>
                       <td>G</td>
-                      <td>474</td>
-                      <td>1870</td>
-                      <td>POINT (698297 5511326)</td>
-                      <td>POINT (698300 5511328)</td>
+                      <td>896</td>
+                      <td>2292</td>
+                      <td>POINT (697369 5511507)</td>
+                      <td>POINT (697365 5511507)</td>
                     </tr>
                     <tr>
-                      <td>G</td>
-                      <td>1300</td>
-                      <td>7451</td>
-                      <td>POINT (699022 5507607)</td>
-                      <td>POINT (699011 5507592)</td>
-                    </tr>
-                    <tr>
-                      <td>J</td>
-                      <td>1300</td>
-                      <td>7451</td>
-                      <td>POINT (699000 5507576)</td>
-                      <td>POINT (699011 5507592)</td>
+                      <td>A</td>
+                      <td>1382</td>
+                      <td>1382</td>
+                      <td>POINT (704355 5509019)</td>
+                      <td>POINT (704344 5509035)</td>
                     </tr>
                     <tr>
                       <td>C</td>
-                      <td>1418</td>
-                      <td>3627</td>
-                      <td>POINT (703797 5511482)</td>
-                      <td>POINT (703796 5511480)</td>
-                    </tr>
-                    <tr>
-                      <td>F</td>
-                      <td>1418</td>
-                      <td>3627</td>
-                      <td>POINT (703795 5511479)</td>
-                      <td>POINT (703796 5511480)</td>
+                      <td>1382</td>
+                      <td>1382</td>
+                      <td>POINT (704345 5509027)</td>
+                      <td>POINT (704344 5509035)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9035,7 +9035,7 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="21%"/>
+                    <col width="22%"/>
                     <col width="25%"/>
                   </colgroup>
                   <thead>
@@ -9049,46 +9049,46 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   </thead>
                   <tbody>
                     <tr>
-                      <td>C</td>
-                      <td>1050</td>
-                      <td>3558</td>
-                      <td>-1.518 [rad]</td>
-                      <td>-1.726 [rad]</td>
-                    </tr>
-                    <tr>
                       <td>E</td>
-                      <td>1050</td>
-                      <td>3558</td>
-                      <td>-2.069 [rad]</td>
-                      <td>-1.726 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>1050</td>
-                      <td>3558</td>
-                      <td>-1.595 [rad]</td>
-                      <td>-1.726 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>C</td>
-                      <td>1327</td>
-                      <td>1327</td>
-                      <td>-2.087 [rad]</td>
-                      <td>-2.231 [rad]</td>
+                      <td>570</td>
+                      <td>570</td>
+                      <td>1.3651 [rad]</td>
+                      <td>1.2928 [rad]</td>
                     </tr>
                     <tr>
                       <td>F</td>
-                      <td>1327</td>
-                      <td>1327</td>
-                      <td>-2.132 [rad]</td>
-                      <td>-2.231 [rad]</td>
+                      <td>570</td>
+                      <td>570</td>
+                      <td>1.2655 [rad]</td>
+                      <td>1.2928 [rad]</td>
                     </tr>
                     <tr>
                       <td>I</td>
-                      <td>1327</td>
-                      <td>1327</td>
-                      <td>-2.526 [rad]</td>
-                      <td>-2.231 [rad]</td>
+                      <td>570</td>
+                      <td>570</td>
+                      <td>1.2921 [rad]</td>
+                      <td>1.2928 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>1264</td>
+                      <td>1264</td>
+                      <td>-0.4478 [rad]</td>
+                      <td>-0.3103 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>1264</td>
+                      <td>1264</td>
+                      <td>-0.2448 [rad]</td>
+                      <td>-0.3103 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>1264</td>
+                      <td>1264</td>
+                      <td>-0.0834 [rad]</td>
+                      <td>-0.3103 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
