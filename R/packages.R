@@ -31,3 +31,5 @@ library(testthat)
 library(units)
 
 library(spatsoc)
+library(quarto)
+library(knitr)
