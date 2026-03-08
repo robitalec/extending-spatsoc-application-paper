@@ -1,8 +1,4 @@
 plot_dist_dir_leader <- function(DT) {
-  DT[, N_by_group := .N, group]
-  # sel_group <- DT[N_by_group > 3, sample(group, 1)]
-  sel_group <- 932
-  sub_DT <- DT[group == sel_group]
 
   g_dir <- ggplot(
     DT,
