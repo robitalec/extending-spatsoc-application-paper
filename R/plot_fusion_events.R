@@ -32,7 +32,7 @@ plot_fusion_events <- function(edges, DT) {
     geom_path(
       aes(X, Y, color = ID),
       arrow = arrow(length = unit(0.2, "inches")),
-      linewidth = 1,
+      linewidth = 2,
       linetype = 1
     ) +
     geom_path(
@@ -81,7 +81,7 @@ plot_fusion_events <- function(edges, DT) {
   ggsave(
     file.path('graphics', 'fig_fusion_events.png'),
     g_out,
-    width = 4,
+    width = 7,
     height = 5
   )
 }
