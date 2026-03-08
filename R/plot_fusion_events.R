@@ -20,15 +20,6 @@ plot_fusion_events <- function(edges, DT) {
   ]
 
   g <- ggplot(sub_DT) +
-    geom_point(
-      aes(X, Y, color = ID),
-      alpha = 1,
-      data = sub_DT[
-        !timegroup %in% fused_timegroups &
-          timegroup != max(timegroup)
-      ]
-    ) +
-    geom_path(aes(X, Y, color = ID), linewidth = 1, linetype = 1) +
     geom_path(
       aes(X, Y, color = ID),
       arrow = arrow(length = unit(0.2, "inches")),
@@ -49,7 +40,10 @@ plot_fusion_events <- function(edges, DT) {
     ) +
     scale_color_viridis_d(end = 0.5) +
     labs(x = '', y = '') +
-    coord_fixed()
+    coord_fixed() +
+    guides(color = 'none') +
+    scale_x_continuous(expand = expansion(mult = 0.1)) +
+    scale_y_continuous(expand = expansion(mult = 0.1))
 
   tab <- edges[
     ID1 %in%
