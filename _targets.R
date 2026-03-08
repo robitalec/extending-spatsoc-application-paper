@@ -319,35 +319,43 @@ targets_intragroup_dynamics <- c(
 targets_figures <- c(
   tar_target(
     fig_dist_dir_cent,
-    plot_dist_dir_cent(distance_to_centroids)
+    plot_dist_dir_cent(distance_to_centroids),
+    format = 'file'
   ),
   tar_target(
     fig_pos_group_dir,
-    plot_pos_group_dir(group_direction_leaders)
+    plot_pos_group_dir(group_direction_leaders),
+    format = 'file'
   ),
   tar_target(
     fig_dist_dir_leader,
-    plot_dist_dir_leader(distance_to_group_dir_leaders)
+    plot_dist_dir_leader(distance_to_group_dir_leaders),
+    format = 'file'
   ),
   tar_target(
     fig_fusion_events,
-    plot_fusion_events(fusion_centroids, spatial_groups)
+    plot_fusion_events(fusion_centroids, spatial_groups),
+    format = 'file'
   ),
   tar_target(
     fig_dir_polarization,
-    plot_dir_polarization(polarization)
+    plot_dir_polarization(polarization),
+    format = 'file'
   ),
   tar_target(
     fig_edge_dir_and_align,
-    plot_edge_dir_and_align(spatial_groups, direction_edges)
+    plot_edge_dir_and_align(spatial_groups, direction_edges),
+    format = 'file'
   ),
   tar_target(
     fig_edge_delay,
-    plot_edge_delay(delay_edges, delay_leaders, step_directions)
+    plot_edge_delay(delay_edges, delay_leaders, step_directions),
+    format = 'file'
   ),
   tar_target(
     fig_edge_zones,
-    plot_edge_zones(zones_edges)
+    plot_edge_zones(zones_edges),
+    format = 'file'
   )
 )
 
