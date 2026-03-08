@@ -83,7 +83,7 @@ plot_edge_delay <- function(edges, leaders, DT) {
   ggsave(
     file.path('graphics', 'fig_edge_delay.png'),
     g_out,
-    width = 7,
+    width = 7.2,
     height = 6
   )
 }
