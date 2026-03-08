@@ -30,4 +30,3 @@ library(spatsoc)
 
 # Manuscript
 library(quarto)
-library(knitr)
