@@ -47,7 +47,7 @@ plot_fusion_events <- function(edges, DT) {
       color = 'black',
       size = 3
     ) +
-    scale_color_viridis_d(end = 0.5, begin = 0.2) +
+    scale_color_viridis_d(end = 0.5) +
     labs(x = '', y = '') +
     coord_fixed()
 
