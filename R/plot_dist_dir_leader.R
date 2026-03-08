@@ -28,7 +28,7 @@ plot_dist_dir_leader <- function(DT) {
   ggsave(
     file.path('graphics', 'fig_dist_dir_leader.png'),
     g_out,
-    width = 8,
+    width = 9,
     height = 5
   )
 }
