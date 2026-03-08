@@ -40,7 +40,7 @@ plot_pos_group_dir <- function(DT) {
     coord_fixed() +
     guides(color = 'none')
 
-  g_pos <- ggplot(DT[N_by_group > 1]) +
+  g_pos <- ggplot(DT[N_by_group > 1 & !is.na(position_group_direction)]) +
     stat_pointinterval(aes(
       units::as_units(position_group_direction, 'm'),
       factor(rank_position_group_direction)
