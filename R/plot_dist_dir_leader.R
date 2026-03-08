@@ -1,7 +1,6 @@
 plot_dist_dir_leader <- function(DT) {
-
   g_dir <- ggplot(
-    DT,
+    DT[!is.nan(direction_leader) & !is.na(direction_leader)],
     aes(direction_leader, factor(rank_position_group_direction))
   ) +
     stat_pointinterval() +
@@ -11,7 +10,7 @@ plot_dist_dir_leader <- function(DT) {
     )
 
   g_dist <- ggplot(
-    DT,
+    DT[!is.na(distance_leader)],
     aes(
       units::as_units(distance_leader, 'm'),
       factor(rank_position_group_direction)
