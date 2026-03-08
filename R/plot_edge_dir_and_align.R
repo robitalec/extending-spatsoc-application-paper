@@ -14,7 +14,7 @@ plot_edge_dir_and_align <- function(DT, edges) {
   ]
   sub[, timegroup := timegroup - min(timegroup) + 1]
   g <- ggplot(sub, aes(X, Y, color = ID)) +
-    geom_path(arrow = arrow()) +
+    geom_path(arrow = arrow(), linewidth = 2) +
     geom_label(
       aes(label = timegroup),
       fill = 'white',
