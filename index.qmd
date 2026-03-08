@@ -241,6 +241,7 @@ function ([Table @tbl-edge-dist]) and identify nearest neighbours using
 #| label: calc-edge-dist
 #| echo: true
 #| eval: false
+# Measure interindividual distance
 interindividual_dist <- edge_dist(
   DT,
   threshold = spatial_threshold,
@@ -267,6 +268,7 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
 #| label: calc-edge-nn
 #| echo: true
 #| eval: false
+# Identify nearest neighbours
 nearest_neighbours <- edge_nn(
   DT,
   id = id,
@@ -305,6 +307,7 @@ defined by the mean of individual locations in a group, using
 #| label: calc-cent-group
 #| eval: false
 #| echo: true
+# Measure group centroids
 centroid_group(DT)
 ```
 
@@ -340,7 +343,10 @@ risk [@Heesen_2015; @Herbert-Read_2017], leadership [@Jolles_2017;
 #| label: calc-dist-dir-cent
 #| echo: true
 #| eval: false
+# Measure distance to group centroid
 distance_to_centroid(DT, return_rank = TRUE)
+
+# Measure direction to group centroid
 direction_to_centroid(DT)
 ```
 
@@ -359,7 +365,10 @@ group identified by `group_pts()` using `direction_group()` ([Table
 #| label: calc-dir-step-group
 #| echo: true
 #| eval: false
+# Measure movement direction
 direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)
 ```
 
@@ -394,6 +403,7 @@ and individual differences [@Jolles_2017] in collective behaviour.
 #| label: calc-dir-pol
 #| echo: true
 #| eval: false
+# Measure direction polarization
 direction_polarization(DT)
 ```
 
@@ -411,6 +421,7 @@ migration [@Torney_2018].
 #| label: calc-edge-dir
 #| echo: true
 #| eval: false
+# Measure interindividual direction
 dyad_directions <- edge_direction(
   edges = interindividual_dist,
   DT = DT,
@@ -430,6 +441,7 @@ study leadership [@Sarova_2010], decision making
 #| label: calc-edge-align
 #| echo: true
 #| eval: false
+# Measure directional alignment
 directional_align <- edge_alignment(
   DT = DT,
   id = id,
@@ -467,10 +479,12 @@ groups [@Lukeman_2010].
 #| label: calc-edge-zones
 #| eval: false
 #| echo: true
+# Define zone thresholds, labels and blind volume
 zone_thresholds <- c(10, 25, 50)
 zone_labels <- c('repulsion', 'orientation', 'attraction')
 blind_volume <- 3
 
+# Measure behavioural zones
 zones <- edge_zones(
   dyad_directions,
   zone_thresholds = zone_thresholds,
@@ -499,8 +513,13 @@ be optionally returned when the argument 'return_rank' is true.
 #| label: calc-leader-dir-group
 #| eval: false
 #| echo: true
+# Measure movement direction
 direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)
+
+# Measure position relative to leader
 leader_direction_group(DT, return_rank = TRUE)
 ```
 
@@ -525,7 +544,10 @@ observations.
 #| label: calc-dist-dir-lead
 #| eval: false
 #| echo: true
+# Measure distance to leader
 distance_to_leader(DT)
+
+# Measure direction to leader
 direction_to_leader(DT)
 ```
 
@@ -556,7 +578,10 @@ decision making [@Merkle_2015], and habitat selection [@Fortin_2009].
 #| label: calc-fusion
 #| eval: false
 #| echo: true
+# Identify dyads
 dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+
+# Identify fusion events
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold,
@@ -564,6 +589,8 @@ fusion_events <- fusion_id(
   n_max_missing = 1,
   allow_split = TRUE
 )
+
+# Measure centroids of fusion events
 centroid_fusion(
   interindividual_dist,
   DT,
@@ -597,6 +624,7 @@ system [@Nagy_2010; @Flack_2013; @Nagy_2013; @Quera_2023; @Akos_2014].
 #| label: calc-edge-delay
 #| eval: false
 #| echo: true
+# Measure directional correlation delay
 delay <- edge_delay(
   edges = fusion_events,
   DT = DT,
@@ -609,6 +637,7 @@ delay <- edge_delay(
 #| label: calc-leader-delay
 #| eval: false
 #| echo: true
+# Measure mean directional correlation delay
 leader_delay <- leader_edge_delay(
   delay,
   threshold = 0.5
@@ -692,7 +721,9 @@ study are included with the package and can be imported with:
 #| eval: false
 #| echo: true
 library(spatsoc)
+
 library(data.table)
+
 DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
 ```
 
