@@ -468,15 +468,6 @@ targets_review <- c(
 )
 
 
-# Targets: Quarto ---------------------------------------------------------
-# TODO: quarto render
-# targets_quarto <- c(
-#   tar_quarto(
-#     site,
-#     path = '.'
-#   )
-# )
-
 # Targets: All ------------------------------------------------------------
 # Automatically grab all the 'targets_*' lists above
 lapply(grep('targets', ls(), value = TRUE), get)
