@@ -55,6 +55,6 @@ plot_edge_dir_and_align <- function(DT, edges) {
     file.path('graphics', 'fig_edge_dir_and_align.png'),
     g_out,
     width = 7,
-    height = 7
+    height = 5
   )
 }

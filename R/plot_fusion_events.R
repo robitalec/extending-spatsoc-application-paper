@@ -77,7 +77,7 @@ plot_fusion_events <- function(edges, DT) {
   ggsave(
     file.path('graphics', 'fig_fusion_events.png'),
     g_out,
-    width = 5,
-    height = 7
+    width = 4,
+    height = 5
   )
 }

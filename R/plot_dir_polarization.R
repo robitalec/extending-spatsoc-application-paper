@@ -32,7 +32,7 @@ plot_dir_polarization <- function(DT) {
   ggsave(
     file.path('graphics', 'fig_dir_polarization.png'),
     g_out,
-    width = 7,
-    height = 7
+    width = 8,
+    height = 5
   )
 }

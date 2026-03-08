@@ -52,7 +52,7 @@ plot_edge_zones <- function(zones) {
   ggsave(
     file.path('graphics', 'fig_edge_zones.png'),
     g_out,
-    width = 7,
-    height = 7
+    width = 6,
+    height = 5
   )
 }
