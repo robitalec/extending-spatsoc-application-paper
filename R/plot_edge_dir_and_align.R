@@ -55,7 +55,7 @@ plot_edge_dir_and_align <- function(DT, edges) {
   ggsave(
     file.path('graphics', 'fig_edge_dir_and_align.png'),
     g_out,
-    width = 7,
+    width = 6,
     height = 5
   )
 }
