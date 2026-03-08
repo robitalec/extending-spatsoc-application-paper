@@ -470,46 +470,46 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>B</td>
-                <td>2016-12-27 00:00:56</td>
-                <td>POINT (698131 5511685)</td>
-                <td>673</td>
-                <td>2069</td>
-              </tr>
-              <tr>
-                <td>G</td>
-                <td>2016-12-27 00:00:54</td>
-                <td>POINT (698153 5511659)</td>
-                <td>673</td>
-                <td>2069</td>
-              </tr>
-              <tr>
-                <td>B</td>
-                <td>2017-01-09 12:00:48</td>
-                <td>POINT (698000 5511460)</td>
-                <td>835</td>
-                <td>2231</td>
-              </tr>
-              <tr>
-                <td>G</td>
-                <td>2017-01-09 12:00:54</td>
-                <td>POINT (697992 5511472)</td>
-                <td>835</td>
-                <td>2231</td>
-              </tr>
-              <tr>
-                <td>B</td>
-                <td>2017-02-04 06:00:55</td>
-                <td>POINT (697254 5511452)</td>
-                <td>1131</td>
-                <td>2469</td>
+                <td>I</td>
+                <td>2016-12-02 16:00:45</td>
+                <td>POINT (707949 5509933)</td>
+                <td>381</td>
+                <td>8661</td>
               </tr>
               <tr>
                 <td>J</td>
-                <td>2017-02-04 06:00:44</td>
-                <td>POINT (697253 5511498)</td>
-                <td>1131</td>
-                <td>2469</td>
+                <td>2016-12-02 16:00:56</td>
+                <td>POINT (707971 5509950)</td>
+                <td>381</td>
+                <td>8661</td>
+              </tr>
+              <tr>
+                <td>I</td>
+                <td>2016-12-02 22:00:54</td>
+                <td>POINT (708007 5509997)</td>
+                <td>384</td>
+                <td>8664</td>
+              </tr>
+              <tr>
+                <td>J</td>
+                <td>2016-12-02 22:00:12</td>
+                <td>POINT (708020 5510019)</td>
+                <td>384</td>
+                <td>8664</td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td>2016-12-07 06:00:44</td>
+                <td>POINT (702600 5505361)</td>
+                <td>436</td>
+                <td>5493</td>
+              </tr>
+              <tr>
+                <td>H</td>
+                <td>2016-12-07 06:00:44</td>
+                <td>POINT (702575 5505342)</td>
+                <td>436</td>
+                <td>5493</td>
               </tr>
             </tbody>
           </table>
@@ -521,7 +521,8 @@ group_pts(
   nearest neighbours using <monospace>edge_nn()</monospace> function
   (<xref alt="Table 4" rid="tbl-edge-nn">Table 4</xref>). For
   example:</p>
-      <code language="r script">interindividual_dist &lt;- edge_dist(
+      <code language="r script"># Measure interindividual distance
+interindividual_dist &lt;- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
@@ -560,46 +561,47 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>910</td>
+                <td>941</td>
                 <td>A</td>
-                <td>C</td>
-                <td>13.330</td>
+                <td>NA</td>
+                <td>NA</td>
               </tr>
               <tr>
-                <td>910</td>
-                <td>A</td>
-                <td>E</td>
-                <td>18.868</td>
-              </tr>
-              <tr>
-                <td>910</td>
-                <td>A</td>
-                <td>F</td>
-                <td>16.491</td>
-              </tr>
-              <tr>
-                <td>910</td>
-                <td>A</td>
-                <td>I</td>
-                <td>10.001</td>
-              </tr>
-              <tr>
-                <td>910</td>
+                <td>941</td>
                 <td>B</td>
                 <td>G</td>
-                <td>6.537</td>
+                <td>12.29</td>
               </tr>
               <tr>
-                <td>910</td>
+                <td>941</td>
                 <td>C</td>
-                <td>A</td>
-                <td>13.330</td>
+                <td>E</td>
+                <td>26.33</td>
+              </tr>
+              <tr>
+                <td>941</td>
+                <td>C</td>
+                <td>F</td>
+                <td>16.16</td>
+              </tr>
+              <tr>
+                <td>941</td>
+                <td>C</td>
+                <td>I</td>
+                <td>13.59</td>
+              </tr>
+              <tr>
+                <td>941</td>
+                <td>D</td>
+                <td>NA</td>
+                <td>NA</td>
               </tr>
             </tbody>
           </table>
         </table-wrap>
       </fig>
-      <code language="r script">nearest_neighbours &lt;- edge_nn(
+      <code language="r script"># Identify nearest neighbours
+nearest_neighbours &lt;- edge_nn(
   DT,
   id = id,
   timegroup = 'timegroup',
@@ -635,40 +637,40 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>A</td>
-                <td>I</td>
-                <td>130.33</td>
+                <td>E</td>
+                <td>2139.70</td>
               </tr>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>B</td>
                 <td>G</td>
-                <td>433.06</td>
+                <td>19.34</td>
               </tr>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>C</td>
-                <td>A</td>
-                <td>2371.92</td>
+                <td>I</td>
+                <td>471.63</td>
               </tr>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>D</td>
-                <td>J</td>
-                <td>11976.30</td>
+                <td>H</td>
+                <td>13561.80</td>
               </tr>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>E</td>
                 <td>H</td>
-                <td>53.44</td>
+                <td>163.34</td>
               </tr>
               <tr>
-                <td>224</td>
+                <td>334</td>
                 <td>F</td>
-                <td>C</td>
-                <td>6925.52</td>
+                <td>A</td>
+                <td>5631.16</td>
               </tr>
             </tbody>
           </table>
@@ -690,7 +692,8 @@ group_pts(
     centroid, as defined by the mean of individual locations in a group,
     using <monospace>centroid_group()</monospace>
     (<xref alt="Table 5" rid="tbl-cent-group">Table 5</xref>).</p>
-        <code language="r script">centroid_group(DT)</code>
+        <code language="r script"># Measure group centroids
+centroid_group(DT)</code>
         <fig id="tbl-cent-group">
           <caption>
             <p>Table 5: Group centroids measured using
@@ -720,46 +723,46 @@ group_pts(
               </thead>
               <tbody>
                 <tr>
+                  <td>C</td>
+                  <td>295</td>
+                  <td>3023</td>
+                  <td>POINT (710712 5506896)</td>
+                  <td>POINT (710711 5506884)</td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>295</td>
+                  <td>3023</td>
+                  <td>POINT (710710 5506872)</td>
+                  <td>POINT (710711 5506884)</td>
+                </tr>
+                <tr>
                   <td>E</td>
-                  <td>281</td>
-                  <td>5355</td>
-                  <td>POINT (706786 5507420)</td>
-                  <td>POINT (706788 5507417)</td>
+                  <td>977</td>
+                  <td>5825</td>
+                  <td>POINT (700078 5508847)</td>
+                  <td>POINT (700070 5508862)</td>
                 </tr>
                 <tr>
-                  <td>H</td>
-                  <td>281</td>
-                  <td>5355</td>
-                  <td>POINT (706789 5507414)</td>
-                  <td>POINT (706788 5507417)</td>
-                </tr>
-                <tr>
-                  <td>E</td>
-                  <td>342</td>
-                  <td>5415</td>
-                  <td>POINT (703243 5504422)</td>
-                  <td>POINT (703235 5504418)</td>
-                </tr>
-                <tr>
-                  <td>H</td>
-                  <td>342</td>
-                  <td>5415</td>
-                  <td>POINT (703228 5504413)</td>
-                  <td>POINT (703235 5504418)</td>
-                </tr>
-                <tr>
-                  <td>A</td>
-                  <td>1387</td>
-                  <td>1387</td>
-                  <td>POINT (703047 5509257)</td>
-                  <td>POINT (703040 5509273)</td>
+                  <td>G</td>
+                  <td>977</td>
+                  <td>5825</td>
+                  <td>POINT (700062 5508877)</td>
+                  <td>POINT (700070 5508862)</td>
                 </tr>
                 <tr>
                   <td>C</td>
-                  <td>1387</td>
-                  <td>1387</td>
-                  <td>POINT (703028 5509303)</td>
-                  <td>POINT (703040 5509273)</td>
+                  <td>1391</td>
+                  <td>3682</td>
+                  <td>POINT (703262 5509183)</td>
+                  <td>POINT (703264 5509172)</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>1391</td>
+                  <td>3682</td>
+                  <td>POINT (703267 5509160)</td>
+                  <td>POINT (703264 5509172)</td>
                 </tr>
               </tbody>
             </table>
@@ -790,7 +793,10 @@ group_pts(
     et al., 2022</xref>;
     <xref alt="Harel et al., 2021" rid="ref-Harel_2021" ref-type="bibr">Harel
     et al., 2021</xref>).</p>
-        <code language="r script">distance_to_centroid(DT, return_rank = TRUE)
+        <code language="r script"># Measure distance to group centroid
+distance_to_centroid(DT, return_rank = TRUE)
+
+# Measure direction to group centroid
 direction_to_centroid(DT)</code>
         <fig id="fig-dist-dir-cent">
           <caption>
@@ -804,7 +810,7 @@ direction_to_centroid(DT)</code>
       centroid can be returned by distance_to_centroid() if
       ‘return_rank’ is true.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dist-dir-cent-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dist_dir_cent.png"/>
         </fig>
       </sec>
       <sec id="directions">
@@ -816,7 +822,10 @@ direction_to_centroid(DT)</code>
     <monospace>group_pts()</monospace> using
     <monospace>direction_group()</monospace>
     (<xref alt="Table 6" rid="tbl-dir-step-group">Table 6</xref>).</p>
-        <code language="r script">direction_step(DT, id = id)
+        <code language="r script"># Measure movement direction
+direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)</code>
         <fig id="tbl-dir-step-group">
           <caption>
@@ -836,7 +845,7 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="22%"/>
+                <col width="19%"/>
                 <col width="25%"/>
               </colgroup>
               <thead>
@@ -851,45 +860,45 @@ direction_group(DT)</code>
               <tbody>
                 <tr>
                   <td>B</td>
-                  <td>1129</td>
-                  <td>2467</td>
-                  <td>2.8400 [rad]</td>
-                  <td>-3.096 [rad]</td>
+                  <td>1158</td>
+                  <td>2500</td>
+                  <td>3.063 [rad]</td>
+                  <td>3.048 [rad]</td>
                 </tr>
                 <tr>
                   <td>G</td>
-                  <td>1129</td>
-                  <td>2467</td>
-                  <td>2.9019 [rad]</td>
-                  <td>-3.096 [rad]</td>
+                  <td>1158</td>
+                  <td>2500</td>
+                  <td>2.981 [rad]</td>
+                  <td>3.048 [rad]</td>
                 </tr>
                 <tr>
                   <td>J</td>
-                  <td>1129</td>
-                  <td>2467</td>
-                  <td>-2.4246 [rad]</td>
-                  <td>-3.096 [rad]</td>
+                  <td>1158</td>
+                  <td>2500</td>
+                  <td>3.099 [rad]</td>
+                  <td>3.048 [rad]</td>
                 </tr>
                 <tr>
-                  <td>B</td>
-                  <td>1252</td>
-                  <td>2599</td>
-                  <td>-1.1298 [rad]</td>
-                  <td>-1.100 [rad]</td>
+                  <td>C</td>
+                  <td>1359</td>
+                  <td>1359</td>
+                  <td>1.776 [rad]</td>
+                  <td>1.713 [rad]</td>
                 </tr>
                 <tr>
-                  <td>E</td>
-                  <td>1252</td>
-                  <td>2599</td>
-                  <td>-1.4276 [rad]</td>
-                  <td>-1.100 [rad]</td>
+                  <td>F</td>
+                  <td>1359</td>
+                  <td>1359</td>
+                  <td>2.207 [rad]</td>
+                  <td>1.713 [rad]</td>
                 </tr>
                 <tr>
-                  <td>J</td>
-                  <td>1252</td>
-                  <td>2599</td>
-                  <td>-0.7398 [rad]</td>
-                  <td>-1.100 [rad]</td>
+                  <td>I</td>
+                  <td>1359</td>
+                  <td>1359</td>
+                  <td>1.288 [rad]</td>
+                  <td>1.713 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -913,7 +922,8 @@ direction_group(DT)</code>
     et al., 2017</xref>) and individual differences
     (<xref alt="Jolles et al., 2017" rid="ref-Jolles_2017" ref-type="bibr">Jolles
     et al., 2017</xref>) in collective behaviour.</p>
-        <code language="r script">direction_polarization(DT)</code>
+        <code language="r script"># Measure direction polarization
+direction_polarization(DT)</code>
         <fig id="fig-dir-pol">
           <caption>
             <p>Figure 2: Direction polarization measured using
@@ -926,7 +936,7 @@ direction_group(DT)</code>
       polarization range from 0 (non-alignment) to 1
       (alignment).</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dir-pol-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dir_polarization.png"/>
         </fig>
         <p>The interindividual direction, or direction from a focal
     individual to a neighbour, can be measured using
@@ -941,7 +951,8 @@ direction_group(DT)</code>
     2016</xref>) and mass migration
     (<xref alt="Torney et al., 2018" rid="ref-Torney_2018" ref-type="bibr">Torney
     et al., 2018</xref>).</p>
-        <code language="r script">dyad_directions &lt;- edge_direction(
+        <code language="r script"># Measure interindividual direction
+dyad_directions &lt;- edge_direction(
   edges = interindividual_dist,
   DT = DT,
   id = id
@@ -960,7 +971,8 @@ direction_group(DT)</code>
     et al., 2015</xref>), and information transfer
     (<xref alt="Sumpter et al., 2018" rid="ref-Sumpter_2018" ref-type="bibr">Sumpter
     et al., 2018</xref>).</p>
-        <code language="r script">directional_align &lt;- edge_alignment(
+        <code language="r script"># Measure directional alignment
+directional_align &lt;- edge_alignment(
   DT = DT,
   id = id,
   signed = FALSE
@@ -983,7 +995,7 @@ direction_group(DT)</code>
       difference can be returned by edge_alignment() if the argument
       ‘signed’ is true.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-align-dir-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_dir_and_align.png"/>
         </fig>
       </sec>
       <sec id="behavioural-zones">
@@ -1018,10 +1030,12 @@ direction_group(DT)</code>
     in large animal groups
     (<xref alt="Lukeman et al., 2010" rid="ref-Lukeman_2010" ref-type="bibr">Lukeman
     et al., 2010</xref>).</p>
-        <code language="r script">zone_thresholds &lt;- c(10, 25, 50)
+        <code language="r script"># Define zone thresholds, labels and blind volume
+zone_thresholds &lt;- c(10, 25, 50)
 zone_labels &lt;- c('repulsion', 'orientation', 'attraction')
 blind_volume &lt;- 3
 
+# Measure behavioural zones
 zones &lt;- edge_zones(
   dyad_directions,
   zone_thresholds = zone_thresholds,
@@ -1041,7 +1055,7 @@ zones &lt;- edge_zones(
       positions of neighbour ‘E’ in behavioural zones with respect to
       focal individual ‘G’ across the sample period.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-zones-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_zones.png"/>
         </fig>
       </sec>
       <sec id="position-relative-to-leader">
@@ -1067,8 +1081,13 @@ zones &lt;- edge_zones(
     (<xref alt="Burns et al., 2012" rid="ref-Burns_2012" ref-type="bibr">Burns
     et al., 2012</xref>) can be optionally returned when the argument
     ‘return_rank’ is true.</p>
-        <code language="r script">direction_step(DT, id = id)
+        <code language="r script"># Measure movement direction
+direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)
+
+# Measure position relative to leader
 leader_direction_group(DT, return_rank = TRUE)</code>
         <fig id="fig-leader-dir-group">
           <caption>
@@ -1086,7 +1105,7 @@ leader_direction_group(DT, return_rank = TRUE)</code>
       along the mean group direction if ‘return_rank’ is
       true.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-leader-dir-group-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_pos_group_dir.png"/>
         </fig>
         <p>Taking this simple, dynamic definition of leadership, we can
     identify the distance and direction of individuals to the leader of
@@ -1113,7 +1132,10 @@ leader_direction_group(DT, return_rank = TRUE)</code>
     individual’s time spent leading by calculating the rate each
     individual was in the first ranked position out of the total
     observations.</p>
-        <code language="r script">distance_to_leader(DT)
+        <code language="r script"># Measure distance to leader
+distance_to_leader(DT)
+
+# Measure direction to leader
 direction_to_leader(DT)</code>
         <fig id="fig-dist-dir-lead">
           <caption>
@@ -1128,7 +1150,7 @@ direction_to_leader(DT)</code>
       ‘position_group_direction’, the distance is 0 and the direction is
       NA.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dist-dir-lead-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dist_dir_leader.png"/>
         </fig>
       </sec>
       <sec id="fusion-events">
@@ -1162,7 +1184,10 @@ direction_to_leader(DT)</code>
     et al., 2015</xref>), and habitat selection
     (<xref alt="Fortin et al., 2009" rid="ref-Fortin_2009" ref-type="bibr">Fortin
     et al., 2009</xref>).</p>
-        <code language="r script">dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+        <code language="r script"># Identify dyads
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+
+# Identify fusion events
 fusion_events &lt;- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold,
@@ -1170,6 +1195,8 @@ fusion_events &lt;- fusion_id(
   n_max_missing = 1,
   allow_split = TRUE
 )
+
+# Measure centroids of fusion events
 centroid_fusion(
   interindividual_dist,
   DT,
@@ -1195,7 +1222,7 @@ centroid_fusion(
       timegroups 1 and 5 with no neighbours within the threshold spatial
       distance (ID2 is NA).</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-fusion-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_fusion_events.png"/>
         </fig>
       </sec>
       <sec id="directional-correlation-delay">
@@ -1232,13 +1259,15 @@ centroid_fusion(
     et al., 2013</xref>;
     <xref alt="Quera et al., 2023" rid="ref-Quera_2023" ref-type="bibr">Quera
     et al., 2023</xref>).</p>
-        <code language="r script">delay &lt;- edge_delay(
+        <code language="r script"># Measure directional correlation delay
+delay &lt;- edge_delay(
   edges = fusion_events,
   DT = DT,
   window = 3,
   id = id
 )</code>
-        <code language="r script">leader_delay &lt;- leader_edge_delay(
+        <code language="r script"># Measure mean directional correlation delay
+leader_delay &lt;- leader_edge_delay(
   delay,
   threshold = 0.5
 )</code>
@@ -1266,7 +1295,7 @@ centroid_fusion(
       mean directional delay with the argument
       ‘threshold’.</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-delay-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_delay.png"/>
         </fig>
       </sec>
     </sec>
@@ -1406,7 +1435,9 @@ centroid_fusion(
   data used in this case study are included with the package and can be
   imported with:</p>
       <code language="r script">library(spatsoc)
+
 library(data.table)
+
 DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       <p>The code for producing the scoping review results, figures, tables
   and manuscript was developed as a reproducible pipeline with the R
@@ -8586,46 +8617,46 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 </thead>
                 <tbody>
                   <tr>
-                    <td>B</td>
-                    <td>2016-12-27 00:00:56</td>
-                    <td>POINT (698131 5511685)</td>
-                    <td>673</td>
-                    <td>2069</td>
-                  </tr>
-                  <tr>
-                    <td>G</td>
-                    <td>2016-12-27 00:00:54</td>
-                    <td>POINT (698153 5511659)</td>
-                    <td>673</td>
-                    <td>2069</td>
-                  </tr>
-                  <tr>
-                    <td>B</td>
-                    <td>2017-01-09 12:00:48</td>
-                    <td>POINT (698000 5511460)</td>
-                    <td>835</td>
-                    <td>2231</td>
-                  </tr>
-                  <tr>
-                    <td>G</td>
-                    <td>2017-01-09 12:00:54</td>
-                    <td>POINT (697992 5511472)</td>
-                    <td>835</td>
-                    <td>2231</td>
-                  </tr>
-                  <tr>
-                    <td>B</td>
-                    <td>2017-02-04 06:00:55</td>
-                    <td>POINT (697254 5511452)</td>
-                    <td>1131</td>
-                    <td>2469</td>
+                    <td>I</td>
+                    <td>2016-12-02 16:00:45</td>
+                    <td>POINT (707949 5509933)</td>
+                    <td>381</td>
+                    <td>8661</td>
                   </tr>
                   <tr>
                     <td>J</td>
-                    <td>2017-02-04 06:00:44</td>
-                    <td>POINT (697253 5511498)</td>
-                    <td>1131</td>
-                    <td>2469</td>
+                    <td>2016-12-02 16:00:56</td>
+                    <td>POINT (707971 5509950)</td>
+                    <td>381</td>
+                    <td>8661</td>
+                  </tr>
+                  <tr>
+                    <td>I</td>
+                    <td>2016-12-02 22:00:54</td>
+                    <td>POINT (708007 5509997)</td>
+                    <td>384</td>
+                    <td>8664</td>
+                  </tr>
+                  <tr>
+                    <td>J</td>
+                    <td>2016-12-02 22:00:12</td>
+                    <td>POINT (708020 5510019)</td>
+                    <td>384</td>
+                    <td>8664</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>2016-12-07 06:00:44</td>
+                    <td>POINT (702600 5505361)</td>
+                    <td>436</td>
+                    <td>5493</td>
+                  </tr>
+                  <tr>
+                    <td>H</td>
+                    <td>2016-12-07 06:00:44</td>
+                    <td>POINT (702575 5505342)</td>
+                    <td>436</td>
+                    <td>5493</td>
                   </tr>
                 </tbody>
               </table>
@@ -8639,7 +8670,8 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
   (<xref alt="Table 4" rid="tbl-edge-nn-nb-article">Table 4</xref>). For
   example:</p>
         <sec specific-use="notebook-content">
-          <code language="r script">interindividual_dist &lt;- edge_dist(
+          <code language="r script"># Measure interindividual distance
+interindividual_dist &lt;- edge_dist(
   DT,
   threshold = spatial_threshold,
   id = id,
@@ -8685,40 +8717,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>910</td>
+                    <td>941</td>
                     <td>A</td>
-                    <td>C</td>
-                    <td>13.330</td>
+                    <td>NA</td>
+                    <td>NA</td>
                   </tr>
                   <tr>
-                    <td>910</td>
-                    <td>A</td>
-                    <td>E</td>
-                    <td>18.868</td>
-                  </tr>
-                  <tr>
-                    <td>910</td>
-                    <td>A</td>
-                    <td>F</td>
-                    <td>16.491</td>
-                  </tr>
-                  <tr>
-                    <td>910</td>
-                    <td>A</td>
-                    <td>I</td>
-                    <td>10.001</td>
-                  </tr>
-                  <tr>
-                    <td>910</td>
+                    <td>941</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>6.537</td>
+                    <td>12.29</td>
                   </tr>
                   <tr>
-                    <td>910</td>
+                    <td>941</td>
                     <td>C</td>
-                    <td>A</td>
-                    <td>13.330</td>
+                    <td>E</td>
+                    <td>26.33</td>
+                  </tr>
+                  <tr>
+                    <td>941</td>
+                    <td>C</td>
+                    <td>F</td>
+                    <td>16.16</td>
+                  </tr>
+                  <tr>
+                    <td>941</td>
+                    <td>C</td>
+                    <td>I</td>
+                    <td>13.59</td>
+                  </tr>
+                  <tr>
+                    <td>941</td>
+                    <td>D</td>
+                    <td>NA</td>
+                    <td>NA</td>
                   </tr>
                 </tbody>
               </table>
@@ -8726,7 +8758,8 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
           </fig>
         </sec>
         <sec specific-use="notebook-content">
-          <code language="r script">nearest_neighbours &lt;- edge_nn(
+          <code language="r script"># Identify nearest neighbours
+nearest_neighbours &lt;- edge_nn(
   DT,
   id = id,
   timegroup = 'timegroup',
@@ -8767,40 +8800,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>A</td>
-                    <td>I</td>
-                    <td>130.33</td>
+                    <td>E</td>
+                    <td>2139.70</td>
                   </tr>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>433.06</td>
+                    <td>19.34</td>
                   </tr>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>C</td>
-                    <td>A</td>
-                    <td>2371.92</td>
+                    <td>I</td>
+                    <td>471.63</td>
                   </tr>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>D</td>
-                    <td>J</td>
-                    <td>11976.30</td>
+                    <td>H</td>
+                    <td>13561.80</td>
                   </tr>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>E</td>
                     <td>H</td>
-                    <td>53.44</td>
+                    <td>163.34</td>
                   </tr>
                   <tr>
-                    <td>224</td>
+                    <td>334</td>
                     <td>F</td>
-                    <td>C</td>
-                    <td>6925.52</td>
+                    <td>A</td>
+                    <td>5631.16</td>
                   </tr>
                 </tbody>
               </table>
@@ -8824,7 +8857,8 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
     using <monospace>centroid_group()</monospace>
     (<xref alt="Table 5" rid="tbl-cent-group-nb-article">Table 5</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">centroid_group(DT)</code>
+            <code language="r script"># Measure group centroids
+centroid_group(DT)</code>
           </sec>
           <sec specific-use="notebook-content">
             <code language="r script">tar_load(group_centroids)
@@ -8865,46 +8899,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
+                      <td>C</td>
+                      <td>295</td>
+                      <td>3023</td>
+                      <td>POINT (710712 5506896)</td>
+                      <td>POINT (710711 5506884)</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>295</td>
+                      <td>3023</td>
+                      <td>POINT (710710 5506872)</td>
+                      <td>POINT (710711 5506884)</td>
+                    </tr>
+                    <tr>
                       <td>E</td>
-                      <td>281</td>
-                      <td>5355</td>
-                      <td>POINT (706786 5507420)</td>
-                      <td>POINT (706788 5507417)</td>
+                      <td>977</td>
+                      <td>5825</td>
+                      <td>POINT (700078 5508847)</td>
+                      <td>POINT (700070 5508862)</td>
                     </tr>
                     <tr>
-                      <td>H</td>
-                      <td>281</td>
-                      <td>5355</td>
-                      <td>POINT (706789 5507414)</td>
-                      <td>POINT (706788 5507417)</td>
-                    </tr>
-                    <tr>
-                      <td>E</td>
-                      <td>342</td>
-                      <td>5415</td>
-                      <td>POINT (703243 5504422)</td>
-                      <td>POINT (703235 5504418)</td>
-                    </tr>
-                    <tr>
-                      <td>H</td>
-                      <td>342</td>
-                      <td>5415</td>
-                      <td>POINT (703228 5504413)</td>
-                      <td>POINT (703235 5504418)</td>
-                    </tr>
-                    <tr>
-                      <td>A</td>
-                      <td>1387</td>
-                      <td>1387</td>
-                      <td>POINT (703047 5509257)</td>
-                      <td>POINT (703040 5509273)</td>
+                      <td>G</td>
+                      <td>977</td>
+                      <td>5825</td>
+                      <td>POINT (700062 5508877)</td>
+                      <td>POINT (700070 5508862)</td>
                     </tr>
                     <tr>
                       <td>C</td>
-                      <td>1387</td>
-                      <td>1387</td>
-                      <td>POINT (703028 5509303)</td>
-                      <td>POINT (703040 5509273)</td>
+                      <td>1391</td>
+                      <td>3682</td>
+                      <td>POINT (703262 5509183)</td>
+                      <td>POINT (703264 5509172)</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>1391</td>
+                      <td>3682</td>
+                      <td>POINT (703267 5509160)</td>
+                      <td>POINT (703264 5509172)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -8937,18 +8971,15 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
     <xref alt="Harel et al., 2021" rid="ref-Harel_2021-nb-article" ref-type="bibr">Harel
     et al., 2021</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">distance_to_centroid(DT, return_rank = TRUE)
+            <code language="r script"># Measure distance to group centroid
+distance_to_centroid(DT, return_rank = TRUE)
+
+# Measure direction to group centroid
 direction_to_centroid(DT)</code>
           </sec>
-          <sec id="cell-fig-dist-dir-cent-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_dist_dir_cent)</code>
-            <boxed-text>
-              <preformat>Warning: Removed 6981 rows containing non-finite outside the scale range
-(`stat_bin()`).</preformat>
-            </boxed-text>
-            <fig id="fig-dist-dir-cent-nb-article">
-              <caption>
-                <p>Figure 1: A) Distance and B) direction to group
+          <fig id="fig-dist-dir-cent-nb-article">
+            <caption>
+              <p>Figure 1: A) Distance and B) direction to group
       centroids measured using distance_to_centroid() and
       direction_to_centroid(). Using the ‘centroid’ column returned by
       centroid_group, distance_to_centroid() and direction_to_centroid()
@@ -8957,10 +8988,9 @@ direction_to_centroid(DT)</code>
       group centroid. Optionally, the rank distance to the group
       centroid can be returned by distance_to_centroid() if
       ‘return_rank’ is true.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dist-dir-cent-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dist_dir_cent.png"/>
+          </fig>
         </sec>
         <sec id="directions-nb-article">
           <title>3.2 Directions</title>
@@ -8972,7 +9002,10 @@ direction_to_centroid(DT)</code>
     <monospace>direction_group()</monospace>
     (<xref alt="Table 6" rid="tbl-dir-step-group-nb-article">Table 6</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">direction_step(DT, id = id)
+            <code language="r script"># Measure movement direction
+direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)</code>
           </sec>
           <sec specific-use="notebook-content">
@@ -9002,7 +9035,7 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="22%"/>
+                    <col width="19%"/>
                     <col width="25%"/>
                   </colgroup>
                   <thead>
@@ -9017,45 +9050,45 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   <tbody>
                     <tr>
                       <td>B</td>
-                      <td>1129</td>
-                      <td>2467</td>
-                      <td>2.8400 [rad]</td>
-                      <td>-3.096 [rad]</td>
+                      <td>1158</td>
+                      <td>2500</td>
+                      <td>3.063 [rad]</td>
+                      <td>3.048 [rad]</td>
                     </tr>
                     <tr>
                       <td>G</td>
-                      <td>1129</td>
-                      <td>2467</td>
-                      <td>2.9019 [rad]</td>
-                      <td>-3.096 [rad]</td>
+                      <td>1158</td>
+                      <td>2500</td>
+                      <td>2.981 [rad]</td>
+                      <td>3.048 [rad]</td>
                     </tr>
                     <tr>
                       <td>J</td>
-                      <td>1129</td>
-                      <td>2467</td>
-                      <td>-2.4246 [rad]</td>
-                      <td>-3.096 [rad]</td>
+                      <td>1158</td>
+                      <td>2500</td>
+                      <td>3.099 [rad]</td>
+                      <td>3.048 [rad]</td>
                     </tr>
                     <tr>
-                      <td>B</td>
-                      <td>1252</td>
-                      <td>2599</td>
-                      <td>-1.1298 [rad]</td>
-                      <td>-1.100 [rad]</td>
+                      <td>C</td>
+                      <td>1359</td>
+                      <td>1359</td>
+                      <td>1.776 [rad]</td>
+                      <td>1.713 [rad]</td>
                     </tr>
                     <tr>
-                      <td>E</td>
-                      <td>1252</td>
-                      <td>2599</td>
-                      <td>-1.4276 [rad]</td>
-                      <td>-1.100 [rad]</td>
+                      <td>F</td>
+                      <td>1359</td>
+                      <td>1359</td>
+                      <td>2.207 [rad]</td>
+                      <td>1.713 [rad]</td>
                     </tr>
                     <tr>
-                      <td>J</td>
-                      <td>1252</td>
-                      <td>2599</td>
-                      <td>-0.7398 [rad]</td>
-                      <td>-1.100 [rad]</td>
+                      <td>I</td>
+                      <td>1359</td>
+                      <td>1359</td>
+                      <td>1.288 [rad]</td>
+                      <td>1.713 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9081,13 +9114,12 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
     (<xref alt="Jolles et al., 2017" rid="ref-Jolles_2017-nb-article" ref-type="bibr">Jolles
     et al., 2017</xref>) in collective behaviour.</p>
           <sec specific-use="notebook-content">
-            <code language="r script">direction_polarization(DT)</code>
+            <code language="r script"># Measure direction polarization
+direction_polarization(DT)</code>
           </sec>
-          <sec id="cell-fig-dir-pol-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_dir_polarization)</code>
-            <fig id="fig-dir-pol-nb-article">
-              <caption>
-                <p>Figure 2: Direction polarization measured using
+          <fig id="fig-dir-pol-nb-article">
+            <caption>
+              <p>Figure 2: Direction polarization measured using
       direction_polarization(). Using the ‘direction’ column returned by
       direction_step() and ‘group’ column returned by group_pts(),
       direction_polarization() returns a column named ‘polarization’
@@ -9096,10 +9128,9 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
       equal interval categories of direction polarization. Values of
       polarization range from 0 (non-alignment) to 1
       (alignment).</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dir-pol-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dir_polarization.png"/>
+          </fig>
           <p>The interindividual direction, or direction from a focal
     individual to a neighbour, can be measured using
     <monospace>edge_direction()</monospace>
@@ -9114,7 +9145,8 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
     (<xref alt="Torney et al., 2018" rid="ref-Torney_2018-nb-article" ref-type="bibr">Torney
     et al., 2018</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">dyad_directions &lt;- edge_direction(
+            <code language="r script"># Measure interindividual direction
+dyad_directions &lt;- edge_direction(
   edges = interindividual_dist,
   DT = DT,
   id = id
@@ -9135,17 +9167,16 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
     (<xref alt="Sumpter et al., 2018" rid="ref-Sumpter_2018-nb-article" ref-type="bibr">Sumpter
     et al., 2018</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">directional_align &lt;- edge_alignment(
+            <code language="r script"># Measure directional alignment
+directional_align &lt;- edge_alignment(
   DT = DT,
   id = id,
   signed = FALSE
 )</code>
           </sec>
-          <sec id="cell-fig-edge-align-dir-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_edge_dir_and_align)</code>
-            <fig id="fig-edge-align-dir-nb-article">
-              <caption>
-                <p>Figure 3: A) Example locations for individuals ‘E’
+          <fig id="fig-edge-align-dir-nb-article">
+            <caption>
+              <p>Figure 3: A) Example locations for individuals ‘E’
       (purple) and ‘F’ (blue) showing concurrent movement paths in
       timegroups 1, 2 and 3. B) Interindividual direction and
       directional_alignment() using edge_direction() and
@@ -9160,10 +9191,9 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
       two individuals (‘ID1’ and ‘ID2’). Optionally, the signed
       difference can be returned by edge_alignment() if the argument
       ‘signed’ is true.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-align-dir-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_dir_and_align.png"/>
+          </fig>
         </sec>
         <sec id="behavioural-zones-nb-article">
           <title>3.3 Behavioural zones</title>
@@ -9198,10 +9228,12 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
     (<xref alt="Lukeman et al., 2010" rid="ref-Lukeman_2010-nb-article" ref-type="bibr">Lukeman
     et al., 2010</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">zone_thresholds &lt;- c(10, 25, 50)
+            <code language="r script"># Define zone thresholds, labels and blind volume
+zone_thresholds &lt;- c(10, 25, 50)
 zone_labels &lt;- c('repulsion', 'orientation', 'attraction')
 blind_volume &lt;- 3
 
+# Measure behavioural zones
 zones &lt;- edge_zones(
   dyad_directions,
   zone_thresholds = zone_thresholds,
@@ -9209,11 +9241,9 @@ zones &lt;- edge_zones(
   blind_volume = blind_volume
 )</code>
           </sec>
-          <sec id="cell-fig-edge-zones-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_edge_zones)</code>
-            <fig id="fig-edge-zones-nb-article">
-              <caption>
-                <p>Figure 4: Behavioural zones measured using
+          <fig id="fig-edge-zones-nb-article">
+            <caption>
+              <p>Figure 4: Behavioural zones measured using
       edge_zones(). Using the ‘distance’ column returned by edge_dist(),
       the edge_zones() function returns the column ‘zone’ representing
       the behavioural zone of the neighbour (ID2) with respect to the
@@ -9223,10 +9253,9 @@ zones &lt;- edge_zones(
       the visual perception of the focal individual. Example shows
       positions of neighbour ‘E’ in behavioural zones with respect to
       focal individual ‘G’ across the sample period.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-zones-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_zones.png"/>
+          </fig>
         </sec>
         <sec id="position-relative-to-leader-nb-article">
           <title>3.4 Position relative to leader</title>
@@ -9252,19 +9281,18 @@ zones &lt;- edge_zones(
     et al., 2012</xref>) can be optionally returned when the argument
     ‘return_rank’ is true.</p>
           <sec specific-use="notebook-content">
-            <code language="r script">direction_step(DT, id = id)
+            <code language="r script"># Measure movement direction
+direction_step(DT, id = id)
+
+# Measure mean movement direction of each spatiotemporal group
 direction_group(DT)
+
+# Measure position relative to leader
 leader_direction_group(DT, return_rank = TRUE)</code>
           </sec>
-          <sec id="cell-fig-leader-dir-group-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_pos_group_dir)</code>
-            <boxed-text>
-              <preformat>Warning: Removed 3 rows containing missing values or values outside the scale range
-(`stat_slabinterval()`).</preformat>
-            </boxed-text>
-            <fig id="fig-leader-dir-group-nb-article">
-              <caption>
-                <p>Figure 5: A) Example spatiotemporal group showing
+          <fig id="fig-leader-dir-group-nb-article">
+            <caption>
+              <p>Figure 5: A) Example spatiotemporal group showing
       relative positions and movement directions of individuals (small
       points and grey arrows) with respect to the group centroid and
       mean group direction (large point and black arrow). B) Position
@@ -9277,10 +9305,9 @@ leader_direction_group(DT, return_rank = TRUE)</code>
       along the mean group direction. Optionally, the rank position
       along the mean group direction if ‘return_rank’ is
       true.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-leader-dir-group-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_pos_group_dir.png"/>
+          </fig>
           <p>Taking this simple, dynamic definition of leadership, we can
     identify the distance and direction of individuals to the leader of
     each spatiotemporal group using
@@ -9307,22 +9334,15 @@ leader_direction_group(DT, return_rank = TRUE)</code>
     individual was in the first ranked position out of the total
     observations.</p>
           <sec specific-use="notebook-content">
-            <code language="r script">distance_to_leader(DT)
+            <code language="r script"># Measure distance to leader
+distance_to_leader(DT)
+
+# Measure direction to leader
 direction_to_leader(DT)</code>
           </sec>
-          <sec id="cell-fig-dist-dir-lead-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_dist_dir_leader)</code>
-            <boxed-text>
-              <preformat>Warning: Removed 10 rows containing missing values or values outside the scale range
-(`stat_slabinterval()`).</preformat>
-            </boxed-text>
-            <boxed-text>
-              <preformat>Warning: Removed 9905 rows containing missing values or values outside the scale range
-(`stat_slabinterval()`).</preformat>
-            </boxed-text>
-            <fig id="fig-dist-dir-lead-nb-article">
-              <caption>
-                <p>Figure 6: A) Distance and B) direction to group
+          <fig id="fig-dist-dir-lead-nb-article">
+            <caption>
+              <p>Figure 6: A) Distance and B) direction to group
       leaders measured using distance_to_leader and direction_to_leader.
       Using the ‘rank_position_group_direction’ column returned by
       leader_direction_group(), distance_to_leader() and
@@ -9332,10 +9352,9 @@ direction_to_leader(DT)</code>
       for individuals identified as leader using
       ‘position_group_direction’, the distance is 0 and the direction is
       NA.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-dist-dir-lead-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_dist_dir_leader.png"/>
+          </fig>
         </sec>
         <sec id="fusion-events-nb-article">
           <title>3.5 Fusion events</title>
@@ -9369,7 +9388,10 @@ direction_to_leader(DT)</code>
     (<xref alt="Fortin et al., 2009" rid="ref-Fortin_2009-nb-article" ref-type="bibr">Fortin
     et al., 2009</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+            <code language="r script"># Identify dyads
+dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
+
+# Identify fusion events
 fusion_events &lt;- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold,
@@ -9377,17 +9399,17 @@ fusion_events &lt;- fusion_id(
   n_max_missing = 1,
   allow_split = TRUE
 )
+
+# Measure centroids of fusion events
 centroid_fusion(
   interindividual_dist,
   DT,
   id = id
 )</code>
           </sec>
-          <sec id="cell-fig-fusion-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_fusion_events)</code>
-            <fig id="fig-fusion-nb-article">
-              <caption>
-                <p>Figure 7: A) Example fusion event for individuals ‘J’
+          <fig id="fig-fusion-nb-article">
+            <caption>
+              <p>Figure 7: A) Example fusion event for individuals ‘J’
       and ‘C’ with black points representing the centroid of fusion
       observations returned by centroid_fusion(). B) A fusion event
       identified using fusion_id. Using the distance based edge-lists
@@ -9404,10 +9426,9 @@ centroid_fusion(
       threshold at timegroups 2, 3, and 4. Individual J is shown at
       timegroups 1 and 5 with no neighbours within the threshold spatial
       distance (ID2 is NA).</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-fusion-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_fusion_events.png"/>
+          </fig>
         </sec>
         <sec id="directional-correlation-delay-nb-article">
           <title>3.6 Directional correlation delay</title>
@@ -9444,7 +9465,8 @@ centroid_fusion(
     <xref alt="Quera et al., 2023" rid="ref-Quera_2023-nb-article" ref-type="bibr">Quera
     et al., 2023</xref>).</p>
           <sec specific-use="notebook-content">
-            <code language="r script">delay &lt;- edge_delay(
+            <code language="r script"># Measure directional correlation delay
+delay &lt;- edge_delay(
   edges = fusion_events,
   DT = DT,
   window = 3,
@@ -9452,16 +9474,15 @@ centroid_fusion(
 )</code>
           </sec>
           <sec specific-use="notebook-content">
-            <code language="r script">leader_delay &lt;- leader_edge_delay(
+            <code language="r script"># Measure mean directional correlation delay
+leader_delay &lt;- leader_edge_delay(
   delay,
   threshold = 0.5
 )</code>
           </sec>
-          <sec id="cell-fig-edge-delay-nb-article" specific-use="notebook-content">
-            <code language="r script">tar_read(fig_edge_delay)</code>
-            <fig id="fig-edge-delay-nb-article">
-              <caption>
-                <p>Figure 8: A) Example directional correlation delay for
+          <fig id="fig-edge-delay-nb-article">
+            <caption>
+              <p>Figure 8: A) Example directional correlation delay for
       focal individual ‘C’ (ID1) and neighbour ‘G’ (ID2) indicating
       individual ‘C’ had a movement direction most similar to individual
       ‘G’ at the temporal delay of 0. Using the fusion events identified
@@ -9482,10 +9503,9 @@ centroid_fusion(
       used to subset the temporal delays included in the calculation of
       mean directional delay with the argument
       ‘threshold’.</p>
-              </caption>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-edge-delay-1.png"/>
-            </fig>
-          </sec>
+            </caption>
+            <graphic mimetype="image" mime-subtype="png" xlink:href="graphics/fig_edge_delay.png"/>
+          </fig>
         </sec>
       </sec>
       <sec id="implications-nb-article">
@@ -9625,7 +9645,9 @@ centroid_fusion(
   imported with:</p>
         <sec specific-use="notebook-content">
           <code language="r script">library(spatsoc)
+
 library(data.table)
+
 DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         </sec>
         <p>The code for producing the scoping review results, figures, tables
