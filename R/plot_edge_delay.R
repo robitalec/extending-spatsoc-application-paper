@@ -72,7 +72,18 @@ plot_edge_delay <- function(edges, leaders, DT) {
       )
     )
 
-  (g_left / g_right / g_leaders & theme_void(base_size = font_size)) +
+  g_out <- (g_left /
+    g_right /
+    g_leaders &
+    theme_void(base_size = font_size) &
+    theme(plot.background = element_rect(fill = 'white', color = 'white'))) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
     plot_layout(widths = 1, heights = c(1, 1, 3))
+
+  ggsave(
+    file.path('graphics', 'fig_edge_delay.png'),
+    g_out,
+    width = 7,
+    height = 6
+  )
 }

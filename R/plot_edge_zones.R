@@ -19,7 +19,7 @@ plot_edge_zones <- function(zones) {
 
   zones[, zone := factor(zone, levels = c(zone_labels, 'blind'))]
 
-  ggplot(zones[ID1 == 'G' & ID2 == 'E' & !is.na(zone)]) +
+  g_out <- ggplot(zones[ID1 == 'G' & ID2 == 'E' & !is.na(zone)]) +
     geom_spoke(aes(
       x = 0,
       y = 0,
@@ -38,7 +38,6 @@ plot_edge_zones <- function(zones) {
       linewidth = 0.5,
       data = r_highlight
     ) +
-
     geom_vline(xintercept = 0, linewidth = 0.1) +
     geom_hline(yintercept = 0, linewidth = 0.1) +
     facet_wrap(~zone, ncol = 3) +
@@ -49,4 +48,11 @@ plot_edge_zones <- function(zones) {
       axis.ticks = element_blank(),
       axis.text = element_blank()
     )
+
+  ggsave(
+    file.path('graphics', 'fig_edge_zones.png'),
+    g_out,
+    width = 6,
+    height = 5
+  )
 }

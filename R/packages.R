@@ -1,11 +1,14 @@
+# Targets
 library(targets)
 library(tarchetypes)
 library(qs2)
 
+# General
 library(janitor)
-
 library(data.table)
+library(googlesheets4)
 
+# Figures, tables
 library(ggplot2)
 library(ggdist)
 library(scico)
@@ -15,19 +18,15 @@ library(patchwork)
 library(gridExtra)
 library(hexbin)
 library(ggforce)
-
 library(tinytable)
 library(scales)
 
-library(googlesheets4)
-
+# Analysis
 library(sf)
 library(tidygeocoder)
-
 library(rgnparser)
-
-library(testthat)
-
 library(units)
-
 library(spatsoc)
+
+# Manuscript
+library(quarto)

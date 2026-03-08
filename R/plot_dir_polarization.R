@@ -21,11 +21,18 @@ plot_dir_polarization <- function(DT) {
   sub_DT[, i_group := .GRP, group]
 
   setnames(sub_DT, 'direction', 'Direction')
-  ggplot(sub_DT, aes(Direction, i_group, group = i_group)) +
+  g_out <- ggplot(sub_DT, aes(Direction, i_group, group = i_group)) +
     geom_line(linewidth = 0.4) +
     geom_point(size = 0.8) +
     facet_wrap(~ cut_interval(round(polarization, digits = 1), 4)) +
     theme_bw(base_size = font_size) +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), ) +
     labs(y = NULL)
+
+  ggsave(
+    file.path('graphics', 'fig_dir_polarization.png'),
+    g_out,
+    width = 8,
+    height = 5
+  )
 }

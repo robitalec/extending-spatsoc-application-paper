@@ -32,7 +32,7 @@ plot_fusion_events <- function(edges, DT) {
     geom_path(
       aes(X, Y, color = ID),
       arrow = arrow(length = unit(0.2, "inches")),
-      linewidth = 1,
+      linewidth = 2,
       linetype = 1
     ) +
     geom_path(
@@ -47,13 +47,13 @@ plot_fusion_events <- function(edges, DT) {
       color = 'black',
       size = 3
     ) +
-    guides(color = 'none') +
-    scale_color_viridis_d(end = 0.5, begin = 0.2) +
+    scale_color_viridis_d(end = 0.5) +
     labs(x = '', y = '') +
     coord_fixed()
 
   tab <- edges[
-    ID1 %in% c(NA_character_, sub_edges[, last(unique(ID1))]) &
+    ID1 %in%
+      c(NA_character_, sub_edges[, last(unique(ID1))]) &
       ID2 %in% c(NA_character_, sub_edges[, first(unique(ID1))]) &
       timegroup %in% sub_DT$timegroup,
     .(
@@ -69,7 +69,19 @@ plot_fusion_events <- function(edges, DT) {
       tableGrob(tab, theme = ttheme_default(base_size = font_size), rows = NULL)
     )
 
-  (g / g_tab & theme_void(base_size = font_size)) +
+  g_out <- (g /
+    g_tab &
+    theme_void(base_size = font_size) &
+    theme(
+      plot.background = element_rect(fill = 'white', color = 'white')
+    )) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
     plot_layout(widths = 1, heights = 1)
+
+  ggsave(
+    file.path('graphics', 'fig_fusion_events.png'),
+    g_out,
+    width = 7,
+    height = 5
+  )
 }
