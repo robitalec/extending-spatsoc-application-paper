@@ -58,7 +58,7 @@ plot_pos_group_dir <- function(DT) {
   ggsave(
     file.path('graphics', 'fig_pos_group_dir.png'),
     g_out,
-    width = 7,
-    height = 7
+    width = 8,
+    height = 5
   )
 }
