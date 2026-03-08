@@ -13,6 +13,11 @@ plot_pos_group_dir <- function(DT) {
   intercept_inv <- sub_DT[1, centroid_Y - (-1 / slope * centroid_X)]
 
   g_xy <- ggplot(sub_DT, aes(x = X, y = Y)) +
+    geom_abline(
+      slope = -1 / slope,
+      intercept = intercept_inv,
+      linewidth = 0.6
+    ) +
     geom_spoke(
       aes(
         centroid_X,
@@ -20,20 +25,17 @@ plot_pos_group_dir <- function(DT) {
         radius = 30,
         angle = as.numeric(group_direction)
       ),
+      linewidth = 2,
       arrow = arrow(length = unit(0.2, 'inches'))
     ) +
     geom_spoke(
       aes(radius = 10, angle = as.numeric(direction)),
       arrow = arrow(length = unit(0.1, 'inches')),
+      linewidth = 2,
       color = 'grey30'
     ) +
-    geom_abline(
-      slope = -1 / slope,
-      intercept = intercept_inv,
-      linewidth = 0.2
-    ) +
-    geom_point(aes(centroid_X, centroid_Y), size = 1) +
-    geom_point(aes(X, Y), size = 0.5) +
+    geom_point(aes(centroid_X, centroid_Y), size = 3) +
+    geom_point(aes(X, Y), size = 2) +
     labs(x = '', y = '') +
     theme_void(base_size = font_size) +
     theme(axis.text = element_blank(), axis.ticks = element_blank()) +
