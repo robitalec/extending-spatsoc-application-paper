@@ -27,6 +27,13 @@ plot_dist_dir_leader <- function(DT) {
       limits = rev(levels(factor(DT$rank_position_group_direction)))
     )
 
-  (g_dist + g_dir & theme_bw(base_size = font_size)) +
+  g_out <- (g_dist + g_dir & theme_bw(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+
+  ggsave(
+    file.path('graphics', 'fig_dist_dir_leader.png'),
+    g_out,
+    width = 8,
+    height = 5
+  )
 }

@@ -51,7 +51,14 @@ plot_pos_group_dir <- function(DT) {
     ) +
     theme_bw(base_size = font_size)
 
-  (g_xy + g_pos) +
+  g_out <- (g_xy + g_pos) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
     plot_layout(widths = 1, heights = 1)
+
+  ggsave(
+    file.path('graphics', 'fig_pos_group_dir.png'),
+    g_out,
+    width = 7,
+    height = 7
+  )
 }

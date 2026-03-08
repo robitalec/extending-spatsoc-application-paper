@@ -47,7 +47,14 @@ plot_edge_dir_and_align <- function(DT, edges) {
       tableGrob(tab, theme = ttheme_default(base_size = font_size), rows = NULL)
     )
 
-  (g / g_tab & theme_void(base_size = font_size)) +
+  g_out <- (g / g_tab & theme_void(base_size = font_size)) +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix) +
     plot_layout(widths = 1, heights = 1)
+
+  ggsave(
+    file.path('graphics', 'fig_edge_dir_and_align.png'),
+    g_out,
+    width = 7,
+    height = 7
+  )
 }

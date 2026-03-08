@@ -15,7 +15,14 @@ plot_dist_dir_cent <- function(DT) {
     geom_histogram(aes(x = direction_centroid), bins = 30) +
     labs(x = 'Direction to group centroid', y = '')
 
-  g_dist +
+  g_out <- g_dist +
     g_dir +
     plot_annotation(tag_levels = tag_levels, tag_suffix = tag_suffix)
+
+  ggsave(
+    file.path('graphics', 'fig_dist_dir_cent.png'),
+    g_out,
+    width = 9,
+    height = 5
+  )
 }
