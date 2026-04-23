@@ -1,0 +1,189 @@
+{
+  "custom_fields": {
+    "code:codeRepository": "https://github.com/robitalec/extending-spatsoc-application-paper",
+    "code:developmentStatus": {
+      "id": "active",
+      "title": {
+        "en": "Active"
+      }
+    },
+    "code:programmingLanguage": [
+      {
+        "id": "r",
+        "title": {
+          "en": "R"
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "creators": [
+      {
+        "affiliations": [
+          {
+            "id": "04haebc03",
+            "identifiers": [
+              {
+                "identifier": "04haebc03",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.25055.37",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0000 9130 6822",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Memorial University of Newfoundland"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Robitaille",
+          "given_name": "Alec L.",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-4706-1762",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Robitaille, Alec L.",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "id": "01r7awg59",
+            "identifiers": [
+              {
+                "identifier": "01r7awg59",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.34429.38",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0004 1936 8198",
+                "scheme": "isni"
+              }
+            ],
+            "name": "University of Guelph"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Webber",
+          "given_name": "Quinn M.R.",
+          "name": "Webber, Quinn M.R.",
+          "type": "personal"
+        }
+      },
+      {
+        "affiliations": [
+          {
+            "id": "04haebc03",
+            "identifiers": [
+              {
+                "identifier": "04haebc03",
+                "scheme": "ror"
+              },
+              {
+                "identifier": "grid.25055.37",
+                "scheme": "grid"
+              },
+              {
+                "identifier": "0000 0000 9130 6822",
+                "scheme": "isni"
+              }
+            ],
+            "name": "Memorial University of Newfoundland"
+          }
+        ],
+        "person_or_org": {
+          "family_name": "Vander Wal",
+          "given_name": "Eric",
+          "identifiers": [
+            {
+              "identifier": "0000-0002-8534-4317",
+              "scheme": "orcid"
+            }
+          ],
+          "name": "Vander Wal, Eric",
+          "type": "personal"
+        }
+      }
+    ],
+    "description": "<p>Repository containing the source materials for the manuscript \"Extending {spatsoc} to measure intragroup social dynamics\".</p>\n<div class=\"markdown-heading\">\n<h3 class=\"heading-element\">Abstract</h3>\nBeyond proximity-based social networks and home range overlap, animal telemetry data can also be used to measure intragroup social dynamics including individual position within groups, individual and group level movement directions, leadership patterns and lagged follower behaviours.</div>\n<p>We used a scoping review of literature across domains, including behavioural ecology, collective movement, and GISciences, to identify widely used metrics for measuring intragroup social dynamics that are not openly available in the R programming language.</p>\n<p>We present a case study illustrating 18 new functions for the R package {spatsoc} measuring intragroup social dynamics with animal telemetry data.</p>\n<p>The open availability of these new and flexible functions in {spatsoc} will allow researchers to easily measure intragroup social dynamics to more comprehensively measure the multifaceted animal social behaviours in their study systems.</p>\n<div class=\"markdown-heading\">\n<h3 class=\"heading-element\">Open science</h3>\nAll data and code used to produce figures are available on GitHub at <a href=\"https://github.com/robitalec/extending-spatsoc-application-paper\">https://github.com/robitalec/extending-spatsoc-application-paper</a> and on Zenodo at <a href=\"https://doi.org/10.5281/zenodo.19712779\" rel=\"nofollow\">https://doi.org/10.5281/zenodo.19712779</a>. The data used in this case study are included with the package and can be read with:</div>\n<div class=\"highlight highlight-source-r notranslate position-relative overflow-auto\">\n<pre>library(<span class=\"pl-smi\">spatsoc</span>)\nlibrary(<span class=\"pl-smi\">data.table</span>)\n<span class=\"pl-smi\">DT</span> <span class=\"pl-k\">&lt;-</span> fread(system.file(<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>extdata<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>DT.csv<span class=\"pl-pds\">\"</span></span>, <span class=\"pl-v\">package</span> <span class=\"pl-k\">=</span> <span class=\"pl-s\"><span class=\"pl-pds\">\"</span>spatsoc<span class=\"pl-pds\">\"</span></span>))</pre>\n<div class=\"zeroclipboard-container\">&nbsp;The code for producing the scoping review results, figures, tables and manuscript was developed as a reproducible pipeline with the R package {targets} (Landau, 2021). Figures and tables were constructed using {ggplot2} (Wickham, 2016), {ggdist} (Kay, 2025), {patchwork} (Pedersen, 2025) and {tintytable} (Arel-Bundock, 2025). The manuscript was produced using {quarto} (Allaire &amp; Dervieux, 2024). The {spatsoc} package gratefully depends on the R packages {adehabitatHR} (Calenge, 2024), {data.table} (Barrett et al., 2025), {igraph} (Cs&aacute;rdi et al., 2026), {sf} (Pebesma, 2018), {lwgeom} (Pebesma, 2025), {CircStats} (Lund &amp; Agostinelli, 2025), {units} (Pebesma et al., 2016), and {rlang} (Henry &amp; Wickham, 2026).</div>\n</div>",
+    "languages": [
+      {
+        "id": "eng",
+        "title": {
+          "en": "English"
+        }
+      }
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "https://github.com/ropensci/spatsoc",
+        "relation_type": {
+          "id": "describes",
+          "title": {
+            "de": "Beschreibt",
+            "en": "Describes"
+          }
+        },
+        "resource_type": {
+          "id": "software",
+          "title": {
+            "de": "Software",
+            "en": "Software"
+          }
+        },
+        "scheme": "url"
+      }
+    ],
+    "resource_type": {
+      "id": "software",
+      "title": {
+        "de": "Software",
+        "en": "Software"
+      }
+    },
+    "rights": [
+      {
+        "description": {
+          "en": "Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights."
+        },
+        "id": "gpl-3.0-or-later",
+        "props": {
+          "scheme": "spdx",
+          "url": "https://www.gnu.org/licenses/gpl-3.0-standalone.html"
+        },
+        "title": {
+          "en": "GNU General Public License v3.0 or later"
+        }
+      }
+    ],
+    "subjects": [
+      {
+        "subject": "R"
+      },
+      {
+        "subject": "spatsoc"
+      },
+      {
+        "subject": "social network analysis"
+      },
+      {
+        "subject": "leader-follower"
+      },
+      {
+        "subject": "collective movement"
+      },
+      {
+        "subject": "fission-fusion"
+      }
+    ]
+}
