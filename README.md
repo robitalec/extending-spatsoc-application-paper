@@ -1,8 +1,6 @@
 # Extending {spatsoc} to measure intragroup social dynamics
 
-<!-- TODO: [![DOI](https://zenodo.org/badge/.svg)](https://zenodo.org/badge/latestdoi/) -->
-
-
+[![DOI](https://zenodo.org/badge/1219321542.svg)](https://doi.org/10.5281/zenodo.19712779)
 
 - Authors:
   - [Alec L. Robitaille](http://robitalec.ca)
