@@ -66,17 +66,16 @@ Articles were screened out based on the following criteria:
 -   Study is not a thesis
 -   Study is not a book chapter (eg. @Bernstein_2019)
 
-Despite a focus on animal ecology, some studies were discussed movement
-data more generically or, alternatively, specifically focused on human
-or robotic movement data (eg. @Long_2022). These studies were retained
-when the metrics described were deemed applicable to animal
-spatiotemporal movement data. Studies using mathematical models or
-simulations were largely beyond the scope of this review but studies
-were retained when the parameters used as inputs could be applied to
-spatial temporal data (eg. @Long_2015). Review studies were read for
-building the scope of the introduction and discussion but not included
-in data extraction unless they explicitly discussed dyadic measures (eg.
-@King_2018).
+Despite a focus on animal ecology, some studies discussed movement data
+more generically or, alternatively, specifically focused on human or
+robotic movement data (eg. @Long_2022). These studies were retained when
+the metrics described were deemed applicable to animal spatiotemporal
+movement data. Studies using mathematical models or simulations were
+largely beyond the scope of this review but studies were retained when
+the parameters used as inputs could be applied to spatial temporal data
+(eg. @Long_2015). Review studies were read for building the scope of the
+introduction and discussion but not included in data extraction unless
+they explicitly discussed dyadic measures (eg. @King_2018).
 
 The goals of data extraction were to record the breadth of dyadic social
 and dominance metrics applicable to spatiotemporal data, and the degree

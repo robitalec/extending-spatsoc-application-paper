@@ -60,14 +60,14 @@ targets::tar_source('_targets.R')
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
 interindividual distances, and home range overlap [@Robitaille_2019].
-These methods have been used to measure social cohesion [@Bracken_2022],
-human-wildlife conflict [@Boudreau_2022], socioecology and resource
-availability [@Peignier_2019], community structure [@Sunga_2021], the
-influence of stress on social proximity [@Keshavarzi_2023], and social
-patterns in non-social species [@Heeres_2024]. Despite these substantive
-and varied applications of {spatsoc}, users lacked sufficient and
-accessible functionality for measuring the behaviour of individuals
-within social groups.
+The methods in {spatsoc} have been used to measure social cohesion
+[@Bracken_2022], human-wildlife conflict [@Boudreau_2022], socioecology
+and resource availability [@Peignier_2019], community structure
+[@Sunga_2021], the influence of stress on social proximity
+[@Keshavarzi_2023], and social patterns in non-social species
+[@Heeres_2024]. Despite the substantive and varied applications of
+{spatsoc}, users lacked sufficient and accessible functionality for
+measuring the behaviour of individuals within social groups.
 
 Many facets of group living need to be considered to better measure
 animal social systems [@King_2018]. Beyond associations, there are
@@ -84,27 +84,26 @@ labour-intensive to collect and susceptible to observer bias
 [@Smith_2021], with low spatial and temporal resolution making them
 imperfect for studies of collective movement [@King_2018].
 
-There are expanded opportunities in studying animal social systems by
-pairing advances in remote tracking technology with emerging methods to
-measure intragroup social dynamics. The availability and resolution of
-remote tracking data continues to improve [@Kays_2015; @Kays_2022;
-@Nathan_2022]. There are over two decades of research on measuring
-interactions between moving individuals from the study of "moving point
-objects" in GISciences [@Andersson_2008; @Dodge_2008; @Laube_2005;
-@Miller_2021] to group coordination [@Couzin_2002; @Herbert-Read_2011],
-leadership, and decision making [@King_2011; @Nagy_2010;
-@Strandburg-Peshkin_2015]. Despite this, we suggest the lack of
-availability of open source tools [@Hampton_2015; @Powers_2019;
-@Wilson_2017] is the missing piece between the call to integrate
-technology enhanced research with multidisciplinary approaches to better
-study animal social systems [@Couzin_2023; @King_2018].
+Pairing advanced remote tracking technologies with emerging methods
+expand opportunities to measure intragroup social dynamics. The
+availability and resolution of remote tracking data continues to improve
+[@Kays_2015; @Kays_2022; @Nathan_2022]. There are over two decades of
+research on measuring interactions between moving individuals from the
+study of "moving point objects" in GISciences [@Andersson_2008;
+@Dodge_2008; @Laube_2005; @Miller_2021] to group coordination
+[@Couzin_2002; @Herbert-Read_2011], leadership, and decision making
+[@King_2011; @Nagy_2010; @Strandburg-Peshkin_2015]. Despite this, we
+suggest the lack of availability of open source tools [@Hampton_2015;
+@Powers_2019; @Wilson_2017] is the missing piece between the call to
+integrate technology enhanced research with multidisciplinary approaches
+to better study animal social systems [@Couzin_2023; @King_2018].
 
-We conducted a scoping review to identify metrics that were applicable
-to spatiotemporal data, and focused on dyadic interactions, leadership
-patterns, and dominance hierarchies. Of the resulting metrics, we
-selected those with a high evidence of use, and lack of availability in
-the R programming language, either through R packages or supplemental
-materials in the literature. Here we present
+We first conducted a scoping review to identify metrics that were
+applicable to spatiotemporal data, and focused on dyadic interactions,
+leadership patterns, and dominance hierarchies. Of the resulting
+metrics, we selected those with a high evidence of use, and lack of
+availability in the R programming language, either through R packages or
+supplemental materials in the literature. Here we present
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions in the R package {spatsoc} [@Robitaille_2019] for
 measuring intragroup dynamics ([Table @tbl-new-functions]). We will
@@ -747,7 +746,8 @@ largely absent from R packages. Paired with the continued development of
 animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
 data collection methods [@Koger_2023; @Pedrazzi_2025], the open
 availability of these metrics in R will broaden their application across
-research questions, including long-standing ecological concepts such as:
+research questions, including, among others, long-standing ecological
+concepts such as:
 
 -   Social foraging theory and producer-scrounger dynamics where
     “producers” are those who discover patches and “scroungers” are
