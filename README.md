@@ -1,5 +1,4 @@
-# spatsoc-paper-2
-<!-- TODO: fix title --> 
+# Extending {spatsoc} to measure intragroup social dynamics
 
 <!-- TODO: [![DOI](https://zenodo.org/badge/.svg)](https://zenodo.org/badge/latestdoi/) -->
 
