@@ -97,11 +97,11 @@ direction metrics, across
 `r taxized[covidence_number %in% align$covidence_number, uniqueN(species)]`
 study species.
 `r count_code_avail[covidence_number %in% align$covidence_number & analysis_code_availability == 'Yes', .N]`
-studies had code available. The {CircStats} package provides
-functionality to calculate the polarization order parameter, as well as
-the {swaRm} package. At the time when the scoping review was conducted,
-to the best of our knowledge, there were no R packages that provide the
-directional alignment or interindividual direction metrics.
+studies had code available. The {CircStats} and the {swaRm} packages
+provide functionality to calculate the polarization order parameter. At
+the time when the scoping review was conducted, to the best of our
+knowledge, there were no R packages that provide the directional
+alignment or interindividual direction metrics.
 
 ### Behavioural zones {.unnumbered}
 

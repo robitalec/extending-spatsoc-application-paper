@@ -91,19 +91,19 @@ or GitHub), programming languages and software packages used.
 
 Metrics identified were aggregated using a manual process to identify
 synonymous terms. This aggregation process was required due to
-variability in defining metrics during data extraction, as well as
-differences between authors in describing metrics (eg. distance to group
-"center", "centroid", or "center of mass"). Each study was geocoded
-using the {tidygeocoder} package [@Cambon_2021] and species were parsed
-using the {rgnparser} package [@Chamberlain_2023] which provides the
-GNparser [@Mozzherin_2026] functionality in R. We calculated frequency
-of data extracted for each categorical field including programming
-language, software package, analysis code availability, geographic
-region, study species and metric used. For many fields, authors did not
-provide sufficient to determine how metrics were calculated, eg. not
-including the programming language or software package used. In all
-cases, counts are presented as an overall frequency including papers
-with missing fields.
+variability in defining metrics during data extraction and differences
+between authors in describing metrics (eg. distance to group "center",
+"centroid", or "center of mass"). Each study was geocoded using the
+{tidygeocoder} package [@Cambon_2021] and species were parsed using the
+{rgnparser} package [@Chamberlain_2023] which provides the GNparser
+[@Mozzherin_2026] functionality in R. We calculated frequency of data
+extracted for each categorical field including programming language,
+software package, analysis code availability, geographic region, study
+species and metric used. For many fields, authors did not provide
+sufficient to determine how metrics were calculated, eg. not including
+the programming language or software package used. In all cases, counts
+are presented as an overall frequency including papers with missing
+fields.
 
 ```{r}
 #| echo: false
