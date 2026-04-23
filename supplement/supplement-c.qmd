@@ -101,7 +101,10 @@ studies had code available. The {CircStats} and the {swaRm} packages
 provide functionality to calculate the polarization order parameter. At
 the time when the scoping review was conducted, to the best of our
 knowledge, there were no R packages that provide the directional
-alignment or interindividual direction metrics.
+alignment or interindividual direction metrics. After the
+scoping review was conducted, the {swaRmverse} package was released
+which provides the direction to nearest neighbour metric
+[@Papadopoulou_2025].
 
 ### Behavioural zones {.unnumbered}
 
