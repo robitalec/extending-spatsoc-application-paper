@@ -7,6 +7,10 @@
   - [Quinn M.R. Webber](https://qwebber.weebly.com/)
   - [Eric Vander Wal](http://weel.gitlab.io)
 
+Repository containing the source materials for the manuscript "Extending
+{spatsoc} to measure intragroup social dynamics".
+
+
 ### Abstract
 
 1. Beyond proximity-based social networks and home range overlap, animal
