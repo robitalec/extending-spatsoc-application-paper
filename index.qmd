@@ -172,7 +172,6 @@ spatiotemporal groups ([Table @tbl-group-pts]):
 #| label: calc-group-pts
 #| eval: false
 #| echo: true
-
 # Load packages
 library(data.table)
 library(spatsoc)
@@ -738,43 +737,43 @@ availability of these metrics in R will broaden their application across
 research questions, including, among others, long-standing ecological
 concepts such as:
 
--   Social foraging theory and producer-scrounger dynamics where
-    “producers” are those who discover patches and “scroungers” are
-    those who join patches discovered by others [@Barnard_1981;
-    @Vickery_1991; @Giraldeau_2000]. This concept can be applied to
-    animal telemetry data by evaluating the position of individuals
-    within groups, the individual’s arrival timing to forage patches and
-    the characteristics of forage patches. Individuals balance predation
-    risk and foraging success by adjusting their spatial position within
-    groups [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy
-    selected by an individual can be influenced by the size of forage
-    patches [@Hansen_2016].
+- Social foraging theory and producer-scrounger dynamics where
+  “producers” are those who discover patches and “scroungers” are those
+  who join patches discovered by others [@Barnard_1981; @Vickery_1991;
+  @Giraldeau_2000]. This concept can be applied to animal telemetry data
+  by evaluating the position of individuals within groups, the
+  individual’s arrival timing to forage patches and the characteristics
+  of forage patches. Individuals balance predation risk and foraging
+  success by adjusting their spatial position within groups
+  [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy selected by
+  an individual can be influenced by the size of forage patches
+  [@Hansen_2016].
 
--   Leader-follower patterns in groups of moving animals can be studied
-    both to determine factors that causally influence leadership, and
-    for the influence of leader-follower strategies on foraging success
-    and downstream fitness. Applied to animal telemetry data, leadership
-    can be defined simply by identifying the individual at the foremost
-    position along the front-to-back axis of the group’s direction
-    [@Quera_2023; @Harel_2021] or by calculating the directional
-    correlation delay between individuals and building leadership
-    hierarchies [@Nagy_2010]. Leadership in a group of moving animals
-    can inform animal decision making, group coordination, and migratory
-    patterns [@Flack_2018; @Weesner_2023; @Quera_2023; @Kano_2021].
+- Leader-follower patterns in groups of moving animals can be studied
+  both to determine factors that causally influence leadership, and for
+  the influence of leader-follower strategies on foraging success and
+  downstream fitness. Applied to animal telemetry data, leadership can
+  be defined simply by identifying the individual at the foremost
+  position along the front-to-back axis of the group’s direction
+  [@Quera_2023; @Harel_2021] or by calculating the directional
+  correlation delay between individuals and building leadership
+  hierarchies [@Nagy_2010]. Leadership in a group of moving animals can
+  inform animal decision making, group coordination, and migratory
+  patterns [@Flack_2018; @Weesner_2023; @Quera_2023; @Kano_2021].
 
--   Individual traits can influence behaviours related to intragroup
-    dynamics. Dominance is related to foraging success [@Caraco_1989;
-    @Teichroeb_2015] and choice of foraging strategy [@King_2009;
-    @Aplin_2017; @Lee_2016]. Dominant, aggressive, grooming and other
-    interindividual behaviours are typically measured using focal
-    observations. However, some metrics have been developed for remotely
-    estimating dominance behaviours. The directional correlation delay
-    can be used to derive hierarchies of leadership which can be a proxy
-    for dominance relationships in certain species [@Flack_2013;
-    @Akos_2014]. Dominance relationships can also be inferred from
-    animal telemetry data using movement initiations
-    [@Amornbunchornvej_2018], approach-avoidance behaviours
-    [@Strandburg-Peshkin_2015] and displacement events [@Evans_2018].
+- Individual traits can influence behaviours related to intragroup
+  dynamics. Dominance is related to foraging success [@Caraco_1989;
+  @Teichroeb_2015] and choice of foraging strategy [@King_2009;
+  @Aplin_2017; @Lee_2016]. Dominant, aggressive, grooming and other
+  interindividual behaviours are typically measured using focal
+  observations. However, some metrics have been developed for remotely
+  estimating dominance behaviours. The directional correlation delay can
+  be used to derive hierarchies of leadership which can be a proxy for
+  dominance relationships in certain species [@Flack_2013; @Akos_2014].
+  Dominance relationships can also be inferred from animal telemetry
+  data using movement initiations [@Amornbunchornvej_2018],
+  approach-avoidance behaviours [@Strandburg-Peshkin_2015] and
+  displacement events [@Evans_2018].
 
 The lack of open source code and transparency of methods alongside
 research ([@tbl-code-availability], [@tbl-prog], [@tbl-software])
