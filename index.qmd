@@ -787,9 +787,10 @@ for vulnerable species [@Ramos_2021].
 # Open science
 
 All code used to produce this manuscript including figures and tables
-are available on GitHub at LINK <!-- TODO: github link --> and on
-Zeonodo at LINK <!-- TODO: github link -->. The data used in this case
-study are included with the package and can be imported with:
+are available on GitHub at
+<https://github.com/robitalec/extending-spatsoc-application-paper> and
+on Zenodo at <https://doi.org/10.5281/zenodo.19712779>. The data used in
+this case study are included with the package and can be imported with:
 
 ```{r}
 #| eval: false
