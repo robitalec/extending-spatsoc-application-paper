@@ -34,3 +34,5 @@ library(spatsoc)
 
 # Manuscript
 library(quarto)
+library(downlit)
+library(xml2)
