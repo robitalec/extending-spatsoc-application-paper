@@ -3,6 +3,10 @@ library(targets)
 library(tarchetypes)
 library(qs2)
 
+# Env
+library(pak)
+library(renv)
+
 # General
 library(janitor)
 library(data.table)
