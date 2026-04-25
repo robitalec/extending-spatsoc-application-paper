@@ -16,16 +16,6 @@ dynamics</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
-          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
-          <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
-          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
-          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal
-analysis</role>
-          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">Data
-Curation</role>
-          <role>Writing - Original Draft</role>
-          <role>Writing - Review &amp; Editing</role>
-          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">Visualization</role>
           <xref ref-type="aff" rid="aff-1">a</xref>
           <xref ref-type="corresp" rid="cor-1">*</xref>
         </contrib>
@@ -111,8 +101,8 @@ and Labrador</institution>
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
   (<xref alt="Robitaille et al., 2019" rid="ref-Robitaille_2019" ref-type="bibr">Robitaille
-  et al., 2019</xref>). These methods have been used to measure social
-  cohesion
+  et al., 2019</xref>). The methods in {spatsoc} have been used to
+  measure social cohesion
   (<xref alt="Bracken et al., 2022" rid="ref-Bracken_2022" ref-type="bibr">Bracken
   et al., 2022</xref>), human-wildlife conflict
   (<xref alt="Boudreau et al., 2022" rid="ref-Boudreau_2022" ref-type="bibr">Boudreau
@@ -124,10 +114,9 @@ and Labrador</institution>
   (<xref alt="Keshavarzi et al., 2023" rid="ref-Keshavarzi_2023" ref-type="bibr">Keshavarzi
   et al., 2023</xref>), and social patterns in non-social species
   (<xref alt="Heeres et al., 2024" rid="ref-Heeres_2024" ref-type="bibr">Heeres
-  et al., 2024</xref>). Despite these substantive and varied
-  applications of {spatsoc}, users lacked sufficient and accessible
-  functionality for measuring the behaviour of individuals within social
-  groups.</p>
+  et al., 2024</xref>). Despite the substantive and varied applications
+  of {spatsoc}, users lacked sufficient and accessible functionality for
+  measuring the behaviour of individuals within social groups.</p>
       <p>Many facets of group living need to be considered to better measure
   animal social systems
   (<xref alt="King et al., 2018" rid="ref-King_2018" ref-type="bibr">King
@@ -163,14 +152,14 @@ and Labrador</institution>
   resolution making them imperfect for studies of collective movement
   (<xref alt="King et al., 2018" rid="ref-King_2018" ref-type="bibr">King
   et al., 2018</xref>).</p>
-      <p>There are expanded opportunities in studying animal social systems
-  by pairing advances in remote tracking technology with emerging
-  methods to measure intragroup social dynamics. The availability and
-  resolution of remote tracking data continues to improve
+      <p>Pairing advanced remote tracking technologies with emerging methods
+  expand opportunities to measure intragroup social dynamics. The
+  availability and resolution of remote tracking data continues to
+  improve
   (<xref alt="Kays et al., 2015" rid="ref-Kays_2015" ref-type="bibr">Kays
   et al., 2015</xref>;
-  <xref alt="Kays et al., 2022" rid="ref-Kays_2022" ref-type="bibr">Kays
-  et al., 2022</xref>;
+  <xref alt="Kays et al., 2022" rid="ref-Kays_2022" ref-type="bibr"><named-content content-type="nocase">Kays
+  et al.</named-content>, 2022</xref>;
   <xref alt="Nathan et al., 2022" rid="ref-Nathan_2022" ref-type="bibr">Nathan
   et al., 2022</xref>). There are over two decades of research on
   measuring interactions between moving individuals from the study of
@@ -206,7 +195,7 @@ and Labrador</institution>
   &amp; Heins, 2023</xref>;
   <xref alt="King et al., 2018" rid="ref-King_2018" ref-type="bibr">King
   et al., 2018</xref>).</p>
-      <p>We conducted a scoping review to identify metrics that were
+      <p>We first conducted a scoping review to identify metrics that were
   applicable to spatiotemporal data, and focused on dyadic interactions,
   leadership patterns, and dominance hierarchies. Of the resulting
   metrics, we selected those with a high evidence of use, and lack of
@@ -453,11 +442,11 @@ group_pts(
         <table-wrap>
           <table>
             <colgroup>
-              <col width="7%"/>
+              <col width="6%"/>
               <col width="29%"/>
-              <col width="33%"/>
+              <col width="35%"/>
               <col width="16%"/>
-              <col width="11%"/>
+              <col width="10%"/>
             </colgroup>
             <thead>
               <tr>
@@ -470,46 +459,46 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>B</td>
-                <td>2017-01-10 22:00:55</td>
-                <td>POINT (697579 5511383)</td>
-                <td>852</td>
-                <td>2248</td>
-              </tr>
-              <tr>
-                <td>G</td>
-                <td>2017-01-10 22:00:24</td>
-                <td>POINT (697570 5511383)</td>
-                <td>852</td>
-                <td>2248</td>
-              </tr>
-              <tr>
-                <td>F</td>
-                <td>2017-02-05 08:01:17</td>
-                <td>POINT (702198 5510759)</td>
-                <td>1143</td>
-                <td>6870</td>
+                <td>H</td>
+                <td>2016-12-23 00:00:21</td>
+                <td>POINT (698858.8 5506773)</td>
+                <td>625</td>
+                <td>7847</td>
               </tr>
               <tr>
                 <td>I</td>
-                <td>2017-02-05 08:00:46</td>
-                <td>POINT (702158 5510732)</td>
-                <td>1143</td>
-                <td>6870</td>
+                <td>2016-12-23 00:00:15</td>
+                <td>POINT (698860.5 5506786)</td>
+                <td>625</td>
+                <td>7847</td>
               </tr>
               <tr>
-                <td>B</td>
-                <td>2017-02-24 22:00:41</td>
-                <td>POINT (697481 5511872)</td>
-                <td>1351</td>
-                <td>2717</td>
+                <td>C</td>
+                <td>2017-01-10 14:00:46</td>
+                <td>POINT (698152.9 5507678)</td>
+                <td>848</td>
+                <td>3496</td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td>2017-01-10 14:00:48</td>
+                <td>POINT (698155.2 5507672)</td>
+                <td>848</td>
+                <td>3496</td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td>2017-02-21 14:00:44</td>
+                <td>POINT (700007.9 5508802)</td>
+                <td>1318</td>
+                <td>6015</td>
               </tr>
               <tr>
                 <td>J</td>
-                <td>2017-02-24 22:00:47</td>
-                <td>POINT (697480 5511869)</td>
-                <td>1351</td>
-                <td>2717</td>
+                <td>2017-02-21 14:00:50</td>
+                <td>POINT (700009.1 5508800)</td>
+                <td>1318</td>
+                <td>6015</td>
               </tr>
             </tbody>
           </table>
@@ -561,40 +550,40 @@ interindividual_dist &lt;- edge_dist(
             </thead>
             <tbody>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>A</td>
-                <td>F</td>
-                <td>17.64</td>
+                <td>E</td>
+                <td>14.91908</td>
               </tr>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>A</td>
                 <td>I</td>
-                <td>16.13</td>
+                <td>12.16185</td>
               </tr>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>B</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>C</td>
-                <td>E</td>
-                <td>14.27</td>
+                <td>NA</td>
+                <td>NA</td>
               </tr>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>D</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>1019</td>
+                <td>134</td>
                 <td>E</td>
-                <td>C</td>
-                <td>14.27</td>
+                <td>A</td>
+                <td>14.91908</td>
               </tr>
             </tbody>
           </table>
@@ -625,7 +614,7 @@ nearest_neighbours &lt;- edge_nn(
               <col width="17%"/>
               <col width="7%"/>
               <col width="7%"/>
-              <col width="17%"/>
+              <col width="19%"/>
             </colgroup>
             <thead>
               <tr>
@@ -637,40 +626,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>A</td>
                 <td>C</td>
-                <td>4054.070</td>
+                <td>3982.02642</td>
               </tr>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>B</td>
                 <td>G</td>
-                <td>2.158</td>
+                <td>13.40946</td>
               </tr>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>C</td>
                 <td>I</td>
-                <td>223.786</td>
+                <td>303.20078</td>
               </tr>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>D</td>
                 <td>J</td>
-                <td>12460.770</td>
+                <td>12565.95519</td>
               </tr>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>E</td>
                 <td>H</td>
-                <td>7.730</td>
+                <td>12.61764</td>
               </tr>
               <tr>
-                <td>315</td>
+                <td>318</td>
                 <td>F</td>
                 <td>A</td>
-                <td>7035.740</td>
+                <td>6658.90604</td>
               </tr>
             </tbody>
           </table>
@@ -709,8 +698,8 @@ centroid_group(DT)</code>
                 <col width="6%"/>
                 <col width="15%"/>
                 <col width="10%"/>
-                <col width="32%"/>
-                <col width="32%"/>
+                <col width="33%"/>
+                <col width="33%"/>
               </colgroup>
               <thead>
                 <tr>
@@ -724,45 +713,45 @@ centroid_group(DT)</code>
               <tbody>
                 <tr>
                   <td>E</td>
-                  <td>499</td>
-                  <td>5547</td>
-                  <td>POINT (698312 5507990)</td>
-                  <td>POINT (698314 5507990)</td>
+                  <td>265</td>
+                  <td>5339</td>
+                  <td>POINT (707711.1 5507141)</td>
+                  <td>POINT (707715.9 5507143)</td>
                 </tr>
                 <tr>
                   <td>H</td>
-                  <td>499</td>
-                  <td>5547</td>
-                  <td>POINT (698316 5507990)</td>
-                  <td>POINT (698314 5507990)</td>
+                  <td>265</td>
+                  <td>5339</td>
+                  <td>POINT (707720.6 5507146)</td>
+                  <td>POINT (707715.9 5507143)</td>
                 </tr>
                 <tr>
                   <td>B</td>
-                  <td>896</td>
-                  <td>2292</td>
-                  <td>POINT (697362 5511507)</td>
-                  <td>POINT (697365 5511507)</td>
+                  <td>642</td>
+                  <td>2038</td>
+                  <td>POINT (699362.9 5511538)</td>
+                  <td>POINT (699367 5511540)</td>
                 </tr>
                 <tr>
                   <td>G</td>
-                  <td>896</td>
-                  <td>2292</td>
-                  <td>POINT (697369 5511507)</td>
-                  <td>POINT (697365 5511507)</td>
+                  <td>642</td>
+                  <td>2038</td>
+                  <td>POINT (699371 5511542)</td>
+                  <td>POINT (699367 5511540)</td>
                 </tr>
                 <tr>
                   <td>A</td>
-                  <td>1382</td>
-                  <td>1382</td>
-                  <td>POINT (704355 5509019)</td>
-                  <td>POINT (704344 5509035)</td>
+                  <td>765</td>
+                  <td>765</td>
+                  <td>POINT (698047.8 5508687)</td>
+                  <td>POINT (698033.9 5508688)</td>
                 </tr>
                 <tr>
                   <td>C</td>
-                  <td>1382</td>
-                  <td>1382</td>
-                  <td>POINT (704345 5509027)</td>
-                  <td>POINT (704344 5509035)</td>
+                  <td>765</td>
+                  <td>765</td>
+                  <td>POINT (698066.6 5508690)</td>
+                  <td>POINT (698033.9 5508688)</td>
                 </tr>
               </tbody>
             </table>
@@ -845,7 +834,7 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="22%"/>
+                <col width="26%"/>
                 <col width="25%"/>
               </colgroup>
               <thead>
@@ -859,46 +848,46 @@ direction_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>E</td>
-                  <td>570</td>
-                  <td>570</td>
-                  <td>1.3651 [rad]</td>
-                  <td>1.2928 [rad]</td>
-                </tr>
-                <tr>
-                  <td>F</td>
-                  <td>570</td>
-                  <td>570</td>
-                  <td>1.2655 [rad]</td>
-                  <td>1.2928 [rad]</td>
-                </tr>
-                <tr>
-                  <td>I</td>
-                  <td>570</td>
-                  <td>570</td>
-                  <td>1.2921 [rad]</td>
-                  <td>1.2928 [rad]</td>
-                </tr>
-                <tr>
                   <td>C</td>
-                  <td>1264</td>
-                  <td>1264</td>
-                  <td>-0.4478 [rad]</td>
-                  <td>-0.3103 [rad]</td>
+                  <td>1415</td>
+                  <td>3621</td>
+                  <td>1.70741752 [rad]</td>
+                  <td>1.6722621 [rad]</td>
                 </tr>
                 <tr>
                   <td>F</td>
-                  <td>1264</td>
-                  <td>1264</td>
-                  <td>-0.2448 [rad]</td>
-                  <td>-0.3103 [rad]</td>
+                  <td>1415</td>
+                  <td>3621</td>
+                  <td>1.67867784 [rad]</td>
+                  <td>1.6722621 [rad]</td>
                 </tr>
                 <tr>
                   <td>I</td>
-                  <td>1264</td>
-                  <td>1264</td>
-                  <td>-0.0834 [rad]</td>
-                  <td>-0.3103 [rad]</td>
+                  <td>1415</td>
+                  <td>3621</td>
+                  <td>1.63068622 [rad]</td>
+                  <td>1.6722621 [rad]</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>1428</td>
+                  <td>2665</td>
+                  <td>0.06764933 [rad]</td>
+                  <td>0.0801348 [rad]</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>1428</td>
+                  <td>2665</td>
+                  <td>0.09860403 [rad]</td>
+                  <td>0.0801348 [rad]</td>
+                </tr>
+                <tr>
+                  <td>G</td>
+                  <td>1428</td>
+                  <td>2665</td>
+                  <td>0.07415174 [rad]</td>
+                  <td>0.0801348 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -1322,16 +1311,16 @@ leader_delay &lt;- leader_edge_delay(
   make openly available a series of metrics that while commonly used in
   the literature have been largely absent from R packages. Paired with
   the continued development of animal tracking technology
-  (<xref alt="Beardsworth et al., 2022" rid="ref-Beardsworth_2022" ref-type="bibr">Beardsworth
-  et al., 2022</xref>;
+  (<xref alt="Beardsworth et al., 2022" rid="ref-Beardsworth_2022" ref-type="bibr"><named-content content-type="nocase">Beardsworth
+  et al.</named-content>, 2022</xref>;
   <xref alt="Nathan et al., 2022" rid="ref-Nathan_2022" ref-type="bibr">Nathan
   et al., 2022</xref>) and novel data collection methods
   (<xref alt="Koger et al., 2023" rid="ref-Koger_2023" ref-type="bibr">Koger
   et al., 2023</xref>;
   <xref alt="Pedrazzi et al., 2025" rid="ref-Pedrazzi_2025" ref-type="bibr">Pedrazzi
   et al., 2025</xref>), the open availability of these metrics in R will
-  broaden their application across research questions, including
-  long-standing ecological concepts such as:</p>
+  broaden their application across research questions, including, among
+  others, long-standing ecological concepts such as:</p>
       <list list-type="bullet">
         <list-item>
           <p>Social foraging theory and producer-scrounger dynamics where
@@ -1431,9 +1420,12 @@ leader_delay &lt;- leader_edge_delay(
     <sec id="open-science">
       <title>5. Open science</title>
       <p>All code used to produce this manuscript including figures and
-  tables are available on GitHub at LINK and on Zeonodo at LINK . The
-  data used in this case study are included with the package and can be
-  imported with:</p>
+  tables are available on GitHub at
+  <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
+  and on Zenodo at
+  <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.5281/zenodo.19712779">https://doi.org/10.5281/zenodo.19712779</ext-link>.
+  The data used in this case study are included with the package and can
+  be imported with:</p>
       <code language="r script">library(spatsoc)
 
 library(data.table)
@@ -1546,9 +1538,13 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       used home range or spatial overlap)</p>
         </list-item>
         <list-item>
-          <p>Study does not describe metric beyond group size (eg. del Mar
-      Delgado et al.
-      (<xref alt="2021" rid="ref-delMarDelgado_2021" ref-type="bibr">2021</xref>))</p>
+          <p>Study does not describe metric beyond group size (eg.</p>
+          <list list-type="order">
+            <list-item>
+              <label>1)</label>
+              <p/>
+            </list-item>
+          </list>
         </list-item>
         <list-item>
           <p>Study full text is not available in English (eg. Bernard &amp;
@@ -1563,9 +1559,9 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       (<xref alt="2019" rid="ref-Bernstein_2019" ref-type="bibr">2019</xref>))</p>
         </list-item>
       </list>
-      <p>Despite a focus on animal ecology, some studies were discussed
-  movement data more generically or, alternatively, specifically focused
-  on human or robotic movement data (eg. Long et al.
+      <p>Despite a focus on animal ecology, some studies discussed movement
+  data more generically or, alternatively, specifically focused on human
+  or robotic movement data (eg. Long et al.
   (<xref alt="2022" rid="ref-Long_2022" ref-type="bibr">2022</xref>)).
   These studies were retained when the metrics described were deemed
   applicable to animal spatiotemporal movement data. Studies using
@@ -1590,7 +1586,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   languages and software packages used.</p>
       <p>Metrics identified were aggregated using a manual process to
   identify synonymous terms. This aggregation process was required due
-  to variability in defining metrics during data extraction, as well as
+  to variability in defining metrics during data extraction and
   differences between authors in describing metrics (eg. distance to
   group “center”, “centroid”, or “center of mass”). Each study was
   geocoded using the {tidygeocoder} package
@@ -3872,11 +3868,15 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <p>Our scoping review found 20 studies that used the polarization,
       directional alignment or interindividual direction metrics, across
       11 study species. 4 studies had code available. The {CircStats}
-      package provides functionality to calculate the polarization order
-      parameter, as well as the {swaRm} package. At the time when the
-      scoping review was conducted, to the best of our knowledge, there
-      were no R packages that provide the directional alignment or
-      interindividual direction metrics.</p>
+      and the {swaRm} packages provide functionality to calculate the
+      polarization order parameter. At the time when the scoping review
+      was conducted, to the best of our knowledge, there were no R
+      packages that provide the directional alignment or interindividual
+      direction metrics. After the scoping review was conducted, the
+      {swaRmverse} package was released which provides the direction to
+      nearest neighbour metric
+      (<xref alt="Papadopoulou et al., 2025" rid="ref-Papadopoulou_2025" ref-type="bibr">Papadopoulou
+      et al., 2025</xref>).</p>
         </sec>
         <sec id="behavioural-zones-1">
           <title>Behavioural zones</title>
@@ -5324,107 +5324,6 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <source>igraph: Network analysis and visualization in R</source>
           <year iso-8601-date="2026">2026</year>
           <pub-id pub-id-type="doi">10.5281/zenodo.7682609</pub-id>
-        </element-citation>
-      </ref>
-      <ref id="ref-delMarDelgado_2021">
-        <element-citation publication-type="article-journal">
-          <person-group person-group-type="author">
-            <name>
-              <surname>del Mar Delgado</surname>
-              <given-names>María</given-names>
-            </name>
-            <name>
-              <surname>Arlettaz</surname>
-              <given-names>Raphaël</given-names>
-            </name>
-            <name>
-              <surname>Bettega</surname>
-              <given-names>Chiara</given-names>
-            </name>
-            <name>
-              <surname>Brambilla</surname>
-              <given-names>Mattia</given-names>
-            </name>
-            <name>
-              <surname>De Gabriel Hernando</surname>
-              <given-names>Miguel</given-names>
-            </name>
-            <name>
-              <surname>España</surname>
-              <given-names>Antonio</given-names>
-            </name>
-            <name>
-              <surname>Fernández-González</surname>
-              <given-names>Ángel</given-names>
-            </name>
-            <name>
-              <surname>Fernández-Martín</surname>
-              <given-names>Ángel</given-names>
-            </name>
-            <name>
-              <surname>Gil</surname>
-              <given-names>Juan Antonio</given-names>
-            </name>
-            <name>
-              <surname>Hernández-Gómez</surname>
-              <given-names>Sergio</given-names>
-            </name>
-            <name>
-              <surname>Laiolo</surname>
-              <given-names>Paola</given-names>
-            </name>
-            <name>
-              <surname>Resano-Mayor</surname>
-              <given-names>Jaime</given-names>
-            </name>
-            <name>
-              <surname>Obeso</surname>
-              <given-names>José Ramón</given-names>
-            </name>
-            <name>
-              <surname>Pedrini</surname>
-              <given-names>Paolo</given-names>
-            </name>
-            <name>
-              <surname>Roa-Álvarez</surname>
-              <given-names>Isabel</given-names>
-            </name>
-            <name>
-              <surname>Schano</surname>
-              <given-names>Christian</given-names>
-            </name>
-            <name>
-              <surname>Scridel</surname>
-              <given-names>Davide</given-names>
-            </name>
-            <name>
-              <surname>Strinella</surname>
-              <given-names>Eliseo</given-names>
-            </name>
-            <name>
-              <surname>Toranzo</surname>
-              <given-names>Ignasi</given-names>
-            </name>
-            <name>
-              <surname>Korner-Nievergelt</surname>
-              <given-names>Fränzi</given-names>
-            </name>
-          </person-group>
-          <article-title>Spatio-temporal variation in the wintering associations of an alpine bird</article-title>
-          <source>Proceedings of the Royal Society B: Biological Sciences</source>
-          <year iso-8601-date="2021-05">2021</year>
-          <month>05</month>
-          <date-in-citation content-type="access-date">
-            <year iso-8601-date="2026-01-08">2026</year>
-            <month>01</month>
-            <day>08</day>
-          </date-in-citation>
-          <volume>288</volume>
-          <issue>1951</issue>
-          <issn>0962-8452, 1471-2954</issn>
-          <pub-id pub-id-type="doi">10.1098/rspb.2021.0690</pub-id>
-          <fpage>20210690</fpage>
-          <lpage/>
         </element-citation>
       </ref>
       <ref id="ref-Dodge_2008">
@@ -7199,6 +7098,38 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <lpage/>
         </element-citation>
       </ref>
+      <ref id="ref-Papadopoulou_2025">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Papadopoulou</surname>
+              <given-names>Marina</given-names>
+            </name>
+            <name>
+              <surname>Garnier</surname>
+              <given-names>Simon</given-names>
+            </name>
+            <name>
+              <surname>King</surname>
+              <given-names>Andrew J.</given-names>
+            </name>
+          </person-group>
+          <article-title>swaRmverse: An R package for the comparative analysis of collective motion</article-title>
+          <source>Methods in Ecology and Evolution</source>
+          <year iso-8601-date="2025">2025</year>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2026-04-23">2026</year>
+            <month>04</month>
+            <day>23</day>
+          </date-in-citation>
+          <volume>16</volume>
+          <issue>1</issue>
+          <issn>2041-210X</issn>
+          <pub-id pub-id-type="doi">10.1111/2041-210X.14460</pub-id>
+          <fpage>29</fpage>
+          <lpage>39</lpage>
+        </element-citation>
+      </ref>
       <ref id="ref-Papageorgiou_2020">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -8134,16 +8065,6 @@ dynamics</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
-          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
-          <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
-          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
-          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal
-analysis</role>
-          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">Data
-Curation</role>
-          <role>Writing - Original Draft</role>
-          <role>Writing - Review &amp; Editing</role>
-          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">Visualization</role>
           <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
           <xref ref-type="corresp" rid="cor-1-nb-article">*</xref>
         </contrib>
@@ -8216,7 +8137,31 @@ and Labrador</institution>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('_targets.R')</code>
           <boxed-text>
-            <preformat>qs2 0.1.5</preformat>
+            <preformat>qs2 0.2.0</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>
+Attaching package: 'renv'</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following object is masked from 'package:pak':
+
+    lockfile_create</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:stats':
+
+    embed, update</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:utils':
+
+    history, upgrade</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>
@@ -8228,7 +8173,7 @@ Attaching package: 'janitor'</preformat>
     chisq.test, fisher.test</preformat>
           </boxed-text>
           <boxed-text>
-            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</preformat>
+            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
@@ -8238,8 +8183,8 @@ Attaching package: 'janitor'</preformat>
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
   (<xref alt="Robitaille et al., 2019" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">Robitaille
-  et al., 2019</xref>). These methods have been used to measure social
-  cohesion
+  et al., 2019</xref>). The methods in {spatsoc} have been used to
+  measure social cohesion
   (<xref alt="Bracken et al., 2022" rid="ref-Bracken_2022-nb-article" ref-type="bibr">Bracken
   et al., 2022</xref>), human-wildlife conflict
   (<xref alt="Boudreau et al., 2022" rid="ref-Boudreau_2022-nb-article" ref-type="bibr">Boudreau
@@ -8251,10 +8196,9 @@ Attaching package: 'janitor'</preformat>
   (<xref alt="Keshavarzi et al., 2023" rid="ref-Keshavarzi_2023-nb-article" ref-type="bibr">Keshavarzi
   et al., 2023</xref>), and social patterns in non-social species
   (<xref alt="Heeres et al., 2024" rid="ref-Heeres_2024-nb-article" ref-type="bibr">Heeres
-  et al., 2024</xref>). Despite these substantive and varied
-  applications of {spatsoc}, users lacked sufficient and accessible
-  functionality for measuring the behaviour of individuals within social
-  groups.</p>
+  et al., 2024</xref>). Despite the substantive and varied applications
+  of {spatsoc}, users lacked sufficient and accessible functionality for
+  measuring the behaviour of individuals within social groups.</p>
         <p>Many facets of group living need to be considered to better measure
   animal social systems
   (<xref alt="King et al., 2018" rid="ref-King_2018-nb-article" ref-type="bibr">King
@@ -8290,14 +8234,14 @@ Attaching package: 'janitor'</preformat>
   resolution making them imperfect for studies of collective movement
   (<xref alt="King et al., 2018" rid="ref-King_2018-nb-article" ref-type="bibr">King
   et al., 2018</xref>).</p>
-        <p>There are expanded opportunities in studying animal social systems
-  by pairing advances in remote tracking technology with emerging
-  methods to measure intragroup social dynamics. The availability and
-  resolution of remote tracking data continues to improve
+        <p>Pairing advanced remote tracking technologies with emerging methods
+  expand opportunities to measure intragroup social dynamics. The
+  availability and resolution of remote tracking data continues to
+  improve
   (<xref alt="Kays et al., 2015" rid="ref-Kays_2015-nb-article" ref-type="bibr">Kays
   et al., 2015</xref>;
-  <xref alt="Kays et al., 2022" rid="ref-Kays_2022-nb-article" ref-type="bibr">Kays
-  et al., 2022</xref>;
+  <xref alt="Kays et al., 2022" rid="ref-Kays_2022-nb-article" ref-type="bibr"><named-content content-type="nocase">Kays
+  et al.</named-content>, 2022</xref>;
   <xref alt="Nathan et al., 2022" rid="ref-Nathan_2022-nb-article" ref-type="bibr">Nathan
   et al., 2022</xref>). There are over two decades of research on
   measuring interactions between moving individuals from the study of
@@ -8333,7 +8277,7 @@ Attaching package: 'janitor'</preformat>
   &amp; Heins, 2023</xref>;
   <xref alt="King et al., 2018" rid="ref-King_2018-nb-article" ref-type="bibr">King
   et al., 2018</xref>).</p>
-        <p>We conducted a scoping review to identify metrics that were
+        <p>We first conducted a scoping review to identify metrics that were
   applicable to spatiotemporal data, and focused on dyadic interactions,
   leadership patterns, and dominance hierarchies. Of the resulting
   metrics, we selected those with a high evidence of use, and lack of
@@ -8600,11 +8544,11 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
             <table-wrap>
               <table>
                 <colgroup>
-                  <col width="7%"/>
+                  <col width="6%"/>
                   <col width="29%"/>
-                  <col width="33%"/>
+                  <col width="35%"/>
                   <col width="16%"/>
-                  <col width="11%"/>
+                  <col width="10%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8617,46 +8561,46 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 </thead>
                 <tbody>
                   <tr>
-                    <td>B</td>
-                    <td>2017-01-10 22:00:55</td>
-                    <td>POINT (697579 5511383)</td>
-                    <td>852</td>
-                    <td>2248</td>
-                  </tr>
-                  <tr>
-                    <td>G</td>
-                    <td>2017-01-10 22:00:24</td>
-                    <td>POINT (697570 5511383)</td>
-                    <td>852</td>
-                    <td>2248</td>
-                  </tr>
-                  <tr>
-                    <td>F</td>
-                    <td>2017-02-05 08:01:17</td>
-                    <td>POINT (702198 5510759)</td>
-                    <td>1143</td>
-                    <td>6870</td>
+                    <td>H</td>
+                    <td>2016-12-23 00:00:21</td>
+                    <td>POINT (698858.8 5506773)</td>
+                    <td>625</td>
+                    <td>7847</td>
                   </tr>
                   <tr>
                     <td>I</td>
-                    <td>2017-02-05 08:00:46</td>
-                    <td>POINT (702158 5510732)</td>
-                    <td>1143</td>
-                    <td>6870</td>
+                    <td>2016-12-23 00:00:15</td>
+                    <td>POINT (698860.5 5506786)</td>
+                    <td>625</td>
+                    <td>7847</td>
                   </tr>
                   <tr>
-                    <td>B</td>
-                    <td>2017-02-24 22:00:41</td>
-                    <td>POINT (697481 5511872)</td>
-                    <td>1351</td>
-                    <td>2717</td>
+                    <td>C</td>
+                    <td>2017-01-10 14:00:46</td>
+                    <td>POINT (698152.9 5507678)</td>
+                    <td>848</td>
+                    <td>3496</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>2017-01-10 14:00:48</td>
+                    <td>POINT (698155.2 5507672)</td>
+                    <td>848</td>
+                    <td>3496</td>
+                  </tr>
+                  <tr>
+                    <td>E</td>
+                    <td>2017-02-21 14:00:44</td>
+                    <td>POINT (700007.9 5508802)</td>
+                    <td>1318</td>
+                    <td>6015</td>
                   </tr>
                   <tr>
                     <td>J</td>
-                    <td>2017-02-24 22:00:47</td>
-                    <td>POINT (697480 5511869)</td>
-                    <td>1351</td>
-                    <td>2717</td>
+                    <td>2017-02-21 14:00:50</td>
+                    <td>POINT (700009.1 5508800)</td>
+                    <td>1318</td>
+                    <td>6015</td>
                   </tr>
                 </tbody>
               </table>
@@ -8717,40 +8661,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>A</td>
-                    <td>F</td>
-                    <td>17.64</td>
+                    <td>E</td>
+                    <td>14.91908</td>
                   </tr>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>A</td>
                     <td>I</td>
-                    <td>16.13</td>
+                    <td>12.16185</td>
                   </tr>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>B</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>C</td>
-                    <td>E</td>
-                    <td>14.27</td>
+                    <td>NA</td>
+                    <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>D</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1019</td>
+                    <td>134</td>
                     <td>E</td>
-                    <td>C</td>
-                    <td>14.27</td>
+                    <td>A</td>
+                    <td>14.91908</td>
                   </tr>
                 </tbody>
               </table>
@@ -8788,7 +8732,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                   <col width="17%"/>
                   <col width="7%"/>
                   <col width="7%"/>
-                  <col width="17%"/>
+                  <col width="19%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8800,40 +8744,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>A</td>
                     <td>C</td>
-                    <td>4054.070</td>
+                    <td>3982.02642</td>
                   </tr>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>2.158</td>
+                    <td>13.40946</td>
                   </tr>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>C</td>
                     <td>I</td>
-                    <td>223.786</td>
+                    <td>303.20078</td>
                   </tr>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>D</td>
                     <td>J</td>
-                    <td>12460.770</td>
+                    <td>12565.95519</td>
                   </tr>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>E</td>
                     <td>H</td>
-                    <td>7.730</td>
+                    <td>12.61764</td>
                   </tr>
                   <tr>
-                    <td>315</td>
+                    <td>318</td>
                     <td>F</td>
                     <td>A</td>
-                    <td>7035.740</td>
+                    <td>6658.90604</td>
                   </tr>
                 </tbody>
               </table>
@@ -8885,8 +8829,8 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                     <col width="6%"/>
                     <col width="15%"/>
                     <col width="10%"/>
-                    <col width="32%"/>
-                    <col width="32%"/>
+                    <col width="33%"/>
+                    <col width="33%"/>
                   </colgroup>
                   <thead>
                     <tr>
@@ -8900,45 +8844,45 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   <tbody>
                     <tr>
                       <td>E</td>
-                      <td>499</td>
-                      <td>5547</td>
-                      <td>POINT (698312 5507990)</td>
-                      <td>POINT (698314 5507990)</td>
+                      <td>265</td>
+                      <td>5339</td>
+                      <td>POINT (707711.1 5507141)</td>
+                      <td>POINT (707715.9 5507143)</td>
                     </tr>
                     <tr>
                       <td>H</td>
-                      <td>499</td>
-                      <td>5547</td>
-                      <td>POINT (698316 5507990)</td>
-                      <td>POINT (698314 5507990)</td>
+                      <td>265</td>
+                      <td>5339</td>
+                      <td>POINT (707720.6 5507146)</td>
+                      <td>POINT (707715.9 5507143)</td>
                     </tr>
                     <tr>
                       <td>B</td>
-                      <td>896</td>
-                      <td>2292</td>
-                      <td>POINT (697362 5511507)</td>
-                      <td>POINT (697365 5511507)</td>
+                      <td>642</td>
+                      <td>2038</td>
+                      <td>POINT (699362.9 5511538)</td>
+                      <td>POINT (699367 5511540)</td>
                     </tr>
                     <tr>
                       <td>G</td>
-                      <td>896</td>
-                      <td>2292</td>
-                      <td>POINT (697369 5511507)</td>
-                      <td>POINT (697365 5511507)</td>
+                      <td>642</td>
+                      <td>2038</td>
+                      <td>POINT (699371 5511542)</td>
+                      <td>POINT (699367 5511540)</td>
                     </tr>
                     <tr>
                       <td>A</td>
-                      <td>1382</td>
-                      <td>1382</td>
-                      <td>POINT (704355 5509019)</td>
-                      <td>POINT (704344 5509035)</td>
+                      <td>765</td>
+                      <td>765</td>
+                      <td>POINT (698047.8 5508687)</td>
+                      <td>POINT (698033.9 5508688)</td>
                     </tr>
                     <tr>
                       <td>C</td>
-                      <td>1382</td>
-                      <td>1382</td>
-                      <td>POINT (704345 5509027)</td>
-                      <td>POINT (704344 5509035)</td>
+                      <td>765</td>
+                      <td>765</td>
+                      <td>POINT (698066.6 5508690)</td>
+                      <td>POINT (698033.9 5508688)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9035,7 +8979,7 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="22%"/>
+                    <col width="26%"/>
                     <col width="25%"/>
                   </colgroup>
                   <thead>
@@ -9049,46 +8993,46 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   </thead>
                   <tbody>
                     <tr>
-                      <td>E</td>
-                      <td>570</td>
-                      <td>570</td>
-                      <td>1.3651 [rad]</td>
-                      <td>1.2928 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>F</td>
-                      <td>570</td>
-                      <td>570</td>
-                      <td>1.2655 [rad]</td>
-                      <td>1.2928 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>I</td>
-                      <td>570</td>
-                      <td>570</td>
-                      <td>1.2921 [rad]</td>
-                      <td>1.2928 [rad]</td>
-                    </tr>
-                    <tr>
                       <td>C</td>
-                      <td>1264</td>
-                      <td>1264</td>
-                      <td>-0.4478 [rad]</td>
-                      <td>-0.3103 [rad]</td>
+                      <td>1415</td>
+                      <td>3621</td>
+                      <td>1.70741752 [rad]</td>
+                      <td>1.6722621 [rad]</td>
                     </tr>
                     <tr>
                       <td>F</td>
-                      <td>1264</td>
-                      <td>1264</td>
-                      <td>-0.2448 [rad]</td>
-                      <td>-0.3103 [rad]</td>
+                      <td>1415</td>
+                      <td>3621</td>
+                      <td>1.67867784 [rad]</td>
+                      <td>1.6722621 [rad]</td>
                     </tr>
                     <tr>
                       <td>I</td>
-                      <td>1264</td>
-                      <td>1264</td>
-                      <td>-0.0834 [rad]</td>
-                      <td>-0.3103 [rad]</td>
+                      <td>1415</td>
+                      <td>3621</td>
+                      <td>1.63068622 [rad]</td>
+                      <td>1.6722621 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>1428</td>
+                      <td>2665</td>
+                      <td>0.06764933 [rad]</td>
+                      <td>0.0801348 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>1428</td>
+                      <td>2665</td>
+                      <td>0.09860403 [rad]</td>
+                      <td>0.0801348 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>G</td>
+                      <td>1428</td>
+                      <td>2665</td>
+                      <td>0.07415174 [rad]</td>
+                      <td>0.0801348 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9531,16 +9475,16 @@ leader_delay &lt;- leader_edge_delay(
   make openly available a series of metrics that while commonly used in
   the literature have been largely absent from R packages. Paired with
   the continued development of animal tracking technology
-  (<xref alt="Beardsworth et al., 2022" rid="ref-Beardsworth_2022-nb-article" ref-type="bibr">Beardsworth
-  et al., 2022</xref>;
+  (<xref alt="Beardsworth et al., 2022" rid="ref-Beardsworth_2022-nb-article" ref-type="bibr"><named-content content-type="nocase">Beardsworth
+  et al.</named-content>, 2022</xref>;
   <xref alt="Nathan et al., 2022" rid="ref-Nathan_2022-nb-article" ref-type="bibr">Nathan
   et al., 2022</xref>) and novel data collection methods
   (<xref alt="Koger et al., 2023" rid="ref-Koger_2023-nb-article" ref-type="bibr">Koger
   et al., 2023</xref>;
   <xref alt="Pedrazzi et al., 2025" rid="ref-Pedrazzi_2025-nb-article" ref-type="bibr">Pedrazzi
   et al., 2025</xref>), the open availability of these metrics in R will
-  broaden their application across research questions, including
-  long-standing ecological concepts such as:</p>
+  broaden their application across research questions, including, among
+  others, long-standing ecological concepts such as:</p>
         <list list-type="bullet">
           <list-item>
             <p>Social foraging theory and producer-scrounger dynamics where
@@ -9640,9 +9584,12 @@ leader_delay &lt;- leader_edge_delay(
       <sec id="open-science-nb-article">
         <title>5. Open science</title>
         <p>All code used to produce this manuscript including figures and
-  tables are available on GitHub at LINK and on Zeonodo at LINK . The
-  data used in this case study are included with the package and can be
-  imported with:</p>
+  tables are available on GitHub at
+  <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
+  and on Zenodo at
+  <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.5281/zenodo.19712779">https://doi.org/10.5281/zenodo.19712779</ext-link>.
+  The data used in this case study are included with the package and can
+  be imported with:</p>
         <sec specific-use="notebook-content">
           <code language="r script">library(spatsoc)
 
@@ -9772,9 +9719,13 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
       used home range or spatial overlap)</p>
           </list-item>
           <list-item>
-            <p>Study does not describe metric beyond group size (eg. del Mar
-      Delgado et al.
-      (<xref alt="2021" rid="ref-delMarDelgado_2021-nb-article" ref-type="bibr">2021</xref>))</p>
+            <p>Study does not describe metric beyond group size (eg.</p>
+            <list list-type="order">
+              <list-item>
+                <label>1)</label>
+                <p/>
+              </list-item>
+            </list>
           </list-item>
           <list-item>
             <p>Study full text is not available in English (eg. Bernard &amp;
@@ -9789,9 +9740,9 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
       (<xref alt="2019" rid="ref-Bernstein_2019-nb-article" ref-type="bibr">2019</xref>))</p>
           </list-item>
         </list>
-        <p>Despite a focus on animal ecology, some studies were discussed
-  movement data more generically or, alternatively, specifically focused
-  on human or robotic movement data (eg. Long et al.
+        <p>Despite a focus on animal ecology, some studies discussed movement
+  data more generically or, alternatively, specifically focused on human
+  or robotic movement data (eg. Long et al.
   (<xref alt="2022" rid="ref-Long_2022-nb-article" ref-type="bibr">2022</xref>)).
   These studies were retained when the metrics described were deemed
   applicable to animal spatiotemporal movement data. Studies using
@@ -9816,7 +9767,7 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
   languages and software packages used.</p>
         <p>Metrics identified were aggregated using a manual process to
   identify synonymous terms. This aggregation process was required due
-  to variability in defining metrics during data extraction, as well as
+  to variability in defining metrics during data extraction and
   differences between authors in describing metrics (eg. distance to
   group “center”, “centroid”, or “center of mass”). Each study was
   geocoded using the {tidygeocoder} package
@@ -12277,11 +12228,15 @@ functions[, .(Function, Description, Category)] |&gt;
             <p>Our scoping review found 20 studies that used the polarization,
       directional alignment or interindividual direction metrics, across
       11 study species. 4 studies had code available. The {CircStats}
-      package provides functionality to calculate the polarization order
-      parameter, as well as the {swaRm} package. At the time when the
-      scoping review was conducted, to the best of our knowledge, there
-      were no R packages that provide the directional alignment or
-      interindividual direction metrics.</p>
+      and the {swaRm} packages provide functionality to calculate the
+      polarization order parameter. At the time when the scoping review
+      was conducted, to the best of our knowledge, there were no R
+      packages that provide the directional alignment or interindividual
+      direction metrics. After the scoping review was conducted, the
+      {swaRmverse} package was released which provides the direction to
+      nearest neighbour metric
+      (<xref alt="Papadopoulou et al., 2025" rid="ref-Papadopoulou_2025-nb-article" ref-type="bibr">Papadopoulou
+      et al., 2025</xref>).</p>
           </sec>
           <sec id="behavioural-zones-1-nb-article">
             <title>Behavioural zones</title>
@@ -13746,107 +13701,6 @@ functions[, .(Function, Description, Category)] |&gt;
             <source>igraph: Network analysis and visualization in R</source>
             <year iso-8601-date="2026">2026</year>
             <pub-id pub-id-type="doi">10.5281/zenodo.7682609</pub-id>
-          </element-citation>
-        </ref>
-        <ref id="ref-delMarDelgado_2021-nb-article">
-          <element-citation publication-type="article-journal">
-            <person-group person-group-type="author">
-              <name>
-                <surname>del Mar Delgado</surname>
-                <given-names>María</given-names>
-              </name>
-              <name>
-                <surname>Arlettaz</surname>
-                <given-names>Raphaël</given-names>
-              </name>
-              <name>
-                <surname>Bettega</surname>
-                <given-names>Chiara</given-names>
-              </name>
-              <name>
-                <surname>Brambilla</surname>
-                <given-names>Mattia</given-names>
-              </name>
-              <name>
-                <surname>De Gabriel Hernando</surname>
-                <given-names>Miguel</given-names>
-              </name>
-              <name>
-                <surname>España</surname>
-                <given-names>Antonio</given-names>
-              </name>
-              <name>
-                <surname>Fernández-González</surname>
-                <given-names>Ángel</given-names>
-              </name>
-              <name>
-                <surname>Fernández-Martín</surname>
-                <given-names>Ángel</given-names>
-              </name>
-              <name>
-                <surname>Gil</surname>
-                <given-names>Juan Antonio</given-names>
-              </name>
-              <name>
-                <surname>Hernández-Gómez</surname>
-                <given-names>Sergio</given-names>
-              </name>
-              <name>
-                <surname>Laiolo</surname>
-                <given-names>Paola</given-names>
-              </name>
-              <name>
-                <surname>Resano-Mayor</surname>
-                <given-names>Jaime</given-names>
-              </name>
-              <name>
-                <surname>Obeso</surname>
-                <given-names>José Ramón</given-names>
-              </name>
-              <name>
-                <surname>Pedrini</surname>
-                <given-names>Paolo</given-names>
-              </name>
-              <name>
-                <surname>Roa-Álvarez</surname>
-                <given-names>Isabel</given-names>
-              </name>
-              <name>
-                <surname>Schano</surname>
-                <given-names>Christian</given-names>
-              </name>
-              <name>
-                <surname>Scridel</surname>
-                <given-names>Davide</given-names>
-              </name>
-              <name>
-                <surname>Strinella</surname>
-                <given-names>Eliseo</given-names>
-              </name>
-              <name>
-                <surname>Toranzo</surname>
-                <given-names>Ignasi</given-names>
-              </name>
-              <name>
-                <surname>Korner-Nievergelt</surname>
-                <given-names>Fränzi</given-names>
-              </name>
-            </person-group>
-            <article-title>Spatio-temporal variation in the wintering associations of an alpine bird</article-title>
-            <source>Proceedings of the Royal Society B: Biological Sciences</source>
-            <year iso-8601-date="2021-05">2021</year>
-            <month>05</month>
-            <date-in-citation content-type="access-date">
-              <year iso-8601-date="2026-01-08">2026</year>
-              <month>01</month>
-              <day>08</day>
-            </date-in-citation>
-            <volume>288</volume>
-            <issue>1951</issue>
-            <issn>0962-8452, 1471-2954</issn>
-            <pub-id pub-id-type="doi">10.1098/rspb.2021.0690</pub-id>
-            <fpage>20210690</fpage>
-            <lpage/>
           </element-citation>
         </ref>
         <ref id="ref-Dodge_2008-nb-article">
@@ -15621,6 +15475,38 @@ functions[, .(Function, Description, Category)] |&gt;
             <lpage/>
           </element-citation>
         </ref>
+        <ref id="ref-Papadopoulou_2025-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Papadopoulou</surname>
+                <given-names>Marina</given-names>
+              </name>
+              <name>
+                <surname>Garnier</surname>
+                <given-names>Simon</given-names>
+              </name>
+              <name>
+                <surname>King</surname>
+                <given-names>Andrew J.</given-names>
+              </name>
+            </person-group>
+            <article-title>swaRmverse: An R package for the comparative analysis of collective motion</article-title>
+            <source>Methods in Ecology and Evolution</source>
+            <year iso-8601-date="2025">2025</year>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2026-04-23">2026</year>
+              <month>04</month>
+              <day>23</day>
+            </date-in-citation>
+            <volume>16</volume>
+            <issue>1</issue>
+            <issn>2041-210X</issn>
+            <pub-id pub-id-type="doi">10.1111/2041-210X.14460</pub-id>
+            <fpage>29</fpage>
+            <lpage>39</lpage>
+          </element-citation>
+        </ref>
         <ref id="ref-Papageorgiou_2020-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -16547,13 +16433,37 @@ functions[, .(Function, Description, Category)] |&gt;
     <front-stub>
 </front-stub>
     <body>
-      <sec id="sec-selected-nb-1">
-        <title>Supplement: Selected metrics</title>
+      <sec id="sec-scoping-methods-nb-1">
+        <title>Supplement: Scoping review methods</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
   </code>
           <boxed-text>
-            <preformat>qs2 0.1.5</preformat>
+            <preformat>qs2 0.2.0</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>
+Attaching package: 'renv'</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following object is masked from 'package:pak':
+
+    lockfile_create</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:stats':
+
+    embed, update</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:utils':
+
+    history, upgrade</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>
@@ -16565,363 +16475,423 @@ Attaching package: 'janitor'</preformat>
     chisq.test, fisher.test</preformat>
           </boxed-text>
           <boxed-text>
-            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</preformat>
+            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
           </boxed-text>
-          <code language="r script">tar_load(taxized)
+          <code language="r script">tar_load(review)
 tar_load(geocoded)
-tar_load(review)
+tar_load(taxized)
+tar_load(software_meta)
+
 tar_load(counted)
 count_code_avail &lt;- counted$count_code_avail
 count_prog_lang &lt;- counted$count_prog_lang
 count_software &lt;- counted$count_software
 count_metric &lt;- counted$count_metric
+count_dom_metric &lt;- counted$count_dom_metric
   </code>
         </sec>
-        <sec id="selected-metrics-nb-1">
-          <title>Selected metrics</title>
-          <p>The following metrics were not selected due to their availability
-    in existing R packages:</p>
-          <list list-type="bullet">
-            <list-item>
-              <p>{wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in
-        displacement, HAI, IAB, Cr, Ca</p>
-            </list-item>
-            <list-item>
-              <p>{corrMove}: diffusive movement correlation, drift movement
-        correlation, overall component movement correlation</p>
-            </list-item>
-            <list-item>
-              <p>{changepoint}: change point analysis</p>
-            </list-item>
-          </list>
-          <p>The following metrics were not selected due to their availability
-    in code availability accompanying publications:</p>
-          <list list-type="bullet">
-            <list-item>
-              <p>mFLICA provided in code accompanying @Amornbunchornvej_2018
-        and R package {mFLICA} [@Amornbunchornvej_2021]</p>
-            </list-item>
-          </list>
-          <p>The follow metrics were not selected due to the expected input
-    data differing from existing {spatsoc} functions (XYT):</p>
-          <list list-type="bullet">
-            <list-item>
-              <p>metrics relating to posture</p>
-            </list-item>
-          </list>
-          <p>The selected metrics are listed in [@tbl-new-functions]. All
-    existing functions in {spatsoc} are listed below in
-    [@tbl-all-functions].</p>
-          <sec specific-use="notebook-content">
-            <code language="r script">functions &lt;- fread('data/spatsoc-functions.tsv')
-functions[, .(Function, Description, Category)] |&gt;
-  tt() |&gt;
-  group_tt(i = functions$Family) |&gt;
+        <p>We conducted a scoping review to identify metrics used in ecology
+  studies for measuring dyadic interactions, dominance hierarchies and
+  leadership patterns. We focused on metrics applicable to
+  spatiotemporal data such as GPS telemetry. We used two databases of
+  academic literature: Web of Science and Scopus. We established a test
+  list of nine benchmark papers (Supplement A: Table 1) that were
+  relevant to our objectives and verified that each paper was indexed in
+  our selected databases. We used an iterative search method to
+  fine-tune search terms measuring the total number of papers returned
+  and sensitivity of the search. Sensitivity is defined as the
+  proportion of potentially relevant papers returned from the search
+  estimated using the number benchmark papers returned from the test
+  list [4.2.7 @CollaborationforEnvironmentalEvidence_2022]. Search terms
+  were established in four categories: topic, population, method and
+  exclusion. Topic included terms associated with dyadic interactions,
+  dominance hierarchies and leadership patterns. Population included
+  terms associated with animals, wildlife and ecology. Method included
+  terms associated with data collection and data types. Finally, a list
+  of exclusion terms were used to remove clearly irrelevant papers. Each
+  category of terms were combined with OR operators and all three
+  categories of terms were combined with AND operators. The set of
+  papers used in further steps was the combination of the last iteration
+  of search terms applied to both of the Web of Science (using the “TS”
+  field) and Scopus (using the “TITLE-ABS-KEY” field) databases. Only
+  articles between 1980-2023 were included using the PY (Web of Science)
+  or PUBYEAR (Scopus) fields. The resulting set of references were
+  imported into Covidence [@VeritasHealthInnovation_2025] for
+  deduplication, title and abstract screening, full text screening, and
+  data extraction.</p>
+        <p>Before screening, articles were marked as duplicates using
+  Covidence and manual screening. Covidence detected 799 duplicates
+  based on title, year, volume, and authors, and manual screening
+  identified an additional 128 duplicates.</p>
+        <p>Articles were screened out based on the following criteria:</p>
+        <list list-type="bullet">
+          <list-item>
+            <p>Study does not describe dyadic or group metric related to
+      leadership or dominance (eg. @Papageorgiou_2020)</p>
+          </list-item>
+          <list-item>
+            <p>Study describes metric that is not applicable to spatiotemporal
+      data (eg. @Allanic_2020 used focal observations and video
+      recordings)</p>
+          </list-item>
+          <list-item>
+            <p>Study does not describe metric beyond static interaction (eg.
+      @Carter_2013 used home range or spatial overlap)</p>
+          </list-item>
+          <list-item>
+            <p>Study does not describe metric beyond group size (eg.</p>
+            <list list-type="order">
+              <list-item>
+                <label>1)</label>
+                <p/>
+              </list-item>
+            </list>
+          </list-item>
+          <list-item>
+            <p>Study full text is not available in English (eg.
+      @Bernard_2002)</p>
+          </list-item>
+          <list-item>
+            <p>Study is not a thesis</p>
+          </list-item>
+          <list-item>
+            <p>Study is not a book chapter (eg. @Bernstein_2019)</p>
+          </list-item>
+        </list>
+        <p>Despite a focus on animal ecology, some studies discussed movement
+  data more generically or, alternatively, specifically focused on human
+  or robotic movement data (eg. @Long_2022). These studies were retained
+  when the metrics described were deemed applicable to animal
+  spatiotemporal movement data. Studies using mathematical models or
+  simulations were largely beyond the scope of this review but studies
+  were retained when the parameters used as inputs could be applied to
+  spatial temporal data (eg. @Long_2015). Review studies were read for
+  building the scope of the introduction and discussion but not included
+  in data extraction unless they explicitly discussed dyadic measures
+  (eg. @King_2018).</p>
+        <p>The goals of data extraction were to record the breadth of dyadic
+  social and dominance metrics applicable to spatiotemporal data, and
+  the degree of code availability. General information about each study
+  was recorded including the type of study (empirical, simulation,
+  algorithm, model, or review), study species and study region. Dyadic
+  social metrics for each study were listed including citations and
+  interpretation for each metric used and data input required. Dominance
+  metrics derived from spatiotemporal data were listed including
+  citations and interpretation. Code availability was described
+  including location of code (eg. Zenodo, or GitHub), programming
+  languages and software packages used.</p>
+        <p>Metrics identified were aggregated using a manual process to
+  identify synonymous terms. This aggregation process was required due
+  to variability in defining metrics during data extraction and
+  differences between authors in describing metrics (eg. distance to
+  group “center”, “centroid”, or “center of mass”). Each study was
+  geocoded using the {tidygeocoder} package [@Cambon_2021] and species
+  were parsed using the {rgnparser} package [@Chamberlain_2023] which
+  provides the GNparser [@Mozzherin_2026] functionality in R. We
+  calculated frequency of data extracted for each categorical field
+  including programming language, software package, analysis code
+  availability, geographic region, study species and metric used. For
+  many fields, authors did not provide sufficient to determine how
+  metrics were calculated, eg. not including the programming language or
+  software package used. In all cases, counts are presented as an
+  overall frequency including papers with missing fields.</p>
+        <sec specific-use="notebook-content">
+          <code language="r script">data.table::fread('data/form.csv') |&gt;
+  tinytable::tt() |&gt;
   style_tt(align = 'l')
-    </code>
-            <fig id="tbl-all-functions-nb-1">
-              <caption>
-                <p>Description of all functions (new and previously
-      existing) available in the R package {spatsoc} categorized by
-      family.</p>
-              </caption>
-              <table-wrap>
-                <table>
-                  <colgroup>
-                    <col width="31%"/>
-                    <col width="56%"/>
-                    <col width="12%"/>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>Function</th>
-                      <th>Description</th>
-                      <th>Category</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td colspan="3">Spatial interface</td>
-                    </tr>
-                    <tr>
-                      <td>get_geometry()</td>
-                      <td>Setup data for geometry interface</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Edge-list generation</td>
-                    </tr>
-                    <tr>
-                      <td>edge_dist()</td>
-                      <td>Distance based edge-lists</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>edge_nn()</td>
-                      <td>Nearest neighbour based edge-lists</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>edge_delay()</td>
-                      <td>Directional correlation delay based edge-lists</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>edge_alignment()</td>
-                      <td>Directional alignment based edge-lists</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>edge_direction()</td>
-                      <td>Direction based edge-lists</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>edge_zones()</td>
-                      <td>Behavioural zones based edge-lists</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Dyad</td>
-                    </tr>
-                    <tr>
-                      <td>dyad_id()</td>
-                      <td>Identify dyads</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>fusion_id()</td>
-                      <td>Identify fusion events</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Centroid</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_group()</td>
-                      <td>Group centroid</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_dyad()</td>
-                      <td>Dyad centroid</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_fusion()</td>
-                      <td>Fusion event centroid</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Direction</td>
-                    </tr>
-                    <tr>
-                      <td>direction_step()</td>
-                      <td>Direction step</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>direction_to_centroid()</td>
-                      <td>Direction to group centroid</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>direction_to_leader()</td>
-                      <td>Direction to group leader</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>direction_group()</td>
-                      <td>Group mean direction</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>direction_polarization()</td>
-                      <td>Polarization</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Distance</td>
-                    </tr>
-                    <tr>
-                      <td>distance_to_centroid()</td>
-                      <td>Distance to group centroid</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>distance_to_leader()</td>
-                      <td>Distance to group leader</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Leadership</td>
-                    </tr>
-                    <tr>
-                      <td>leader_direction_group()</td>
-                      <td>Leadership along group direction</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td>leader_edge_delay()</td>
-                      <td>Leadership in directional correlation delay</td>
-                      <td>New</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Temporal grouping</td>
-                    </tr>
-                    <tr>
-                      <td>group_times()</td>
-                      <td>Group times</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Spatial grouping</td>
-                    </tr>
-                    <tr>
-                      <td>group_lines()</td>
-                      <td>Group lines</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>group_pts()</td>
-                      <td>Group points</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>group_polys()</td>
-                      <td>Group polygons</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Social network</td>
-                    </tr>
-                    <tr>
-                      <td>randomizations()</td>
-                      <td>Data-stream randomizations</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>get_gbi()</td>
-                      <td>Group by individual matrix</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Build</td>
-                    </tr>
-                    <tr>
-                      <td>build_lines()</td>
-                      <td>Build lines</td>
-                      <td>Existing</td>
-                    </tr>
-                    <tr>
-                      <td>build_polys()</td>
-                      <td>Build polygons</td>
-                      <td>Existing</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </table-wrap>
-            </fig>
-          </sec>
-          <sec id="distance-direction-and-rank-distance-to-group-centroid-nb-1">
-            <title>Distance, direction and rank distance to group
-      centroid</title>
-            <sec specific-use="notebook-content">
-              <code language="r script">to_grp_cent &lt;- count_metric[
-  metric_agg %in%
-    c(
-      'direction to group centroid',
-      'distance to group centroid',
-      'rank distance to group centroid',
-      'group centroid'
-    )
-]
-      </code>
-            </sec>
-            <p>Our scoping review found 21 studies that used the group
-      centroid, distance to group centroid, direction to group centroid,
-      or rank distance to group centroid metrics, across 14 study
-      species. 4 studies had code available. The {swaRm} package
-      provides functionality to calculate the group centroid and the
-      distance to the group centroid. At the time when the scoping
-      review was conducted, to the best of our knowledge, there were no
-      R packages that provide the rank to distance to group centroid
-      metric.</p>
-          </sec>
-          <sec id="polarization-directional-alignment-and-interindividual-direction-nb-1">
-            <title>Polarization, directional alignment and interindividual
-      direction</title>
-            <sec specific-use="notebook-content">
-              <code language="r script">align &lt;- count_metric[
-  metric_agg %in%
-    c(
-      'polarization',
-      'directional alignment',
-      'interindividual direction',
-      'nearest neighbour direction'
-    )
-]
-      </code>
-            </sec>
-            <p>Our scoping review found 20 studies that used the polarization,
-      directional alignment or interindividual direction metrics, across
-      11 study species. 4 studies had code available. The {CircStats}
-      package provides functionality to calculate the polarization order
-      parameter, as well as the {swaRm} package. At the time when the
-      scoping review was conducted, to the best of our knowledge, there
-      were no R packages that provide the directional alignment or
-      interindividual direction metrics.</p>
-          </sec>
-          <sec id="behavioural-zones-nb-1">
-            <title>Behavioural zones</title>
-            <sec specific-use="notebook-content">
-              <code language="r script">zone &lt;- count_metric[metric_agg %in% c('zones')]
-      </code>
-            </sec>
-            <p>Our scoping review found 13 studies that used the behavioural
-      zones metric, across 9 study species. 4 studies had code
-      available. At the time when the scoping review was conducted, to
-      the best of our knowledge, there were no R packages that provide
-      the behavioural zones metric.</p>
-          </sec>
-          <sec id="position-within-group-rank-position-within-group-distance-and-direction-to-leader-nb-1">
-            <title>Position within group, rank position within group, distance
-      and direction to leader</title>
-            <sec specific-use="notebook-content">
-              <code language="r script">pos_wi &lt;- count_metric[
-  metric_agg %in%
-    c(
-      'position within group',
-      'rank position within group',
-      'distance to leader',
-      'direction to leader'
-    )
-]
-      </code>
-            </sec>
-            <p>Our scoping review found 18 studies that used the position
-      within group, rank position within group, distance to leader, or
-      direction to leader metrics across 14 study species. Only 1
-      studies had code available. At the time when the scoping review
-      was conducted, to the best of our knowledge, there were no R
-      packages that provide these metrics.</p>
-          </sec>
-          <sec id="directional-correlation-delay-nb-1">
-            <title>Directional correlation delay</title>
-            <sec specific-use="notebook-content">
-              <code language="r script">dirr_del &lt;- count_metric[metric_agg == 'directional correlation delay']
-      </code>
-            </sec>
-            <p>Our scoping review found 17 studies that used the directional
-      correlation delay metric, across 12 study species. Only 1 study
-      had code available using a combination of MATLAB (closed source),
-      CUDA (closed source), and Python (open source). At the time when
-      the scoping review was conducted, to the best of our knowledge,
-      there were no R packages that provide this metric.</p>
-          </sec>
+  </code>
+          <fig id="tbl-form-nb-1">
+            <caption>
+              <p>Data extraction form for scoping review to identify
+    metrics for studying intragroup dynamics</p>
+            </caption>
+            <table-wrap>
+              <table>
+                <colgroup>
+                  <col width="25%"/>
+                  <col width="75%"/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Field</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>General</td>
+                    <td>Covidence #</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Study ID</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Title</td>
+                  </tr>
+                  <tr>
+                    <td>Study information</td>
+                    <td>Type of study (Empirical, simulation, algorithm, model,
+            review, other)</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Species</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Region</td>
+                  </tr>
+                  <tr>
+                    <td>Dyadic social metrics</td>
+                    <td>Metric used or described</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Software package(s) used</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Citation for metric if not introduced in this paper</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Interpretation</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Data input required</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Definitions of “leader”, “initiator”, etc</td>
+                  </tr>
+                  <tr>
+                    <td>Dominance</td>
+                    <td>Dominance metric</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Interpretation</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Citation for dominance metric if not introduced in this
+            paper</td>
+                  </tr>
+                  <tr>
+                    <td>Code availability</td>
+                    <td>Analysis code availability</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Programming language</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Analysis code link</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Analysis code availability location (eg. GitHub, Zenodo,
+            FigShare)</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Other comments about code availability</td>
+                  </tr>
+                  <tr>
+                    <td>Misc</td>
+                    <td>Discussion points</td>
+                  </tr>
+                  <tr>
+                    <td/>
+                    <td>Etc</td>
+                  </tr>
+                </tbody>
+              </table>
+            </table-wrap>
+          </fig>
+        </sec>
+        <sec specific-use="notebook-content">
+          <code language="r script">targets::tar_read(benchmark_papers) |&gt;
+  tinytable::tt() |&gt;
+  style_tt(align = 'l')
+  </code>
+          <fig id="tbl-benchmark-nb-1">
+            <caption>
+              <p>Benchmark papers used to evaluate iterative search
+    results for scoping review</p>
+            </caption>
+            <table-wrap>
+              <table>
+                <colgroup>
+                  <col width="95%"/>
+                  <col width="5%"/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Citation</th>
+                    <th>Indexed in WoS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Nagy, Máté, Zsuzsa Ákos, Dora Biro, and Tamás Vicsek.
+            2010. “Hierarchical Group Dynamics in Pigeon Flocks.”
+            <italic>Nature</italic> 464 (7290): 890–93.
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nature08891">https://doi.org/10.1038/nature08891</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Strandburg-Peshkin, Ariana, Damien R. Farine, Iain D.
+            Couzin, and Margaret C. Crofoot. 2015. “Shared
+            Decision-Making Drives Collective Movement in Wild Baboons.”
+            <italic>Science</italic> 348 (6241): 1358–61.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow
+            or Not? How Animals in Fusion–Fission Societies Handle
+            Conflicting Information during Group Decision-Making.”
+            <italic>Ecology Letters</italic> 18 (8): 799–806.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Andersson, Mattias, Joachim Gudmundsson, Patrick Laube,
+            and Thomas Wolle. 2007. “Reporting Leadership Patterns among
+            Trajectories.” In <italic>Proceedings of the 2007 ACM
+            Symposium on Applied Computing</italic>, 3–7. SAC ’07. New
+            York, NY, USA: Association for Computing Machinery.
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1145/1244002.1244004">https://doi.org/10.1145/1244002.1244004</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D.
+            Couzin, and Martin Wikelski. 2018. “From Local Collective
+            Behavior to Global Migratory Patterns in White Storks.”
+            <italic>Science</italic> 360 (6391): 911–14.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Bracken, A.M., C. Christensen, M.J. O’Riain, I.
+            Fürtbauer, and A.J. King. 2022. “Flexible Group Cohesion and
+            Coordination, but Robust Leader-Follower Roles, in a Wild
+            Social Primate Using Urban Space.” <italic>Proc. R. Soc. B
+            Biol. Sci.</italic> 289 (1967).
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rspb.2021.2141">https://doi.org/10.1098/rspb.2021.2141</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Long, Jed A., Trisalyn A. Nelson, Stephen L. Webb, and
+            Kenneth L. Gee. 2014. “A Critical Examination of Indices of
+            Dynamic Interaction for Wildlife Telemetry Studies.”
+            <italic>Journal of Animal Ecology</italic> 83 (5): 1216–33.
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/1365-2656.12198">https://doi.org/10.1111/1365-2656.12198</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Dodge, Somayeh, Robert Weibel, and Anna-Katharina
+            Lautenschütz. 2008. “Towards a Taxonomy of Movement
+            Patterns.” <italic>Information Visualization</italic> 7
+            (3–4): 240–52.
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1057/PALGRAVE.IVS.9500182">https://doi.org/10.1057/PALGRAVE.IVS.9500182</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                  <tr>
+                    <td>Laube, Patrick, Stephan Imfeld, and Robert Weibel. 2005.
+            “Discovering Relative Motion Patterns in Groups of Moving
+            Point Objects.” <italic>International Journal of
+            Geographical Information Science</italic> 19 (6): 639–68.
+            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/13658810500105572">https://doi.org/10.1080/13658810500105572</ext-link>.</td>
+                    <td>TRUE</td>
+                  </tr>
+                </tbody>
+              </table>
+            </table-wrap>
+          </fig>
+        </sec>
+        <sec specific-use="notebook-content">
+          <code language="r script">targets::tar_read(search_strings) |&gt;
+  tinytable::tt() |&gt;
+  style_tt(align = 'l')
+  </code>
+          <fig id="tbl-search-strings-nb-1">
+            <caption>
+              <p>Search strings for scoping review using Web of Science
+    and Scopus</p>
+            </caption>
+            <table-wrap>
+              <table>
+                <colgroup>
+                  <col width="2%"/>
+                  <col width="98%"/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Source</th>
+                    <th>String</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Web of Science</td>
+                    <td>TS=(“dominance hierarch<italic>” OR ”leadership” OR
+            ”dominance” OR ”collective move</italic>” OR
+            “fusion-fission” OR “fission-fusion” OR (“fission<italic>”
+            AND ”fusion</italic>”) OR (“producer<italic>” AND
+            ”scrounger”) OR ”producer-scrounger” OR ”leader-follower” OR
+            ”leader follower” OR (”leader</italic>” AND
+            “follower<italic>”) OR (”finder</italic>” AND
+            “joiner<italic>”) OR ”group cohesion” OR ”dynamic
+            interaction” OR ”leadership pattern</italic>” OR “collective
+            behav<italic>” OR ”spatiotemporal group</italic>” OR
+            “relative motion” OR “group dynamics”) AND
+            TS=(“ecolog<italic>” OR ”animal</italic>” OR “wildlife”) AND
+            TS=((“spatial<italic>” AND ”network</italic>”) OR
+            “track<italic>” OR ”gps” OR ”telemetry” OR ”PIT” OR ”video”
+            OR ”RFID” OR ”biotelem</italic>” OR “spatiotemporal” OR
+            “spatio-temporal” OR “GPS” OR “movement pattern<italic>”)
+            NOT TS=(”human group</italic>” OR “robot<italic>” OR
+            ”genetic algorithm” OR ”cell movement” OR ”cellular” OR
+            ”sport</italic>” OR “team sport<italic>” OR ”task force” OR
+            ”food web</italic>” OR “host plant*” OR “fossil” OR
+            “urbanism” OR “psychiatry” OR “bile”) AND
+            PY=(1980-2023)</td>
+                  </tr>
+                  <tr>
+                    <td>Scopus</td>
+                    <td>TITLE-ABS-KEY (“dominance hierarch<italic>” OR
+            ”leadership” OR ”dominance” OR ”collective move</italic>” OR
+            “fusion-fission” OR “fission-fusion” OR (“fission<italic>”
+            AND ”fusion</italic>”) OR (“producer<italic>” AND
+            ”scrounger”) OR ”producer-scrounger” OR ”leader-follower” OR
+            ”leader follower” OR (”leader</italic>” AND
+            “follower<italic>”) OR (”finder</italic>” AND
+            “joiner<italic>”) OR ”group cohesion” OR ”dynamic
+            interaction” OR ”leadership pattern</italic>” OR “collective
+            behav<italic>” OR ”spatiotemporal group</italic>” OR
+            “relative motion” OR “group dynamics”) AND TITLE-ABS-KEY
+            (“ecolog<italic>” OR ”animal</italic>” OR “wildlife”) AND
+            TITLE-ABS-KEY ((“spatial<italic>” AND ”network</italic>”) OR
+            “track<italic>” OR ”gps” OR ”telemetry” OR ”PIT” OR ”video”
+            OR ”RFID” OR ”biotelem</italic>” OR “spatiotemporal” OR
+            “spatio-temporal” OR “GPS” OR “movement pattern<italic>”)
+            AND NOT TITLE-ABS-KEY (”human group</italic>” OR
+            “robot<italic>” OR ”genetic algorithm” OR ”cell movement” OR
+            ”cellular” OR ”sport</italic>” OR “team sport<italic>” OR
+            ”task force” OR ”food web</italic>” OR “host plant*” OR
+            “fossil” OR “urbanism” OR “psychiatry” OR “bile”) AND
+            PUBYEAR &gt; 1980</td>
+                  </tr>
+                </tbody>
+              </table>
+            </table-wrap>
+          </fig>
         </sec>
       </sec>
     </body>
@@ -16938,7 +16908,31 @@ functions[, .(Function, Description, Category)] |&gt;
           <code language="r script">targets::tar_source('R')
   </code>
           <boxed-text>
-            <preformat>qs2 0.1.5</preformat>
+            <preformat>qs2 0.2.0</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>
+Attaching package: 'renv'</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following object is masked from 'package:pak':
+
+    lockfile_create</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:stats':
+
+    embed, update</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:utils':
+
+    history, upgrade</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>
@@ -16950,7 +16944,7 @@ Attaching package: 'janitor'</preformat>
     chisq.test, fisher.test</preformat>
           </boxed-text>
           <boxed-text>
-            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</preformat>
+            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
@@ -18814,13 +18808,37 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
     <front-stub>
 </front-stub>
     <body>
-      <sec id="sec-scoping-methods-nb-3">
-        <title>Supplement: Scoping review methods</title>
+      <sec id="sec-selected-nb-3">
+        <title>Supplement: Selected metrics</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
   </code>
           <boxed-text>
-            <preformat>qs2 0.1.5</preformat>
+            <preformat>qs2 0.2.0</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>
+Attaching package: 'renv'</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following object is masked from 'package:pak':
+
+    lockfile_create</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:stats':
+
+    embed, update</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:utils':
+
+    history, upgrade</preformat>
+          </boxed-text>
+          <boxed-text>
+            <preformat>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>
@@ -18832,418 +18850,365 @@ Attaching package: 'janitor'</preformat>
     chisq.test, fisher.test</preformat>
           </boxed-text>
           <boxed-text>
-            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</preformat>
+            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
           </boxed-text>
           <boxed-text>
             <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
           </boxed-text>
-          <code language="r script">tar_load(review)
+          <code language="r script">tar_load(taxized)
 tar_load(geocoded)
-tar_load(taxized)
-tar_load(software_meta)
-
+tar_load(review)
 tar_load(counted)
 count_code_avail &lt;- counted$count_code_avail
 count_prog_lang &lt;- counted$count_prog_lang
 count_software &lt;- counted$count_software
 count_metric &lt;- counted$count_metric
-count_dom_metric &lt;- counted$count_dom_metric
   </code>
         </sec>
-        <p>We conducted a scoping review to identify metrics used in ecology
-  studies for measuring dyadic interactions, dominance hierarchies and
-  leadership patterns. We focused on metrics applicable to
-  spatiotemporal data such as GPS telemetry. We used two databases of
-  academic literature: Web of Science and Scopus. We established a test
-  list of nine benchmark papers (Supplement A: Table 1) that were
-  relevant to our objectives and verified that each paper was indexed in
-  our selected databases. We used an iterative search method to
-  fine-tune search terms measuring the total number of papers returned
-  and sensitivity of the search. Sensitivity is defined as the
-  proportion of potentially relevant papers returned from the search
-  estimated using the number benchmark papers returned from the test
-  list [4.2.7 @CollaborationforEnvironmentalEvidence_2022]. Search terms
-  were established in four categories: topic, population, method and
-  exclusion. Topic included terms associated with dyadic interactions,
-  dominance hierarchies and leadership patterns. Population included
-  terms associated with animals, wildlife and ecology. Method included
-  terms associated with data collection and data types. Finally, a list
-  of exclusion terms were used to remove clearly irrelevant papers. Each
-  category of terms were combined with OR operators and all three
-  categories of terms were combined with AND operators. The set of
-  papers used in further steps was the combination of the last iteration
-  of search terms applied to both of the Web of Science (using the “TS”
-  field) and Scopus (using the “TITLE-ABS-KEY” field) databases. Only
-  articles between 1980-2023 were included using the PY (Web of Science)
-  or PUBYEAR (Scopus) fields. The resulting set of references were
-  imported into Covidence [@VeritasHealthInnovation_2025] for
-  deduplication, title and abstract screening, full text screening, and
-  data extraction.</p>
-        <p>Before screening, articles were marked as duplicates using
-  Covidence and manual screening. Covidence detected 799 duplicates
-  based on title, year, volume, and authors, and manual screening
-  identified an additional 128 duplicates.</p>
-        <p>Articles were screened out based on the following criteria:</p>
-        <list list-type="bullet">
-          <list-item>
-            <p>Study does not describe dyadic or group metric related to
-      leadership or dominance (eg. @Papageorgiou_2020)</p>
-          </list-item>
-          <list-item>
-            <p>Study describes metric that is not applicable to spatiotemporal
-      data (eg. @Allanic_2020 used focal observations and video
-      recordings)</p>
-          </list-item>
-          <list-item>
-            <p>Study does not describe metric beyond static interaction (eg.
-      @Carter_2013 used home range or spatial overlap)</p>
-          </list-item>
-          <list-item>
-            <p>Study does not describe metric beyond group size (eg.
-      @delMarDelgado_2021)</p>
-          </list-item>
-          <list-item>
-            <p>Study full text is not available in English (eg.
-      @Bernard_2002)</p>
-          </list-item>
-          <list-item>
-            <p>Study is not a thesis</p>
-          </list-item>
-          <list-item>
-            <p>Study is not a book chapter (eg. @Bernstein_2019)</p>
-          </list-item>
-        </list>
-        <p>Despite a focus on animal ecology, some studies were discussed
-  movement data more generically or, alternatively, specifically focused
-  on human or robotic movement data (eg. @Long_2022). These studies were
-  retained when the metrics described were deemed applicable to animal
-  spatiotemporal movement data. Studies using mathematical models or
-  simulations were largely beyond the scope of this review but studies
-  were retained when the parameters used as inputs could be applied to
-  spatial temporal data (eg. @Long_2015). Review studies were read for
-  building the scope of the introduction and discussion but not included
-  in data extraction unless they explicitly discussed dyadic measures
-  (eg. @King_2018).</p>
-        <p>The goals of data extraction were to record the breadth of dyadic
-  social and dominance metrics applicable to spatiotemporal data, and
-  the degree of code availability. General information about each study
-  was recorded including the type of study (empirical, simulation,
-  algorithm, model, or review), study species and study region. Dyadic
-  social metrics for each study were listed including citations and
-  interpretation for each metric used and data input required. Dominance
-  metrics derived from spatiotemporal data were listed including
-  citations and interpretation. Code availability was described
-  including location of code (eg. Zenodo, or GitHub), programming
-  languages and software packages used.</p>
-        <p>Metrics identified were aggregated using a manual process to
-  identify synonymous terms. This aggregation process was required due
-  to variability in defining metrics during data extraction, as well as
-  differences between authors in describing metrics (eg. distance to
-  group “center”, “centroid”, or “center of mass”). Each study was
-  geocoded using the {tidygeocoder} package [@Cambon_2021] and species
-  were parsed using the {rgnparser} package [@Chamberlain_2023] which
-  provides the GNparser [@Mozzherin_2026] functionality in R. We
-  calculated frequency of data extracted for each categorical field
-  including programming language, software package, analysis code
-  availability, geographic region, study species and metric used. For
-  many fields, authors did not provide sufficient to determine how
-  metrics were calculated, eg. not including the programming language or
-  software package used. In all cases, counts are presented as an
-  overall frequency including papers with missing fields.</p>
-        <sec specific-use="notebook-content">
-          <code language="r script">data.table::fread('data/form.csv') |&gt;
-  tinytable::tt() |&gt;
+        <sec id="selected-metrics-nb-3">
+          <title>Selected metrics</title>
+          <p>The following metrics were not selected due to their availability
+    in existing R packages:</p>
+          <list list-type="bullet">
+            <list-item>
+              <p>{wildlifeDI}: DI, Don, Prox, Lixn, Cs, DI in direction, DI in
+        displacement, HAI, IAB, Cr, Ca</p>
+            </list-item>
+            <list-item>
+              <p>{corrMove}: diffusive movement correlation, drift movement
+        correlation, overall component movement correlation</p>
+            </list-item>
+            <list-item>
+              <p>{changepoint}: change point analysis</p>
+            </list-item>
+          </list>
+          <p>The following metrics were not selected due to their availability
+    in code availability accompanying publications:</p>
+          <list list-type="bullet">
+            <list-item>
+              <p>mFLICA provided in code accompanying @Amornbunchornvej_2018
+        and R package {mFLICA} [@Amornbunchornvej_2021]</p>
+            </list-item>
+          </list>
+          <p>The follow metrics were not selected due to the expected input
+    data differing from existing {spatsoc} functions (XYT):</p>
+          <list list-type="bullet">
+            <list-item>
+              <p>metrics relating to posture</p>
+            </list-item>
+          </list>
+          <p>The selected metrics are listed in [@tbl-new-functions]. All
+    existing functions in {spatsoc} are listed below in
+    [@tbl-all-functions].</p>
+          <sec specific-use="notebook-content">
+            <code language="r script">functions &lt;- fread('data/spatsoc-functions.tsv')
+functions[, .(Function, Description, Category)] |&gt;
+  tt() |&gt;
+  group_tt(i = functions$Family) |&gt;
   style_tt(align = 'l')
-  </code>
-          <fig id="tbl-form-nb-3">
-            <caption>
-              <p>Data extraction form for scoping review to identify
-    metrics for studying intragroup dynamics</p>
-            </caption>
-            <table-wrap>
-              <table>
-                <colgroup>
-                  <col width="25%"/>
-                  <col width="75%"/>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>Category</th>
-                    <th>Field</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>General</td>
-                    <td>Covidence #</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Study ID</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Title</td>
-                  </tr>
-                  <tr>
-                    <td>Study information</td>
-                    <td>Type of study (Empirical, simulation, algorithm, model,
-            review, other)</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Species</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Region</td>
-                  </tr>
-                  <tr>
-                    <td>Dyadic social metrics</td>
-                    <td>Metric used or described</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Software package(s) used</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Citation for metric if not introduced in this paper</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Interpretation</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Data input required</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Definitions of “leader”, “initiator”, etc</td>
-                  </tr>
-                  <tr>
-                    <td>Dominance</td>
-                    <td>Dominance metric</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Interpretation</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Citation for dominance metric if not introduced in this
-            paper</td>
-                  </tr>
-                  <tr>
-                    <td>Code availability</td>
-                    <td>Analysis code availability</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Programming language</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Analysis code link</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Analysis code availability location (eg. GitHub, Zenodo,
-            FigShare)</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Other comments about code availability</td>
-                  </tr>
-                  <tr>
-                    <td>Misc</td>
-                    <td>Discussion points</td>
-                  </tr>
-                  <tr>
-                    <td/>
-                    <td>Etc</td>
-                  </tr>
-                </tbody>
-              </table>
-            </table-wrap>
-          </fig>
-        </sec>
-        <sec specific-use="notebook-content">
-          <code language="r script">targets::tar_read(benchmark_papers) |&gt;
-  tinytable::tt() |&gt;
-  style_tt(align = 'l')
-  </code>
-          <fig id="tbl-benchmark-nb-3">
-            <caption>
-              <p>Benchmark papers used to evaluate iterative search
-    results for scoping review</p>
-            </caption>
-            <table-wrap>
-              <table>
-                <colgroup>
-                  <col width="95%"/>
-                  <col width="5%"/>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>Citation</th>
-                    <th>Indexed in WoS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Nagy, Máté, Zsuzsa Ákos, Dora Biro, and Tamás Vicsek.
-            2010. “Hierarchical Group Dynamics in Pigeon Flocks.”
-            <italic>Nature</italic> 464 (7290): 890–93.
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nature08891">https://doi.org/10.1038/nature08891</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Strandburg-Peshkin, Ariana, Damien R. Farine, Iain D.
-            Couzin, and Margaret C. Crofoot. 2015. “Shared
-            Decision-Making Drives Collective Movement in Wild Baboons.”
-            <italic>Science</italic> 348 (6241): 1358–61.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow
-            or Not? How Animals in Fusion–Fission Societies Handle
-            Conflicting Information during Group Decision-Making.”
-            <italic>Ecology Letters</italic> 18 (8): 799–806.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Andersson, Mattias, Joachim Gudmundsson, Patrick Laube,
-            and Thomas Wolle. 2007. “Reporting Leadership Patterns among
-            Trajectories.” In <italic>Proceedings of the 2007 ACM
-            Symposium on Applied Computing</italic>, 3–7. SAC ’07. New
-            York, NY, USA: Association for Computing Machinery.
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1145/1244002.1244004">https://doi.org/10.1145/1244002.1244004</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D.
-            Couzin, and Martin Wikelski. 2018. “From Local Collective
-            Behavior to Global Migratory Patterns in White Storks.”
-            <italic>Science</italic> 360 (6391): 911–14.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Bracken, A.M., C. Christensen, M.J. O’Riain, I.
-            Fürtbauer, and A.J. King. 2022. “Flexible Group Cohesion and
-            Coordination, but Robust Leader-Follower Roles, in a Wild
-            Social Primate Using Urban Space.” <italic>Proc. R. Soc. B
-            Biol. Sci.</italic> 289 (1967).
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rspb.2021.2141">https://doi.org/10.1098/rspb.2021.2141</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Long, Jed A., Trisalyn A. Nelson, Stephen L. Webb, and
-            Kenneth L. Gee. 2014. “A Critical Examination of Indices of
-            Dynamic Interaction for Wildlife Telemetry Studies.”
-            <italic>Journal of Animal Ecology</italic> 83 (5): 1216–33.
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/1365-2656.12198">https://doi.org/10.1111/1365-2656.12198</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Dodge, Somayeh, Robert Weibel, and Anna-Katharina
-            Lautenschütz. 2008. “Towards a Taxonomy of Movement
-            Patterns.” <italic>Information Visualization</italic> 7
-            (3–4): 240–52.
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1057/PALGRAVE.IVS.9500182">https://doi.org/10.1057/PALGRAVE.IVS.9500182</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                  <tr>
-                    <td>Laube, Patrick, Stephan Imfeld, and Robert Weibel. 2005.
-            “Discovering Relative Motion Patterns in Groups of Moving
-            Point Objects.” <italic>International Journal of
-            Geographical Information Science</italic> 19 (6): 639–68.
-            <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/13658810500105572">https://doi.org/10.1080/13658810500105572</ext-link>.</td>
-                    <td>TRUE</td>
-                  </tr>
-                </tbody>
-              </table>
-            </table-wrap>
-          </fig>
-        </sec>
-        <sec specific-use="notebook-content">
-          <code language="r script">targets::tar_read(search_strings) |&gt;
-  tinytable::tt() |&gt;
-  style_tt(align = 'l')
-  </code>
-          <fig id="tbl-search-strings-nb-3">
-            <caption>
-              <p>Search strings for scoping review using Web of Science
-    and Scopus</p>
-            </caption>
-            <table-wrap>
-              <table>
-                <colgroup>
-                  <col width="2%"/>
-                  <col width="98%"/>
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>Source</th>
-                    <th>String</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Web of Science</td>
-                    <td>TS=(“dominance hierarch<italic>” OR ”leadership” OR
-            ”dominance” OR ”collective move</italic>” OR
-            “fusion-fission” OR “fission-fusion” OR (“fission<italic>”
-            AND ”fusion</italic>”) OR (“producer<italic>” AND
-            ”scrounger”) OR ”producer-scrounger” OR ”leader-follower” OR
-            ”leader follower” OR (”leader</italic>” AND
-            “follower<italic>”) OR (”finder</italic>” AND
-            “joiner<italic>”) OR ”group cohesion” OR ”dynamic
-            interaction” OR ”leadership pattern</italic>” OR “collective
-            behav<italic>” OR ”spatiotemporal group</italic>” OR
-            “relative motion” OR “group dynamics”) AND
-            TS=(“ecolog<italic>” OR ”animal</italic>” OR “wildlife”) AND
-            TS=((“spatial<italic>” AND ”network</italic>”) OR
-            “track<italic>” OR ”gps” OR ”telemetry” OR ”PIT” OR ”video”
-            OR ”RFID” OR ”biotelem</italic>” OR “spatiotemporal” OR
-            “spatio-temporal” OR “GPS” OR “movement pattern<italic>”)
-            NOT TS=(”human group</italic>” OR “robot<italic>” OR
-            ”genetic algorithm” OR ”cell movement” OR ”cellular” OR
-            ”sport</italic>” OR “team sport<italic>” OR ”task force” OR
-            ”food web</italic>” OR “host plant*” OR “fossil” OR
-            “urbanism” OR “psychiatry” OR “bile”) AND
-            PY=(1980-2023)</td>
-                  </tr>
-                  <tr>
-                    <td>Scopus</td>
-                    <td>TITLE-ABS-KEY (“dominance hierarch<italic>” OR
-            ”leadership” OR ”dominance” OR ”collective move</italic>” OR
-            “fusion-fission” OR “fission-fusion” OR (“fission<italic>”
-            AND ”fusion</italic>”) OR (“producer<italic>” AND
-            ”scrounger”) OR ”producer-scrounger” OR ”leader-follower” OR
-            ”leader follower” OR (”leader</italic>” AND
-            “follower<italic>”) OR (”finder</italic>” AND
-            “joiner<italic>”) OR ”group cohesion” OR ”dynamic
-            interaction” OR ”leadership pattern</italic>” OR “collective
-            behav<italic>” OR ”spatiotemporal group</italic>” OR
-            “relative motion” OR “group dynamics”) AND TITLE-ABS-KEY
-            (“ecolog<italic>” OR ”animal</italic>” OR “wildlife”) AND
-            TITLE-ABS-KEY ((“spatial<italic>” AND ”network</italic>”) OR
-            “track<italic>” OR ”gps” OR ”telemetry” OR ”PIT” OR ”video”
-            OR ”RFID” OR ”biotelem</italic>” OR “spatiotemporal” OR
-            “spatio-temporal” OR “GPS” OR “movement pattern<italic>”)
-            AND NOT TITLE-ABS-KEY (”human group</italic>” OR
-            “robot<italic>” OR ”genetic algorithm” OR ”cell movement” OR
-            ”cellular” OR ”sport</italic>” OR “team sport<italic>” OR
-            ”task force” OR ”food web</italic>” OR “host plant*” OR
-            “fossil” OR “urbanism” OR “psychiatry” OR “bile”) AND
-            PUBYEAR &gt; 1980</td>
-                  </tr>
-                </tbody>
-              </table>
-            </table-wrap>
-          </fig>
+    </code>
+            <fig id="tbl-all-functions-nb-3">
+              <caption>
+                <p>Description of all functions (new and previously
+      existing) available in the R package {spatsoc} categorized by
+      family.</p>
+              </caption>
+              <table-wrap>
+                <table>
+                  <colgroup>
+                    <col width="31%"/>
+                    <col width="56%"/>
+                    <col width="12%"/>
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Function</th>
+                      <th>Description</th>
+                      <th>Category</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td colspan="3">Spatial interface</td>
+                    </tr>
+                    <tr>
+                      <td>get_geometry()</td>
+                      <td>Setup data for geometry interface</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Edge-list generation</td>
+                    </tr>
+                    <tr>
+                      <td>edge_dist()</td>
+                      <td>Distance based edge-lists</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>edge_nn()</td>
+                      <td>Nearest neighbour based edge-lists</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>edge_delay()</td>
+                      <td>Directional correlation delay based edge-lists</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>edge_alignment()</td>
+                      <td>Directional alignment based edge-lists</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>edge_direction()</td>
+                      <td>Direction based edge-lists</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>edge_zones()</td>
+                      <td>Behavioural zones based edge-lists</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Dyad</td>
+                    </tr>
+                    <tr>
+                      <td>dyad_id()</td>
+                      <td>Identify dyads</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>fusion_id()</td>
+                      <td>Identify fusion events</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Centroid</td>
+                    </tr>
+                    <tr>
+                      <td>centroid_group()</td>
+                      <td>Group centroid</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>centroid_dyad()</td>
+                      <td>Dyad centroid</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>centroid_fusion()</td>
+                      <td>Fusion event centroid</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Direction</td>
+                    </tr>
+                    <tr>
+                      <td>direction_step()</td>
+                      <td>Direction step</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>direction_to_centroid()</td>
+                      <td>Direction to group centroid</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>direction_to_leader()</td>
+                      <td>Direction to group leader</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>direction_group()</td>
+                      <td>Group mean direction</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>direction_polarization()</td>
+                      <td>Polarization</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Distance</td>
+                    </tr>
+                    <tr>
+                      <td>distance_to_centroid()</td>
+                      <td>Distance to group centroid</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>distance_to_leader()</td>
+                      <td>Distance to group leader</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Leadership</td>
+                    </tr>
+                    <tr>
+                      <td>leader_direction_group()</td>
+                      <td>Leadership along group direction</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td>leader_edge_delay()</td>
+                      <td>Leadership in directional correlation delay</td>
+                      <td>New</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Temporal grouping</td>
+                    </tr>
+                    <tr>
+                      <td>group_times()</td>
+                      <td>Group times</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Spatial grouping</td>
+                    </tr>
+                    <tr>
+                      <td>group_lines()</td>
+                      <td>Group lines</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>group_pts()</td>
+                      <td>Group points</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>group_polys()</td>
+                      <td>Group polygons</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Social network</td>
+                    </tr>
+                    <tr>
+                      <td>randomizations()</td>
+                      <td>Data-stream randomizations</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>get_gbi()</td>
+                      <td>Group by individual matrix</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td colspan="3">Build</td>
+                    </tr>
+                    <tr>
+                      <td>build_lines()</td>
+                      <td>Build lines</td>
+                      <td>Existing</td>
+                    </tr>
+                    <tr>
+                      <td>build_polys()</td>
+                      <td>Build polygons</td>
+                      <td>Existing</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </table-wrap>
+            </fig>
+          </sec>
+          <sec id="distance-direction-and-rank-distance-to-group-centroid-nb-3">
+            <title>Distance, direction and rank distance to group
+      centroid</title>
+            <sec specific-use="notebook-content">
+              <code language="r script">to_grp_cent &lt;- count_metric[
+  metric_agg %in%
+    c(
+      'direction to group centroid',
+      'distance to group centroid',
+      'rank distance to group centroid',
+      'group centroid'
+    )
+]
+      </code>
+            </sec>
+            <p>Our scoping review found 21 studies that used the group
+      centroid, distance to group centroid, direction to group centroid,
+      or rank distance to group centroid metrics, across 14 study
+      species. 4 studies had code available. The {swaRm} package
+      provides functionality to calculate the group centroid and the
+      distance to the group centroid. At the time when the scoping
+      review was conducted, to the best of our knowledge, there were no
+      R packages that provide the rank to distance to group centroid
+      metric.</p>
+          </sec>
+          <sec id="polarization-directional-alignment-and-interindividual-direction-nb-3">
+            <title>Polarization, directional alignment and interindividual
+      direction</title>
+            <sec specific-use="notebook-content">
+              <code language="r script">align &lt;- count_metric[
+  metric_agg %in%
+    c(
+      'polarization',
+      'directional alignment',
+      'interindividual direction',
+      'nearest neighbour direction'
+    )
+]
+      </code>
+            </sec>
+            <p>Our scoping review found 20 studies that used the polarization,
+      directional alignment or interindividual direction metrics, across
+      11 study species. 4 studies had code available. The {CircStats}
+      and the {swaRm} packages provide functionality to calculate the
+      polarization order parameter. At the time when the scoping review
+      was conducted, to the best of our knowledge, there were no R
+      packages that provide the directional alignment or interindividual
+      direction metrics. After the scoping review was conducted, the
+      {swaRmverse} package was released which provides the direction to
+      nearest neighbour metric [@Papadopoulou_2025].</p>
+          </sec>
+          <sec id="behavioural-zones-nb-3">
+            <title>Behavioural zones</title>
+            <sec specific-use="notebook-content">
+              <code language="r script">zone &lt;- count_metric[metric_agg %in% c('zones')]
+      </code>
+            </sec>
+            <p>Our scoping review found 13 studies that used the behavioural
+      zones metric, across 9 study species. 4 studies had code
+      available. At the time when the scoping review was conducted, to
+      the best of our knowledge, there were no R packages that provide
+      the behavioural zones metric.</p>
+          </sec>
+          <sec id="position-within-group-rank-position-within-group-distance-and-direction-to-leader-nb-3">
+            <title>Position within group, rank position within group, distance
+      and direction to leader</title>
+            <sec specific-use="notebook-content">
+              <code language="r script">pos_wi &lt;- count_metric[
+  metric_agg %in%
+    c(
+      'position within group',
+      'rank position within group',
+      'distance to leader',
+      'direction to leader'
+    )
+]
+      </code>
+            </sec>
+            <p>Our scoping review found 18 studies that used the position
+      within group, rank position within group, distance to leader, or
+      direction to leader metrics across 14 study species. Only 1
+      studies had code available. At the time when the scoping review
+      was conducted, to the best of our knowledge, there were no R
+      packages that provide these metrics.</p>
+          </sec>
+          <sec id="directional-correlation-delay-nb-3">
+            <title>Directional correlation delay</title>
+            <sec specific-use="notebook-content">
+              <code language="r script">dirr_del &lt;- count_metric[metric_agg == 'directional correlation delay']
+      </code>
+            </sec>
+            <p>Our scoping review found 17 studies that used the directional
+      correlation delay metric, across 12 study species. Only 1 study
+      had code available using a combination of MATLAB (closed source),
+      CUDA (closed source), and Python (open source). At the time when
+      the scoping review was conducted, to the best of our knowledge,
+      there were no R packages that provide this metric.</p>
+          </sec>
         </sec>
       </sec>
     </body>

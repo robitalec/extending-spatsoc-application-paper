@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta charset="UTF-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>supplement-c</title>
 <style>
+      /* Default styles provided by pandoc.
+      ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+      */
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -143,17 +146,16 @@
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e5e365508e46ee55073587b31ce1f8b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0b5be440d7477abc64e1b143b8e174ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script async="" src="https://hypothes.is/embed.js"></script><script>
+<link href="../site_libs/bootstrap/bootstrap-d870bc86991a1aa2db5dbadae5b82848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-589e9d0ca6a9d9d22129cf6aa599e820.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
@@ -353,11 +355,35 @@
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content" id="quarto-document-content"><section id="sec-selected" class="level1"><h1>Supplement: Selected metrics</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="sec-selected" class="level1"><h1>Supplement: Selected metrics</h1>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_source.html">tar_source</a></span><span class="op">(</span><span class="st">'R'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>qs2 0.1.5</code></pre>
+<pre><code>qs2 0.2.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'renv'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:pak':
+
+    lockfile_create</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    embed, update</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:utils':
+
+    history, upgrade</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -369,12 +395,12 @@ Attaching package: 'janitor'</code></pre>
     chisq.test, fisher.test</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</code></pre>
+<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>udunits database from /usr/share/udunits/udunits2.xml</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">taxized</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">taxized</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">geocoded</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">review</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">counted</span><span class="op">)</span></span>
@@ -401,7 +427,7 @@ Attaching package: 'janitor'</code></pre>
 </ul>
 <p>The selected metrics are listed in <span class="citation" data-cites="tbl-new-functions">[@tbl-new-functions]</span>. All existing functions in {spatsoc} are listed below in <span class="citation" data-cites="tbl-all-functions">[@tbl-all-functions]</span>.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">functions</span> <span class="op">&lt;-</span> <span class="fu">fread</span><span class="op">(</span><span class="st">'data/spatsoc-functions.tsv'</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">functions</span> <span class="op">&lt;-</span> <span class="fu">fread</span><span class="op">(</span><span class="st">'data/spatsoc-functions.tsv'</span><span class="op">)</span></span>
 <span><span class="va">functions</span><span class="op">[</span>, <span class="fu">.</span><span class="op">(</span><span class="va">Function</span>, <span class="va">Description</span>, <span class="va">Category</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tt</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">group_tt</span><span class="op">(</span>i <span class="op">=</span> <span class="va">functions</span><span class="op">$</span><span class="va">Family</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -415,43 +441,43 @@ Description of all functions (new and previously existing) available in the R pa
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_txhjuf9uf3043gzq7wfj = TinyTable.createTableFunctions("tinytable_txhjuf9uf3043gzq7wfj");
+      const tableFns_ekdmt14ty6mwcwvlxvtg = TinyTable.createTableFunctions("tinytable_ekdmt14ty6mwcwvlxvtg");
       // tinytable span after
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(38, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(35, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(31, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(29, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(26, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(23, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(17, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(13, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(10, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(3, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_txhjuf9uf3043gzq7wfj.spanCell(1, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(38, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(35, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(31, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(29, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(26, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(23, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(17, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(13, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(10, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(3, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_ekdmt14ty6mwcwvlxvtg.spanCell(1, 1, 1, 3) })
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '40', j: 1 }, { i: '40', j: 2 }, { i: '40', j: 3 } ], css_id: 'tinytable_css_aiqlt6vtvua7xsxmdt3z',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '22', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 }, { i: '27', j: 3 }, { i: '28', j: 3 }, { i: '29', j: 3 }, { i: '30', j: 3 }, { i: '31', j: 3 }, { i: '32', j: 3 }, { i: '33', j: 3 }, { i: '34', j: 3 }, { i: '35', j: 3 }, { i: '36', j: 3 }, { i: '37', j: 3 }, { i: '38', j: 3 }, { i: '39', j: 3 } ], css_id: 'tinytable_css_cjmz4f8rq0nmu5ni6h5u',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_ou2sw3ji5ytsycvo1dbh',}, 
+          { positions: [ { i: '40', j: 1 }, { i: '40', j: 2 }, { i: '40', j: 3 } ], css_id: 'tinytable_css_f8ebjmicfsxhv2qs7ubu',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '22', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 }, { i: '27', j: 3 }, { i: '28', j: 3 }, { i: '29', j: 3 }, { i: '30', j: 3 }, { i: '31', j: 3 }, { i: '32', j: 3 }, { i: '33', j: 3 }, { i: '34', j: 3 }, { i: '35', j: 3 }, { i: '36', j: 3 }, { i: '37', j: 3 }, { i: '38', j: 3 }, { i: '39', j: 3 } ], css_id: 'tinytable_css_xdtqt4cmwrj1zh5592yt',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_4eqa4v3u5ma0y1yjctbt',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_txhjuf9uf3043gzq7wfj.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_ekdmt14ty6mwcwvlxvtg.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_txhjuf9uf3043gzq7wfj td.tinytable_css_aiqlt6vtvua7xsxmdt3z, #tinytable_txhjuf9uf3043gzq7wfj th.tinytable_css_aiqlt6vtvua7xsxmdt3z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_txhjuf9uf3043gzq7wfj td.tinytable_css_cjmz4f8rq0nmu5ni6h5u, #tinytable_txhjuf9uf3043gzq7wfj th.tinytable_css_cjmz4f8rq0nmu5ni6h5u { text-align: left }
-    #tinytable_txhjuf9uf3043gzq7wfj td.tinytable_css_ou2sw3ji5ytsycvo1dbh, #tinytable_txhjuf9uf3043gzq7wfj th.tinytable_css_ou2sw3ji5ytsycvo1dbh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ekdmt14ty6mwcwvlxvtg td.tinytable_css_f8ebjmicfsxhv2qs7ubu, #tinytable_ekdmt14ty6mwcwvlxvtg th.tinytable_css_f8ebjmicfsxhv2qs7ubu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_ekdmt14ty6mwcwvlxvtg td.tinytable_css_xdtqt4cmwrj1zh5592yt, #tinytable_ekdmt14ty6mwcwvlxvtg th.tinytable_css_xdtqt4cmwrj1zh5592yt { text-align: left }
+    #tinytable_ekdmt14ty6mwcwvlxvtg td.tinytable_css_4eqa4v3u5ma0y1yjctbt, #tinytable_ekdmt14ty6mwcwvlxvtg th.tinytable_css_4eqa4v3u5ma0y1yjctbt {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_txhjuf9uf3043gzq7wfj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_ekdmt14ty6mwcwvlxvtg" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Function</th>
                 <th scope="col" data-row="0" data-col="2">Description</th>
@@ -669,7 +695,7 @@ Description of all functions (new and previously existing) available in the R pa
 </div></div>
 <section id="distance-direction-and-rank-distance-to-group-centroid" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">to_grp_cent</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">to_grp_cent</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
 <span>  <span class="va">metric_agg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>      <span class="st">'direction to group centroid'</span>,</span>
@@ -682,7 +708,7 @@ Description of all functions (new and previously existing) available in the R pa
 <p>Our scoping review found 21 studies that used the group centroid, distance to group centroid, direction to group centroid, or rank distance to group centroid metrics, across 14 study species. 4 studies had code available. The {swaRm} package provides functionality to calculate the group centroid and the distance to the group centroid. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the rank to distance to group centroid metric.</p>
 </section><section id="polarization-directional-alignment-and-interindividual-direction" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">align</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">align</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
 <span>  <span class="va">metric_agg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>      <span class="st">'polarization'</span>,</span>
@@ -692,15 +718,15 @@ Description of all functions (new and previously existing) available in the R pa
 <span>    <span class="op">)</span></span>
 <span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
-<p>Our scoping review found 20 studies that used the polarization, directional alignment or interindividual direction metrics, across 11 study species. 4 studies had code available. The {CircStats} package provides functionality to calculate the polarization order parameter, as well as the {swaRm} package. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the directional alignment or interindividual direction metrics.</p>
+<p>Our scoping review found 20 studies that used the polarization, directional alignment or interindividual direction metrics, across 11 study species. 4 studies had code available. The {CircStats} and the {swaRm} packages provide functionality to calculate the polarization order parameter. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the directional alignment or interindividual direction metrics. After the scoping review was conducted, the {swaRmverse} package was released which provides the direction to nearest neighbour metric <span class="citation" data-cites="Papadopoulou_2025">[@Papadopoulou_2025]</span>.</p>
 </section><section id="behavioural-zones" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="behavioural-zones">Behavioural zones</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">zone</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span><span class="va">metric_agg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'zones'</span><span class="op">)</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">zone</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span><span class="va">metric_agg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'zones'</span><span class="op">)</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <p>Our scoping review found 13 studies that used the behavioural zones metric, across 9 study species. 4 studies had code available. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the behavioural zones metric.</p>
 </section><section id="position-within-group-rank-position-within-group-distance-and-direction-to-leader" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="position-within-group-rank-position-within-group-distance-and-direction-to-leader">Position within group, rank position within group, distance and direction to leader</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pos_wi</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pos_wi</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span></span>
 <span>  <span class="va">metric_agg</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
 <span>      <span class="st">'position within group'</span>,</span>
@@ -713,7 +739,7 @@ Description of all functions (new and previously existing) available in the R pa
 <p>Our scoping review found 18 studies that used the position within group, rank position within group, distance to leader, or direction to leader metrics across 14 study species. Only 1 studies had code available. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide these metrics.</p>
 </section><section id="directional-correlation-delay" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="directional-correlation-delay">Directional correlation delay</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dirr_del</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span><span class="va">metric_agg</span> <span class="op">==</span> <span class="st">'directional correlation delay'</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dirr_del</span> <span class="op">&lt;-</span> <span class="va">count_metric</span><span class="op">[</span><span class="va">metric_agg</span> <span class="op">==</span> <span class="st">'directional correlation delay'</span><span class="op">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <p>Our scoping review found 17 studies that used the directional correlation delay metric, across 12 study species. Only 1 study had code available using a combination of MATLAB (closed source), CUDA (closed source), and Python (open source). At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide this metric.</p>
 </section></section></section></main><!-- /main column --><script id="quarto-html-after-body" type="application/javascript">

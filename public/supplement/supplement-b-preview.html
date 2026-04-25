@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta charset="UTF-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>supplement-b</title>
 <style>
+      /* Default styles provided by pandoc.
+      ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+      */
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -143,17 +146,16 @@
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e5e365508e46ee55073587b31ce1f8b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0b5be440d7477abc64e1b143b8e174ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d870bc86991a1aa2db5dbadae5b82848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-589e9d0ca6a9d9d22129cf6aa599e820.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script async="" src="https://hypothes.is/embed.js"></script><script>
@@ -347,11 +349,35 @@
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content" id="quarto-document-content"><section id="sec-scoping-results" class="level1"><h1>Supplement: Scoping review results</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="sec-scoping-results" class="level1"><h1>Supplement: Scoping review results</h1>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_source.html">tar_source</a></span><span class="op">(</span><span class="st">'R'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>qs2 0.1.5</code></pre>
+<pre><code>qs2 0.2.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'renv'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:pak':
+
+    lockfile_create</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    embed, update</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:utils':
+
+    history, upgrade</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -363,12 +389,12 @@ Attaching package: 'janitor'</code></pre>
     chisq.test, fisher.test</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</code></pre>
+<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>udunits database from /usr/share/udunits/udunits2.xml</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">review</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">review</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">geocoded</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">taxized</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">software_meta</span><span class="op">)</span></span>
@@ -412,7 +438,7 @@ Attaching package: 'janitor'</code></pre>
 <li>141 studies included</li>
 </ul>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_code_avail</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">analysis_code_availability</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_code_avail</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">analysis_code_availability</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    `Code availability` <span class="op">=</span> <span class="va">analysis_code_availability</span>,</span>
@@ -429,30 +455,30 @@ Count of code availability in references screened for full text extraction of sc
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_vw8kvu9212ut48rwmnuj = TinyTable.createTableFunctions("tinytable_vw8kvu9212ut48rwmnuj");
+      const tableFns_1fo3ftoiu0ggwa88vp4b = TinyTable.createTableFunctions("tinytable_1fo3ftoiu0ggwa88vp4b");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_vdxlsfqcwbr4a39xlhkb',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_8ua3tkri0odbjjcly271',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_40sipd6ys2qkrwhwohga',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_1go9yh7pb189fdfzhe13',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_vw8kvu9212ut48rwmnuj.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_1fo3ftoiu0ggwa88vp4b.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_vw8kvu9212ut48rwmnuj td.tinytable_css_vdxlsfqcwbr4a39xlhkb, #tinytable_vw8kvu9212ut48rwmnuj th.tinytable_css_vdxlsfqcwbr4a39xlhkb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_vw8kvu9212ut48rwmnuj td.tinytable_css_8ua3tkri0odbjjcly271, #tinytable_vw8kvu9212ut48rwmnuj th.tinytable_css_8ua3tkri0odbjjcly271 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_1fo3ftoiu0ggwa88vp4b td.tinytable_css_40sipd6ys2qkrwhwohga, #tinytable_1fo3ftoiu0ggwa88vp4b th.tinytable_css_40sipd6ys2qkrwhwohga {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_1fo3ftoiu0ggwa88vp4b td.tinytable_css_1go9yh7pb189fdfzhe13, #tinytable_1fo3ftoiu0ggwa88vp4b th.tinytable_css_1go9yh7pb189fdfzhe13 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_vw8kvu9212ut48rwmnuj" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_1fo3ftoiu0ggwa88vp4b" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Code availability</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -476,7 +502,7 @@ Count of code availability in references screened for full text extraction of sc
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">list_prog</span> <span class="op">&lt;-</span> <span class="va">count_prog_lang</span><span class="op">[</span>,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">list_prog</span> <span class="op">&lt;-</span> <span class="va">count_prog_lang</span><span class="op">[</span>,</span>
 <span>  <span class="fu">uniqueN</span><span class="op">(</span><span class="va">covidence_number</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span>prog <span class="op">=</span> <span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">programming_language</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">]</span></span>
@@ -487,7 +513,7 @@ Count of code availability in references screened for full text extraction of sc
 </div></div>
 <p>Out of 141 articles, 52 did not list a programming language or GUI program. Of the 89 that did, 21 articles listed more than one programming language or GUI program, therefore the total count below will be greater than the number of articles.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_prog_lang</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">programming_language</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_prog_lang</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">programming_language</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    `Programming language` <span class="op">=</span> <span class="va">programming_language</span>,</span>
@@ -504,30 +530,30 @@ Count of programming language or GUI program used in references screened for ful
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_4y1s6bmzlsovj2ajva38 = TinyTable.createTableFunctions("tinytable_4y1s6bmzlsovj2ajva38");
+      const tableFns_v0tqwyki72ohfj6noq4c = TinyTable.createTableFunctions("tinytable_v0tqwyki72ohfj6noq4c");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '29', j: 1 }, { i: '29', j: 2 } ], css_id: 'tinytable_css_8k8z2z63z8d6klrob21x',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_ql2pjtu5ocqt049hg08x',}, 
+          { positions: [ { i: '29', j: 1 }, { i: '29', j: 2 } ], css_id: 'tinytable_css_b245538v4h63zjdcc2cq',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_5om2emct0ryf9e2vr7be',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4y1s6bmzlsovj2ajva38.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_v0tqwyki72ohfj6noq4c.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_4y1s6bmzlsovj2ajva38 td.tinytable_css_8k8z2z63z8d6klrob21x, #tinytable_4y1s6bmzlsovj2ajva38 th.tinytable_css_8k8z2z63z8d6klrob21x {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_4y1s6bmzlsovj2ajva38 td.tinytable_css_ql2pjtu5ocqt049hg08x, #tinytable_4y1s6bmzlsovj2ajva38 th.tinytable_css_ql2pjtu5ocqt049hg08x {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_v0tqwyki72ohfj6noq4c td.tinytable_css_b245538v4h63zjdcc2cq, #tinytable_v0tqwyki72ohfj6noq4c th.tinytable_css_b245538v4h63zjdcc2cq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_v0tqwyki72ohfj6noq4c td.tinytable_css_5om2emct0ryf9e2vr7be, #tinytable_v0tqwyki72ohfj6noq4c th.tinytable_css_5om2emct0ryf9e2vr7be {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_4y1s6bmzlsovj2ajva38" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_v0tqwyki72ohfj6noq4c" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Programming language</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -660,7 +686,7 @@ Count of programming language or GUI program used in references screened for ful
 </div></div>
 <p>Out of 140 articles, 112 did not list a software package. Of the 28 that did, 14 articles listed more than one software package , therefore the total count below will be greater than the number of articles.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_software</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">software_package_s_used</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_software</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">software_package_s_used</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    `Software package used` <span class="op">=</span> <span class="va">software_package_s_used</span>,</span>
@@ -677,30 +703,30 @@ Count of software packages used in references screened for full text extraction 
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_pe2mwvah5678ohk2khva = TinyTable.createTableFunctions("tinytable_pe2mwvah5678ohk2khva");
+      const tableFns_62adlh54bz881scwh89j = TinyTable.createTableFunctions("tinytable_62adlh54bz881scwh89j");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '37', j: 1 }, { i: '37', j: 2 } ], css_id: 'tinytable_css_xs66rw55kkj1d3vhxro4',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_peitnmzwaf74opvd38sc',}, 
+          { positions: [ { i: '37', j: 1 }, { i: '37', j: 2 } ], css_id: 'tinytable_css_7of5ko94dw8r9e006xkn',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_hf6za2nobriq6814vmex',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_pe2mwvah5678ohk2khva.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_62adlh54bz881scwh89j.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_pe2mwvah5678ohk2khva td.tinytable_css_xs66rw55kkj1d3vhxro4, #tinytable_pe2mwvah5678ohk2khva th.tinytable_css_xs66rw55kkj1d3vhxro4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_pe2mwvah5678ohk2khva td.tinytable_css_peitnmzwaf74opvd38sc, #tinytable_pe2mwvah5678ohk2khva th.tinytable_css_peitnmzwaf74opvd38sc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_62adlh54bz881scwh89j td.tinytable_css_7of5ko94dw8r9e006xkn, #tinytable_62adlh54bz881scwh89j th.tinytable_css_7of5ko94dw8r9e006xkn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_62adlh54bz881scwh89j td.tinytable_css_hf6za2nobriq6814vmex, #tinytable_62adlh54bz881scwh89j th.tinytable_css_hf6za2nobriq6814vmex {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_pe2mwvah5678ohk2khva" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_62adlh54bz881scwh89j" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Software package used</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -873,7 +899,7 @@ software_meta |>
   tt()
 -->
 <div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="cell-fig-temp" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">review</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span><span class="va">review</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">yr</span><span class="op">)</span>, binwidth <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">'Year of publication'</span>, y <span class="op">=</span> <span class="st">'Count'</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">coord_cartesian</span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1980</span>, <span class="fl">2024</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -890,7 +916,7 @@ Count of references screened for full text extraction across temporal period (19
 </div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-fig-map" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">countries</span> <span class="op">&lt;-</span> <span class="fu">ne_countries</span><span class="op">(</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">countries</span> <span class="op">&lt;-</span> <span class="fu">ne_countries</span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">ggplot</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_sf</span><span class="op">(</span>data <span class="op">=</span> <span class="va">countries</span><span class="op">)</span> <span class="op">+</span></span>
@@ -919,7 +945,7 @@ Map of study regions georeferenced using {tidygeocoder} from references screened
 </div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">taxized</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">parsed_species</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">taxized</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">parsed_species</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    Species <span class="op">=</span> <span class="va">parsed_species</span>,</span>
@@ -937,36 +963,36 @@ Count of species parsed using {rgnparser} in references screened for full text e
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_410909zntu5d03lmwtjh = TinyTable.createTableFunctions("tinytable_410909zntu5d03lmwtjh");
+      const tableFns_fu9csq5uaje83fvxd50q = TinyTable.createTableFunctions("tinytable_fu9csq5uaje83fvxd50q");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '71', j: 2 } ], css_id: 'tinytable_css_e8omh41gnsvtc1ynvzmo',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_yg24egjctxj76v9gqvl0',}, 
-          { positions: [ { i: '71', j: 1 } ], css_id: 'tinytable_css_gyeslmo1zowk25y3ynhm',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 }, { i: '46', j: 1 }, { i: '47', j: 1 }, { i: '48', j: 1 }, { i: '49', j: 1 }, { i: '50', j: 1 }, { i: '51', j: 1 }, { i: '52', j: 1 }, { i: '53', j: 1 }, { i: '54', j: 1 }, { i: '55', j: 1 }, { i: '56', j: 1 }, { i: '57', j: 1 }, { i: '58', j: 1 }, { i: '59', j: 1 }, { i: '60', j: 1 }, { i: '61', j: 1 }, { i: '62', j: 1 }, { i: '63', j: 1 }, { i: '64', j: 1 }, { i: '65', j: 1 }, { i: '66', j: 1 }, { i: '67', j: 1 }, { i: '68', j: 1 }, { i: '69', j: 1 }, { i: '70', j: 1 } ], css_id: 'tinytable_css_fnf5lqqdeakk9mygjk5s',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_axpixzpz26tjovvrkuwu',}, 
+          { positions: [ { i: '71', j: 2 } ], css_id: 'tinytable_css_y6qpe8sa0maal7h4xf1l',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_0tfwwad534tuah19n8l2',}, 
+          { positions: [ { i: '71', j: 1 } ], css_id: 'tinytable_css_fuf1hs1jofo5tp3oce11',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 }, { i: '46', j: 1 }, { i: '47', j: 1 }, { i: '48', j: 1 }, { i: '49', j: 1 }, { i: '50', j: 1 }, { i: '51', j: 1 }, { i: '52', j: 1 }, { i: '53', j: 1 }, { i: '54', j: 1 }, { i: '55', j: 1 }, { i: '56', j: 1 }, { i: '57', j: 1 }, { i: '58', j: 1 }, { i: '59', j: 1 }, { i: '60', j: 1 }, { i: '61', j: 1 }, { i: '62', j: 1 }, { i: '63', j: 1 }, { i: '64', j: 1 }, { i: '65', j: 1 }, { i: '66', j: 1 }, { i: '67', j: 1 }, { i: '68', j: 1 }, { i: '69', j: 1 }, { i: '70', j: 1 } ], css_id: 'tinytable_css_en9o8ed5kd9f0fhrf3c6',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_3k41bmilp8t5qhp1t34e',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_410909zntu5d03lmwtjh.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_fu9csq5uaje83fvxd50q.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_410909zntu5d03lmwtjh td.tinytable_css_e8omh41gnsvtc1ynvzmo, #tinytable_410909zntu5d03lmwtjh th.tinytable_css_e8omh41gnsvtc1ynvzmo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_410909zntu5d03lmwtjh td.tinytable_css_yg24egjctxj76v9gqvl0, #tinytable_410909zntu5d03lmwtjh th.tinytable_css_yg24egjctxj76v9gqvl0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_410909zntu5d03lmwtjh td.tinytable_css_gyeslmo1zowk25y3ynhm, #tinytable_410909zntu5d03lmwtjh th.tinytable_css_gyeslmo1zowk25y3ynhm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
-    #tinytable_410909zntu5d03lmwtjh td.tinytable_css_fnf5lqqdeakk9mygjk5s, #tinytable_410909zntu5d03lmwtjh th.tinytable_css_fnf5lqqdeakk9mygjk5s { font-style: italic }
-    #tinytable_410909zntu5d03lmwtjh td.tinytable_css_axpixzpz26tjovvrkuwu, #tinytable_410909zntu5d03lmwtjh th.tinytable_css_axpixzpz26tjovvrkuwu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
+    #tinytable_fu9csq5uaje83fvxd50q td.tinytable_css_y6qpe8sa0maal7h4xf1l, #tinytable_fu9csq5uaje83fvxd50q th.tinytable_css_y6qpe8sa0maal7h4xf1l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_fu9csq5uaje83fvxd50q td.tinytable_css_0tfwwad534tuah19n8l2, #tinytable_fu9csq5uaje83fvxd50q th.tinytable_css_0tfwwad534tuah19n8l2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_fu9csq5uaje83fvxd50q td.tinytable_css_fuf1hs1jofo5tp3oce11, #tinytable_fu9csq5uaje83fvxd50q th.tinytable_css_fuf1hs1jofo5tp3oce11 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
+    #tinytable_fu9csq5uaje83fvxd50q td.tinytable_css_en9o8ed5kd9f0fhrf3c6, #tinytable_fu9csq5uaje83fvxd50q th.tinytable_css_en9o8ed5kd9f0fhrf3c6 { font-style: italic }
+    #tinytable_fu9csq5uaje83fvxd50q td.tinytable_css_3k41bmilp8t5qhp1t34e, #tinytable_fu9csq5uaje83fvxd50q th.tinytable_css_3k41bmilp8t5qhp1t34e {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_410909zntu5d03lmwtjh" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_fu9csq5uaje83fvxd50q" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Species</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -1266,7 +1292,7 @@ Count of species parsed using {rgnparser} in references screened for full text e
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_metric</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">metric_agg</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_metric</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">metric_agg</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    `Metric` <span class="op">=</span> <span class="va">metric_agg</span>,</span>
@@ -1283,30 +1309,30 @@ Count of metrics used to measure intragroup dynamics in references screened for 
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_t7o4uwev4l8yd1omimy0 = TinyTable.createTableFunctions("tinytable_t7o4uwev4l8yd1omimy0");
+      const tableFns_s8fg5zaztide91c1badq = TinyTable.createTableFunctions("tinytable_s8fg5zaztide91c1badq");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '119', j: 1 }, { i: '119', j: 2 } ], css_id: 'tinytable_css_9gvay7389jql8936vdq1',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_yfle2mo6s2mnqueslao2',}, 
+          { positions: [ { i: '119', j: 1 }, { i: '119', j: 2 } ], css_id: 'tinytable_css_47uhkzga635xwsrh53wu',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_8sl4nm9wkuzbmszdzvo4',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_t7o4uwev4l8yd1omimy0.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_s8fg5zaztide91c1badq.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_t7o4uwev4l8yd1omimy0 td.tinytable_css_9gvay7389jql8936vdq1, #tinytable_t7o4uwev4l8yd1omimy0 th.tinytable_css_9gvay7389jql8936vdq1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_t7o4uwev4l8yd1omimy0 td.tinytable_css_yfle2mo6s2mnqueslao2, #tinytable_t7o4uwev4l8yd1omimy0 th.tinytable_css_yfle2mo6s2mnqueslao2 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_s8fg5zaztide91c1badq td.tinytable_css_47uhkzga635xwsrh53wu, #tinytable_s8fg5zaztide91c1badq th.tinytable_css_47uhkzga635xwsrh53wu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_s8fg5zaztide91c1badq td.tinytable_css_8sl4nm9wkuzbmszdzvo4, #tinytable_s8fg5zaztide91c1badq th.tinytable_css_8sl4nm9wkuzbmszdzvo4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_t7o4uwev4l8yd1omimy0" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_s8fg5zaztide91c1badq" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Metric</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -1798,7 +1824,7 @@ Count of metrics used to measure intragroup dynamics in references screened for 
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_dom_metric</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">dominance_metric_agg</span><span class="op">]</span><span class="op">[</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">count_dom_metric</span><span class="op">[</span>, <span class="va">.N</span>, <span class="va">dominance_metric_agg</span><span class="op">]</span><span class="op">[</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="op">-</span><span class="va">N</span><span class="op">)</span>,</span>
 <span>  <span class="fu">.</span><span class="op">(</span></span>
 <span>    `Dominance metric` <span class="op">=</span> <span class="va">dominance_metric_agg</span>,</span>
@@ -1815,30 +1841,30 @@ Count of metrics used to measure dominance in references screened for full text 
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_6rmt486vjq1sg7rkfin5 = TinyTable.createTableFunctions("tinytable_6rmt486vjq1sg7rkfin5");
+      const tableFns_k64yhld79j10r9qvkze3 = TinyTable.createTableFunctions("tinytable_k64yhld79j10r9qvkze3");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '14', j: 1 }, { i: '14', j: 2 } ], css_id: 'tinytable_css_eoafvy07q3bk3aarb653',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_t6a1qboudwduh986v7h0',}, 
+          { positions: [ { i: '14', j: 1 }, { i: '14', j: 2 } ], css_id: 'tinytable_css_85syf99gihx288z5l8gp',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_jd2f49j6pgtheva1l5e5',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_6rmt486vjq1sg7rkfin5.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_k64yhld79j10r9qvkze3.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_6rmt486vjq1sg7rkfin5 td.tinytable_css_eoafvy07q3bk3aarb653, #tinytable_6rmt486vjq1sg7rkfin5 th.tinytable_css_eoafvy07q3bk3aarb653 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_6rmt486vjq1sg7rkfin5 td.tinytable_css_t6a1qboudwduh986v7h0, #tinytable_6rmt486vjq1sg7rkfin5 th.tinytable_css_t6a1qboudwduh986v7h0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_k64yhld79j10r9qvkze3 td.tinytable_css_85syf99gihx288z5l8gp, #tinytable_k64yhld79j10r9qvkze3 th.tinytable_css_85syf99gihx288z5l8gp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_k64yhld79j10r9qvkze3 td.tinytable_css_jd2f49j6pgtheva1l5e5, #tinytable_k64yhld79j10r9qvkze3 th.tinytable_css_jd2f49j6pgtheva1l5e5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_6rmt486vjq1sg7rkfin5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_k64yhld79j10r9qvkze3" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Dominance metric</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -1910,7 +1936,7 @@ Count of metrics used to measure dominance in references screened for full text 
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'group'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'group'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tt</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div id="tbl-defn-spattemp-groups" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-defn-spattemp-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1921,30 +1947,30 @@ Review of definitions of spatiotemporal groups in references screened for full t
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_3m3j7u042riy9wjzaj1r = TinyTable.createTableFunctions("tinytable_3m3j7u042riy9wjzaj1r");
+      const tableFns_c83huf1cx7anabwg4t4c = TinyTable.createTableFunctions("tinytable_c83huf1cx7anabwg4t4c");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '8', j: 1 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_7pw4hy2j2r1jbdv4mjuf',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_iqtgunhuocpfi4j6gfq9',}, 
+          { positions: [ { i: '8', j: 1 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_kxqgvwpslzlsz3ch5l8p',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_sfxex67ak1cygzl9q5vp',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_3m3j7u042riy9wjzaj1r.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_c83huf1cx7anabwg4t4c.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_3m3j7u042riy9wjzaj1r td.tinytable_css_7pw4hy2j2r1jbdv4mjuf, #tinytable_3m3j7u042riy9wjzaj1r th.tinytable_css_7pw4hy2j2r1jbdv4mjuf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_3m3j7u042riy9wjzaj1r td.tinytable_css_iqtgunhuocpfi4j6gfq9, #tinytable_3m3j7u042riy9wjzaj1r th.tinytable_css_iqtgunhuocpfi4j6gfq9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_c83huf1cx7anabwg4t4c td.tinytable_css_kxqgvwpslzlsz3ch5l8p, #tinytable_c83huf1cx7anabwg4t4c th.tinytable_css_kxqgvwpslzlsz3ch5l8p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_c83huf1cx7anabwg4t4c td.tinytable_css_sfxex67ak1cygzl9q5vp, #tinytable_c83huf1cx7anabwg4t4c th.tinytable_css_sfxex67ak1cygzl9q5vp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_3m3j7u042riy9wjzaj1r" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_c83huf1cx7anabwg4t4c" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>
@@ -1992,7 +2018,7 @@ Review of definitions of spatiotemporal groups in references screened for full t
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'leadership'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'leadership'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tt</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div id="tbl-defn-leadership" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-defn-leadership-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2003,30 +2029,30 @@ Review of definitions of leadership in references screened for full text extract
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_padmyexsomgfn3hxm63j = TinyTable.createTableFunctions("tinytable_padmyexsomgfn3hxm63j");
+      const tableFns_e82et88yjjigqsyegbcd = TinyTable.createTableFunctions("tinytable_e82et88yjjigqsyegbcd");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '17', j: 1 }, { i: '17', j: 2 } ], css_id: 'tinytable_css_ojrevu66cyax6qffc151',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_gm53w3auuktf8xws8hbx',}, 
+          { positions: [ { i: '17', j: 1 }, { i: '17', j: 2 } ], css_id: 'tinytable_css_4xnfxgehjbn69n77134k',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_h04ox816hsh70dap1wsb',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_padmyexsomgfn3hxm63j.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_e82et88yjjigqsyegbcd.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_padmyexsomgfn3hxm63j td.tinytable_css_ojrevu66cyax6qffc151, #tinytable_padmyexsomgfn3hxm63j th.tinytable_css_ojrevu66cyax6qffc151 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_padmyexsomgfn3hxm63j td.tinytable_css_gm53w3auuktf8xws8hbx, #tinytable_padmyexsomgfn3hxm63j th.tinytable_css_gm53w3auuktf8xws8hbx {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_e82et88yjjigqsyegbcd td.tinytable_css_4xnfxgehjbn69n77134k, #tinytable_e82et88yjjigqsyegbcd th.tinytable_css_4xnfxgehjbn69n77134k {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_e82et88yjjigqsyegbcd td.tinytable_css_h04ox816hsh70dap1wsb, #tinytable_e82et88yjjigqsyegbcd th.tinytable_css_h04ox816hsh70dap1wsb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_padmyexsomgfn3hxm63j" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_e82et88yjjigqsyegbcd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>
@@ -2110,7 +2136,7 @@ Review of definitions of leadership in references screened for full text extract
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'fission fusion'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">review</span><span class="op">[</span><span class="va">definition_category</span> <span class="op">==</span> <span class="st">'fission fusion'</span>, <span class="fu">.</span><span class="op">(</span><span class="va">study_id</span>, <span class="va">definition</span><span class="op">)</span><span class="op">]</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tt</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [22]:</pre></div><div id="tbl-defn-fission" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-defn-fission-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2121,30 +2147,30 @@ Review of definitions of fission-fusion in references screened for full text ext
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_rimjmsqyz65s5n7hsymz = TinyTable.createTableFunctions("tinytable_rimjmsqyz65s5n7hsymz");
+      const tableFns_de3zdeltbxem1hz18xj4 = TinyTable.createTableFunctions("tinytable_de3zdeltbxem1hz18xj4");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '12', j: 1 }, { i: '12', j: 2 } ], css_id: 'tinytable_css_uf203wc3zxpyt8php5wh',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_g0nxmkh4npb1lf8spwz1',}, 
+          { positions: [ { i: '12', j: 1 }, { i: '12', j: 2 } ], css_id: 'tinytable_css_t3qrh8hjv4ixo70pxkg9',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_4kz8i8urlcjjxkj5xnbi',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_rimjmsqyz65s5n7hsymz.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_de3zdeltbxem1hz18xj4.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_rimjmsqyz65s5n7hsymz td.tinytable_css_uf203wc3zxpyt8php5wh, #tinytable_rimjmsqyz65s5n7hsymz th.tinytable_css_uf203wc3zxpyt8php5wh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_rimjmsqyz65s5n7hsymz td.tinytable_css_g0nxmkh4npb1lf8spwz1, #tinytable_rimjmsqyz65s5n7hsymz th.tinytable_css_g0nxmkh4npb1lf8spwz1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_de3zdeltbxem1hz18xj4 td.tinytable_css_t3qrh8hjv4ixo70pxkg9, #tinytable_de3zdeltbxem1hz18xj4 th.tinytable_css_t3qrh8hjv4ixo70pxkg9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_de3zdeltbxem1hz18xj4 td.tinytable_css_4kz8i8urlcjjxkj5xnbi, #tinytable_de3zdeltbxem1hz18xj4 th.tinytable_css_4kz8i8urlcjjxkj5xnbi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_rimjmsqyz65s5n7hsymz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_de3zdeltbxem1hz18xj4" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>

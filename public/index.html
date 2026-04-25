@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta charset="UTF-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Alec L. Robitaille">
 <meta name="author" content="Quinn M. R. Webber">
 <meta name="author" content="Eric Vander Wal">
-<meta name="dcterms.date" content="2026-03-08">
+<meta name="dcterms.date" content="2026-04-25">
 <meta name="keywords" content="R, animal social dynamics, spatiotemporal groups, social network analysis, collective movement, leader-follower, fission fusion, dominance hierarchies">
 <title>Extending {spatsoc} to measure intragroup social dynamics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -81,24 +84,23 @@ div.csl-indent {
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e5e365508e46ee55073587b31ce1f8b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0b5be440d7477abc64e1b143b8e174ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d870bc86991a1aa2db5dbadae5b82848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-589e9d0ca6a9d9d22129cf6aa599e820.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
-</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
     // MathJax Typeset
@@ -134,10 +136,10 @@ window.Quarto = {
 <meta name="citation_author" content="Alec L. Robitaille">
 <meta name="citation_author" content="Quinn M. R. Webber">
 <meta name="citation_author" content="Eric Vander Wal">
-<meta name="citation_publication_date" content="2026-03-08">
-<meta name="citation_cover_date" content="2026-03-08">
+<meta name="citation_publication_date" content="2026-04-25">
+<meta name="citation_cover_date" content="2026-04-25">
 <meta name="citation_year" content="2026">
-<meta name="citation_online_date" content="2026-03-08">
+<meta name="citation_online_date" content="2026-04-25">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=Leadership and Path Characteristics during Walks Are Linked to Dominance Order and Individual Traits in Dogs;,citation_abstract=Movement interactions and the underlying social structure in groups have relevance across many social-living species. Collective motion of groups could be based on an “egalitarian” decision system, but in practice it is often influenced by underlying social network structures and by individual characteristics. We investigated whether dominance rank and personality traits are linked to leader and follower roles during joint motion of family dogs. We obtained high-resolution spatio-temporal GPS trajectory data (823,148 data points) from six dogs belonging to the same household and their owner during 14 30–40 min unleashed walks. We identified several features of the dogs’ paths (e.g., running speed or distance from the owner) which are characteristic of a given dog. A directional correlation analysis quantifies interactions between pairs of dogs that run loops jointly. We found that dogs play the role of the leader about 50–85% of the time, i.e. the leader and follower roles in a given pair are dynamically interchangable. However, on a longer timescale tendencies to lead differ consistently. The network constructed from these loose leader–follower relations is hierarchical, and the dogs’ positions in the network correlates with the age, dominance rank, trainability, controllability, and aggression measures derived from personality questionnaires. We demonstrated the possibility of determining dominance rank and personality traits of an individual based only on its logged movement data. The collective motion of dogs is influenced by underlying social network structures and by characteristics such as personality differences. Our findings could pave the way for automated animal personality and human social interaction measurements.;,citation_author=Zsuzsa Ákos;,citation_author=Róbert Beck;,citation_author=Máté Nagy;,citation_author=Tamás Vicsek;,citation_author=Enikő Kubinyi;,citation_publication_date=2014-01;,citation_cover_date=2014-01;,citation_year=2014;,citation_issue=1;,citation_doi=10.1371/journal.pcbi.1003446;,citation_issn=1553-7358;,citation_volume=10;,citation_language=en-US;,citation_journal_title=PLOS Computational Biology;,citation_publisher=Public Library of Science;">
 <meta name="citation_reference" content="citation_title=Density-dependent network structuring within and across wild animal systems;,citation_abstract=Theory predicts that high population density leads to more strongly connected spatial and social networks, but how local density drives individuals’ positions within their networks is unclear. This gap reduces our ability to understand and predict density-dependent processes. Here we show that density drives greater network connectedness at the scale of individuals within wild animal populations. Across 36 datasets of spatial and social behaviour in $&amp;amp;amp;gt;$58,000 individual animals, spanning 30 species of fish, reptiles, birds, mammals and insects, 80% of systems exhibit strong positive relationships between local density and network centrality. However, $&amp;gt;$80% of relationships are nonlinear and 75% are shallower at higher values, indicating saturating trends that probably emerge as a result of demographic and behavioural processes that counteract density’s effects. These are stronger and less saturating in spatial compared with social networks, as individuals become disproportionately spatially connected rather than socially connected at higher densities. Consequently, ecological processes that depend on spatial connections are probably more density dependent than those involving social interactions. These findings suggest fundamental scaling rules governing animal social dynamics, which could help to predict network structures in novel systems.;,citation_author=Gregory F. Albery;,citation_author=Daniel J. Becker;,citation_author=Josh A. Firth;,citation_author=Delphine De Moor;,citation_author=Sanjana Ravindran;,citation_author=Matthew Silk;,citation_author=Amy R. Sweeny;,citation_author=Eric Vander Wal;,citation_author=Quinn Webber;,citation_author=Bryony Allen;,citation_author=Simon A. Babayan;,citation_author=Sahas Barve;,citation_author=Mike Begon;,citation_author=Richard J. Birtles;,citation_author=Theadora A. Block;,citation_author=Barbara A. Block;,citation_author=Janette E. Bradley;,citation_author=Sarah Budischak;,citation_author=Christina Buesching;,citation_author=Sarah J. Burthe;,citation_author=Aaron B. Carlisle;,citation_author=Jennifer E. Caselle;,citation_author=Ciro Cattuto;,citation_author=Alexis S. Chaine;,citation_author=Taylor K. Chapple;,citation_author=Barbara J. Cheney;,citation_author=Timothy Clutton-Brock;,citation_author=Melissa Collier;,citation_author=David J. Curnick;,citation_author=Richard J. Delahay;,citation_author=Damien R. Farine;,citation_author=Andy Fenton;,citation_author=Francesco Ferretti;,citation_author=Laura Feyrer;,citation_author=Helen Fielding;,citation_author=Vivienne Foroughirad;,citation_author=Celine Frere;,citation_author=Michael G. Gardner;,citation_author=Eli Geffen;,citation_author=Stephanie S. Godfrey;,citation_author=Andrea L. Graham;,citation_author=Phil S. Hammond;,citation_author=Maik Henrich;,citation_author=Marco Heurich;,citation_author=Paul Hopwood;,citation_author=Amiyaal Ilany;,citation_author=Joseph A. Jackson;,citation_author=Nicola Jackson;,citation_author=David M. P. Jacoby;,citation_author=Ann-Marie Jacoby;,citation_author=Miloš Ježek;,citation_author=Lucinda Kirkpatrick;,citation_author=Alisa Klamm;,citation_author=James A. Klarevas-Irby;,citation_author=Sarah Knowles;,citation_author=Lee Koren;,citation_author=Ewa Krzyszczyk;,citation_author=Jillian M. Kusch;,citation_author=Xavier Lambin;,citation_author=Jeffrey E. Lane;,citation_author=Herwig Leirs;,citation_author=Stephan T. Leu;,citation_author=Bruce E. Lyon;,citation_author=David W. Macdonald;,citation_author=Anastasia E. Madsen;,citation_author=Janet Mann;,citation_author=Marta Manser;,citation_author=Joachim Mariën;,citation_author=Apia Massawe;,citation_author=Robbie A. McDonald;,citation_author=Kevin Morelle;,citation_author=Johann Mourier;,citation_author=Chris Newman;,citation_author=Kenneth Nussear;,citation_author=Brendah Nyaguthii;,citation_author=Mina Ogino;,citation_author=Laura Ozella;,citation_author=Craig Packer;,citation_author=Yannis P. Papastamatiou;,citation_author=Steve Paterson;,citation_author=Eric Payne;,citation_author=Amy B. Pedersen;,citation_author=Josephine M. Pemberton;,citation_author=Noa Pinter-Wollman;,citation_author=Serge Planes;,citation_author=Aura Raulo;,citation_author=Rolando Rodríguez-Muñoz;,citation_author=Lauren Rudd;,citation_author=Christopher Sabuni;,citation_author=Pratha Sah;,citation_author=Robert J. Schallert;,citation_author=Ben C. Sheldon;,citation_author=Daizaburo Shizuka;,citation_author=Andrew Sih;,citation_author=David L. Sinn;,citation_author=Vincent Sluydts;,citation_author=Orr Spiegel;,citation_author=Sandra Telfer;,citation_author=Courtney A. Thomason;,citation_author=David M. Tickler;,citation_author=Tom Tregenza;,citation_author=Kimberley VanderWaal;,citation_author=Sam Walmsley;,citation_author=Eric L. Walters;,citation_author=Klara M. Wanelik;,citation_author=Hal Whitehead;,citation_author=Elodie Wielgus;,citation_author=Jared Wilson-Aggarwal;,citation_author=Caroline Wohlfeil;,citation_author=Shweta Bansal;,citation_publication_date=2025-11;,citation_cover_date=2025-11;,citation_year=2025;,citation_issue=11;,citation_doi=10.1038/s41559-025-02843-z;,citation_issn=2397-334X;,citation_volume=9;,citation_language=en-US;,citation_journal_title=Nature Ecology &amp;amp; Evolution;,citation_publisher=Nature Publishing Group;">
@@ -274,6 +276,7 @@ window.Quarto = {
 <meta name="citation_reference" content="citation_title=Big-data approaches lead to an increased understanding of the ecology of animal movement;,citation_author=Ran Nathan;,citation_author=Christopher T. Monk;,citation_author=Robert Arlinghaus;,citation_author=Timo Adam;,citation_author=Josep Alós;,citation_author=Michael Assaf;,citation_author=Henrik Baktoft;,citation_author=Christine E. Beardsworth;,citation_author=Michael G. Bertram;,citation_author=Allert I. Bijleveld;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_issue=6582;,citation_volume=375;,citation_journal_title=Science;,citation_publisher=American Association for the Advancement of Science;">
 <meta name="citation_reference" content="citation_title=Activity synchrony and travel direction synchrony in wild female Japanese macaques;,citation_abstract=The degree of behavioural synchrony of animals within a group can be considered a reflection of how individuals adjust their behaviours to manage the costs/benefits accompanying group-living. In this study, we focused on activity synchrony and travel direction synchrony as behavioural synchrony. We aimed to quantify the degree of behavioural synchrony and identify which factors can affect the synchrony in wild females of Japanese macaques. Japanese macaques live in female philopatric multi-female and multi-male groups and have a linear dominance hierarchy. The groups are characterized by changing spatio-temporal cohesiveness among group members. Two observers conducted simultaneous focal animal sampling on adult females using global positioning system devices to record locations. The overall degree of activity synchrony was positive compared with random, and the degree was highest when macaques were located within visual range of each other. Both activity synchrony and travel direction synchrony were influenced by spatial cohesion, i.e. interindividual distance, which shows that the probabilities of synchrony were higher with individuals located closer. Activity synchrony was also influenced by activity type, showing that the probabilities of synchrony were higher when individuals engaged in foraging. These results suggest that synchronized foraging may be caused by enhanced feeding with other group members when they are closer to each other. Our approach to quantitatively measure spatial dispersal while observing group members simultaneously revealed the roles of spatial cohesion and activity types for determining the degree of behavioural synchrony.;,citation_author=Mari Nishikawa;,citation_author=Mariko Suzuki;,citation_author=David S. Sprague;,citation_publication_date=2021-10;,citation_cover_date=2021-10;,citation_year=2021;,citation_doi=10.1016/j.beproc.2021.104473;,citation_issn=0376-6357;,citation_volume=191;,citation_journal_title=Behavioural Processes;">
 <meta name="citation_reference" content="citation_title=Fine-scale collective movements reveal present, past and future dynamics of a multilevel society in Przewalski’s horses;,citation_abstract=Studying animal societies needs detailed observation of many individuals, but technological advances offer new opportunities in this field. Here, we present a state-of-the-art drone observation of a multilevel herd of Przewalski’s horses, consisting of harems (one-male, multifemale groups). We track, in high spatio-temporal resolution, the movements of 238 individually identified horses on drone videos, and combine movement analyses with demographic data from two decades of population monitoring. Analysis of collective movements reveals how the structure of the herd’s social network is related to kinship and familiarity of individuals. The network centrality of harems is related to their age and how long the harem stallions have kept harems previously. Harems of genetically related stallions are closer to each other in the network, and female exchange is more frequent between closer harems. High movement similarity of females from different harems predicts becoming harem mates in the future. Our results show that only a few minutes of fine-scale movement tracking combined with high throughput data driven analysis can reveal the structure of a society, reconstruct past group dynamics and predict future ones.;,citation_author=Katalin Ozogány;,citation_author=Viola Kerekes;,citation_author=Attila Fülöp;,citation_author=Zoltán Barta;,citation_author=Máté Nagy;,citation_publication_date=2023-09;,citation_cover_date=2023-09;,citation_year=2023;,citation_issue=1;,citation_doi=10.1038/s41467-023-40523-3;,citation_issn=2041-1723;,citation_volume=14;,citation_language=en-US;,citation_journal_title=Nature Communications;,citation_publisher=Nature Publishing Group;">
+<meta name="citation_reference" content="citation_title=swaRmverse: An R package for the comparative analysis of collective motion;,citation_abstract=Collective motion, that is the coordinated spatial and temporal organisation of individuals, is a core element in the study of collective animal behaviour. The self-organised properties of how a group moves influence its various behavioural and ecological processes, such as predator–prey dynamics, social foraging and migration. However, little is known about the inter- and intra-specific variation in collective motion. Despite the significant advancement in high-resolution tracking of multiple individuals within groups, providing collective motion data for animals in the laboratory and the field, a framework to perform quantitative comparisons across species and contexts is lacking. Here, we present the swaRmverse package. Building on two existing R packages, trackdf and swaRm, swaRmverse enables the identification and analysis of collective motion “events”, as presented in Papadopoulou et al. (2023), creating a unit of comparison across datasets. We describe the package’s structure and showcase its functionality using existing datasets from several species and simulated trajectories from an agent-based model. From positional time-series data for multiple individuals (x-y-t-id), swaRmverse identifies events of collective motion based on the distribution of polarisation and group speed. For each event, a suite of validated biologically meaningful metrics are calculated, and events are placed into a “swarm space” through dimensional reduction techniques. Our package provides the first automated pipeline enabling the analysis of data on collective behaviour. The package allows the calculation and use of complex metrics for users without a strong quantitative background and will promote communication and data-sharing across disciplines, standardising the quantification of collective motion across species and promoting comparative investigations.;,citation_author=Marina Papadopoulou;,citation_author=Simon Garnier;,citation_author=Andrew J. King;,citation_publication_date=2025;,citation_cover_date=2025;,citation_year=2025;,citation_issue=1;,citation_doi=10.1111/2041-210X.14460;,citation_issn=2041-210X;,citation_volume=16;,citation_language=en-US;,citation_journal_title=Methods in Ecology and Evolution;">
 <meta name="citation_reference" content="citation_title=Shared decision-making allows subordinates to lead when dominants monopolize resources;,citation_abstract=Subordinates lead when dominants monopolize. , The concepts of leadership and dominance are often conflated, with individuals high in the social hierarchy assumed to be decision-makers. Dominants can exclusively benefit from monopolizing food resources and, therefore, induce an intragroup conflict when leading their group to these resources. We demonstrate that shared decision-making reduces such conflicts by studying movement initiations of wild vulturine guineafowl, a species that forms large, stable social groups with a steep dominance hierarchy. When dominant individuals displace subordinates from monopolizable food patches, the excluded subordinates subsequently initiate collective movement. The dominants then abandon the patch to follow the direction of subordinates, contrasting with nonmonopolizable resources where no individuals are excluded, and dominant individuals contribute extensively to group decisions. Our results demonstrate the role of shared decision-making in maintaining the balance of influence within animal societies.;,citation_author=Danai Papageorgiou;,citation_author=Damien R. Farine;,citation_publication_date=2020-11;,citation_cover_date=2020-11;,citation_year=2020;,citation_issue=48;,citation_doi=10.1126/sciadv.aba5881;,citation_issn=2375-2548;,citation_volume=6;,citation_language=en-US;,citation_journal_title=Science Advances;">
 <meta name="citation_reference" content="citation_title=Measurement units in R;,citation_author=Edzer Pebesma;,citation_author=Thomas Mailund;,citation_author=James Hiebert;,citation_publication_date=2016;,citation_cover_date=2016;,citation_year=2016;,citation_issue=2;,citation_doi=10.32614/RJ-2016-061;,citation_volume=8;,citation_journal_title=R Journal;">
 <meta name="citation_reference" content="citation_title=Simple features for R: Standardized support for spatial vector data;,citation_author=Edzer Pebesma;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_issue=1;,citation_doi=10.32614/RJ-2018-009;,citation_volume=10;,citation_journal_title=The R Journal;">
@@ -534,7 +537,7 @@ window.Quarto = {
                 <div>
             <div class="quarto-title-meta-heading">Published</div>
             <div class="quarto-title-meta-contents">
-              <p class="date">March 8, 2026</p>
+              <p class="date">April 25, 2026</p>
             </div>
           </div>
           
@@ -616,10 +619,10 @@ window.Quarto = {
 </div>
 <main class="content quarto-banner-title-block" id="quarto-document-content"><section id="introduction" class="level1" data-number="1"><h1 data-number="1">
 <span class="header-section-number">1</span> Introduction</h1>
-<p>The R package {spatsoc} was developed to derive social networks from animal telemetry data using aggregated association rates, interindividual distances, and home range overlap <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span>. These methods have been used to measure social cohesion <span class="citation" data-cites="Bracken_2022">(<a href="#ref-Bracken_2022" role="doc-biblioref">Bracken et al., 2022</a>)</span>, human-wildlife conflict <span class="citation" data-cites="Boudreau_2022">(<a href="#ref-Boudreau_2022" role="doc-biblioref">Boudreau et al., 2022</a>)</span>, socioecology and resource availability <span class="citation" data-cites="Peignier_2019">(<a href="#ref-Peignier_2019" role="doc-biblioref">Peignier et al., 2019</a>)</span>, community structure <span class="citation" data-cites="Sunga_2021">(<a href="#ref-Sunga_2021" role="doc-biblioref">Sunga et al., 2021</a>)</span>, the influence of stress on social proximity <span class="citation" data-cites="Keshavarzi_2023">(<a href="#ref-Keshavarzi_2023" role="doc-biblioref">Keshavarzi et al., 2023</a>)</span>, and social patterns in non-social species <span class="citation" data-cites="Heeres_2024">(<a href="#ref-Heeres_2024" role="doc-biblioref">Heeres et al., 2024</a>)</span>. Despite these substantive and varied applications of {spatsoc}, users lacked sufficient and accessible functionality for measuring the behaviour of individuals within social groups.</p>
+<p>The R package {spatsoc} was developed to derive social networks from animal telemetry data using aggregated association rates, interindividual distances, and home range overlap <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span>. The methods in {spatsoc} have been used to measure social cohesion <span class="citation" data-cites="Bracken_2022">(<a href="#ref-Bracken_2022" role="doc-biblioref">Bracken et al., 2022</a>)</span>, human-wildlife conflict <span class="citation" data-cites="Boudreau_2022">(<a href="#ref-Boudreau_2022" role="doc-biblioref">Boudreau et al., 2022</a>)</span>, socioecology and resource availability <span class="citation" data-cites="Peignier_2019">(<a href="#ref-Peignier_2019" role="doc-biblioref">Peignier et al., 2019</a>)</span>, community structure <span class="citation" data-cites="Sunga_2021">(<a href="#ref-Sunga_2021" role="doc-biblioref">Sunga et al., 2021</a>)</span>, the influence of stress on social proximity <span class="citation" data-cites="Keshavarzi_2023">(<a href="#ref-Keshavarzi_2023" role="doc-biblioref">Keshavarzi et al., 2023</a>)</span>, and social patterns in non-social species <span class="citation" data-cites="Heeres_2024">(<a href="#ref-Heeres_2024" role="doc-biblioref">Heeres et al., 2024</a>)</span>. Despite the substantive and varied applications of {spatsoc}, users lacked sufficient and accessible functionality for measuring the behaviour of individuals within social groups.</p>
 <p>Many facets of group living need to be considered to better measure animal social systems <span class="citation" data-cites="King_2018">(<a href="#ref-King_2018" role="doc-biblioref">King et al., 2018</a>)</span>. Beyond associations, there are additional types of dyadic relationships including genetic, affiliative, agonistic, and cooperative <span class="citation" data-cites="Farine_2015">(<a href="#ref-Farine_2015" role="doc-biblioref">Farine &amp; Whitehead, 2015</a>)</span>. There are also interactions between spatial phenotypes, social phenotypes, and environments <span class="citation" data-cites="Webber_2023">(<a href="#ref-Webber_2023" role="doc-biblioref">Webber et al., 2023</a>)</span>. Using direct observations, researchers have studied intragroup social dynamics including social foraging <span class="citation" data-cites="Barnard_1981 Giraldeau_1986 Hirsch_2020">(<a href="#ref-Barnard_1981" role="doc-biblioref">Barnard &amp; Sibly, 1981</a>; <a href="#ref-Giraldeau_1986" role="doc-biblioref">Giraldeau &amp; Lefebvre, 1986</a>; <a href="#ref-Hirsch_2020" role="doc-biblioref">Hirsch et al., 2020</a>)</span>, spatial position within groups <span class="citation" data-cites="Krause_1994 Monus_2008">(<a href="#ref-Krause_1994" role="doc-biblioref">Krause, 1994</a>; <a href="#ref-Monus_2008" role="doc-biblioref">Mónus &amp; Barta, 2008</a>)</span> and the influence of individual traits such as age, sex, and dominance <span class="citation" data-cites="Furuichi_1983 King_2009 Teichroeb_2015">(<a href="#ref-Furuichi_1983" role="doc-biblioref">Furuichi, 1983</a>; <a href="#ref-King_2009" role="doc-biblioref">King &amp; Cowlishaw, 2009</a>; <a href="#ref-Teichroeb_2015" role="doc-biblioref">Teichroeb et al., 2015</a>)</span>. Unfortunately, direct observations can be labour-intensive to collect and susceptible to observer bias <span class="citation" data-cites="Smith_2021">(<a href="#ref-Smith_2021" role="doc-biblioref">Smith &amp; Pinter-Wollman, 2021</a>)</span>, with low spatial and temporal resolution making them imperfect for studies of collective movement <span class="citation" data-cites="King_2018">(<a href="#ref-King_2018" role="doc-biblioref">King et al., 2018</a>)</span>.</p>
-<p>There are expanded opportunities in studying animal social systems by pairing advances in remote tracking technology with emerging methods to measure intragroup social dynamics. The availability and resolution of remote tracking data continues to improve <span class="citation" data-cites="Kays_2015 Kays_2022 Nathan_2022">(<a href="#ref-Kays_2015" role="doc-biblioref">Kays et al., 2015</a>; <a href="#ref-Kays_2022" role="doc-biblioref">Kays et al., 2022</a>; <a href="#ref-Nathan_2022" role="doc-biblioref">Nathan et al., 2022</a>)</span>. There are over two decades of research on measuring interactions between moving individuals from the study of “moving point objects” in GISciences <span class="citation" data-cites="Andersson_2008 Dodge_2008 Laube_2005 Miller_2021">(<a href="#ref-Andersson_2008" role="doc-biblioref">Andersson et al., 2008</a>; <a href="#ref-Dodge_2008" role="doc-biblioref">Dodge et al., 2008</a>; <a href="#ref-Laube_2005" role="doc-biblioref">Laube, 2005</a>; <a href="#ref-Miller_2021" role="doc-biblioref">Miller, 2021</a>)</span> to group coordination <span class="citation" data-cites="Couzin_2002 Herbert-Read_2011">(<a href="#ref-Couzin_2002" role="doc-biblioref">Couzin et al., 2002</a>; <a href="#ref-Herbert-Read_2011" role="doc-biblioref">Herbert-Read et al., 2011</a>)</span>, leadership, and decision making <span class="citation" data-cites="King_2011 Nagy_2010 Strandburg-Peshkin_2015">(<a href="#ref-King_2011" role="doc-biblioref">King &amp; Sueur, 2011</a>; <a href="#ref-Nagy_2010" role="doc-biblioref">Nagy et al., 2010</a>; <a href="#ref-Strandburg-Peshkin_2015" role="doc-biblioref">Strandburg-Peshkin et al., 2015</a>)</span>. Despite this, we suggest the lack of availability of open source tools <span class="citation" data-cites="Hampton_2015 Powers_2019 Wilson_2017">(<a href="#ref-Hampton_2015" role="doc-biblioref">Hampton et al., 2015</a>; <a href="#ref-Powers_2019" role="doc-biblioref">Powers &amp; Hampton, 2019</a>; <a href="#ref-Wilson_2017" role="doc-biblioref">Wilson et al., 2017</a>)</span> is the missing piece between the call to integrate technology enhanced research with multidisciplinary approaches to better study animal social systems <span class="citation" data-cites="Couzin_2023 King_2018">(<a href="#ref-Couzin_2023" role="doc-biblioref">Couzin &amp; Heins, 2023</a>; <a href="#ref-King_2018" role="doc-biblioref">King et al., 2018</a>)</span>.</p>
-<p>We conducted a scoping review to identify metrics that were applicable to spatiotemporal data, and focused on dyadic interactions, leadership patterns, and dominance hierarchies. Of the resulting metrics, we selected those with a high evidence of use, and lack of availability in the R programming language, either through R packages or supplemental materials in the literature. Here we present 18 new functions in the R package {spatsoc} <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span> for measuring intragroup dynamics (<a href="#tbl-new-functions" class="quarto-xref">Table&nbsp;1</a>). We will demonstrate these new functions through a case study and discuss biological interpretations.</p>
+<p>Pairing advanced remote tracking technologies with emerging methods expand opportunities to measure intragroup social dynamics. The availability and resolution of remote tracking data continues to improve <span class="citation" data-cites="Kays_2015 Kays_2022 Nathan_2022">(<a href="#ref-Kays_2015" role="doc-biblioref">Kays et al., 2015</a>; <a href="#ref-Kays_2022" role="doc-biblioref"><span class="nocase">Kays et al.</span>, 2022</a>; <a href="#ref-Nathan_2022" role="doc-biblioref">Nathan et al., 2022</a>)</span>. There are over two decades of research on measuring interactions between moving individuals from the study of “moving point objects” in GISciences <span class="citation" data-cites="Andersson_2008 Dodge_2008 Laube_2005 Miller_2021">(<a href="#ref-Andersson_2008" role="doc-biblioref">Andersson et al., 2008</a>; <a href="#ref-Dodge_2008" role="doc-biblioref">Dodge et al., 2008</a>; <a href="#ref-Laube_2005" role="doc-biblioref">Laube, 2005</a>; <a href="#ref-Miller_2021" role="doc-biblioref">Miller, 2021</a>)</span> to group coordination <span class="citation" data-cites="Couzin_2002 Herbert-Read_2011">(<a href="#ref-Couzin_2002" role="doc-biblioref">Couzin et al., 2002</a>; <a href="#ref-Herbert-Read_2011" role="doc-biblioref">Herbert-Read et al., 2011</a>)</span>, leadership, and decision making <span class="citation" data-cites="King_2011 Nagy_2010 Strandburg-Peshkin_2015">(<a href="#ref-King_2011" role="doc-biblioref">King &amp; Sueur, 2011</a>; <a href="#ref-Nagy_2010" role="doc-biblioref">Nagy et al., 2010</a>; <a href="#ref-Strandburg-Peshkin_2015" role="doc-biblioref">Strandburg-Peshkin et al., 2015</a>)</span>. Despite this, we suggest the lack of availability of open source tools <span class="citation" data-cites="Hampton_2015 Powers_2019 Wilson_2017">(<a href="#ref-Hampton_2015" role="doc-biblioref">Hampton et al., 2015</a>; <a href="#ref-Powers_2019" role="doc-biblioref">Powers &amp; Hampton, 2019</a>; <a href="#ref-Wilson_2017" role="doc-biblioref">Wilson et al., 2017</a>)</span> is the missing piece between the call to integrate technology enhanced research with multidisciplinary approaches to better study animal social systems <span class="citation" data-cites="Couzin_2023 King_2018">(<a href="#ref-Couzin_2023" role="doc-biblioref">Couzin &amp; Heins, 2023</a>; <a href="#ref-King_2018" role="doc-biblioref">King et al., 2018</a>)</span>.</p>
+<p>We first conducted a scoping review to identify metrics that were applicable to spatiotemporal data, and focused on dyadic interactions, leadership patterns, and dominance hierarchies. Of the resulting metrics, we selected those with a high evidence of use, and lack of availability in the R programming language, either through R packages or supplemental materials in the literature. Here we present 18 new functions in the R package {spatsoc} <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span> for measuring intragroup dynamics (<a href="#tbl-new-functions" class="quarto-xref">Table&nbsp;1</a>). We will demonstrate these new functions through a case study and discuss biological interpretations.</p>
 </section><section id="methods" class="level1" data-number="2"><h1 data-number="2">
 <span class="header-section-number">2</span> Methods</h1>
 <p>We conducted a scoping review to identify metrics for measuring intragroup social dynamics including dyadic interactions, leadership patterns, and dominance hierarchies. We focused on metrics applicable to spatiotemporal data such as animal movement data. This scoping review expands on the review conducted by <span class="citation" data-cites="Joo_2018">Joo et al. (<a href="#ref-Joo_2018" role="doc-biblioref">2018</a>)</span> by using interdisciplinary sources (eg. <span class="citation" data-cites="Miller_2021">Miller (<a href="#ref-Miller_2021" role="doc-biblioref">2021</a>)</span>), including metrics measuring group-level dynamics, leadership patterns, and lagged-follower behaviours, and by focusing on the open source availability of these metrics in the R programming language. See details scoping review methods in Supplement <a href="#sec-scoping-methods" class="quarto-xref">Section&nbsp;7</a>. and Metrics were selected for inclusion in {spatsoc} based on their relative importance as measured by frequency of use in the review, and their lack of availability in R packages when the review was conducted (Supplement <a href="#sec-scoping-results" class="quarto-xref">Section&nbsp;8</a>). Some metrics were specifically not chosen for inclusion such as metrics relating to posture, metrics relating to static interaction or home range overlap and metrics based on statistical models such as Hidden Markov model and Granger causality. A full list of metrics not selected is in Supplement <a href="#sec-selected" class="quarto-xref">Section&nbsp;9</a>.</p>
@@ -633,39 +636,39 @@ Table&nbsp;1: Description of new functions in the R package {spatsoc} for measur
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_tvpcfg1z7hicymvki910 = TinyTable.createTableFunctions("tinytable_tvpcfg1z7hicymvki910");
+      const tableFns_93b1yhtb1ukbjrf3w9mv = TinyTable.createTableFunctions("tinytable_93b1yhtb1ukbjrf3w9mv");
       // tinytable span after
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(23, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(20, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(14, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(10, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(8, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(3, 1, 1, 2) })
-      window.addEventListener('load', function () { tableFns_tvpcfg1z7hicymvki910.spanCell(1, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(23, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(20, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(14, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(10, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(8, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(3, 1, 1, 2) })
+      window.addEventListener('load', function () { tableFns_93b1yhtb1ukbjrf3w9mv.spanCell(1, 1, 1, 2) })
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '25', j: 1 }, { i: '25', j: 2 } ], css_id: 'tinytable_css_2p80d2onk0gcdqmnyznf',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 } ], css_id: 'tinytable_css_aeiypqegcmhoxvmxtnkr',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_jby1kjgf0r92omnx7h5v',}, 
+          { positions: [ { i: '25', j: 1 }, { i: '25', j: 2 } ], css_id: 'tinytable_css_t80cf01xv0kwad8gyi8b',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 } ], css_id: 'tinytable_css_5jyuyee8cr4p6ef11y8n',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_t92ppsoilxeae1eqz2ys',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_tvpcfg1z7hicymvki910.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_93b1yhtb1ukbjrf3w9mv.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_tvpcfg1z7hicymvki910 td.tinytable_css_2p80d2onk0gcdqmnyznf, #tinytable_tvpcfg1z7hicymvki910 th.tinytable_css_2p80d2onk0gcdqmnyznf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_tvpcfg1z7hicymvki910 td.tinytable_css_aeiypqegcmhoxvmxtnkr, #tinytable_tvpcfg1z7hicymvki910 th.tinytable_css_aeiypqegcmhoxvmxtnkr { text-align: left }
-    #tinytable_tvpcfg1z7hicymvki910 td.tinytable_css_jby1kjgf0r92omnx7h5v, #tinytable_tvpcfg1z7hicymvki910 th.tinytable_css_jby1kjgf0r92omnx7h5v {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_93b1yhtb1ukbjrf3w9mv td.tinytable_css_t80cf01xv0kwad8gyi8b, #tinytable_93b1yhtb1ukbjrf3w9mv th.tinytable_css_t80cf01xv0kwad8gyi8b {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_93b1yhtb1ukbjrf3w9mv td.tinytable_css_5jyuyee8cr4p6ef11y8n, #tinytable_93b1yhtb1ukbjrf3w9mv th.tinytable_css_5jyuyee8cr4p6ef11y8n { text-align: left }
+    #tinytable_93b1yhtb1ukbjrf3w9mv td.tinytable_css_t92ppsoilxeae1eqz2ys, #tinytable_93b1yhtb1ukbjrf3w9mv th.tinytable_css_t92ppsoilxeae1eqz2ys {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_tvpcfg1z7hicymvki910" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_93b1yhtb1ukbjrf3w9mv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Function</th>
                 <th scope="col" data-row="0" data-col="2">Description</th>
@@ -829,30 +832,30 @@ Table&nbsp;2: Spatiotemporal groups measured using group_times() and group_pts()
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_4aaxjcriz6y7facchapb = TinyTable.createTableFunctions("tinytable_4aaxjcriz6y7facchapb");
+      const tableFns_5mh40rg8ycvt4q1mwxvv = TinyTable.createTableFunctions("tinytable_5mh40rg8ycvt4q1mwxvv");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_owrx0y66jnd77x80p2gz',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_l0x22z7pcxw47y5a1l4v',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_3tjbn6c63h7qhv9ipxux',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_midusppxz60bprfhervh',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4aaxjcriz6y7facchapb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_5mh40rg8ycvt4q1mwxvv.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_4aaxjcriz6y7facchapb td.tinytable_css_owrx0y66jnd77x80p2gz, #tinytable_4aaxjcriz6y7facchapb th.tinytable_css_owrx0y66jnd77x80p2gz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_4aaxjcriz6y7facchapb td.tinytable_css_l0x22z7pcxw47y5a1l4v, #tinytable_4aaxjcriz6y7facchapb th.tinytable_css_l0x22z7pcxw47y5a1l4v {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_5mh40rg8ycvt4q1mwxvv td.tinytable_css_3tjbn6c63h7qhv9ipxux, #tinytable_5mh40rg8ycvt4q1mwxvv th.tinytable_css_3tjbn6c63h7qhv9ipxux {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_5mh40rg8ycvt4q1mwxvv td.tinytable_css_midusppxz60bprfhervh, #tinytable_5mh40rg8ycvt4q1mwxvv th.tinytable_css_midusppxz60bprfhervh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_4aaxjcriz6y7facchapb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_5mh40rg8ycvt4q1mwxvv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">ID</th>
                 <th scope="col" data-row="0" data-col="2">datetime</th>
@@ -862,46 +865,46 @@ Table&nbsp;2: Spatiotemporal groups measured using group_times() and group_pts()
               </tr></thead>
 <tbody>
 <tr>
-<td data-row="1" data-col="1">C</td>
-                  <td data-row="1" data-col="2">2016-11-27 14:00:50</td>
-                  <td data-row="1" data-col="3">POINT (711699 5506990)</td>
-                  <td data-row="1" data-col="4">320</td>
-                  <td data-row="1" data-col="5">3048</td>
+<td data-row="1" data-col="1">E</td>
+                  <td data-row="1" data-col="2">2016-12-24 10:00:26</td>
+                  <td data-row="1" data-col="3">POINT (699590.1 5508683)</td>
+                  <td data-row="1" data-col="4">642</td>
+                  <td data-row="1" data-col="5">5648</td>
                 </tr>
 <tr>
-<td data-row="2" data-col="1">I</td>
-                  <td data-row="2" data-col="2">2016-11-27 14:00:48</td>
-                  <td data-row="2" data-col="3">POINT (711722 5507004)</td>
-                  <td data-row="2" data-col="4">320</td>
-                  <td data-row="2" data-col="5">3048</td>
+<td data-row="2" data-col="1">H</td>
+                  <td data-row="2" data-col="2">2016-12-24 10:00:26</td>
+                  <td data-row="2" data-col="3">POINT (699582.9 5508659)</td>
+                  <td data-row="2" data-col="4">642</td>
+                  <td data-row="2" data-col="5">5648</td>
                 </tr>
 <tr>
 <td data-row="3" data-col="1">B</td>
-                  <td data-row="3" data-col="2">2016-12-25 14:00:53</td>
-                  <td data-row="3" data-col="3">POINT (699752 5510691)</td>
-                  <td data-row="3" data-col="4">656</td>
-                  <td data-row="3" data-col="5">2052</td>
+                  <td data-row="3" data-col="2">2017-01-01 14:00:48</td>
+                  <td data-row="3" data-col="3">POINT (697928.3 5511578)</td>
+                  <td data-row="3" data-col="4">740</td>
+                  <td data-row="3" data-col="5">2136</td>
                 </tr>
 <tr>
 <td data-row="4" data-col="1">G</td>
-                  <td data-row="4" data-col="2">2016-12-25 14:00:48</td>
-                  <td data-row="4" data-col="3">POINT (699756 5510696)</td>
-                  <td data-row="4" data-col="4">656</td>
-                  <td data-row="4" data-col="5">2052</td>
+                  <td data-row="4" data-col="2">2017-01-01 14:00:42</td>
+                  <td data-row="4" data-col="3">POINT (697903.8 5511583)</td>
+                  <td data-row="4" data-col="4">740</td>
+                  <td data-row="4" data-col="5">2136</td>
                 </tr>
 <tr>
-<td data-row="5" data-col="1">F</td>
-                  <td data-row="5" data-col="2">2017-02-05 04:00:41</td>
-                  <td data-row="5" data-col="3">POINT (702156 5510744)</td>
-                  <td data-row="5" data-col="4">1141</td>
-                  <td data-row="5" data-col="5">6868</td>
+<td data-row="5" data-col="1">B</td>
+                  <td data-row="5" data-col="2">2017-01-17 08:00:48</td>
+                  <td data-row="5" data-col="3">POINT (697909.1 5511484)</td>
+                  <td data-row="5" data-col="4">929</td>
+                  <td data-row="5" data-col="5">2325</td>
                 </tr>
 <tr>
-<td data-row="6" data-col="1">I</td>
-                  <td data-row="6" data-col="2">2017-02-05 04:00:47</td>
-                  <td data-row="6" data-col="3">POINT (702143 5510756)</td>
-                  <td data-row="6" data-col="4">1141</td>
-                  <td data-row="6" data-col="5">6868</td>
+<td data-row="6" data-col="1">G</td>
+                  <td data-row="6" data-col="2">2017-01-17 08:00:19</td>
+                  <td data-row="6" data-col="3">POINT (697872.5 5511482)</td>
+                  <td data-row="6" data-col="4">929</td>
+                  <td data-row="6" data-col="5">2325</td>
                 </tr>
 </tbody>
 </table>
@@ -934,30 +937,30 @@ Table&nbsp;3: Distance based edge-lists measured using edge_dist(). Using the �
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_ci4tatko7n54wj8spib2 = TinyTable.createTableFunctions("tinytable_ci4tatko7n54wj8spib2");
+      const tableFns_9c50iirospf2kz3pmyix = TinyTable.createTableFunctions("tinytable_9c50iirospf2kz3pmyix");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 } ], css_id: 'tinytable_css_he4ep1vhrtw81rq20rr0',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_bezog2zzrix4h9oxdeyj',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 } ], css_id: 'tinytable_css_0dv6io09bisfvxw5giik',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_ob6z5dxddkzlkru4d70l',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_ci4tatko7n54wj8spib2.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_9c50iirospf2kz3pmyix.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_ci4tatko7n54wj8spib2 td.tinytable_css_he4ep1vhrtw81rq20rr0, #tinytable_ci4tatko7n54wj8spib2 th.tinytable_css_he4ep1vhrtw81rq20rr0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_ci4tatko7n54wj8spib2 td.tinytable_css_bezog2zzrix4h9oxdeyj, #tinytable_ci4tatko7n54wj8spib2 th.tinytable_css_bezog2zzrix4h9oxdeyj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9c50iirospf2kz3pmyix td.tinytable_css_0dv6io09bisfvxw5giik, #tinytable_9c50iirospf2kz3pmyix th.tinytable_css_0dv6io09bisfvxw5giik {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_9c50iirospf2kz3pmyix td.tinytable_css_ob6z5dxddkzlkru4d70l, #tinytable_9c50iirospf2kz3pmyix th.tinytable_css_ob6z5dxddkzlkru4d70l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_ci4tatko7n54wj8spib2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_9c50iirospf2kz3pmyix" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">timegroup</th>
                 <th scope="col" data-row="0" data-col="2">ID1</th>
@@ -966,40 +969,40 @@ Table&nbsp;3: Distance based edge-lists measured using edge_dist(). Using the �
               </tr></thead>
 <tbody>
 <tr>
-<td data-row="1" data-col="1">1097</td>
+<td data-row="1" data-col="1">132</td>
                   <td data-row="1" data-col="2">A</td>
-                  <td data-row="1" data-col="3">C</td>
-                  <td data-row="1" data-col="4">39.44</td>
+                  <td data-row="1" data-col="3">NA</td>
+                  <td data-row="1" data-col="4">NA</td>
                 </tr>
 <tr>
-<td data-row="2" data-col="1">1097</td>
+<td data-row="2" data-col="1">132</td>
                   <td data-row="2" data-col="2">B</td>
                   <td data-row="2" data-col="3">NA</td>
                   <td data-row="2" data-col="4">NA</td>
                 </tr>
 <tr>
-<td data-row="3" data-col="1">1097</td>
+<td data-row="3" data-col="1">132</td>
                   <td data-row="3" data-col="2">C</td>
-                  <td data-row="3" data-col="3">A</td>
-                  <td data-row="3" data-col="4">39.44</td>
+                  <td data-row="3" data-col="3">NA</td>
+                  <td data-row="3" data-col="4">NA</td>
                 </tr>
 <tr>
-<td data-row="4" data-col="1">1097</td>
+<td data-row="4" data-col="1">132</td>
                   <td data-row="4" data-col="2">D</td>
                   <td data-row="4" data-col="3">NA</td>
                   <td data-row="4" data-col="4">NA</td>
                 </tr>
 <tr>
-<td data-row="5" data-col="1">1097</td>
+<td data-row="5" data-col="1">132</td>
                   <td data-row="5" data-col="2">E</td>
-                  <td data-row="5" data-col="3">NA</td>
-                  <td data-row="5" data-col="4">NA</td>
+                  <td data-row="5" data-col="3">I</td>
+                  <td data-row="5" data-col="4">10.89846</td>
                 </tr>
 <tr>
-<td data-row="6" data-col="1">1097</td>
+<td data-row="6" data-col="1">132</td>
                   <td data-row="6" data-col="2">F</td>
-                  <td data-row="6" data-col="3">I</td>
-                  <td data-row="6" data-col="4">20.95</td>
+                  <td data-row="6" data-col="3">NA</td>
+                  <td data-row="6" data-col="4">NA</td>
                 </tr>
 </tbody>
 </table>
@@ -1029,30 +1032,30 @@ Table&nbsp;4: Distance based edge-lists measured using edge_nn(). Using the ‘t
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_tm36iymwtcgtcgny1ytd = TinyTable.createTableFunctions("tinytable_tm36iymwtcgtcgny1ytd");
+      const tableFns_ej3u8h125horjywauz57 = TinyTable.createTableFunctions("tinytable_ej3u8h125horjywauz57");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 } ], css_id: 'tinytable_css_noqxisfnjzlhtup8ywp3',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_4w06p8cb9nz1o2elgop0',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 } ], css_id: 'tinytable_css_qlrsd4kpf55np8s5cp61',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 } ], css_id: 'tinytable_css_no1ye00mhqemkecrosim',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_tm36iymwtcgtcgny1ytd.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_ej3u8h125horjywauz57.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_tm36iymwtcgtcgny1ytd td.tinytable_css_noqxisfnjzlhtup8ywp3, #tinytable_tm36iymwtcgtcgny1ytd th.tinytable_css_noqxisfnjzlhtup8ywp3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_tm36iymwtcgtcgny1ytd td.tinytable_css_4w06p8cb9nz1o2elgop0, #tinytable_tm36iymwtcgtcgny1ytd th.tinytable_css_4w06p8cb9nz1o2elgop0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_ej3u8h125horjywauz57 td.tinytable_css_qlrsd4kpf55np8s5cp61, #tinytable_ej3u8h125horjywauz57 th.tinytable_css_qlrsd4kpf55np8s5cp61 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_ej3u8h125horjywauz57 td.tinytable_css_no1ye00mhqemkecrosim, #tinytable_ej3u8h125horjywauz57 th.tinytable_css_no1ye00mhqemkecrosim {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_tm36iymwtcgtcgny1ytd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_ej3u8h125horjywauz57" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">timegroup</th>
                 <th scope="col" data-row="0" data-col="2">ID</th>
@@ -1061,40 +1064,40 @@ Table&nbsp;4: Distance based edge-lists measured using edge_nn(). Using the ‘t
               </tr></thead>
 <tbody>
 <tr>
-<td data-row="1" data-col="1">1292</td>
+<td data-row="1" data-col="1">260</td>
                   <td data-row="1" data-col="2">A</td>
-                  <td data-row="1" data-col="3">C</td>
-                  <td data-row="1" data-col="4">6.501</td>
+                  <td data-row="1" data-col="3">I</td>
+                  <td data-row="1" data-col="4">48.73200</td>
                 </tr>
 <tr>
-<td data-row="2" data-col="1">1292</td>
+<td data-row="2" data-col="1">260</td>
                   <td data-row="2" data-col="2">B</td>
-                  <td data-row="2" data-col="3">E</td>
-                  <td data-row="2" data-col="4">10.910</td>
+                  <td data-row="2" data-col="3">G</td>
+                  <td data-row="2" data-col="4">2667.08717</td>
                 </tr>
 <tr>
-<td data-row="3" data-col="1">1292</td>
+<td data-row="3" data-col="1">260</td>
                   <td data-row="3" data-col="2">C</td>
                   <td data-row="3" data-col="3">A</td>
-                  <td data-row="3" data-col="4">6.501</td>
+                  <td data-row="3" data-col="4">1135.76521</td>
                 </tr>
 <tr>
-<td data-row="4" data-col="1">1292</td>
+<td data-row="4" data-col="1">260</td>
                   <td data-row="4" data-col="2">D</td>
-                  <td data-row="4" data-col="3">B</td>
-                  <td data-row="4" data-col="4">16409.953</td>
+                  <td data-row="4" data-col="3">G</td>
+                  <td data-row="4" data-col="4">15199.31474</td>
                 </tr>
 <tr>
-<td data-row="5" data-col="1">1292</td>
+<td data-row="5" data-col="1">260</td>
                   <td data-row="5" data-col="2">E</td>
-                  <td data-row="5" data-col="3">B</td>
-                  <td data-row="5" data-col="4">10.910</td>
+                  <td data-row="5" data-col="3">H</td>
+                  <td data-row="5" data-col="4">10.65925</td>
                 </tr>
 <tr>
-<td data-row="6" data-col="1">1292</td>
+<td data-row="6" data-col="1">260</td>
                   <td data-row="6" data-col="2">F</td>
-                  <td data-row="6" data-col="3">I</td>
-                  <td data-row="6" data-col="4">18.831</td>
+                  <td data-row="6" data-col="3">E</td>
+                  <td data-row="6" data-col="4">5314.68091</td>
                 </tr>
 </tbody>
 </table>
@@ -1123,30 +1126,30 @@ Table&nbsp;5: Group centroids measured using centroid_group(). Using the ‘grou
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_3tjpq53u3j9d0liaassb = TinyTable.createTableFunctions("tinytable_3tjpq53u3j9d0liaassb");
+      const tableFns_tsgjhb10fyqfxhvnd4tk = TinyTable.createTableFunctions("tinytable_tsgjhb10fyqfxhvnd4tk");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_v0xnkc0dumwcfc75u9sj',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_bm74yzg0bb6ystdb68jp',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_33yupbsuzvpzp4xzq9m9',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_whuuf8rhedxbu2u0hus8',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_3tjpq53u3j9d0liaassb.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_tsgjhb10fyqfxhvnd4tk.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_3tjpq53u3j9d0liaassb td.tinytable_css_v0xnkc0dumwcfc75u9sj, #tinytable_3tjpq53u3j9d0liaassb th.tinytable_css_v0xnkc0dumwcfc75u9sj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_3tjpq53u3j9d0liaassb td.tinytable_css_bm74yzg0bb6ystdb68jp, #tinytable_3tjpq53u3j9d0liaassb th.tinytable_css_bm74yzg0bb6ystdb68jp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_tsgjhb10fyqfxhvnd4tk td.tinytable_css_33yupbsuzvpzp4xzq9m9, #tinytable_tsgjhb10fyqfxhvnd4tk th.tinytable_css_33yupbsuzvpzp4xzq9m9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_tsgjhb10fyqfxhvnd4tk td.tinytable_css_whuuf8rhedxbu2u0hus8, #tinytable_tsgjhb10fyqfxhvnd4tk th.tinytable_css_whuuf8rhedxbu2u0hus8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_3tjpq53u3j9d0liaassb" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_tsgjhb10fyqfxhvnd4tk" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">ID</th>
                 <th scope="col" data-row="0" data-col="2">timegroup</th>
@@ -1156,46 +1159,46 @@ Table&nbsp;5: Group centroids measured using centroid_group(). Using the ‘grou
               </tr></thead>
 <tbody>
 <tr>
-<td data-row="1" data-col="1">A</td>
-                  <td data-row="1" data-col="2">1046</td>
-                  <td data-row="1" data-col="3">1046</td>
-                  <td data-row="1" data-col="4">POINT (703582 5506378)</td>
-                  <td data-row="1" data-col="5">POINT (703567 5506405)</td>
+<td data-row="1" data-col="1">C</td>
+                  <td data-row="1" data-col="2">321</td>
+                  <td data-row="1" data-col="3">3049</td>
+                  <td data-row="1" data-col="4">POINT (712902.3 5506369)</td>
+                  <td data-row="1" data-col="5">POINT (712901.4 5506373)</td>
                 </tr>
 <tr>
-<td data-row="2" data-col="1">C</td>
-                  <td data-row="2" data-col="2">1046</td>
-                  <td data-row="2" data-col="3">1046</td>
-                  <td data-row="2" data-col="4">POINT (703574 5506437)</td>
-                  <td data-row="2" data-col="5">POINT (703567 5506405)</td>
+<td data-row="2" data-col="1">I</td>
+                  <td data-row="2" data-col="2">321</td>
+                  <td data-row="2" data-col="3">3049</td>
+                  <td data-row="2" data-col="4">POINT (712900.5 5506376)</td>
+                  <td data-row="2" data-col="5">POINT (712901.4 5506373)</td>
                 </tr>
 <tr>
-<td data-row="3" data-col="1">E</td>
-                  <td data-row="3" data-col="2">1046</td>
-                  <td data-row="3" data-col="3">1046</td>
-                  <td data-row="3" data-col="4">POINT (703563 5506401)</td>
-                  <td data-row="3" data-col="5">POINT (703567 5506405)</td>
+<td data-row="3" data-col="1">B</td>
+                  <td data-row="3" data-col="2">1284</td>
+                  <td data-row="3" data-col="3">2631</td>
+                  <td data-row="3" data-col="4">POINT (700540.7 5508293)</td>
+                  <td data-row="3" data-col="5">POINT (700537.9 5508301)</td>
                 </tr>
 <tr>
-<td data-row="4" data-col="1">F</td>
-                  <td data-row="4" data-col="2">1046</td>
-                  <td data-row="4" data-col="3">1046</td>
-                  <td data-row="4" data-col="4">POINT (703549 5506403)</td>
-                  <td data-row="4" data-col="5">POINT (703567 5506405)</td>
+<td data-row="4" data-col="1">E</td>
+                  <td data-row="4" data-col="2">1284</td>
+                  <td data-row="4" data-col="3">2631</td>
+                  <td data-row="4" data-col="4">POINT (700527.8 5508317)</td>
+                  <td data-row="4" data-col="5">POINT (700537.9 5508301)</td>
                 </tr>
 <tr>
-<td data-row="5" data-col="1">G</td>
-                  <td data-row="5" data-col="2">1228</td>
-                  <td data-row="5" data-col="3">7376</td>
-                  <td data-row="5" data-col="4">POINT (697269 5511857)</td>
-                  <td data-row="5" data-col="5">POINT (697269 5511857)</td>
+<td data-row="5" data-col="1">J</td>
+                  <td data-row="5" data-col="2">1284</td>
+                  <td data-row="5" data-col="3">2631</td>
+                  <td data-row="5" data-col="4">POINT (700545.4 5508292)</td>
+                  <td data-row="5" data-col="5">POINT (700537.9 5508301)</td>
                 </tr>
 <tr>
-<td data-row="6" data-col="1">J</td>
-                  <td data-row="6" data-col="2">1228</td>
-                  <td data-row="6" data-col="3">7376</td>
-                  <td data-row="6" data-col="4">POINT (697270 5511857)</td>
-                  <td data-row="6" data-col="5">POINT (697269 5511857)</td>
+<td data-row="6" data-col="1">A</td>
+                  <td data-row="6" data-col="2">1386</td>
+                  <td data-row="6" data-col="3">1386</td>
+                  <td data-row="6" data-col="4">POINT (703052.8 5509244)</td>
+                  <td data-row="6" data-col="5">POINT (703043.4 5509270)</td>
                 </tr>
 </tbody>
 </table>
@@ -1242,30 +1245,30 @@ Table&nbsp;6: Individual and group mean directions measured using direction_step
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_z674dckqrs3rqtx796sw = TinyTable.createTableFunctions("tinytable_z674dckqrs3rqtx796sw");
+      const tableFns_cruim8qioisis00k6rau = TinyTable.createTableFunctions("tinytable_cruim8qioisis00k6rau");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_jz34l8xlnyqnyqbrwaar',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_ddn5qk6sya1l9mblxr79',}, 
+          { positions: [ { i: '6', j: 1 }, { i: '6', j: 2 }, { i: '6', j: 3 }, { i: '6', j: 4 }, { i: '6', j: 5 } ], css_id: 'tinytable_css_aax5wksx7czfk9x9ttck',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 }, { i: '0', j: 4 }, { i: '0', j: 5 } ], css_id: 'tinytable_css_0vz6xy5446eibtpvtjy0',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_z674dckqrs3rqtx796sw.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_cruim8qioisis00k6rau.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_z674dckqrs3rqtx796sw td.tinytable_css_jz34l8xlnyqnyqbrwaar, #tinytable_z674dckqrs3rqtx796sw th.tinytable_css_jz34l8xlnyqnyqbrwaar {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_z674dckqrs3rqtx796sw td.tinytable_css_ddn5qk6sya1l9mblxr79, #tinytable_z674dckqrs3rqtx796sw th.tinytable_css_ddn5qk6sya1l9mblxr79 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_cruim8qioisis00k6rau td.tinytable_css_aax5wksx7czfk9x9ttck, #tinytable_cruim8qioisis00k6rau th.tinytable_css_aax5wksx7czfk9x9ttck {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_cruim8qioisis00k6rau td.tinytable_css_0vz6xy5446eibtpvtjy0, #tinytable_cruim8qioisis00k6rau th.tinytable_css_0vz6xy5446eibtpvtjy0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_z674dckqrs3rqtx796sw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_cruim8qioisis00k6rau" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">ID</th>
                 <th scope="col" data-row="0" data-col="2">timegroup</th>
@@ -1275,46 +1278,46 @@ Table&nbsp;6: Individual and group mean directions measured using direction_step
               </tr></thead>
 <tbody>
 <tr>
-<td data-row="1" data-col="1">E</td>
-                  <td data-row="1" data-col="2">889</td>
-                  <td data-row="1" data-col="3">889</td>
-                  <td data-row="1" data-col="4">-0.2842 [rad]</td>
-                  <td data-row="1" data-col="5">-0.2914 [rad]</td>
+<td data-row="1" data-col="1">C</td>
+                  <td data-row="1" data-col="2">775</td>
+                  <td data-row="1" data-col="3">3424</td>
+                  <td data-row="1" data-col="4">0.65679420 [rad]</td>
+                  <td data-row="1" data-col="5">0.3110595 [rad]</td>
                 </tr>
 <tr>
-<td data-row="2" data-col="1">I</td>
-                  <td data-row="2" data-col="2">889</td>
-                  <td data-row="2" data-col="3">889</td>
-                  <td data-row="2" data-col="4">-0.2741 [rad]</td>
-                  <td data-row="2" data-col="5">-0.2914 [rad]</td>
+<td data-row="2" data-col="1">E</td>
+                  <td data-row="2" data-col="2">775</td>
+                  <td data-row="2" data-col="3">3424</td>
+                  <td data-row="2" data-col="4">0.20066712 [rad]</td>
+                  <td data-row="2" data-col="5">0.3110595 [rad]</td>
                 </tr>
 <tr>
-<td data-row="3" data-col="1">J</td>
-                  <td data-row="3" data-col="2">889</td>
-                  <td data-row="3" data-col="3">889</td>
-                  <td data-row="3" data-col="4">-0.3274 [rad]</td>
-                  <td data-row="3" data-col="5">-0.2914 [rad]</td>
+<td data-row="3" data-col="1">F</td>
+                  <td data-row="3" data-col="2">775</td>
+                  <td data-row="3" data-col="3">3424</td>
+                  <td data-row="3" data-col="4">0.08029709 [rad]</td>
+                  <td data-row="3" data-col="5">0.3110595 [rad]</td>
                 </tr>
 <tr>
-<td data-row="4" data-col="1">B</td>
-                  <td data-row="4" data-col="2">1330</td>
-                  <td data-row="4" data-col="3">2691</td>
-                  <td data-row="4" data-col="4">2.1170 [rad]</td>
-                  <td data-row="4" data-col="5">2.2169 [rad]</td>
+<td data-row="4" data-col="1">C</td>
+                  <td data-row="4" data-col="2">945</td>
+                  <td data-row="4" data-col="3">945</td>
+                  <td data-row="4" data-col="4">0.28105814 [rad]</td>
+                  <td data-row="4" data-col="5">0.2973754 [rad]</td>
                 </tr>
 <tr>
-<td data-row="5" data-col="1">E</td>
-                  <td data-row="5" data-col="2">1330</td>
-                  <td data-row="5" data-col="3">2691</td>
-                  <td data-row="5" data-col="4">1.6822 [rad]</td>
-                  <td data-row="5" data-col="5">2.2169 [rad]</td>
+<td data-row="5" data-col="1">F</td>
+                  <td data-row="5" data-col="2">945</td>
+                  <td data-row="5" data-col="3">945</td>
+                  <td data-row="5" data-col="4">0.30754070 [rad]</td>
+                  <td data-row="5" data-col="5">0.2973754 [rad]</td>
                 </tr>
 <tr>
-<td data-row="6" data-col="1">G</td>
-                  <td data-row="6" data-col="2">1330</td>
-                  <td data-row="6" data-col="3">2691</td>
-                  <td data-row="6" data-col="4">2.8722 [rad]</td>
-                  <td data-row="6" data-col="5">2.2169 [rad]</td>
+<td data-row="6" data-col="1">I</td>
+                  <td data-row="6" data-col="2">945</td>
+                  <td data-row="6" data-col="3">945</td>
+                  <td data-row="6" data-col="4">0.29897160 [rad]</td>
+                  <td data-row="6" data-col="5">0.2973754 [rad]</td>
                 </tr>
 </tbody>
 </table>
@@ -1486,7 +1489,7 @@ Figure&nbsp;8: A) Example directional correlation delay for focal individual ‘
 </div>
 </section></section><section id="implications" class="level1" data-number="4"><h1 data-number="4">
 <span class="header-section-number">4</span> Implications</h1>
-<p>The open source package {spatsoc} <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span> for the R programming language <span class="citation" data-cites="RCoreTeam_2025a">(<a href="#ref-RCoreTeam_2025a" role="doc-biblioref">R Core Team, 2025</a>)</span> has improved accessibility to methods for spatiotemporal grouping and social network analysis with animal telemetry data <span class="citation" data-cites="Albery_2025 Bracken_2022 Merkle_2024 Heeres_2024">(eg. <a href="#ref-Albery_2025" role="doc-biblioref">Albery et al., 2025</a>; <a href="#ref-Bracken_2022" role="doc-biblioref">Bracken et al., 2022</a>; <a href="#ref-Heeres_2024" role="doc-biblioref">Heeres et al., 2024</a>; <a href="#ref-Merkle_2024" role="doc-biblioref">Merkle et al., 2024</a>)</span>. Despite this, proximity based associations are only one dimension and studying intragroup social dynamics will allow researchers to further measure animal social systems. The new functions in {spatsoc} and the accompanying case study presented here make openly available a series of metrics that while commonly used in the literature have been largely absent from R packages. Paired with the continued development of animal tracking technology <span class="citation" data-cites="Nathan_2022 Beardsworth_2022">(<a href="#ref-Beardsworth_2022" role="doc-biblioref">Beardsworth et al., 2022</a>; <a href="#ref-Nathan_2022" role="doc-biblioref">Nathan et al., 2022</a>)</span> and novel data collection methods <span class="citation" data-cites="Koger_2023 Pedrazzi_2025">(<a href="#ref-Koger_2023" role="doc-biblioref">Koger et al., 2023</a>; <a href="#ref-Pedrazzi_2025" role="doc-biblioref">Pedrazzi et al., 2025</a>)</span>, the open availability of these metrics in R will broaden their application across research questions, including long-standing ecological concepts such as:</p>
+<p>The open source package {spatsoc} <span class="citation" data-cites="Robitaille_2019">(<a href="#ref-Robitaille_2019" role="doc-biblioref">Robitaille et al., 2019</a>)</span> for the R programming language <span class="citation" data-cites="RCoreTeam_2025a">(<a href="#ref-RCoreTeam_2025a" role="doc-biblioref">R Core Team, 2025</a>)</span> has improved accessibility to methods for spatiotemporal grouping and social network analysis with animal telemetry data <span class="citation" data-cites="Albery_2025 Bracken_2022 Merkle_2024 Heeres_2024">(eg. <a href="#ref-Albery_2025" role="doc-biblioref">Albery et al., 2025</a>; <a href="#ref-Bracken_2022" role="doc-biblioref">Bracken et al., 2022</a>; <a href="#ref-Heeres_2024" role="doc-biblioref">Heeres et al., 2024</a>; <a href="#ref-Merkle_2024" role="doc-biblioref">Merkle et al., 2024</a>)</span>. Despite this, proximity based associations are only one dimension and studying intragroup social dynamics will allow researchers to further measure animal social systems. The new functions in {spatsoc} and the accompanying case study presented here make openly available a series of metrics that while commonly used in the literature have been largely absent from R packages. Paired with the continued development of animal tracking technology <span class="citation" data-cites="Nathan_2022 Beardsworth_2022">(<a href="#ref-Beardsworth_2022" role="doc-biblioref"><span class="nocase">Beardsworth et al.</span>, 2022</a>; <a href="#ref-Nathan_2022" role="doc-biblioref">Nathan et al., 2022</a>)</span> and novel data collection methods <span class="citation" data-cites="Koger_2023 Pedrazzi_2025">(<a href="#ref-Koger_2023" role="doc-biblioref">Koger et al., 2023</a>; <a href="#ref-Pedrazzi_2025" role="doc-biblioref">Pedrazzi et al., 2025</a>)</span>, the open availability of these metrics in R will broaden their application across research questions, including, among others, long-standing ecological concepts such as:</p>
 <ul>
 <li><p>Social foraging theory and producer-scrounger dynamics where “producers” are those who discover patches and “scroungers” are those who join patches discovered by others <span class="citation" data-cites="Barnard_1981 Vickery_1991 Giraldeau_2000">(<a href="#ref-Barnard_1981" role="doc-biblioref">Barnard &amp; Sibly, 1981</a>; <a href="#ref-Giraldeau_2000" role="doc-biblioref">Giraldeau &amp; Caraco, 2000</a>; <a href="#ref-Vickery_1991" role="doc-biblioref">Vickery et al., 1991</a>)</span>. This concept can be applied to animal telemetry data by evaluating the position of individuals within groups, the individual’s arrival timing to forage patches and the characteristics of forage patches. Individuals balance predation risk and foraging success by adjusting their spatial position within groups <span class="citation" data-cites="Teichroeb_2015 Hirsch_2020">(<a href="#ref-Hirsch_2020" role="doc-biblioref">Hirsch et al., 2020</a>; <a href="#ref-Teichroeb_2015" role="doc-biblioref">Teichroeb et al., 2015</a>)</span>, and the foraging strategy selected by an individual can be influenced by the size of forage patches <span class="citation" data-cites="Hansen_2016">(<a href="#ref-Hansen_2016" role="doc-biblioref">Hansen et al., 2016</a>)</span>.</p></li>
 <li><p>Leader-follower patterns in groups of moving animals can be studied both to determine factors that causally influence leadership, and for the influence of leader-follower strategies on foraging success and downstream fitness. Applied to animal telemetry data, leadership can be defined simply by identifying the individual at the foremost position along the front-to-back axis of the group’s direction <span class="citation" data-cites="Quera_2023 Harel_2021">(<a href="#ref-Harel_2021" role="doc-biblioref">Harel et al., 2021</a>; <a href="#ref-Quera_2023" role="doc-biblioref">Quera et al., 2023</a>)</span> or by calculating the directional correlation delay between individuals and building leadership hierarchies <span class="citation" data-cites="Nagy_2010">(<a href="#ref-Nagy_2010" role="doc-biblioref">Nagy et al., 2010</a>)</span>. Leadership in a group of moving animals can inform animal decision making, group coordination, and migratory patterns <span class="citation" data-cites="Flack_2018 Weesner_2023 Quera_2023 Kano_2021">(<a href="#ref-Flack_2018" role="doc-biblioref">Flack et al., 2018</a>; <a href="#ref-Kano_2021" role="doc-biblioref">Kano et al., 2021</a>; <a href="#ref-Quera_2023" role="doc-biblioref">Quera et al., 2023</a>; <a href="#ref-Weesner_2023" role="doc-biblioref">Weesner et al., 2023</a>)</span>.</p></li>
@@ -1495,7 +1498,7 @@ Figure&nbsp;8: A) Example directional correlation delay for focal individual ‘
 <p>The lack of open source code and transparency of methods alongside research (<a href="#tbl-code-availability" class="quarto-xref">Table&nbsp;10</a>, <a href="#tbl-prog" class="quarto-xref">Table&nbsp;11</a>, <a href="#tbl-software" class="quarto-xref">Table&nbsp;12</a>) continues to slow the progress of science by limiting the broader application of new methods. We hope that the availability of these metrics in {spatsoc} will allow researchers to apply them to diverse study species, systems or research questions, including novel applications that could have management and conservation implications for vulnerable species <span class="citation" data-cites="Ramos_2021">(<a href="#ref-Ramos_2021" role="doc-biblioref">Ramos et al., 2021</a>)</span>.</p>
 </section><section id="open-science" class="level1" data-number="5"><h1 data-number="5">
 <span class="header-section-number">5</span> Open science</h1>
-<p>All code used to produce this manuscript including figures and tables are available on GitHub at LINK <!-- TODO: github link --> and on Zeonodo at LINK <!-- TODO: github link -->. The data used in this case study are included with the package and can be imported with:</p>
+<p>All code used to produce this manuscript including figures and tables are available on GitHub at <a href="https://github.com/robitalec/extending-spatsoc-application-paper" class="uri">https://github.com/robitalec/extending-spatsoc-application-paper</a> and on Zenodo at <a href="https://doi.org/10.5281/zenodo.19712779" class="uri">https://doi.org/10.5281/zenodo.19712779</a>. The data used in this case study are included with the package and can be imported with:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/spatsoc/">spatsoc</a></span><span class="op">)</span></span>
 <span></span>
@@ -1553,7 +1556,7 @@ Barocas, A., Golden, H. N., Harrington, M. W., McDonald, D. B., &amp; Ben-David,
 Barrett, T., Dowle, M., Srinivasan, A., Gorecki, J., Chirico, M., Hocking, T., Schwendinger, B., &amp; Krylov, I. (2025). <em>Data.table: <span>Extension</span> of ‘data.frame‘</em> [Manual]. <a href="https://doi.org/10.32614/CRAN.package.data.table">https://doi.org/10.32614/CRAN.package.data.table</a>
 </div>
 <div id="ref-Beardsworth_2022" class="csl-entry" role="listitem">
-Beardsworth, C. E., Gobbens, E., van Maarseveen, F., Denissen, B., Dekinga, A., Nathan, R., Toledo, S., &amp; Bijleveld, A. I. (2022). Validating <span>ATLAS</span>: <span>A</span> regional-scale high-throughput tracking system. <em>Methods in Ecology and Evolution</em>, <em>13</em>(9), 1990–2004. <a href="https://doi.org/10.1111/2041-210X.13913">https://doi.org/10.1111/2041-210X.13913</a>
+<span class="nocase">Beardsworth, C. E., Gobbens, E., van Maarseveen, F., Denissen, B., Dekinga, A., Nathan, R., Toledo, S., &amp; Bijleveld, A. I.</span> (2022). Validating <span>ATLAS</span>: <span>A</span> regional-scale high-throughput tracking system. <em>Methods in Ecology and Evolution</em>, <em>13</em>(9), 1990–2004. <a href="https://doi.org/10.1111/2041-210X.13913">https://doi.org/10.1111/2041-210X.13913</a>
 </div>
 <div id="ref-Bernard_2002" class="csl-entry" role="listitem">
 Bernard, A., &amp; Krafft, B. (2002). <span>L’attraction pour la soie : base de la cohésion du groupe et des comportements collectifs chez les araignées sociales</span>. <em>Comptes Rendus. Biologies</em>, <em>325</em>(11), 1153–1157. <a href="https://doi.org/10.1016/S1631-0691(02)01521-4">https://doi.org/10.1016/S1631-0691(02)01521-4</a>
@@ -1596,9 +1599,6 @@ Couzin, I. D., Krause, J., James, R., Ruxton, G. D., &amp; Franks, N. R. (2002).
 </div>
 <div id="ref-Csardi_2026" class="csl-entry" role="listitem">
 Csárdi, G., Nepusz, T., Traag, V., Horvát, S., Zanini, F., Noom, D., Müller, K., Schoch, D., &amp; Salmon, M. (2026). <em><span class="nocase">igraph</span>: <span>Network</span> analysis and visualization in <span>R</span></em> [Manual]. <a href="https://doi.org/10.5281/zenodo.7682609">https://doi.org/10.5281/zenodo.7682609</a>
-</div>
-<div id="ref-delMarDelgado_2021" class="csl-entry" role="listitem">
-del Mar Delgado, M., Arlettaz, R., Bettega, C., Brambilla, M., De Gabriel Hernando, M., España, A., Fernández-González, Á., Fernández-Martín, Á., Gil, J. A., Hernández-Gómez, S., Laiolo, P., Resano-Mayor, J., Obeso, J. R., Pedrini, P., Roa-Álvarez, I., Schano, C., Scridel, D., Strinella, E., Toranzo, I., &amp; Korner-Nievergelt, F. (2021). Spatio-temporal variation in the wintering associations of an alpine bird. <em>Proceedings of the Royal Society B: Biological Sciences</em>, <em>288</em>(1951), 20210690. <a href="https://doi.org/10.1098/rspb.2021.0690">https://doi.org/10.1098/rspb.2021.0690</a>
 </div>
 <div id="ref-Dodge_2008" class="csl-entry" role="listitem">
 Dodge, S., Weibel, R., &amp; Lautenschütz, A.-K. (2008). Towards a taxonomy of movement patterns. <em>Information Visualization</em>, <em>7</em>(3-4), 240–252. <a href="https://doi.org/10.1057/PALGRAVE.IVS.9500182">https://doi.org/10.1057/PALGRAVE.IVS.9500182</a>
@@ -1676,7 +1676,7 @@ Kay, M. (2025). <em><span class="nocase">ggdist</span>: <span>Visualizations</sp
 Kays, R., Crofoot, M. C., Jetz, W., &amp; Wikelski, M. (2015). Terrestrial animal tracking as an eye on life and planet. <em>Science</em>, <em>348</em>(6240), aaa2478. <a href="https://doi.org/10.1126/science.aaa2478">https://doi.org/10.1126/science.aaa2478</a>
 </div>
 <div id="ref-Kays_2022" class="csl-entry" role="listitem">
-Kays, R., Davidson, S. C., Berger, M., Bohrer, G., Fiedler, W., Flack, A., Hirt, J., Hahn, C., Gauggel, D., Russell, B., Kölzsch, A., Lohr, A., Partecke, J., Quetting, M., Safi, K., Scharf, A., Schneider, G., Lang, I., Schaeuffelhut, F., … Wikelski, M. (2022). The <span>Movebank</span> system for studying global animal movement and demography. <em>Methods in Ecology and Evolution</em>, <em>13</em>(2), 419–431. <a href="https://doi.org/10.1111/2041-210X.13767">https://doi.org/10.1111/2041-210X.13767</a>
+<span class="nocase">Kays, R., Davidson, S. C., Berger, M., Bohrer, G., Fiedler, W., Flack, A., Hirt, J., Hahn, C., Gauggel, D., Russell, B., Kölzsch, A., Lohr, A., Partecke, J., Quetting, M., Safi, K., Scharf, A., Schneider, G., Lang, I., Schaeuffelhut, F., … Wikelski, M.</span> (2022). The <span>Movebank</span> system for studying global animal movement and demography. <em>Methods in Ecology and Evolution</em>, <em>13</em>(2), 419–431. <a href="https://doi.org/10.1111/2041-210X.13767">https://doi.org/10.1111/2041-210X.13767</a>
 </div>
 <div id="ref-Keshavarzi_2023" class="csl-entry" role="listitem">
 Keshavarzi, H., Lee, C., Dyall, T. R., Johnson, M., &amp; Campbell, D. L. M. (2023). Shared stressful experiences affect social proximity in <span>Merino</span> sheep. <em>Biology Letters</em>, <em>19</em>(2), 20220396. <a href="https://doi.org/10.1098/rsbl.2022.0396">https://doi.org/10.1098/rsbl.2022.0396</a>
@@ -1746,6 +1746,9 @@ Nagy, M., Vásárhelyi, G., Pettit, B., Roberts-Mariani, I., Vicsek, T., &amp; B
 </div>
 <div id="ref-Nathan_2022" class="csl-entry" role="listitem">
 Nathan, R., Monk, C. T., Arlinghaus, R., Adam, T., Alós, J., Assaf, M., Baktoft, H., Beardsworth, C. E., Bertram, M. G., &amp; Bijleveld, A. I. (2022). Big-data approaches lead to an increased understanding of the ecology of animal movement. <em>Science</em>, <em>375</em>(6582), eabg1780.
+</div>
+<div id="ref-Papadopoulou_2025" class="csl-entry" role="listitem">
+Papadopoulou, M., Garnier, S., &amp; King, A. J. (2025). <span class="nocase">swaRmverse</span>: <span>An R</span> package for the comparative analysis of collective motion. <em>Methods in Ecology and Evolution</em>, <em>16</em>(1), 29–39. <a href="https://doi.org/10.1111/2041-210X.14460">https://doi.org/10.1111/2041-210X.14460</a>
 </div>
 <div id="ref-Papageorgiou_2020" class="csl-entry" role="listitem">
 Papageorgiou, D., &amp; Farine, D. R. (2020). Shared decision-making allows subordinates to lead when dominants monopolize resources. <em>Science Advances</em>, <em>6</em>(48), eaba5881. <a href="https://doi.org/10.1126/sciadv.aba5881">https://doi.org/10.1126/sciadv.aba5881</a>
@@ -1844,14 +1847,18 @@ Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., &amp; Teal, T. 
 <li>Study does not describe dyadic or group metric related to leadership or dominance (eg. <span class="citation" data-cites="Papageorgiou_2020">Papageorgiou &amp; Farine (<a href="#ref-Papageorgiou_2020" role="doc-biblioref">2020</a>)</span>)</li>
 <li>Study describes metric that is not applicable to spatiotemporal data (eg. <span class="citation" data-cites="Allanic_2020">Allanic et al. (<a href="#ref-Allanic_2020" role="doc-biblioref">2020</a>)</span> used focal observations and video recordings)</li>
 <li>Study does not describe metric beyond static interaction (eg. <span class="citation" data-cites="Carter_2013">Carter et al. (<a href="#ref-Carter_2013" role="doc-biblioref">2013</a>)</span> used home range or spatial overlap)</li>
-<li>Study does not describe metric beyond group size (eg. <span class="citation" data-cites="delMarDelgado_2021">del Mar Delgado et al. (<a href="#ref-delMarDelgado_2021" role="doc-biblioref">2021</a>)</span>)</li>
+<li>Study does not describe metric beyond group size (eg.
+<ol class="example" type="1">
+<li></li>
+</ol>
+</li>
 <li>Study full text is not available in English (eg. <span class="citation" data-cites="Bernard_2002">Bernard &amp; Krafft (<a href="#ref-Bernard_2002" role="doc-biblioref">2002</a>)</span>)</li>
 <li>Study is not a thesis</li>
 <li>Study is not a book chapter (eg. <span class="citation" data-cites="Bernstein_2019">Bernstein &amp; Blue (<a href="#ref-Bernstein_2019" role="doc-biblioref">2019</a>)</span>)</li>
 </ul>
-<p>Despite a focus on animal ecology, some studies were discussed movement data more generically or, alternatively, specifically focused on human or robotic movement data (eg. <span class="citation" data-cites="Long_2022">Long et al. (<a href="#ref-Long_2022" role="doc-biblioref">2022</a>)</span>). These studies were retained when the metrics described were deemed applicable to animal spatiotemporal movement data. Studies using mathematical models or simulations were largely beyond the scope of this review but studies were retained when the parameters used as inputs could be applied to spatial temporal data (eg. <span class="citation" data-cites="Long_2015">Long (<a href="#ref-Long_2015" role="doc-biblioref">2015</a>)</span>). Review studies were read for building the scope of the introduction and discussion but not included in data extraction unless they explicitly discussed dyadic measures (eg. <span class="citation" data-cites="King_2018">King et al. (<a href="#ref-King_2018" role="doc-biblioref">2018</a>)</span>).</p>
+<p>Despite a focus on animal ecology, some studies discussed movement data more generically or, alternatively, specifically focused on human or robotic movement data (eg. <span class="citation" data-cites="Long_2022">Long et al. (<a href="#ref-Long_2022" role="doc-biblioref">2022</a>)</span>). These studies were retained when the metrics described were deemed applicable to animal spatiotemporal movement data. Studies using mathematical models or simulations were largely beyond the scope of this review but studies were retained when the parameters used as inputs could be applied to spatial temporal data (eg. <span class="citation" data-cites="Long_2015">Long (<a href="#ref-Long_2015" role="doc-biblioref">2015</a>)</span>). Review studies were read for building the scope of the introduction and discussion but not included in data extraction unless they explicitly discussed dyadic measures (eg. <span class="citation" data-cites="King_2018">King et al. (<a href="#ref-King_2018" role="doc-biblioref">2018</a>)</span>).</p>
 <p>The goals of data extraction were to record the breadth of dyadic social and dominance metrics applicable to spatiotemporal data, and the degree of code availability. General information about each study was recorded including the type of study (empirical, simulation, algorithm, model, or review), study species and study region. Dyadic social metrics for each study were listed including citations and interpretation for each metric used and data input required. Dominance metrics derived from spatiotemporal data were listed including citations and interpretation. Code availability was described including location of code (eg. Zenodo, or GitHub), programming languages and software packages used.</p>
-<p>Metrics identified were aggregated using a manual process to identify synonymous terms. This aggregation process was required due to variability in defining metrics during data extraction, as well as differences between authors in describing metrics (eg. distance to group “center”, “centroid”, or “center of mass”). Each study was geocoded using the {tidygeocoder} package <span class="citation" data-cites="Cambon_2021">(<a href="#ref-Cambon_2021" role="doc-biblioref">Cambon et al., 2021</a>)</span> and species were parsed using the {rgnparser} package <span class="citation" data-cites="Chamberlain_2023">(<a href="#ref-Chamberlain_2023" role="doc-biblioref">Chamberlain et al., 2023</a>)</span> which provides the GNparser <span class="citation" data-cites="Mozzherin_2026">(<a href="#ref-Mozzherin_2026" role="doc-biblioref">Mozzherin et al., 2026</a>)</span> functionality in R. We calculated frequency of data extracted for each categorical field including programming language, software package, analysis code availability, geographic region, study species and metric used. For many fields, authors did not provide sufficient to determine how metrics were calculated, eg. not including the programming language or software package used. In all cases, counts are presented as an overall frequency including papers with missing fields.</p>
+<p>Metrics identified were aggregated using a manual process to identify synonymous terms. This aggregation process was required due to variability in defining metrics during data extraction and differences between authors in describing metrics (eg. distance to group “center”, “centroid”, or “center of mass”). Each study was geocoded using the {tidygeocoder} package <span class="citation" data-cites="Cambon_2021">(<a href="#ref-Cambon_2021" role="doc-biblioref">Cambon et al., 2021</a>)</span> and species were parsed using the {rgnparser} package <span class="citation" data-cites="Chamberlain_2023">(<a href="#ref-Chamberlain_2023" role="doc-biblioref">Chamberlain et al., 2023</a>)</span> which provides the GNparser <span class="citation" data-cites="Mozzherin_2026">(<a href="#ref-Mozzherin_2026" role="doc-biblioref">Mozzherin et al., 2026</a>)</span> functionality in R. We calculated frequency of data extracted for each categorical field including programming language, software package, analysis code availability, geographic region, study species and metric used. For many fields, authors did not provide sufficient to determine how metrics were calculated, eg. not including the programming language or software package used. In all cases, counts are presented as an overall frequency including papers with missing fields.</p>
 <div class="cell">
 <div id="tbl-form" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-form-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1862,32 +1869,32 @@ Table&nbsp;7: Data extraction form for scoping review to identify metrics for st
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_vfywpztm6b885h7d9nub = TinyTable.createTableFunctions("tinytable_vfywpztm6b885h7d9nub");
+      const tableFns_yvvl5d7qljaqiwesqdnx = TinyTable.createTableFunctions("tinytable_yvvl5d7qljaqiwesqdnx");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '22', j: 1 }, { i: '22', j: 2 } ], css_id: 'tinytable_css_u5jpj3o2j7dw2pchcezf',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 } ], css_id: 'tinytable_css_i93dvijsk6d5xbz091r9',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_owyt0hb7xt8285gz3orn',}, 
+          { positions: [ { i: '22', j: 1 }, { i: '22', j: 2 } ], css_id: 'tinytable_css_ay3bh1elow9lrn6c5q6j',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 } ], css_id: 'tinytable_css_y0uqerh4qk8iuhskvkjd',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_og01p8jt8nl6xprupid9',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_vfywpztm6b885h7d9nub.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_yvvl5d7qljaqiwesqdnx.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_vfywpztm6b885h7d9nub td.tinytable_css_u5jpj3o2j7dw2pchcezf, #tinytable_vfywpztm6b885h7d9nub th.tinytable_css_u5jpj3o2j7dw2pchcezf {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_vfywpztm6b885h7d9nub td.tinytable_css_i93dvijsk6d5xbz091r9, #tinytable_vfywpztm6b885h7d9nub th.tinytable_css_i93dvijsk6d5xbz091r9 { text-align: left }
-    #tinytable_vfywpztm6b885h7d9nub td.tinytable_css_owyt0hb7xt8285gz3orn, #tinytable_vfywpztm6b885h7d9nub th.tinytable_css_owyt0hb7xt8285gz3orn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_yvvl5d7qljaqiwesqdnx td.tinytable_css_ay3bh1elow9lrn6c5q6j, #tinytable_yvvl5d7qljaqiwesqdnx th.tinytable_css_ay3bh1elow9lrn6c5q6j {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_yvvl5d7qljaqiwesqdnx td.tinytable_css_y0uqerh4qk8iuhskvkjd, #tinytable_yvvl5d7qljaqiwesqdnx th.tinytable_css_y0uqerh4qk8iuhskvkjd { text-align: left }
+    #tinytable_yvvl5d7qljaqiwesqdnx td.tinytable_css_og01p8jt8nl6xprupid9, #tinytable_yvvl5d7qljaqiwesqdnx th.tinytable_css_og01p8jt8nl6xprupid9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_vfywpztm6b885h7d9nub" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_yvvl5d7qljaqiwesqdnx" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Category</th>
                 <th scope="col" data-row="0" data-col="2">Field</th>
@@ -2000,32 +2007,32 @@ Table&nbsp;8: Benchmark papers used to evaluate iterative search results for sco
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_43w8o9l90lfhyuq1cc4z = TinyTable.createTableFunctions("tinytable_43w8o9l90lfhyuq1cc4z");
+      const tableFns_l693naf12sw9julfwfnx = TinyTable.createTableFunctions("tinytable_l693naf12sw9julfwfnx");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_c0yu0xntnvhice7v93bd',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_vvwf4znd6ilqu5pwyzge',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_1xem5cungh602wb2qgh5',}, 
+          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_2zldib3eceh0lb22mtj1',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_z37t878zrezujinm6zhy',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_3bmg383ewyj90x0kqx0f',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_43w8o9l90lfhyuq1cc4z.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_l693naf12sw9julfwfnx.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_43w8o9l90lfhyuq1cc4z td.tinytable_css_c0yu0xntnvhice7v93bd, #tinytable_43w8o9l90lfhyuq1cc4z th.tinytable_css_c0yu0xntnvhice7v93bd {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_43w8o9l90lfhyuq1cc4z td.tinytable_css_vvwf4znd6ilqu5pwyzge, #tinytable_43w8o9l90lfhyuq1cc4z th.tinytable_css_vvwf4znd6ilqu5pwyzge { text-align: left }
-    #tinytable_43w8o9l90lfhyuq1cc4z td.tinytable_css_1xem5cungh602wb2qgh5, #tinytable_43w8o9l90lfhyuq1cc4z th.tinytable_css_1xem5cungh602wb2qgh5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_l693naf12sw9julfwfnx td.tinytable_css_2zldib3eceh0lb22mtj1, #tinytable_l693naf12sw9julfwfnx th.tinytable_css_2zldib3eceh0lb22mtj1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_l693naf12sw9julfwfnx td.tinytable_css_z37t878zrezujinm6zhy, #tinytable_l693naf12sw9julfwfnx th.tinytable_css_z37t878zrezujinm6zhy { text-align: left }
+    #tinytable_l693naf12sw9julfwfnx td.tinytable_css_3bmg383ewyj90x0kqx0f, #tinytable_l693naf12sw9julfwfnx th.tinytable_css_3bmg383ewyj90x0kqx0f {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_43w8o9l90lfhyuq1cc4z" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_l693naf12sw9julfwfnx" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Citation</th>
                 <th scope="col" data-row="0" data-col="2">Indexed in WoS</th>
@@ -2086,32 +2093,32 @@ Table&nbsp;9: Search strings for scoping review using Web of Science and Scopus
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_uvpvpnsxib59oh162csv = TinyTable.createTableFunctions("tinytable_uvpvpnsxib59oh162csv");
+      const tableFns_sutqa2gifxyxyqlmt6l1 = TinyTable.createTableFunctions("tinytable_sutqa2gifxyxyqlmt6l1");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_7t0l3r22t2ucqzktnj6m',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '1', j: 2 } ], css_id: 'tinytable_css_9v8148fxps9hf33potmi',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_p82iq26p9q2fq4r812if',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_qicikn60xkwxkzh9gbwj',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 2 } ], css_id: 'tinytable_css_3g8d2ntprsevcmyfp1lz',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_mxcch3y7ag3quvue5g97',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_uvpvpnsxib59oh162csv.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_sutqa2gifxyxyqlmt6l1.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_uvpvpnsxib59oh162csv td.tinytable_css_7t0l3r22t2ucqzktnj6m, #tinytable_uvpvpnsxib59oh162csv th.tinytable_css_7t0l3r22t2ucqzktnj6m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_uvpvpnsxib59oh162csv td.tinytable_css_9v8148fxps9hf33potmi, #tinytable_uvpvpnsxib59oh162csv th.tinytable_css_9v8148fxps9hf33potmi { text-align: left }
-    #tinytable_uvpvpnsxib59oh162csv td.tinytable_css_p82iq26p9q2fq4r812if, #tinytable_uvpvpnsxib59oh162csv th.tinytable_css_p82iq26p9q2fq4r812if {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_sutqa2gifxyxyqlmt6l1 td.tinytable_css_qicikn60xkwxkzh9gbwj, #tinytable_sutqa2gifxyxyqlmt6l1 th.tinytable_css_qicikn60xkwxkzh9gbwj {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_sutqa2gifxyxyqlmt6l1 td.tinytable_css_3g8d2ntprsevcmyfp1lz, #tinytable_sutqa2gifxyxyqlmt6l1 th.tinytable_css_3g8d2ntprsevcmyfp1lz { text-align: left }
+    #tinytable_sutqa2gifxyxyqlmt6l1 td.tinytable_css_mxcch3y7ag3quvue5g97, #tinytable_sutqa2gifxyxyqlmt6l1 th.tinytable_css_mxcch3y7ag3quvue5g97 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_uvpvpnsxib59oh162csv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_sutqa2gifxyxyqlmt6l1" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Source</th>
                 <th scope="col" data-row="0" data-col="2">String</th>
@@ -2177,30 +2184,30 @@ Table&nbsp;10: Count of code availability in references screened for full text e
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_aucrna6dsluik2wvcb5k = TinyTable.createTableFunctions("tinytable_aucrna6dsluik2wvcb5k");
+      const tableFns_ejrxa763legjirsmtn7e = TinyTable.createTableFunctions("tinytable_ejrxa763legjirsmtn7e");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_h4zq3c7woo2u60sqh8s9',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_y7lroqljl0q7wkcrgkn0',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_p47oo660wx1fmw81y8zq',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_t9ekr2470scx7fw2iw4m',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_aucrna6dsluik2wvcb5k.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_ejrxa763legjirsmtn7e.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_aucrna6dsluik2wvcb5k td.tinytable_css_h4zq3c7woo2u60sqh8s9, #tinytable_aucrna6dsluik2wvcb5k th.tinytable_css_h4zq3c7woo2u60sqh8s9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_aucrna6dsluik2wvcb5k td.tinytable_css_y7lroqljl0q7wkcrgkn0, #tinytable_aucrna6dsluik2wvcb5k th.tinytable_css_y7lroqljl0q7wkcrgkn0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_ejrxa763legjirsmtn7e td.tinytable_css_p47oo660wx1fmw81y8zq, #tinytable_ejrxa763legjirsmtn7e th.tinytable_css_p47oo660wx1fmw81y8zq {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_ejrxa763legjirsmtn7e td.tinytable_css_t9ekr2470scx7fw2iw4m, #tinytable_ejrxa763legjirsmtn7e th.tinytable_css_t9ekr2470scx7fw2iw4m {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_aucrna6dsluik2wvcb5k" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_ejrxa763legjirsmtn7e" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Code availability</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -2234,30 +2241,30 @@ Table&nbsp;11: Count of programming language or GUI program used in references s
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_tpws6ywr2wfcymnqajh6 = TinyTable.createTableFunctions("tinytable_tpws6ywr2wfcymnqajh6");
+      const tableFns_v4flmwm44qoltipmdzof = TinyTable.createTableFunctions("tinytable_v4flmwm44qoltipmdzof");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '29', j: 1 }, { i: '29', j: 2 } ], css_id: 'tinytable_css_iuaj7fvehwl7goj7l4gm',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_v4ql22bdbzbmk1vh5axp',}, 
+          { positions: [ { i: '29', j: 1 }, { i: '29', j: 2 } ], css_id: 'tinytable_css_glk91n4ygxdx6i4isd7i',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_jdoo7j1eypd5bk4pxwap',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_tpws6ywr2wfcymnqajh6.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_v4flmwm44qoltipmdzof.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_tpws6ywr2wfcymnqajh6 td.tinytable_css_iuaj7fvehwl7goj7l4gm, #tinytable_tpws6ywr2wfcymnqajh6 th.tinytable_css_iuaj7fvehwl7goj7l4gm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_tpws6ywr2wfcymnqajh6 td.tinytable_css_v4ql22bdbzbmk1vh5axp, #tinytable_tpws6ywr2wfcymnqajh6 th.tinytable_css_v4ql22bdbzbmk1vh5axp {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_v4flmwm44qoltipmdzof td.tinytable_css_glk91n4ygxdx6i4isd7i, #tinytable_v4flmwm44qoltipmdzof th.tinytable_css_glk91n4ygxdx6i4isd7i {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_v4flmwm44qoltipmdzof td.tinytable_css_jdoo7j1eypd5bk4pxwap, #tinytable_v4flmwm44qoltipmdzof th.tinytable_css_jdoo7j1eypd5bk4pxwap {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_tpws6ywr2wfcymnqajh6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_v4flmwm44qoltipmdzof" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Programming language</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -2399,30 +2406,30 @@ Table&nbsp;12: Count of software packages used in references screened for full t
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_er2iigf5mp1m9dyaexmc = TinyTable.createTableFunctions("tinytable_er2iigf5mp1m9dyaexmc");
+      const tableFns_45a6oz5q8b22ykbxz1pl = TinyTable.createTableFunctions("tinytable_45a6oz5q8b22ykbxz1pl");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '37', j: 1 }, { i: '37', j: 2 } ], css_id: 'tinytable_css_ml2j0ewtg8bau0tgi374',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_ac1f0uoxwjyscaw8z2vn',}, 
+          { positions: [ { i: '37', j: 1 }, { i: '37', j: 2 } ], css_id: 'tinytable_css_slie56hxr1whlnrjietk',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_7gbergp6amaa86xleo4d',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_er2iigf5mp1m9dyaexmc.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_45a6oz5q8b22ykbxz1pl.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_er2iigf5mp1m9dyaexmc td.tinytable_css_ml2j0ewtg8bau0tgi374, #tinytable_er2iigf5mp1m9dyaexmc th.tinytable_css_ml2j0ewtg8bau0tgi374 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_er2iigf5mp1m9dyaexmc td.tinytable_css_ac1f0uoxwjyscaw8z2vn, #tinytable_er2iigf5mp1m9dyaexmc th.tinytable_css_ac1f0uoxwjyscaw8z2vn {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_45a6oz5q8b22ykbxz1pl td.tinytable_css_slie56hxr1whlnrjietk, #tinytable_45a6oz5q8b22ykbxz1pl th.tinytable_css_slie56hxr1whlnrjietk {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_45a6oz5q8b22ykbxz1pl td.tinytable_css_7gbergp6amaa86xleo4d, #tinytable_45a6oz5q8b22ykbxz1pl th.tinytable_css_7gbergp6amaa86xleo4d {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_er2iigf5mp1m9dyaexmc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_45a6oz5q8b22ykbxz1pl" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Software package used</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -2628,36 +2635,36 @@ Table&nbsp;13: Count of species parsed using {rgnparser} in references screened 
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_y08z0v3oinm2hhzka0mp = TinyTable.createTableFunctions("tinytable_y08z0v3oinm2hhzka0mp");
+      const tableFns_0hgl90lpzpoo5bd4nrun = TinyTable.createTableFunctions("tinytable_0hgl90lpzpoo5bd4nrun");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '71', j: 2 } ], css_id: 'tinytable_css_uayr063xhy9nafwdogp0',}, 
-          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_god195dznqkvat6krilh',}, 
-          { positions: [ { i: '71', j: 1 } ], css_id: 'tinytable_css_qlv42hvv5rerfca75bqg',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 }, { i: '46', j: 1 }, { i: '47', j: 1 }, { i: '48', j: 1 }, { i: '49', j: 1 }, { i: '50', j: 1 }, { i: '51', j: 1 }, { i: '52', j: 1 }, { i: '53', j: 1 }, { i: '54', j: 1 }, { i: '55', j: 1 }, { i: '56', j: 1 }, { i: '57', j: 1 }, { i: '58', j: 1 }, { i: '59', j: 1 }, { i: '60', j: 1 }, { i: '61', j: 1 }, { i: '62', j: 1 }, { i: '63', j: 1 }, { i: '64', j: 1 }, { i: '65', j: 1 }, { i: '66', j: 1 }, { i: '67', j: 1 }, { i: '68', j: 1 }, { i: '69', j: 1 }, { i: '70', j: 1 } ], css_id: 'tinytable_css_zskcc9wjfeknp5hs8evl',}, 
-          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_q4km05db1jifw7bmph9z',}, 
+          { positions: [ { i: '71', j: 2 } ], css_id: 'tinytable_css_679072a50w1au19wy3sc',}, 
+          { positions: [ { i: '0', j: 2 } ], css_id: 'tinytable_css_80bl6lkrjvg2iqqoufwm',}, 
+          { positions: [ { i: '71', j: 1 } ], css_id: 'tinytable_css_zogx3j3kfs1z5ses9x4h',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '40', j: 1 }, { i: '41', j: 1 }, { i: '42', j: 1 }, { i: '43', j: 1 }, { i: '44', j: 1 }, { i: '45', j: 1 }, { i: '46', j: 1 }, { i: '47', j: 1 }, { i: '48', j: 1 }, { i: '49', j: 1 }, { i: '50', j: 1 }, { i: '51', j: 1 }, { i: '52', j: 1 }, { i: '53', j: 1 }, { i: '54', j: 1 }, { i: '55', j: 1 }, { i: '56', j: 1 }, { i: '57', j: 1 }, { i: '58', j: 1 }, { i: '59', j: 1 }, { i: '60', j: 1 }, { i: '61', j: 1 }, { i: '62', j: 1 }, { i: '63', j: 1 }, { i: '64', j: 1 }, { i: '65', j: 1 }, { i: '66', j: 1 }, { i: '67', j: 1 }, { i: '68', j: 1 }, { i: '69', j: 1 }, { i: '70', j: 1 } ], css_id: 'tinytable_css_c1fxkvgvgt6mrubb6917',}, 
+          { positions: [ { i: '0', j: 1 } ], css_id: 'tinytable_css_ugz9m6lia08rgfhnq8dw',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_y08z0v3oinm2hhzka0mp.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_0hgl90lpzpoo5bd4nrun.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_y08z0v3oinm2hhzka0mp td.tinytable_css_uayr063xhy9nafwdogp0, #tinytable_y08z0v3oinm2hhzka0mp th.tinytable_css_uayr063xhy9nafwdogp0 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_y08z0v3oinm2hhzka0mp td.tinytable_css_god195dznqkvat6krilh, #tinytable_y08z0v3oinm2hhzka0mp th.tinytable_css_god195dznqkvat6krilh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_y08z0v3oinm2hhzka0mp td.tinytable_css_qlv42hvv5rerfca75bqg, #tinytable_y08z0v3oinm2hhzka0mp th.tinytable_css_qlv42hvv5rerfca75bqg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
-    #tinytable_y08z0v3oinm2hhzka0mp td.tinytable_css_zskcc9wjfeknp5hs8evl, #tinytable_y08z0v3oinm2hhzka0mp th.tinytable_css_zskcc9wjfeknp5hs8evl { font-style: italic }
-    #tinytable_y08z0v3oinm2hhzka0mp td.tinytable_css_q4km05db1jifw7bmph9z, #tinytable_y08z0v3oinm2hhzka0mp th.tinytable_css_q4km05db1jifw7bmph9z {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
+    #tinytable_0hgl90lpzpoo5bd4nrun td.tinytable_css_679072a50w1au19wy3sc, #tinytable_0hgl90lpzpoo5bd4nrun th.tinytable_css_679072a50w1au19wy3sc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_0hgl90lpzpoo5bd4nrun td.tinytable_css_80bl6lkrjvg2iqqoufwm, #tinytable_0hgl90lpzpoo5bd4nrun th.tinytable_css_80bl6lkrjvg2iqqoufwm {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_0hgl90lpzpoo5bd4nrun td.tinytable_css_zogx3j3kfs1z5ses9x4h, #tinytable_0hgl90lpzpoo5bd4nrun th.tinytable_css_zogx3j3kfs1z5ses9x4h {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
+    #tinytable_0hgl90lpzpoo5bd4nrun td.tinytable_css_c1fxkvgvgt6mrubb6917, #tinytable_0hgl90lpzpoo5bd4nrun th.tinytable_css_c1fxkvgvgt6mrubb6917 { font-style: italic }
+    #tinytable_0hgl90lpzpoo5bd4nrun td.tinytable_css_ugz9m6lia08rgfhnq8dw, #tinytable_0hgl90lpzpoo5bd4nrun th.tinytable_css_ugz9m6lia08rgfhnq8dw {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; font-style: italic }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_y08z0v3oinm2hhzka0mp" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_0hgl90lpzpoo5bd4nrun" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Species</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -2966,30 +2973,30 @@ Table&nbsp;14: Count of metrics used to measure intragroup dynamics in reference
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_g1h90x8prke23nkbqcuz = TinyTable.createTableFunctions("tinytable_g1h90x8prke23nkbqcuz");
+      const tableFns_5mb90gl1k97v5ng218p2 = TinyTable.createTableFunctions("tinytable_5mb90gl1k97v5ng218p2");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '119', j: 1 }, { i: '119', j: 2 } ], css_id: 'tinytable_css_ry6yhfvfwbm92hnltze5',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_dp9g27g94778oaqxcrpu',}, 
+          { positions: [ { i: '119', j: 1 }, { i: '119', j: 2 } ], css_id: 'tinytable_css_yth7yqjwkt62hlsdal5q',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_zp9y7n9qhdc5uxpwbpc7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_g1h90x8prke23nkbqcuz.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_5mb90gl1k97v5ng218p2.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_g1h90x8prke23nkbqcuz td.tinytable_css_ry6yhfvfwbm92hnltze5, #tinytable_g1h90x8prke23nkbqcuz th.tinytable_css_ry6yhfvfwbm92hnltze5 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_g1h90x8prke23nkbqcuz td.tinytable_css_dp9g27g94778oaqxcrpu, #tinytable_g1h90x8prke23nkbqcuz th.tinytable_css_dp9g27g94778oaqxcrpu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_5mb90gl1k97v5ng218p2 td.tinytable_css_yth7yqjwkt62hlsdal5q, #tinytable_5mb90gl1k97v5ng218p2 th.tinytable_css_yth7yqjwkt62hlsdal5q {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_5mb90gl1k97v5ng218p2 td.tinytable_css_zp9y7n9qhdc5uxpwbpc7, #tinytable_5mb90gl1k97v5ng218p2 th.tinytable_css_zp9y7n9qhdc5uxpwbpc7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_g1h90x8prke23nkbqcuz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_5mb90gl1k97v5ng218p2" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Metric</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -3490,30 +3497,30 @@ Table&nbsp;15: Count of metrics used to measure dominance in references screened
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_tlzhc1xr0slq2fxnzvvu = TinyTable.createTableFunctions("tinytable_tlzhc1xr0slq2fxnzvvu");
+      const tableFns_wvl9klsc05pivei3jx3g = TinyTable.createTableFunctions("tinytable_wvl9klsc05pivei3jx3g");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '14', j: 1 }, { i: '14', j: 2 } ], css_id: 'tinytable_css_2ejv8wesorehmcf9n6t1',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_kjxhasi2x7shevbpjlyo',}, 
+          { positions: [ { i: '14', j: 1 }, { i: '14', j: 2 } ], css_id: 'tinytable_css_yfk0pyb72oj9tet9zgxi',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_4ueap2mr8zf3rz3zyfe9',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_tlzhc1xr0slq2fxnzvvu.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_wvl9klsc05pivei3jx3g.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_tlzhc1xr0slq2fxnzvvu td.tinytable_css_2ejv8wesorehmcf9n6t1, #tinytable_tlzhc1xr0slq2fxnzvvu th.tinytable_css_2ejv8wesorehmcf9n6t1 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_tlzhc1xr0slq2fxnzvvu td.tinytable_css_kjxhasi2x7shevbpjlyo, #tinytable_tlzhc1xr0slq2fxnzvvu th.tinytable_css_kjxhasi2x7shevbpjlyo {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_wvl9klsc05pivei3jx3g td.tinytable_css_yfk0pyb72oj9tet9zgxi, #tinytable_wvl9klsc05pivei3jx3g th.tinytable_css_yfk0pyb72oj9tet9zgxi {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_wvl9klsc05pivei3jx3g td.tinytable_css_4ueap2mr8zf3rz3zyfe9, #tinytable_wvl9klsc05pivei3jx3g th.tinytable_css_4ueap2mr8zf3rz3zyfe9 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_tlzhc1xr0slq2fxnzvvu" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_wvl9klsc05pivei3jx3g" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Dominance metric</th>
                 <th scope="col" data-row="0" data-col="2">N</th>
@@ -3594,30 +3601,30 @@ Table&nbsp;16: Review of definitions of spatiotemporal groups in references scre
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_hjtnoz5u1b43r28b1duc = TinyTable.createTableFunctions("tinytable_hjtnoz5u1b43r28b1duc");
+      const tableFns_bme197xkytpdysgq9156 = TinyTable.createTableFunctions("tinytable_bme197xkytpdysgq9156");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '8', j: 1 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_imzfw95d280ery5zg12p',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_cpyiqwr0p4aack6uvw8l',}, 
+          { positions: [ { i: '8', j: 1 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_me7txeq613scdyh8dsur',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_725srobb6k3n9xm7kwp7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_hjtnoz5u1b43r28b1duc.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_bme197xkytpdysgq9156.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_hjtnoz5u1b43r28b1duc td.tinytable_css_imzfw95d280ery5zg12p, #tinytable_hjtnoz5u1b43r28b1duc th.tinytable_css_imzfw95d280ery5zg12p {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_hjtnoz5u1b43r28b1duc td.tinytable_css_cpyiqwr0p4aack6uvw8l, #tinytable_hjtnoz5u1b43r28b1duc th.tinytable_css_cpyiqwr0p4aack6uvw8l {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_bme197xkytpdysgq9156 td.tinytable_css_me7txeq613scdyh8dsur, #tinytable_bme197xkytpdysgq9156 th.tinytable_css_me7txeq613scdyh8dsur {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_bme197xkytpdysgq9156 td.tinytable_css_725srobb6k3n9xm7kwp7, #tinytable_bme197xkytpdysgq9156 th.tinytable_css_725srobb6k3n9xm7kwp7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_hjtnoz5u1b43r28b1duc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_bme197xkytpdysgq9156" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>
@@ -3674,30 +3681,30 @@ Table&nbsp;17: Review of definitions of leadership in references screened for fu
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_rgtd00zo0cetrtths0xm = TinyTable.createTableFunctions("tinytable_rgtd00zo0cetrtths0xm");
+      const tableFns_233rsrxdzi3qzx1gxj0d = TinyTable.createTableFunctions("tinytable_233rsrxdzi3qzx1gxj0d");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '17', j: 1 }, { i: '17', j: 2 } ], css_id: 'tinytable_css_8i7p8svt587xb8cns8pg',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_2nofr1ukgg2esarrblk4',}, 
+          { positions: [ { i: '17', j: 1 }, { i: '17', j: 2 } ], css_id: 'tinytable_css_dfq8f4m5enab6m0disfa',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_fczf2mbsaske74jm5gva',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_rgtd00zo0cetrtths0xm.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_233rsrxdzi3qzx1gxj0d.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_rgtd00zo0cetrtths0xm td.tinytable_css_8i7p8svt587xb8cns8pg, #tinytable_rgtd00zo0cetrtths0xm th.tinytable_css_8i7p8svt587xb8cns8pg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_rgtd00zo0cetrtths0xm td.tinytable_css_2nofr1ukgg2esarrblk4, #tinytable_rgtd00zo0cetrtths0xm th.tinytable_css_2nofr1ukgg2esarrblk4 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_233rsrxdzi3qzx1gxj0d td.tinytable_css_dfq8f4m5enab6m0disfa, #tinytable_233rsrxdzi3qzx1gxj0d th.tinytable_css_dfq8f4m5enab6m0disfa {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_233rsrxdzi3qzx1gxj0d td.tinytable_css_fczf2mbsaske74jm5gva, #tinytable_233rsrxdzi3qzx1gxj0d th.tinytable_css_fczf2mbsaske74jm5gva {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_rgtd00zo0cetrtths0xm" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_233rsrxdzi3qzx1gxj0d" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>
@@ -3790,30 +3797,30 @@ Table&nbsp;18: Review of definitions of fission-fusion in references screened fo
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_4mkihj9g1cgzznmqwckm = TinyTable.createTableFunctions("tinytable_4mkihj9g1cgzznmqwckm");
+      const tableFns_yfxb2co1xiffhmtm4owz = TinyTable.createTableFunctions("tinytable_yfxb2co1xiffhmtm4owz");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '12', j: 1 }, { i: '12', j: 2 } ], css_id: 'tinytable_css_f6i88b47hs73s77ghth3',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_uqod4ymbdhuiq3qismnz',}, 
+          { positions: [ { i: '12', j: 1 }, { i: '12', j: 2 } ], css_id: 'tinytable_css_9jv8sw7ntcuwwsq0eaia',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_bt96j71kcfka4e1xsxme',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_4mkihj9g1cgzznmqwckm.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_yfxb2co1xiffhmtm4owz.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_4mkihj9g1cgzznmqwckm td.tinytable_css_f6i88b47hs73s77ghth3, #tinytable_4mkihj9g1cgzznmqwckm th.tinytable_css_f6i88b47hs73s77ghth3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
-    #tinytable_4mkihj9g1cgzznmqwckm td.tinytable_css_uqod4ymbdhuiq3qismnz, #tinytable_4mkihj9g1cgzznmqwckm th.tinytable_css_uqod4ymbdhuiq3qismnz {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_yfxb2co1xiffhmtm4owz td.tinytable_css_9jv8sw7ntcuwwsq0eaia, #tinytable_yfxb2co1xiffhmtm4owz th.tinytable_css_9jv8sw7ntcuwwsq0eaia {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
+    #tinytable_yfxb2co1xiffhmtm4owz td.tinytable_css_bt96j71kcfka4e1xsxme, #tinytable_yfxb2co1xiffhmtm4owz th.tinytable_css_bt96j71kcfka4e1xsxme {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%;  }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_4mkihj9g1cgzznmqwckm" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_yfxb2co1xiffhmtm4owz" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">study_id</th>
                 <th scope="col" data-row="0" data-col="2">definition</th>
@@ -3906,43 +3913,43 @@ Table&nbsp;19: Description of all functions (new and previously existing) availa
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_3i4dhdydqlieluiect4t = TinyTable.createTableFunctions("tinytable_3i4dhdydqlieluiect4t");
+      const tableFns_sixymjwmxvi5mur6zld5 = TinyTable.createTableFunctions("tinytable_sixymjwmxvi5mur6zld5");
       // tinytable span after
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(38, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(35, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(31, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(29, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(26, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(23, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(17, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(13, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(10, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(3, 1, 1, 3) })
-      window.addEventListener('load', function () { tableFns_3i4dhdydqlieluiect4t.spanCell(1, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(38, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(35, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(31, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(29, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(26, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(23, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(17, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(13, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(10, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(3, 1, 1, 3) })
+      window.addEventListener('load', function () { tableFns_sixymjwmxvi5mur6zld5.spanCell(1, 1, 1, 3) })
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '40', j: 1 }, { i: '40', j: 2 }, { i: '40', j: 3 } ], css_id: 'tinytable_css_f89nrq8n1rprqsn6j3ty',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '22', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 }, { i: '27', j: 3 }, { i: '28', j: 3 }, { i: '29', j: 3 }, { i: '30', j: 3 }, { i: '31', j: 3 }, { i: '32', j: 3 }, { i: '33', j: 3 }, { i: '34', j: 3 }, { i: '35', j: 3 }, { i: '36', j: 3 }, { i: '37', j: 3 }, { i: '38', j: 3 }, { i: '39', j: 3 } ], css_id: 'tinytable_css_f54urh9t5c82fn5q0f2k',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_trvf4lzndkvlgspdqfk3',}, 
+          { positions: [ { i: '40', j: 1 }, { i: '40', j: 2 }, { i: '40', j: 3 } ], css_id: 'tinytable_css_z1amtjbqr8hyqdwot97g',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '22', j: 1 }, { i: '23', j: 1 }, { i: '24', j: 1 }, { i: '25', j: 1 }, { i: '26', j: 1 }, { i: '27', j: 1 }, { i: '28', j: 1 }, { i: '29', j: 1 }, { i: '30', j: 1 }, { i: '31', j: 1 }, { i: '32', j: 1 }, { i: '33', j: 1 }, { i: '34', j: 1 }, { i: '35', j: 1 }, { i: '36', j: 1 }, { i: '37', j: 1 }, { i: '38', j: 1 }, { i: '39', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 }, { i: '22', j: 2 }, { i: '23', j: 2 }, { i: '24', j: 2 }, { i: '25', j: 2 }, { i: '26', j: 2 }, { i: '27', j: 2 }, { i: '28', j: 2 }, { i: '29', j: 2 }, { i: '30', j: 2 }, { i: '31', j: 2 }, { i: '32', j: 2 }, { i: '33', j: 2 }, { i: '34', j: 2 }, { i: '35', j: 2 }, { i: '36', j: 2 }, { i: '37', j: 2 }, { i: '38', j: 2 }, { i: '39', j: 2 }, { i: '1', j: 3 }, { i: '2', j: 3 }, { i: '3', j: 3 }, { i: '4', j: 3 }, { i: '5', j: 3 }, { i: '6', j: 3 }, { i: '7', j: 3 }, { i: '8', j: 3 }, { i: '9', j: 3 }, { i: '10', j: 3 }, { i: '11', j: 3 }, { i: '12', j: 3 }, { i: '13', j: 3 }, { i: '14', j: 3 }, { i: '15', j: 3 }, { i: '16', j: 3 }, { i: '17', j: 3 }, { i: '18', j: 3 }, { i: '19', j: 3 }, { i: '20', j: 3 }, { i: '21', j: 3 }, { i: '22', j: 3 }, { i: '23', j: 3 }, { i: '24', j: 3 }, { i: '25', j: 3 }, { i: '26', j: 3 }, { i: '27', j: 3 }, { i: '28', j: 3 }, { i: '29', j: 3 }, { i: '30', j: 3 }, { i: '31', j: 3 }, { i: '32', j: 3 }, { i: '33', j: 3 }, { i: '34', j: 3 }, { i: '35', j: 3 }, { i: '36', j: 3 }, { i: '37', j: 3 }, { i: '38', j: 3 }, { i: '39', j: 3 } ], css_id: 'tinytable_css_vv7xc6xl4i3ejprqsayt',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 }, { i: '0', j: 3 } ], css_id: 'tinytable_css_iy4h9zyz5kvou9sqgdez',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_3i4dhdydqlieluiect4t.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_sixymjwmxvi5mur6zld5.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_3i4dhdydqlieluiect4t td.tinytable_css_f89nrq8n1rprqsn6j3ty, #tinytable_3i4dhdydqlieluiect4t th.tinytable_css_f89nrq8n1rprqsn6j3ty {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_3i4dhdydqlieluiect4t td.tinytable_css_f54urh9t5c82fn5q0f2k, #tinytable_3i4dhdydqlieluiect4t th.tinytable_css_f54urh9t5c82fn5q0f2k { text-align: left }
-    #tinytable_3i4dhdydqlieluiect4t td.tinytable_css_trvf4lzndkvlgspdqfk3, #tinytable_3i4dhdydqlieluiect4t th.tinytable_css_trvf4lzndkvlgspdqfk3 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_sixymjwmxvi5mur6zld5 td.tinytable_css_z1amtjbqr8hyqdwot97g, #tinytable_sixymjwmxvi5mur6zld5 th.tinytable_css_z1amtjbqr8hyqdwot97g {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_sixymjwmxvi5mur6zld5 td.tinytable_css_vv7xc6xl4i3ejprqsayt, #tinytable_sixymjwmxvi5mur6zld5 th.tinytable_css_vv7xc6xl4i3ejprqsayt { text-align: left }
+    #tinytable_sixymjwmxvi5mur6zld5 td.tinytable_css_iy4h9zyz5kvou9sqgdez, #tinytable_sixymjwmxvi5mur6zld5 th.tinytable_css_iy4h9zyz5kvou9sqgdez {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_3i4dhdydqlieluiect4t" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_sixymjwmxvi5mur6zld5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Function</th>
                 <th scope="col" data-row="0" data-col="2">Description</th>
@@ -4161,7 +4168,7 @@ Table&nbsp;19: Description of all functions (new and previously existing) availa
 <section id="distance-direction-and-rank-distance-to-group-centroid" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="distance-direction-and-rank-distance-to-group-centroid">Distance, direction and rank distance to group centroid</h3>
 <p>Our scoping review found 21 studies that used the group centroid, distance to group centroid, direction to group centroid, or rank distance to group centroid metrics, across 14 study species. 4 studies had code available. The {swaRm} package provides functionality to calculate the group centroid and the distance to the group centroid. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the rank to distance to group centroid metric.</p>
 </section><section id="polarization-directional-alignment-and-interindividual-direction" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="polarization-directional-alignment-and-interindividual-direction">Polarization, directional alignment and interindividual direction</h3>
-<p>Our scoping review found 20 studies that used the polarization, directional alignment or interindividual direction metrics, across 11 study species. 4 studies had code available. The {CircStats} package provides functionality to calculate the polarization order parameter, as well as the {swaRm} package. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the directional alignment or interindividual direction metrics.</p>
+<p>Our scoping review found 20 studies that used the polarization, directional alignment or interindividual direction metrics, across 11 study species. 4 studies had code available. The {CircStats} and the {swaRm} packages provide functionality to calculate the polarization order parameter. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the directional alignment or interindividual direction metrics. After the scoping review was conducted, the {swaRmverse} package was released which provides the direction to nearest neighbour metric <span class="citation" data-cites="Papadopoulou_2025">(<a href="#ref-Papadopoulou_2025" role="doc-biblioref">Papadopoulou et al., 2025</a>)</span>.</p>
 </section><section id="behavioural-zones-1" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="behavioural-zones-1">Behavioural zones</h3>
 <p>Our scoping review found 13 studies that used the behavioural zones metric, across 9 study species. 4 studies had code available. At the time when the scoping review was conducted, to the best of our knowledge, there were no R packages that provide the behavioural zones metric.</p>
 </section><section id="position-within-group-rank-position-within-group-distance-and-direction-to-leader" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="position-within-group-rank-position-within-group-distance-and-direction-to-leader">Position within group, rank position within group, distance and direction to leader</h3>

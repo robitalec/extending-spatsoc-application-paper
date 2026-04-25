@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta charset="UTF-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>supplement-a</title>
 <style>
+      /* Default styles provided by pandoc.
+      ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+      */
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -143,17 +146,16 @@
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-e5e365508e46ee55073587b31ce1f8b8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-0b5be440d7477abc64e1b143b8e174ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script async="" src="https://hypothes.is/embed.js"></script><script>
+<link href="../site_libs/bootstrap/bootstrap-d870bc86991a1aa2db5dbadae5b82848.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-589e9d0ca6a9d9d22129cf6aa599e820.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script async="" src="https://hypothes.is/embed.js"></script><script>
   window.document.addEventListener("DOMContentLoaded", function (_event) {
     document.body.classList.add('hypothesis-enabled');
   });
@@ -339,11 +341,35 @@
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
-<main class="content" id="quarto-document-content"><section id="sec-scoping-methods" class="level1"><h1>Supplement: Scoping review methods</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><section id="sec-scoping-methods" class="level1"><h1>Supplement: Scoping review methods</h1>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_source.html">tar_source</a></span><span class="op">(</span><span class="st">'R'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>qs2 0.1.5</code></pre>
+<pre><code>qs2 0.2.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'renv'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:pak':
+
+    lockfile_create</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    embed, update</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:utils':
+
+    history, upgrade</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
@@ -355,12 +381,12 @@ Attaching package: 'janitor'</code></pre>
     chisq.test, fisher.test</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.1, PROJ 9.7.0; sf_use_s2() is TRUE</code></pre>
+<pre><code>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>udunits database from /usr/share/udunits/udunits2.xml</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">review</span><span class="op">)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tar_load</span><span class="op">(</span><span class="va">review</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">geocoded</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">taxized</span><span class="op">)</span></span>
 <span><span class="fu">tar_load</span><span class="op">(</span><span class="va">software_meta</span><span class="op">)</span></span>
@@ -379,16 +405,20 @@ Attaching package: 'janitor'</code></pre>
 <li>Study does not describe dyadic or group metric related to leadership or dominance (eg. <span class="citation" data-cites="Papageorgiou_2020">@Papageorgiou_2020</span>)</li>
 <li>Study describes metric that is not applicable to spatiotemporal data (eg. <span class="citation" data-cites="Allanic_2020">@Allanic_2020</span> used focal observations and video recordings)</li>
 <li>Study does not describe metric beyond static interaction (eg. <span class="citation" data-cites="Carter_2013">@Carter_2013</span> used home range or spatial overlap)</li>
-<li>Study does not describe metric beyond group size (eg. <span class="citation" data-cites="delMarDelgado_2021">@delMarDelgado_2021</span>)</li>
+<li>Study does not describe metric beyond group size (eg.
+<ol class="example" type="1">
+<li></li>
+</ol>
+</li>
 <li>Study full text is not available in English (eg. <span class="citation" data-cites="Bernard_2002">@Bernard_2002</span>)</li>
 <li>Study is not a thesis</li>
 <li>Study is not a book chapter (eg. <span class="citation" data-cites="Bernstein_2019">@Bernstein_2019</span>)</li>
 </ul>
-<p>Despite a focus on animal ecology, some studies were discussed movement data more generically or, alternatively, specifically focused on human or robotic movement data (eg. <span class="citation" data-cites="Long_2022">@Long_2022</span>). These studies were retained when the metrics described were deemed applicable to animal spatiotemporal movement data. Studies using mathematical models or simulations were largely beyond the scope of this review but studies were retained when the parameters used as inputs could be applied to spatial temporal data (eg. <span class="citation" data-cites="Long_2015">@Long_2015</span>). Review studies were read for building the scope of the introduction and discussion but not included in data extraction unless they explicitly discussed dyadic measures (eg. <span class="citation" data-cites="King_2018">@King_2018</span>).</p>
+<p>Despite a focus on animal ecology, some studies discussed movement data more generically or, alternatively, specifically focused on human or robotic movement data (eg. <span class="citation" data-cites="Long_2022">@Long_2022</span>). These studies were retained when the metrics described were deemed applicable to animal spatiotemporal movement data. Studies using mathematical models or simulations were largely beyond the scope of this review but studies were retained when the parameters used as inputs could be applied to spatial temporal data (eg. <span class="citation" data-cites="Long_2015">@Long_2015</span>). Review studies were read for building the scope of the introduction and discussion but not included in data extraction unless they explicitly discussed dyadic measures (eg. <span class="citation" data-cites="King_2018">@King_2018</span>).</p>
 <p>The goals of data extraction were to record the breadth of dyadic social and dominance metrics applicable to spatiotemporal data, and the degree of code availability. General information about each study was recorded including the type of study (empirical, simulation, algorithm, model, or review), study species and study region. Dyadic social metrics for each study were listed including citations and interpretation for each metric used and data input required. Dominance metrics derived from spatiotemporal data were listed including citations and interpretation. Code availability was described including location of code (eg. Zenodo, or GitHub), programming languages and software packages used.</p>
-<p>Metrics identified were aggregated using a manual process to identify synonymous terms. This aggregation process was required due to variability in defining metrics during data extraction, as well as differences between authors in describing metrics (eg. distance to group “center”, “centroid”, or “center of mass”). Each study was geocoded using the {tidygeocoder} package <span class="citation" data-cites="Cambon_2021">[@Cambon_2021]</span> and species were parsed using the {rgnparser} package <span class="citation" data-cites="Chamberlain_2023">[@Chamberlain_2023]</span> which provides the GNparser <span class="citation" data-cites="Mozzherin_2026">[@Mozzherin_2026]</span> functionality in R. We calculated frequency of data extracted for each categorical field including programming language, software package, analysis code availability, geographic region, study species and metric used. For many fields, authors did not provide sufficient to determine how metrics were calculated, eg. not including the programming language or software package used. In all cases, counts are presented as an overall frequency including papers with missing fields.</p>
+<p>Metrics identified were aggregated using a manual process to identify synonymous terms. This aggregation process was required due to variability in defining metrics during data extraction and differences between authors in describing metrics (eg. distance to group “center”, “centroid”, or “center of mass”). Each study was geocoded using the {tidygeocoder} package <span class="citation" data-cites="Cambon_2021">[@Cambon_2021]</span> and species were parsed using the {rgnparser} package <span class="citation" data-cites="Chamberlain_2023">[@Chamberlain_2023]</span> which provides the GNparser <span class="citation" data-cites="Mozzherin_2026">[@Mozzherin_2026]</span> functionality in R. We calculated frequency of data extracted for each categorical field including programming language, software package, analysis code availability, geographic region, study species and metric used. For many fields, authors did not provide sufficient to determine how metrics were calculated, eg. not including the programming language or software package used. In all cases, counts are presented as an overall frequency including papers with missing fields.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">'data/form.csv'</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">data.table</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/data.table/man/fread.html">fread</a></span><span class="op">(</span><span class="st">'data/form.csv'</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tinytable</span><span class="fu">::</span><span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/tt.html">tt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">style_tt</span><span class="op">(</span>align <span class="op">=</span> <span class="st">'l'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="tbl-form" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -400,32 +430,32 @@ Data extraction form for scoping review to identify metrics for studying intragr
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_fmmxtspz7rzl3149b5o7 = TinyTable.createTableFunctions("tinytable_fmmxtspz7rzl3149b5o7");
+      const tableFns_musj8ktf07daio0nzyqw = TinyTable.createTableFunctions("tinytable_musj8ktf07daio0nzyqw");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '22', j: 1 }, { i: '22', j: 2 } ], css_id: 'tinytable_css_qj469sa93parqpav2sh7',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 } ], css_id: 'tinytable_css_097pug4ninmkyiw8ciz5',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_j1zx0evmzow2vjlim9eb',}, 
+          { positions: [ { i: '22', j: 1 }, { i: '22', j: 2 } ], css_id: 'tinytable_css_js6m1qu3yk7y2fngjnkh',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '9', j: 1 }, { i: '10', j: 1 }, { i: '11', j: 1 }, { i: '12', j: 1 }, { i: '13', j: 1 }, { i: '14', j: 1 }, { i: '15', j: 1 }, { i: '16', j: 1 }, { i: '17', j: 1 }, { i: '18', j: 1 }, { i: '19', j: 1 }, { i: '20', j: 1 }, { i: '21', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 }, { i: '9', j: 2 }, { i: '10', j: 2 }, { i: '11', j: 2 }, { i: '12', j: 2 }, { i: '13', j: 2 }, { i: '14', j: 2 }, { i: '15', j: 2 }, { i: '16', j: 2 }, { i: '17', j: 2 }, { i: '18', j: 2 }, { i: '19', j: 2 }, { i: '20', j: 2 }, { i: '21', j: 2 } ], css_id: 'tinytable_css_8akvr5wfy2jc6gchnw40',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_4frg0598z7v5pidlunhc',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_fmmxtspz7rzl3149b5o7.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_musj8ktf07daio0nzyqw.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_fmmxtspz7rzl3149b5o7 td.tinytable_css_qj469sa93parqpav2sh7, #tinytable_fmmxtspz7rzl3149b5o7 th.tinytable_css_qj469sa93parqpav2sh7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_fmmxtspz7rzl3149b5o7 td.tinytable_css_097pug4ninmkyiw8ciz5, #tinytable_fmmxtspz7rzl3149b5o7 th.tinytable_css_097pug4ninmkyiw8ciz5 { text-align: left }
-    #tinytable_fmmxtspz7rzl3149b5o7 td.tinytable_css_j1zx0evmzow2vjlim9eb, #tinytable_fmmxtspz7rzl3149b5o7 th.tinytable_css_j1zx0evmzow2vjlim9eb {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_musj8ktf07daio0nzyqw td.tinytable_css_js6m1qu3yk7y2fngjnkh, #tinytable_musj8ktf07daio0nzyqw th.tinytable_css_js6m1qu3yk7y2fngjnkh {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_musj8ktf07daio0nzyqw td.tinytable_css_8akvr5wfy2jc6gchnw40, #tinytable_musj8ktf07daio0nzyqw th.tinytable_css_8akvr5wfy2jc6gchnw40 { text-align: left }
+    #tinytable_musj8ktf07daio0nzyqw td.tinytable_css_4frg0598z7v5pidlunhc, #tinytable_musj8ktf07daio0nzyqw th.tinytable_css_4frg0598z7v5pidlunhc {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_fmmxtspz7rzl3149b5o7" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_musj8ktf07daio0nzyqw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Category</th>
                 <th scope="col" data-row="0" data-col="2">Field</th>
@@ -529,7 +559,7 @@ Data extraction form for scoping review to identify metrics for studying intragr
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_read.html">tar_read</a></span><span class="op">(</span><span class="va">benchmark_papers</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_read.html">tar_read</a></span><span class="op">(</span><span class="va">benchmark_papers</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tinytable</span><span class="fu">::</span><span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/tt.html">tt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">style_tt</span><span class="op">(</span>align <span class="op">=</span> <span class="st">'l'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="tbl-benchmark" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -541,32 +571,32 @@ Benchmark papers used to evaluate iterative search results for scoping review
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_dobfwuad6ea1uudtk2qd = TinyTable.createTableFunctions("tinytable_dobfwuad6ea1uudtk2qd");
+      const tableFns_svpf2oba1zlhbasba8ih = TinyTable.createTableFunctions("tinytable_svpf2oba1zlhbasba8ih");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_chw4h31663xfgxbo7fvg',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_7xf86n0vn7iio72lmc3z',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_m20ue4dazf3t2n4lxmco',}, 
+          { positions: [ { i: '9', j: 1 }, { i: '9', j: 2 } ], css_id: 'tinytable_css_qwinswlfnbxvh3j10xmu',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '2', j: 1 }, { i: '3', j: 1 }, { i: '4', j: 1 }, { i: '5', j: 1 }, { i: '6', j: 1 }, { i: '7', j: 1 }, { i: '8', j: 1 }, { i: '1', j: 2 }, { i: '2', j: 2 }, { i: '3', j: 2 }, { i: '4', j: 2 }, { i: '5', j: 2 }, { i: '6', j: 2 }, { i: '7', j: 2 }, { i: '8', j: 2 } ], css_id: 'tinytable_css_rdvtw8eauip7r7fyeozm',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_w9meqo2zfkn4t37ouwtl',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_dobfwuad6ea1uudtk2qd.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_svpf2oba1zlhbasba8ih.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_dobfwuad6ea1uudtk2qd td.tinytable_css_chw4h31663xfgxbo7fvg, #tinytable_dobfwuad6ea1uudtk2qd th.tinytable_css_chw4h31663xfgxbo7fvg {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_dobfwuad6ea1uudtk2qd td.tinytable_css_7xf86n0vn7iio72lmc3z, #tinytable_dobfwuad6ea1uudtk2qd th.tinytable_css_7xf86n0vn7iio72lmc3z { text-align: left }
-    #tinytable_dobfwuad6ea1uudtk2qd td.tinytable_css_m20ue4dazf3t2n4lxmco, #tinytable_dobfwuad6ea1uudtk2qd th.tinytable_css_m20ue4dazf3t2n4lxmco {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_svpf2oba1zlhbasba8ih td.tinytable_css_qwinswlfnbxvh3j10xmu, #tinytable_svpf2oba1zlhbasba8ih th.tinytable_css_qwinswlfnbxvh3j10xmu {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_svpf2oba1zlhbasba8ih td.tinytable_css_rdvtw8eauip7r7fyeozm, #tinytable_svpf2oba1zlhbasba8ih th.tinytable_css_rdvtw8eauip7r7fyeozm { text-align: left }
+    #tinytable_svpf2oba1zlhbasba8ih td.tinytable_css_w9meqo2zfkn4t37ouwtl, #tinytable_svpf2oba1zlhbasba8ih th.tinytable_css_w9meqo2zfkn4t37ouwtl {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_dobfwuad6ea1uudtk2qd" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_svpf2oba1zlhbasba8ih" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Citation</th>
                 <th scope="col" data-row="0" data-col="2">Indexed in WoS</th>
@@ -618,7 +648,7 @@ Benchmark papers used to evaluate iterative search results for scoping review
 </div></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_read.html">tar_read</a></span><span class="op">(</span><span class="va">search_strings</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">targets</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/targets/reference/tar_read.html">tar_read</a></span><span class="op">(</span><span class="va">search_strings</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">tinytable</span><span class="fu">::</span><span class="fu"><a href="https://vincentarelbundock.github.io/tinytable/man/tt.html">tt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">style_tt</span><span class="op">(</span>align <span class="op">=</span> <span class="st">'l'</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="tbl-search-strings" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -630,32 +660,32 @@ Search strings for scoping review using Web of Science and Scopus
 
     <script src="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.js"></script><script>
       // Create table-specific functions using external factory
-      const tableFns_oekkpg2126xg30pa7q7y = TinyTable.createTableFunctions("tinytable_oekkpg2126xg30pa7q7y");
+      const tableFns_iaiqmuziwj6baty8qauv = TinyTable.createTableFunctions("tinytable_iaiqmuziwj6baty8qauv");
       // tinytable span after
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_4dtrha8sluhmc0hsa7qe',}, 
-          { positions: [ { i: '1', j: 1 }, { i: '1', j: 2 } ], css_id: 'tinytable_css_oijtsq80y0y2yi8z1yx2',}, 
-          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_j63p3r8xlntwoz972ia8',}, 
+          { positions: [ { i: '2', j: 1 }, { i: '2', j: 2 } ], css_id: 'tinytable_css_tu2i8imb28l887bg7th7',}, 
+          { positions: [ { i: '1', j: 1 }, { i: '1', j: 2 } ], css_id: 'tinytable_css_tr86ln1m8zfsmpe3mow4',}, 
+          { positions: [ { i: '0', j: 1 }, { i: '0', j: 2 } ], css_id: 'tinytable_css_ui6i4z2ogi3m9wi8l0n7',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  tableFns_oekkpg2126xg30pa7q7y.styleCell(cell.i, cell.j, group.css_id);
+                  tableFns_iaiqmuziwj6baty8qauv.styleCell(cell.i, cell.j, group.css_id);
               });
           });
       });
     </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/vincentarelbundock/tinytable@main/inst/tinytable.css">
 <style>
     /* tinytable css entries after */
-    #tinytable_oekkpg2126xg30pa7q7y td.tinytable_css_4dtrha8sluhmc0hsa7qe, #tinytable_oekkpg2126xg30pa7q7y th.tinytable_css_4dtrha8sluhmc0hsa7qe {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.1em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
-    #tinytable_oekkpg2126xg30pa7q7y td.tinytable_css_oijtsq80y0y2yi8z1yx2, #tinytable_oekkpg2126xg30pa7q7y th.tinytable_css_oijtsq80y0y2yi8z1yx2 { text-align: left }
-    #tinytable_oekkpg2126xg30pa7q7y td.tinytable_css_j63p3r8xlntwoz972ia8, #tinytable_oekkpg2126xg30pa7q7y th.tinytable_css_j63p3r8xlntwoz972ia8 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_iaiqmuziwj6baty8qauv td.tinytable_css_tu2i8imb28l887bg7th7, #tinytable_iaiqmuziwj6baty8qauv th.tinytable_css_tu2i8imb28l887bg7th7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 0; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.08em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.1em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
+    #tinytable_iaiqmuziwj6baty8qauv td.tinytable_css_tr86ln1m8zfsmpe3mow4, #tinytable_iaiqmuziwj6baty8qauv th.tinytable_css_tr86ln1m8zfsmpe3mow4 { text-align: left }
+    #tinytable_iaiqmuziwj6baty8qauv td.tinytable_css_ui6i4z2ogi3m9wi8l0n7, #tinytable_iaiqmuziwj6baty8qauv th.tinytable_css_ui6i4z2ogi3m9wi8l0n7 {  position: relative; --border-bottom: 1; --border-left: 0; --border-right: 0; --border-top: 1; --line-color-bottom: var(--tt-line-color); --line-color-left: var(--tt-line-color); --line-color-right: var(--tt-line-color); --line-color-top: var(--tt-line-color); --line-width-bottom: 0.05em; --line-width-left: 0.1em; --line-width-right: 0.1em; --line-width-top: 0.08em; --trim-bottom-left: 0%; --trim-bottom-right: 0%; --trim-left-bottom: 0%; --trim-left-top: 0%; --trim-right-bottom: 0%; --trim-right-top: 0%; --trim-top-left: 0%; --trim-top-right: 0%; ; text-align: left }
     </style>
 <div class="container">
-      <table class="tinytable" id="tinytable_oekkpg2126xg30pa7q7y" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="tinytable" id="tinytable_iaiqmuziwj6baty8qauv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
 <thead><tr>
 <th scope="col" data-row="0" data-col="1">Source</th>
                 <th scope="col" data-row="0" data-col="2">String</th>
