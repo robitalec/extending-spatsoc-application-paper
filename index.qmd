@@ -35,6 +35,7 @@ plain-language-summary: |
 date: last-modified
 bibliography: references/references.bib
 csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+citeproc: true
 number-sections: true
 crossref:
   custom:
