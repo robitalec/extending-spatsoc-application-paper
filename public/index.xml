@@ -97,6 +97,7 @@ and Labrador</institution>
   <body>
     <sec id="introduction">
       <title>1. Introduction</title>
+      <p/>
       <p>The R package {spatsoc} was developed to derive social networks
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
@@ -462,45 +463,45 @@ group_pts(
             <tbody>
               <tr>
                 <td>B</td>
-                <td>2016-11-06 00:00:46</td>
-                <td>POINT (697754.3 5510993)</td>
-                <td>61</td>
-                <td>1457</td>
+                <td>2016-12-09 08:00:54</td>
+                <td>POINT (698392.5 5511650)</td>
+                <td>461</td>
+                <td>1857</td>
               </tr>
               <tr>
                 <td>G</td>
-                <td>2016-11-06 00:00:47</td>
-                <td>POINT (697765.5 5510982)</td>
-                <td>61</td>
-                <td>1457</td>
+                <td>2016-12-09 08:00:53</td>
+                <td>POINT (698392.5 5511645)</td>
+                <td>461</td>
+                <td>1857</td>
               </tr>
               <tr>
-                <td>C</td>
-                <td>2016-12-17 02:00:47</td>
-                <td>POINT (697891.8 5507758)</td>
-                <td>554</td>
-                <td>3279</td>
+                <td>B</td>
+                <td>2017-01-16 04:00:25</td>
+                <td>POINT (697914.6 5511396)</td>
+                <td>915</td>
+                <td>2311</td>
               </tr>
               <tr>
-                <td>H</td>
-                <td>2016-12-17 02:00:24</td>
-                <td>POINT (697891.1 5507777)</td>
-                <td>554</td>
-                <td>3279</td>
-              </tr>
-              <tr>
-                <td>C</td>
-                <td>2017-02-13 14:00:47</td>
-                <td>POINT (703523.7 5511364)</td>
-                <td>1235</td>
-                <td>3626</td>
+                <td>G</td>
+                <td>2017-01-16 04:00:55</td>
+                <td>POINT (697917.1 5511399)</td>
+                <td>915</td>
+                <td>2311</td>
               </tr>
               <tr>
                 <td>F</td>
-                <td>2017-02-13 14:00:55</td>
-                <td>POINT (703531.7 5511349)</td>
-                <td>1235</td>
-                <td>3626</td>
+                <td>2017-01-16 08:00:53</td>
+                <td>POINT (696014.9 5508721)</td>
+                <td>917</td>
+                <td>6757</td>
+              </tr>
+              <tr>
+                <td>J</td>
+                <td>2017-01-16 08:00:50</td>
+                <td>POINT (696035.8 5508717)</td>
+                <td>917</td>
+                <td>6757</td>
               </tr>
             </tbody>
           </table>
@@ -540,7 +541,7 @@ interindividual_dist &lt;- edge_dist(
               <col width="17%"/>
               <col width="8%"/>
               <col width="8%"/>
-              <col width="17%"/>
+              <col width="15%"/>
             </colgroup>
             <thead>
               <tr>
@@ -552,40 +553,40 @@ interindividual_dist &lt;- edge_dist(
             </thead>
             <tbody>
               <tr>
-                <td>461</td>
-                <td>A</td>
-                <td>J</td>
-                <td>23.202483</td>
+                <td>1424</td>
+                <td>B</td>
+                <td>E</td>
+                <td>44.67190</td>
               </tr>
               <tr>
-                <td>461</td>
+                <td>1424</td>
                 <td>B</td>
                 <td>G</td>
-                <td>4.632231</td>
+                <td>27.13466</td>
               </tr>
               <tr>
-                <td>461</td>
-                <td>C</td>
-                <td>NA</td>
-                <td>NA</td>
-              </tr>
-              <tr>
-                <td>461</td>
+                <td>1424</td>
                 <td>D</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>461</td>
+                <td>1424</td>
                 <td>E</td>
-                <td>NA</td>
-                <td>NA</td>
+                <td>B</td>
+                <td>44.67190</td>
               </tr>
               <tr>
-                <td>461</td>
+                <td>1424</td>
+                <td>E</td>
+                <td>G</td>
+                <td>20.52638</td>
+              </tr>
+              <tr>
+                <td>1424</td>
                 <td>F</td>
-                <td>H</td>
-                <td>1.663892</td>
+                <td>I</td>
+                <td>43.92168</td>
               </tr>
             </tbody>
           </table>
@@ -616,7 +617,7 @@ nearest_neighbours &lt;- edge_nn(
               <col width="17%"/>
               <col width="7%"/>
               <col width="7%"/>
-              <col width="19%"/>
+              <col width="18%"/>
             </colgroup>
             <thead>
               <tr>
@@ -628,40 +629,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>772</td>
-                <td>A</td>
-                <td>E</td>
-                <td>784.33948</td>
+                <td>1424</td>
+                <td>J</td>
+                <td>B</td>
+                <td>64.19389</td>
               </tr>
               <tr>
-                <td>772</td>
+                <td>1424</td>
+                <td>G</td>
+                <td>E</td>
+                <td>20.52638</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>H</td>
+                <td>E</td>
+                <td>3389.49078</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>I</td>
+                <td>F</td>
+                <td>43.92168</td>
+              </tr>
+              <tr>
+                <td>1424</td>
                 <td>B</td>
                 <td>G</td>
-                <td>14.07373</td>
+                <td>27.13466</td>
               </tr>
               <tr>
-                <td>772</td>
-                <td>C</td>
-                <td>F</td>
-                <td>38.86809</td>
-              </tr>
-              <tr>
-                <td>772</td>
-                <td>D</td>
-                <td>C</td>
-                <td>17220.96357</td>
-              </tr>
-              <tr>
-                <td>772</td>
+                <td>1424</td>
                 <td>E</td>
-                <td>F</td>
-                <td>121.61899</td>
-              </tr>
-              <tr>
-                <td>772</td>
-                <td>F</td>
-                <td>C</td>
-                <td>38.86809</td>
+                <td>G</td>
+                <td>20.52638</td>
               </tr>
             </tbody>
           </table>
@@ -714,46 +715,46 @@ centroid_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
+                  <td>E</td>
+                  <td>239</td>
+                  <td>5314</td>
+                  <td>POINT (705450.3 5505942)</td>
+                  <td>POINT (705456.8 5505951)</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>239</td>
+                  <td>5314</td>
+                  <td>POINT (705463.4 5505959)</td>
+                  <td>POINT (705456.8 5505951)</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>652</td>
+                  <td>3357</td>
+                  <td>POINT (700261.6 5506668)</td>
+                  <td>POINT (700258.7 5506671)</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>652</td>
+                  <td>3357</td>
+                  <td>POINT (700255.8 5506674)</td>
+                  <td>POINT (700258.7 5506671)</td>
+                </tr>
+                <tr>
                   <td>B</td>
-                  <td>168</td>
-                  <td>1564</td>
-                  <td>POINT (700039.5 5507006)</td>
-                  <td>POINT (700034.3 5507008)</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>168</td>
-                  <td>1564</td>
-                  <td>POINT (700029 5507010)</td>
-                  <td>POINT (700034.3 5507008)</td>
-                </tr>
-                <tr>
-                  <td>B</td>
-                  <td>338</td>
-                  <td>1734</td>
-                  <td>POINT (699397.2 5509670)</td>
-                  <td>POINT (699398.1 5509681)</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>338</td>
-                  <td>1734</td>
-                  <td>POINT (699399 5509693)</td>
-                  <td>POINT (699398.1 5509681)</td>
-                </tr>
-                <tr>
-                  <td>I</td>
-                  <td>402</td>
-                  <td>8682</td>
-                  <td>POINT (709662.8 5509082)</td>
-                  <td>POINT (709664.4 5509075)</td>
+                  <td>1344</td>
+                  <td>2710</td>
+                  <td>POINT (697687.9 5511096)</td>
+                  <td>POINT (697694 5511094)</td>
                 </tr>
                 <tr>
                   <td>J</td>
-                  <td>402</td>
-                  <td>8682</td>
-                  <td>POINT (709665.9 5509069)</td>
-                  <td>POINT (709664.4 5509075)</td>
+                  <td>1344</td>
+                  <td>2710</td>
+                  <td>POINT (697700.1 5511093)</td>
+                  <td>POINT (697694 5511094)</td>
                 </tr>
               </tbody>
             </table>
@@ -850,46 +851,46 @@ direction_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>B</td>
-                  <td>1292</td>
-                  <td>2642</td>
-                  <td>-3.09717863 [rad]</td>
-                  <td>-3.0753876 [rad]</td>
+                  <td>C</td>
+                  <td>777</td>
+                  <td>3425</td>
+                  <td>1.88407292 [rad]</td>
+                  <td>-2.7091757 [rad]</td>
                 </tr>
                 <tr>
                   <td>E</td>
-                  <td>1292</td>
-                  <td>2642</td>
-                  <td>-3.07525297 [rad]</td>
-                  <td>-3.0753876 [rad]</td>
+                  <td>777</td>
+                  <td>3425</td>
+                  <td>-2.69501020 [rad]</td>
+                  <td>-2.7091757 [rad]</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>777</td>
+                  <td>3425</td>
+                  <td>-1.34492029 [rad]</td>
+                  <td>-2.7091757 [rad]</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>853</td>
+                  <td>5782</td>
+                  <td>-0.01247593 [rad]</td>
+                  <td>0.5793061 [rad]</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>853</td>
+                  <td>5782</td>
+                  <td>0.39660636 [rad]</td>
+                  <td>0.5793061 [rad]</td>
                 </tr>
                 <tr>
                   <td>J</td>
-                  <td>1292</td>
-                  <td>2642</td>
-                  <td>-3.05373125 [rad]</td>
-                  <td>-3.0753876 [rad]</td>
-                </tr>
-                <tr>
-                  <td>B</td>
-                  <td>1314</td>
-                  <td>2672</td>
-                  <td>0.02615974 [rad]</td>
-                  <td>-0.2944028 [rad]</td>
-                </tr>
-                <tr>
-                  <td>E</td>
-                  <td>1314</td>
-                  <td>2672</td>
-                  <td>0.13771137 [rad]</td>
-                  <td>-0.2944028 [rad]</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>1314</td>
-                  <td>2672</td>
-                  <td>-1.11843717 [rad]</td>
-                  <td>-0.2944028 [rad]</td>
+                  <td>853</td>
+                  <td>5782</td>
+                  <td>2.88853290 [rad]</td>
+                  <td>0.5793061 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -8186,7 +8187,9 @@ Attaching package: 'janitor'</preformat>
           <boxed-text>
             <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
           </boxed-text>
+          <code language="r script">options(tinytable_format_escape = TRUE)</code>
         </sec>
+        <p/>
         <p>The R package {spatsoc} was developed to derive social networks
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
@@ -8572,45 +8575,45 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 <tbody>
                   <tr>
                     <td>B</td>
-                    <td>2016-11-06 00:00:46</td>
-                    <td>POINT (697754.3 5510993)</td>
-                    <td>61</td>
-                    <td>1457</td>
+                    <td>2016-12-09 08:00:54</td>
+                    <td>POINT (698392.5 5511650)</td>
+                    <td>461</td>
+                    <td>1857</td>
                   </tr>
                   <tr>
                     <td>G</td>
-                    <td>2016-11-06 00:00:47</td>
-                    <td>POINT (697765.5 5510982)</td>
-                    <td>61</td>
-                    <td>1457</td>
+                    <td>2016-12-09 08:00:53</td>
+                    <td>POINT (698392.5 5511645)</td>
+                    <td>461</td>
+                    <td>1857</td>
                   </tr>
                   <tr>
-                    <td>C</td>
-                    <td>2016-12-17 02:00:47</td>
-                    <td>POINT (697891.8 5507758)</td>
-                    <td>554</td>
-                    <td>3279</td>
+                    <td>B</td>
+                    <td>2017-01-16 04:00:25</td>
+                    <td>POINT (697914.6 5511396)</td>
+                    <td>915</td>
+                    <td>2311</td>
                   </tr>
                   <tr>
-                    <td>H</td>
-                    <td>2016-12-17 02:00:24</td>
-                    <td>POINT (697891.1 5507777)</td>
-                    <td>554</td>
-                    <td>3279</td>
-                  </tr>
-                  <tr>
-                    <td>C</td>
-                    <td>2017-02-13 14:00:47</td>
-                    <td>POINT (703523.7 5511364)</td>
-                    <td>1235</td>
-                    <td>3626</td>
+                    <td>G</td>
+                    <td>2017-01-16 04:00:55</td>
+                    <td>POINT (697917.1 5511399)</td>
+                    <td>915</td>
+                    <td>2311</td>
                   </tr>
                   <tr>
                     <td>F</td>
-                    <td>2017-02-13 14:00:55</td>
-                    <td>POINT (703531.7 5511349)</td>
-                    <td>1235</td>
-                    <td>3626</td>
+                    <td>2017-01-16 08:00:53</td>
+                    <td>POINT (696014.9 5508721)</td>
+                    <td>917</td>
+                    <td>6757</td>
+                  </tr>
+                  <tr>
+                    <td>J</td>
+                    <td>2017-01-16 08:00:50</td>
+                    <td>POINT (696035.8 5508717)</td>
+                    <td>917</td>
+                    <td>6757</td>
                   </tr>
                 </tbody>
               </table>
@@ -8636,9 +8639,14 @@ interindividual_dist &lt;- edge_dist(
         </sec>
         <sec specific-use="notebook-content">
           <code language="r script">tar_load(distance_edges)
-sel_tg &lt;- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][
-  N &gt; 1
-][, sample(timegroup, 1)]
+sel_tg &lt;- distance_edges[, uniqueN(ID1), by = timegroup][between(
+  V1,
+  6,
+  8
+)][, sample(
+  timegroup,
+  1
+)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
           <fig id="tbl-edge-dist-nb-article">
             <caption>
@@ -8659,7 +8667,7 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                   <col width="17%"/>
                   <col width="8%"/>
                   <col width="8%"/>
-                  <col width="17%"/>
+                  <col width="15%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8671,40 +8679,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>461</td>
-                    <td>A</td>
-                    <td>J</td>
-                    <td>23.202483</td>
+                    <td>1424</td>
+                    <td>B</td>
+                    <td>E</td>
+                    <td>44.67190</td>
                   </tr>
                   <tr>
-                    <td>461</td>
+                    <td>1424</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>4.632231</td>
+                    <td>27.13466</td>
                   </tr>
                   <tr>
-                    <td>461</td>
-                    <td>C</td>
-                    <td>NA</td>
-                    <td>NA</td>
-                  </tr>
-                  <tr>
-                    <td>461</td>
+                    <td>1424</td>
                     <td>D</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>461</td>
+                    <td>1424</td>
                     <td>E</td>
-                    <td>NA</td>
-                    <td>NA</td>
+                    <td>B</td>
+                    <td>44.67190</td>
                   </tr>
                   <tr>
-                    <td>461</td>
+                    <td>1424</td>
+                    <td>E</td>
+                    <td>G</td>
+                    <td>20.52638</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
                     <td>F</td>
-                    <td>H</td>
-                    <td>1.663892</td>
+                    <td>I</td>
+                    <td>43.92168</td>
                   </tr>
                 </tbody>
               </table>
@@ -8722,8 +8730,11 @@ nearest_neighbours &lt;- edge_nn(
         </sec>
         <sec specific-use="notebook-content">
           <code language="r script">tar_load(nn_edges)
-sel_tg &lt;- nn_edges[, .N, by = timegroup][N &gt; 1][, sample(timegroup, 1)]
-tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
+sel_tg &lt;- nn_edges[, uniqueN(ID), by = timegroup][between(V1, 6, 8)][, sample(
+  timegroup,
+  1
+)]
+tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
           <fig id="tbl-edge-nn-nb-article">
             <caption>
               <p>Table 4: Distance based edge-lists measured using
@@ -8742,7 +8753,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                   <col width="17%"/>
                   <col width="7%"/>
                   <col width="7%"/>
-                  <col width="19%"/>
+                  <col width="18%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8754,40 +8765,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>772</td>
-                    <td>A</td>
-                    <td>E</td>
-                    <td>784.33948</td>
+                    <td>1424</td>
+                    <td>J</td>
+                    <td>B</td>
+                    <td>64.19389</td>
                   </tr>
                   <tr>
-                    <td>772</td>
+                    <td>1424</td>
+                    <td>G</td>
+                    <td>E</td>
+                    <td>20.52638</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>H</td>
+                    <td>E</td>
+                    <td>3389.49078</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>I</td>
+                    <td>F</td>
+                    <td>43.92168</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>14.07373</td>
+                    <td>27.13466</td>
                   </tr>
                   <tr>
-                    <td>772</td>
-                    <td>C</td>
-                    <td>F</td>
-                    <td>38.86809</td>
-                  </tr>
-                  <tr>
-                    <td>772</td>
-                    <td>D</td>
-                    <td>C</td>
-                    <td>17220.96357</td>
-                  </tr>
-                  <tr>
-                    <td>772</td>
+                    <td>1424</td>
                     <td>E</td>
-                    <td>F</td>
-                    <td>121.61899</td>
-                  </tr>
-                  <tr>
-                    <td>772</td>
-                    <td>F</td>
-                    <td>C</td>
-                    <td>38.86809</td>
+                    <td>G</td>
+                    <td>20.52638</td>
                   </tr>
                 </tbody>
               </table>
@@ -8853,46 +8864,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
+                      <td>E</td>
+                      <td>239</td>
+                      <td>5314</td>
+                      <td>POINT (705450.3 5505942)</td>
+                      <td>POINT (705456.8 5505951)</td>
+                    </tr>
+                    <tr>
+                      <td>H</td>
+                      <td>239</td>
+                      <td>5314</td>
+                      <td>POINT (705463.4 5505959)</td>
+                      <td>POINT (705456.8 5505951)</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>652</td>
+                      <td>3357</td>
+                      <td>POINT (700261.6 5506668)</td>
+                      <td>POINT (700258.7 5506671)</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>652</td>
+                      <td>3357</td>
+                      <td>POINT (700255.8 5506674)</td>
+                      <td>POINT (700258.7 5506671)</td>
+                    </tr>
+                    <tr>
                       <td>B</td>
-                      <td>168</td>
-                      <td>1564</td>
-                      <td>POINT (700039.5 5507006)</td>
-                      <td>POINT (700034.3 5507008)</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>168</td>
-                      <td>1564</td>
-                      <td>POINT (700029 5507010)</td>
-                      <td>POINT (700034.3 5507008)</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>338</td>
-                      <td>1734</td>
-                      <td>POINT (699397.2 5509670)</td>
-                      <td>POINT (699398.1 5509681)</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>338</td>
-                      <td>1734</td>
-                      <td>POINT (699399 5509693)</td>
-                      <td>POINT (699398.1 5509681)</td>
-                    </tr>
-                    <tr>
-                      <td>I</td>
-                      <td>402</td>
-                      <td>8682</td>
-                      <td>POINT (709662.8 5509082)</td>
-                      <td>POINT (709664.4 5509075)</td>
+                      <td>1344</td>
+                      <td>2710</td>
+                      <td>POINT (697687.9 5511096)</td>
+                      <td>POINT (697694 5511094)</td>
                     </tr>
                     <tr>
                       <td>J</td>
-                      <td>402</td>
-                      <td>8682</td>
-                      <td>POINT (709665.9 5509069)</td>
-                      <td>POINT (709664.4 5509075)</td>
+                      <td>1344</td>
+                      <td>2710</td>
+                      <td>POINT (697700.1 5511093)</td>
+                      <td>POINT (697694 5511094)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9003,46 +9014,46 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   </thead>
                   <tbody>
                     <tr>
-                      <td>B</td>
-                      <td>1292</td>
-                      <td>2642</td>
-                      <td>-3.09717863 [rad]</td>
-                      <td>-3.0753876 [rad]</td>
+                      <td>C</td>
+                      <td>777</td>
+                      <td>3425</td>
+                      <td>1.88407292 [rad]</td>
+                      <td>-2.7091757 [rad]</td>
                     </tr>
                     <tr>
                       <td>E</td>
-                      <td>1292</td>
-                      <td>2642</td>
-                      <td>-3.07525297 [rad]</td>
-                      <td>-3.0753876 [rad]</td>
+                      <td>777</td>
+                      <td>3425</td>
+                      <td>-2.69501020 [rad]</td>
+                      <td>-2.7091757 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>777</td>
+                      <td>3425</td>
+                      <td>-1.34492029 [rad]</td>
+                      <td>-2.7091757 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>853</td>
+                      <td>5782</td>
+                      <td>-0.01247593 [rad]</td>
+                      <td>0.5793061 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>853</td>
+                      <td>5782</td>
+                      <td>0.39660636 [rad]</td>
+                      <td>0.5793061 [rad]</td>
                     </tr>
                     <tr>
                       <td>J</td>
-                      <td>1292</td>
-                      <td>2642</td>
-                      <td>-3.05373125 [rad]</td>
-                      <td>-3.0753876 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>1314</td>
-                      <td>2672</td>
-                      <td>0.02615974 [rad]</td>
-                      <td>-0.2944028 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>E</td>
-                      <td>1314</td>
-                      <td>2672</td>
-                      <td>0.13771137 [rad]</td>
-                      <td>-0.2944028 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>1314</td>
-                      <td>2672</td>
-                      <td>-1.11843717 [rad]</td>
-                      <td>-0.2944028 [rad]</td>
+                      <td>853</td>
+                      <td>5782</td>
+                      <td>2.88853290 [rad]</td>
+                      <td>0.5793061 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9804,7 +9815,8 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
           <sec specific-use="notebook-content">
             <code language="r script">data.table::fread('data/form.csv') |&gt;
   tinytable::tt() |&gt;
-  style_tt(align = 'l')</code>
+  style_tt(align = 'l') |&gt;
+  format_tt(escape = TRUE)</code>
             <table-wrap>
               <table>
                 <colgroup>
@@ -9922,7 +9934,8 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
           <sec specific-use="notebook-content">
             <code language="r script">targets::tar_read(benchmark_papers) |&gt;
   tinytable::tt() |&gt;
-  style_tt(align = 'l')</code>
+  style_tt(align = 'l') |&gt;
+  format_tt(escape = TRUE)</code>
             <table-wrap>
               <table>
                 <colgroup>
@@ -10019,7 +10032,8 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
           <sec specific-use="notebook-content">
             <code language="r script">targets::tar_read(search_strings) |&gt;
   tinytable::tt() |&gt;
-  style_tt(align = 'l')</code>
+  style_tt(align = 'l') |&gt;
+  format_tt(escape = TRUE)</code>
             <table-wrap>
               <table>
                 <colgroup>
@@ -10177,7 +10191,8 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
     N = paste_n_percent(N)
   )
 ] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -10232,7 +10247,8 @@ unique_prog_lang &lt;- count_prog_lang[,
     N = paste_n_percent(N)
   )
 ] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -10385,7 +10401,8 @@ unique_prog_lang &lt;- count_prog_lang[,
     N = paste_n_percent(N)
   )
 ] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <fig id="tbl-software-nb-article">
                 <caption>
                   <p>(a)</p>
@@ -10614,7 +10631,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
   )
 ] |&gt;
   tt() |&gt;
-  style_tt(j = "Species", italic = TRUE)</code>
+  style_tt(j = "Species", italic = TRUE) |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -11075,7 +11093,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
     N = paste_n_percent(N)
   )
 ] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -11584,7 +11603,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
     N = paste_n_percent(N)
   )
 ] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -11667,7 +11687,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
             </caption>
             <sec specific-use="notebook-content">
               <code language="r script">review[definition_category == 'group', .(study_id, definition)] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -11732,7 +11753,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
             </caption>
             <sec specific-use="notebook-content">
               <code language="r script">review[definition_category == 'leadership', .(study_id, definition)] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>
@@ -11852,7 +11874,8 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
             </caption>
             <sec specific-use="notebook-content">
               <code language="r script">review[definition_category == 'fission fusion', .(study_id, definition)] |&gt;
-  tt()</code>
+  tt() |&gt;
+  format_tt(escape = TRUE)</code>
               <table-wrap>
                 <table>
                   <colgroup>

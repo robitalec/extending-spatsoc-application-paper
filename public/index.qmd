@@ -34,7 +34,8 @@ plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
 bibliography: references/references.bib
-csl: references/mee.csl
+csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+citeproc: true
 number-sections: true
 crossref:
   custom:
@@ -60,7 +61,10 @@ crossref:
 #| label: setup
 #| include: false
 targets::tar_source('_targets.R')
+options(tinytable_format_escape = TRUE)
 ```
+
+`#show figure: set block(breakable: true)`{=typst}
 
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
@@ -261,9 +265,14 @@ interindividual_dist <- edge_dist(
 #| eval: true
 #| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and neighbour 'ID2'."
 tar_load(distance_edges)
-sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][
-  N > 1
-][, sample(timegroup, 1)]
+sel_tg <- distance_edges[, uniqueN(ID1), by = timegroup][between(
+  V1,
+  6,
+  8
+)][, sample(
+  timegroup,
+  1
+)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
@@ -286,8 +295,11 @@ nearest_neighbours <- edge_nn(
 #| eval: true
 #| tbl-cap: "Distance based edge-lists measured using edge_nn(). Using the 'timegroup' column returned by group_times(), edge_nn() returns a distance based edge-list where individuals in the column 'NN' are the nearest neighbour to focal individuals in the column 'ID'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and a distance threshold can be provided using 'threshold'. Example output showing six observations of one timegroup with distances returned between focal individual 'ID' and nearest neighbour 'NN'."
 tar_load(nn_edges)
-sel_tg <- nn_edges[, .N, by = timegroup][N > 1][, sample(timegroup, 1)]
-tinytable::tt(nn_edges[timegroup == sel_tg][seq.int(6)])
+sel_tg <- nn_edges[, uniqueN(ID), by = timegroup][between(V1, 6, 8)][, sample(
+  timegroup,
+  1
+)]
+tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])
 ```
 
 Building on these, {spatsoc}'s new functions provide a more detailed
