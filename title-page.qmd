@@ -1,0 +1,83 @@
+---
+title: Extending {spatsoc} to measure intragroup social dynamics
+author:
+  - name: Alec L. Robitaille
+    orcid: 0000-0002-4706-1762
+    corresponding: true
+    affiliations:
+      - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Software
+      - Investigation
+      - Formal analysis
+      - Data Curation
+      - Writing - Original Draft
+      - Writing - Review & Editing
+      - Visualization
+  - name: Quinn M. R. Webber
+    orcid: 0000-0002-0434-9360
+    corresponding: false
+    affiliations:
+      - University of Guelph
+    roles:
+      - Conceptualization
+      - Writing - Review & Editing
+  - name: Eric Vander Wal
+    orcid: 0000-0002-8534-4317
+    corresponding: false
+    affiliations:
+      - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Methodology
+      - Writing - Review & Editing
+      - Funding acquisition
+      - Project administration
+      - Supervision
+date: last-modified
+format: typst
+bibliography: references/references.bib
+---
+
+# Open science
+
+All code used to produce this manuscript including figures and tables
+are available on GitHub at
+<https://github.com/robitalec/extending-spatsoc-application-paper> and
+on Zenodo at <https://doi.org/10.5281/zenodo.19712779>. The data used in
+this case study are included with the package and can be imported with:
+
+```{r}
+#| eval: false
+#| echo: true
+library(spatsoc)
+
+library(data.table)
+
+DT <- fread(system.file("extdata", "DT.csv", package = "spatsoc"))
+```
+
+The code for producing the scoping review results, figures, tables and
+manuscript was developed as a reproducible pipeline with the R package
+{targets} [@Landau_2021b]. Figures and tables were constructed using
+{ggplot2} [@Wickham_2016a], {ggdist} [@Kay_2025], {patchwork}
+[@Pedersen_2025] and {tintytable} [@Arel-Bundock_2025]. The manuscript
+was produced using {quarto} [@Allaire_2024]. The {spatsoc} package
+gratefully depends on the R packages {adehabitatHR} [@Calenge_2024],
+{data.table} [@Barrett_2025], {igraph} [@Csardi_2026], {sf}
+[@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats} [@Lund_2025],
+{units} [@Pebesma_2016], and {rlang} [@Henry_2026].
+
+# Acknowledgements
+
+We thank Edzer Pebesma and Dewey Dunnington for support with bug reports
+and feature requests for the {sf}, {s2} and {lwgeom} packages related to
+the development of this new functionality in {spatsoc}. We thank Martin
+Leclerc, Rick Heeres and Shane Frank for testing the package's new
+functionality ahead of its release. We thank members of the Wildlife
+Evolutionary Ecology Lab for their comments on previous versions of this
+manuscript. We thank the rOpenSci organisation including staff, editors,
+reviewers and contributors for their continued efforts to foster a
+community around open data, software and reproducibility.
+
