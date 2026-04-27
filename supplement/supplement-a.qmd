@@ -104,14 +104,15 @@ the programming language or software package used. In all cases, counts
 are presented as an overall frequency including papers with missing
 fields.
 
+::: {#suptbl-form}
 ```{r}
 #| echo: false
-#| label: tbl-form
-#| tbl-cap: "Data extraction form for scoping review to identify metrics for studying intragroup dynamics"
 data.table::fread('data/form.csv') |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```
+Data extraction form for scoping review to identify metrics for studying intragroup dynamics
+:::
 
 ```{r}
 #| echo: false
