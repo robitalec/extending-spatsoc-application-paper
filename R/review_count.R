@@ -2,7 +2,7 @@
 #'
 #' @param DT input data.table
 #'
-#' @returns counts of review characteristics eg. programming language, metric used
+#' @returns counts of review characteristics e.g. programming language, metric used
 review_count <- function(DT) {
   count_list <- function(DT, col) {
     count <- DT[, strsplit(.SD[[1]], ';'), .SDcols = col, by = covidence_number]

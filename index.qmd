@@ -106,7 +106,7 @@ intragroup social dynamics including dyadic interactions, leadership
 patterns, and dominance hierarchies. We focused on metrics applicable to
 spatiotemporal data such as animal movement data. This scoping review
 expands on the review conducted by @Joo_2018 by using interdisciplinary
-sources (eg. @Miller_2021), including metrics measuring group-level
+sources (e.g. @Miller_2021), including metrics measuring group-level
 dynamics, leadership patterns, and lagged-follower behaviours, and by
 focusing on the open source availability of these metrics in the R
 programming language. See details scoping review methods in Supplement
@@ -141,7 +141,7 @@ data-stream permutations (see existing functionality in
 [@Robitaille_2019; @tbl-all-functions]. These functions have allowed
 users to detect interactions between individuals, measure co-occurrence
 within and across species, and generate social networks from animal
-telemetry data [eg. @Albery_2025; @Bracken_2022; @Merkle_2024;
+telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
 @Heeres_2024].
 
 Spatiotemporal grouping can be performed given animal movement data,
@@ -286,7 +286,7 @@ telemetry data in their ecological systems.
 Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new
 set of functions are now available to measure individuals position
 relative within spatiotemporal groups. After identifying spatiotemporal
-groups with eg. `group_pts()`, we can measure the group centroid, as
+groups with e.g. `group_pts()`, we can measure the group centroid, as
 defined by the mean of individual locations in a group, using
 `centroid_group()` ([Table @tbl-cent-group]).
 
@@ -662,7 +662,7 @@ which two individual's movement directions are most similar, can be
 measured using `edge_delay()` ([Figure @fig-edge-delay]). The function
 measures the similarity of movement directions of the focal individual
 at time $t_{0}$ and the movement direction's of a neighbour within a
-specified temporal window (eg. $t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}$).
+specified temporal window (e.g. $t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}$).
 The temporal delay is the difference in time where the neighbour's
 movement directions are most similar to the focal individual's. The
 directional correlation delay ranges from negative values indicating the
@@ -724,7 +724,7 @@ argument 'threshold'.](graphics/fig_edge_delay.png){#fig-edge-delay}
 The open source package {spatsoc} [@Robitaille_2019] for the R
 programming language [@RCoreTeam_2025a] has improved accessibility to
 methods for spatiotemporal grouping and social network analysis with
-animal telemetry data [eg. @Albery_2025; @Bracken_2022; @Merkle_2024;
+animal telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
 @Heeres_2024]. Despite this, proximity based associations are only one
 dimension and studying intragroup social dynamics will allow researchers
 to further measure animal social systems. The new functions in {spatsoc}
