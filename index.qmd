@@ -265,9 +265,14 @@ interindividual_dist <- edge_dist(
 #| eval: true
 #| tbl-cap: "Distance based edge-lists measured using edge_dist(). Using the 'timegroup' column returned by group_times(), edge_dist() returns a distance based edge-list where individuals in the column 'ID1' are within the provided distance threshold from 'ID2'. Optionally, measured distances can be returned in the column 'distance' if 'returnDist' is TRUE and NAs can be returned where an individual is not within the provided distance threshold if 'fillNA' is TRUE. Example output showing six observations of one timegroup with distances returned between focal individual 'ID1' and neighbour 'ID2'."
 tar_load(distance_edges)
-sel_tg <- distance_edges[, .N, by = .(timegroup, is.na(ID2))][, .N, timegroup][
-  N > 1
-][, sample(timegroup, 1)]
+sel_tg <- distance_edges[, uniqueN(ID1), by = timegroup][between(
+  V1,
+  6,
+  8
+)][, sample(
+  timegroup,
+  1
+)]
 tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])
 ```
 
