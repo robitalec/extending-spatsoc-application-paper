@@ -36,6 +36,20 @@ date: last-modified
 bibliography: references/references.bib
 csl: references/mee.csl
 number-sections: true
+crossref:
+  custom:
+    - kind: float
+      key: supfig
+      latex-env: supfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Figure
+    - kind: float
+      key: suptbl
+      latex-env: suptbl
+      reference-prefix: Table S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Table
 ---
 
 # Introduction
