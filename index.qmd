@@ -6,16 +6,35 @@ author:
     corresponding: true
     affiliations:
       - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Software
+      - Investigation
+      - Formal analysis
+      - Data Curation
+      - Writing - Original Draft
+      - Writing - Review & Editing
+      - Visualization
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false
     affiliations:
       - University of Guelph
+    roles:
+      - Conceptualization
+      - Writing - Review & Editing
   - name: Eric Vander Wal
     orcid: 0000-0002-8534-4317
     corresponding: false
     affiliations:
       - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Methodology
+      - Writing - Review & Editing
+      - Funding acquisition
+      - Project administration
+      - Supervision
 keywords:
   - R
   - animal social dynamics
