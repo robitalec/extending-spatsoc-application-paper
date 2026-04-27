@@ -109,7 +109,8 @@ fields.
 #| echo: false
 data.table::fread('data/form.csv') |>
   tinytable::tt() |>
-  style_tt(align = 'l')
+  style_tt(align = 'l') |>
+  format_tt(escape = TRUE)
 ```
 Data extraction form for scoping review to identify metrics for studying intragroup dynamics
 :::
@@ -119,7 +120,8 @@ Data extraction form for scoping review to identify metrics for studying intragr
 #| echo: false
 targets::tar_read(benchmark_papers) |>
   tinytable::tt() |>
-  style_tt(align = 'l')
+  style_tt(align = 'l') |>
+  format_tt(escape = TRUE)
 ```
 Benchmark papers used to evaluate iterative search results for scoping review
 :::
@@ -129,7 +131,8 @@ Benchmark papers used to evaluate iterative search results for scoping review
 #| echo: false
 targets::tar_read(search_strings) |>
   tinytable::tt() |>
-  style_tt(align = 'l')
+  style_tt(align = 'l') |>
+  format_tt(escape = TRUE)
 ```
 
 Search strings for scoping review using Web of Science and Scopus

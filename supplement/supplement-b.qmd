@@ -47,7 +47,8 @@ count_code_avail[, .N, analysis_code_availability][
     N = paste_n_percent(N)
   )
 ] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 
 Count of code availability in references screened for full text extraction of scoping review
@@ -81,7 +82,8 @@ count_prog_lang[, .N, programming_language][
     N = paste_n_percent(N)
   )
 ] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 
 Count of programming language or GUI program used in references screened for full text extraction of scoping review
@@ -106,7 +108,8 @@ count_software[, .N, software_package_s_used][
     N = paste_n_percent(N)
   )
 ] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 
 Count of software packages used in references screened for full text extraction of scoping review
@@ -159,7 +162,8 @@ taxized[, .N, parsed_species][
   )
 ] |>
   tt() |>
-  style_tt(j = "Species", italic = TRUE)
+  style_tt(j = "Species", italic = TRUE) |>
+  format_tt(escape = TRUE)
 ```
 Count of species parsed using {rgnparser} in references screened for full text extraction of scoping review
 :::
@@ -175,7 +179,8 @@ count_metric[, .N, metric_agg][
     N = paste_n_percent(N)
   )
 ] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 Count of metrics used to measure intragroup dynamics in references screened for full text extraction of scoping review
 :::
@@ -191,7 +196,8 @@ count_dom_metric[, .N, dominance_metric_agg][
     N = paste_n_percent(N)
   )
 ] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 Count of metrics used to measure dominance in references screened for full text extraction of scoping review
 :::
@@ -202,7 +208,8 @@ Count of metrics used to measure dominance in references screened for full text 
 ```{r}
 #| echo: false
 review[definition_category == 'group', .(study_id, definition)] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 Review of definitions of spatiotemporal groups in references screened for full text extraction of scoping review
 :::
@@ -212,7 +219,8 @@ Review of definitions of spatiotemporal groups in references screened for full t
 ```{r}
 #| echo: false
 review[definition_category == 'leadership', .(study_id, definition)] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 Review of definitions of leadership in references screened for full text extraction of scoping review
 :::
@@ -222,7 +230,8 @@ Review of definitions of leadership in references screened for full text extract
 ```{r}
 #| echo: false
 review[definition_category == 'fission fusion', .(study_id, definition)] |>
-  tt()
+  tt() |>
+  format_tt(escape = TRUE)
 ```
 Review of definitions of fission-fusion in references screened for full text extraction of scoping review
 :::

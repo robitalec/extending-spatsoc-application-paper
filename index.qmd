@@ -60,6 +60,7 @@ crossref:
 #| label: setup
 #| include: false
 targets::tar_source('_targets.R')
+options(tinytable_format_escape = TRUE)
 ```
 
 The R package {spatsoc} was developed to derive social networks from
