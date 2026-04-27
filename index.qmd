@@ -140,7 +140,7 @@ Granger causality. A full list of metrics not selected is in Supplement
 #| label: tbl-new-functions
 #| echo: false
 #| eval: true
-#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @tbl-all-functions]."
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
 functions <- fread('data/spatsoc-functions.tsv')
 new_functions <- functions[Category == 'New']
 new_functions[, .(Function, Description)] |>
