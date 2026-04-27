@@ -22,3 +22,5 @@ format:
     code-block-border-left: false
     comments:
       hypothesis: true
+  typst: default
+

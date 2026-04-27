@@ -34,7 +34,8 @@ plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
 bibliography: references/references.bib
-csl: references/mee.csl
+csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+citeproc: true
 number-sections: true
 crossref:
   custom:
@@ -60,7 +61,10 @@ crossref:
 #| label: setup
 #| include: false
 targets::tar_source('_targets.R')
+options(tinytable_format_escape = TRUE)
 ```
+
+`#show figure: set block(breakable: true)`{=typst}
 
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
