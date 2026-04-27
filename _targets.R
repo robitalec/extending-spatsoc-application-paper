@@ -468,13 +468,6 @@ targets_review <- c(
 )
 
 
-
-# Targets: Quarto ---------------------------------------------------------
-targets_quarto <- c(
-  tar_quarto(manuscript)
-)
-
-
 # Targets: All ------------------------------------------------------------
 # Automatically grab all the 'targets_*' lists above
 lapply(grep('targets', ls(), value = TRUE), get)
