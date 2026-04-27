@@ -37,10 +37,9 @@ PRISMA
     -   0 studies awaiting classification
 -   141 studies included
 
+::: {#suptbl-code-availability}
 ```{r}
 #| echo: false
-#| label: tbl-code-availability
-#| tbl-cap: "Count of code availability in references screened for full text extraction of scoping review"
 count_code_avail[, .N, analysis_code_availability][
   order(-N),
   .(
@@ -50,6 +49,9 @@ count_code_avail[, .N, analysis_code_availability][
 ] |>
   tt()
 ```
+
+Count of code availability in references screened for full text extraction of scoping review
+:::
 
 ```{r}
 list_prog <- count_prog_lang[,
@@ -69,10 +71,9 @@ GUI program. Of the `r list_prog[(prog), sum(V1)]` that did,
 more than one programming language or GUI program, therefore the total
 count below will be greater than the number of articles.
 
+::: {#suptbl-prog}
 ```{r}
 #| echo: false
-#| label: tbl-prog
-#| tbl-cap: "Count of programming language or GUI program used in references screened for full text extraction of scoping review"
 count_prog_lang[, .N, programming_language][
   order(-N),
   .(
@@ -83,6 +84,9 @@ count_prog_lang[, .N, programming_language][
   tt()
 ```
 
+Count of programming language or GUI program used in references screened for full text extraction of scoping review
+:::
+
 Out of `r count_software[, uniqueN(covidence_number)]` articles,
 `r count_software[is.na(software_package_s_used), .N]` did not list a
 software package. Of the
@@ -91,10 +95,10 @@ that did, `r count_software[, .N, covidence_number][N > 1, .N]` articles
 listed more than one software package , therefore the total count below
 will be greater than the number of articles.
 
+:::{#suptbl-software}
 ```{r}
 #| echo: false
 #| label: tbl-software
-#| tbl-cap: "Count of software packages used in references screened for full text extraction of scoping review"
 count_software[, .N, software_package_s_used][
   order(-N),
   .(
@@ -105,22 +109,12 @@ count_software[, .N, software_package_s_used][
   tt()
 ```
 
-```{=html}
-<!-- 
-TODO: needs date this was extracted
-TODO: consider removing?
-#| echo: false
-#| label: tbl-software-meta
-#| tbl-cap: "Metadata of software packages used in references screened for full text extraction of scoping review"
-software_meta |> 
-  tt()
--->
-```
+Count of software packages used in references screened for full text extraction of scoping review
+:::
 
+:::{#suptbl-temp}
 ```{r}
 #| echo: false
-#| label: fig-temp
-#| fig-cap: "Count of references screened for full text extraction across temporal period (1980-2023) of scoping review"
 ggplot(review) +
   geom_histogram(aes(yr), binwidth = 1) +
   labs(x = 'Year of publication', y = 'Count') +
@@ -128,10 +122,13 @@ ggplot(review) +
   theme_bw()
 ```
 
+Count of references screened for full text extraction across temporal period (1980-2023) of scoping review
+:::
+
+:::{#suptbl-map}
+
 ```{r}
 #| echo: false
-#| label: fig-map
-#| fig-cap: "Map of study regions georeferenced using {tidygeocoder} from references screened for full text extraction of scoping review"
 countries <- ne_countries()
 
 ggplot() +
@@ -146,11 +143,14 @@ ggplot() +
   theme_void() +
   theme(legend.position = 'bottom')
 ```
+Map of study regions georeferenced using {tidygeocoder} from references screened for full text extraction of scoping review
+:::
+
+
+:::{#suptbl-species}
 
 ```{r}
 #| echo: false
-#| label: tbl-species
-#| tbl-cap: "Count of species parsed using {rgnparser} in references screened for full text extraction of scoping review"
 taxized[, .N, parsed_species][
   order(-N),
   .(
@@ -161,11 +161,13 @@ taxized[, .N, parsed_species][
   tt() |>
   style_tt(j = "Species", italic = TRUE)
 ```
+Count of species parsed using {rgnparser} in references screened for full text extraction of scoping review
+:::
 
+
+:::{#suptbl-count-metrics}
 ```{r}
 #| echo: false
-#| label: tbl-count-metrics
-#| tbl-cap: "Count of metrics used to measure intragroup dynamics in references screened for full text extraction of scoping review"
 count_metric[, .N, metric_agg][
   order(-N),
   .(
@@ -175,11 +177,13 @@ count_metric[, .N, metric_agg][
 ] |>
   tt()
 ```
+Count of metrics used to measure intragroup dynamics in references screened for full text extraction of scoping review
+:::
 
+
+:::{#suptbl-count-metrics-dominance}
 ```{r}
 #| echo: false
-#| label: tbl-count-metrics-dominance
-#| tbl-cap: "Count of metrics used to measure dominance in references screened for full text extraction of scoping review"
 count_dom_metric[, .N, dominance_metric_agg][
   order(-N),
   .(
@@ -189,27 +193,36 @@ count_dom_metric[, .N, dominance_metric_agg][
 ] |>
   tt()
 ```
+Count of metrics used to measure dominance in references screened for full text extraction of scoping review
+:::
+
+
+:::{#suptbl-defn-spattemp-groups}
 
 ```{r}
 #| echo: false
-#| label: tbl-defn-spattemp-groups
-#| tbl-cap: "Review of definitions of spatiotemporal groups in references screened for full text extraction of scoping review"
 review[definition_category == 'group', .(study_id, definition)] |>
   tt()
 ```
+Review of definitions of spatiotemporal groups in references screened for full text extraction of scoping review
+:::
 
+
+:::{#suptbl-defn-leadership}
 ```{r}
 #| echo: false
-#| label: tbl-defn-leadership
-#| tbl-cap: "Review of definitions of leadership in references screened for full text extraction of scoping review"
 review[definition_category == 'leadership', .(study_id, definition)] |>
   tt()
 ```
+Review of definitions of leadership in references screened for full text extraction of scoping review
+:::
 
+
+:::{#suptbl-defn-fission}
 ```{r}
 #| echo: false
-#| label: tbl-defn-fission
-#| tbl-cap: "Review of definitions of fission-fusion in references screened for full text extraction of scoping review"
 review[definition_category == 'fission fusion', .(study_id, definition)] |>
   tt()
 ```
+Review of definitions of fission-fusion in references screened for full text extraction of scoping review
+:::

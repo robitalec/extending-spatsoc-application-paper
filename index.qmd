@@ -36,6 +36,22 @@ date: last-modified
 bibliography: references/references.bib
 csl: references/mee.csl
 number-sections: true
+crossref:
+  custom:
+    - kind: float
+      key: supfig
+      latex-env: supfig
+      reference-prefix: Figure S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Figure
+      caption-location: bottom
+    - kind: float
+      key: suptbl
+      latex-env: suptbl
+      reference-prefix: Table S
+      space-before-numbering: false
+      latex-list-of-description: Supplementary Table
+      caption-location: top
 ---
 
 # Introduction
@@ -124,7 +140,7 @@ Granger causality. A full list of metrics not selected is in Supplement
 #| label: tbl-new-functions
 #| echo: false
 #| eval: true
-#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @tbl-all-functions]."
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
 functions <- fread('data/spatsoc-functions.tsv')
 new_functions <- functions[Category == 'New']
 new_functions[, .(Function, Description)] |>
@@ -138,7 +154,7 @@ new_functions[, .(Function, Description)] |>
 Functions previously available in {spatsoc} can be used to identify
 spatiotemporal grouping, generate distance based edge-lists and conduct
 data-stream permutations (see existing functionality in
-[@Robitaille_2019; @tbl-all-functions]. These functions have allowed
+@Robitaille_2019; @suptbl-all-functions). These functions have allowed
 users to detect interactions between individuals, measure co-occurrence
 within and across species, and generate social networks from animal
 telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
@@ -599,7 +615,7 @@ NA.](graphics/fig_dist_dir_leader.png){#fig-dist-dir-lead}
 Fusion events, or temporal periods where two individiuals are within a
 given threshold distance from each other, can be identified using
 `fusion_id()` ([Figure @fig-fusion]). Given the variability in defining
-fission fusion dynamics in the literature ([@tbl-defn-fission]), the
+fission fusion dynamics in the literature ([@suptbl-defn-fission]), the
 `fusion_id()` function flexibly allows users to use specific thresholds
 and definitions that match their study species and research questions.
 This will also allow users to easily compare their results to previously
@@ -776,7 +792,7 @@ concepts such as:
   displacement events [@Evans_2018].
 
 The lack of open source code and transparency of methods alongside
-research ([@tbl-code-availability], [@tbl-prog], [@tbl-software])
+research ([@suptbl-code-availability], [@suptbl-prog], [@suptbl-software])
 continues to slow the progress of science by limiting the broader
 application of new methods. We hope that the availability of these
 metrics in {spatsoc} will allow researchers to apply them to diverse

@@ -104,29 +104,33 @@ the programming language or software package used. In all cases, counts
 are presented as an overall frequency including papers with missing
 fields.
 
+::: {#suptbl-form}
 ```{r}
 #| echo: false
-#| label: tbl-form
-#| tbl-cap: "Data extraction form for scoping review to identify metrics for studying intragroup dynamics"
 data.table::fread('data/form.csv') |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```
+Data extraction form for scoping review to identify metrics for studying intragroup dynamics
+:::
 
+::: {#suptbl-benchmark}
 ```{r}
 #| echo: false
-#| label: tbl-benchmark
-#| tbl-cap: "Benchmark papers used to evaluate iterative search results for scoping review"
 targets::tar_read(benchmark_papers) |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```
+Benchmark papers used to evaluate iterative search results for scoping review
+:::
 
+::: {#suptbl-search-strings}
 ```{r}
 #| echo: false
-#| label: tbl-search-strings
-#| tbl-cap: "Search strings for scoping review using Web of Science and Scopus"
 targets::tar_read(search_strings) |>
   tinytable::tt() |>
   style_tt(align = 'l')
 ```
+
+Search strings for scoping review using Web of Science and Scopus
+:::
