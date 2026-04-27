@@ -2,6 +2,12 @@ project:
   type: manuscript
   output-dir: public
   execute-dir: project
+  render: 
+    - index.qmd
+    - supplement-a.qmd
+    - supplement-b.qmd
+    - supplement-c.qmd
+
 
 format:
   jats: default
