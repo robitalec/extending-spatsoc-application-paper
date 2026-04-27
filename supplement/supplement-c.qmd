@@ -36,19 +36,21 @@ differing from existing {spatsoc} functions (XYT):
 -   metrics relating to posture
 
 The selected metrics are listed in [@tbl-new-functions]. All existing
-functions in {spatsoc} are listed below in [@tbl-all-functions].
+functions in {spatsoc} are listed below in [@suptbl-all-functions].
 
+::: {#suptbl-all-functions}
 ```{r}
-#| label: tbl-all-functions
 #| echo: false
 #| eval: true
-#| tbl-cap: "Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family."
 functions <- fread('data/spatsoc-functions.tsv')
 functions[, .(Function, Description, Category)] |>
   tt() |>
   group_tt(i = functions$Family) |>
   style_tt(align = 'l')
 ```
+
+Description of all functions (new and previously existing) available in the R package {spatsoc} categorized by family.
+:::
 
 ### Distance, direction and rank distance to group centroid {.unnumbered}
 
