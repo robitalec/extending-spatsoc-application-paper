@@ -44,12 +44,14 @@ crossref:
       reference-prefix: Figure S
       space-before-numbering: false
       latex-list-of-description: Supplementary Figure
+      caption-location: bottom
     - kind: float
       key: suptbl
       latex-env: suptbl
       reference-prefix: Table S
       space-before-numbering: false
       latex-list-of-description: Supplementary Table
+      caption-location: top
 ---
 
 # Introduction
