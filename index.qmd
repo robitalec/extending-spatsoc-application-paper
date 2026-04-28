@@ -80,6 +80,10 @@ options(tinytable_format_escape = TRUE)
 
 `#set par.line(numbering: "1")`{=typst}
 
+`#set text(top-edge: 0.7em, bottom-edge: -0.3em)`{=typst}
+
+`#set par(leading: 1em, spacing: 2em)`{=typst}
+
 # Abstract
 
 1.  Beyond proximity-based social networks and home range overlap,
