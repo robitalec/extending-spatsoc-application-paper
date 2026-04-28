@@ -66,6 +66,8 @@ options(tinytable_format_escape = TRUE)
 
 `#show figure: set block(breakable: true)`{=typst}
 
+`#set par.line(numbering: "1")`{=typst}
+
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
 interindividual distances, and home range overlap [@Robitaille_2019].
