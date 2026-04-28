@@ -844,13 +844,13 @@ concepts such as:
   displacement events [@Evans_2018].
 
 The lack of open source code and transparency of methods alongside
-research ([@suptbl-code-availability], [@suptbl-prog], [@suptbl-software])
-continues to slow the progress of science by limiting the broader
-application of new methods. We hope that the availability of these
-metrics in {spatsoc} will allow researchers to apply them to diverse
-study species, systems or research questions, including novel
-applications that could have management and conservation implications
-for vulnerable species [@Ramos_2021].
+research ([@suptbl-code-availability], [@suptbl-prog],
+[@suptbl-software]) continues to slow the progress of science by
+limiting the broader application of new methods. We hope that the
+availability of these metrics in {spatsoc} will allow researchers to
+apply them to diverse study species, systems or research questions,
+including novel applications that could have management and conservation
+implications for vulnerable species [@Ramos_2021].
 
 # Open science
 
@@ -902,8 +902,7 @@ conceptualization and writing. Eric Vander Wal contributed to
 methodology, funding acquisition, project administration and
 supervision. Alec L. Robitaille contributed to writing (original draft),
 software, investigation, formal analysis, data curation and
-visualization.
-# References {.unnumbered}
+visualization. \# References {.unnumbered}
 
 ::: {#refs}
 :::
