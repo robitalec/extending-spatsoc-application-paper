@@ -16,6 +16,16 @@ dynamics</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
+          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal
+analysis</role>
+          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">Data
+Curation</role>
+          <role>Writing - Original Draft</role>
+          <role>Writing - Review &amp; Editing</role>
+          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">Visualization</role>
           <xref ref-type="aff" rid="aff-1">a</xref>
           <xref ref-type="corresp" rid="cor-1">*</xref>
         </contrib>
@@ -26,6 +36,8 @@ dynamics</article-title>
             <given-names>Quinn M. R.</given-names>
           </name>
           <string-name>Quinn M. R. Webber</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role>Writing - Review &amp; Editing</role>
           <xref ref-type="aff" rid="aff-2">b</xref>
         </contrib>
         <contrib contrib-type="author">
@@ -35,6 +47,14 @@ dynamics</article-title>
             <given-names>Eric Vander</given-names>
           </name>
           <string-name>Eric Vander Wal</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+          <role>Writing - Review &amp; Editing</role>
+          <role vocab="https://credit.niso.org" vocab-term="funding acquisition" vocab-term-identifier="https://credit.niso.org/contributor-roles/funding-acquisition/">Funding
+acquisition</role>
+          <role vocab="https://credit.niso.org" vocab-term="project administration" vocab-term-identifier="https://credit.niso.org/contributor-roles/project-administration/">Project
+administration</role>
+          <role vocab="https://credit.niso.org" vocab-term="supervision" vocab-term-identifier="https://credit.niso.org/contributor-roles/supervision/">Supervision</role>
           <xref ref-type="aff" rid="aff-1">a</xref>
         </contrib>
       </contrib-group>
@@ -53,35 +73,6 @@ and Labrador</institution>
         <corresp id="cor-1"/>
       </author-notes>
       <history/>
-      <abstract>
-        <list list-type="order">
-          <list-item>
-            <p>Beyond proximity-based social networks and home range overlap,
-    animal telemetry data can also be used to measure intragroup social
-    dynamics including individual position within groups, individual and
-    group level movement directions, leadership patterns and lagged
-    follower behaviours.</p>
-          </list-item>
-          <list-item>
-            <p>We used a scoping review of literature across domains, including
-    behavioural ecology, collective movement, and GISciences, to
-    identify widely used metrics for measuring intragroup social
-    dynamics that are not openly available in the R programming
-    language.</p>
-          </list-item>
-          <list-item>
-            <p>We present a case study illustrating 18 new functions for the R
-    package {spatsoc} measuring intragroup social dynamics with animal
-    telemetry data.</p>
-          </list-item>
-          <list-item>
-            <p>The open availability of these new and flexible functions in
-    {spatsoc} will allow researchers to easily measure intragroup social
-    dynamics to more comprehensively measure the multifaceted animal
-    social behaviours in their study systems.</p>
-          </list-item>
-        </list>
-      </abstract>
       <kwd-group kwd-group-type="author">
         <kwd>R</kwd>
         <kwd>animal social dynamics</kwd>
@@ -95,9 +86,42 @@ and Labrador</institution>
     </article-meta>
   </front>
   <body>
+    <p/>
+    <p/>
+    <p/>
+    <p/>
+    <sec id="abstract">
+      <title>1. Abstract</title>
+      <list list-type="order">
+        <list-item>
+          <p>Beyond proximity-based social networks and home range overlap,
+      animal telemetry data can also be used to measure intragroup
+      social dynamics including individual position within groups,
+      individual and group level movement directions, leadership
+      patterns and lagged follower behaviours.</p>
+        </list-item>
+        <list-item>
+          <p>We used a scoping review of literature across domains,
+      including behavioural ecology, collective movement, and
+      GISciences, to identify widely used metrics for measuring
+      intragroup social dynamics that are not openly available in the R
+      programming language.</p>
+        </list-item>
+        <list-item>
+          <p>We present a case study illustrating 18 new functions for the R
+      package {spatsoc} measuring intragroup social dynamics with animal
+      telemetry data.</p>
+        </list-item>
+        <list-item>
+          <p>The open availability of these new and flexible functions in
+      {spatsoc} will allow researchers to easily measure intragroup
+      social dynamics to more comprehensively measure the multifaceted
+      animal social behaviours in their study systems.</p>
+        </list-item>
+      </list>
+    </sec>
     <sec id="introduction">
-      <title>1. Introduction</title>
-      <p/>
+      <title>2. Introduction</title>
       <p>The R package {spatsoc} was developed to derive social networks
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
@@ -210,7 +234,7 @@ and Labrador</institution>
   biological interpretations.</p>
     </sec>
     <sec id="methods">
-      <title>2. Methods</title>
+      <title>3. Methods</title>
       <p>We conducted a scoping review to identify metrics for measuring
   intragroup social dynamics including dyadic interactions, leadership
   patterns, and dominance hierarchies. We focused on metrics applicable
@@ -223,18 +247,18 @@ and Labrador</institution>
   and lagged-follower behaviours, and by focusing on the open source
   availability of these metrics in the R programming language. See
   details scoping review methods in Supplement
-  <xref alt="Section 7" rid="sec-scoping-methods">Section 7</xref>. and
+  <xref alt="Section 9" rid="sec-scoping-methods">Section 9</xref>. and
   Metrics were selected for inclusion in {spatsoc} based on their
   relative importance as measured by frequency of use in the review, and
   their lack of availability in R packages when the review was conducted
   (Supplement
-  <xref alt="Section 8" rid="sec-scoping-results">Section 8</xref>).
+  <xref alt="Section 10" rid="sec-scoping-results">Section 10</xref>).
   Some metrics were specifically not chosen for inclusion such as
   metrics relating to posture, metrics relating to static interaction or
   home range overlap and metrics based on statistical models such as
   Hidden Markov model and Granger causality. A full list of metrics not
   selected is in Supplement
-  <xref alt="Section 9" rid="sec-selected">Section 9</xref>.</p>
+  <xref alt="Section 11" rid="sec-selected">Section 11</xref>.</p>
       <fig id="tbl-new-functions">
         <caption>
           <p>Table 1: Description of new functions in the R package
@@ -355,7 +379,7 @@ and Labrador</institution>
       </fig>
     </sec>
     <sec id="case-study">
-      <title>3. Case study</title>
+      <title>4. Case study</title>
       <p>Functions previously available in {spatsoc} can be used to identify
   spatiotemporal grouping, generate distance based edge-lists and
   conduct data-stream permutations (see existing functionality in
@@ -462,46 +486,46 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>B</td>
-                <td>2016-12-09 08:00:54</td>
-                <td>POINT (698392.5 5511650)</td>
-                <td>461</td>
-                <td>1857</td>
+                <td>F</td>
+                <td>2016-12-15 12:00:53</td>
+                <td>POINT (700079.8 5504657)</td>
+                <td>535</td>
+                <td>6590</td>
               </tr>
               <tr>
-                <td>G</td>
-                <td>2016-12-09 08:00:53</td>
-                <td>POINT (698392.5 5511645)</td>
-                <td>461</td>
-                <td>1857</td>
+                <td>I</td>
+                <td>2016-12-15 12:00:54</td>
+                <td>POINT (700050.5 5504668)</td>
+                <td>535</td>
+                <td>6590</td>
               </tr>
               <tr>
-                <td>B</td>
-                <td>2017-01-16 04:00:25</td>
-                <td>POINT (697914.6 5511396)</td>
-                <td>915</td>
-                <td>2311</td>
+                <td>C</td>
+                <td>2016-12-16 02:00:10</td>
+                <td>POINT (698478.3 5505918)</td>
+                <td>542</td>
+                <td>3267</td>
               </tr>
               <tr>
-                <td>G</td>
-                <td>2017-01-16 04:00:55</td>
-                <td>POINT (697917.1 5511399)</td>
-                <td>915</td>
-                <td>2311</td>
+                <td>H</td>
+                <td>2016-12-16 02:00:42</td>
+                <td>POINT (698479.6 5505913)</td>
+                <td>542</td>
+                <td>3267</td>
               </tr>
               <tr>
                 <td>F</td>
-                <td>2017-01-16 08:00:53</td>
-                <td>POINT (696014.9 5508721)</td>
-                <td>917</td>
-                <td>6757</td>
+                <td>2017-01-11 18:00:58</td>
+                <td>POINT (695761.5 5507379)</td>
+                <td>862</td>
+                <td>6749</td>
               </tr>
               <tr>
-                <td>J</td>
-                <td>2017-01-16 08:00:50</td>
-                <td>POINT (696035.8 5508717)</td>
-                <td>917</td>
-                <td>6757</td>
+                <td>I</td>
+                <td>2017-01-11 18:00:13</td>
+                <td>POINT (695753.7 5507360)</td>
+                <td>862</td>
+                <td>6749</td>
               </tr>
             </tbody>
           </table>
@@ -553,40 +577,40 @@ interindividual_dist &lt;- edge_dist(
             </thead>
             <tbody>
               <tr>
-                <td>1424</td>
+                <td>1439</td>
                 <td>B</td>
                 <td>E</td>
-                <td>44.67190</td>
+                <td>43.84799</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1439</td>
                 <td>B</td>
                 <td>G</td>
-                <td>27.13466</td>
+                <td>41.72540</td>
               </tr>
               <tr>
-                <td>1424</td>
-                <td>D</td>
+                <td>1439</td>
+                <td>C</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1439</td>
                 <td>E</td>
                 <td>B</td>
-                <td>44.67190</td>
+                <td>43.84799</td>
               </tr>
               <tr>
-                <td>1424</td>
-                <td>E</td>
-                <td>G</td>
-                <td>20.52638</td>
-              </tr>
-              <tr>
-                <td>1424</td>
+                <td>1439</td>
                 <td>F</td>
-                <td>I</td>
-                <td>43.92168</td>
+                <td>NA</td>
+                <td>NA</td>
+              </tr>
+              <tr>
+                <td>1439</td>
+                <td>G</td>
+                <td>B</td>
+                <td>41.72540</td>
               </tr>
             </tbody>
           </table>
@@ -617,7 +641,7 @@ nearest_neighbours &lt;- edge_nn(
               <col width="17%"/>
               <col width="7%"/>
               <col width="7%"/>
-              <col width="18%"/>
+              <col width="17%"/>
             </colgroup>
             <thead>
               <tr>
@@ -629,40 +653,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>1424</td>
-                <td>J</td>
+                <td>1436</td>
+                <td>H</td>
                 <td>B</td>
-                <td>64.19389</td>
+                <td>48.12146</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1436</td>
+                <td>F</td>
+                <td>C</td>
+                <td>79.04105</td>
+              </tr>
+              <tr>
+                <td>1436</td>
                 <td>G</td>
                 <td>E</td>
-                <td>20.52638</td>
+                <td>13.18622</td>
               </tr>
               <tr>
-                <td>1424</td>
-                <td>H</td>
+                <td>1436</td>
+                <td>J</td>
                 <td>E</td>
-                <td>3389.49078</td>
+                <td>12.36113</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1436</td>
+                <td>C</td>
+                <td>F</td>
+                <td>79.04105</td>
+              </tr>
+              <tr>
+                <td>1436</td>
                 <td>I</td>
                 <td>F</td>
-                <td>43.92168</td>
-              </tr>
-              <tr>
-                <td>1424</td>
-                <td>B</td>
-                <td>G</td>
-                <td>27.13466</td>
-              </tr>
-              <tr>
-                <td>1424</td>
-                <td>E</td>
-                <td>G</td>
-                <td>20.52638</td>
+                <td>476.25417</td>
               </tr>
             </tbody>
           </table>
@@ -675,7 +699,7 @@ nearest_neighbours &lt;- edge_nn(
   fusion dynamics and potentially dominance behaviours from animal
   telemetry data in their ecological systems.</p>
       <sec id="position-within-groups">
-        <title>3.1 Position within groups</title>
+        <title>4.1 Position within groups</title>
         <p>Extending {spatsoc}’s abilities to identify spatiotemporal
     groups, a new set of functions are now available to measure
     individuals position relative within spatiotemporal groups. After
@@ -715,46 +739,46 @@ centroid_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>E</td>
-                  <td>239</td>
-                  <td>5314</td>
-                  <td>POINT (705450.3 5505942)</td>
-                  <td>POINT (705456.8 5505951)</td>
-                </tr>
-                <tr>
-                  <td>H</td>
-                  <td>239</td>
-                  <td>5314</td>
-                  <td>POINT (705463.4 5505959)</td>
-                  <td>POINT (705456.8 5505951)</td>
-                </tr>
-                <tr>
                   <td>C</td>
-                  <td>652</td>
-                  <td>3357</td>
-                  <td>POINT (700261.6 5506668)</td>
-                  <td>POINT (700258.7 5506671)</td>
+                  <td>448</td>
+                  <td>3175</td>
+                  <td>POINT (698936.7 5505386)</td>
+                  <td>POINT (698937.9 5505391)</td>
                 </tr>
                 <tr>
-                  <td>F</td>
-                  <td>652</td>
-                  <td>3357</td>
-                  <td>POINT (700255.8 5506674)</td>
-                  <td>POINT (700258.7 5506671)</td>
+                  <td>E</td>
+                  <td>448</td>
+                  <td>3175</td>
+                  <td>POINT (698939 5505397)</td>
+                  <td>POINT (698937.9 5505391)</td>
                 </tr>
                 <tr>
-                  <td>B</td>
-                  <td>1344</td>
-                  <td>2710</td>
-                  <td>POINT (697687.9 5511096)</td>
-                  <td>POINT (697694 5511094)</td>
+                  <td>A</td>
+                  <td>454</td>
+                  <td>454</td>
+                  <td>POINT (698741.7 5505174)</td>
+                  <td>POINT (698724.2 5505154)</td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>454</td>
+                  <td>454</td>
+                  <td>POINT (698716.3 5505154)</td>
+                  <td>POINT (698724.2 5505154)</td>
                 </tr>
                 <tr>
                   <td>J</td>
-                  <td>1344</td>
-                  <td>2710</td>
-                  <td>POINT (697700.1 5511093)</td>
-                  <td>POINT (697694 5511094)</td>
+                  <td>454</td>
+                  <td>454</td>
+                  <td>POINT (698714.8 5505134)</td>
+                  <td>POINT (698724.2 5505154)</td>
+                </tr>
+                <tr>
+                  <td>G</td>
+                  <td>1282</td>
+                  <td>7433</td>
+                  <td>POINT (697617.7 5510533)</td>
+                  <td>POINT (697615.7 5510523)</td>
                 </tr>
               </tbody>
             </table>
@@ -806,7 +830,7 @@ direction_to_centroid(DT)</code>
         </fig>
       </sec>
       <sec id="directions">
-        <title>3.2 Directions</title>
+        <title>4.2 Directions</title>
         <p>Next, we can use movement directions to measure how individuals
     and groups move together. We can measure an individual’s movement
     direction using <monospace>direction_step()</monospace> and the mean
@@ -837,8 +861,8 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="28%"/>
-                <col width="26%"/>
+                <col width="25%"/>
+                <col width="25%"/>
               </colgroup>
               <thead>
                 <tr>
@@ -852,45 +876,45 @@ direction_group(DT)</code>
               <tbody>
                 <tr>
                   <td>C</td>
-                  <td>777</td>
-                  <td>3425</td>
-                  <td>1.88407292 [rad]</td>
-                  <td>-2.7091757 [rad]</td>
+                  <td>407</td>
+                  <td>3134</td>
+                  <td>0.8573081 [rad]</td>
+                  <td>0.6722763 [rad]</td>
                 </tr>
                 <tr>
                   <td>E</td>
-                  <td>777</td>
-                  <td>3425</td>
-                  <td>-2.69501020 [rad]</td>
-                  <td>-2.7091757 [rad]</td>
+                  <td>407</td>
+                  <td>3134</td>
+                  <td>0.7459539 [rad]</td>
+                  <td>0.6722763 [rad]</td>
                 </tr>
                 <tr>
-                  <td>F</td>
-                  <td>777</td>
-                  <td>3425</td>
-                  <td>-1.34492029 [rad]</td>
-                  <td>-2.7091757 [rad]</td>
+                  <td>H</td>
+                  <td>407</td>
+                  <td>3134</td>
+                  <td>0.4117504 [rad]</td>
+                  <td>0.6722763 [rad]</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>1430</td>
+                  <td>2674</td>
+                  <td>0.4557443 [rad]</td>
+                  <td>0.5306588 [rad]</td>
                 </tr>
                 <tr>
                   <td>E</td>
-                  <td>853</td>
-                  <td>5782</td>
-                  <td>-0.01247593 [rad]</td>
-                  <td>0.5793061 [rad]</td>
+                  <td>1430</td>
+                  <td>2674</td>
+                  <td>0.7187663 [rad]</td>
+                  <td>0.5306588 [rad]</td>
                 </tr>
                 <tr>
-                  <td>F</td>
-                  <td>853</td>
-                  <td>5782</td>
-                  <td>0.39660636 [rad]</td>
-                  <td>0.5793061 [rad]</td>
-                </tr>
-                <tr>
-                  <td>J</td>
-                  <td>853</td>
-                  <td>5782</td>
-                  <td>2.88853290 [rad]</td>
-                  <td>0.5793061 [rad]</td>
+                  <td>G</td>
+                  <td>1430</td>
+                  <td>2674</td>
+                  <td>0.4182666 [rad]</td>
+                  <td>0.5306588 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -991,7 +1015,7 @@ directional_align &lt;- edge_alignment(
         </fig>
       </sec>
       <sec id="behavioural-zones">
-        <title>3.3 Behavioural zones</title>
+        <title>4.3 Behavioural zones</title>
         <p>The behavioural zones
     (<xref alt="Couzin et al., 2002" rid="ref-Couzin_2002" ref-type="bibr">Couzin
     et al., 2002</xref>), or non-overlapping behavioural regions around
@@ -1051,7 +1075,7 @@ zones &lt;- edge_zones(
         </fig>
       </sec>
       <sec id="position-relative-to-leader">
-        <title>3.4 Position relative to leader</title>
+        <title>4.4 Position relative to leader</title>
         <p>After considering how individuals are positioned relative to the
     group centroid, we can also measure how individuals are positioned
     relative to the mean group direction. To do so, we first calculate
@@ -1146,7 +1170,7 @@ direction_to_leader(DT)</code>
         </fig>
       </sec>
       <sec id="fusion-events">
-        <title>3.5 Fusion events</title>
+        <title>4.5 Fusion events</title>
         <p>Fusion events, or temporal periods where two individiuals are
     within a given threshold distance from each other, can be identified
     using <monospace>fusion_id()</monospace>
@@ -1219,7 +1243,7 @@ centroid_fusion(
         </fig>
       </sec>
       <sec id="directional-correlation-delay">
-        <title>3.6 Directional correlation delay</title>
+        <title>4.6 Directional correlation delay</title>
         <p>The directional correlation delay
     (<xref alt="Nagy et al., 2010" rid="ref-Nagy_2010" ref-type="bibr">Nagy
     et al., 2010</xref>), or the temporal delay at which two
@@ -1293,7 +1317,7 @@ leader_delay &lt;- leader_edge_delay(
       </sec>
     </sec>
     <sec id="implications">
-      <title>4. Implications</title>
+      <title>5. Implications</title>
       <p>The open source package {spatsoc}
   (<xref alt="Robitaille et al., 2019" rid="ref-Robitaille_2019" ref-type="bibr">Robitaille
   et al., 2019</xref>) for the R programming language
@@ -1422,7 +1446,7 @@ leader_delay &lt;- leader_edge_delay(
   et al., 2021</xref>).</p>
     </sec>
     <sec id="open-science">
-      <title>5. Open science</title>
+      <title>6. Open science</title>
       <p>All code used to produce this manuscript including figures and
   tables are available on GitHub at
   <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
@@ -1469,7 +1493,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   &amp; Wickham, 2026</xref>).</p>
     </sec>
     <sec id="acknowledgements">
-      <title>6. Acknowledgements</title>
+      <title>7. Acknowledgements</title>
       <p>We thank Edzer Pebesma and Dewey Dunnington for support with bug
   reports and feature requests for the {sf}, {s2} and {lwgeom} packages
   related to the development of this new functionality in {spatsoc}. We
@@ -1481,11 +1505,17 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   continued efforts to foster a community around open data, software and
   reproducibility.</p>
     </sec>
-    <sec id="references">
-      <title>References</title>
+    <sec id="author-contributions">
+      <title>8. Author contributions</title>
+      <p>Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal
+  contributed to conceptualization and writing. Eric Vander Wal
+  contributed to methodology, funding acquisition, project
+  administration and supervision. Alec L. Robitaille contributed to
+  writing (original draft), software, investigation, formal analysis,
+  data curation and visualization. # References {.unnumbered}</p>
     </sec>
     <sec id="sec-scoping-methods">
-      <title>7. Supplement: Scoping review methods</title>
+      <title>9. Supplement: Scoping review methods</title>
       <p>We conducted a scoping review to identify metrics used in ecology
   studies for measuring dyadic interactions, dominance hierarchies and
   leadership patterns. We focused on metrics applicable to
@@ -1887,7 +1917,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       </fig>
     </sec>
     <sec id="sec-scoping-results">
-      <title>8. Supplement: Scoping review results</title>
+      <title>10. Supplement: Scoping review results</title>
       <sec id="results">
         <title>Results</title>
         <p>PRISMA</p>
@@ -3615,9 +3645,9 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       </sec>
     </sec>
     <sec id="sec-selected">
-      <title>9. Supplement: Selected metrics</title>
+      <title>11. Supplement: Selected metrics</title>
       <sec id="selected-metrics">
-        <title>9.1 Selected metrics</title>
+        <title>11.1 Selected metrics</title>
         <p>The following metrics were not selected due to their availability
     in existing R packages:</p>
         <list list-type="bullet">
@@ -8074,6 +8104,16 @@ dynamics</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
+          <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
+          <role vocab="https://credit.niso.org" vocab-term="formal analysis" vocab-term-identifier="https://credit.niso.org/contributor-roles/formal-analysis/">Formal
+analysis</role>
+          <role vocab="https://credit.niso.org" vocab-term="data curation" vocab-term-identifier="https://credit.niso.org/contributor-roles/data-curation/">Data
+Curation</role>
+          <role>Writing - Original Draft</role>
+          <role>Writing - Review &amp; Editing</role>
+          <role vocab="https://credit.niso.org" vocab-term="visualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/visualization/">Visualization</role>
           <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
           <xref ref-type="corresp" rid="cor-1-nb-article">*</xref>
         </contrib>
@@ -8084,6 +8124,8 @@ dynamics</article-title>
             <given-names>Quinn M. R.</given-names>
           </name>
           <string-name>Quinn M. R. Webber</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role>Writing - Review &amp; Editing</role>
           <xref ref-type="aff" rid="aff-2-nb-article">b</xref>
         </contrib>
         <contrib contrib-type="author">
@@ -8093,6 +8135,14 @@ dynamics</article-title>
             <given-names>Eric Vander</given-names>
           </name>
           <string-name>Eric Vander Wal</string-name>
+          <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
+          <role vocab="https://credit.niso.org" vocab-term="methodology" vocab-term-identifier="https://credit.niso.org/contributor-roles/methodology/">Methodology</role>
+          <role>Writing - Review &amp; Editing</role>
+          <role vocab="https://credit.niso.org" vocab-term="funding acquisition" vocab-term-identifier="https://credit.niso.org/contributor-roles/funding-acquisition/">Funding
+acquisition</role>
+          <role vocab="https://credit.niso.org" vocab-term="project administration" vocab-term-identifier="https://credit.niso.org/contributor-roles/project-administration/">Project
+administration</role>
+          <role vocab="https://credit.niso.org" vocab-term="supervision" vocab-term-identifier="https://credit.niso.org/contributor-roles/supervision/">Supervision</role>
           <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
         </contrib>
       </contrib-group>
@@ -8110,86 +8160,90 @@ and Labrador</institution>
       <author-notes>
         <corresp id="cor-1-nb-article"/>
       </author-notes>
-      <abstract>
+    </front-stub>
+    <body>
+      <sec specific-use="notebook-content">
+        <code language="r script">targets::tar_source('_targets.R')</code>
+        <boxed-text>
+          <preformat>qs2 0.2.0</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>
+Attaching package: 'renv'</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following object is masked from 'package:pak':
+
+    lockfile_create</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following objects are masked from 'package:stats':
+
+    embed, update</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following objects are masked from 'package:utils':
+
+    history, upgrade</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following objects are masked from 'package:base':
+
+    autoload, load, remove, use</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>
+Attaching package: 'janitor'</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following objects are masked from 'package:stats':
+
+    chisq.test, fisher.test</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
+        </boxed-text>
+        <code language="r script">options(tinytable_format_escape = TRUE)</code>
+      </sec>
+      <p/>
+      <p/>
+      <p/>
+      <p/>
+      <sec id="abstract-nb-article">
+        <title>1. Abstract</title>
         <list list-type="order">
           <list-item>
             <p>Beyond proximity-based social networks and home range overlap,
-    animal telemetry data can also be used to measure intragroup social
-    dynamics including individual position within groups, individual and
-    group level movement directions, leadership patterns and lagged
-    follower behaviours.</p>
+      animal telemetry data can also be used to measure intragroup
+      social dynamics including individual position within groups,
+      individual and group level movement directions, leadership
+      patterns and lagged follower behaviours.</p>
           </list-item>
           <list-item>
-            <p>We used a scoping review of literature across domains, including
-    behavioural ecology, collective movement, and GISciences, to
-    identify widely used metrics for measuring intragroup social
-    dynamics that are not openly available in the R programming
-    language.</p>
+            <p>We used a scoping review of literature across domains,
+      including behavioural ecology, collective movement, and
+      GISciences, to identify widely used metrics for measuring
+      intragroup social dynamics that are not openly available in the R
+      programming language.</p>
           </list-item>
           <list-item>
             <p>We present a case study illustrating 18 new functions for the R
-    package {spatsoc} measuring intragroup social dynamics with animal
-    telemetry data.</p>
+      package {spatsoc} measuring intragroup social dynamics with animal
+      telemetry data.</p>
           </list-item>
           <list-item>
             <p>The open availability of these new and flexible functions in
-    {spatsoc} will allow researchers to easily measure intragroup social
-    dynamics to more comprehensively measure the multifaceted animal
-    social behaviours in their study systems.</p>
+      {spatsoc} will allow researchers to easily measure intragroup
+      social dynamics to more comprehensively measure the multifaceted
+      animal social behaviours in their study systems.</p>
           </list-item>
         </list>
-      </abstract>
-    </front-stub>
-    <body>
+      </sec>
       <sec id="introduction-nb-article">
-        <title>1. Introduction</title>
-        <sec specific-use="notebook-content">
-          <code language="r script">targets::tar_source('_targets.R')</code>
-          <boxed-text>
-            <preformat>qs2 0.2.0</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>
-Attaching package: 'renv'</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>The following object is masked from 'package:pak':
-
-    lockfile_create</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>The following objects are masked from 'package:stats':
-
-    embed, update</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>The following objects are masked from 'package:utils':
-
-    history, upgrade</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>The following objects are masked from 'package:base':
-
-    autoload, load, remove, use</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>
-Attaching package: 'janitor'</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>The following objects are masked from 'package:stats':
-
-    chisq.test, fisher.test</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
-          </boxed-text>
-          <boxed-text>
-            <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
-          </boxed-text>
-          <code language="r script">options(tinytable_format_escape = TRUE)</code>
-        </sec>
-        <p/>
+        <title>2. Introduction</title>
         <p>The R package {spatsoc} was developed to derive social networks
   from animal telemetry data using aggregated association rates,
   interindividual distances, and home range overlap
@@ -8302,7 +8356,7 @@ Attaching package: 'janitor'</preformat>
   biological interpretations.</p>
       </sec>
       <sec id="methods-nb-article">
-        <title>2. Methods</title>
+        <title>3. Methods</title>
         <p>We conducted a scoping review to identify metrics for measuring
   intragroup social dynamics including dyadic interactions, leadership
   patterns, and dominance hierarchies. We focused on metrics applicable
@@ -8315,18 +8369,18 @@ Attaching package: 'janitor'</preformat>
   and lagged-follower behaviours, and by focusing on the open source
   availability of these metrics in the R programming language. See
   details scoping review methods in Supplement
-  <xref alt="Section 7" rid="sec-scoping-methods-nb-article">Section 7</xref>. and
+  <xref alt="Section 9" rid="sec-scoping-methods-nb-article">Section 9</xref>. and
   Metrics were selected for inclusion in {spatsoc} based on their
   relative importance as measured by frequency of use in the review, and
   their lack of availability in R packages when the review was conducted
   (Supplement
-  <xref alt="Section 8" rid="sec-scoping-results-nb-article">Section 8</xref>).
+  <xref alt="Section 10" rid="sec-scoping-results-nb-article">Section 10</xref>).
   Some metrics were specifically not chosen for inclusion such as
   metrics relating to posture, metrics relating to static interaction or
   home range overlap and metrics based on statistical models such as
   Hidden Markov model and Granger causality. A full list of metrics not
   selected is in Supplement
-  <xref alt="Section 9" rid="sec-selected-nb-article">Section 9</xref>.</p>
+  <xref alt="Section 11" rid="sec-selected-nb-article">Section 11</xref>.</p>
         <sec specific-use="notebook-content">
           <code language="r script">functions &lt;- fread('data/spatsoc-functions.tsv')
 new_functions &lt;- functions[Category == 'New']
@@ -8455,7 +8509,7 @@ new_functions[, .(Function, Description)] |&gt;
         </sec>
       </sec>
       <sec id="case-study-nb-article">
-        <title>3. Case study</title>
+        <title>4. Case study</title>
         <p>Functions previously available in {spatsoc} can be used to identify
   spatiotemporal grouping, generate distance based edge-lists and
   conduct data-stream permutations (see existing functionality in
@@ -8574,46 +8628,46 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 </thead>
                 <tbody>
                   <tr>
-                    <td>B</td>
-                    <td>2016-12-09 08:00:54</td>
-                    <td>POINT (698392.5 5511650)</td>
-                    <td>461</td>
-                    <td>1857</td>
+                    <td>F</td>
+                    <td>2016-12-15 12:00:53</td>
+                    <td>POINT (700079.8 5504657)</td>
+                    <td>535</td>
+                    <td>6590</td>
                   </tr>
                   <tr>
-                    <td>G</td>
-                    <td>2016-12-09 08:00:53</td>
-                    <td>POINT (698392.5 5511645)</td>
-                    <td>461</td>
-                    <td>1857</td>
+                    <td>I</td>
+                    <td>2016-12-15 12:00:54</td>
+                    <td>POINT (700050.5 5504668)</td>
+                    <td>535</td>
+                    <td>6590</td>
                   </tr>
                   <tr>
-                    <td>B</td>
-                    <td>2017-01-16 04:00:25</td>
-                    <td>POINT (697914.6 5511396)</td>
-                    <td>915</td>
-                    <td>2311</td>
+                    <td>C</td>
+                    <td>2016-12-16 02:00:10</td>
+                    <td>POINT (698478.3 5505918)</td>
+                    <td>542</td>
+                    <td>3267</td>
                   </tr>
                   <tr>
-                    <td>G</td>
-                    <td>2017-01-16 04:00:55</td>
-                    <td>POINT (697917.1 5511399)</td>
-                    <td>915</td>
-                    <td>2311</td>
+                    <td>H</td>
+                    <td>2016-12-16 02:00:42</td>
+                    <td>POINT (698479.6 5505913)</td>
+                    <td>542</td>
+                    <td>3267</td>
                   </tr>
                   <tr>
                     <td>F</td>
-                    <td>2017-01-16 08:00:53</td>
-                    <td>POINT (696014.9 5508721)</td>
-                    <td>917</td>
-                    <td>6757</td>
+                    <td>2017-01-11 18:00:58</td>
+                    <td>POINT (695761.5 5507379)</td>
+                    <td>862</td>
+                    <td>6749</td>
                   </tr>
                   <tr>
-                    <td>J</td>
-                    <td>2017-01-16 08:00:50</td>
-                    <td>POINT (696035.8 5508717)</td>
-                    <td>917</td>
-                    <td>6757</td>
+                    <td>I</td>
+                    <td>2017-01-11 18:00:13</td>
+                    <td>POINT (695753.7 5507360)</td>
+                    <td>862</td>
+                    <td>6749</td>
                   </tr>
                 </tbody>
               </table>
@@ -8679,40 +8733,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1424</td>
+                    <td>1439</td>
                     <td>B</td>
                     <td>E</td>
-                    <td>44.67190</td>
+                    <td>43.84799</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1439</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>27.13466</td>
+                    <td>41.72540</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
-                    <td>D</td>
+                    <td>1439</td>
+                    <td>C</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1439</td>
                     <td>E</td>
                     <td>B</td>
-                    <td>44.67190</td>
+                    <td>43.84799</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
-                    <td>E</td>
-                    <td>G</td>
-                    <td>20.52638</td>
-                  </tr>
-                  <tr>
-                    <td>1424</td>
+                    <td>1439</td>
                     <td>F</td>
-                    <td>I</td>
-                    <td>43.92168</td>
+                    <td>NA</td>
+                    <td>NA</td>
+                  </tr>
+                  <tr>
+                    <td>1439</td>
+                    <td>G</td>
+                    <td>B</td>
+                    <td>41.72540</td>
                   </tr>
                 </tbody>
               </table>
@@ -8753,7 +8807,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
                   <col width="17%"/>
                   <col width="7%"/>
                   <col width="7%"/>
-                  <col width="18%"/>
+                  <col width="17%"/>
                 </colgroup>
                 <thead>
                   <tr>
@@ -8765,40 +8819,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1424</td>
-                    <td>J</td>
+                    <td>1436</td>
+                    <td>H</td>
                     <td>B</td>
-                    <td>64.19389</td>
+                    <td>48.12146</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1436</td>
+                    <td>F</td>
+                    <td>C</td>
+                    <td>79.04105</td>
+                  </tr>
+                  <tr>
+                    <td>1436</td>
                     <td>G</td>
                     <td>E</td>
-                    <td>20.52638</td>
+                    <td>13.18622</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
-                    <td>H</td>
+                    <td>1436</td>
+                    <td>J</td>
                     <td>E</td>
-                    <td>3389.49078</td>
+                    <td>12.36113</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1436</td>
+                    <td>C</td>
+                    <td>F</td>
+                    <td>79.04105</td>
+                  </tr>
+                  <tr>
+                    <td>1436</td>
                     <td>I</td>
                     <td>F</td>
-                    <td>43.92168</td>
-                  </tr>
-                  <tr>
-                    <td>1424</td>
-                    <td>B</td>
-                    <td>G</td>
-                    <td>27.13466</td>
-                  </tr>
-                  <tr>
-                    <td>1424</td>
-                    <td>E</td>
-                    <td>G</td>
-                    <td>20.52638</td>
+                    <td>476.25417</td>
                   </tr>
                 </tbody>
               </table>
@@ -8812,7 +8866,7 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
   fusion dynamics and potentially dominance behaviours from animal
   telemetry data in their ecological systems.</p>
         <sec id="position-within-groups-nb-article">
-          <title>3.1 Position within groups</title>
+          <title>4.1 Position within groups</title>
           <p>Extending {spatsoc}’s abilities to identify spatiotemporal
     groups, a new set of functions are now available to measure
     individuals position relative within spatiotemporal groups. After
@@ -8864,46 +8918,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
-                      <td>E</td>
-                      <td>239</td>
-                      <td>5314</td>
-                      <td>POINT (705450.3 5505942)</td>
-                      <td>POINT (705456.8 5505951)</td>
-                    </tr>
-                    <tr>
-                      <td>H</td>
-                      <td>239</td>
-                      <td>5314</td>
-                      <td>POINT (705463.4 5505959)</td>
-                      <td>POINT (705456.8 5505951)</td>
-                    </tr>
-                    <tr>
                       <td>C</td>
-                      <td>652</td>
-                      <td>3357</td>
-                      <td>POINT (700261.6 5506668)</td>
-                      <td>POINT (700258.7 5506671)</td>
+                      <td>448</td>
+                      <td>3175</td>
+                      <td>POINT (698936.7 5505386)</td>
+                      <td>POINT (698937.9 5505391)</td>
                     </tr>
                     <tr>
-                      <td>F</td>
-                      <td>652</td>
-                      <td>3357</td>
-                      <td>POINT (700255.8 5506674)</td>
-                      <td>POINT (700258.7 5506671)</td>
+                      <td>E</td>
+                      <td>448</td>
+                      <td>3175</td>
+                      <td>POINT (698939 5505397)</td>
+                      <td>POINT (698937.9 5505391)</td>
                     </tr>
                     <tr>
-                      <td>B</td>
-                      <td>1344</td>
-                      <td>2710</td>
-                      <td>POINT (697687.9 5511096)</td>
-                      <td>POINT (697694 5511094)</td>
+                      <td>A</td>
+                      <td>454</td>
+                      <td>454</td>
+                      <td>POINT (698741.7 5505174)</td>
+                      <td>POINT (698724.2 5505154)</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>454</td>
+                      <td>454</td>
+                      <td>POINT (698716.3 5505154)</td>
+                      <td>POINT (698724.2 5505154)</td>
                     </tr>
                     <tr>
                       <td>J</td>
-                      <td>1344</td>
-                      <td>2710</td>
-                      <td>POINT (697700.1 5511093)</td>
-                      <td>POINT (697694 5511094)</td>
+                      <td>454</td>
+                      <td>454</td>
+                      <td>POINT (698714.8 5505134)</td>
+                      <td>POINT (698724.2 5505154)</td>
+                    </tr>
+                    <tr>
+                      <td>G</td>
+                      <td>1282</td>
+                      <td>7433</td>
+                      <td>POINT (697617.7 5510533)</td>
+                      <td>POINT (697615.7 5510523)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -8958,7 +9012,7 @@ direction_to_centroid(DT)</code>
           </fig>
         </sec>
         <sec id="directions-nb-article">
-          <title>3.2 Directions</title>
+          <title>4.2 Directions</title>
           <p>Next, we can use movement directions to measure how individuals
     and groups move together. We can measure an individual’s movement
     direction using <monospace>direction_step()</monospace> and the mean
@@ -9000,8 +9054,8 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="28%"/>
-                    <col width="26%"/>
+                    <col width="25%"/>
+                    <col width="25%"/>
                   </colgroup>
                   <thead>
                     <tr>
@@ -9015,45 +9069,45 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   <tbody>
                     <tr>
                       <td>C</td>
-                      <td>777</td>
-                      <td>3425</td>
-                      <td>1.88407292 [rad]</td>
-                      <td>-2.7091757 [rad]</td>
+                      <td>407</td>
+                      <td>3134</td>
+                      <td>0.8573081 [rad]</td>
+                      <td>0.6722763 [rad]</td>
                     </tr>
                     <tr>
                       <td>E</td>
-                      <td>777</td>
-                      <td>3425</td>
-                      <td>-2.69501020 [rad]</td>
-                      <td>-2.7091757 [rad]</td>
+                      <td>407</td>
+                      <td>3134</td>
+                      <td>0.7459539 [rad]</td>
+                      <td>0.6722763 [rad]</td>
                     </tr>
                     <tr>
-                      <td>F</td>
-                      <td>777</td>
-                      <td>3425</td>
-                      <td>-1.34492029 [rad]</td>
-                      <td>-2.7091757 [rad]</td>
+                      <td>H</td>
+                      <td>407</td>
+                      <td>3134</td>
+                      <td>0.4117504 [rad]</td>
+                      <td>0.6722763 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>1430</td>
+                      <td>2674</td>
+                      <td>0.4557443 [rad]</td>
+                      <td>0.5306588 [rad]</td>
                     </tr>
                     <tr>
                       <td>E</td>
-                      <td>853</td>
-                      <td>5782</td>
-                      <td>-0.01247593 [rad]</td>
-                      <td>0.5793061 [rad]</td>
+                      <td>1430</td>
+                      <td>2674</td>
+                      <td>0.7187663 [rad]</td>
+                      <td>0.5306588 [rad]</td>
                     </tr>
                     <tr>
-                      <td>F</td>
-                      <td>853</td>
-                      <td>5782</td>
-                      <td>0.39660636 [rad]</td>
-                      <td>0.5793061 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>J</td>
-                      <td>853</td>
-                      <td>5782</td>
-                      <td>2.88853290 [rad]</td>
-                      <td>0.5793061 [rad]</td>
+                      <td>G</td>
+                      <td>1430</td>
+                      <td>2674</td>
+                      <td>0.4182666 [rad]</td>
+                      <td>0.5306588 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9161,7 +9215,7 @@ directional_align &lt;- edge_alignment(
           </fig>
         </sec>
         <sec id="behavioural-zones-nb-article">
-          <title>3.3 Behavioural zones</title>
+          <title>4.3 Behavioural zones</title>
           <p>The behavioural zones
     (<xref alt="Couzin et al., 2002" rid="ref-Couzin_2002-nb-article" ref-type="bibr">Couzin
     et al., 2002</xref>), or non-overlapping behavioural regions around
@@ -9223,7 +9277,7 @@ zones &lt;- edge_zones(
           </fig>
         </sec>
         <sec id="position-relative-to-leader-nb-article">
-          <title>3.4 Position relative to leader</title>
+          <title>4.4 Position relative to leader</title>
           <p>After considering how individuals are positioned relative to the
     group centroid, we can also measure how individuals are positioned
     relative to the mean group direction. To do so, we first calculate
@@ -9322,7 +9376,7 @@ direction_to_leader(DT)</code>
           </fig>
         </sec>
         <sec id="fusion-events-nb-article">
-          <title>3.5 Fusion events</title>
+          <title>4.5 Fusion events</title>
           <p>Fusion events, or temporal periods where two individiuals are
     within a given threshold distance from each other, can be identified
     using <monospace>fusion_id()</monospace>
@@ -9397,7 +9451,7 @@ centroid_fusion(
           </fig>
         </sec>
         <sec id="directional-correlation-delay-nb-article">
-          <title>3.6 Directional correlation delay</title>
+          <title>4.6 Directional correlation delay</title>
           <p>The directional correlation delay
     (<xref alt="Nagy et al., 2010" rid="ref-Nagy_2010-nb-article" ref-type="bibr">Nagy
     et al., 2010</xref>), or the temporal delay at which two
@@ -9475,7 +9529,7 @@ leader_delay &lt;- leader_edge_delay(
         </sec>
       </sec>
       <sec id="implications-nb-article">
-        <title>4. Implications</title>
+        <title>5. Implications</title>
         <p>The open source package {spatsoc}
   (<xref alt="Robitaille et al., 2019" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">Robitaille
   et al., 2019</xref>) for the R programming language
@@ -9604,7 +9658,7 @@ leader_delay &lt;- leader_edge_delay(
   et al., 2021</xref>).</p>
       </sec>
       <sec id="open-science-nb-article">
-        <title>5. Open science</title>
+        <title>6. Open science</title>
         <p>All code used to produce this manuscript including figures and
   tables are available on GitHub at
   <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
@@ -9653,7 +9707,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   &amp; Wickham, 2026</xref>).</p>
       </sec>
       <sec id="acknowledgements-nb-article">
-        <title>6. Acknowledgements</title>
+        <title>7. Acknowledgements</title>
         <p>We thank Edzer Pebesma and Dewey Dunnington for support with bug
   reports and feature requests for the {sf}, {s2} and {lwgeom} packages
   related to the development of this new functionality in {spatsoc}. We
@@ -9665,11 +9719,17 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   continued efforts to foster a community around open data, software and
   reproducibility.</p>
       </sec>
-      <sec id="references-nb-article">
-        <title>References</title>
+      <sec id="author-contributions-nb-article">
+        <title>8. Author contributions</title>
+        <p>Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal
+  contributed to conceptualization and writing. Eric Vander Wal
+  contributed to methodology, funding acquisition, project
+  administration and supervision. Alec L. Robitaille contributed to
+  writing (original draft), software, investigation, formal analysis,
+  data curation and visualization. # References {.unnumbered}</p>
       </sec>
       <sec id="sec-scoping-methods-nb-article">
-        <title>7. Supplement: Scoping review methods</title>
+        <title>9. Supplement: Scoping review methods</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 
@@ -10104,7 +10164,7 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
         </fig>
       </sec>
       <sec id="sec-scoping-results-nb-article">
-        <title>8. Supplement: Scoping review results</title>
+        <title>10. Supplement: Scoping review results</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 
@@ -11965,7 +12025,7 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
         </sec>
       </sec>
       <sec id="sec-selected-nb-article">
-        <title>9. Supplement: Selected metrics</title>
+        <title>11. Supplement: Selected metrics</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 tar_load(taxized)
@@ -11978,7 +12038,7 @@ count_software &lt;- counted$count_software
 count_metric &lt;- counted$count_metric</code>
         </sec>
         <sec id="selected-metrics-nb-article">
-          <title>9.1 Selected metrics</title>
+          <title>11.1 Selected metrics</title>
           <p>The following metrics were not selected due to their availability
     in existing R packages:</p>
           <list list-type="bullet">

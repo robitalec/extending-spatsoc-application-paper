@@ -6,16 +6,35 @@ author:
     corresponding: true
     affiliations:
       - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Software
+      - Investigation
+      - Formal analysis
+      - Data Curation
+      - Writing - Original Draft
+      - Writing - Review & Editing
+      - Visualization
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false
     affiliations:
       - University of Guelph
+    roles:
+      - Conceptualization
+      - Writing - Review & Editing
   - name: Eric Vander Wal
     orcid: 0000-0002-8534-4317
     corresponding: false
     affiliations:
       - Department of Biology, Memorial University of Newfoundland and Labrador
+    roles:
+      - Conceptualization
+      - Methodology
+      - Writing - Review & Editing
+      - Funding acquisition
+      - Project administration
+      - Supervision
 keywords:
   - R
   - animal social dynamics
@@ -25,11 +44,6 @@ keywords:
   - leader-follower
   - fission fusion
   - dominance hierarchies
-abstract: | 
-  1. Beyond proximity-based social networks and home range overlap, animal telemetry data can also be used to measure intragroup social dynamics including individual position within groups, individual and group level movement directions, leadership patterns and lagged follower behaviours.
-  2. We used a scoping review of literature across domains, including behavioural ecology, collective movement, and GISciences, to identify widely used metrics for measuring intragroup social dynamics that are not openly available in the R programming language. 
-  3. We present a case study illustrating 18 new functions for the R package {spatsoc} measuring intragroup social dynamics with animal telemetry data.
-  4. The open availability of these new and flexible functions in {spatsoc} will allow researchers to easily measure intragroup social dynamics to more comprehensively measure the multifaceted animal social behaviours in their study systems. 
 plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
@@ -55,8 +69,6 @@ crossref:
       caption-location: top
 ---
 
-# Introduction
-
 ```{r}
 #| label: setup
 #| include: false
@@ -65,6 +77,34 @@ options(tinytable_format_escape = TRUE)
 ```
 
 `#show figure: set block(breakable: true)`{=typst}
+
+`#set par.line(numbering: "1")`{=typst}
+
+`#set text(top-edge: 0.7em, bottom-edge: -0.3em)`{=typst}
+
+`#set par(leading: 1em, spacing: 2em)`{=typst}
+
+# Abstract
+
+1.  Beyond proximity-based social networks and home range overlap,
+    animal telemetry data can also be used to measure intragroup social
+    dynamics including individual position within groups, individual and
+    group level movement directions, leadership patterns and lagged
+    follower behaviours.
+2.  We used a scoping review of literature across domains, including
+    behavioural ecology, collective movement, and GISciences, to
+    identify widely used metrics for measuring intragroup social
+    dynamics that are not openly available in the R programming
+    language.
+3.  We present a case study illustrating 18 new functions for the R
+    package {spatsoc} measuring intragroup social dynamics with animal
+    telemetry data.
+4.  The open availability of these new and flexible functions in
+    {spatsoc} will allow researchers to easily measure intragroup social
+    dynamics to more comprehensively measure the multifaceted animal
+    social behaviours in their study systems.
+
+# Introduction
 
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
@@ -804,13 +844,13 @@ concepts such as:
   displacement events [@Evans_2018].
 
 The lack of open source code and transparency of methods alongside
-research ([@suptbl-code-availability], [@suptbl-prog], [@suptbl-software])
-continues to slow the progress of science by limiting the broader
-application of new methods. We hope that the availability of these
-metrics in {spatsoc} will allow researchers to apply them to diverse
-study species, systems or research questions, including novel
-applications that could have management and conservation implications
-for vulnerable species [@Ramos_2021].
+research ([@suptbl-code-availability], [@suptbl-prog],
+[@suptbl-software]) continues to slow the progress of science by
+limiting the broader application of new methods. We hope that the
+availability of these metrics in {spatsoc} will allow researchers to
+apply them to diverse study species, systems or research questions,
+including novel applications that could have management and conservation
+implications for vulnerable species [@Ramos_2021].
 
 # Open science
 
@@ -855,7 +895,14 @@ community around open data, software and reproducibility.
 
 <!-- TODO: add funding, comps?-->
 
-# References {.unnumbered}
+# Author contributions
+
+Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal contributed to
+conceptualization and writing. Eric Vander Wal contributed to
+methodology, funding acquisition, project administration and
+supervision. Alec L. Robitaille contributed to writing (original draft),
+software, investigation, formal analysis, data curation and
+visualization. \# References {.unnumbered}
 
 ::: {#refs}
 :::
