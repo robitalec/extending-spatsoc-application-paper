@@ -60,8 +60,7 @@ Articles were screened out based on the following criteria:
     (e.g. @Allanic_2020 used focal observations and video recordings)
 -   Study does not describe metric beyond static interaction (e.g.
     @Carter_2013 used home range or spatial overlap)
--   Study does not describe metric beyond group size (e.g.
-    @delMarDelgado_2021)
+-   Study does not describe metric beyond group size (e.g. @delMarDelgado_2021)
 -   Study full text is not available in English (e.g. @Bernard_2002)
 -   Study is not a thesis
 -   Study is not a book chapter (e.g. @Bernstein_2019)
