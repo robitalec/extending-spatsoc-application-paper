@@ -23,5 +23,11 @@ format:
     code-block-border-left: false
     comments:
       hypothesis: true
-  typst: default
-
+  typst:
+    include-in-header:
+      - text: |
+          #set text(hyphenate: false)
+          #show figure: set block(breakable: true)
+          #set par.line(numbering: "1")
+          #set text(top-edge: 0.7em, bottom-edge: -0.3em)
+          #set par(leading: 1em, spacing: 2em)
