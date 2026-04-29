@@ -860,14 +860,7 @@ community around open data, software and reproducibility.
 
 <!-- TODO: add funding, comps?-->
 
-# Author contributions
-
-Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal contributed to
-conceptualization and writing. Eric Vander Wal contributed to
-methodology, funding acquisition, project administration and
-supervision. Alec L. Robitaille contributed to writing (original draft),
-software, investigation, formal analysis, data curation and
-visualization. \# References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
