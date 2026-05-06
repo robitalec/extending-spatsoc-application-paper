@@ -2,11 +2,6 @@
 
 [![DOI](https://zenodo.org/badge/1219321542.svg)](https://doi.org/10.5281/zenodo.19712779)
 
-- Authors:
-  - [Alec L. Robitaille](http://robitalec.ca)
-  - [Quinn M.R. Webber](https://qwebber.weebly.com/)
-  - [Eric Vander Wal](http://weel.gitlab.io)
-
 Repository containing the source materials for the manuscript "Extending
 {spatsoc} to measure intragroup social dynamics".
 
