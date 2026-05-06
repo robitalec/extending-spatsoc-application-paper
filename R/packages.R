@@ -6,6 +6,7 @@ library(qs2)
 # Env
 library(pak)
 library(renv)
+options('renv.config.pak.enabled' = TRUE)
 
 # General
 library(janitor)
