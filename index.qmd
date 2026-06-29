@@ -48,7 +48,7 @@ plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
 bibliography: references/references.bib
-csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+csl: https://raw.githubusercontent.com/citation-style-language/styles/refs/heads/master/dependent/movement-ecology.csl
 citeproc: true
 number-sections: true
 crossref:
