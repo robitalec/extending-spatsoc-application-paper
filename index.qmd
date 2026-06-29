@@ -92,7 +92,7 @@ Animal social dynamics, spatiotemporal groups, collective movement,
 leader-follower behaviour, fission-fusion, GPS, telemetry data, movement
 data
 
-# Introduction
+# Background
 
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
