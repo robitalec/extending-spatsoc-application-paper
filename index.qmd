@@ -840,6 +840,24 @@ apply them to diverse study species, systems or research questions,
 including novel applications that could have management and conservation
 implications for vulnerable species [@Ramos_2021].
 
+# Availability and requirements
+
+Project name: spatsoc
+
+Project home page: <https://github.com/ropensci/spatsoc>
+
+Operating system(s): Platform independent
+
+Programming language: R (≥ 3.4)
+
+Other requirements: adehabitatHR (≥ 0.4.21), data.table (≥ 1.15.0),
+igraph, sf, lwgeom (≥ 0.2.15), CircStats, stats, units (≥ 0.8-6), rlang,
+GDAL (\>= 2.0.1), GEOS (\>= 3.4.0), PROJ (\>= 4.8.0), sqlite3
+
+License: GPL-3
+
+Any restrictions to use by non-academics: None
+
 # Declarations
 
 ## Ethics approval and consent to participate
