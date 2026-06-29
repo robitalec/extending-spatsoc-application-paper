@@ -767,7 +767,7 @@ within a temporal window. B) Example movement directions for neighbour
 'window'). C) Aggregated directional delay using leader_edge_delay().
 Using the 'direction_delay' column returned by edge_delay(), the
 leader_edge_delay() function returns a column named
-'mean_direction_delay_delay' representing the mean directional
+'mean_direction_delay_dyad' representing the mean directional
 correlation delay between two individuals and a column named
 'mean_direction_delay' that represents the the mean correlation delay
 for each focal individual and all observed neighbours. Optionally, a
