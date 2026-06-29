@@ -775,7 +775,7 @@ threshold difference in direction can be used to subset the temporal
 delays included in the calculation of mean directional delay with the
 argument 'threshold'.](graphics/fig_edge_delay.png){#fig-edge-delay}
 
-# Implications
+# Conclusion
 
 The open source package {spatsoc} [@Robitaille_2019] for the R
 programming language [@RCoreTeam_2025a] has improved accessibility to
