@@ -885,8 +885,6 @@ manuscript. We thank the rOpenSci organisation including staff, editors,
 reviewers and contributors for their continued efforts to foster a
 community around open data, software and reproducibility.
 
-<!-- TODO: add funding, comps?-->
-
 # Author contributions
 
 Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal contributed to
