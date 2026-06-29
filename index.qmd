@@ -35,15 +35,6 @@ author:
       - Funding acquisition
       - Project administration
       - Supervision
-keywords:
-  - R
-  - animal social dynamics
-  - spatiotemporal groups
-  - social network analysis
-  - collective movement
-  - leader-follower
-  - fission fusion
-  - dominance hierarchies
 plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
@@ -95,6 +86,11 @@ options(tinytable_format_escape = TRUE)
     {spatsoc} will allow researchers to easily measure intragroup social
     dynamics to more comprehensively measure the multifaceted animal
     social behaviours in their study systems.
+## Keywords
+
+Animal social dynamics, spatiotemporal groups, collective movement,
+leader-follower behaviour, fission-fusion, GPS, telemetry data, movement
+data
 
 # Introduction
 
