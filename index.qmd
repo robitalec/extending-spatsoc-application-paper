@@ -86,7 +86,7 @@ options(tinytable_format_escape = TRUE)
     {spatsoc} will allow researchers to easily measure intragroup social
     dynamics to more comprehensively measure the multifaceted animal
     social behaviours in their study systems.
-## Keywords
+# Keywords
 
 Animal social dynamics, spatiotemporal groups, collective movement,
 leader-follower behaviour, fission-fusion, GPS, telemetry data, movement
