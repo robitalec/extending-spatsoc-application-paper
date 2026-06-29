@@ -840,7 +840,17 @@ apply them to diverse study species, systems or research questions,
 including novel applications that could have management and conservation
 implications for vulnerable species [@Ramos_2021].
 
-# Open science
+# Declarations
+
+## Ethics approval and consent to participate
+
+Not applicable
+
+## Consent for publication
+
+Not applicable
+
+#### Availability of data and materials
 
 All code used to produce this manuscript including figures and tables
 are available on GitHub at
@@ -869,7 +879,25 @@ gratefully depends on the R packages {adehabitatHR} [@Calenge_2024],
 [@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats} [@Lund_2025],
 {units} [@Pebesma_2016], and {rlang} [@Henry_2026].
 
-# Acknowledgements
+## Competing interests
+
+The authors declare that they have no competing interests.
+
+## Funding
+
+ALR received a NSERC Canada Graduate Research Scholarship, QMRW received
+a NSERC Discovery Grant, EVW received a NSERC Collaborative Research and
+Development Grant.
+
+## Authors' contributions
+
+ALR, QMRW and EVW contributed to conceptualization and writing. EVW
+contributed to methodology, funding acquisition, project administration
+and supervision. ALR contributed to writing (original draft), software,
+investigation, formal analysis, data curation and visualization. All
+authors read and approved the final manuscript.
+
+## Acknowledgements
 
 We thank Edzer Pebesma and Dewey Dunnington for support with bug reports
 and feature requests for the {sf}, {s2} and {lwgeom} packages related to
@@ -881,14 +909,7 @@ manuscript. We thank the rOpenSci organisation including staff, editors,
 reviewers and contributors for their continued efforts to foster a
 community around open data, software and reproducibility.
 
-# Author contributions
-
-Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal contributed to
-conceptualization and writing. Eric Vander Wal contributed to
-methodology, funding acquisition, project administration and
-supervision. Alec L. Robitaille contributed to writing (original draft),
-software, investigation, formal analysis, data curation and
-visualization. \# References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
