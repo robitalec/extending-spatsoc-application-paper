@@ -868,7 +868,7 @@ Not applicable
 
 Not applicable
 
-#### Availability of data and materials
+## Availability of data and materials
 
 All code used to produce this manuscript including figures and tables
 are available on GitHub at
