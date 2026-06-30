@@ -911,8 +911,7 @@ The authors declare that they have no competing interests.
 ## Funding
 
 ALR received a NSERC Canada Graduate Research Scholarship, QMRW received
-a NSERC Discovery Grant, EVW received a NSERC Collaborative Research and
-Development Grant.
+a NSERC Discovery Grant, EVW received a NSERC Discovery Grant.
 
 ## Authors' contributions
 
