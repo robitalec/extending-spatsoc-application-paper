@@ -33,7 +33,7 @@ code accompanying the publication:
 The follow metrics were not selected due to the expected input data
 differing from existing {spatsoc} functions (XYT):
 
--   metrics relating to posture
+-   all metrics relating to posture
 
 The selected metrics are listed in [@tbl-new-functions]. All existing
 functions in {spatsoc} are listed below in [@suptbl-all-functions].
