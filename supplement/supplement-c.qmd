@@ -25,7 +25,7 @@ existing R packages:
 -   {changepoint}: change point analysis
 
 The following metrics were not selected due to their availability in
-code availability accompanying publications:
+code accompanying the publication:
 
 -   mFLICA provided in code accompanying @Amornbunchornvej_2018 and R
     package {mFLICA} [@Amornbunchornvej_2021]
