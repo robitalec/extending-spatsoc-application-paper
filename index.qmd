@@ -82,16 +82,23 @@ not openly available in the R programming language.
 
 ## Results
 
-We present a case study illustrating 18 new functions for the R package
-{spatsoc} measuring intragroup social dynamics with animal telemetry
-data.
+The scoping review identified a series of metrics for measuring
+intragroup social dynamics that were both commonly used in the literature
+and not available in the R programming language at the time of the
+review. We developed a suite of new functions for the R package {spatsoc}
+to make these metrics readily available in the R programming language
+for broader application across study species and systems. We present
+a case study to illustrate these new functions for measuring intragroup
+social dynamics with animal telemetry data.
 
 ## Conclusions
 
 The open availability of these new and flexible functions in {spatsoc}
-will allow researchers to easily measure intragroup social dynamics to
-more comprehensively measure the multifaceted animal social behaviours
-in their study systems.
+will allow researchers to more comprehensively measure the multifaceted
+social behaviours in their study systems. Users can now start by detecting
+spatiotemporal groups and analysing social networks, then move to
+investigating the behaviours of individuals, dyads and groups within
+animal social groups.
 
 # Keywords
 
