@@ -263,9 +263,19 @@ relating to static interaction or home range overlap and metrics based
 on statistical models such as Hidden Markov model and Granger causality.
 A full list of metrics not selected is in Supplement [@sec-selected].
 
-## Software structure
+## Software
 
-<!-- TODO: R package, rOpenSci, table of new functions below, backend R-spatial, calc functions, individual+pairwise/dyad+groups -->
+The R package {spatsoc} was originally developed to detect
+spatiotemporal groups in animal telemetry data for building social
+networks [@Robitaille_2019]. In this new version, {spatsoc} provides an
+additional suite of functions to measure individual, dyadic and group
+level behaviours within spatiotemporal groups ([Table @tbl-new-functions]). These measures of intragroup dynamics are derived
+from three geospatial operations (distance, direction, and centroid)
+calculated in internal functions built on top of the R spatial packages
+{sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025] and {s2}
+[@Dunnington_2025]. Improving on past versions, {spatsoc} now
+accommodates data in both projected and geographic coordinate reference
+systems.
 
 ```{r}
 #| label: tbl-new-functions
@@ -279,8 +289,6 @@ new_functions[, .(Function, Description)] |>
   group_tt(i = new_functions$Family) |>
   style_tt(align = 'l')
 ```
-
-
 
 # Discussion
 
