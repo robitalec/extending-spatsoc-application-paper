@@ -136,7 +136,7 @@ labour-intensive to collect and susceptible to observer bias
 imperfect for studies of collective movement [@King_2018].
 
 Pairing advanced remote tracking technologies with emerging methods
-expand opportunities to measure intragroup social dynamics. The
+expands opportunities to measure intragroup social dynamics. The
 availability and resolution of remote tracking data continues to improve
 [@Kays_2015; @Kays_2022; @Nathan_2022]. There are over two decades of
 research on measuring interactions between moving individuals from the
@@ -174,7 +174,7 @@ dynamics, leadership patterns, and lagged-follower behaviours, and to
 explicitly establish their open source availability in the R programming
 language. We established a list of nine benchmark papers ([Supplement A
 Table @suptbl-benchmark]) that were relevant to our objectives and
-verified that whether each paper was indexed in at least one of our
+verified whether each paper was indexed in at least one of our
 selected databases (Web of Science and Scopus). We used an iterative
 search method to fine-tune the search terms measuring the total number
 of papers returned and sensitivity of the search. Sensitivity is defined
@@ -281,7 +281,7 @@ systems.
 #| label: tbl-new-functions
 #| echo: false
 #| eval: true
-#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All available functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
 functions <- fread('data/spatsoc-functions.tsv')
 new_functions <- functions[Category == 'New']
 new_functions[, .(Function, Description)] |>
@@ -485,7 +485,7 @@ group centroid using `distance_to_centroid()` and
 group centroid is the geographic distance from the focal individual to
 the group centroid. The direction to group centroid is the direction
 from the focal individual to the group centroid. The rank of
-individual's distances to the group centroid can be optionally returned
+individuals' distances to the group centroid can be optionally returned
 using the argument `return_rank`. Spatial position within groups with
 respect to the group centroid has been studied in relation to predation
 risk [@Heesen_2015; @Herbert-Read_2017], leadership [@Jolles_2017;
@@ -578,7 +578,7 @@ polarization range from 0 (non-alignment) to 1
 The interindividual direction, or direction from a focal individual to a
 neighbour, can be measured using `edge_direction()` ([Figure
 @fig-edge-align-dir]). Like `edge_alignment()`, the interindividual
-directions are returned by in an edge-list format. Interindividual
+directions are returned in an edge-list format. Interindividual
 direction has been used to study risk exposure in schooling fish
 [@Lemasson_2014], coordinated movement [@Herbert-Read_2016] and mass
 migration [@Torney_2018].
@@ -625,7 +625,7 @@ by group_times(), edge_direction() returns a column named
 ('ID1') and the neighbouring individual ('ID2'). Using the 'direction'
 column returned by direction_step(), the edge_alignment() function
 returns a column named 'direction_diff' representing the absolute
-different in movement directions between two individuals ('ID1' and
+difference in movement directions between two individuals ('ID1' and
 'ID2'). Optionally, the signed difference can be returned by
 edge_alignment() if the argument 'signed' is
 true.](graphics/fig_edge_dir_and_align.png){#fig-edge-align-dir}
@@ -633,7 +633,7 @@ true.](graphics/fig_edge_dir_and_align.png){#fig-edge-align-dir}
 ## Behavioural zones
 
 The behavioural zones [@Couzin_2002], or non-overlapping behavioural
-regions around a focal individual, can measured using `edge_zones()`
+regions around a focal individual, can be measured using `edge_zones()`
 ([Figure @fig-edge-zones]). The distance from the focal individual to
 each neighbour is used to assign the neighbours to behavioural zones. In
 addition, the direction from the focal individual to each neighbour can
@@ -755,13 +755,13 @@ distance_to_leader and direction_to_leader. Using the
 leader_direction_group(), distance_to_leader() and direction_to_leader()
 return columns named 'distance_leader' and 'direction_leader' indicating
 the distance and direction of the focal individual to the leader of the
-spatiotemporal group. Note: for individuals identified as leader using
+spatiotemporal group. Note: for individuals identified as leaders using
 'position_group_direction', the distance is 0 and the direction is
 NA.](graphics/fig_dist_dir_leader.png){#fig-dist-dir-lead}
 
 ## Fusion events
 
-Fusion events, or temporal periods where two individiuals are within a
+Fusion events, or temporal periods where two individuals are within a
 given threshold distance from each other, can be identified using
 `fusion_id()` ([Figure @fig-fusion]). Given the variability in defining
 fission fusion dynamics in the literature ([@suptbl-defn-fission]), the
@@ -894,7 +894,7 @@ animal telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
 dimension and studying intragroup social dynamics will allow researchers
 to further measure animal social systems. The new functions in {spatsoc}
 and the accompanying case study presented here make openly available a
-series of metrics that while commonly used in the literature have been
+series of metrics that, while commonly used in the literature, have been
 largely absent from R packages. Paired with the continued development of
 animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
 data collection methods [@Koger_2023; @Pedrazzi_2025], the open
