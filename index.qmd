@@ -1,5 +1,5 @@
 ---
-title: Extending {spatsoc} to measure intragroup social dynamics
+title: Extending the open-source R package {spatsoc} to measure intragroup social dynamics
 author:
   - name: Alec L. Robitaille
     orcid: 0000-0002-4706-1762
@@ -35,20 +35,11 @@ author:
       - Funding acquisition
       - Project administration
       - Supervision
-keywords:
-  - R
-  - animal social dynamics
-  - spatiotemporal groups
-  - social network analysis
-  - collective movement
-  - leader-follower
-  - fission fusion
-  - dominance hierarchies
 plain-language-summary: |
   New functions in the R package {spatsoc} to measure animal behaviour in social groups.
 date: last-modified
 bibliography: references/references.bib
-csl: https://www.zotero.org/styles/methods-in-ecology-and-evolution
+csl: https://raw.githubusercontent.com/citation-style-language/styles/refs/heads/master/dependent/movement-ecology.csl
 citeproc: true
 number-sections: true
 crossref:
@@ -78,25 +69,44 @@ options(tinytable_format_escape = TRUE)
 
 # Abstract
 
-1.  Beyond proximity-based social networks and home range overlap,
-    animal telemetry data can also be used to measure intragroup social
-    dynamics including individual position within groups, individual and
-    group level movement directions, leadership patterns and lagged
-    follower behaviours.
-2.  We used a scoping review of literature across domains, including
-    behavioural ecology, collective movement, and GISciences, to
-    identify widely used metrics for measuring intragroup social
-    dynamics that are not openly available in the R programming
-    language.
-3.  We present a case study illustrating 18 new functions for the R
-    package {spatsoc} measuring intragroup social dynamics with animal
-    telemetry data.
-4.  The open availability of these new and flexible functions in
-    {spatsoc} will allow researchers to easily measure intragroup social
-    dynamics to more comprehensively measure the multifaceted animal
-    social behaviours in their study systems.
+## Background
 
-# Introduction
+Beyond proximity-based social networks and home range overlap, animal
+telemetry data can also be used to measure intragroup social dynamics
+including individual position within groups, individual and group level
+movement directions, leadership patterns and lagged follower behaviours.
+We used a scoping review of literature across domains, including
+behavioural ecology, collective movement, and GISciences, to identify
+widely used metrics for measuring intragroup social dynamics that are
+not openly available in the R programming language.
+
+## Results
+
+The scoping review identified a series of metrics for measuring
+intragroup social dynamics that were both commonly used in the literature
+and not available in the R programming language at the time of the
+review. We developed a suite of new functions for the R package {spatsoc}
+to make these metrics readily available in the R programming language
+for broader application across study species and systems. We present
+a case study to illustrate these new functions for measuring intragroup
+social dynamics with animal telemetry data.
+
+## Conclusions
+
+The open availability of these new and flexible functions in {spatsoc}
+will allow researchers to more comprehensively measure the multifaceted
+social behaviours in their study systems. Users can now start by detecting
+spatiotemporal groups and analysing social networks, then move to
+investigating the behaviours of individuals, dyads and groups within
+animal social groups.
+
+# Keywords
+
+Animal social dynamics, spatiotemporal groups, collective movement,
+leader-follower behaviour, fission-fusion, GPS, telemetry data, movement
+data
+
+# Background
 
 The R package {spatsoc} was developed to derive social networks from
 animal telemetry data using aggregated association rates,
@@ -126,7 +136,7 @@ labour-intensive to collect and susceptible to observer bias
 imperfect for studies of collective movement [@King_2018].
 
 Pairing advanced remote tracking technologies with emerging methods
-expand opportunities to measure intragroup social dynamics. The
+expands opportunities to measure intragroup social dynamics. The
 availability and resolution of remote tracking data continues to improve
 [@Kays_2015; @Kays_2022; @Nathan_2022]. There are over two decades of
 research on measuring interactions between moving individuals from the
@@ -151,32 +161,127 @@ measuring intragroup dynamics ([Table @tbl-new-functions]). We will
 demonstrate these new functions through a case study and discuss
 biological interpretations.
 
-# Methods
+# Implementations
 
-We conducted a scoping review to identify metrics for measuring
-intragroup social dynamics including dyadic interactions, leadership
-patterns, and dominance hierarchies. We focused on metrics applicable to
-spatiotemporal data such as animal movement data. This scoping review
-expands on the review conducted by @Joo_2018 by using interdisciplinary
-sources (e.g. @Miller_2021), including metrics measuring group-level
-dynamics, leadership patterns, and lagged-follower behaviours, and by
-focusing on the open source availability of these metrics in the R
-programming language. See details scoping review methods in Supplement
-[@sec-scoping-methods]. and Metrics were selected for inclusion in
-{spatsoc} based on their relative importance as measured by frequency of
-use in the review, and their lack of availability in R packages when the
-review was conducted (Supplement [@sec-scoping-results]). Some metrics
-were specifically not chosen for inclusion such as metrics relating to
-posture, metrics relating to static interaction or home range overlap
-and metrics based on statistical models such as Hidden Markov model and
-Granger causality. A full list of metrics not selected is in Supplement
-[@sec-selected].
+## Scoping review
+
+We conducted a scoping review to identify metrics used in ecology
+studies for measuring dyadic interactions, dominance hierarchies and
+leadership patterns. We focused on metrics applicable to spatiotemporal
+data such as GPS telemetry. The scoping review expands on the review
+conducted by @Joo_2018 to also include metrics that measure group-level
+dynamics, leadership patterns, and lagged-follower behaviours, and to
+explicitly establish their open source availability in the R programming
+language. We established a list of nine benchmark papers ([Supplement A
+Table @suptbl-benchmark]) that were relevant to our objectives and
+verified whether each paper was indexed in at least one of our
+selected databases (Web of Science and Scopus). We used an iterative
+search method to fine-tune the search terms measuring the total number
+of papers returned and sensitivity of the search. Sensitivity is defined
+as the proportion of benchmark papers returned from each database [4.2.7
+@CollaborationforEnvironmentalEvidence_2022]. Search terms were
+developed in four categories: topic, population, method and exclusion.
+Topic included terms associated with dyadic interactions, dominance
+hierarchies and leadership patterns. Population included terms
+associated with animals, wildlife and ecology. Method included terms
+associated with data collection and data types. Finally, a list of
+exclusion terms were used to remove clearly irrelevant papers. Each
+category of terms were combined with OR operators and all four
+categories of terms were combined with AND operators. The resulting set
+of papers used in further steps was the combination of the last
+iteration of search terms applied to both of the Web of Science (using
+the “TS” field) and Scopus (using the “TITLE-ABS-KEY” field) databases
+([Supplement A Table @suptbl-search-strings]). The temporal range of
+articles was limited to 1980-2023 using the PY (Web of Science) or
+PUBYEAR (Scopus) fields. The resulting set of papers were imported into
+Covidence [@VeritasHealthInnovation_2025] for deduplication, title and
+abstract screening, full text screening, and data extraction.
+
+Articles were marked as duplicates using Covidence and manual screening.
+Covidence detected 799 duplicates based on title, year, volume, and
+authors, and manual screening identified an additional 128 duplicates.
+
+Articles were screened out based on the following criteria:
+
+- Paper does not describe dyadic or group metric related to leadership
+  or dominance (e.g. @Papageorgiou_2020)
+- Paper describes metric that is not applicable to spatiotemporal data
+  (e.g. @Allanic_2020 used focal observations and video recordings)
+- Paper does not describe metric beyond static interaction (e.g.
+  @Carter_2013 used home range or spatial overlap)
+- Paper does not describe metric beyond group size (e.g.
+  @delMarDelgado_2021)
+- Paper full text is not available in English (e.g. @Bernard_2002)
+- Paper is not a thesis
+- Paper is not a book chapter (e.g. @Bernstein_2019)
+
+Despite the intended focus on animal ecology, some papers discussed
+movement data more generically or, alternatively, specifically focused
+on human or robotic movement data (e.g. @Long_2022). These papers were
+retained when the metrics described were deemed applicable to animal
+spatiotemporal movement data. Papers using mathematical models or
+simulations were largely beyond the scope of this review but papers were
+retained when the parameters used as inputs could be applied to spatial
+temporal data (e.g. @Long_2015). Review papers were read for building
+the scope of the introduction and discussion but not included in data
+extraction unless they explicitly discussed dyadic measures (e.g.
+@King_2018).
+
+The goals of data extraction were to record the breadth of metrics for
+measuring dyadic interactions, dominance hierarchies and leadership
+patterns applicable to spatiotemporal data, and the degree of code
+availability. General information about each paper was recorded
+including the type of study (empirical, simulation, algorithm, model, or
+review), study species and study region. Metrics discussed in each paper
+were listed including data input required, citations and interpretation.
+Code availability was described including location of code (e.g. Zenodo,
+or GitHub), programming languages and software packages used. The data
+extraction form is in ([Supplement A Table @suptbl-form]).
+
+Metrics identified were aggregated using a manual process to identify
+synonymous terms. This aggregation process was required due to
+variability in defining metrics during data extraction and differences
+between authors in describing metrics (e.g. distance to group "center",
+"centroid", or "center of mass"). Each paper's study location was
+geocoded using the {tidygeocoder} package [@Cambon_2021] and the study
+species were parsed using the {rgnparser} package [@Chamberlain_2023]
+which provides the GNparser [@Mozzherin_2026] taxonomic parser in R. We
+calculated frequencies for each categorical field including programming
+language, software package, analysis code availability, geographic
+region, study species and metric used. For many fields, authors did not
+provide sufficient information to determine how metrics were calculated,
+e.g. not including the programming language or software package used,
+and as a result, counts are presented as an overall frequency including
+papers with missing fields.
+
+Metrics were selected for inclusion in {spatsoc} based on their relative
+importance (as measured by frequency of use in the scoping review), and
+their lack of availability in R when the review was conducted
+(Supplement [@sec-scoping-results]). Some metrics were specifically not
+chosen for inclusion such as metrics relating to posture, metrics
+relating to static interaction or home range overlap and metrics based
+on statistical models such as Hidden Markov model and Granger causality.
+A full list of metrics not selected is in Supplement [@sec-selected].
+
+## Software
+
+The R package {spatsoc} was originally developed to detect
+spatiotemporal groups in animal telemetry data for building social
+networks [@Robitaille_2019]. In this new version, {spatsoc} provides an
+additional suite of functions to measure individual, dyadic and group
+level behaviours within spatiotemporal groups ([Table @tbl-new-functions]). These measures of intragroup dynamics are derived
+from three geospatial operations (distance, direction, and centroid)
+calculated in internal functions built on top of the R spatial packages
+{sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025] and {s2}
+[@Dunnington_2025]. Improving on past versions, {spatsoc} now
+accommodates data in both projected and geographic coordinate reference
+systems.
 
 ```{r}
 #| label: tbl-new-functions
 #| echo: false
 #| eval: true
-#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All avilable functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
+#| tbl-cap: "Description of new functions in the R package {spatsoc} for measuring intragroup dynamics categorized by family. All available functions in the R package {spatsoc} including new and existing functions are listed in [Table @suptbl-all-functions]."
 functions <- fread('data/spatsoc-functions.tsv')
 new_functions <- functions[Category == 'New']
 new_functions[, .(Function, Description)] |>
@@ -185,7 +290,7 @@ new_functions[, .(Function, Description)] |>
   style_tt(align = 'l')
 ```
 
-# Case study
+# Results: case study
 
 Functions previously available in {spatsoc} can be used to identify
 spatiotemporal grouping, generate distance based edge-lists and conduct
@@ -380,7 +485,7 @@ group centroid using `distance_to_centroid()` and
 group centroid is the geographic distance from the focal individual to
 the group centroid. The direction to group centroid is the direction
 from the focal individual to the group centroid. The rank of
-individual's distances to the group centroid can be optionally returned
+individuals' distances to the group centroid can be optionally returned
 using the argument `return_rank`. Spatial position within groups with
 respect to the group centroid has been studied in relation to predation
 risk [@Heesen_2015; @Herbert-Read_2017], leadership [@Jolles_2017;
@@ -473,7 +578,7 @@ polarization range from 0 (non-alignment) to 1
 The interindividual direction, or direction from a focal individual to a
 neighbour, can be measured using `edge_direction()` ([Figure
 @fig-edge-align-dir]). Like `edge_alignment()`, the interindividual
-directions are returned by in an edge-list format. Interindividual
+directions are returned in an edge-list format. Interindividual
 direction has been used to study risk exposure in schooling fish
 [@Lemasson_2014], coordinated movement [@Herbert-Read_2016] and mass
 migration [@Torney_2018].
@@ -520,7 +625,7 @@ by group_times(), edge_direction() returns a column named
 ('ID1') and the neighbouring individual ('ID2'). Using the 'direction'
 column returned by direction_step(), the edge_alignment() function
 returns a column named 'direction_diff' representing the absolute
-different in movement directions between two individuals ('ID1' and
+difference in movement directions between two individuals ('ID1' and
 'ID2'). Optionally, the signed difference can be returned by
 edge_alignment() if the argument 'signed' is
 true.](graphics/fig_edge_dir_and_align.png){#fig-edge-align-dir}
@@ -528,7 +633,7 @@ true.](graphics/fig_edge_dir_and_align.png){#fig-edge-align-dir}
 ## Behavioural zones
 
 The behavioural zones [@Couzin_2002], or non-overlapping behavioural
-regions around a focal individual, can measured using `edge_zones()`
+regions around a focal individual, can be measured using `edge_zones()`
 ([Figure @fig-edge-zones]). The distance from the focal individual to
 each neighbour is used to assign the neighbours to behavioural zones. In
 addition, the direction from the focal individual to each neighbour can
@@ -650,13 +755,13 @@ distance_to_leader and direction_to_leader. Using the
 leader_direction_group(), distance_to_leader() and direction_to_leader()
 return columns named 'distance_leader' and 'direction_leader' indicating
 the distance and direction of the focal individual to the leader of the
-spatiotemporal group. Note: for individuals identified as leader using
+spatiotemporal group. Note: for individuals identified as leaders using
 'position_group_direction', the distance is 0 and the direction is
 NA.](graphics/fig_dist_dir_leader.png){#fig-dist-dir-lead}
 
 ## Fusion events
 
-Fusion events, or temporal periods where two individiuals are within a
+Fusion events, or temporal periods where two individuals are within a
 given threshold distance from each other, can be identified using
 `fusion_id()` ([Figure @fig-fusion]). Given the variability in defining
 fission fusion dynamics in the literature ([@suptbl-defn-fission]), the
@@ -771,7 +876,7 @@ within a temporal window. B) Example movement directions for neighbour
 'window'). C) Aggregated directional delay using leader_edge_delay().
 Using the 'direction_delay' column returned by edge_delay(), the
 leader_edge_delay() function returns a column named
-'mean_direction_delay_delay' representing the mean directional
+'mean_direction_delay_dyad' representing the mean directional
 correlation delay between two individuals and a column named
 'mean_direction_delay' that represents the the mean correlation delay
 for each focal individual and all observed neighbours. Optionally, a
@@ -779,7 +884,7 @@ threshold difference in direction can be used to subset the temporal
 delays included in the calculation of mean directional delay with the
 argument 'threshold'.](graphics/fig_edge_delay.png){#fig-edge-delay}
 
-# Implications
+# Conclusion
 
 The open source package {spatsoc} [@Robitaille_2019] for the R
 programming language [@RCoreTeam_2025a] has improved accessibility to
@@ -789,7 +894,7 @@ animal telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
 dimension and studying intragroup social dynamics will allow researchers
 to further measure animal social systems. The new functions in {spatsoc}
 and the accompanying case study presented here make openly available a
-series of metrics that while commonly used in the literature have been
+series of metrics that, while commonly used in the literature, have been
 largely absent from R packages. Paired with the continued development of
 animal tracking technology [@Nathan_2022; @Beardsworth_2022] and novel
 data collection methods [@Koger_2023; @Pedrazzi_2025], the open
@@ -844,7 +949,34 @@ apply them to diverse study species, systems or research questions,
 including novel applications that could have management and conservation
 implications for vulnerable species [@Ramos_2021].
 
-# Open science
+# Availability and requirements
+
+Project name: spatsoc
+
+Project home page: <https://github.com/ropensci/spatsoc>
+
+Operating system(s): Platform independent
+
+Programming language: R (≥ 3.4)
+
+Other requirements: R packages adehabitatHR (≥ 0.4.21), data.table (≥ 1.15.0),
+igraph, sf, lwgeom (≥ 0.2.15), CircStats, stats, units (≥ 0.8-6), rlang. System dependencies GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0), sqlite3
+
+License: GPL-3
+
+Any restrictions to use by non-academics: None
+
+# Declarations
+
+## Ethics approval and consent to participate
+
+Not applicable
+
+## Consent for publication
+
+Not applicable
+
+## Availability of data and materials
 
 All code used to produce this manuscript including figures and tables
 are available on GitHub at
@@ -873,7 +1005,24 @@ gratefully depends on the R packages {adehabitatHR} [@Calenge_2024],
 [@Pebesma_2018], {lwgeom} [@Pebesma_2025], {CircStats} [@Lund_2025],
 {units} [@Pebesma_2016], and {rlang} [@Henry_2026].
 
-# Acknowledgements
+## Competing interests
+
+The authors declare that they have no competing interests.
+
+## Funding
+
+ALR received a NSERC Canada Graduate Research Scholarship, QMRW received
+a NSERC Discovery Grant, EVW received a NSERC Discovery Grant.
+
+## Authors' contributions
+
+ALR, QMRW and EVW contributed to conceptualization and writing. EVW
+contributed to methodology, funding acquisition, project administration
+and supervision. ALR contributed to writing (original draft), software,
+investigation, formal analysis, data curation and visualization. All
+authors read and approved the final manuscript.
+
+## Acknowledgements
 
 We thank Edzer Pebesma and Dewey Dunnington for support with bug reports
 and feature requests for the {sf}, {s2} and {lwgeom} packages related to
@@ -885,16 +1034,7 @@ manuscript. We thank the rOpenSci organisation including staff, editors,
 reviewers and contributors for their continued efforts to foster a
 community around open data, software and reproducibility.
 
-<!-- TODO: add funding, comps?-->
-
-# Author contributions
-
-Alec L. Robitaille, Quinn M.R. Webber and Eric Vander Wal contributed to
-conceptualization and writing. Eric Vander Wal contributed to
-methodology, funding acquisition, project administration and
-supervision. Alec L. Robitaille contributed to writing (original draft),
-software, investigation, formal analysis, data curation and
-visualization. \# References {.unnumbered}
+# References {.unnumbered}
 
 ::: {#refs}
 :::
