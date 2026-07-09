@@ -161,6 +161,7 @@ measuring intragroup dynamics. We will
 demonstrate these new functions through a case study and discuss
 biological interpretations.
 
+
 # Implementations
 
 ## Scoping review
@@ -172,8 +173,8 @@ data such as GPS telemetry. The scoping review expands on the review
 conducted by @Joo_2018 to also include metrics that measure group-level
 dynamics, leadership patterns, and lagged-follower behaviours, and to
 explicitly establish their open source availability in the R programming
-language. We established a list of nine benchmark papers ([Supplement A
-Table @suptbl-benchmark]) that were relevant to our objectives and
+language. We established a list of nine benchmark papers (Supplement A
+Table S @suptbl-benchmark) that were relevant to our objectives and
 verified whether each paper was indexed in at least one of our
 selected databases (Web of Science and Scopus). We used an iterative
 search method to fine-tune the search terms measuring the total number
@@ -191,7 +192,7 @@ categories of terms were combined with AND operators. The resulting set
 of papers used in further steps was the combination of the last
 iteration of search terms applied to both of the Web of Science (using
 the “TS” field) and Scopus (using the “TITLE-ABS-KEY” field) databases
-([Supplement A Table @suptbl-search-strings]). The temporal range of
+(Supplement A @suptbl-search-strings). The temporal range of
 articles was limited to 1980-2023 using the PY (Web of Science) or
 PUBYEAR (Scopus) fields. The resulting set of papers were imported into
 Covidence [@VeritasHealthInnovation_2025] for deduplication, title and
@@ -236,7 +237,7 @@ review), study species and study region. Metrics discussed in each paper
 were listed including data input required, citations and interpretation.
 Code availability was described including location of code (e.g. Zenodo,
 or GitHub), programming languages and software packages used. The data
-extraction form is in ([Supplement A Table @suptbl-form]).
+extraction form is in (Supplement A Table @suptbl-form).
 
 Metrics identified were aggregated using a manual process to identify
 synonymous terms. This aggregation process was required due to
@@ -289,11 +290,11 @@ count_software[, tot := .N]
 count_metric <- counted$count_metric
 ```
 
-The final set of search terms ([Supplement A Table @suptbl-search-strings]) applied to both Web of Science and Scopus returned a database of 3878 articles between 1980 and 2023. Manual deduplication removed 128 articles and Covidence [@VeritasHealthInnovation_2025] identified an additional 799 duplicated articles. 2527 articles were excluded during title and abstract screening and 275 articles were excluded by full text screening. The resulting database included 141 studies (see Supplement B for detailed PRISMA).
+The final set of search terms (Supplement A @suptbl-search-strings) applied to both Web of Science and Scopus returned a database of 3878 articles between 1980 and 2023. Manual deduplication removed 128 articles and Covidence [@VeritasHealthInnovation_2025] identified an additional 799 duplicated articles. 2527 articles were excluded during title and abstract screening and 275 articles were excluded by full text screening. The resulting database included 141 studies (see Supplement B for detailed PRISMA).
 
-Data extraction revealed a total of `r count_metric[, uniqueN(metric_agg)]` unique metrics including metrics used in articles that may not explicitly measure intragroup social dynamics. For example, if an article measured an individual's position within the group and also their step length, both metrics were recorded. The review indicated variability in the methodological definitions relating to intragroup social dynamics. Differences in defining spatiotemporal groups were largely centered on spatial and temporal thresholds ([Supplement B Table @suptbl-defn-spattemp-groups]). Similarly, fission-fusion dynamics were defined by spatial and temporal thresholds [e.g. @Nishikawa_2014; @Haydon_2008], but also how to handle missed observations and temporary separations [e.g. @Lesmerises_2018; @DellaLibera_2023] ([Supplement B Table @suptbl-defn-fission]). Definitions of group-level leadership patterns were based on selected measures of leadership including tendency to be at the front of the group [e.g. @Andrienko_2013; @Perez-Barberia_2018; @Jolles_2018], directional correlation delay [e.g. @Pettit_2013; @Kano_2021], and movement initiations [e.g. @Quera_2023; @Bracken_2022; @Strandburg-Peshkin_2018] ([Supplement B Table @suptbl-defn-leadership]). 
+Data extraction revealed a total of `r count_metric[, uniqueN(metric_agg)]` unique metrics including metrics used in articles that may not explicitly measure intragroup social dynamics. For example, if an article measured an individual's position within the group and also their step length, both metrics were recorded. The review indicated variability in the methodological definitions relating to intragroup social dynamics. Differences in defining spatiotemporal groups were largely centered on spatial and temporal thresholds (Supplement B @suptbl-defn-spattemp-groups). Similarly, fission-fusion dynamics were defined by spatial and temporal thresholds [e.g. @Nishikawa_2014; @Haydon_2008], but also how to handle missed observations and temporary separations [e.g. @Lesmerises_2018; @DellaLibera_2023] (Supplement B @suptbl-defn-fission). Definitions of group-level leadership patterns were based on selected measures of leadership including tendency to be at the front of the group [e.g. @Andrienko_2013; @Perez-Barberia_2018; @Jolles_2018], directional correlation delay [e.g. @Pettit_2013; @Kano_2021], and movement initiations [e.g. @Quera_2023; @Bracken_2022; @Strandburg-Peshkin_2018] (Supplement B @suptbl-defn-leadership). 
 
-Details in the methods and supplemental materials were used to assess the availability of the extracted metrics in open source programming languages commonly used in ecology. Accompanying code was available in a supplement or linked repository for `r count_code_avail[analysis_code_availability == 'No', percent(.N / unique(tot))]` of articles and `r count_software[is.na(software_package_s_used), percent(.N / unique(tot))]` of articles did not indicate any software package (e.g. R package, Python library) used. R was the most common programming language followed by MATLAB and Python ([Supplement B Table @suptbl-defn-prog]) in the database of articles. Metrics already provided by existing open source software packages [e.g. DI provided by {wildlifeDI} @Long_2022], or code accompanying articles [e.g. FLICA code provided alongside @Amornbunchornvej_2018] were not selected for inclusion in {spatsoc}. Finally, metrics were prioritized for inclusion in {spatsoc} according to measured frequency of use in the database of articles and external searches were conducted to ensure no availability in R packages were missed by the scoping review [see Supplement B Table @suptbl-count-metrics; Supplement C]. The resulting set of new functions in the R package {spatsoc} for measuring intragroup social dynamics is shown in ([Table @tbl-new-functions]). 
+Details in the methods and supplemental materials were used to assess the availability of the extracted metrics in open source programming languages commonly used in ecology. Accompanying code was not available in a supplement or linked repository for `r count_code_avail[analysis_code_availability == 'No', percent(.N / unique(tot))]` of articles and `r count_software[is.na(software_package_s_used), percent(.N / unique(tot))]` of articles did not indicate any software package (e.g. R package, Python library) used. R was the most common programming language followed by MATLAB and Python (Supplement B @suptbl-prog) in the database of articles. Metrics already provided by existing open source software packages (e.g. DI provided by {wildlifeDI} @Long_2022), or code accompanying articles (e.g. FLICA code provided alongside @Amornbunchornvej_2018) were not selected for inclusion in {spatsoc}. Finally, metrics were prioritized for inclusion in {spatsoc} according to measured frequency of use in the database of articles and external searches were conducted to ensure no availability in R packages were missed by the scoping review (see Supplement B @suptbl-count-metrics; Supplement C). The resulting set of new functions in the R package {spatsoc} for measuring intragroup social dynamics is shown in Table @tbl-new-functions. 
 
 ```{r}
 #| label: tbl-new-functions
