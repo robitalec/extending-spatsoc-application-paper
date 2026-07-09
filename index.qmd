@@ -157,7 +157,7 @@ availability in the R programming language, either through R packages or
 supplemental materials in the literature. Here we present
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions in the R package {spatsoc} [@Robitaille_2019] for
-measuring intragroup dynamics ([Table @tbl-new-functions]). We will
+measuring intragroup dynamics. We will
 demonstrate these new functions through a case study and discuss
 biological interpretations.
 
@@ -269,7 +269,7 @@ The R package {spatsoc} was originally developed to detect
 spatiotemporal groups in animal telemetry data for building social
 networks [@Robitaille_2019]. In this new version, {spatsoc} provides an
 additional suite of functions to measure individual, dyadic and group
-level behaviours within spatiotemporal groups ([Table @tbl-new-functions]). These measures of intragroup dynamics are derived
+level behaviours within spatiotemporal groups. These measures of intragroup dynamics are derived
 from three geospatial operations (distance, direction, and centroid)
 calculated in internal functions built on top of the R spatial packages
 {sf} [@Pebesma_2018], {lwgeom} [@Pebesma_2025] and {s2}
