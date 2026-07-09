@@ -309,7 +309,7 @@ new_functions[, .(Function, Description)] |>
   style_tt(align = 'l')
 ```
 
-# Results: case study
+# Discussion: case study
 
 Functions previously available in {spatsoc} can be used to identify
 spatiotemporal grouping, generate distance based edge-lists and conduct
