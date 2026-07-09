@@ -277,6 +277,17 @@ calculated in internal functions built on top of the R spatial packages
 accommodates data in both projected and geographic coordinate reference
 systems.
 
+# Results
+
+```{r}
+#| include: false
+tar_load(counted)
+count_code_avail <- counted$count_code_avail
+count_code_avail[, tot := .N]
+count_software <- counted$count_software
+count_software[, tot := .N]
+count_metric <- counted$count_metric
+```
 ```{r}
 #| label: tbl-new-functions
 #| echo: false
