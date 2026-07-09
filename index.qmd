@@ -288,6 +288,8 @@ count_software <- counted$count_software
 count_software[, tot := .N]
 count_metric <- counted$count_metric
 ```
+The final set of search terms ([Supplement A Table @suptbl-search-strings]) applied to both Web of Science and Scopus returned a database of 3878 articles between 1980 and 2023. Manual deduplication removed 128 articles and Covidence [@VeritasHealthInnovation_2025] identified an additional 799 duplicated articles. 2527 articles were excluded during title and abstract screening and 275 articles were excluded by full text screening. The resulting database included 141 studies (see Supplement B for detailed PRISMA).
+
 ```{r}
 #| label: tbl-new-functions
 #| echo: false
