@@ -1,10 +1,14 @@
 ---
-title: Extending the open-source R package {spatsoc} to measure intragroup social dynamics
+title: Extending the open-source R package {spatsoc} to measure intragroup
+  social dynamics
 format: typst
 ---
 
-Alec L. Robitaille (corresponding author, ORCID: 0000-0002-4706-1762, Department of Biology, Memorial University of Newfoundland and Labrador)
+Alec L. Robitaille (corresponding author, ORCID: 0000-0002-4706-1762, Department
+of Biology, Memorial University of Newfoundland and Labrador)
 
-Quinn M. R. Webber (ORCID: 0000-0002-0434-9360, Department of Integrative Biology, University of Guelph)
+Quinn M. R. Webber (ORCID: 0000-0002-0434-9360, Department of Integrative
+Biology, University of Guelph)
 
-Eric Vander Wal (ORCID: 0000-0002-8534-4317, Department of Biology, Memorial University of Newfoundland and Labrador)
+Eric Vander Wal (ORCID: 0000-0002-8534-4317, Department of Biology, Memorial
+University of Newfoundland and Labrador)
