@@ -34,7 +34,6 @@ behaviours in their study systems. Users can now start by detecting
 spatiotemporal groups and analysing social networks, then move to investigating
 the behaviours of individuals, dyads and groups within animal social groups.
 
-
 ### Open science
 
 All data and code used to produce figures are available on GitHub at

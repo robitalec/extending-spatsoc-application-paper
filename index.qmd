@@ -1,5 +1,6 @@
 ---
-title: Extending the open-source R package {spatsoc} with intragroup social dynamics metrics identified by a scoping review
+title: Extending the open-source R package {spatsoc} with intragroup social
+  dynamics metrics identified by a scoping review
 author:
   - name: Alec L. Robitaille
     orcid: 0000-0002-4706-1762
