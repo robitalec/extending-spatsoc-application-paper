@@ -22,7 +22,7 @@ count_dom_metric <- counted$count_dom_metric
 ```{r}
 #| echo: false
 
-targets::tar_read(benchmark_papers) |>
+targets::tar_read(benchmark_papers)[, .(Citation)] |>
   tinytable::tt() |>
   style_tt(align = 'l') |>
   format_tt(escape = TRUE)
