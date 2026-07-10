@@ -968,16 +968,6 @@ delay with the argument
 
 # Conclusion
 
-Pairing advanced remote tracking technologies with emerging methods expands
-opportunities to measure intragroup social dynamics. The availability and
-resolution of remote tracking data continues to improve [20–22]. There are over
-two decades of research on measuring interactions between moving individuals
-from the study of "moving point objects" in GISciences [23–26] to group
-coordination [27,28], leadership, and decision making [29–31]. Despite this, we
-suggest the lack of availability of open source tools [32–34] is the missing
-piece between the call to integrate technology enhanced research with
-multidisciplinary approaches to better study animal social systems [8,35].
-
 An ever expanding collection of methods have been described for studying animal
 social systems. The scoping review identified hundreds of metrics applied to
 species across the globe. Despite this, a lack of their accessibility in open
