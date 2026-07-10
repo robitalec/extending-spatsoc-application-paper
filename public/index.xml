@@ -5,8 +5,9 @@ and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
   <front>
     <article-meta>
       <title-group>
-        <article-title>Extending the open-source R package {spatsoc} to measure
-intragroup social dynamics</article-title>
+        <article-title>Extending the open-source R package {spatsoc} with
+measures of intragroup social dynamics identified by a scoping
+review</article-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author" corresp="yes">
@@ -120,66 +121,66 @@ and Labrador</institution>
     </sec>
     <sec id="background-1">
       <title>3. Background</title>
-      <p>The R package {spatsoc} was developed to derive social networks
-  from animal telemetry data using aggregated association rates,
-  interindividual distances, and home range overlap
-  [<xref alt="1" rid="ref-Robitaille_2019" ref-type="bibr">1</xref>].
-  The methods in {spatsoc} have been used to measure social cohesion
-  [<xref alt="2" rid="ref-Bracken_2022" ref-type="bibr">2</xref>],
-  human-wildlife conflict
-  [<xref alt="3" rid="ref-Boudreau_2022" ref-type="bibr">3</xref>],
-  socioecology and resource availability
-  [<xref alt="4" rid="ref-Peignier_2019" ref-type="bibr">4</xref>],
-  community structure
-  [<xref alt="5" rid="ref-Sunga_2021" ref-type="bibr">5</xref>], the
-  influence of stress on social proximity
-  [<xref alt="6" rid="ref-Keshavarzi_2023" ref-type="bibr">6</xref>],
-  and social patterns in non-social species
-  [<xref alt="7" rid="ref-Heeres_2024" ref-type="bibr">7</xref>].
-  Despite the substantive and varied applications of {spatsoc}, users
-  lacked sufficient and accessible functionality for measuring the
-  behaviour of individuals within social groups.</p>
       <p>Many facets of group living need to be considered to better measure
   animal social systems
-  [<xref alt="8" rid="ref-King_2018" ref-type="bibr">8</xref>]. Beyond
+  [<xref alt="1" rid="ref-King_2018" ref-type="bibr">1</xref>]. Beyond
   associations, there are additional types of dyadic relationships
   including genetic, affiliative, agonistic, and cooperative
-  [<xref alt="9" rid="ref-Farine_2015" ref-type="bibr">9</xref>]. There
+  [<xref alt="2" rid="ref-Farine_2015" ref-type="bibr">2</xref>]. There
   are also interactions between spatial phenotypes, social phenotypes,
   and environments
-  [<xref alt="10" rid="ref-Webber_2023" ref-type="bibr">10</xref>].
-  Using direct observations, researchers have studied intragroup social
+  [<xref alt="3" rid="ref-Webber_2023" ref-type="bibr">3</xref>]. Using
+  direct observations, researchers have studied intragroup social
   dynamics including social foraging
-  [<xref alt="11" rid="ref-Barnard_1981" ref-type="bibr">11</xref>–<xref alt="13" rid="ref-Hirsch_2020" ref-type="bibr">13</xref>],
+  [<xref alt="4" rid="ref-Barnard_1981" ref-type="bibr">4</xref>–<xref alt="6" rid="ref-Hirsch_2020" ref-type="bibr">6</xref>],
   spatial position within groups
-  [<xref alt="14" rid="ref-Krause_1994" ref-type="bibr">14</xref>,<xref alt="15" rid="ref-Monus_2008" ref-type="bibr">15</xref>]
+  [<xref alt="7" rid="ref-Krause_1994" ref-type="bibr">7</xref>,<xref alt="8" rid="ref-Monus_2008" ref-type="bibr">8</xref>]
   and the influence of individual traits such as age, sex, and dominance
-  [<xref alt="16" rid="ref-Furuichi_1983" ref-type="bibr">16</xref>–<xref alt="18" rid="ref-Teichroeb_2015" ref-type="bibr">18</xref>].
+  [<xref alt="9" rid="ref-Furuichi_1983" ref-type="bibr">9</xref>–<xref alt="11" rid="ref-Teichroeb_2015" ref-type="bibr">11</xref>].
   Unfortunately, direct observations can be labour-intensive to collect
   and susceptible to observer bias
-  [<xref alt="19" rid="ref-Smith_2021" ref-type="bibr">19</xref>], with
+  [<xref alt="12" rid="ref-Smith_2021" ref-type="bibr">12</xref>], with
   low spatial and temporal resolution making them imperfect for studies
   of collective movement
-  [<xref alt="8" rid="ref-King_2018" ref-type="bibr">8</xref>].</p>
+  [<xref alt="1" rid="ref-King_2018" ref-type="bibr">1</xref>].</p>
       <p>Pairing advanced remote tracking technologies with emerging methods
   expands opportunities to measure intragroup social dynamics. The
   availability and resolution of remote tracking data continues to
   improve
-  [<xref alt="20" rid="ref-Kays_2015" ref-type="bibr">20</xref>–<xref alt="22" rid="ref-Nathan_2022" ref-type="bibr">22</xref>].
+  [<xref alt="13" rid="ref-Kays_2015" ref-type="bibr">13</xref>–<xref alt="15" rid="ref-Nathan_2022" ref-type="bibr">15</xref>].
   There are over two decades of research on measuring interactions
   between moving individuals from the study of “moving point objects” in
   GISciences
-  [<xref alt="23" rid="ref-Andersson_2008" ref-type="bibr">23</xref>–<xref alt="26" rid="ref-Miller_2021" ref-type="bibr">26</xref>]
+  [<xref alt="16" rid="ref-Andersson_2008" ref-type="bibr">16</xref>–<xref alt="19" rid="ref-Miller_2021" ref-type="bibr">19</xref>]
   to group coordination
-  [<xref alt="27" rid="ref-Couzin_2002" ref-type="bibr">27</xref>,<xref alt="28" rid="ref-Herbert-Read_2011" ref-type="bibr">28</xref>],
+  [<xref alt="20" rid="ref-Couzin_2002" ref-type="bibr">20</xref>,<xref alt="21" rid="ref-Herbert-Read_2011" ref-type="bibr">21</xref>],
   leadership, and decision making
-  [<xref alt="29" rid="ref-King_2011" ref-type="bibr">29</xref>–<xref alt="31" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">31</xref>].
+  [<xref alt="22" rid="ref-King_2011" ref-type="bibr">22</xref>–<xref alt="24" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">24</xref>].
   Despite this, we suggest the lack of availability of open source tools
-  [<xref alt="32" rid="ref-Hampton_2015" ref-type="bibr">32</xref>–<xref alt="34" rid="ref-Wilson_2017" ref-type="bibr">34</xref>]
+  [<xref alt="25" rid="ref-Hampton_2015" ref-type="bibr">25</xref>–<xref alt="27" rid="ref-Wilson_2017" ref-type="bibr">27</xref>]
   is the missing piece between the call to integrate technology enhanced
   research with multidisciplinary approaches to better study animal
   social systems
-  [<xref alt="8" rid="ref-King_2018" ref-type="bibr">8</xref>,<xref alt="35" rid="ref-Couzin_2023" ref-type="bibr">35</xref>].</p>
+  [<xref alt="1" rid="ref-King_2018" ref-type="bibr">1</xref>,<xref alt="28" rid="ref-Couzin_2023" ref-type="bibr">28</xref>].</p>
+      <p>The R package {spatsoc} was developed to derive social networks
+  from animal telemetry data using aggregated association rates,
+  interindividual distances, and home range overlap
+  [<xref alt="29" rid="ref-Robitaille_2019" ref-type="bibr">29</xref>].
+  The methods in {spatsoc} have been used to measure social cohesion
+  [<xref alt="30" rid="ref-Bracken_2022" ref-type="bibr">30</xref>],
+  human-wildlife conflict
+  [<xref alt="31" rid="ref-Boudreau_2022" ref-type="bibr">31</xref>],
+  socioecology and resource availability
+  [<xref alt="32" rid="ref-Peignier_2019" ref-type="bibr">32</xref>],
+  community structure
+  [<xref alt="33" rid="ref-Sunga_2021" ref-type="bibr">33</xref>], the
+  influence of stress on social proximity
+  [<xref alt="34" rid="ref-Keshavarzi_2023" ref-type="bibr">34</xref>],
+  and social patterns in non-social species
+  [<xref alt="35" rid="ref-Heeres_2024" ref-type="bibr">35</xref>].
+  Despite the substantive and varied applications of {spatsoc}, users
+  lacked sufficient and accessible functionality for measuring the
+  behaviour of individuals within social groups.</p>
       <p>We first conducted a scoping review to identify metrics that were
   applicable to spatiotemporal data, and focused on dyadic interactions,
   leadership patterns, and dominance hierarchies. Of the resulting
@@ -187,11 +188,10 @@ and Labrador</institution>
   availability in the R programming language, either through R packages
   or supplemental materials in the literature. Here we present 18 new
   functions in the R package {spatsoc}
-  [<xref alt="1" rid="ref-Robitaille_2019" ref-type="bibr">1</xref>] for
-  measuring intragroup dynamics
-  (<xref alt="Table 1" rid="tbl-new-functions">Table 1</xref>). We will
-  demonstrate these new functions through a case study and discuss
-  biological interpretations.</p>
+  [<xref alt="29" rid="ref-Robitaille_2019" ref-type="bibr">29</xref>]
+  for measuring intragroup dynamics. We will demonstrate these new
+  functions through a case study and discuss biological
+  interpretations.</p>
     </sec>
     <sec id="implementations">
       <title>4. Implementations</title>
@@ -206,15 +206,15 @@ and Labrador</institution>
     also include metrics that measure group-level dynamics, leadership
     patterns, and lagged-follower behaviours, and to explicitly
     establish their open source availability in the R programming
-    language. We established a list of nine benchmark papers
-    (<xref alt="Supplement A Table1" rid="suptbl-benchmark">Supplement A
-    Table1</xref>) that were relevant to our objectives and verified
-    whether each paper was indexed in at least one of our selected
-    databases (Web of Science and Scopus). We used an iterative search
-    method to fine-tune the search terms measuring the total number of
-    papers returned and sensitivity of the search. Sensitivity is
-    defined as the proportion of benchmark papers returned from each
-    database [4.2.7
+    language. We established a list of nine benchmark papers (Supplement
+    A Table S
+    <xref alt="Table S1" rid="suptbl-benchmark">Table S1</xref>) that
+    were relevant to our objectives and verified whether each paper was
+    indexed in at least one of our selected databases (Web of Science
+    and Scopus). We used an iterative search method to fine-tune the
+    search terms measuring the total number of papers returned and
+    sensitivity of the search. Sensitivity is defined as the proportion
+    of benchmark papers returned from each database [4.2.7
     <xref alt="37" rid="ref-CollaborationforEnvironmentalEvidence_2022" ref-type="bibr">37</xref>].
     Search terms were developed in four categories: topic, population,
     method and exclusion. Topic included terms associated with dyadic
@@ -227,11 +227,11 @@ and Labrador</institution>
     operators. The resulting set of papers used in further steps was the
     combination of the last iteration of search terms applied to both of
     the Web of Science (using the “TS” field) and Scopus (using the
-    “TITLE-ABS-KEY” field) databases
-    (<xref alt="Supplement A Table2" rid="suptbl-search-strings">Supplement
-    A Table2</xref>). The temporal range of articles was limited to
-    1980-2023 using the PY (Web of Science) or PUBYEAR (Scopus) fields.
-    The resulting set of papers were imported into Covidence
+    “TITLE-ABS-KEY” field) databases (Supplement A
+    <xref alt="Table S2" rid="suptbl-search-strings">Table S2</xref>).
+    The temporal range of articles was limited to 1980-2023 using the PY
+    (Web of Science) or PUBYEAR (Scopus) fields. The resulting set of
+    papers were imported into Covidence
     [<xref alt="38" rid="ref-VeritasHealthInnovation_2025" ref-type="bibr">38</xref>]
     for deduplication, title and abstract screening, full text
     screening, and data extraction.</p>
@@ -259,40 +259,35 @@ and Labrador</institution>
         used home range or spatial overlap)</p>
           </list-item>
           <list-item>
-            <p>Paper does not describe metric beyond group size (e.g.</p>
-            <list list-type="order">
-              <list-item>
-                <label>1)</label>
-                <p/>
-              </list-item>
-            </list>
+            <p>Paper does not describe metric beyond group size (e.g.
+        [<xref alt="42" rid="ref-delMarDelgado_2021" ref-type="bibr">42</xref>])</p>
           </list-item>
           <list-item>
             <p>Paper full text is not available in English (e.g.
-        [<xref alt="42" rid="ref-Bernard_2002" ref-type="bibr">42</xref>])</p>
+        [<xref alt="43" rid="ref-Bernard_2002" ref-type="bibr">43</xref>])</p>
           </list-item>
           <list-item>
             <p>Paper is not a thesis</p>
           </list-item>
           <list-item>
             <p>Paper is not a book chapter (e.g.
-        [<xref alt="43" rid="ref-Bernstein_2019" ref-type="bibr">43</xref>])</p>
+        [<xref alt="44" rid="ref-Bernstein_2019" ref-type="bibr">44</xref>])</p>
           </list-item>
         </list>
         <p>Despite the intended focus on animal ecology, some papers
     discussed movement data more generically or, alternatively,
     specifically focused on human or robotic movement data (e.g.
-    [<xref alt="44" rid="ref-Long_2022" ref-type="bibr">44</xref>]).
+    [<xref alt="45" rid="ref-Long_2022" ref-type="bibr">45</xref>]).
     These papers were retained when the metrics described were deemed
     applicable to animal spatiotemporal movement data. Papers using
     mathematical models or simulations were largely beyond the scope of
     this review but papers were retained when the parameters used as
     inputs could be applied to spatial temporal data (e.g.
-    [<xref alt="45" rid="ref-Long_2015" ref-type="bibr">45</xref>]).
+    [<xref alt="46" rid="ref-Long_2015" ref-type="bibr">46</xref>]).
     Review papers were read for building the scope of the introduction
     and discussion but not included in data extraction unless they
     explicitly discussed dyadic measures (e.g.
-    [<xref alt="8" rid="ref-King_2018" ref-type="bibr">8</xref>]).</p>
+    [<xref alt="1" rid="ref-King_2018" ref-type="bibr">1</xref>]).</p>
         <p>The goals of data extraction were to record the breadth of
     metrics for measuring dyadic interactions, dominance hierarchies and
     leadership patterns applicable to spatiotemporal data, and the
@@ -303,20 +298,19 @@ and Labrador</institution>
     required, citations and interpretation. Code availability was
     described including location of code (e.g. Zenodo, or GitHub),
     programming languages and software packages used. The data
-    extraction form is in
-    (<xref alt="Supplement A Table3" rid="suptbl-form">Supplement A
-    Table3</xref>).</p>
+    extraction form is in (Supplement A Table
+    <xref alt="Table S3" rid="suptbl-form">Table S3</xref>).</p>
         <p>Metrics identified were aggregated using a manual process to
     identify synonymous terms. This aggregation process was required due
     to variability in defining metrics during data extraction and
     differences between authors in describing metrics (e.g. distance to
     group “center”, “centroid”, or “center of mass”). Each paper’s study
     location was geocoded using the {tidygeocoder} package
-    [<xref alt="46" rid="ref-Cambon_2021" ref-type="bibr">46</xref>] and
+    [<xref alt="47" rid="ref-Cambon_2021" ref-type="bibr">47</xref>] and
     the study species were parsed using the {rgnparser} package
-    [<xref alt="47" rid="ref-Chamberlain_2023" ref-type="bibr">47</xref>]
+    [<xref alt="48" rid="ref-Chamberlain_2023" ref-type="bibr">48</xref>]
     which provides the GNparser
-    [<xref alt="48" rid="ref-Mozzherin_2026" ref-type="bibr">48</xref>]
+    [<xref alt="49" rid="ref-Mozzherin_2026" ref-type="bibr">49</xref>]
     taxonomic parser in R. We calculated frequencies for each
     categorical field including programming language, software package,
     analysis code availability, geographic region, study species and
@@ -329,165 +323,227 @@ and Labrador</institution>
     relative importance (as measured by frequency of use in the scoping
     review), and their lack of availability in R when the review was
     conducted (Supplement
-    <xref alt="Section 10" rid="sec-scoping-results">Section 10</xref>).
+    <xref alt="Section 11" rid="sec-scoping-results">Section 11</xref>).
     Some metrics were specifically not chosen for inclusion such as
     metrics relating to posture, metrics relating to static interaction
     or home range overlap and metrics based on statistical models such
     as Hidden Markov model and Granger causality. A full list of metrics
     not selected is in Supplement
-    <xref alt="Section 11" rid="sec-selected">Section 11</xref>.</p>
+    <xref alt="Section 12" rid="sec-selected">Section 12</xref>.</p>
       </sec>
       <sec id="software">
         <title>4.2 Software</title>
         <p>The R package {spatsoc} was originally developed to detect
     spatiotemporal groups in animal telemetry data for building social
     networks
-    [<xref alt="1" rid="ref-Robitaille_2019" ref-type="bibr">1</xref>].
+    [<xref alt="29" rid="ref-Robitaille_2019" ref-type="bibr">29</xref>].
     In this new version, {spatsoc} provides an additional suite of
     functions to measure individual, dyadic and group level behaviours
-    within spatiotemporal groups
-    (<xref alt="Table 1" rid="tbl-new-functions">Table 1</xref>). These
-    measures of intragroup dynamics are derived from three geospatial
-    operations (distance, direction, and centroid) calculated in
-    internal functions built on top of the R spatial packages {sf}
-    [<xref alt="49" rid="ref-Pebesma_2018" ref-type="bibr">49</xref>],
+    within spatiotemporal groups. These measures of intragroup dynamics
+    are derived from three geospatial operations (distance, direction,
+    and centroid) calculated in internal functions built on top of the R
+    spatial packages {sf}
+    [<xref alt="50" rid="ref-Pebesma_2018" ref-type="bibr">50</xref>],
     {lwgeom}
-    [<xref alt="50" rid="ref-Pebesma_2025" ref-type="bibr">50</xref>]
+    [<xref alt="51" rid="ref-Pebesma_2025" ref-type="bibr">51</xref>]
     and {s2}
-    [<xref alt="51" rid="ref-Dunnington_2025" ref-type="bibr">51</xref>].
+    [<xref alt="52" rid="ref-Dunnington_2025" ref-type="bibr">52</xref>].
     Improving on past versions, {spatsoc} now accommodates data in both
     projected and geographic coordinate reference systems.</p>
-        <fig id="tbl-new-functions">
-          <caption>
-            <p>Table 1: Description of new functions in the R package
-      {spatsoc} for measuring intragroup dynamics categorized by family.
-      All available functions in the R package {spatsoc} including new
-      and existing functions are listed in
-      <xref alt="Table15" rid="suptbl-all-functions">Table15</xref>.</p>
-          </caption>
-          <table-wrap>
-            <table>
-              <colgroup>
-                <col width="36%"/>
-                <col width="64%"/>
-              </colgroup>
-              <thead>
-                <tr>
-                  <th>Function</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colspan="2">Spatial interface</td>
-                </tr>
-                <tr>
-                  <td>get_geometry()</td>
-                  <td>Setup data for geometry interface</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Edge-list generation</td>
-                </tr>
-                <tr>
-                  <td>edge_delay()</td>
-                  <td>Directional correlation delay based edge-lists</td>
-                </tr>
-                <tr>
-                  <td>edge_alignment()</td>
-                  <td>Directional alignment based edge-lists</td>
-                </tr>
-                <tr>
-                  <td>edge_direction()</td>
-                  <td>Direction based edge-lists</td>
-                </tr>
-                <tr>
-                  <td>edge_zones()</td>
-                  <td>Behavioural zones based edge-lists</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Dyad</td>
-                </tr>
-                <tr>
-                  <td>fusion_id()</td>
-                  <td>Identify fusion events</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Centroid</td>
-                </tr>
-                <tr>
-                  <td>centroid_group()</td>
-                  <td>Group centroid</td>
-                </tr>
-                <tr>
-                  <td>centroid_dyad()</td>
-                  <td>Dyad centroid</td>
-                </tr>
-                <tr>
-                  <td>centroid_fusion()</td>
-                  <td>Fusion event centroid</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Direction</td>
-                </tr>
-                <tr>
-                  <td>direction_step()</td>
-                  <td>Direction step</td>
-                </tr>
-                <tr>
-                  <td>direction_to_centroid()</td>
-                  <td>Direction to group centroid</td>
-                </tr>
-                <tr>
-                  <td>direction_to_leader()</td>
-                  <td>Direction to group leader</td>
-                </tr>
-                <tr>
-                  <td>direction_group()</td>
-                  <td>Group mean direction</td>
-                </tr>
-                <tr>
-                  <td>direction_polarization()</td>
-                  <td>Polarization</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Distance</td>
-                </tr>
-                <tr>
-                  <td>distance_to_centroid()</td>
-                  <td>Distance to group centroid</td>
-                </tr>
-                <tr>
-                  <td>distance_to_leader()</td>
-                  <td>Distance to group leader</td>
-                </tr>
-                <tr>
-                  <td colspan="2">Leadership</td>
-                </tr>
-                <tr>
-                  <td>leader_direction_group()</td>
-                  <td>Leadership along group direction</td>
-                </tr>
-                <tr>
-                  <td>leader_edge_delay()</td>
-                  <td>Leadership in directional correlation delay</td>
-                </tr>
-              </tbody>
-            </table>
-          </table-wrap>
-        </fig>
       </sec>
     </sec>
-    <sec id="results-case-study">
-      <title>5. Results: case study</title>
+    <sec id="results-1">
+      <title>5. Results</title>
+      <p>The final set of search terms (Supplement A
+  <xref alt="Table S2" rid="suptbl-search-strings">Table S2</xref>)
+  applied to both Web of Science and Scopus returned a database of 3878
+  articles between 1980 and 2023. Manual deduplication removed 128
+  articles and Covidence
+  [<xref alt="38" rid="ref-VeritasHealthInnovation_2025" ref-type="bibr">38</xref>]
+  identified an additional 799 duplicated articles. 2527 articles were
+  excluded during title and abstract screening and 275 articles were
+  excluded by full text screening. The resulting database included 141
+  studies (see Supplement B for detailed PRISMA).</p>
+      <p>Data extraction revealed a total of 119 unique metrics including
+  metrics used in articles that may not explicitly measure intragroup
+  social dynamics. For example, if an article measured an individual’s
+  position within the group and also their step length, both metrics
+  were recorded. The review indicated variability in the methodological
+  definitions relating to intragroup social dynamics. Differences in
+  defining spatiotemporal groups were largely centered on spatial and
+  temporal thresholds (Supplement B
+  <xref alt="Table S12" rid="suptbl-defn-spattemp-groups">Table S12</xref>).
+  Similarly, fission-fusion dynamics were defined by spatial and
+  temporal thresholds [e.g.
+  <xref alt="53" rid="ref-Nishikawa_2014" ref-type="bibr">53</xref>,<xref alt="54" rid="ref-Haydon_2008" ref-type="bibr">54</xref>],
+  but also how to handle missed observations and temporary separations
+  [e.g.
+  <xref alt="55" rid="ref-Lesmerises_2018" ref-type="bibr">55</xref>,<xref alt="56" rid="ref-DellaLibera_2023" ref-type="bibr">56</xref>]
+  (Supplement B
+  <xref alt="Table S14" rid="suptbl-defn-fission">Table S14</xref>).
+  Definitions of group-level leadership patterns were based on selected
+  measures of leadership including tendency to be at the front of the
+  group [e.g.
+  <xref alt="57" rid="ref-Andrienko_2013" ref-type="bibr">57</xref>,<xref alt="58" rid="ref-Perez-Barberia_2018" ref-type="bibr">58</xref>,<xref alt="59" rid="ref-Jolles_2018" ref-type="bibr">59</xref>],
+  directional correlation delay [e.g.
+  <xref alt="60" rid="ref-Pettit_2013" ref-type="bibr">60</xref>,<xref alt="61" rid="ref-Kano_2021" ref-type="bibr">61</xref>],
+  and movement initiations [e.g.
+  <xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="30" rid="ref-Bracken_2022" ref-type="bibr">30</xref>,<xref alt="63" rid="ref-Strandburg-Peshkin_2018" ref-type="bibr">63</xref>]
+  (Supplement B
+  <xref alt="Table S13" rid="suptbl-defn-leadership">Table S13</xref>).</p>
+      <p>Details in the methods and supplemental materials were used to
+  assess the availability of the extracted metrics in open source
+  programming languages commonly used in ecology. Accompanying code was
+  not available in a supplement or linked repository for 81% of articles
+  and 67% of articles did not indicate any software package (e.g. R
+  package, Python library) used. R was the most common programming
+  language followed by MATLAB and Python (Supplement B
+  <xref alt="Table S5" rid="suptbl-prog">Table S5</xref>) in the
+  database of articles. Metrics already provided by existing open source
+  software packages (e.g. DI provided by {wildlifeDI}
+  [<xref alt="45" rid="ref-Long_2022" ref-type="bibr">45</xref>]), or
+  code accompanying articles (e.g. FLICA code provided alongside
+  [<xref alt="64" rid="ref-Amornbunchornvej_2018" ref-type="bibr">64</xref>])
+  were not selected for inclusion in {spatsoc}. Finally, metrics were
+  prioritized for inclusion in {spatsoc} according to measured frequency
+  of use in the database of articles and external searches were
+  conducted to ensure no availability in R packages were missed by the
+  scoping review (see Supplement B
+  <xref alt="Table S10" rid="suptbl-count-metrics">Table S10</xref>;
+  Supplement C). The resulting set of metrics provided by new functions
+  in the R package {spatsoc} for measuring intragroup social dynamics is
+  shown in Table
+  <xref alt="Table 1" rid="tbl-new-functions">Table 1</xref>.</p>
+      <fig id="tbl-new-functions">
+        <caption>
+          <p>Table 1: Description of new functions in the R package
+    {spatsoc} for measuring intragroup dynamics categorized by family.
+    All available functions in the R package {spatsoc} including new and
+    existing functions are listed in
+    <xref alt="Table15" rid="suptbl-all-functions">Table15</xref>.</p>
+        </caption>
+        <table-wrap>
+          <table>
+            <colgroup>
+              <col width="36%"/>
+              <col width="64%"/>
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="2">Spatial interface</td>
+              </tr>
+              <tr>
+                <td>get_geometry()</td>
+                <td>Setup data for geometry interface</td>
+              </tr>
+              <tr>
+                <td colspan="2">Edge-list generation</td>
+              </tr>
+              <tr>
+                <td>edge_delay()</td>
+                <td>Directional correlation delay based edge-lists</td>
+              </tr>
+              <tr>
+                <td>edge_alignment()</td>
+                <td>Directional alignment based edge-lists</td>
+              </tr>
+              <tr>
+                <td>edge_direction()</td>
+                <td>Direction based edge-lists</td>
+              </tr>
+              <tr>
+                <td>edge_zones()</td>
+                <td>Behavioural zones based edge-lists</td>
+              </tr>
+              <tr>
+                <td colspan="2">Dyad</td>
+              </tr>
+              <tr>
+                <td>fusion_id()</td>
+                <td>Identify fusion events</td>
+              </tr>
+              <tr>
+                <td colspan="2">Centroid</td>
+              </tr>
+              <tr>
+                <td>centroid_group()</td>
+                <td>Group centroid</td>
+              </tr>
+              <tr>
+                <td>centroid_dyad()</td>
+                <td>Dyad centroid</td>
+              </tr>
+              <tr>
+                <td>centroid_fusion()</td>
+                <td>Fusion event centroid</td>
+              </tr>
+              <tr>
+                <td colspan="2">Direction</td>
+              </tr>
+              <tr>
+                <td>direction_step()</td>
+                <td>Direction step</td>
+              </tr>
+              <tr>
+                <td>direction_to_centroid()</td>
+                <td>Direction to group centroid</td>
+              </tr>
+              <tr>
+                <td>direction_to_leader()</td>
+                <td>Direction to group leader</td>
+              </tr>
+              <tr>
+                <td>direction_group()</td>
+                <td>Group mean direction</td>
+              </tr>
+              <tr>
+                <td>direction_polarization()</td>
+                <td>Polarization</td>
+              </tr>
+              <tr>
+                <td colspan="2">Distance</td>
+              </tr>
+              <tr>
+                <td>distance_to_centroid()</td>
+                <td>Distance to group centroid</td>
+              </tr>
+              <tr>
+                <td>distance_to_leader()</td>
+                <td>Distance to group leader</td>
+              </tr>
+              <tr>
+                <td colspan="2">Leadership</td>
+              </tr>
+              <tr>
+                <td>leader_direction_group()</td>
+                <td>Leadership along group direction</td>
+              </tr>
+              <tr>
+                <td>leader_edge_delay()</td>
+                <td>Leadership in directional correlation delay</td>
+              </tr>
+            </tbody>
+          </table>
+        </table-wrap>
+      </fig>
+    </sec>
+    <sec id="discussion-case-study">
+      <title>6. Discussion: case study</title>
       <p>Functions previously available in {spatsoc} can be used to identify
   spatiotemporal grouping, generate distance based edge-lists and
   conduct data-stream permutations (see existing functionality in
-  [<xref alt="1" rid="ref-Robitaille_2019" ref-type="bibr">1</xref>];
+  [<xref alt="29" rid="ref-Robitaille_2019" ref-type="bibr">29</xref>];
   <xref alt="Table S15" rid="suptbl-all-functions">Table S15</xref>).
   These functions have allowed users to detect interactions between
   individuals, measure co-occurrence within and across species, and
   generate social networks from animal telemetry data [e.g.
-  <xref alt="52" rid="ref-Albery_2025" ref-type="bibr">52</xref>,<xref alt="2" rid="ref-Bracken_2022" ref-type="bibr">2</xref>,<xref alt="7" rid="ref-Heeres_2024" ref-type="bibr">7</xref>,<xref alt="53" rid="ref-Merkle_2024" ref-type="bibr">53</xref>].</p>
+  <xref alt="65" rid="ref-Albery_2025" ref-type="bibr">65</xref>,<xref alt="30" rid="ref-Bracken_2022" ref-type="bibr">30</xref>,<xref alt="35" rid="ref-Heeres_2024" ref-type="bibr">35</xref>,<xref alt="66" rid="ref-Merkle_2024" ref-type="bibr">66</xref>].</p>
       <p>Spatiotemporal grouping can be performed given animal movement
   data, temporal and spatial thresholds, and one of three grouping
   functions: <monospace>group_pts()</monospace>,
@@ -503,7 +559,7 @@ and Labrador</institution>
   <monospace>get_geometry()</monospace> function adds a simple feature
   geometry list column (<monospace>sfc</monospace>) using the {sf}
   package
-  [<xref alt="49" rid="ref-Pebesma_2018" ref-type="bibr">49</xref>]. The
+  [<xref alt="50" rid="ref-Pebesma_2018" ref-type="bibr">50</xref>]. The
   geometry method is used by default for all {spatsoc} functions that
   require coordinates when the <monospace>coords</monospace> argument is
   left null. This interface also extends {spatsoc} to allow users to
@@ -577,46 +633,46 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>B</td>
-                <td>2016-12-20 06:00:48</td>
-                <td>POINT (698315.3 5510988)</td>
-                <td>592</td>
-                <td>1988</td>
+                <td>I</td>
+                <td>2016-12-04 00:00:16</td>
+                <td>POINT (709210.5 5508829)</td>
+                <td>397</td>
+                <td>8677</td>
               </tr>
               <tr>
-                <td>G</td>
-                <td>2016-12-20 06:00:50</td>
-                <td>POINT (698300.9 5510983)</td>
-                <td>592</td>
-                <td>1988</td>
+                <td>J</td>
+                <td>2016-12-04 00:00:13</td>
+                <td>POINT (709164.3 5508831)</td>
+                <td>397</td>
+                <td>8677</td>
               </tr>
               <tr>
-                <td>B</td>
-                <td>2017-01-09 12:00:48</td>
-                <td>POINT (697999.7 5511460)</td>
-                <td>835</td>
-                <td>2231</td>
+                <td>A</td>
+                <td>2016-12-19 10:00:54</td>
+                <td>POINT (698798.2 5506993)</td>
+                <td>582</td>
+                <td>582</td>
               </tr>
               <tr>
-                <td>G</td>
-                <td>2017-01-09 12:00:54</td>
-                <td>POINT (697991.5 5511472)</td>
-                <td>835</td>
-                <td>2231</td>
+                <td>E</td>
+                <td>2016-12-19 10:00:26</td>
+                <td>POINT (698796.7 5507008)</td>
+                <td>582</td>
+                <td>582</td>
               </tr>
               <tr>
-                <td>B</td>
-                <td>2017-02-08 20:00:53</td>
-                <td>POINT (697971.3 5511886)</td>
-                <td>1182</td>
-                <td>2524</td>
+                <td>I</td>
+                <td>2016-12-19 10:00:50</td>
+                <td>POINT (698804.2 5506977)</td>
+                <td>582</td>
+                <td>582</td>
               </tr>
               <tr>
-                <td>G</td>
-                <td>2017-02-08 20:00:55</td>
-                <td>POINT (697983.6 5511880)</td>
-                <td>1182</td>
-                <td>2524</td>
+                <td>F</td>
+                <td>2017-02-10 20:00:47</td>
+                <td>POINT (705543.7 5510227)</td>
+                <td>1206</td>
+                <td>6936</td>
               </tr>
             </tbody>
           </table>
@@ -744,40 +800,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>1424</td>
-                <td>J</td>
+                <td>1439</td>
+                <td>E</td>
                 <td>B</td>
-                <td>64.19389</td>
+                <td>43.847993</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1439</td>
                 <td>G</td>
-                <td>E</td>
-                <td>20.52638</td>
+                <td>B</td>
+                <td>41.725396</td>
               </tr>
               <tr>
-                <td>1424</td>
-                <td>H</td>
-                <td>E</td>
-                <td>3389.49078</td>
-              </tr>
-              <tr>
-                <td>1424</td>
-                <td>I</td>
+                <td>1439</td>
                 <td>F</td>
-                <td>43.92168</td>
+                <td>C</td>
+                <td>129.538328</td>
               </tr>
               <tr>
-                <td>1424</td>
+                <td>1439</td>
+                <td>I</td>
+                <td>C</td>
+                <td>60.931938</td>
+              </tr>
+              <tr>
+                <td>1439</td>
                 <td>B</td>
                 <td>G</td>
-                <td>27.13466</td>
+                <td>41.725396</td>
               </tr>
               <tr>
-                <td>1424</td>
-                <td>E</td>
-                <td>G</td>
-                <td>20.52638</td>
+                <td>1439</td>
+                <td>J</td>
+                <td>H</td>
+                <td>4.898148</td>
               </tr>
             </tbody>
           </table>
@@ -790,12 +846,12 @@ nearest_neighbours &lt;- edge_nn(
   fusion dynamics and potentially dominance behaviours from animal
   telemetry data in their ecological systems.</p>
       <sec id="position-within-groups">
-        <title>5.1 Position within groups</title>
+        <title>6.1 Position within groups</title>
         <p>Extending {spatsoc}’s abilities to identify spatiotemporal
     groups, a new set of functions are now available to measure
     individuals position relative within spatiotemporal groups. After
-    identifying spatiotemporal groups with
-    e.g. <monospace>group_pts()</monospace>, we can measure the group
+    identifying spatiotemporal groups with e.g.
+    <monospace>group_pts()</monospace>, we can measure the group
     centroid, as defined by the mean of individual locations in a group,
     using <monospace>centroid_group()</monospace>
     (<xref alt="Table 5" rid="tbl-cent-group">Table 5</xref>).</p>
@@ -830,46 +886,46 @@ centroid_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>B</td>
-                  <td>200</td>
-                  <td>1596</td>
-                  <td>POINT (700634.7 5509315)</td>
-                  <td>POINT (700637.8 5509308)</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>200</td>
-                  <td>1596</td>
-                  <td>POINT (700641 5509301)</td>
-                  <td>POINT (700637.8 5509308)</td>
-                </tr>
-                <tr>
-                  <td>B</td>
-                  <td>717</td>
-                  <td>2113</td>
-                  <td>POINT (698247.5 5512038)</td>
-                  <td>POINT (698244.4 5512045)</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>717</td>
-                  <td>2113</td>
-                  <td>POINT (698241.3 5512052)</td>
-                  <td>POINT (698244.4 5512045)</td>
-                </tr>
-                <tr>
                   <td>A</td>
-                  <td>854</td>
-                  <td>854</td>
-                  <td>POINT (696952.9 5505700)</td>
-                  <td>POINT (696947.9 5505695)</td>
+                  <td>165</td>
+                  <td>165</td>
+                  <td>POINT (701814.1 5504404)</td>
+                  <td>POINT (701788.7 5504401)</td>
+                </tr>
+                <tr>
+                  <td>E</td>
+                  <td>165</td>
+                  <td>165</td>
+                  <td>POINT (701767.8 5504387)</td>
+                  <td>POINT (701788.7 5504401)</td>
                 </tr>
                 <tr>
                   <td>H</td>
-                  <td>854</td>
-                  <td>854</td>
-                  <td>POINT (696968 5505686)</td>
-                  <td>POINT (696947.9 5505695)</td>
+                  <td>165</td>
+                  <td>165</td>
+                  <td>POINT (701748.8 5504397)</td>
+                  <td>POINT (701788.7 5504401)</td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>165</td>
+                  <td>165</td>
+                  <td>POINT (701824.1 5504414)</td>
+                  <td>POINT (701788.7 5504401)</td>
+                </tr>
+                <tr>
+                  <td>B</td>
+                  <td>942</td>
+                  <td>2338</td>
+                  <td>POINT (698173.9 5511499)</td>
+                  <td>POINT (698177.2 5511498)</td>
+                </tr>
+                <tr>
+                  <td>G</td>
+                  <td>942</td>
+                  <td>2338</td>
+                  <td>POINT (698180.6 5511496)</td>
+                  <td>POINT (698177.2 5511498)</td>
                 </tr>
               </tbody>
             </table>
@@ -888,11 +944,11 @@ centroid_group(DT)</code>
     <monospace>return_rank</monospace>. Spatial position within groups
     with respect to the group centroid has been studied in relation to
     predation risk
-    [<xref alt="54" rid="ref-Heesen_2015" ref-type="bibr">54</xref>,<xref alt="55" rid="ref-Herbert-Read_2017" ref-type="bibr">55</xref>],
+    [<xref alt="67" rid="ref-Heesen_2015" ref-type="bibr">67</xref>,<xref alt="68" rid="ref-Herbert-Read_2017" ref-type="bibr">68</xref>],
     leadership
-    [<xref alt="56" rid="ref-Jolles_2017" ref-type="bibr">56</xref>,<xref alt="57" rid="ref-Kano_2021" ref-type="bibr">57</xref>]
+    [<xref alt="61" rid="ref-Kano_2021" ref-type="bibr">61</xref>,<xref alt="69" rid="ref-Jolles_2017" ref-type="bibr">69</xref>]
     and group cohesion
-    [<xref alt="2" rid="ref-Bracken_2022" ref-type="bibr">2</xref>,<xref alt="58" rid="ref-Harel_2021" ref-type="bibr">58</xref>].</p>
+    [<xref alt="30" rid="ref-Bracken_2022" ref-type="bibr">30</xref>,<xref alt="70" rid="ref-Harel_2021" ref-type="bibr">70</xref>].</p>
         <code language="r script"># Measure distance to group centroid
 distance_to_centroid(DT, return_rank = TRUE)
 
@@ -914,7 +970,7 @@ direction_to_centroid(DT)</code>
         </fig>
       </sec>
       <sec id="directions">
-        <title>5.2 Directions</title>
+        <title>6.2 Directions</title>
         <p>Next, we can use movement directions to measure how individuals
     and groups move together. We can measure an individual’s movement
     direction using <monospace>direction_step()</monospace> and the mean
@@ -945,8 +1001,8 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="28%"/>
-                <col width="29%"/>
+                <col width="24%"/>
+                <col width="25%"/>
               </colgroup>
               <thead>
                 <tr>
@@ -959,46 +1015,46 @@ direction_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
+                  <td>C</td>
+                  <td>782</td>
+                  <td>3430</td>
+                  <td>2.694665 [rad]</td>
+                  <td>2.6179845 [rad]</td>
+                </tr>
+                <tr>
                   <td>E</td>
-                  <td>856</td>
-                  <td>5785</td>
-                  <td>1.42195209 [rad]</td>
-                  <td>0.007573639 [rad]</td>
+                  <td>782</td>
+                  <td>3430</td>
+                  <td>2.615603 [rad]</td>
+                  <td>2.6179845 [rad]</td>
                 </tr>
                 <tr>
                   <td>F</td>
-                  <td>856</td>
-                  <td>5785</td>
-                  <td>-1.44836789 [rad]</td>
-                  <td>0.007573639 [rad]</td>
-                </tr>
-                <tr>
-                  <td>J</td>
-                  <td>856</td>
-                  <td>5785</td>
-                  <td>0.01319346 [rad]</td>
-                  <td>0.007573639 [rad]</td>
+                  <td>782</td>
+                  <td>3430</td>
+                  <td>2.543692 [rad]</td>
+                  <td>2.6179845 [rad]</td>
                 </tr>
                 <tr>
                   <td>B</td>
-                  <td>1315</td>
-                  <td>2673</td>
-                  <td>-1.29560414 [rad]</td>
-                  <td>-1.306821487 [rad]</td>
-                </tr>
-                <tr>
-                  <td>E</td>
-                  <td>1315</td>
-                  <td>2673</td>
-                  <td>-1.54054689 [rad]</td>
-                  <td>-1.306821487 [rad]</td>
+                  <td>1154</td>
+                  <td>2495</td>
+                  <td>1.157160 [rad]</td>
+                  <td>0.9378876 [rad]</td>
                 </tr>
                 <tr>
                   <td>G</td>
-                  <td>1315</td>
-                  <td>2673</td>
-                  <td>-1.08461117 [rad]</td>
-                  <td>-1.306821487 [rad]</td>
+                  <td>1154</td>
+                  <td>2495</td>
+                  <td>0.583021 [rad]</td>
+                  <td>0.9378876 [rad]</td>
+                </tr>
+                <tr>
+                  <td>J</td>
+                  <td>1154</td>
+                  <td>2495</td>
+                  <td>1.068202 [rad]</td>
+                  <td>0.9378876 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -1014,13 +1070,13 @@ direction_group(DT)</code>
     that individuals are moving in similar directions or (“aligned”).
     Polarization in the movement direction of groups of animals has been
     used to study cognition
-    [<xref alt="59" rid="ref-Wang_2022" ref-type="bibr">59</xref>],
+    [<xref alt="71" rid="ref-Wang_2022" ref-type="bibr">71</xref>],
     learning
-    [<xref alt="60" rid="ref-Vega-Trejo_2020" ref-type="bibr">60</xref>],
+    [<xref alt="72" rid="ref-Vega-Trejo_2020" ref-type="bibr">72</xref>],
     the influence of habitat
-    [<xref alt="61" rid="ref-Strandburg-Peshkin_2017" ref-type="bibr">61</xref>]
+    [<xref alt="73" rid="ref-Strandburg-Peshkin_2017" ref-type="bibr">73</xref>]
     and individual differences
-    [<xref alt="56" rid="ref-Jolles_2017" ref-type="bibr">56</xref>] in
+    [<xref alt="69" rid="ref-Jolles_2017" ref-type="bibr">69</xref>] in
     collective behaviour.</p>
         <code language="r script"># Measure direction polarization
 direction_polarization(DT)</code>
@@ -1045,11 +1101,11 @@ direction_polarization(DT)</code>
     Like <monospace>edge_alignment()</monospace>, the interindividual
     directions are returned in an edge-list format. Interindividual
     direction has been used to study risk exposure in schooling fish
-    [<xref alt="62" rid="ref-Lemasson_2014" ref-type="bibr">62</xref>],
+    [<xref alt="74" rid="ref-Lemasson_2014" ref-type="bibr">74</xref>],
     coordinated movement
-    [<xref alt="63" rid="ref-Herbert-Read_2016" ref-type="bibr">63</xref>]
+    [<xref alt="75" rid="ref-Herbert-Read_2016" ref-type="bibr">75</xref>]
     and mass migration
-    [<xref alt="64" rid="ref-Torney_2018" ref-type="bibr">64</xref>].</p>
+    [<xref alt="76" rid="ref-Torney_2018" ref-type="bibr">76</xref>].</p>
         <code language="r script"># Measure interindividual direction
 dyad_directions &lt;- edge_direction(
   edges = interindividual_dist,
@@ -1064,11 +1120,11 @@ dyad_directions &lt;- edge_direction(
     format similar to <monospace>edge_dist()</monospace> and other
     edge-list generating functions. Directional alignment has been used
     to study leadership
-    [<xref alt="65" rid="ref-Sarova_2010" ref-type="bibr">65</xref>],
+    [<xref alt="77" rid="ref-Sarova_2010" ref-type="bibr">77</xref>],
     decision making
-    [<xref alt="31" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">31</xref>],
+    [<xref alt="24" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">24</xref>],
     and information transfer
-    [<xref alt="66" rid="ref-Sumpter_2018" ref-type="bibr">66</xref>].</p>
+    [<xref alt="78" rid="ref-Sumpter_2018" ref-type="bibr">78</xref>].</p>
         <code language="r script"># Measure directional alignment
 directional_align &lt;- edge_alignment(
   DT = DT,
@@ -1097,9 +1153,9 @@ directional_align &lt;- edge_alignment(
         </fig>
       </sec>
       <sec id="behavioural-zones">
-        <title>5.3 Behavioural zones</title>
+        <title>6.3 Behavioural zones</title>
         <p>The behavioural zones
-    [<xref alt="27" rid="ref-Couzin_2002" ref-type="bibr">27</xref>], or
+    [<xref alt="20" rid="ref-Couzin_2002" ref-type="bibr">20</xref>], or
     non-overlapping behavioural regions around a focal individual, can
     be measured using <monospace>edge_zones()</monospace>
     (<xref alt="Figure 4" rid="fig-edge-zones">Figure 4</xref>). The
@@ -1108,7 +1164,7 @@ directional_align &lt;- edge_alignment(
     direction from the focal individual to each neighbour can be used to
     determine if the neighbour is within a “blind volume” outside of the
     individual’s visual perception.
-    [<xref alt="27" rid="ref-Couzin_2002" ref-type="bibr">27</xref>]
+    [<xref alt="20" rid="ref-Couzin_2002" ref-type="bibr">20</xref>]
     defined three non-overlapping zones. The “zone of repulsion” is at a
     minimum distance around the focal individual within which neighbours
     are expected to move away to avoid collisions. The “zone of
@@ -1122,9 +1178,9 @@ directional_align &lt;- edge_alignment(
     zone labels and blind volume thresholds. The behavioural zones
     metric has been used to study the impact of individual movement
     speed and predator evasion
-    [<xref alt="67" rid="ref-Klamser_2021" ref-type="bibr">67</xref>]
+    [<xref alt="79" rid="ref-Klamser_2021" ref-type="bibr">79</xref>]
     and identifying rules of interaction in large animal groups
-    [<xref alt="68" rid="ref-Lukeman_2010" ref-type="bibr">68</xref>].</p>
+    [<xref alt="80" rid="ref-Lukeman_2010" ref-type="bibr">80</xref>].</p>
         <code language="r script"># Define zone thresholds, labels and blind volume
 zone_thresholds &lt;- c(10, 25, 50)
 zone_labels &lt;- c('repulsion', 'orientation', 'attraction')
@@ -1154,7 +1210,7 @@ zones &lt;- edge_zones(
         </fig>
       </sec>
       <sec id="position-relative-to-leader">
-        <title>5.4 Position relative to leader</title>
+        <title>6.4 Position relative to leader</title>
         <p>After considering how individuals are positioned relative to the
     group centroid, we can also measure how individuals are positioned
     relative to the mean group direction. To do so, we first calculate
@@ -1165,10 +1221,10 @@ zones &lt;- edge_zones(
     coordinate system around the group centroid by the group’s mean
     direction. The distance along this new axis is the measure of
     front-back position of an individual within the group
-    [<xref alt="58" rid="ref-Harel_2021" ref-type="bibr">58</xref>,<xref alt="69" rid="ref-Quera_2023" ref-type="bibr">69</xref>,<xref alt="70" rid="ref-Andrienko_2013" ref-type="bibr">70</xref>]
+    [<xref alt="57" rid="ref-Andrienko_2013" ref-type="bibr">57</xref>,<xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="70" rid="ref-Harel_2021" ref-type="bibr">70</xref>]
     (<xref alt="Figure 5" rid="fig-leader-dir-group">Figure 5</xref>).
     The rank of individual positions within spatiotemporal groups
-    [<xref alt="71" rid="ref-Burns_2012" ref-type="bibr">71</xref>] can
+    [<xref alt="81" rid="ref-Burns_2012" ref-type="bibr">81</xref>] can
     be optionally returned when the argument ‘return_rank’ is true.</p>
         <code language="r script"># Measure movement direction
 direction_step(DT, id = id)
@@ -1207,13 +1263,13 @@ leader_direction_group(DT, return_rank = TRUE)</code>
     direction from the focal individual to the group’s leader. The
     front-back position within the group, and distance and direction to
     the group leader has been used to study interaction rules
-    [<xref alt="72" rid="ref-Weesner_2023" ref-type="bibr">72</xref>],
+    [<xref alt="82" rid="ref-Weesner_2023" ref-type="bibr">82</xref>],
     leadership
-    [<xref alt="65" rid="ref-Sarova_2010" ref-type="bibr">65</xref>,<xref alt="69" rid="ref-Quera_2023" ref-type="bibr">69</xref>],
+    [<xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="77" rid="ref-Sarova_2010" ref-type="bibr">77</xref>],
     risk avoidance
-    [<xref alt="73" rid="ref-Josephs_2016" ref-type="bibr">73</xref>],
+    [<xref alt="83" rid="ref-Josephs_2016" ref-type="bibr">83</xref>],
     and how reproduction influences social structure
-    [<xref alt="74" rid="ref-Perez-Barberia_2018" ref-type="bibr">74</xref>].
+    [<xref alt="58" rid="ref-Perez-Barberia_2018" ref-type="bibr">58</xref>].
     In addition, a user can calculate an individual’s time spent leading
     by calculating the rate each individual was in the first ranked
     position out of the total observations.</p>
@@ -1239,7 +1295,7 @@ direction_to_leader(DT)</code>
         </fig>
       </sec>
       <sec id="fusion-events">
-        <title>5.5 Fusion events</title>
+        <title>6.5 Fusion events</title>
         <p>Fusion events, or temporal periods where two individuals are
     within a given threshold distance from each other, can be identified
     using <monospace>fusion_id()</monospace>
@@ -1262,13 +1318,13 @@ direction_to_leader(DT)</code>
     splitting for one observation without resulting in a fission event.
     Identification of fusion events has been used to study resource
     seasonality
-    [<xref alt="75" rid="ref-Baden_2016" ref-type="bibr">75</xref>],
+    [<xref alt="84" rid="ref-Baden_2016" ref-type="bibr">84</xref>],
     information transfer
-    [<xref alt="76" rid="ref-Barocas_2016" ref-type="bibr">76</xref>],
+    [<xref alt="85" rid="ref-Barocas_2016" ref-type="bibr">85</xref>],
     decision making
-    [<xref alt="77" rid="ref-Merkle_2015" ref-type="bibr">77</xref>],
+    [<xref alt="86" rid="ref-Merkle_2015" ref-type="bibr">86</xref>],
     and habitat selection
-    [<xref alt="78" rid="ref-Fortin_2009" ref-type="bibr">78</xref>].</p>
+    [<xref alt="87" rid="ref-Fortin_2009" ref-type="bibr">87</xref>].</p>
         <code language="r script"># Identify dyads
 dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 
@@ -1311,9 +1367,9 @@ centroid_fusion(
         </fig>
       </sec>
       <sec id="directional-correlation-delay">
-        <title>5.6 Directional correlation delay</title>
+        <title>6.6 Directional correlation delay</title>
         <p>The directional correlation delay
-    [<xref alt="30" rid="ref-Nagy_2010" ref-type="bibr">30</xref>], or
+    [<xref alt="23" rid="ref-Nagy_2010" ref-type="bibr">23</xref>], or
     the temporal delay at which two individual’s movement directions are
     most similar, can be measured using
     <monospace>edge_delay()</monospace>
@@ -1321,7 +1377,7 @@ centroid_fusion(
     function measures the similarity of movement directions of the focal
     individual at time <inline-formula><alternatives><tex-math><![CDATA[t_{0}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:math></alternatives></inline-formula>
     and the movement direction’s of a neighbour within a specified
-    temporal window (e.g. <inline-formula><alternatives><tex-math><![CDATA[t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:math></alternatives></inline-formula>).
+    temporal window (e.g. <inline-formula><alternatives><tex-math><![CDATA[t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:math></alternatives></inline-formula>).
     The temporal delay is the difference in time where the neighbour’s
     movement directions are most similar to the focal individual’s. The
     directional correlation delay ranges from negative values indicating
@@ -1334,7 +1390,7 @@ centroid_fusion(
     correlation delay can be used to measure leadership patterns and
     generate hierarchical leadership networks depending on the study
     system
-    [<xref alt="30" rid="ref-Nagy_2010" ref-type="bibr">30</xref>,<xref alt="69" rid="ref-Quera_2023" ref-type="bibr">69</xref>,<xref alt="79" rid="ref-Flack_2013" ref-type="bibr">79</xref>–<xref alt="81" rid="ref-Akos_2014" ref-type="bibr">81</xref>].</p>
+    [<xref alt="23" rid="ref-Nagy_2010" ref-type="bibr">23</xref>,<xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="88" rid="ref-Flack_2013" ref-type="bibr">88</xref>–<xref alt="90" rid="ref-Akos_2014" ref-type="bibr">90</xref>].</p>
         <code language="r script"># Measure directional correlation delay
 delay &lt;- edge_delay(
   edges = fusion_events,
@@ -1376,14 +1432,19 @@ leader_delay &lt;- leader_edge_delay(
       </sec>
     </sec>
     <sec id="conclusion">
-      <title>6. Conclusion</title>
-      <p>The open source package {spatsoc}
-  [<xref alt="1" rid="ref-Robitaille_2019" ref-type="bibr">1</xref>] for
-  the R programming language
-  [<xref alt="82" rid="ref-RCoreTeam_2025a" ref-type="bibr">82</xref>]
+      <title>7. Conclusion</title>
+      <p>An ever expanding collection of methods have been described for
+  studying animal social systems. The scoping review identified hundreds
+  of metrics applied to species across the globe. Despite this, a lack
+  of their accessibility in open source software risks limiting the
+  application of these methods broadly. The open source package
+  {spatsoc}
+  [<xref alt="29" rid="ref-Robitaille_2019" ref-type="bibr">29</xref>]
+  for the R programming language
+  [<xref alt="91" rid="ref-RCoreTeam_2025a" ref-type="bibr">91</xref>]
   has improved accessibility to methods for spatiotemporal grouping and
   social network analysis with animal telemetry data [e.g.
-  <xref alt="52" rid="ref-Albery_2025" ref-type="bibr">52</xref>,<xref alt="2" rid="ref-Bracken_2022" ref-type="bibr">2</xref>,<xref alt="7" rid="ref-Heeres_2024" ref-type="bibr">7</xref>,<xref alt="53" rid="ref-Merkle_2024" ref-type="bibr">53</xref>].
+  <xref alt="65" rid="ref-Albery_2025" ref-type="bibr">65</xref>,<xref alt="30" rid="ref-Bracken_2022" ref-type="bibr">30</xref>,<xref alt="35" rid="ref-Heeres_2024" ref-type="bibr">35</xref>,<xref alt="66" rid="ref-Merkle_2024" ref-type="bibr">66</xref>].
   Despite this, proximity based associations are only one dimension and
   studying intragroup social dynamics will allow researchers to further
   measure animal social systems. The new functions in {spatsoc} and the
@@ -1391,9 +1452,9 @@ leader_delay &lt;- leader_edge_delay(
   of metrics that, while commonly used in the literature, have been
   largely absent from R packages. Paired with the continued development
   of animal tracking technology
-  [<xref alt="22" rid="ref-Nathan_2022" ref-type="bibr">22</xref>,<xref alt="83" rid="ref-Beardsworth_2022" ref-type="bibr">83</xref>]
+  [<xref alt="15" rid="ref-Nathan_2022" ref-type="bibr">15</xref>,<xref alt="92" rid="ref-Beardsworth_2022" ref-type="bibr">92</xref>]
   and novel data collection methods
-  [<xref alt="84" rid="ref-Koger_2023" ref-type="bibr">84</xref>,<xref alt="85" rid="ref-Pedrazzi_2025" ref-type="bibr">85</xref>],
+  [<xref alt="93" rid="ref-Koger_2023" ref-type="bibr">93</xref>,<xref alt="94" rid="ref-Pedrazzi_2025" ref-type="bibr">94</xref>],
   the open availability of these metrics in R will broaden their
   application across research questions, including, among others,
   long-standing ecological concepts such as:</p>
@@ -1402,16 +1463,16 @@ leader_delay &lt;- leader_edge_delay(
           <p>Social foraging theory and producer-scrounger dynamics where
       “producers” are those who discover patches and “scroungers” are
       those who join patches discovered by others
-      [<xref alt="11" rid="ref-Barnard_1981" ref-type="bibr">11</xref>,<xref alt="86" rid="ref-Vickery_1991" ref-type="bibr">86</xref>,<xref alt="87" rid="ref-Giraldeau_2000" ref-type="bibr">87</xref>].
+      [<xref alt="4" rid="ref-Barnard_1981" ref-type="bibr">4</xref>,<xref alt="95" rid="ref-Vickery_1991" ref-type="bibr">95</xref>,<xref alt="96" rid="ref-Giraldeau_2000" ref-type="bibr">96</xref>].
       This concept can be applied to animal telemetry data by evaluating
       the position of individuals within groups, the individual’s
       arrival timing to forage patches and the characteristics of forage
       patches. Individuals balance predation risk and foraging success
       by adjusting their spatial position within groups
-      [<xref alt="13" rid="ref-Hirsch_2020" ref-type="bibr">13</xref>,<xref alt="18" rid="ref-Teichroeb_2015" ref-type="bibr">18</xref>],
+      [<xref alt="6" rid="ref-Hirsch_2020" ref-type="bibr">6</xref>,<xref alt="11" rid="ref-Teichroeb_2015" ref-type="bibr">11</xref>],
       and the foraging strategy selected by an individual can be
       influenced by the size of forage patches
-      [<xref alt="88" rid="ref-Hansen_2016" ref-type="bibr">88</xref>].</p>
+      [<xref alt="97" rid="ref-Hansen_2016" ref-type="bibr">97</xref>].</p>
         </list-item>
         <list-item>
           <p>Leader-follower patterns in groups of moving animals can be
@@ -1421,34 +1482,34 @@ leader_delay &lt;- leader_edge_delay(
       telemetry data, leadership can be defined simply by identifying
       the individual at the foremost position along the front-to-back
       axis of the group’s direction
-      [<xref alt="58" rid="ref-Harel_2021" ref-type="bibr">58</xref>,<xref alt="69" rid="ref-Quera_2023" ref-type="bibr">69</xref>]
+      [<xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="70" rid="ref-Harel_2021" ref-type="bibr">70</xref>]
       or by calculating the directional correlation delay between
       individuals and building leadership hierarchies
-      [<xref alt="30" rid="ref-Nagy_2010" ref-type="bibr">30</xref>].
+      [<xref alt="23" rid="ref-Nagy_2010" ref-type="bibr">23</xref>].
       Leadership in a group of moving animals can inform animal decision
       making, group coordination, and migratory patterns
-      [<xref alt="57" rid="ref-Kano_2021" ref-type="bibr">57</xref>,<xref alt="69" rid="ref-Quera_2023" ref-type="bibr">69</xref>,<xref alt="72" rid="ref-Weesner_2023" ref-type="bibr">72</xref>,<xref alt="89" rid="ref-Flack_2018" ref-type="bibr">89</xref>].</p>
+      [<xref alt="61" rid="ref-Kano_2021" ref-type="bibr">61</xref>,<xref alt="62" rid="ref-Quera_2023" ref-type="bibr">62</xref>,<xref alt="82" rid="ref-Weesner_2023" ref-type="bibr">82</xref>,<xref alt="98" rid="ref-Flack_2018" ref-type="bibr">98</xref>].</p>
         </list-item>
         <list-item>
           <p>Individual traits can influence behaviours related to
       intragroup dynamics. Dominance is related to foraging success
-      [<xref alt="18" rid="ref-Teichroeb_2015" ref-type="bibr">18</xref>,<xref alt="90" rid="ref-Caraco_1989" ref-type="bibr">90</xref>]
+      [<xref alt="11" rid="ref-Teichroeb_2015" ref-type="bibr">11</xref>,<xref alt="99" rid="ref-Caraco_1989" ref-type="bibr">99</xref>]
       and choice of foraging strategy
-      [<xref alt="17" rid="ref-King_2009" ref-type="bibr">17</xref>,<xref alt="91" rid="ref-Aplin_2017" ref-type="bibr">91</xref>,<xref alt="92" rid="ref-Lee_2016" ref-type="bibr">92</xref>].
+      [<xref alt="10" rid="ref-King_2009" ref-type="bibr">10</xref>,<xref alt="100" rid="ref-Aplin_2017" ref-type="bibr">100</xref>,<xref alt="101" rid="ref-Lee_2016" ref-type="bibr">101</xref>].
       Dominant, aggressive, grooming and other interindividual
       behaviours are typically measured using focal observations.
       However, some metrics have been developed for remotely estimating
       dominance behaviours. The directional correlation delay can be
       used to derive hierarchies of leadership which can be a proxy for
       dominance relationships in certain species
-      [<xref alt="79" rid="ref-Flack_2013" ref-type="bibr">79</xref>,<xref alt="81" rid="ref-Akos_2014" ref-type="bibr">81</xref>].
+      [<xref alt="88" rid="ref-Flack_2013" ref-type="bibr">88</xref>,<xref alt="90" rid="ref-Akos_2014" ref-type="bibr">90</xref>].
       Dominance relationships can also be inferred from animal telemetry
       data using movement initiations
-      [<xref alt="93" rid="ref-Amornbunchornvej_2018" ref-type="bibr">93</xref>],
+      [<xref alt="64" rid="ref-Amornbunchornvej_2018" ref-type="bibr">64</xref>],
       approach-avoidance behaviours
-      [<xref alt="31" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">31</xref>]
+      [<xref alt="24" rid="ref-Strandburg-Peshkin_2015" ref-type="bibr">24</xref>]
       and displacement events
-      [<xref alt="94" rid="ref-Evans_2018" ref-type="bibr">94</xref>].</p>
+      [<xref alt="102" rid="ref-Evans_2018" ref-type="bibr">102</xref>].</p>
         </list-item>
       </list>
       <p>The lack of open source code and transparency of methods alongside
@@ -1462,10 +1523,10 @@ leader_delay &lt;- leader_edge_delay(
   species, systems or research questions, including novel applications
   that could have management and conservation implications for
   vulnerable species
-  [<xref alt="95" rid="ref-Ramos_2021" ref-type="bibr">95</xref>].</p>
+  [<xref alt="103" rid="ref-Ramos_2021" ref-type="bibr">103</xref>].</p>
     </sec>
     <sec id="availability-and-requirements">
-      <title>7. Availability and requirements</title>
+      <title>8. Availability and requirements</title>
       <p>Project name: spatsoc</p>
       <p>Project home page:
   <ext-link ext-link-type="uri" xlink:href="https://github.com/ropensci/spatsoc">https://github.com/ropensci/spatsoc</ext-link></p>
@@ -1479,17 +1540,17 @@ leader_delay &lt;- leader_edge_delay(
       <p>Any restrictions to use by non-academics: None</p>
     </sec>
     <sec id="declarations">
-      <title>8. Declarations</title>
+      <title>9. Declarations</title>
       <sec id="ethics-approval-and-consent-to-participate">
-        <title>8.1 Ethics approval and consent to participate</title>
+        <title>9.1 Ethics approval and consent to participate</title>
         <p>Not applicable</p>
       </sec>
       <sec id="consent-for-publication">
-        <title>8.2 Consent for publication</title>
+        <title>9.2 Consent for publication</title>
         <p>Not applicable</p>
       </sec>
       <sec id="availability-of-data-and-materials">
-        <title>8.3 Availability of data and materials</title>
+        <title>9.3 Availability of data and materials</title>
         <p>All code used to produce this manuscript including figures and
     tables are available on GitHub at
     <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
@@ -1505,47 +1566,47 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <p>The code for producing the scoping review results, figures,
     tables and manuscript was developed as a reproducible pipeline with
     the R package {targets}
-    [<xref alt="96" rid="ref-Landau_2021b" ref-type="bibr">96</xref>].
+    [<xref alt="104" rid="ref-Landau_2021b" ref-type="bibr">104</xref>].
     Figures and tables were constructed using {ggplot2}
-    [<xref alt="97" rid="ref-Wickham_2016a" ref-type="bibr">97</xref>],
+    [<xref alt="105" rid="ref-Wickham_2016a" ref-type="bibr">105</xref>],
     {ggdist}
-    [<xref alt="98" rid="ref-Kay_2025" ref-type="bibr">98</xref>],
+    [<xref alt="106" rid="ref-Kay_2025" ref-type="bibr">106</xref>],
     {patchwork}
-    [<xref alt="99" rid="ref-Pedersen_2025" ref-type="bibr">99</xref>]
+    [<xref alt="107" rid="ref-Pedersen_2025" ref-type="bibr">107</xref>]
     and {tintytable}
-    [<xref alt="100" rid="ref-Arel-Bundock_2025" ref-type="bibr">100</xref>].
+    [<xref alt="108" rid="ref-Arel-Bundock_2025" ref-type="bibr">108</xref>].
     The manuscript was produced using {quarto}
-    [<xref alt="101" rid="ref-Allaire_2024" ref-type="bibr">101</xref>].
+    [<xref alt="109" rid="ref-Allaire_2024" ref-type="bibr">109</xref>].
     The {spatsoc} package gratefully depends on the R packages
     {adehabitatHR}
-    [<xref alt="102" rid="ref-Calenge_2024" ref-type="bibr">102</xref>],
+    [<xref alt="110" rid="ref-Calenge_2024" ref-type="bibr">110</xref>],
     {data.table}
-    [<xref alt="103" rid="ref-Barrett_2025" ref-type="bibr">103</xref>],
+    [<xref alt="111" rid="ref-Barrett_2025" ref-type="bibr">111</xref>],
     {igraph}
-    [<xref alt="104" rid="ref-Csardi_2026" ref-type="bibr">104</xref>],
+    [<xref alt="112" rid="ref-Csardi_2026" ref-type="bibr">112</xref>],
     {sf}
-    [<xref alt="49" rid="ref-Pebesma_2018" ref-type="bibr">49</xref>],
+    [<xref alt="50" rid="ref-Pebesma_2018" ref-type="bibr">50</xref>],
     {lwgeom}
-    [<xref alt="50" rid="ref-Pebesma_2025" ref-type="bibr">50</xref>],
+    [<xref alt="51" rid="ref-Pebesma_2025" ref-type="bibr">51</xref>],
     {CircStats}
-    [<xref alt="105" rid="ref-Lund_2025" ref-type="bibr">105</xref>],
+    [<xref alt="113" rid="ref-Lund_2025" ref-type="bibr">113</xref>],
     {units}
-    [<xref alt="106" rid="ref-Pebesma_2016" ref-type="bibr">106</xref>],
+    [<xref alt="114" rid="ref-Pebesma_2016" ref-type="bibr">114</xref>],
     and {rlang}
-    [<xref alt="107" rid="ref-Henry_2026" ref-type="bibr">107</xref>].</p>
+    [<xref alt="115" rid="ref-Henry_2026" ref-type="bibr">115</xref>].</p>
       </sec>
       <sec id="competing-interests">
-        <title>8.4 Competing interests</title>
+        <title>9.4 Competing interests</title>
         <p>The authors declare that they have no competing interests.</p>
       </sec>
       <sec id="funding">
-        <title>8.5 Funding</title>
+        <title>9.5 Funding</title>
         <p>ALR received a NSERC Canada Graduate Research Scholarship, QMRW
     received a NSERC Discovery Grant, EVW received a NSERC Discovery
     Grant.</p>
       </sec>
       <sec id="authors-contributions">
-        <title>8.6 Authors’ contributions</title>
+        <title>9.6 Authors’ contributions</title>
         <p>ALR, QMRW and EVW contributed to conceptualization and writing.
     EVW contributed to methodology, funding acquisition, project
     administration and supervision. ALR contributed to writing (original
@@ -1554,7 +1615,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
     manuscript.</p>
       </sec>
       <sec id="acknowledgements">
-        <title>8.7 Acknowledgements</title>
+        <title>9.7 Acknowledgements</title>
         <p>We thank Edzer Pebesma and Dewey Dunnington for support with bug
     reports and feature requests for the {sf}, {s2} and {lwgeom}
     packages related to the development of this new functionality in
@@ -1571,7 +1632,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       <title>References</title>
     </sec>
     <sec id="sec-scoping-methods">
-      <title>9. Supplement: Scoping review methods</title>
+      <title>10. Supplement: Scoping review methods</title>
       <fig id="suptbl-benchmark">
         <caption>
           <p>Table S1: Benchmark papers used to evaluate iterative
@@ -1851,8 +1912,8 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       </fig>
     </sec>
     <sec id="sec-scoping-results">
-      <title>10. Supplement: Scoping review results</title>
-      <sec id="results-1">
+      <title>11. Supplement: Scoping review results</title>
+      <sec id="results-2">
         <title>Results</title>
         <p>PRISMA</p>
         <list list-type="bullet">
@@ -2269,7 +2330,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       extraction across temporal period (1980-2023) of scoping
       review</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-10-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-11-1.png"/>
         </fig>
         <fig id="suptbl-map">
           <caption>
@@ -2277,7 +2338,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       {tidygeocoder} from references screened for full text extraction
       of scoping review</p>
           </caption>
-          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-11-1.png"/>
+          <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-12-1.png"/>
         </fig>
         <fig id="suptbl-species">
           <caption>
@@ -3581,9 +3642,9 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       </sec>
     </sec>
     <sec id="sec-selected">
-      <title>11. Supplement: Selected metrics</title>
+      <title>12. Supplement: Selected metrics</title>
       <sec id="selected-metrics">
-        <title>11.1 Selected metrics</title>
+        <title>12.1 Selected metrics</title>
         <p>The following metrics were not selected due to their availability
     in existing R packages:</p>
         <list list-type="bullet">
@@ -3604,9 +3665,9 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <list list-type="bullet">
           <list-item>
             <p>mFLICA provided in code accompanying
-        [<xref alt="93" rid="ref-Amornbunchornvej_2018" ref-type="bibr">93</xref>]
+        [<xref alt="64" rid="ref-Amornbunchornvej_2018" ref-type="bibr">64</xref>]
         and R package {mFLICA}
-        [<xref alt="108" rid="ref-Amornbunchornvej_2021" ref-type="bibr">108</xref>]</p>
+        [<xref alt="116" rid="ref-Amornbunchornvej_2021" ref-type="bibr">116</xref>]</p>
           </list-item>
         </list>
         <p>The follow metrics were not selected due to the expected input
@@ -3826,7 +3887,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <sec id="distance-direction-and-rank-distance-to-group-centroid">
           <title>Distance, direction and rank distance to group
       centroid</title>
-          <p>Our scoping review found 21 studies that used the group
+          <p>The scoping review found 21 studies that used the group
       centroid, distance to group centroid, direction to group centroid,
       or rank distance to group centroid metrics, across 14 study
       species. 4 studies had code available. The {swaRm} package
@@ -3839,7 +3900,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <sec id="polarization-directional-alignment-and-interindividual-direction">
           <title>Polarization, directional alignment and interindividual
       direction</title>
-          <p>Our scoping review found 20 studies that used the polarization,
+          <p>The scoping review found 20 studies that used the polarization,
       directional alignment or interindividual direction metrics, across
       11 study species. 4 studies had code available. The {CircStats}
       and the {swaRm} packages provide functionality to calculate the
@@ -3849,11 +3910,11 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
       direction metrics. After the scoping review was conducted, the
       {swaRmverse} package was released which provides the direction to
       nearest neighbour metric
-      [<xref alt="109" rid="ref-Papadopoulou_2025" ref-type="bibr">109</xref>].</p>
+      [<xref alt="117" rid="ref-Papadopoulou_2025" ref-type="bibr">117</xref>].</p>
         </sec>
         <sec id="behavioural-zones-1">
           <title>Behavioural zones</title>
-          <p>Our scoping review found 13 studies that used the behavioural
+          <p>The scoping review found 13 studies that used the behavioural
       zones metric, across 9 study species. 4 studies had code
       available. At the time when the scoping review was conducted, to
       the best of our knowledge, there were no R packages that provide
@@ -3862,7 +3923,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <sec id="position-within-group-rank-position-within-group-distance-and-direction-to-leader">
           <title>Position within group, rank position within group, distance
       and direction to leader</title>
-          <p>Our scoping review found 18 studies that used the position
+          <p>The scoping review found 18 studies that used the position
       within group, rank position within group, distance to leader, or
       direction to leader metrics across 14 study species. Only 1 study
       had code available. At the time when the scoping review was
@@ -3871,7 +3932,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         </sec>
         <sec id="directional-correlation-delay-1">
           <title>Directional correlation delay</title>
-          <p>Our scoping review found 17 studies that used the directional
+          <p>The scoping review found 17 studies that used the directional
       correlation delay metric, across 12 study species. Only 1 study
       had code available using a combination of MATLAB (closed source),
       CUDA (closed source), and Python (open source). At the time when
@@ -5299,6 +5360,141 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <pub-id pub-id-type="doi">10.5281/zenodo.7682609</pub-id>
         </element-citation>
       </ref>
+      <ref id="ref-DellaLibera_2023">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Della Libera</surname>
+              <given-names>Katja</given-names>
+            </name>
+            <name>
+              <surname>Strandburg-Peshkin</surname>
+              <given-names>Ariana</given-names>
+            </name>
+            <name>
+              <surname>Griffith</surname>
+              <given-names>Simon C.</given-names>
+            </name>
+            <name>
+              <surname>Leu</surname>
+              <given-names>Stephan T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Fission–fusion dynamics in sheep: The influence of resource distribution and temporal activity patterns</article-title>
+          <source>Royal Society Open Science</source>
+          <year iso-8601-date="2023">2023</year>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2026-07-09">2026</year>
+            <month>07</month>
+            <day>09</day>
+          </date-in-citation>
+          <volume>10</volume>
+          <issue>7</issue>
+          <fpage>230402</fpage>
+          <lpage/>
+        </element-citation>
+      </ref>
+      <ref id="ref-delMarDelgado_2021">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>del Mar Delgado</surname>
+              <given-names>María</given-names>
+            </name>
+            <name>
+              <surname>Arlettaz</surname>
+              <given-names>Raphaël</given-names>
+            </name>
+            <name>
+              <surname>Bettega</surname>
+              <given-names>Chiara</given-names>
+            </name>
+            <name>
+              <surname>Brambilla</surname>
+              <given-names>Mattia</given-names>
+            </name>
+            <name>
+              <surname>De Gabriel Hernando</surname>
+              <given-names>Miguel</given-names>
+            </name>
+            <name>
+              <surname>España</surname>
+              <given-names>Antonio</given-names>
+            </name>
+            <name>
+              <surname>Fernández-González</surname>
+              <given-names>Ángel</given-names>
+            </name>
+            <name>
+              <surname>Fernández-Martín</surname>
+              <given-names>Ángel</given-names>
+            </name>
+            <name>
+              <surname>Gil</surname>
+              <given-names>Juan Antonio</given-names>
+            </name>
+            <name>
+              <surname>Hernández-Gómez</surname>
+              <given-names>Sergio</given-names>
+            </name>
+            <name>
+              <surname>Laiolo</surname>
+              <given-names>Paola</given-names>
+            </name>
+            <name>
+              <surname>Resano-Mayor</surname>
+              <given-names>Jaime</given-names>
+            </name>
+            <name>
+              <surname>Obeso</surname>
+              <given-names>José Ramón</given-names>
+            </name>
+            <name>
+              <surname>Pedrini</surname>
+              <given-names>Paolo</given-names>
+            </name>
+            <name>
+              <surname>Roa-Álvarez</surname>
+              <given-names>Isabel</given-names>
+            </name>
+            <name>
+              <surname>Schano</surname>
+              <given-names>Christian</given-names>
+            </name>
+            <name>
+              <surname>Scridel</surname>
+              <given-names>Davide</given-names>
+            </name>
+            <name>
+              <surname>Strinella</surname>
+              <given-names>Eliseo</given-names>
+            </name>
+            <name>
+              <surname>Toranzo</surname>
+              <given-names>Ignasi</given-names>
+            </name>
+            <name>
+              <surname>Korner-Nievergelt</surname>
+              <given-names>Fränzi</given-names>
+            </name>
+          </person-group>
+          <article-title>Spatio-temporal variation in the wintering associations of an alpine bird</article-title>
+          <source>Proceedings of the Royal Society B: Biological Sciences</source>
+          <year iso-8601-date="2021-05">2021</year>
+          <month>05</month>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2026-01-08">2026</year>
+            <month>01</month>
+            <day>08</day>
+          </date-in-citation>
+          <volume>288</volume>
+          <issue>1951</issue>
+          <issn>0962-8452, 1471-2954</issn>
+          <pub-id pub-id-type="doi">10.1098/rspb.2021.0690</pub-id>
+          <fpage>20210690</fpage>
+          <lpage/>
+        </element-citation>
+      </ref>
       <ref id="ref-Dodge_2008">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -5753,6 +5949,44 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <lpage/>
         </element-citation>
       </ref>
+      <ref id="ref-Haydon_2008">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Haydon</surname>
+              <given-names>Daniel T.</given-names>
+            </name>
+            <name>
+              <surname>Morales</surname>
+              <given-names>Juan M.</given-names>
+            </name>
+            <name>
+              <surname>Yott</surname>
+              <given-names>Adelle</given-names>
+            </name>
+            <name>
+              <surname>Jenkins</surname>
+              <given-names>Deborah A.</given-names>
+            </name>
+            <name>
+              <surname>Rosatte</surname>
+              <given-names>Rick</given-names>
+            </name>
+            <name>
+              <surname>Fryxell</surname>
+              <given-names>John M.</given-names>
+            </name>
+          </person-group>
+          <article-title>Socially informed random walks: Incorporating group dynamics into models of population spread and growth</article-title>
+          <source>Proceedings of the Royal Society Biological Sciences Series B</source>
+          <year iso-8601-date="2008">2008</year>
+          <volume>275</volume>
+          <issue>1638</issue>
+          <pub-id pub-id-type="doi">10.1098/rspb.2007.1688</pub-id>
+          <fpage>1101</fpage>
+          <lpage>1109</lpage>
+        </element-citation>
+      </ref>
       <ref id="ref-Heeres_2024">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -6056,6 +6290,43 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <pub-id pub-id-type="pmid">28889975</pub-id>
           <fpage>2862</fpage>
           <lpage>2868.e7</lpage>
+        </element-citation>
+      </ref>
+      <ref id="ref-Jolles_2018">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Jolles</surname>
+              <given-names>Jolle W.</given-names>
+            </name>
+            <name>
+              <surname>Laskowski</surname>
+              <given-names>Kate L.</given-names>
+            </name>
+            <name>
+              <surname>Boogert</surname>
+              <given-names>Neeltje J.</given-names>
+            </name>
+            <name>
+              <surname>Manica</surname>
+              <given-names>Andrea</given-names>
+            </name>
+          </person-group>
+          <article-title>Repeatable group differences in the collective behaviour of stickleback shoals across ecological contexts</article-title>
+          <source>Proceedings of the Royal Society B: Biological Sciences</source>
+          <year iso-8601-date="2018-02">2018</year>
+          <month>02</month>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2026-01-27">2026</year>
+            <month>01</month>
+            <day>27</day>
+          </date-in-citation>
+          <volume>285</volume>
+          <issue>1872</issue>
+          <issn>0962-8452</issn>
+          <pub-id pub-id-type="doi">10.1098/rspb.2017.2629</pub-id>
+          <fpage>20172629</fpage>
+          <lpage/>
         </element-citation>
       </ref>
       <ref id="ref-Joo_2018">
@@ -6675,6 +6946,31 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <lpage/>
         </element-citation>
       </ref>
+      <ref id="ref-Lesmerises_2018">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Lesmerises</surname>
+              <given-names>Frederic</given-names>
+            </name>
+            <name>
+              <surname>Johnson</surname>
+              <given-names>Chris J.</given-names>
+            </name>
+            <name>
+              <surname>St-Laurent</surname>
+              <given-names>Martin-Hugues</given-names>
+            </name>
+          </person-group>
+          <article-title>Landscape knowledge is an important driver of the fission dynamics of an alpine ungulate</article-title>
+          <source>Animal Behaviour</source>
+          <year iso-8601-date="2018">2018</year>
+          <volume>140</volume>
+          <pub-id pub-id-type="doi">10.1016/j.anbehav.2018.03.014</pub-id>
+          <fpage>39</fpage>
+          <lpage>47</lpage>
+        </element-citation>
+      </ref>
       <ref id="ref-Long_2015">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -7092,6 +7388,38 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <lpage/>
         </element-citation>
       </ref>
+      <ref id="ref-Nishikawa_2014">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Nishikawa</surname>
+              <given-names>Mari</given-names>
+            </name>
+            <name>
+              <surname>Suzuki</surname>
+              <given-names>Mariko</given-names>
+            </name>
+            <name>
+              <surname>Sprague</surname>
+              <given-names>David S.</given-names>
+            </name>
+          </person-group>
+          <article-title>Activity and social factors affect cohesion among individuals in female Japanese macaques: A simultaneous focal-follow study</article-title>
+          <source>American Journal of Primatology</source>
+          <year iso-8601-date="2014">2014</year>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2026-07-09">2026</year>
+            <month>07</month>
+            <day>09</day>
+          </date-in-citation>
+          <volume>76</volume>
+          <issue>7</issue>
+          <issn>1098-2345</issn>
+          <pub-id pub-id-type="doi">10.1002/ajp.22263</pub-id>
+          <fpage>694</fpage>
+          <lpage>703</lpage>
+        </element-citation>
+      </ref>
       <ref id="ref-Papadopoulou_2025">
         <element-citation publication-type="article-journal">
           <person-group person-group-type="author">
@@ -7330,6 +7658,43 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <pub-id pub-id-type="pmid">29360558</pub-id>
           <fpage>75</fpage>
           <lpage>84</lpage>
+        </element-citation>
+      </ref>
+      <ref id="ref-Pettit_2013">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Pettit</surname>
+              <given-names>Benjamin</given-names>
+            </name>
+            <name>
+              <surname>Perna</surname>
+              <given-names>Andrea</given-names>
+            </name>
+            <name>
+              <surname>Biro</surname>
+              <given-names>Dora</given-names>
+            </name>
+            <name>
+              <surname>Sumpter</surname>
+              <given-names>David J. T.</given-names>
+            </name>
+          </person-group>
+          <article-title>Interaction rules underlying group decisions in homing pigeons</article-title>
+          <source>Journal of The Royal Society Interface</source>
+          <publisher-name>Royal Society</publisher-name>
+          <year iso-8601-date="2013-12">2013</year>
+          <month>12</month>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2023-09-15">2023</year>
+            <month>09</month>
+            <day>15</day>
+          </date-in-citation>
+          <volume>10</volume>
+          <issue>89</issue>
+          <pub-id pub-id-type="doi">10.1098/rsif.2013.0529</pub-id>
+          <fpage>20130529</fpage>
+          <lpage/>
         </element-citation>
       </ref>
       <ref id="ref-Powers_2019">
@@ -7606,6 +7971,43 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <issn>2050-084X</issn>
           <pub-id pub-id-type="doi">10.7554/eLife.19505</pub-id>
           <fpage>e19505</fpage>
+          <lpage/>
+        </element-citation>
+      </ref>
+      <ref id="ref-Strandburg-Peshkin_2018">
+        <element-citation publication-type="article-journal">
+          <person-group person-group-type="author">
+            <name>
+              <surname>Strandburg-Peshkin</surname>
+              <given-names>Ariana</given-names>
+            </name>
+            <name>
+              <surname>Papageorgiou</surname>
+              <given-names>Danai</given-names>
+            </name>
+            <name>
+              <surname>Crofoot</surname>
+              <given-names>Margaret C.</given-names>
+            </name>
+            <name>
+              <surname>Farine</surname>
+              <given-names>Damien R.</given-names>
+            </name>
+          </person-group>
+          <article-title>Inferring influence and leadership in moving animal groups</article-title>
+          <source>Philosophical Transactions of the Royal Society B: Biological Sciences</source>
+          <publisher-name>Royal Society</publisher-name>
+          <year iso-8601-date="2018-03">2018</year>
+          <month>03</month>
+          <date-in-citation content-type="access-date">
+            <year iso-8601-date="2024-11-18">2024</year>
+            <month>11</month>
+            <day>18</day>
+          </date-in-citation>
+          <volume>373</volume>
+          <issue>1746</issue>
+          <pub-id pub-id-type="doi">10.1098/rstb.2017.0006</pub-id>
+          <fpage>20170006</fpage>
           <lpage/>
         </element-citation>
       </ref>
@@ -8048,8 +8450,9 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
   <sub-article article-type="notebook" id="nb-1-nb-article">
     <front-stub>
       <title-group>
-        <article-title>Extending the open-source R package {spatsoc} to measure
-intragroup social dynamics</article-title>
+        <article-title>Extending the open-source R package {spatsoc} with
+measures of intragroup social dynamics identified by a scoping
+review</article-title>
       </title-group>
       <contrib-group>
         <contrib contrib-type="author" corresp="yes">
@@ -8207,66 +8610,66 @@ Attaching package: 'janitor'</preformat>
       </sec>
       <sec id="background-1-nb-article">
         <title>3. Background</title>
-        <p>The R package {spatsoc} was developed to derive social networks
-  from animal telemetry data using aggregated association rates,
-  interindividual distances, and home range overlap
-  [<xref alt="1" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">1</xref>].
-  The methods in {spatsoc} have been used to measure social cohesion
-  [<xref alt="2" rid="ref-Bracken_2022-nb-article" ref-type="bibr">2</xref>],
-  human-wildlife conflict
-  [<xref alt="3" rid="ref-Boudreau_2022-nb-article" ref-type="bibr">3</xref>],
-  socioecology and resource availability
-  [<xref alt="4" rid="ref-Peignier_2019-nb-article" ref-type="bibr">4</xref>],
-  community structure
-  [<xref alt="5" rid="ref-Sunga_2021-nb-article" ref-type="bibr">5</xref>], the
-  influence of stress on social proximity
-  [<xref alt="6" rid="ref-Keshavarzi_2023-nb-article" ref-type="bibr">6</xref>],
-  and social patterns in non-social species
-  [<xref alt="7" rid="ref-Heeres_2024-nb-article" ref-type="bibr">7</xref>].
-  Despite the substantive and varied applications of {spatsoc}, users
-  lacked sufficient and accessible functionality for measuring the
-  behaviour of individuals within social groups.</p>
         <p>Many facets of group living need to be considered to better measure
   animal social systems
-  [<xref alt="8" rid="ref-King_2018-nb-article" ref-type="bibr">8</xref>]. Beyond
+  [<xref alt="1" rid="ref-King_2018-nb-article" ref-type="bibr">1</xref>]. Beyond
   associations, there are additional types of dyadic relationships
   including genetic, affiliative, agonistic, and cooperative
-  [<xref alt="9" rid="ref-Farine_2015-nb-article" ref-type="bibr">9</xref>]. There
+  [<xref alt="2" rid="ref-Farine_2015-nb-article" ref-type="bibr">2</xref>]. There
   are also interactions between spatial phenotypes, social phenotypes,
   and environments
-  [<xref alt="10" rid="ref-Webber_2023-nb-article" ref-type="bibr">10</xref>].
-  Using direct observations, researchers have studied intragroup social
+  [<xref alt="3" rid="ref-Webber_2023-nb-article" ref-type="bibr">3</xref>]. Using
+  direct observations, researchers have studied intragroup social
   dynamics including social foraging
-  [<xref alt="11" rid="ref-Barnard_1981-nb-article" ref-type="bibr">11</xref>–<xref alt="13" rid="ref-Hirsch_2020-nb-article" ref-type="bibr">13</xref>],
+  [<xref alt="4" rid="ref-Barnard_1981-nb-article" ref-type="bibr">4</xref>–<xref alt="6" rid="ref-Hirsch_2020-nb-article" ref-type="bibr">6</xref>],
   spatial position within groups
-  [<xref alt="14" rid="ref-Krause_1994-nb-article" ref-type="bibr">14</xref>,<xref alt="15" rid="ref-Monus_2008-nb-article" ref-type="bibr">15</xref>]
+  [<xref alt="7" rid="ref-Krause_1994-nb-article" ref-type="bibr">7</xref>,<xref alt="8" rid="ref-Monus_2008-nb-article" ref-type="bibr">8</xref>]
   and the influence of individual traits such as age, sex, and dominance
-  [<xref alt="16" rid="ref-Furuichi_1983-nb-article" ref-type="bibr">16</xref>–<xref alt="18" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">18</xref>].
+  [<xref alt="9" rid="ref-Furuichi_1983-nb-article" ref-type="bibr">9</xref>–<xref alt="11" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">11</xref>].
   Unfortunately, direct observations can be labour-intensive to collect
   and susceptible to observer bias
-  [<xref alt="19" rid="ref-Smith_2021-nb-article" ref-type="bibr">19</xref>], with
+  [<xref alt="12" rid="ref-Smith_2021-nb-article" ref-type="bibr">12</xref>], with
   low spatial and temporal resolution making them imperfect for studies
   of collective movement
-  [<xref alt="8" rid="ref-King_2018-nb-article" ref-type="bibr">8</xref>].</p>
+  [<xref alt="1" rid="ref-King_2018-nb-article" ref-type="bibr">1</xref>].</p>
         <p>Pairing advanced remote tracking technologies with emerging methods
   expands opportunities to measure intragroup social dynamics. The
   availability and resolution of remote tracking data continues to
   improve
-  [<xref alt="20" rid="ref-Kays_2015-nb-article" ref-type="bibr">20</xref>–<xref alt="22" rid="ref-Nathan_2022-nb-article" ref-type="bibr">22</xref>].
+  [<xref alt="13" rid="ref-Kays_2015-nb-article" ref-type="bibr">13</xref>–<xref alt="15" rid="ref-Nathan_2022-nb-article" ref-type="bibr">15</xref>].
   There are over two decades of research on measuring interactions
   between moving individuals from the study of “moving point objects” in
   GISciences
-  [<xref alt="23" rid="ref-Andersson_2008-nb-article" ref-type="bibr">23</xref>–<xref alt="26" rid="ref-Miller_2021-nb-article" ref-type="bibr">26</xref>]
+  [<xref alt="16" rid="ref-Andersson_2008-nb-article" ref-type="bibr">16</xref>–<xref alt="19" rid="ref-Miller_2021-nb-article" ref-type="bibr">19</xref>]
   to group coordination
-  [<xref alt="27" rid="ref-Couzin_2002-nb-article" ref-type="bibr">27</xref>,<xref alt="28" rid="ref-Herbert-Read_2011-nb-article" ref-type="bibr">28</xref>],
+  [<xref alt="20" rid="ref-Couzin_2002-nb-article" ref-type="bibr">20</xref>,<xref alt="21" rid="ref-Herbert-Read_2011-nb-article" ref-type="bibr">21</xref>],
   leadership, and decision making
-  [<xref alt="29" rid="ref-King_2011-nb-article" ref-type="bibr">29</xref>–<xref alt="31" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">31</xref>].
+  [<xref alt="22" rid="ref-King_2011-nb-article" ref-type="bibr">22</xref>–<xref alt="24" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">24</xref>].
   Despite this, we suggest the lack of availability of open source tools
-  [<xref alt="32" rid="ref-Hampton_2015-nb-article" ref-type="bibr">32</xref>–<xref alt="34" rid="ref-Wilson_2017-nb-article" ref-type="bibr">34</xref>]
+  [<xref alt="25" rid="ref-Hampton_2015-nb-article" ref-type="bibr">25</xref>–<xref alt="27" rid="ref-Wilson_2017-nb-article" ref-type="bibr">27</xref>]
   is the missing piece between the call to integrate technology enhanced
   research with multidisciplinary approaches to better study animal
   social systems
-  [<xref alt="8" rid="ref-King_2018-nb-article" ref-type="bibr">8</xref>,<xref alt="35" rid="ref-Couzin_2023-nb-article" ref-type="bibr">35</xref>].</p>
+  [<xref alt="1" rid="ref-King_2018-nb-article" ref-type="bibr">1</xref>,<xref alt="28" rid="ref-Couzin_2023-nb-article" ref-type="bibr">28</xref>].</p>
+        <p>The R package {spatsoc} was developed to derive social networks
+  from animal telemetry data using aggregated association rates,
+  interindividual distances, and home range overlap
+  [<xref alt="29" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">29</xref>].
+  The methods in {spatsoc} have been used to measure social cohesion
+  [<xref alt="30" rid="ref-Bracken_2022-nb-article" ref-type="bibr">30</xref>],
+  human-wildlife conflict
+  [<xref alt="31" rid="ref-Boudreau_2022-nb-article" ref-type="bibr">31</xref>],
+  socioecology and resource availability
+  [<xref alt="32" rid="ref-Peignier_2019-nb-article" ref-type="bibr">32</xref>],
+  community structure
+  [<xref alt="33" rid="ref-Sunga_2021-nb-article" ref-type="bibr">33</xref>], the
+  influence of stress on social proximity
+  [<xref alt="34" rid="ref-Keshavarzi_2023-nb-article" ref-type="bibr">34</xref>],
+  and social patterns in non-social species
+  [<xref alt="35" rid="ref-Heeres_2024-nb-article" ref-type="bibr">35</xref>].
+  Despite the substantive and varied applications of {spatsoc}, users
+  lacked sufficient and accessible functionality for measuring the
+  behaviour of individuals within social groups.</p>
         <p>We first conducted a scoping review to identify metrics that were
   applicable to spatiotemporal data, and focused on dyadic interactions,
   leadership patterns, and dominance hierarchies. Of the resulting
@@ -8274,11 +8677,10 @@ Attaching package: 'janitor'</preformat>
   availability in the R programming language, either through R packages
   or supplemental materials in the literature. Here we present 18 new
   functions in the R package {spatsoc}
-  [<xref alt="1" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">1</xref>] for
-  measuring intragroup dynamics
-  (<xref alt="Table 1" rid="tbl-new-functions-nb-article">Table 1</xref>). We will
-  demonstrate these new functions through a case study and discuss
-  biological interpretations.</p>
+  [<xref alt="29" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">29</xref>]
+  for measuring intragroup dynamics. We will demonstrate these new
+  functions through a case study and discuss biological
+  interpretations.</p>
       </sec>
       <sec id="implementations-nb-article">
         <title>4. Implementations</title>
@@ -8293,15 +8695,15 @@ Attaching package: 'janitor'</preformat>
     also include metrics that measure group-level dynamics, leadership
     patterns, and lagged-follower behaviours, and to explicitly
     establish their open source availability in the R programming
-    language. We established a list of nine benchmark papers
-    (<xref alt="Supplement A Table1" rid="suptbl-benchmark-nb-article">Supplement A
-    Table1</xref>) that were relevant to our objectives and verified
-    whether each paper was indexed in at least one of our selected
-    databases (Web of Science and Scopus). We used an iterative search
-    method to fine-tune the search terms measuring the total number of
-    papers returned and sensitivity of the search. Sensitivity is
-    defined as the proportion of benchmark papers returned from each
-    database [4.2.7
+    language. We established a list of nine benchmark papers (Supplement
+    A Table S
+    <xref alt="Table S1" rid="suptbl-benchmark-nb-article">Table S1</xref>) that
+    were relevant to our objectives and verified whether each paper was
+    indexed in at least one of our selected databases (Web of Science
+    and Scopus). We used an iterative search method to fine-tune the
+    search terms measuring the total number of papers returned and
+    sensitivity of the search. Sensitivity is defined as the proportion
+    of benchmark papers returned from each database [4.2.7
     <xref alt="37" rid="ref-CollaborationforEnvironmentalEvidence_2022-nb-article" ref-type="bibr">37</xref>].
     Search terms were developed in four categories: topic, population,
     method and exclusion. Topic included terms associated with dyadic
@@ -8314,11 +8716,11 @@ Attaching package: 'janitor'</preformat>
     operators. The resulting set of papers used in further steps was the
     combination of the last iteration of search terms applied to both of
     the Web of Science (using the “TS” field) and Scopus (using the
-    “TITLE-ABS-KEY” field) databases
-    (<xref alt="Supplement A Table2" rid="suptbl-search-strings-nb-article">Supplement
-    A Table2</xref>). The temporal range of articles was limited to
-    1980-2023 using the PY (Web of Science) or PUBYEAR (Scopus) fields.
-    The resulting set of papers were imported into Covidence
+    “TITLE-ABS-KEY” field) databases (Supplement A
+    <xref alt="Table S2" rid="suptbl-search-strings-nb-article">Table S2</xref>).
+    The temporal range of articles was limited to 1980-2023 using the PY
+    (Web of Science) or PUBYEAR (Scopus) fields. The resulting set of
+    papers were imported into Covidence
     [<xref alt="38" rid="ref-VeritasHealthInnovation_2025-nb-article" ref-type="bibr">38</xref>]
     for deduplication, title and abstract screening, full text
     screening, and data extraction.</p>
@@ -8346,40 +8748,35 @@ Attaching package: 'janitor'</preformat>
         used home range or spatial overlap)</p>
             </list-item>
             <list-item>
-              <p>Paper does not describe metric beyond group size (e.g.</p>
-              <list list-type="order">
-                <list-item>
-                  <label>1)</label>
-                  <p/>
-                </list-item>
-              </list>
+              <p>Paper does not describe metric beyond group size (e.g.
+        [<xref alt="42" rid="ref-delMarDelgado_2021-nb-article" ref-type="bibr">42</xref>])</p>
             </list-item>
             <list-item>
               <p>Paper full text is not available in English (e.g.
-        [<xref alt="42" rid="ref-Bernard_2002-nb-article" ref-type="bibr">42</xref>])</p>
+        [<xref alt="43" rid="ref-Bernard_2002-nb-article" ref-type="bibr">43</xref>])</p>
             </list-item>
             <list-item>
               <p>Paper is not a thesis</p>
             </list-item>
             <list-item>
               <p>Paper is not a book chapter (e.g.
-        [<xref alt="43" rid="ref-Bernstein_2019-nb-article" ref-type="bibr">43</xref>])</p>
+        [<xref alt="44" rid="ref-Bernstein_2019-nb-article" ref-type="bibr">44</xref>])</p>
             </list-item>
           </list>
           <p>Despite the intended focus on animal ecology, some papers
     discussed movement data more generically or, alternatively,
     specifically focused on human or robotic movement data (e.g.
-    [<xref alt="44" rid="ref-Long_2022-nb-article" ref-type="bibr">44</xref>]).
+    [<xref alt="45" rid="ref-Long_2022-nb-article" ref-type="bibr">45</xref>]).
     These papers were retained when the metrics described were deemed
     applicable to animal spatiotemporal movement data. Papers using
     mathematical models or simulations were largely beyond the scope of
     this review but papers were retained when the parameters used as
     inputs could be applied to spatial temporal data (e.g.
-    [<xref alt="45" rid="ref-Long_2015-nb-article" ref-type="bibr">45</xref>]).
+    [<xref alt="46" rid="ref-Long_2015-nb-article" ref-type="bibr">46</xref>]).
     Review papers were read for building the scope of the introduction
     and discussion but not included in data extraction unless they
     explicitly discussed dyadic measures (e.g.
-    [<xref alt="8" rid="ref-King_2018-nb-article" ref-type="bibr">8</xref>]).</p>
+    [<xref alt="1" rid="ref-King_2018-nb-article" ref-type="bibr">1</xref>]).</p>
           <p>The goals of data extraction were to record the breadth of
     metrics for measuring dyadic interactions, dominance hierarchies and
     leadership patterns applicable to spatiotemporal data, and the
@@ -8390,20 +8787,19 @@ Attaching package: 'janitor'</preformat>
     required, citations and interpretation. Code availability was
     described including location of code (e.g. Zenodo, or GitHub),
     programming languages and software packages used. The data
-    extraction form is in
-    (<xref alt="Supplement A Table3" rid="suptbl-form-nb-article">Supplement A
-    Table3</xref>).</p>
+    extraction form is in (Supplement A Table
+    <xref alt="Table S3" rid="suptbl-form-nb-article">Table S3</xref>).</p>
           <p>Metrics identified were aggregated using a manual process to
     identify synonymous terms. This aggregation process was required due
     to variability in defining metrics during data extraction and
     differences between authors in describing metrics (e.g. distance to
     group “center”, “centroid”, or “center of mass”). Each paper’s study
     location was geocoded using the {tidygeocoder} package
-    [<xref alt="46" rid="ref-Cambon_2021-nb-article" ref-type="bibr">46</xref>] and
+    [<xref alt="47" rid="ref-Cambon_2021-nb-article" ref-type="bibr">47</xref>] and
     the study species were parsed using the {rgnparser} package
-    [<xref alt="47" rid="ref-Chamberlain_2023-nb-article" ref-type="bibr">47</xref>]
+    [<xref alt="48" rid="ref-Chamberlain_2023-nb-article" ref-type="bibr">48</xref>]
     which provides the GNparser
-    [<xref alt="48" rid="ref-Mozzherin_2026-nb-article" ref-type="bibr">48</xref>]
+    [<xref alt="49" rid="ref-Mozzherin_2026-nb-article" ref-type="bibr">49</xref>]
     taxonomic parser in R. We calculated frequencies for each
     categorical field including programming language, software package,
     analysis code availability, geographic region, study species and
@@ -8416,173 +8812,243 @@ Attaching package: 'janitor'</preformat>
     relative importance (as measured by frequency of use in the scoping
     review), and their lack of availability in R when the review was
     conducted (Supplement
-    <xref alt="Section 10" rid="sec-scoping-results-nb-article">Section 10</xref>).
+    <xref alt="Section 11" rid="sec-scoping-results-nb-article">Section 11</xref>).
     Some metrics were specifically not chosen for inclusion such as
     metrics relating to posture, metrics relating to static interaction
     or home range overlap and metrics based on statistical models such
     as Hidden Markov model and Granger causality. A full list of metrics
     not selected is in Supplement
-    <xref alt="Section 11" rid="sec-selected-nb-article">Section 11</xref>.</p>
+    <xref alt="Section 12" rid="sec-selected-nb-article">Section 12</xref>.</p>
         </sec>
         <sec id="software-nb-article">
           <title>4.2 Software</title>
           <p>The R package {spatsoc} was originally developed to detect
     spatiotemporal groups in animal telemetry data for building social
     networks
-    [<xref alt="1" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">1</xref>].
+    [<xref alt="29" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">29</xref>].
     In this new version, {spatsoc} provides an additional suite of
     functions to measure individual, dyadic and group level behaviours
-    within spatiotemporal groups
-    (<xref alt="Table 1" rid="tbl-new-functions-nb-article">Table 1</xref>). These
-    measures of intragroup dynamics are derived from three geospatial
-    operations (distance, direction, and centroid) calculated in
-    internal functions built on top of the R spatial packages {sf}
-    [<xref alt="49" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">49</xref>],
+    within spatiotemporal groups. These measures of intragroup dynamics
+    are derived from three geospatial operations (distance, direction,
+    and centroid) calculated in internal functions built on top of the R
+    spatial packages {sf}
+    [<xref alt="50" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">50</xref>],
     {lwgeom}
-    [<xref alt="50" rid="ref-Pebesma_2025-nb-article" ref-type="bibr">50</xref>]
+    [<xref alt="51" rid="ref-Pebesma_2025-nb-article" ref-type="bibr">51</xref>]
     and {s2}
-    [<xref alt="51" rid="ref-Dunnington_2025-nb-article" ref-type="bibr">51</xref>].
+    [<xref alt="52" rid="ref-Dunnington_2025-nb-article" ref-type="bibr">52</xref>].
     Improving on past versions, {spatsoc} now accommodates data in both
     projected and geographic coordinate reference systems.</p>
-          <sec specific-use="notebook-content">
-            <code language="r script">functions &lt;- fread('data/spatsoc-functions.tsv')
+        </sec>
+      </sec>
+      <sec id="results-1-nb-article">
+        <title>5. Results</title>
+        <sec specific-use="notebook-content">
+          <code language="r script">tar_load(counted)
+count_code_avail &lt;- counted$count_code_avail
+count_code_avail[, tot := .N]
+count_software &lt;- counted$count_software
+count_software[, tot := .N]
+count_metric &lt;- counted$count_metric</code>
+        </sec>
+        <p>The final set of search terms (Supplement A
+  <xref alt="Table S2" rid="suptbl-search-strings-nb-article">Table S2</xref>)
+  applied to both Web of Science and Scopus returned a database of 3878
+  articles between 1980 and 2023. Manual deduplication removed 128
+  articles and Covidence
+  [<xref alt="38" rid="ref-VeritasHealthInnovation_2025-nb-article" ref-type="bibr">38</xref>]
+  identified an additional 799 duplicated articles. 2527 articles were
+  excluded during title and abstract screening and 275 articles were
+  excluded by full text screening. The resulting database included 141
+  studies (see Supplement B for detailed PRISMA).</p>
+        <p>Data extraction revealed a total of 119 unique metrics including
+  metrics used in articles that may not explicitly measure intragroup
+  social dynamics. For example, if an article measured an individual’s
+  position within the group and also their step length, both metrics
+  were recorded. The review indicated variability in the methodological
+  definitions relating to intragroup social dynamics. Differences in
+  defining spatiotemporal groups were largely centered on spatial and
+  temporal thresholds (Supplement B
+  <xref alt="Table S12" rid="suptbl-defn-spattemp-groups-nb-article">Table S12</xref>).
+  Similarly, fission-fusion dynamics were defined by spatial and
+  temporal thresholds [e.g.
+  <xref alt="53" rid="ref-Nishikawa_2014-nb-article" ref-type="bibr">53</xref>,<xref alt="54" rid="ref-Haydon_2008-nb-article" ref-type="bibr">54</xref>],
+  but also how to handle missed observations and temporary separations
+  [e.g.
+  <xref alt="55" rid="ref-Lesmerises_2018-nb-article" ref-type="bibr">55</xref>,<xref alt="56" rid="ref-DellaLibera_2023-nb-article" ref-type="bibr">56</xref>]
+  (Supplement B
+  <xref alt="Table S14" rid="suptbl-defn-fission-nb-article">Table S14</xref>).
+  Definitions of group-level leadership patterns were based on selected
+  measures of leadership including tendency to be at the front of the
+  group [e.g.
+  <xref alt="57" rid="ref-Andrienko_2013-nb-article" ref-type="bibr">57</xref>,<xref alt="58" rid="ref-Perez-Barberia_2018-nb-article" ref-type="bibr">58</xref>,<xref alt="59" rid="ref-Jolles_2018-nb-article" ref-type="bibr">59</xref>],
+  directional correlation delay [e.g.
+  <xref alt="60" rid="ref-Pettit_2013-nb-article" ref-type="bibr">60</xref>,<xref alt="61" rid="ref-Kano_2021-nb-article" ref-type="bibr">61</xref>],
+  and movement initiations [e.g.
+  <xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="30" rid="ref-Bracken_2022-nb-article" ref-type="bibr">30</xref>,<xref alt="63" rid="ref-Strandburg-Peshkin_2018-nb-article" ref-type="bibr">63</xref>]
+  (Supplement B
+  <xref alt="Table S13" rid="suptbl-defn-leadership-nb-article">Table S13</xref>).</p>
+        <p>Details in the methods and supplemental materials were used to
+  assess the availability of the extracted metrics in open source
+  programming languages commonly used in ecology. Accompanying code was
+  not available in a supplement or linked repository for 81% of articles
+  and 67% of articles did not indicate any software package (e.g. R
+  package, Python library) used. R was the most common programming
+  language followed by MATLAB and Python (Supplement B
+  <xref alt="Table S5" rid="suptbl-prog-nb-article">Table S5</xref>) in the
+  database of articles. Metrics already provided by existing open source
+  software packages (e.g. DI provided by {wildlifeDI}
+  [<xref alt="45" rid="ref-Long_2022-nb-article" ref-type="bibr">45</xref>]), or
+  code accompanying articles (e.g. FLICA code provided alongside
+  [<xref alt="64" rid="ref-Amornbunchornvej_2018-nb-article" ref-type="bibr">64</xref>])
+  were not selected for inclusion in {spatsoc}. Finally, metrics were
+  prioritized for inclusion in {spatsoc} according to measured frequency
+  of use in the database of articles and external searches were
+  conducted to ensure no availability in R packages were missed by the
+  scoping review (see Supplement B
+  <xref alt="Table S10" rid="suptbl-count-metrics-nb-article">Table S10</xref>;
+  Supplement C). The resulting set of metrics provided by new functions
+  in the R package {spatsoc} for measuring intragroup social dynamics is
+  shown in Table
+  <xref alt="Table 1" rid="tbl-new-functions-nb-article">Table 1</xref>.</p>
+        <sec specific-use="notebook-content">
+          <code language="r script">functions &lt;- fread('data/spatsoc-functions.tsv')
 new_functions &lt;- functions[Category == 'New']
 new_functions[, .(Function, Description)] |&gt;
   tt() |&gt;
   group_tt(i = new_functions$Family) |&gt;
   style_tt(align = 'l')</code>
-            <fig id="tbl-new-functions-nb-article">
-              <caption>
-                <p>Table 1: Description of new functions in the R package
-      {spatsoc} for measuring intragroup dynamics categorized by family.
-      All available functions in the R package {spatsoc} including new
-      and existing functions are listed in
-      <xref alt="Table15" rid="suptbl-all-functions-nb-article">Table15</xref>.</p>
-              </caption>
-              <table-wrap>
-                <table>
-                  <colgroup>
-                    <col width="36%"/>
-                    <col width="64%"/>
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th>Function</th>
-                      <th>Description</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td colspan="2">Spatial interface</td>
-                    </tr>
-                    <tr>
-                      <td>get_geometry()</td>
-                      <td>Setup data for geometry interface</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Edge-list generation</td>
-                    </tr>
-                    <tr>
-                      <td>edge_delay()</td>
-                      <td>Directional correlation delay based edge-lists</td>
-                    </tr>
-                    <tr>
-                      <td>edge_alignment()</td>
-                      <td>Directional alignment based edge-lists</td>
-                    </tr>
-                    <tr>
-                      <td>edge_direction()</td>
-                      <td>Direction based edge-lists</td>
-                    </tr>
-                    <tr>
-                      <td>edge_zones()</td>
-                      <td>Behavioural zones based edge-lists</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Dyad</td>
-                    </tr>
-                    <tr>
-                      <td>fusion_id()</td>
-                      <td>Identify fusion events</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Centroid</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_group()</td>
-                      <td>Group centroid</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_dyad()</td>
-                      <td>Dyad centroid</td>
-                    </tr>
-                    <tr>
-                      <td>centroid_fusion()</td>
-                      <td>Fusion event centroid</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Direction</td>
-                    </tr>
-                    <tr>
-                      <td>direction_step()</td>
-                      <td>Direction step</td>
-                    </tr>
-                    <tr>
-                      <td>direction_to_centroid()</td>
-                      <td>Direction to group centroid</td>
-                    </tr>
-                    <tr>
-                      <td>direction_to_leader()</td>
-                      <td>Direction to group leader</td>
-                    </tr>
-                    <tr>
-                      <td>direction_group()</td>
-                      <td>Group mean direction</td>
-                    </tr>
-                    <tr>
-                      <td>direction_polarization()</td>
-                      <td>Polarization</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Distance</td>
-                    </tr>
-                    <tr>
-                      <td>distance_to_centroid()</td>
-                      <td>Distance to group centroid</td>
-                    </tr>
-                    <tr>
-                      <td>distance_to_leader()</td>
-                      <td>Distance to group leader</td>
-                    </tr>
-                    <tr>
-                      <td colspan="2">Leadership</td>
-                    </tr>
-                    <tr>
-                      <td>leader_direction_group()</td>
-                      <td>Leadership along group direction</td>
-                    </tr>
-                    <tr>
-                      <td>leader_edge_delay()</td>
-                      <td>Leadership in directional correlation delay</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </table-wrap>
-            </fig>
-          </sec>
+          <fig id="tbl-new-functions-nb-article">
+            <caption>
+              <p>Table 1: Description of new functions in the R package
+    {spatsoc} for measuring intragroup dynamics categorized by family.
+    All available functions in the R package {spatsoc} including new and
+    existing functions are listed in
+    <xref alt="Table15" rid="suptbl-all-functions-nb-article">Table15</xref>.</p>
+            </caption>
+            <table-wrap>
+              <table>
+                <colgroup>
+                  <col width="36%"/>
+                  <col width="64%"/>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2">Spatial interface</td>
+                  </tr>
+                  <tr>
+                    <td>get_geometry()</td>
+                    <td>Setup data for geometry interface</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Edge-list generation</td>
+                  </tr>
+                  <tr>
+                    <td>edge_delay()</td>
+                    <td>Directional correlation delay based edge-lists</td>
+                  </tr>
+                  <tr>
+                    <td>edge_alignment()</td>
+                    <td>Directional alignment based edge-lists</td>
+                  </tr>
+                  <tr>
+                    <td>edge_direction()</td>
+                    <td>Direction based edge-lists</td>
+                  </tr>
+                  <tr>
+                    <td>edge_zones()</td>
+                    <td>Behavioural zones based edge-lists</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Dyad</td>
+                  </tr>
+                  <tr>
+                    <td>fusion_id()</td>
+                    <td>Identify fusion events</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Centroid</td>
+                  </tr>
+                  <tr>
+                    <td>centroid_group()</td>
+                    <td>Group centroid</td>
+                  </tr>
+                  <tr>
+                    <td>centroid_dyad()</td>
+                    <td>Dyad centroid</td>
+                  </tr>
+                  <tr>
+                    <td>centroid_fusion()</td>
+                    <td>Fusion event centroid</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Direction</td>
+                  </tr>
+                  <tr>
+                    <td>direction_step()</td>
+                    <td>Direction step</td>
+                  </tr>
+                  <tr>
+                    <td>direction_to_centroid()</td>
+                    <td>Direction to group centroid</td>
+                  </tr>
+                  <tr>
+                    <td>direction_to_leader()</td>
+                    <td>Direction to group leader</td>
+                  </tr>
+                  <tr>
+                    <td>direction_group()</td>
+                    <td>Group mean direction</td>
+                  </tr>
+                  <tr>
+                    <td>direction_polarization()</td>
+                    <td>Polarization</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Distance</td>
+                  </tr>
+                  <tr>
+                    <td>distance_to_centroid()</td>
+                    <td>Distance to group centroid</td>
+                  </tr>
+                  <tr>
+                    <td>distance_to_leader()</td>
+                    <td>Distance to group leader</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Leadership</td>
+                  </tr>
+                  <tr>
+                    <td>leader_direction_group()</td>
+                    <td>Leadership along group direction</td>
+                  </tr>
+                  <tr>
+                    <td>leader_edge_delay()</td>
+                    <td>Leadership in directional correlation delay</td>
+                  </tr>
+                </tbody>
+              </table>
+            </table-wrap>
+          </fig>
         </sec>
       </sec>
-      <sec id="results-case-study-nb-article">
-        <title>5. Results: case study</title>
+      <sec id="discussion-case-study-nb-article">
+        <title>6. Discussion: case study</title>
         <p>Functions previously available in {spatsoc} can be used to identify
   spatiotemporal grouping, generate distance based edge-lists and
   conduct data-stream permutations (see existing functionality in
-  [<xref alt="1" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">1</xref>];
+  [<xref alt="29" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">29</xref>];
   <xref alt="Table S15" rid="suptbl-all-functions-nb-article">Table S15</xref>).
   These functions have allowed users to detect interactions between
   individuals, measure co-occurrence within and across species, and
   generate social networks from animal telemetry data [e.g.
-  <xref alt="52" rid="ref-Albery_2025-nb-article" ref-type="bibr">52</xref>,<xref alt="2" rid="ref-Bracken_2022-nb-article" ref-type="bibr">2</xref>,<xref alt="7" rid="ref-Heeres_2024-nb-article" ref-type="bibr">7</xref>,<xref alt="53" rid="ref-Merkle_2024-nb-article" ref-type="bibr">53</xref>].</p>
+  <xref alt="65" rid="ref-Albery_2025-nb-article" ref-type="bibr">65</xref>,<xref alt="30" rid="ref-Bracken_2022-nb-article" ref-type="bibr">30</xref>,<xref alt="35" rid="ref-Heeres_2024-nb-article" ref-type="bibr">35</xref>,<xref alt="66" rid="ref-Merkle_2024-nb-article" ref-type="bibr">66</xref>].</p>
         <p>Spatiotemporal grouping can be performed given animal movement
   data, temporal and spatial thresholds, and one of three grouping
   functions: <monospace>group_pts()</monospace>,
@@ -8598,7 +9064,7 @@ new_functions[, .(Function, Description)] |&gt;
   <monospace>get_geometry()</monospace> function adds a simple feature
   geometry list column (<monospace>sfc</monospace>) using the {sf}
   package
-  [<xref alt="49" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">49</xref>]. The
+  [<xref alt="50" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">50</xref>]. The
   geometry method is used by default for all {spatsoc} functions that
   require coordinates when the <monospace>coords</monospace> argument is
   left null. This interface also extends {spatsoc} to allow users to
@@ -8684,46 +9150,46 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 </thead>
                 <tbody>
                   <tr>
-                    <td>B</td>
-                    <td>2016-12-20 06:00:48</td>
-                    <td>POINT (698315.3 5510988)</td>
-                    <td>592</td>
-                    <td>1988</td>
+                    <td>I</td>
+                    <td>2016-12-04 00:00:16</td>
+                    <td>POINT (709210.5 5508829)</td>
+                    <td>397</td>
+                    <td>8677</td>
                   </tr>
                   <tr>
-                    <td>G</td>
-                    <td>2016-12-20 06:00:50</td>
-                    <td>POINT (698300.9 5510983)</td>
-                    <td>592</td>
-                    <td>1988</td>
+                    <td>J</td>
+                    <td>2016-12-04 00:00:13</td>
+                    <td>POINT (709164.3 5508831)</td>
+                    <td>397</td>
+                    <td>8677</td>
                   </tr>
                   <tr>
-                    <td>B</td>
-                    <td>2017-01-09 12:00:48</td>
-                    <td>POINT (697999.7 5511460)</td>
-                    <td>835</td>
-                    <td>2231</td>
+                    <td>A</td>
+                    <td>2016-12-19 10:00:54</td>
+                    <td>POINT (698798.2 5506993)</td>
+                    <td>582</td>
+                    <td>582</td>
                   </tr>
                   <tr>
-                    <td>G</td>
-                    <td>2017-01-09 12:00:54</td>
-                    <td>POINT (697991.5 5511472)</td>
-                    <td>835</td>
-                    <td>2231</td>
+                    <td>E</td>
+                    <td>2016-12-19 10:00:26</td>
+                    <td>POINT (698796.7 5507008)</td>
+                    <td>582</td>
+                    <td>582</td>
                   </tr>
                   <tr>
-                    <td>B</td>
-                    <td>2017-02-08 20:00:53</td>
-                    <td>POINT (697971.3 5511886)</td>
-                    <td>1182</td>
-                    <td>2524</td>
+                    <td>I</td>
+                    <td>2016-12-19 10:00:50</td>
+                    <td>POINT (698804.2 5506977)</td>
+                    <td>582</td>
+                    <td>582</td>
                   </tr>
                   <tr>
-                    <td>G</td>
-                    <td>2017-02-08 20:00:55</td>
-                    <td>POINT (697983.6 5511880)</td>
-                    <td>1182</td>
-                    <td>2524</td>
+                    <td>F</td>
+                    <td>2017-02-10 20:00:47</td>
+                    <td>POINT (705543.7 5510227)</td>
+                    <td>1206</td>
+                    <td>6936</td>
                   </tr>
                 </tbody>
               </table>
@@ -8875,40 +9341,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1424</td>
-                    <td>J</td>
+                    <td>1439</td>
+                    <td>E</td>
                     <td>B</td>
-                    <td>64.19389</td>
+                    <td>43.847993</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1439</td>
                     <td>G</td>
-                    <td>E</td>
-                    <td>20.52638</td>
+                    <td>B</td>
+                    <td>41.725396</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
-                    <td>H</td>
-                    <td>E</td>
-                    <td>3389.49078</td>
-                  </tr>
-                  <tr>
-                    <td>1424</td>
-                    <td>I</td>
+                    <td>1439</td>
                     <td>F</td>
-                    <td>43.92168</td>
+                    <td>C</td>
+                    <td>129.538328</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
+                    <td>1439</td>
+                    <td>I</td>
+                    <td>C</td>
+                    <td>60.931938</td>
+                  </tr>
+                  <tr>
+                    <td>1439</td>
                     <td>B</td>
                     <td>G</td>
-                    <td>27.13466</td>
+                    <td>41.725396</td>
                   </tr>
                   <tr>
-                    <td>1424</td>
-                    <td>E</td>
-                    <td>G</td>
-                    <td>20.52638</td>
+                    <td>1439</td>
+                    <td>J</td>
+                    <td>H</td>
+                    <td>4.898148</td>
                   </tr>
                 </tbody>
               </table>
@@ -8922,12 +9388,12 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
   fusion dynamics and potentially dominance behaviours from animal
   telemetry data in their ecological systems.</p>
         <sec id="position-within-groups-nb-article">
-          <title>5.1 Position within groups</title>
+          <title>6.1 Position within groups</title>
           <p>Extending {spatsoc}’s abilities to identify spatiotemporal
     groups, a new set of functions are now available to measure
     individuals position relative within spatiotemporal groups. After
-    identifying spatiotemporal groups with
-    e.g. <monospace>group_pts()</monospace>, we can measure the group
+    identifying spatiotemporal groups with e.g.
+    <monospace>group_pts()</monospace>, we can measure the group
     centroid, as defined by the mean of individual locations in a group,
     using <monospace>centroid_group()</monospace>
     (<xref alt="Table 5" rid="tbl-cent-group-nb-article">Table 5</xref>).</p>
@@ -8974,46 +9440,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
-                      <td>B</td>
-                      <td>200</td>
-                      <td>1596</td>
-                      <td>POINT (700634.7 5509315)</td>
-                      <td>POINT (700637.8 5509308)</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>200</td>
-                      <td>1596</td>
-                      <td>POINT (700641 5509301)</td>
-                      <td>POINT (700637.8 5509308)</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>717</td>
-                      <td>2113</td>
-                      <td>POINT (698247.5 5512038)</td>
-                      <td>POINT (698244.4 5512045)</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>717</td>
-                      <td>2113</td>
-                      <td>POINT (698241.3 5512052)</td>
-                      <td>POINT (698244.4 5512045)</td>
-                    </tr>
-                    <tr>
                       <td>A</td>
-                      <td>854</td>
-                      <td>854</td>
-                      <td>POINT (696952.9 5505700)</td>
-                      <td>POINT (696947.9 5505695)</td>
+                      <td>165</td>
+                      <td>165</td>
+                      <td>POINT (701814.1 5504404)</td>
+                      <td>POINT (701788.7 5504401)</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>165</td>
+                      <td>165</td>
+                      <td>POINT (701767.8 5504387)</td>
+                      <td>POINT (701788.7 5504401)</td>
                     </tr>
                     <tr>
                       <td>H</td>
-                      <td>854</td>
-                      <td>854</td>
-                      <td>POINT (696968 5505686)</td>
-                      <td>POINT (696947.9 5505695)</td>
+                      <td>165</td>
+                      <td>165</td>
+                      <td>POINT (701748.8 5504397)</td>
+                      <td>POINT (701788.7 5504401)</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>165</td>
+                      <td>165</td>
+                      <td>POINT (701824.1 5504414)</td>
+                      <td>POINT (701788.7 5504401)</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>942</td>
+                      <td>2338</td>
+                      <td>POINT (698173.9 5511499)</td>
+                      <td>POINT (698177.2 5511498)</td>
+                    </tr>
+                    <tr>
+                      <td>G</td>
+                      <td>942</td>
+                      <td>2338</td>
+                      <td>POINT (698180.6 5511496)</td>
+                      <td>POINT (698177.2 5511498)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9033,11 +9499,11 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
     <monospace>return_rank</monospace>. Spatial position within groups
     with respect to the group centroid has been studied in relation to
     predation risk
-    [<xref alt="54" rid="ref-Heesen_2015-nb-article" ref-type="bibr">54</xref>,<xref alt="55" rid="ref-Herbert-Read_2017-nb-article" ref-type="bibr">55</xref>],
+    [<xref alt="67" rid="ref-Heesen_2015-nb-article" ref-type="bibr">67</xref>,<xref alt="68" rid="ref-Herbert-Read_2017-nb-article" ref-type="bibr">68</xref>],
     leadership
-    [<xref alt="56" rid="ref-Jolles_2017-nb-article" ref-type="bibr">56</xref>,<xref alt="57" rid="ref-Kano_2021-nb-article" ref-type="bibr">57</xref>]
+    [<xref alt="61" rid="ref-Kano_2021-nb-article" ref-type="bibr">61</xref>,<xref alt="69" rid="ref-Jolles_2017-nb-article" ref-type="bibr">69</xref>]
     and group cohesion
-    [<xref alt="2" rid="ref-Bracken_2022-nb-article" ref-type="bibr">2</xref>,<xref alt="58" rid="ref-Harel_2021-nb-article" ref-type="bibr">58</xref>].</p>
+    [<xref alt="30" rid="ref-Bracken_2022-nb-article" ref-type="bibr">30</xref>,<xref alt="70" rid="ref-Harel_2021-nb-article" ref-type="bibr">70</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure distance to group centroid
 distance_to_centroid(DT, return_rank = TRUE)
@@ -9061,7 +9527,7 @@ direction_to_centroid(DT)</code>
           </fig>
         </sec>
         <sec id="directions-nb-article">
-          <title>5.2 Directions</title>
+          <title>6.2 Directions</title>
           <p>Next, we can use movement directions to measure how individuals
     and groups move together. We can measure an individual’s movement
     direction using <monospace>direction_step()</monospace> and the mean
@@ -9103,8 +9569,8 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="28%"/>
-                    <col width="29%"/>
+                    <col width="24%"/>
+                    <col width="25%"/>
                   </colgroup>
                   <thead>
                     <tr>
@@ -9117,46 +9583,46 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   </thead>
                   <tbody>
                     <tr>
+                      <td>C</td>
+                      <td>782</td>
+                      <td>3430</td>
+                      <td>2.694665 [rad]</td>
+                      <td>2.6179845 [rad]</td>
+                    </tr>
+                    <tr>
                       <td>E</td>
-                      <td>856</td>
-                      <td>5785</td>
-                      <td>1.42195209 [rad]</td>
-                      <td>0.007573639 [rad]</td>
+                      <td>782</td>
+                      <td>3430</td>
+                      <td>2.615603 [rad]</td>
+                      <td>2.6179845 [rad]</td>
                     </tr>
                     <tr>
                       <td>F</td>
-                      <td>856</td>
-                      <td>5785</td>
-                      <td>-1.44836789 [rad]</td>
-                      <td>0.007573639 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>J</td>
-                      <td>856</td>
-                      <td>5785</td>
-                      <td>0.01319346 [rad]</td>
-                      <td>0.007573639 [rad]</td>
+                      <td>782</td>
+                      <td>3430</td>
+                      <td>2.543692 [rad]</td>
+                      <td>2.6179845 [rad]</td>
                     </tr>
                     <tr>
                       <td>B</td>
-                      <td>1315</td>
-                      <td>2673</td>
-                      <td>-1.29560414 [rad]</td>
-                      <td>-1.306821487 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>E</td>
-                      <td>1315</td>
-                      <td>2673</td>
-                      <td>-1.54054689 [rad]</td>
-                      <td>-1.306821487 [rad]</td>
+                      <td>1154</td>
+                      <td>2495</td>
+                      <td>1.157160 [rad]</td>
+                      <td>0.9378876 [rad]</td>
                     </tr>
                     <tr>
                       <td>G</td>
-                      <td>1315</td>
-                      <td>2673</td>
-                      <td>-1.08461117 [rad]</td>
-                      <td>-1.306821487 [rad]</td>
+                      <td>1154</td>
+                      <td>2495</td>
+                      <td>0.583021 [rad]</td>
+                      <td>0.9378876 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>J</td>
+                      <td>1154</td>
+                      <td>2495</td>
+                      <td>1.068202 [rad]</td>
+                      <td>0.9378876 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9173,13 +9639,13 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
     that individuals are moving in similar directions or (“aligned”).
     Polarization in the movement direction of groups of animals has been
     used to study cognition
-    [<xref alt="59" rid="ref-Wang_2022-nb-article" ref-type="bibr">59</xref>],
+    [<xref alt="71" rid="ref-Wang_2022-nb-article" ref-type="bibr">71</xref>],
     learning
-    [<xref alt="60" rid="ref-Vega-Trejo_2020-nb-article" ref-type="bibr">60</xref>],
+    [<xref alt="72" rid="ref-Vega-Trejo_2020-nb-article" ref-type="bibr">72</xref>],
     the influence of habitat
-    [<xref alt="61" rid="ref-Strandburg-Peshkin_2017-nb-article" ref-type="bibr">61</xref>]
+    [<xref alt="73" rid="ref-Strandburg-Peshkin_2017-nb-article" ref-type="bibr">73</xref>]
     and individual differences
-    [<xref alt="56" rid="ref-Jolles_2017-nb-article" ref-type="bibr">56</xref>] in
+    [<xref alt="69" rid="ref-Jolles_2017-nb-article" ref-type="bibr">69</xref>] in
     collective behaviour.</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure direction polarization
@@ -9206,11 +9672,11 @@ direction_polarization(DT)</code>
     Like <monospace>edge_alignment()</monospace>, the interindividual
     directions are returned in an edge-list format. Interindividual
     direction has been used to study risk exposure in schooling fish
-    [<xref alt="62" rid="ref-Lemasson_2014-nb-article" ref-type="bibr">62</xref>],
+    [<xref alt="74" rid="ref-Lemasson_2014-nb-article" ref-type="bibr">74</xref>],
     coordinated movement
-    [<xref alt="63" rid="ref-Herbert-Read_2016-nb-article" ref-type="bibr">63</xref>]
+    [<xref alt="75" rid="ref-Herbert-Read_2016-nb-article" ref-type="bibr">75</xref>]
     and mass migration
-    [<xref alt="64" rid="ref-Torney_2018-nb-article" ref-type="bibr">64</xref>].</p>
+    [<xref alt="76" rid="ref-Torney_2018-nb-article" ref-type="bibr">76</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure interindividual direction
 dyad_directions &lt;- edge_direction(
@@ -9227,11 +9693,11 @@ dyad_directions &lt;- edge_direction(
     format similar to <monospace>edge_dist()</monospace> and other
     edge-list generating functions. Directional alignment has been used
     to study leadership
-    [<xref alt="65" rid="ref-Sarova_2010-nb-article" ref-type="bibr">65</xref>],
+    [<xref alt="77" rid="ref-Sarova_2010-nb-article" ref-type="bibr">77</xref>],
     decision making
-    [<xref alt="31" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">31</xref>],
+    [<xref alt="24" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">24</xref>],
     and information transfer
-    [<xref alt="66" rid="ref-Sumpter_2018-nb-article" ref-type="bibr">66</xref>].</p>
+    [<xref alt="78" rid="ref-Sumpter_2018-nb-article" ref-type="bibr">78</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure directional alignment
 directional_align &lt;- edge_alignment(
@@ -9262,9 +9728,9 @@ directional_align &lt;- edge_alignment(
           </fig>
         </sec>
         <sec id="behavioural-zones-nb-article">
-          <title>5.3 Behavioural zones</title>
+          <title>6.3 Behavioural zones</title>
           <p>The behavioural zones
-    [<xref alt="27" rid="ref-Couzin_2002-nb-article" ref-type="bibr">27</xref>], or
+    [<xref alt="20" rid="ref-Couzin_2002-nb-article" ref-type="bibr">20</xref>], or
     non-overlapping behavioural regions around a focal individual, can
     be measured using <monospace>edge_zones()</monospace>
     (<xref alt="Figure 4" rid="fig-edge-zones-nb-article">Figure 4</xref>). The
@@ -9273,7 +9739,7 @@ directional_align &lt;- edge_alignment(
     direction from the focal individual to each neighbour can be used to
     determine if the neighbour is within a “blind volume” outside of the
     individual’s visual perception.
-    [<xref alt="27" rid="ref-Couzin_2002-nb-article" ref-type="bibr">27</xref>]
+    [<xref alt="20" rid="ref-Couzin_2002-nb-article" ref-type="bibr">20</xref>]
     defined three non-overlapping zones. The “zone of repulsion” is at a
     minimum distance around the focal individual within which neighbours
     are expected to move away to avoid collisions. The “zone of
@@ -9287,9 +9753,9 @@ directional_align &lt;- edge_alignment(
     zone labels and blind volume thresholds. The behavioural zones
     metric has been used to study the impact of individual movement
     speed and predator evasion
-    [<xref alt="67" rid="ref-Klamser_2021-nb-article" ref-type="bibr">67</xref>]
+    [<xref alt="79" rid="ref-Klamser_2021-nb-article" ref-type="bibr">79</xref>]
     and identifying rules of interaction in large animal groups
-    [<xref alt="68" rid="ref-Lukeman_2010-nb-article" ref-type="bibr">68</xref>].</p>
+    [<xref alt="80" rid="ref-Lukeman_2010-nb-article" ref-type="bibr">80</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Define zone thresholds, labels and blind volume
 zone_thresholds &lt;- c(10, 25, 50)
@@ -9321,7 +9787,7 @@ zones &lt;- edge_zones(
           </fig>
         </sec>
         <sec id="position-relative-to-leader-nb-article">
-          <title>5.4 Position relative to leader</title>
+          <title>6.4 Position relative to leader</title>
           <p>After considering how individuals are positioned relative to the
     group centroid, we can also measure how individuals are positioned
     relative to the mean group direction. To do so, we first calculate
@@ -9332,10 +9798,10 @@ zones &lt;- edge_zones(
     coordinate system around the group centroid by the group’s mean
     direction. The distance along this new axis is the measure of
     front-back position of an individual within the group
-    [<xref alt="58" rid="ref-Harel_2021-nb-article" ref-type="bibr">58</xref>,<xref alt="69" rid="ref-Quera_2023-nb-article" ref-type="bibr">69</xref>,<xref alt="70" rid="ref-Andrienko_2013-nb-article" ref-type="bibr">70</xref>]
+    [<xref alt="57" rid="ref-Andrienko_2013-nb-article" ref-type="bibr">57</xref>,<xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="70" rid="ref-Harel_2021-nb-article" ref-type="bibr">70</xref>]
     (<xref alt="Figure 5" rid="fig-leader-dir-group-nb-article">Figure 5</xref>).
     The rank of individual positions within spatiotemporal groups
-    [<xref alt="71" rid="ref-Burns_2012-nb-article" ref-type="bibr">71</xref>] can
+    [<xref alt="81" rid="ref-Burns_2012-nb-article" ref-type="bibr">81</xref>] can
     be optionally returned when the argument ‘return_rank’ is true.</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure movement direction
@@ -9376,13 +9842,13 @@ leader_direction_group(DT, return_rank = TRUE)</code>
     direction from the focal individual to the group’s leader. The
     front-back position within the group, and distance and direction to
     the group leader has been used to study interaction rules
-    [<xref alt="72" rid="ref-Weesner_2023-nb-article" ref-type="bibr">72</xref>],
+    [<xref alt="82" rid="ref-Weesner_2023-nb-article" ref-type="bibr">82</xref>],
     leadership
-    [<xref alt="65" rid="ref-Sarova_2010-nb-article" ref-type="bibr">65</xref>,<xref alt="69" rid="ref-Quera_2023-nb-article" ref-type="bibr">69</xref>],
+    [<xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="77" rid="ref-Sarova_2010-nb-article" ref-type="bibr">77</xref>],
     risk avoidance
-    [<xref alt="73" rid="ref-Josephs_2016-nb-article" ref-type="bibr">73</xref>],
+    [<xref alt="83" rid="ref-Josephs_2016-nb-article" ref-type="bibr">83</xref>],
     and how reproduction influences social structure
-    [<xref alt="74" rid="ref-Perez-Barberia_2018-nb-article" ref-type="bibr">74</xref>].
+    [<xref alt="58" rid="ref-Perez-Barberia_2018-nb-article" ref-type="bibr">58</xref>].
     In addition, a user can calculate an individual’s time spent leading
     by calculating the rate each individual was in the first ranked
     position out of the total observations.</p>
@@ -9410,7 +9876,7 @@ direction_to_leader(DT)</code>
           </fig>
         </sec>
         <sec id="fusion-events-nb-article">
-          <title>5.5 Fusion events</title>
+          <title>6.5 Fusion events</title>
           <p>Fusion events, or temporal periods where two individuals are
     within a given threshold distance from each other, can be identified
     using <monospace>fusion_id()</monospace>
@@ -9433,13 +9899,13 @@ direction_to_leader(DT)</code>
     splitting for one observation without resulting in a fission event.
     Identification of fusion events has been used to study resource
     seasonality
-    [<xref alt="75" rid="ref-Baden_2016-nb-article" ref-type="bibr">75</xref>],
+    [<xref alt="84" rid="ref-Baden_2016-nb-article" ref-type="bibr">84</xref>],
     information transfer
-    [<xref alt="76" rid="ref-Barocas_2016-nb-article" ref-type="bibr">76</xref>],
+    [<xref alt="85" rid="ref-Barocas_2016-nb-article" ref-type="bibr">85</xref>],
     decision making
-    [<xref alt="77" rid="ref-Merkle_2015-nb-article" ref-type="bibr">77</xref>],
+    [<xref alt="86" rid="ref-Merkle_2015-nb-article" ref-type="bibr">86</xref>],
     and habitat selection
-    [<xref alt="78" rid="ref-Fortin_2009-nb-article" ref-type="bibr">78</xref>].</p>
+    [<xref alt="87" rid="ref-Fortin_2009-nb-article" ref-type="bibr">87</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Identify dyads
 dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
@@ -9484,9 +9950,9 @@ centroid_fusion(
           </fig>
         </sec>
         <sec id="directional-correlation-delay-nb-article">
-          <title>5.6 Directional correlation delay</title>
+          <title>6.6 Directional correlation delay</title>
           <p>The directional correlation delay
-    [<xref alt="30" rid="ref-Nagy_2010-nb-article" ref-type="bibr">30</xref>], or
+    [<xref alt="23" rid="ref-Nagy_2010-nb-article" ref-type="bibr">23</xref>], or
     the temporal delay at which two individual’s movement directions are
     most similar, can be measured using
     <monospace>edge_delay()</monospace>
@@ -9494,7 +9960,7 @@ centroid_fusion(
     function measures the similarity of movement directions of the focal
     individual at time <inline-formula><alternatives><tex-math><![CDATA[t_{0}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:math></alternatives></inline-formula>
     and the movement direction’s of a neighbour within a specified
-    temporal window (e.g. <inline-formula><alternatives><tex-math><![CDATA[t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:math></alternatives></inline-formula>).
+    temporal window (e.g. <inline-formula><alternatives><tex-math><![CDATA[t_{-2}, t_{-1}, t_{0}, t_{1}, t_{2}]]></tex-math><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" display="inline"><mml:mrow><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mrow><mml:mi>−</mml:mi><mml:mn>1</mml:mn></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>t</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:math></alternatives></inline-formula>).
     The temporal delay is the difference in time where the neighbour’s
     movement directions are most similar to the focal individual’s. The
     directional correlation delay ranges from negative values indicating
@@ -9507,7 +9973,7 @@ centroid_fusion(
     correlation delay can be used to measure leadership patterns and
     generate hierarchical leadership networks depending on the study
     system
-    [<xref alt="30" rid="ref-Nagy_2010-nb-article" ref-type="bibr">30</xref>,<xref alt="69" rid="ref-Quera_2023-nb-article" ref-type="bibr">69</xref>,<xref alt="79" rid="ref-Flack_2013-nb-article" ref-type="bibr">79</xref>–<xref alt="81" rid="ref-Akos_2014-nb-article" ref-type="bibr">81</xref>].</p>
+    [<xref alt="23" rid="ref-Nagy_2010-nb-article" ref-type="bibr">23</xref>,<xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="88" rid="ref-Flack_2013-nb-article" ref-type="bibr">88</xref>–<xref alt="90" rid="ref-Akos_2014-nb-article" ref-type="bibr">90</xref>].</p>
           <sec specific-use="notebook-content">
             <code language="r script"># Measure directional correlation delay
 delay &lt;- edge_delay(
@@ -9553,14 +10019,19 @@ leader_delay &lt;- leader_edge_delay(
         </sec>
       </sec>
       <sec id="conclusion-nb-article">
-        <title>6. Conclusion</title>
-        <p>The open source package {spatsoc}
-  [<xref alt="1" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">1</xref>] for
-  the R programming language
-  [<xref alt="82" rid="ref-RCoreTeam_2025a-nb-article" ref-type="bibr">82</xref>]
+        <title>7. Conclusion</title>
+        <p>An ever expanding collection of methods have been described for
+  studying animal social systems. The scoping review identified hundreds
+  of metrics applied to species across the globe. Despite this, a lack
+  of their accessibility in open source software risks limiting the
+  application of these methods broadly. The open source package
+  {spatsoc}
+  [<xref alt="29" rid="ref-Robitaille_2019-nb-article" ref-type="bibr">29</xref>]
+  for the R programming language
+  [<xref alt="91" rid="ref-RCoreTeam_2025a-nb-article" ref-type="bibr">91</xref>]
   has improved accessibility to methods for spatiotemporal grouping and
   social network analysis with animal telemetry data [e.g.
-  <xref alt="52" rid="ref-Albery_2025-nb-article" ref-type="bibr">52</xref>,<xref alt="2" rid="ref-Bracken_2022-nb-article" ref-type="bibr">2</xref>,<xref alt="7" rid="ref-Heeres_2024-nb-article" ref-type="bibr">7</xref>,<xref alt="53" rid="ref-Merkle_2024-nb-article" ref-type="bibr">53</xref>].
+  <xref alt="65" rid="ref-Albery_2025-nb-article" ref-type="bibr">65</xref>,<xref alt="30" rid="ref-Bracken_2022-nb-article" ref-type="bibr">30</xref>,<xref alt="35" rid="ref-Heeres_2024-nb-article" ref-type="bibr">35</xref>,<xref alt="66" rid="ref-Merkle_2024-nb-article" ref-type="bibr">66</xref>].
   Despite this, proximity based associations are only one dimension and
   studying intragroup social dynamics will allow researchers to further
   measure animal social systems. The new functions in {spatsoc} and the
@@ -9568,9 +10039,9 @@ leader_delay &lt;- leader_edge_delay(
   of metrics that, while commonly used in the literature, have been
   largely absent from R packages. Paired with the continued development
   of animal tracking technology
-  [<xref alt="22" rid="ref-Nathan_2022-nb-article" ref-type="bibr">22</xref>,<xref alt="83" rid="ref-Beardsworth_2022-nb-article" ref-type="bibr">83</xref>]
+  [<xref alt="15" rid="ref-Nathan_2022-nb-article" ref-type="bibr">15</xref>,<xref alt="92" rid="ref-Beardsworth_2022-nb-article" ref-type="bibr">92</xref>]
   and novel data collection methods
-  [<xref alt="84" rid="ref-Koger_2023-nb-article" ref-type="bibr">84</xref>,<xref alt="85" rid="ref-Pedrazzi_2025-nb-article" ref-type="bibr">85</xref>],
+  [<xref alt="93" rid="ref-Koger_2023-nb-article" ref-type="bibr">93</xref>,<xref alt="94" rid="ref-Pedrazzi_2025-nb-article" ref-type="bibr">94</xref>],
   the open availability of these metrics in R will broaden their
   application across research questions, including, among others,
   long-standing ecological concepts such as:</p>
@@ -9579,16 +10050,16 @@ leader_delay &lt;- leader_edge_delay(
             <p>Social foraging theory and producer-scrounger dynamics where
       “producers” are those who discover patches and “scroungers” are
       those who join patches discovered by others
-      [<xref alt="11" rid="ref-Barnard_1981-nb-article" ref-type="bibr">11</xref>,<xref alt="86" rid="ref-Vickery_1991-nb-article" ref-type="bibr">86</xref>,<xref alt="87" rid="ref-Giraldeau_2000-nb-article" ref-type="bibr">87</xref>].
+      [<xref alt="4" rid="ref-Barnard_1981-nb-article" ref-type="bibr">4</xref>,<xref alt="95" rid="ref-Vickery_1991-nb-article" ref-type="bibr">95</xref>,<xref alt="96" rid="ref-Giraldeau_2000-nb-article" ref-type="bibr">96</xref>].
       This concept can be applied to animal telemetry data by evaluating
       the position of individuals within groups, the individual’s
       arrival timing to forage patches and the characteristics of forage
       patches. Individuals balance predation risk and foraging success
       by adjusting their spatial position within groups
-      [<xref alt="13" rid="ref-Hirsch_2020-nb-article" ref-type="bibr">13</xref>,<xref alt="18" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">18</xref>],
+      [<xref alt="6" rid="ref-Hirsch_2020-nb-article" ref-type="bibr">6</xref>,<xref alt="11" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">11</xref>],
       and the foraging strategy selected by an individual can be
       influenced by the size of forage patches
-      [<xref alt="88" rid="ref-Hansen_2016-nb-article" ref-type="bibr">88</xref>].</p>
+      [<xref alt="97" rid="ref-Hansen_2016-nb-article" ref-type="bibr">97</xref>].</p>
           </list-item>
           <list-item>
             <p>Leader-follower patterns in groups of moving animals can be
@@ -9598,34 +10069,34 @@ leader_delay &lt;- leader_edge_delay(
       telemetry data, leadership can be defined simply by identifying
       the individual at the foremost position along the front-to-back
       axis of the group’s direction
-      [<xref alt="58" rid="ref-Harel_2021-nb-article" ref-type="bibr">58</xref>,<xref alt="69" rid="ref-Quera_2023-nb-article" ref-type="bibr">69</xref>]
+      [<xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="70" rid="ref-Harel_2021-nb-article" ref-type="bibr">70</xref>]
       or by calculating the directional correlation delay between
       individuals and building leadership hierarchies
-      [<xref alt="30" rid="ref-Nagy_2010-nb-article" ref-type="bibr">30</xref>].
+      [<xref alt="23" rid="ref-Nagy_2010-nb-article" ref-type="bibr">23</xref>].
       Leadership in a group of moving animals can inform animal decision
       making, group coordination, and migratory patterns
-      [<xref alt="57" rid="ref-Kano_2021-nb-article" ref-type="bibr">57</xref>,<xref alt="69" rid="ref-Quera_2023-nb-article" ref-type="bibr">69</xref>,<xref alt="72" rid="ref-Weesner_2023-nb-article" ref-type="bibr">72</xref>,<xref alt="89" rid="ref-Flack_2018-nb-article" ref-type="bibr">89</xref>].</p>
+      [<xref alt="61" rid="ref-Kano_2021-nb-article" ref-type="bibr">61</xref>,<xref alt="62" rid="ref-Quera_2023-nb-article" ref-type="bibr">62</xref>,<xref alt="82" rid="ref-Weesner_2023-nb-article" ref-type="bibr">82</xref>,<xref alt="98" rid="ref-Flack_2018-nb-article" ref-type="bibr">98</xref>].</p>
           </list-item>
           <list-item>
             <p>Individual traits can influence behaviours related to
       intragroup dynamics. Dominance is related to foraging success
-      [<xref alt="18" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">18</xref>,<xref alt="90" rid="ref-Caraco_1989-nb-article" ref-type="bibr">90</xref>]
+      [<xref alt="11" rid="ref-Teichroeb_2015-nb-article" ref-type="bibr">11</xref>,<xref alt="99" rid="ref-Caraco_1989-nb-article" ref-type="bibr">99</xref>]
       and choice of foraging strategy
-      [<xref alt="17" rid="ref-King_2009-nb-article" ref-type="bibr">17</xref>,<xref alt="91" rid="ref-Aplin_2017-nb-article" ref-type="bibr">91</xref>,<xref alt="92" rid="ref-Lee_2016-nb-article" ref-type="bibr">92</xref>].
+      [<xref alt="10" rid="ref-King_2009-nb-article" ref-type="bibr">10</xref>,<xref alt="100" rid="ref-Aplin_2017-nb-article" ref-type="bibr">100</xref>,<xref alt="101" rid="ref-Lee_2016-nb-article" ref-type="bibr">101</xref>].
       Dominant, aggressive, grooming and other interindividual
       behaviours are typically measured using focal observations.
       However, some metrics have been developed for remotely estimating
       dominance behaviours. The directional correlation delay can be
       used to derive hierarchies of leadership which can be a proxy for
       dominance relationships in certain species
-      [<xref alt="79" rid="ref-Flack_2013-nb-article" ref-type="bibr">79</xref>,<xref alt="81" rid="ref-Akos_2014-nb-article" ref-type="bibr">81</xref>].
+      [<xref alt="88" rid="ref-Flack_2013-nb-article" ref-type="bibr">88</xref>,<xref alt="90" rid="ref-Akos_2014-nb-article" ref-type="bibr">90</xref>].
       Dominance relationships can also be inferred from animal telemetry
       data using movement initiations
-      [<xref alt="93" rid="ref-Amornbunchornvej_2018-nb-article" ref-type="bibr">93</xref>],
+      [<xref alt="64" rid="ref-Amornbunchornvej_2018-nb-article" ref-type="bibr">64</xref>],
       approach-avoidance behaviours
-      [<xref alt="31" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">31</xref>]
+      [<xref alt="24" rid="ref-Strandburg-Peshkin_2015-nb-article" ref-type="bibr">24</xref>]
       and displacement events
-      [<xref alt="94" rid="ref-Evans_2018-nb-article" ref-type="bibr">94</xref>].</p>
+      [<xref alt="102" rid="ref-Evans_2018-nb-article" ref-type="bibr">102</xref>].</p>
           </list-item>
         </list>
         <p>The lack of open source code and transparency of methods alongside
@@ -9639,10 +10110,10 @@ leader_delay &lt;- leader_edge_delay(
   species, systems or research questions, including novel applications
   that could have management and conservation implications for
   vulnerable species
-  [<xref alt="95" rid="ref-Ramos_2021-nb-article" ref-type="bibr">95</xref>].</p>
+  [<xref alt="103" rid="ref-Ramos_2021-nb-article" ref-type="bibr">103</xref>].</p>
       </sec>
       <sec id="availability-and-requirements-nb-article">
-        <title>7. Availability and requirements</title>
+        <title>8. Availability and requirements</title>
         <p>Project name: spatsoc</p>
         <p>Project home page:
   <ext-link ext-link-type="uri" xlink:href="https://github.com/ropensci/spatsoc">https://github.com/ropensci/spatsoc</ext-link></p>
@@ -9656,17 +10127,17 @@ leader_delay &lt;- leader_edge_delay(
         <p>Any restrictions to use by non-academics: None</p>
       </sec>
       <sec id="declarations-nb-article">
-        <title>8. Declarations</title>
+        <title>9. Declarations</title>
         <sec id="ethics-approval-and-consent-to-participate-nb-article">
-          <title>8.1 Ethics approval and consent to participate</title>
+          <title>9.1 Ethics approval and consent to participate</title>
           <p>Not applicable</p>
         </sec>
         <sec id="consent-for-publication-nb-article">
-          <title>8.2 Consent for publication</title>
+          <title>9.2 Consent for publication</title>
           <p>Not applicable</p>
         </sec>
         <sec id="availability-of-data-and-materials-nb-article">
-          <title>8.3 Availability of data and materials</title>
+          <title>9.3 Availability of data and materials</title>
           <p>All code used to produce this manuscript including figures and
     tables are available on GitHub at
     <ext-link ext-link-type="uri" xlink:href="https://github.com/robitalec/extending-spatsoc-application-paper">https://github.com/robitalec/extending-spatsoc-application-paper</ext-link>
@@ -9684,47 +10155,47 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <p>The code for producing the scoping review results, figures,
     tables and manuscript was developed as a reproducible pipeline with
     the R package {targets}
-    [<xref alt="96" rid="ref-Landau_2021b-nb-article" ref-type="bibr">96</xref>].
+    [<xref alt="104" rid="ref-Landau_2021b-nb-article" ref-type="bibr">104</xref>].
     Figures and tables were constructed using {ggplot2}
-    [<xref alt="97" rid="ref-Wickham_2016a-nb-article" ref-type="bibr">97</xref>],
+    [<xref alt="105" rid="ref-Wickham_2016a-nb-article" ref-type="bibr">105</xref>],
     {ggdist}
-    [<xref alt="98" rid="ref-Kay_2025-nb-article" ref-type="bibr">98</xref>],
+    [<xref alt="106" rid="ref-Kay_2025-nb-article" ref-type="bibr">106</xref>],
     {patchwork}
-    [<xref alt="99" rid="ref-Pedersen_2025-nb-article" ref-type="bibr">99</xref>]
+    [<xref alt="107" rid="ref-Pedersen_2025-nb-article" ref-type="bibr">107</xref>]
     and {tintytable}
-    [<xref alt="100" rid="ref-Arel-Bundock_2025-nb-article" ref-type="bibr">100</xref>].
+    [<xref alt="108" rid="ref-Arel-Bundock_2025-nb-article" ref-type="bibr">108</xref>].
     The manuscript was produced using {quarto}
-    [<xref alt="101" rid="ref-Allaire_2024-nb-article" ref-type="bibr">101</xref>].
+    [<xref alt="109" rid="ref-Allaire_2024-nb-article" ref-type="bibr">109</xref>].
     The {spatsoc} package gratefully depends on the R packages
     {adehabitatHR}
-    [<xref alt="102" rid="ref-Calenge_2024-nb-article" ref-type="bibr">102</xref>],
+    [<xref alt="110" rid="ref-Calenge_2024-nb-article" ref-type="bibr">110</xref>],
     {data.table}
-    [<xref alt="103" rid="ref-Barrett_2025-nb-article" ref-type="bibr">103</xref>],
+    [<xref alt="111" rid="ref-Barrett_2025-nb-article" ref-type="bibr">111</xref>],
     {igraph}
-    [<xref alt="104" rid="ref-Csardi_2026-nb-article" ref-type="bibr">104</xref>],
+    [<xref alt="112" rid="ref-Csardi_2026-nb-article" ref-type="bibr">112</xref>],
     {sf}
-    [<xref alt="49" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">49</xref>],
+    [<xref alt="50" rid="ref-Pebesma_2018-nb-article" ref-type="bibr">50</xref>],
     {lwgeom}
-    [<xref alt="50" rid="ref-Pebesma_2025-nb-article" ref-type="bibr">50</xref>],
+    [<xref alt="51" rid="ref-Pebesma_2025-nb-article" ref-type="bibr">51</xref>],
     {CircStats}
-    [<xref alt="105" rid="ref-Lund_2025-nb-article" ref-type="bibr">105</xref>],
+    [<xref alt="113" rid="ref-Lund_2025-nb-article" ref-type="bibr">113</xref>],
     {units}
-    [<xref alt="106" rid="ref-Pebesma_2016-nb-article" ref-type="bibr">106</xref>],
+    [<xref alt="114" rid="ref-Pebesma_2016-nb-article" ref-type="bibr">114</xref>],
     and {rlang}
-    [<xref alt="107" rid="ref-Henry_2026-nb-article" ref-type="bibr">107</xref>].</p>
+    [<xref alt="115" rid="ref-Henry_2026-nb-article" ref-type="bibr">115</xref>].</p>
         </sec>
         <sec id="competing-interests-nb-article">
-          <title>8.4 Competing interests</title>
+          <title>9.4 Competing interests</title>
           <p>The authors declare that they have no competing interests.</p>
         </sec>
         <sec id="funding-nb-article">
-          <title>8.5 Funding</title>
+          <title>9.5 Funding</title>
           <p>ALR received a NSERC Canada Graduate Research Scholarship, QMRW
     received a NSERC Discovery Grant, EVW received a NSERC Discovery
     Grant.</p>
         </sec>
         <sec id="authors-contributions-nb-article">
-          <title>8.6 Authors’ contributions</title>
+          <title>9.6 Authors’ contributions</title>
           <p>ALR, QMRW and EVW contributed to conceptualization and writing.
     EVW contributed to methodology, funding acquisition, project
     administration and supervision. ALR contributed to writing (original
@@ -9733,7 +10204,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
     manuscript.</p>
         </sec>
         <sec id="acknowledgements-nb-article">
-          <title>8.7 Acknowledgements</title>
+          <title>9.7 Acknowledgements</title>
           <p>We thank Edzer Pebesma and Dewey Dunnington for support with bug
     reports and feature requests for the {sf}, {s2} and {lwgeom}
     packages related to the development of this new functionality in
@@ -9750,7 +10221,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <title>References</title>
       </sec>
       <sec id="sec-scoping-methods-nb-article">
-        <title>9. Supplement: Scoping review methods</title>
+        <title>10. Supplement: Scoping review methods</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 
@@ -10063,7 +10534,7 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
         </fig>
       </sec>
       <sec id="sec-scoping-results-nb-article">
-        <title>10. Supplement: Scoping review results</title>
+        <title>11. Supplement: Scoping review results</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 
@@ -10079,7 +10550,7 @@ count_software &lt;- counted$count_software
 count_metric &lt;- counted$count_metric
 count_dom_metric &lt;- counted$count_dom_metric</code>
         </sec>
-        <sec id="results-1-nb-article">
+        <sec id="results-2-nb-article">
           <title>Results</title>
           <p>PRISMA</p>
           <list list-type="bullet">
@@ -10545,7 +11016,7 @@ unique_prog_lang &lt;- count_prog_lang[,
   labs(x = 'Year of publication', y = 'Count') +
   coord_cartesian(xlim = c(1980, 2024)) +
   theme_bw()</code>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-10-1.png"/>
+              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-11-1.png"/>
             </sec>
           </fig>
           <fig id="suptbl-map-nb-article">
@@ -10572,7 +11043,7 @@ ggplot() +
                 <preformat>Warning in CPL_crs_from_input(x): GDAL Message 1: EPSG:54030 is not a valid CRS
 code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
               </boxed-text>
-              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-11-1.png"/>
+              <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-12-1.png"/>
             </sec>
           </fig>
           <fig id="suptbl-species-nb-article">
@@ -11926,7 +12397,7 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
         </sec>
       </sec>
       <sec id="sec-selected-nb-article">
-        <title>11. Supplement: Selected metrics</title>
+        <title>12. Supplement: Selected metrics</title>
         <sec specific-use="notebook-content">
           <code language="r script">targets::tar_source('R')
 tar_load(taxized)
@@ -11939,7 +12410,7 @@ count_software &lt;- counted$count_software
 count_metric &lt;- counted$count_metric</code>
         </sec>
         <sec id="selected-metrics-nb-article">
-          <title>11.1 Selected metrics</title>
+          <title>12.1 Selected metrics</title>
           <p>The following metrics were not selected due to their availability
     in existing R packages:</p>
           <list list-type="bullet">
@@ -11960,9 +12431,9 @@ count_metric &lt;- counted$count_metric</code>
           <list list-type="bullet">
             <list-item>
               <p>mFLICA provided in code accompanying
-        [<xref alt="93" rid="ref-Amornbunchornvej_2018-nb-article" ref-type="bibr">93</xref>]
+        [<xref alt="64" rid="ref-Amornbunchornvej_2018-nb-article" ref-type="bibr">64</xref>]
         and R package {mFLICA}
-        [<xref alt="108" rid="ref-Amornbunchornvej_2021-nb-article" ref-type="bibr">108</xref>]</p>
+        [<xref alt="116" rid="ref-Amornbunchornvej_2021-nb-article" ref-type="bibr">116</xref>]</p>
             </list-item>
           </list>
           <p>The follow metrics were not selected due to the expected input
@@ -12200,7 +12671,7 @@ functions[, .(Function, Description, Category)] |&gt;
     )
 ]</code>
             </sec>
-            <p>Our scoping review found 21 studies that used the group
+            <p>The scoping review found 21 studies that used the group
       centroid, distance to group centroid, direction to group centroid,
       or rank distance to group centroid metrics, across 14 study
       species. 4 studies had code available. The {swaRm} package
@@ -12224,7 +12695,7 @@ functions[, .(Function, Description, Category)] |&gt;
     )
 ]</code>
             </sec>
-            <p>Our scoping review found 20 studies that used the polarization,
+            <p>The scoping review found 20 studies that used the polarization,
       directional alignment or interindividual direction metrics, across
       11 study species. 4 studies had code available. The {CircStats}
       and the {swaRm} packages provide functionality to calculate the
@@ -12234,14 +12705,14 @@ functions[, .(Function, Description, Category)] |&gt;
       direction metrics. After the scoping review was conducted, the
       {swaRmverse} package was released which provides the direction to
       nearest neighbour metric
-      [<xref alt="109" rid="ref-Papadopoulou_2025-nb-article" ref-type="bibr">109</xref>].</p>
+      [<xref alt="117" rid="ref-Papadopoulou_2025-nb-article" ref-type="bibr">117</xref>].</p>
           </sec>
           <sec id="behavioural-zones-1-nb-article">
             <title>Behavioural zones</title>
             <sec specific-use="notebook-content">
               <code language="r script">zone &lt;- count_metric[metric_agg %in% c('zones')]</code>
             </sec>
-            <p>Our scoping review found 13 studies that used the behavioural
+            <p>The scoping review found 13 studies that used the behavioural
       zones metric, across 9 study species. 4 studies had code
       available. At the time when the scoping review was conducted, to
       the best of our knowledge, there were no R packages that provide
@@ -12261,7 +12732,7 @@ functions[, .(Function, Description, Category)] |&gt;
     )
 ]</code>
             </sec>
-            <p>Our scoping review found 18 studies that used the position
+            <p>The scoping review found 18 studies that used the position
       within group, rank position within group, distance to leader, or
       direction to leader metrics across 14 study species. Only 1 study
       had code available. At the time when the scoping review was
@@ -12273,7 +12744,7 @@ functions[, .(Function, Description, Category)] |&gt;
             <sec specific-use="notebook-content">
               <code language="r script">dirr_del &lt;- count_metric[metric_agg == 'directional correlation delay']</code>
             </sec>
-            <p>Our scoping review found 17 studies that used the directional
+            <p>The scoping review found 17 studies that used the directional
       correlation delay metric, across 12 study species. Only 1 study
       had code available using a combination of MATLAB (closed source),
       CUDA (closed source), and Python (open source). At the time when
@@ -13701,6 +14172,141 @@ functions[, .(Function, Description, Category)] |&gt;
             <pub-id pub-id-type="doi">10.5281/zenodo.7682609</pub-id>
           </element-citation>
         </ref>
+        <ref id="ref-DellaLibera_2023-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Della Libera</surname>
+                <given-names>Katja</given-names>
+              </name>
+              <name>
+                <surname>Strandburg-Peshkin</surname>
+                <given-names>Ariana</given-names>
+              </name>
+              <name>
+                <surname>Griffith</surname>
+                <given-names>Simon C.</given-names>
+              </name>
+              <name>
+                <surname>Leu</surname>
+                <given-names>Stephan T.</given-names>
+              </name>
+            </person-group>
+            <article-title>Fission–fusion dynamics in sheep: The influence of resource distribution and temporal activity patterns</article-title>
+            <source>Royal Society Open Science</source>
+            <year iso-8601-date="2023">2023</year>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2026-07-09">2026</year>
+              <month>07</month>
+              <day>09</day>
+            </date-in-citation>
+            <volume>10</volume>
+            <issue>7</issue>
+            <fpage>230402</fpage>
+            <lpage/>
+          </element-citation>
+        </ref>
+        <ref id="ref-delMarDelgado_2021-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>del Mar Delgado</surname>
+                <given-names>María</given-names>
+              </name>
+              <name>
+                <surname>Arlettaz</surname>
+                <given-names>Raphaël</given-names>
+              </name>
+              <name>
+                <surname>Bettega</surname>
+                <given-names>Chiara</given-names>
+              </name>
+              <name>
+                <surname>Brambilla</surname>
+                <given-names>Mattia</given-names>
+              </name>
+              <name>
+                <surname>De Gabriel Hernando</surname>
+                <given-names>Miguel</given-names>
+              </name>
+              <name>
+                <surname>España</surname>
+                <given-names>Antonio</given-names>
+              </name>
+              <name>
+                <surname>Fernández-González</surname>
+                <given-names>Ángel</given-names>
+              </name>
+              <name>
+                <surname>Fernández-Martín</surname>
+                <given-names>Ángel</given-names>
+              </name>
+              <name>
+                <surname>Gil</surname>
+                <given-names>Juan Antonio</given-names>
+              </name>
+              <name>
+                <surname>Hernández-Gómez</surname>
+                <given-names>Sergio</given-names>
+              </name>
+              <name>
+                <surname>Laiolo</surname>
+                <given-names>Paola</given-names>
+              </name>
+              <name>
+                <surname>Resano-Mayor</surname>
+                <given-names>Jaime</given-names>
+              </name>
+              <name>
+                <surname>Obeso</surname>
+                <given-names>José Ramón</given-names>
+              </name>
+              <name>
+                <surname>Pedrini</surname>
+                <given-names>Paolo</given-names>
+              </name>
+              <name>
+                <surname>Roa-Álvarez</surname>
+                <given-names>Isabel</given-names>
+              </name>
+              <name>
+                <surname>Schano</surname>
+                <given-names>Christian</given-names>
+              </name>
+              <name>
+                <surname>Scridel</surname>
+                <given-names>Davide</given-names>
+              </name>
+              <name>
+                <surname>Strinella</surname>
+                <given-names>Eliseo</given-names>
+              </name>
+              <name>
+                <surname>Toranzo</surname>
+                <given-names>Ignasi</given-names>
+              </name>
+              <name>
+                <surname>Korner-Nievergelt</surname>
+                <given-names>Fränzi</given-names>
+              </name>
+            </person-group>
+            <article-title>Spatio-temporal variation in the wintering associations of an alpine bird</article-title>
+            <source>Proceedings of the Royal Society B: Biological Sciences</source>
+            <year iso-8601-date="2021-05">2021</year>
+            <month>05</month>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2026-01-08">2026</year>
+              <month>01</month>
+              <day>08</day>
+            </date-in-citation>
+            <volume>288</volume>
+            <issue>1951</issue>
+            <issn>0962-8452, 1471-2954</issn>
+            <pub-id pub-id-type="doi">10.1098/rspb.2021.0690</pub-id>
+            <fpage>20210690</fpage>
+            <lpage/>
+          </element-citation>
+        </ref>
         <ref id="ref-Dodge_2008-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -14155,6 +14761,44 @@ functions[, .(Function, Description, Category)] |&gt;
             <lpage/>
           </element-citation>
         </ref>
+        <ref id="ref-Haydon_2008-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Haydon</surname>
+                <given-names>Daniel T.</given-names>
+              </name>
+              <name>
+                <surname>Morales</surname>
+                <given-names>Juan M.</given-names>
+              </name>
+              <name>
+                <surname>Yott</surname>
+                <given-names>Adelle</given-names>
+              </name>
+              <name>
+                <surname>Jenkins</surname>
+                <given-names>Deborah A.</given-names>
+              </name>
+              <name>
+                <surname>Rosatte</surname>
+                <given-names>Rick</given-names>
+              </name>
+              <name>
+                <surname>Fryxell</surname>
+                <given-names>John M.</given-names>
+              </name>
+            </person-group>
+            <article-title>Socially informed random walks: Incorporating group dynamics into models of population spread and growth</article-title>
+            <source>Proceedings of the Royal Society Biological Sciences Series B</source>
+            <year iso-8601-date="2008">2008</year>
+            <volume>275</volume>
+            <issue>1638</issue>
+            <pub-id pub-id-type="doi">10.1098/rspb.2007.1688</pub-id>
+            <fpage>1101</fpage>
+            <lpage>1109</lpage>
+          </element-citation>
+        </ref>
         <ref id="ref-Heeres_2024-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -14458,6 +15102,43 @@ functions[, .(Function, Description, Category)] |&gt;
             <pub-id pub-id-type="pmid">28889975</pub-id>
             <fpage>2862</fpage>
             <lpage>2868.e7</lpage>
+          </element-citation>
+        </ref>
+        <ref id="ref-Jolles_2018-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Jolles</surname>
+                <given-names>Jolle W.</given-names>
+              </name>
+              <name>
+                <surname>Laskowski</surname>
+                <given-names>Kate L.</given-names>
+              </name>
+              <name>
+                <surname>Boogert</surname>
+                <given-names>Neeltje J.</given-names>
+              </name>
+              <name>
+                <surname>Manica</surname>
+                <given-names>Andrea</given-names>
+              </name>
+            </person-group>
+            <article-title>Repeatable group differences in the collective behaviour of stickleback shoals across ecological contexts</article-title>
+            <source>Proceedings of the Royal Society B: Biological Sciences</source>
+            <year iso-8601-date="2018-02">2018</year>
+            <month>02</month>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2026-01-27">2026</year>
+              <month>01</month>
+              <day>27</day>
+            </date-in-citation>
+            <volume>285</volume>
+            <issue>1872</issue>
+            <issn>0962-8452</issn>
+            <pub-id pub-id-type="doi">10.1098/rspb.2017.2629</pub-id>
+            <fpage>20172629</fpage>
+            <lpage/>
           </element-citation>
         </ref>
         <ref id="ref-Joo_2018-nb-article">
@@ -15077,6 +15758,31 @@ functions[, .(Function, Description, Category)] |&gt;
             <lpage/>
           </element-citation>
         </ref>
+        <ref id="ref-Lesmerises_2018-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Lesmerises</surname>
+                <given-names>Frederic</given-names>
+              </name>
+              <name>
+                <surname>Johnson</surname>
+                <given-names>Chris J.</given-names>
+              </name>
+              <name>
+                <surname>St-Laurent</surname>
+                <given-names>Martin-Hugues</given-names>
+              </name>
+            </person-group>
+            <article-title>Landscape knowledge is an important driver of the fission dynamics of an alpine ungulate</article-title>
+            <source>Animal Behaviour</source>
+            <year iso-8601-date="2018">2018</year>
+            <volume>140</volume>
+            <pub-id pub-id-type="doi">10.1016/j.anbehav.2018.03.014</pub-id>
+            <fpage>39</fpage>
+            <lpage>47</lpage>
+          </element-citation>
+        </ref>
         <ref id="ref-Long_2015-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -15494,6 +16200,38 @@ functions[, .(Function, Description, Category)] |&gt;
             <lpage/>
           </element-citation>
         </ref>
+        <ref id="ref-Nishikawa_2014-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Nishikawa</surname>
+                <given-names>Mari</given-names>
+              </name>
+              <name>
+                <surname>Suzuki</surname>
+                <given-names>Mariko</given-names>
+              </name>
+              <name>
+                <surname>Sprague</surname>
+                <given-names>David S.</given-names>
+              </name>
+            </person-group>
+            <article-title>Activity and social factors affect cohesion among individuals in female Japanese macaques: A simultaneous focal-follow study</article-title>
+            <source>American Journal of Primatology</source>
+            <year iso-8601-date="2014">2014</year>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2026-07-09">2026</year>
+              <month>07</month>
+              <day>09</day>
+            </date-in-citation>
+            <volume>76</volume>
+            <issue>7</issue>
+            <issn>1098-2345</issn>
+            <pub-id pub-id-type="doi">10.1002/ajp.22263</pub-id>
+            <fpage>694</fpage>
+            <lpage>703</lpage>
+          </element-citation>
+        </ref>
         <ref id="ref-Papadopoulou_2025-nb-article">
           <element-citation publication-type="article-journal">
             <person-group person-group-type="author">
@@ -15732,6 +16470,43 @@ functions[, .(Function, Description, Category)] |&gt;
             <pub-id pub-id-type="pmid">29360558</pub-id>
             <fpage>75</fpage>
             <lpage>84</lpage>
+          </element-citation>
+        </ref>
+        <ref id="ref-Pettit_2013-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Pettit</surname>
+                <given-names>Benjamin</given-names>
+              </name>
+              <name>
+                <surname>Perna</surname>
+                <given-names>Andrea</given-names>
+              </name>
+              <name>
+                <surname>Biro</surname>
+                <given-names>Dora</given-names>
+              </name>
+              <name>
+                <surname>Sumpter</surname>
+                <given-names>David J. T.</given-names>
+              </name>
+            </person-group>
+            <article-title>Interaction rules underlying group decisions in homing pigeons</article-title>
+            <source>Journal of The Royal Society Interface</source>
+            <publisher-name>Royal Society</publisher-name>
+            <year iso-8601-date="2013-12">2013</year>
+            <month>12</month>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2023-09-15">2023</year>
+              <month>09</month>
+              <day>15</day>
+            </date-in-citation>
+            <volume>10</volume>
+            <issue>89</issue>
+            <pub-id pub-id-type="doi">10.1098/rsif.2013.0529</pub-id>
+            <fpage>20130529</fpage>
+            <lpage/>
           </element-citation>
         </ref>
         <ref id="ref-Powers_2019-nb-article">
@@ -16008,6 +16783,43 @@ functions[, .(Function, Description, Category)] |&gt;
             <issn>2050-084X</issn>
             <pub-id pub-id-type="doi">10.7554/eLife.19505</pub-id>
             <fpage>e19505</fpage>
+            <lpage/>
+          </element-citation>
+        </ref>
+        <ref id="ref-Strandburg-Peshkin_2018-nb-article">
+          <element-citation publication-type="article-journal">
+            <person-group person-group-type="author">
+              <name>
+                <surname>Strandburg-Peshkin</surname>
+                <given-names>Ariana</given-names>
+              </name>
+              <name>
+                <surname>Papageorgiou</surname>
+                <given-names>Danai</given-names>
+              </name>
+              <name>
+                <surname>Crofoot</surname>
+                <given-names>Margaret C.</given-names>
+              </name>
+              <name>
+                <surname>Farine</surname>
+                <given-names>Damien R.</given-names>
+              </name>
+            </person-group>
+            <article-title>Inferring influence and leadership in moving animal groups</article-title>
+            <source>Philosophical Transactions of the Royal Society B: Biological Sciences</source>
+            <publisher-name>Royal Society</publisher-name>
+            <year iso-8601-date="2018-03">2018</year>
+            <month>03</month>
+            <date-in-citation content-type="access-date">
+              <year iso-8601-date="2024-11-18">2024</year>
+              <month>11</month>
+              <day>18</day>
+            </date-in-citation>
+            <volume>373</volume>
+            <issue>1746</issue>
+            <pub-id pub-id-type="doi">10.1098/rstb.2017.0006</pub-id>
+            <fpage>20170006</fpage>
             <lpage/>
           </element-citation>
         </ref>
