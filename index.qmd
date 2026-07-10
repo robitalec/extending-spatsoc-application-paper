@@ -333,7 +333,7 @@ provided alongside @Amornbunchornvej_2018) were not selected for inclusion in
 according to measured frequency of use in the database of articles and external
 searches were conducted to ensure no availability in R packages were missed by
 the scoping review (see Supplement B @suptbl-count-metrics; Supplement C). The
-resulting set of new functions in the R package {spatsoc} for measuring
+resulting set of metrics provided by new functions in the R package {spatsoc} for measuring
 intragroup social dynamics is shown in Table @tbl-new-functions.
 
 ```{r}
@@ -945,7 +945,15 @@ argument 'threshold'.](graphics/fig_edge_delay.png){#fig-edge-delay}
 
 # Conclusion
 
-The open source package {spatsoc} [@Robitaille_2019] for the R
+
+Pairing advanced remote tracking technologies with emerging methods expands opportunities to measure intragroup social dynamics. The availability and resolution of remote tracking data continues to improve [20–22]. There are over two decades of research on measuring interactions between moving individuals from the study of “moving point objects” in GISciences [23–26] to group coordination [27,28], leadership, and decision making [29–31]. Despite this, we suggest the lack of availability of open source tools [32–34] is the missing piece between the call to integrate technology enhanced research with multidisciplinary approaches to better study animal social systems [8,35].
+
+An ever expanding collection of methods have been described for studying 
+animal social systems. The scoping review identified hundreds of metrics 
+applied to species across the globe. Despite this, a lack of their 
+accessibility in open source software risks limiting the application of 
+these methods broadly. The open source package {spatsoc} [@Robitaille_2019] 
+for the R
 programming language [@RCoreTeam_2025a] has improved accessibility to
 methods for spatiotemporal grouping and social network analysis with
 animal telemetry data [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024;
