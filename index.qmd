@@ -108,18 +108,6 @@ data
 
 # Background
 
-The R package {spatsoc} was developed to derive social networks from
-animal telemetry data using aggregated association rates,
-interindividual distances, and home range overlap [@Robitaille_2019].
-The methods in {spatsoc} have been used to measure social cohesion
-[@Bracken_2022], human-wildlife conflict [@Boudreau_2022], socioecology
-and resource availability [@Peignier_2019], community structure
-[@Sunga_2021], the influence of stress on social proximity
-[@Keshavarzi_2023], and social patterns in non-social species
-[@Heeres_2024]. Despite the substantive and varied applications of
-{spatsoc}, users lacked sufficient and accessible functionality for
-measuring the behaviour of individuals within social groups.
-
 Many facets of group living need to be considered to better measure
 animal social systems [@King_2018]. Beyond associations, there are
 additional types of dyadic relationships including genetic, affiliative,
@@ -148,6 +136,18 @@ suggest the lack of availability of open source tools [@Hampton_2015;
 @Powers_2019; @Wilson_2017] is the missing piece between the call to
 integrate technology enhanced research with multidisciplinary approaches
 to better study animal social systems [@Couzin_2023; @King_2018].
+
+The R package {spatsoc} was developed to derive social networks from
+animal telemetry data using aggregated association rates,
+interindividual distances, and home range overlap [@Robitaille_2019].
+The methods in {spatsoc} have been used to measure social cohesion
+[@Bracken_2022], human-wildlife conflict [@Boudreau_2022], socioecology
+and resource availability [@Peignier_2019], community structure
+[@Sunga_2021], the influence of stress on social proximity
+[@Keshavarzi_2023], and social patterns in non-social species
+[@Heeres_2024]. Despite the substantive and varied applications of
+{spatsoc}, users lacked sufficient and accessible functionality for
+measuring the behaviour of individuals within social groups.
 
 We first conducted a scoping review to identify metrics that were
 applicable to spatiotemporal data, and focused on dyadic interactions,
