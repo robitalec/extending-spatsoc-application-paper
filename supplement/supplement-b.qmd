@@ -2,7 +2,6 @@
 
 ```{r}
 #| include: false
-
 targets::tar_source('R')
 
 tar_load(review)
@@ -41,7 +40,6 @@ PRISMA
 ::: {#suptbl-code-availability}
 ```{r}
 #| echo: false
-
 count_code_avail[, .N, analysis_code_availability][
   order(-N),
   .(
@@ -53,8 +51,8 @@ count_code_avail[, .N, analysis_code_availability][
   format_tt(escape = TRUE)
 ```
 
-Count of code availability in references screened for full text extraction of
-scoping review
+Count of code availability in references screened for full text
+extraction of scoping review
 :::
 
 ```{r}
@@ -90,17 +88,17 @@ count_prog_lang[, .N, programming_language][
   format_tt(escape = TRUE)
 ```
 
-Count of programming language or GUI program used in references screened for
-full text extraction of scoping review
+Count of programming language or GUI program used in references screened
+for full text extraction of scoping review
 :::
 
 Out of `r count_software[, uniqueN(covidence_number)]` articles,
-`r count_software[is.na(software_package_s_used), .N]` did not list a software
-package. Of the
+`r count_software[is.na(software_package_s_used), .N]` did not list a
+software package. Of the
 `r count_software[!is.na(software_package_s_used), uniqueN(covidence_number)]`
-that did, `r count_software[, .N, covidence_number][N > 1, .N]` articles listed
-more than one software package , therefore the total count below will be greater
-than the number of articles.
+that did, `r count_software[, .N, covidence_number][N > 1, .N]` articles
+listed more than one software package , therefore the total count below
+will be greater than the number of articles.
 
 ::: {#suptbl-software}
 ```{r}
@@ -118,8 +116,8 @@ count_software[, .N, software_package_s_used][
   format_tt(escape = TRUE)
 ```
 
-Count of software packages used in references screened for full text extraction
-of scoping review
+Count of software packages used in references screened for full text
+extraction of scoping review
 :::
 
 ::: {#suptbl-temp}
@@ -133,8 +131,8 @@ ggplot(review) +
   theme_bw()
 ```
 
-Count of references screened for full text extraction across temporal period
-(1980-2023) of scoping review
+Count of references screened for full text extraction across temporal
+period (1980-2023) of scoping review
 :::
 
 ::: {#suptbl-map}
@@ -155,8 +153,9 @@ ggplot() +
   theme_void() +
   theme(legend.position = 'bottom')
 ```
-Map of study regions georeferenced using {tidygeocoder} from references screened
-for full text extraction of scoping review
+
+Map of study regions georeferenced using {tidygeocoder} from references
+screened for full text extraction of scoping review
 :::
 
 ::: {#suptbl-species}
@@ -174,8 +173,9 @@ taxized[, .N, parsed_species][
   style_tt(j = "Species", italic = TRUE) |>
   format_tt(escape = TRUE)
 ```
-Count of species parsed using {rgnparser} in references screened for full text
-extraction of scoping review
+
+Count of species parsed using {rgnparser} in references screened for
+full text extraction of scoping review
 :::
 
 ::: {#suptbl-count-metrics}
@@ -192,8 +192,9 @@ count_metric[, .N, metric_agg][
   tt() |>
   format_tt(escape = TRUE)
 ```
-Count of metrics used to measure intragroup dynamics in references screened for
-full text extraction of scoping review
+
+Count of metrics used to measure intragroup dynamics in references
+screened for full text extraction of scoping review
 :::
 
 ::: {#suptbl-count-metrics-dominance}
@@ -210,8 +211,9 @@ count_dom_metric[, .N, dominance_metric_agg][
   tt() |>
   format_tt(escape = TRUE)
 ```
-Count of metrics used to measure dominance in references screened for full text
-extraction of scoping review
+
+Count of metrics used to measure dominance in references screened for
+full text extraction of scoping review
 :::
 
 ::: {#suptbl-defn-spattemp-groups}
@@ -222,8 +224,9 @@ review[definition_category == 'group', .(study_id, definition)] |>
   tt() |>
   format_tt(escape = TRUE)
 ```
-Review of definitions of spatiotemporal groups in references screened for full
-text extraction of scoping review
+
+Review of definitions of spatiotemporal groups in references screened
+for full text extraction of scoping review
 :::
 
 ::: {#suptbl-defn-leadership}
@@ -234,6 +237,7 @@ review[definition_category == 'leadership', .(study_id, definition)] |>
   tt() |>
   format_tt(escape = TRUE)
 ```
+
 Review of definitions of leadership in references screened for full text
 extraction of scoping review
 :::
@@ -246,6 +250,7 @@ review[definition_category == 'fission fusion', .(study_id, definition)] |>
   tt() |>
   format_tt(escape = TRUE)
 ```
-Review of definitions of fission-fusion in references screened for full text
-extraction of scoping review
+
+Review of definitions of fission-fusion in references screened for full
+text extraction of scoping review
 :::
