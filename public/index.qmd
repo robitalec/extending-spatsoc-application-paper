@@ -16,6 +16,7 @@ author:
       - Writing - Original Draft
       - Writing - Review & Editing
       - Visualization
+    email: robit.alec@gmail.com
   - name: Quinn M. R. Webber
     orcid: 0000-0002-0434-9360
     corresponding: false

@@ -17,6 +17,7 @@ review</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
+          <email>robit.alec@gmail.com</email>
           <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
           <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
           <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
@@ -71,7 +72,7 @@ and Labrador</institution>
         </institution-wrap>
       </aff>
       <author-notes>
-        <corresp id="cor-1"/>
+        <corresp id="cor-1">robit.alec@gmail.com</corresp>
       </author-notes>
       <history/>
     </article-meta>
@@ -394,7 +395,7 @@ and Labrador</institution>
       <p>Details in the methods and supplemental materials were used to
   assess the availability of the extracted metrics in open source
   programming languages commonly used in ecology. Accompanying code was
-  not available in a supplement or linked repository for 81% of articles
+  not available in a supplement or linked repository for 82% of articles
   and 67% of articles did not indicate any software package (e.g. R
   package, Python library) used. R was the most common programming
   language followed by MATLAB and Python (Supplement B
@@ -633,46 +634,46 @@ group_pts(
             </thead>
             <tbody>
               <tr>
-                <td>I</td>
-                <td>2016-12-04 00:00:16</td>
-                <td>POINT (709210.5 5508829)</td>
-                <td>397</td>
-                <td>8677</td>
+                <td>B</td>
+                <td>2016-11-08 14:00:43</td>
+                <td>POINT (697596.8 5510782)</td>
+                <td>92</td>
+                <td>1488</td>
               </tr>
               <tr>
-                <td>J</td>
-                <td>2016-12-04 00:00:13</td>
-                <td>POINT (709164.3 5508831)</td>
-                <td>397</td>
-                <td>8677</td>
+                <td>G</td>
+                <td>2016-11-08 14:00:54</td>
+                <td>POINT (697598 5510788)</td>
+                <td>92</td>
+                <td>1488</td>
               </tr>
               <tr>
-                <td>A</td>
-                <td>2016-12-19 10:00:54</td>
-                <td>POINT (698798.2 5506993)</td>
-                <td>582</td>
-                <td>582</td>
-              </tr>
-              <tr>
-                <td>E</td>
-                <td>2016-12-19 10:00:26</td>
-                <td>POINT (698796.7 5507008)</td>
-                <td>582</td>
-                <td>582</td>
+                <td>H</td>
+                <td>2017-01-09 06:00:42</td>
+                <td>POINT (696496.2 5507291)</td>
+                <td>832</td>
+                <td>7952</td>
               </tr>
               <tr>
                 <td>I</td>
-                <td>2016-12-19 10:00:50</td>
-                <td>POINT (698804.2 5506977)</td>
-                <td>582</td>
-                <td>582</td>
+                <td>2017-01-09 06:00:53</td>
+                <td>POINT (696495.4 5507274)</td>
+                <td>832</td>
+                <td>7952</td>
               </tr>
               <tr>
-                <td>F</td>
-                <td>2017-02-10 20:00:47</td>
-                <td>POINT (705543.7 5510227)</td>
-                <td>1206</td>
-                <td>6936</td>
+                <td>B</td>
+                <td>2017-01-30 18:00:52</td>
+                <td>POINT (699999.3 5508174)</td>
+                <td>1087</td>
+                <td>2415</td>
+              </tr>
+              <tr>
+                <td>G</td>
+                <td>2017-01-30 18:00:50</td>
+                <td>POINT (700019.1 5508168)</td>
+                <td>1087</td>
+                <td>2415</td>
               </tr>
             </tbody>
           </table>
@@ -724,40 +725,40 @@ interindividual_dist &lt;- edge_dist(
             </thead>
             <tbody>
               <tr>
-                <td>1436</td>
+                <td>1439</td>
                 <td>B</td>
-                <td>H</td>
-                <td>48.12146</td>
+                <td>E</td>
+                <td>43.84799</td>
               </tr>
               <tr>
-                <td>1436</td>
+                <td>1439</td>
+                <td>B</td>
+                <td>G</td>
+                <td>41.72540</td>
+              </tr>
+              <tr>
+                <td>1439</td>
                 <td>C</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>1436</td>
+                <td>1439</td>
                 <td>E</td>
-                <td>G</td>
-                <td>13.18622</td>
+                <td>B</td>
+                <td>43.84799</td>
               </tr>
               <tr>
-                <td>1436</td>
-                <td>E</td>
-                <td>J</td>
-                <td>12.36113</td>
-              </tr>
-              <tr>
-                <td>1436</td>
+                <td>1439</td>
                 <td>F</td>
                 <td>NA</td>
                 <td>NA</td>
               </tr>
               <tr>
-                <td>1436</td>
+                <td>1439</td>
                 <td>G</td>
-                <td>E</td>
-                <td>13.18622</td>
+                <td>B</td>
+                <td>41.72540</td>
               </tr>
             </tbody>
           </table>
@@ -800,40 +801,40 @@ nearest_neighbours &lt;- edge_nn(
             </thead>
             <tbody>
               <tr>
-                <td>1439</td>
-                <td>E</td>
-                <td>B</td>
-                <td>43.847993</td>
-              </tr>
-              <tr>
-                <td>1439</td>
-                <td>G</td>
-                <td>B</td>
-                <td>41.725396</td>
-              </tr>
-              <tr>
-                <td>1439</td>
-                <td>F</td>
-                <td>C</td>
-                <td>129.538328</td>
-              </tr>
-              <tr>
-                <td>1439</td>
-                <td>I</td>
-                <td>C</td>
-                <td>60.931938</td>
-              </tr>
-              <tr>
-                <td>1439</td>
-                <td>B</td>
-                <td>G</td>
-                <td>41.725396</td>
-              </tr>
-              <tr>
-                <td>1439</td>
+                <td>1424</td>
                 <td>J</td>
+                <td>B</td>
+                <td>64.19389</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>G</td>
+                <td>E</td>
+                <td>20.52638</td>
+              </tr>
+              <tr>
+                <td>1424</td>
                 <td>H</td>
-                <td>4.898148</td>
+                <td>E</td>
+                <td>3389.49078</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>I</td>
+                <td>F</td>
+                <td>43.92168</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>B</td>
+                <td>G</td>
+                <td>27.13466</td>
+              </tr>
+              <tr>
+                <td>1424</td>
+                <td>E</td>
+                <td>G</td>
+                <td>20.52638</td>
               </tr>
             </tbody>
           </table>
@@ -886,46 +887,46 @@ centroid_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>A</td>
-                  <td>165</td>
-                  <td>165</td>
-                  <td>POINT (701814.1 5504404)</td>
-                  <td>POINT (701788.7 5504401)</td>
-                </tr>
-                <tr>
                   <td>E</td>
-                  <td>165</td>
-                  <td>165</td>
-                  <td>POINT (701767.8 5504387)</td>
-                  <td>POINT (701788.7 5504401)</td>
+                  <td>179</td>
+                  <td>5254</td>
+                  <td>POINT (703338 5505255)</td>
+                  <td>POINT (703337.4 5505254)</td>
                 </tr>
                 <tr>
                   <td>H</td>
-                  <td>165</td>
-                  <td>165</td>
-                  <td>POINT (701748.8 5504397)</td>
-                  <td>POINT (701788.7 5504401)</td>
+                  <td>179</td>
+                  <td>5254</td>
+                  <td>POINT (703336.8 5505252)</td>
+                  <td>POINT (703337.4 5505254)</td>
+                </tr>
+                <tr>
+                  <td>F</td>
+                  <td>530</td>
+                  <td>6585</td>
+                  <td>POINT (699886.9 5504731)</td>
+                  <td>POINT (699887.1 5504729)</td>
                 </tr>
                 <tr>
                   <td>I</td>
-                  <td>165</td>
-                  <td>165</td>
-                  <td>POINT (701824.1 5504414)</td>
-                  <td>POINT (701788.7 5504401)</td>
-                </tr>
-                <tr>
-                  <td>B</td>
-                  <td>942</td>
-                  <td>2338</td>
-                  <td>POINT (698173.9 5511499)</td>
-                  <td>POINT (698177.2 5511498)</td>
+                  <td>530</td>
+                  <td>6585</td>
+                  <td>POINT (699887.2 5504728)</td>
+                  <td>POINT (699887.1 5504729)</td>
                 </tr>
                 <tr>
                   <td>G</td>
-                  <td>942</td>
-                  <td>2338</td>
-                  <td>POINT (698180.6 5511496)</td>
-                  <td>POINT (698177.2 5511498)</td>
+                  <td>1290</td>
+                  <td>7444</td>
+                  <td>POINT (697555.6 5510645)</td>
+                  <td>POINT (697558.2 5510651)</td>
+                </tr>
+                <tr>
+                  <td>H</td>
+                  <td>1290</td>
+                  <td>7444</td>
+                  <td>POINT (697560.7 5510657)</td>
+                  <td>POINT (697558.2 5510651)</td>
                 </tr>
               </tbody>
             </table>
@@ -1001,8 +1002,8 @@ direction_group(DT)</code>
                 <col width="7%"/>
                 <col width="17%"/>
                 <col width="11%"/>
-                <col width="24%"/>
-                <col width="25%"/>
+                <col width="26%"/>
+                <col width="26%"/>
               </colgroup>
               <thead>
                 <tr>
@@ -1015,46 +1016,46 @@ direction_group(DT)</code>
               </thead>
               <tbody>
                 <tr>
-                  <td>C</td>
-                  <td>782</td>
-                  <td>3430</td>
-                  <td>2.694665 [rad]</td>
-                  <td>2.6179845 [rad]</td>
+                  <td>E</td>
+                  <td>632</td>
+                  <td>5638</td>
+                  <td>-0.6932845 [rad]</td>
+                  <td>-0.6845612 [rad]</td>
                 </tr>
                 <tr>
-                  <td>E</td>
-                  <td>782</td>
-                  <td>3430</td>
-                  <td>2.615603 [rad]</td>
-                  <td>2.6179845 [rad]</td>
+                  <td>H</td>
+                  <td>632</td>
+                  <td>5638</td>
+                  <td>-0.6777254 [rad]</td>
+                  <td>-0.6845612 [rad]</td>
+                </tr>
+                <tr>
+                  <td>I</td>
+                  <td>632</td>
+                  <td>5638</td>
+                  <td>-0.6826738 [rad]</td>
+                  <td>-0.6845612 [rad]</td>
+                </tr>
+                <tr>
+                  <td>C</td>
+                  <td>655</td>
+                  <td>655</td>
+                  <td>-3.0112521 [rad]</td>
+                  <td>-2.5355416 [rad]</td>
                 </tr>
                 <tr>
                   <td>F</td>
-                  <td>782</td>
-                  <td>3430</td>
-                  <td>2.543692 [rad]</td>
-                  <td>2.6179845 [rad]</td>
-                </tr>
-                <tr>
-                  <td>B</td>
-                  <td>1154</td>
-                  <td>2495</td>
-                  <td>1.157160 [rad]</td>
-                  <td>0.9378876 [rad]</td>
-                </tr>
-                <tr>
-                  <td>G</td>
-                  <td>1154</td>
-                  <td>2495</td>
-                  <td>0.583021 [rad]</td>
-                  <td>0.9378876 [rad]</td>
+                  <td>655</td>
+                  <td>655</td>
+                  <td>-3.0932093 [rad]</td>
+                  <td>-2.5355416 [rad]</td>
                 </tr>
                 <tr>
                   <td>J</td>
-                  <td>1154</td>
-                  <td>2495</td>
-                  <td>1.068202 [rad]</td>
-                  <td>0.9378876 [rad]</td>
+                  <td>655</td>
+                  <td>655</td>
+                  <td>-1.8377913 [rad]</td>
+                  <td>-2.5355416 [rad]</td>
                 </tr>
               </tbody>
             </table>
@@ -1641,13 +1642,11 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
         <table-wrap>
           <table>
             <colgroup>
-              <col width="95%"/>
-              <col width="5%"/>
+              <col width="100%"/>
             </colgroup>
             <thead>
               <tr>
                 <th>Citation</th>
-                <th>Indexed in WoS</th>
               </tr>
             </thead>
             <tbody>
@@ -1656,21 +1655,18 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             2010. “Hierarchical Group Dynamics in Pigeon Flocks.”
             <italic>Nature</italic> 464 (7290): 890–93.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nature08891">https://doi.org/10.1038/nature08891</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Strandburg-Peshkin, Ariana, Damien R. Farine, Iain D.
             Couzin, and Margaret C. Crofoot. 2015. “Shared
             Decision-Making Drives Collective Movement in Wild Baboons.”
             <italic>Science</italic> 348 (6241): 1358–61.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow
             or Not? How Animals in Fusion–Fission Societies Handle
             Conflicting Information during Group Decision-Making.”
             <italic>Ecology Letters</italic> 18 (8): 799–806.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Andersson, Mattias, Joachim Gudmundsson, Patrick Laube,
@@ -1679,14 +1675,12 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             Symposium on Applied Computing</italic>, 3–7. SAC ’07. New
             York, NY, USA: Association for Computing Machinery.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1145/1244002.1244004">https://doi.org/10.1145/1244002.1244004</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D.
             Couzin, and Martin Wikelski. 2018. “From Local Collective
             Behavior to Global Migratory Patterns in White Storks.”
             <italic>Science</italic> 360 (6391): 911–14.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Bracken, A.M., C. Christensen, M.J. O’Riain, I.
@@ -1695,7 +1689,6 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             Social Primate Using Urban Space.” <italic>Proc. R. Soc. B
             Biol. Sci.</italic> 289 (1967).
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rspb.2021.2141">https://doi.org/10.1098/rspb.2021.2141</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Long, Jed A., Trisalyn A. Nelson, Stephen L. Webb, and
@@ -1703,7 +1696,6 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             Dynamic Interaction for Wildlife Telemetry Studies.”
             <italic>Journal of Animal Ecology</italic> 83 (5): 1216–33.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/1365-2656.12198">https://doi.org/10.1111/1365-2656.12198</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Dodge, Somayeh, Robert Weibel, and Anna-Katharina
@@ -1711,7 +1703,6 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             Patterns.” <italic>Information Visualization</italic> 7
             (3–4): 240–52.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1057/PALGRAVE.IVS.9500182">https://doi.org/10.1057/PALGRAVE.IVS.9500182</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
               <tr>
                 <td>Laube, Patrick, Stephan Imfeld, and Robert Weibel. 2005.
@@ -1719,7 +1710,6 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             Point Objects.” <italic>International Journal of
             Geographical Information Science</italic> 19 (6): 639–68.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/13658810500105572">https://doi.org/10.1080/13658810500105572</ext-link>.</td>
-                <td>TRUE</td>
               </tr>
             </tbody>
           </table>
@@ -1991,11 +1981,11 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
               <tbody>
                 <tr>
                   <td>No</td>
-                  <td>114 (81%)</td>
+                  <td>115 (82%)</td>
                 </tr>
                 <tr>
                   <td>Yes</td>
-                  <td>26 (19%)</td>
+                  <td>26 (18%)</td>
                 </tr>
               </tbody>
             </table>
@@ -2144,7 +2134,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
             </table>
           </table-wrap>
         </fig>
-        <p>Out of 140 articles, 112 did not list a software package. Of the
+        <p>Out of 141 articles, 113 did not list a software package. Of the
     28 that did, 14 articles listed more than one software package ,
     therefore the total count below will be greater than the number of
     articles.</p>
@@ -2173,151 +2163,151 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
                 <tbody>
                   <tr>
                     <td>NA</td>
-                    <td>112 (66.67%)</td>
+                    <td>113 (66.86%)</td>
                   </tr>
                   <tr>
                     <td>wildlifeDI</td>
-                    <td>9 (5.36%)</td>
+                    <td>9 (5.33%)</td>
                   </tr>
                   <tr>
                     <td>geosphere</td>
-                    <td>3 (1.79%)</td>
+                    <td>3 (1.78%)</td>
                   </tr>
                   <tr>
                     <td>adehabitat</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>moveVis</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>ctmm</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>CircStats</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>corrMove</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>adehabitatHR</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>numpy</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>h5py</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>matplotlib</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>pathlib</td>
-                    <td>2 (1.19%)</td>
+                    <td>2 (1.18%)</td>
                   </tr>
                   <tr>
                     <td>swaRm</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>forecast (cross correlation)</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>move</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>moveUD</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>boot</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>MASS</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>BBMM</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>momentuHMM</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>adehabitatLT</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>DescTools</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>splancs</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>vegan</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>EloRating</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>compete</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>changepoint</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>igraph</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>rethinking</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>pdist</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>polyclip</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>geoR</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>SDMTools</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>FactoMineR</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>OpenCV</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                   <tr>
                     <td>pamk</td>
-                    <td>1 (0.60%)</td>
+                    <td>1 (0.59%)</td>
                   </tr>
                 </tbody>
               </table>
@@ -2800,7 +2790,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
           <table-wrap>
             <table>
               <colgroup>
-                <col width="60%"/>
+                <col width="58%"/>
                 <col width="19%"/>
               </colgroup>
               <thead>
@@ -3211,7 +3201,7 @@ DT &lt;- fread(system.file("extdata", "DT.csv", package = "spatsoc"))</code>
                   <td>1 (0.24%)</td>
                 </tr>
                 <tr>
-                  <td>perturbation test of dynamic interaction</td>
+                  <td>pertubation test of dynamic interaction</td>
                   <td>1 (0.24%)</td>
                 </tr>
                 <tr>
@@ -8462,6 +8452,7 @@ review</article-title>
             <given-names>Alec L.</given-names>
           </name>
           <string-name>Alec L. Robitaille</string-name>
+          <email>robit.alec@gmail.com</email>
           <role vocab="https://credit.niso.org" vocab-term="conceptualization" vocab-term-identifier="https://credit.niso.org/contributor-roles/conceptualization/">Conceptualization</role>
           <role vocab="https://credit.niso.org" vocab-term="software" vocab-term-identifier="https://credit.niso.org/contributor-roles/software/">Software</role>
           <role vocab="https://credit.niso.org" vocab-term="investigation" vocab-term-identifier="https://credit.niso.org/contributor-roles/investigation/">Investigation</role>
@@ -8516,7 +8507,7 @@ and Labrador</institution>
         </institution-wrap>
       </aff>
       <author-notes>
-        <corresp id="cor-1-nb-article"/>
+        <corresp id="cor-1-nb-article">robit.alec@gmail.com</corresp>
       </author-notes>
     </front-stub>
     <body>
@@ -8559,7 +8550,16 @@ Attaching package: 'janitor'</preformat>
     chisq.test, fisher.test</preformat>
         </boxed-text>
         <boxed-text>
-          <preformat>Linking to GEOS 3.14.1, GDAL 3.12.3, PROJ 9.8.0; sf_use_s2() is TRUE</preformat>
+          <preformat>
+Attaching package: 'data.table'</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>The following object is masked from 'package:base':
+
+    %notin%</preformat>
+        </boxed-text>
+        <boxed-text>
+          <preformat>Linking to GEOS 3.14.1, GDAL 3.13.1, PROJ 9.8.1; sf_use_s2() is TRUE</preformat>
         </boxed-text>
         <boxed-text>
           <preformat>udunits database from /usr/share/udunits/udunits2.xml</preformat>
@@ -8891,7 +8891,7 @@ count_metric &lt;- counted$count_metric</code>
         <p>Details in the methods and supplemental materials were used to
   assess the availability of the extracted metrics in open source
   programming languages commonly used in ecology. Accompanying code was
-  not available in a supplement or linked repository for 81% of articles
+  not available in a supplement or linked repository for 82% of articles
   and 67% of articles did not indicate any software package (e.g. R
   package, Python library) used. R was the most common programming
   language followed by MATLAB and Python (Supplement B
@@ -9150,46 +9150,46 @@ tinytable::tt(DT[group %in% sel_groups][order(timegroup)][
                 </thead>
                 <tbody>
                   <tr>
-                    <td>I</td>
-                    <td>2016-12-04 00:00:16</td>
-                    <td>POINT (709210.5 5508829)</td>
-                    <td>397</td>
-                    <td>8677</td>
+                    <td>B</td>
+                    <td>2016-11-08 14:00:43</td>
+                    <td>POINT (697596.8 5510782)</td>
+                    <td>92</td>
+                    <td>1488</td>
                   </tr>
                   <tr>
-                    <td>J</td>
-                    <td>2016-12-04 00:00:13</td>
-                    <td>POINT (709164.3 5508831)</td>
-                    <td>397</td>
-                    <td>8677</td>
+                    <td>G</td>
+                    <td>2016-11-08 14:00:54</td>
+                    <td>POINT (697598 5510788)</td>
+                    <td>92</td>
+                    <td>1488</td>
                   </tr>
                   <tr>
-                    <td>A</td>
-                    <td>2016-12-19 10:00:54</td>
-                    <td>POINT (698798.2 5506993)</td>
-                    <td>582</td>
-                    <td>582</td>
-                  </tr>
-                  <tr>
-                    <td>E</td>
-                    <td>2016-12-19 10:00:26</td>
-                    <td>POINT (698796.7 5507008)</td>
-                    <td>582</td>
-                    <td>582</td>
+                    <td>H</td>
+                    <td>2017-01-09 06:00:42</td>
+                    <td>POINT (696496.2 5507291)</td>
+                    <td>832</td>
+                    <td>7952</td>
                   </tr>
                   <tr>
                     <td>I</td>
-                    <td>2016-12-19 10:00:50</td>
-                    <td>POINT (698804.2 5506977)</td>
-                    <td>582</td>
-                    <td>582</td>
+                    <td>2017-01-09 06:00:53</td>
+                    <td>POINT (696495.4 5507274)</td>
+                    <td>832</td>
+                    <td>7952</td>
                   </tr>
                   <tr>
-                    <td>F</td>
-                    <td>2017-02-10 20:00:47</td>
-                    <td>POINT (705543.7 5510227)</td>
-                    <td>1206</td>
-                    <td>6936</td>
+                    <td>B</td>
+                    <td>2017-01-30 18:00:52</td>
+                    <td>POINT (699999.3 5508174)</td>
+                    <td>1087</td>
+                    <td>2415</td>
+                  </tr>
+                  <tr>
+                    <td>G</td>
+                    <td>2017-01-30 18:00:50</td>
+                    <td>POINT (700019.1 5508168)</td>
+                    <td>1087</td>
+                    <td>2415</td>
                   </tr>
                 </tbody>
               </table>
@@ -9255,40 +9255,40 @@ tinytable::tt(distance_edges[timegroup == sel_tg][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1436</td>
+                    <td>1439</td>
                     <td>B</td>
-                    <td>H</td>
-                    <td>48.12146</td>
+                    <td>E</td>
+                    <td>43.84799</td>
                   </tr>
                   <tr>
-                    <td>1436</td>
+                    <td>1439</td>
+                    <td>B</td>
+                    <td>G</td>
+                    <td>41.72540</td>
+                  </tr>
+                  <tr>
+                    <td>1439</td>
                     <td>C</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1436</td>
+                    <td>1439</td>
                     <td>E</td>
-                    <td>G</td>
-                    <td>13.18622</td>
+                    <td>B</td>
+                    <td>43.84799</td>
                   </tr>
                   <tr>
-                    <td>1436</td>
-                    <td>E</td>
-                    <td>J</td>
-                    <td>12.36113</td>
-                  </tr>
-                  <tr>
-                    <td>1436</td>
+                    <td>1439</td>
                     <td>F</td>
                     <td>NA</td>
                     <td>NA</td>
                   </tr>
                   <tr>
-                    <td>1436</td>
+                    <td>1439</td>
                     <td>G</td>
-                    <td>E</td>
-                    <td>13.18622</td>
+                    <td>B</td>
+                    <td>41.72540</td>
                   </tr>
                 </tbody>
               </table>
@@ -9341,40 +9341,40 @@ tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])</code>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1439</td>
-                    <td>E</td>
-                    <td>B</td>
-                    <td>43.847993</td>
-                  </tr>
-                  <tr>
-                    <td>1439</td>
-                    <td>G</td>
-                    <td>B</td>
-                    <td>41.725396</td>
-                  </tr>
-                  <tr>
-                    <td>1439</td>
-                    <td>F</td>
-                    <td>C</td>
-                    <td>129.538328</td>
-                  </tr>
-                  <tr>
-                    <td>1439</td>
-                    <td>I</td>
-                    <td>C</td>
-                    <td>60.931938</td>
-                  </tr>
-                  <tr>
-                    <td>1439</td>
-                    <td>B</td>
-                    <td>G</td>
-                    <td>41.725396</td>
-                  </tr>
-                  <tr>
-                    <td>1439</td>
+                    <td>1424</td>
                     <td>J</td>
+                    <td>B</td>
+                    <td>64.19389</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>G</td>
+                    <td>E</td>
+                    <td>20.52638</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
                     <td>H</td>
-                    <td>4.898148</td>
+                    <td>E</td>
+                    <td>3389.49078</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>I</td>
+                    <td>F</td>
+                    <td>43.92168</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>B</td>
+                    <td>G</td>
+                    <td>27.13466</td>
+                  </tr>
+                  <tr>
+                    <td>1424</td>
+                    <td>E</td>
+                    <td>G</td>
+                    <td>20.52638</td>
                   </tr>
                 </tbody>
               </table>
@@ -9440,46 +9440,46 @@ tinytable::tt(group_centroids[group %in% sel_groups][order(timegroup)][
                   </thead>
                   <tbody>
                     <tr>
-                      <td>A</td>
-                      <td>165</td>
-                      <td>165</td>
-                      <td>POINT (701814.1 5504404)</td>
-                      <td>POINT (701788.7 5504401)</td>
-                    </tr>
-                    <tr>
                       <td>E</td>
-                      <td>165</td>
-                      <td>165</td>
-                      <td>POINT (701767.8 5504387)</td>
-                      <td>POINT (701788.7 5504401)</td>
+                      <td>179</td>
+                      <td>5254</td>
+                      <td>POINT (703338 5505255)</td>
+                      <td>POINT (703337.4 5505254)</td>
                     </tr>
                     <tr>
                       <td>H</td>
-                      <td>165</td>
-                      <td>165</td>
-                      <td>POINT (701748.8 5504397)</td>
-                      <td>POINT (701788.7 5504401)</td>
+                      <td>179</td>
+                      <td>5254</td>
+                      <td>POINT (703336.8 5505252)</td>
+                      <td>POINT (703337.4 5505254)</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>530</td>
+                      <td>6585</td>
+                      <td>POINT (699886.9 5504731)</td>
+                      <td>POINT (699887.1 5504729)</td>
                     </tr>
                     <tr>
                       <td>I</td>
-                      <td>165</td>
-                      <td>165</td>
-                      <td>POINT (701824.1 5504414)</td>
-                      <td>POINT (701788.7 5504401)</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>942</td>
-                      <td>2338</td>
-                      <td>POINT (698173.9 5511499)</td>
-                      <td>POINT (698177.2 5511498)</td>
+                      <td>530</td>
+                      <td>6585</td>
+                      <td>POINT (699887.2 5504728)</td>
+                      <td>POINT (699887.1 5504729)</td>
                     </tr>
                     <tr>
                       <td>G</td>
-                      <td>942</td>
-                      <td>2338</td>
-                      <td>POINT (698180.6 5511496)</td>
-                      <td>POINT (698177.2 5511498)</td>
+                      <td>1290</td>
+                      <td>7444</td>
+                      <td>POINT (697555.6 5510645)</td>
+                      <td>POINT (697558.2 5510651)</td>
+                    </tr>
+                    <tr>
+                      <td>H</td>
+                      <td>1290</td>
+                      <td>7444</td>
+                      <td>POINT (697560.7 5510657)</td>
+                      <td>POINT (697558.2 5510651)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -9569,8 +9569,8 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                     <col width="7%"/>
                     <col width="17%"/>
                     <col width="11%"/>
-                    <col width="24%"/>
-                    <col width="25%"/>
+                    <col width="26%"/>
+                    <col width="26%"/>
                   </colgroup>
                   <thead>
                     <tr>
@@ -9583,46 +9583,46 @@ tinytable::tt(group_directions[ID != 'A' &amp; group %in% sel_groups][order(
                   </thead>
                   <tbody>
                     <tr>
-                      <td>C</td>
-                      <td>782</td>
-                      <td>3430</td>
-                      <td>2.694665 [rad]</td>
-                      <td>2.6179845 [rad]</td>
+                      <td>E</td>
+                      <td>632</td>
+                      <td>5638</td>
+                      <td>-0.6932845 [rad]</td>
+                      <td>-0.6845612 [rad]</td>
                     </tr>
                     <tr>
-                      <td>E</td>
-                      <td>782</td>
-                      <td>3430</td>
-                      <td>2.615603 [rad]</td>
-                      <td>2.6179845 [rad]</td>
+                      <td>H</td>
+                      <td>632</td>
+                      <td>5638</td>
+                      <td>-0.6777254 [rad]</td>
+                      <td>-0.6845612 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>I</td>
+                      <td>632</td>
+                      <td>5638</td>
+                      <td>-0.6826738 [rad]</td>
+                      <td>-0.6845612 [rad]</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>655</td>
+                      <td>655</td>
+                      <td>-3.0112521 [rad]</td>
+                      <td>-2.5355416 [rad]</td>
                     </tr>
                     <tr>
                       <td>F</td>
-                      <td>782</td>
-                      <td>3430</td>
-                      <td>2.543692 [rad]</td>
-                      <td>2.6179845 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>1154</td>
-                      <td>2495</td>
-                      <td>1.157160 [rad]</td>
-                      <td>0.9378876 [rad]</td>
-                    </tr>
-                    <tr>
-                      <td>G</td>
-                      <td>1154</td>
-                      <td>2495</td>
-                      <td>0.583021 [rad]</td>
-                      <td>0.9378876 [rad]</td>
+                      <td>655</td>
+                      <td>655</td>
+                      <td>-3.0932093 [rad]</td>
+                      <td>-2.5355416 [rad]</td>
                     </tr>
                     <tr>
                       <td>J</td>
-                      <td>1154</td>
-                      <td>2495</td>
-                      <td>1.068202 [rad]</td>
-                      <td>0.9378876 [rad]</td>
+                      <td>655</td>
+                      <td>655</td>
+                      <td>-1.8377913 [rad]</td>
+                      <td>-2.5355416 [rad]</td>
                     </tr>
                   </tbody>
                 </table>
@@ -10243,20 +10243,18 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
     search results for scoping review</p>
           </caption>
           <sec specific-use="notebook-content">
-            <code language="r script">targets::tar_read(benchmark_papers) |&gt;
+            <code language="r script">targets::tar_read(benchmark_papers)[, .(Citation)] |&gt;
   tinytable::tt() |&gt;
   style_tt(align = 'l') |&gt;
   format_tt(escape = TRUE)</code>
             <table-wrap>
               <table>
                 <colgroup>
-                  <col width="95%"/>
-                  <col width="5%"/>
+                  <col width="100%"/>
                 </colgroup>
                 <thead>
                   <tr>
                     <th>Citation</th>
-                    <th>Indexed in WoS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -10265,21 +10263,18 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             2010. “Hierarchical Group Dynamics in Pigeon Flocks.”
             <italic>Nature</italic> 464 (7290): 890–93.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1038/nature08891">https://doi.org/10.1038/nature08891</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Strandburg-Peshkin, Ariana, Damien R. Farine, Iain D.
             Couzin, and Margaret C. Crofoot. 2015. “Shared
             Decision-Making Drives Collective Movement in Wild Baboons.”
             <italic>Science</italic> 348 (6241): 1358–61.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Merkle, J.A., M. Sigaud, and D. Fortin. 2015. “To Follow
             or Not? How Animals in Fusion–Fission Societies Handle
             Conflicting Information during Group Decision-Making.”
             <italic>Ecology Letters</italic> 18 (8): 799–806.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Andersson, Mattias, Joachim Gudmundsson, Patrick Laube,
@@ -10288,14 +10283,12 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             Symposium on Applied Computing</italic>, 3–7. SAC ’07. New
             York, NY, USA: Association for Computing Machinery.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1145/1244002.1244004">https://doi.org/10.1145/1244002.1244004</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Flack, Andrea, Máté Nagy, Wolfgang Fiedler, Iain D.
             Couzin, and Martin Wikelski. 2018. “From Local Collective
             Behavior to Global Migratory Patterns in White Storks.”
             <italic>Science</italic> 360 (6391): 911–14.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Bracken, A.M., C. Christensen, M.J. O’Riain, I.
@@ -10304,7 +10297,6 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             Social Primate Using Urban Space.” <italic>Proc. R. Soc. B
             Biol. Sci.</italic> 289 (1967).
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1098/rspb.2021.2141">https://doi.org/10.1098/rspb.2021.2141</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Long, Jed A., Trisalyn A. Nelson, Stephen L. Webb, and
@@ -10312,7 +10304,6 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             Dynamic Interaction for Wildlife Telemetry Studies.”
             <italic>Journal of Animal Ecology</italic> 83 (5): 1216–33.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1111/1365-2656.12198">https://doi.org/10.1111/1365-2656.12198</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Dodge, Somayeh, Robert Weibel, and Anna-Katharina
@@ -10320,7 +10311,6 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             Patterns.” <italic>Information Visualization</italic> 7
             (3–4): 240–52.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1057/PALGRAVE.IVS.9500182">https://doi.org/10.1057/PALGRAVE.IVS.9500182</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                   <tr>
                     <td>Laube, Patrick, Stephan Imfeld, and Robert Weibel. 2005.
@@ -10328,7 +10318,6 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
             Point Objects.” <italic>International Journal of
             Geographical Information Science</italic> 19 (6): 639–68.
             <ext-link ext-link-type="uri" xlink:href="https://doi.org/10.1080/13658810500105572">https://doi.org/10.1080/13658810500105572</ext-link>.</td>
-                    <td>TRUE</td>
                   </tr>
                 </tbody>
               </table>
@@ -10638,11 +10627,11 @@ count_dom_metric &lt;- counted$count_dom_metric</code>
                   <tbody>
                     <tr>
                       <td>No</td>
-                      <td>114 (81%)</td>
+                      <td>115 (82%)</td>
                     </tr>
                     <tr>
                       <td>Yes</td>
-                      <td>26 (19%)</td>
+                      <td>26 (18%)</td>
                     </tr>
                   </tbody>
                 </table>
@@ -10813,7 +10802,7 @@ unique_prog_lang &lt;- count_prog_lang[,
               </table-wrap>
             </sec>
           </fig>
-          <p>Out of 140 articles, 112 did not list a software package. Of the
+          <p>Out of 141 articles, 113 did not list a software package. Of the
     28 that did, 14 articles listed more than one software package ,
     therefore the total count below will be greater than the number of
     articles.</p>
@@ -10852,151 +10841,151 @@ unique_prog_lang &lt;- count_prog_lang[,
                     <tbody>
                       <tr>
                         <td>NA</td>
-                        <td>112 (66.67%)</td>
+                        <td>113 (66.86%)</td>
                       </tr>
                       <tr>
                         <td>wildlifeDI</td>
-                        <td>9 (5.36%)</td>
+                        <td>9 (5.33%)</td>
                       </tr>
                       <tr>
                         <td>geosphere</td>
-                        <td>3 (1.79%)</td>
+                        <td>3 (1.78%)</td>
                       </tr>
                       <tr>
                         <td>adehabitat</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>moveVis</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>ctmm</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>CircStats</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>corrMove</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>adehabitatHR</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>numpy</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>h5py</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>matplotlib</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>pathlib</td>
-                        <td>2 (1.19%)</td>
+                        <td>2 (1.18%)</td>
                       </tr>
                       <tr>
                         <td>swaRm</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>forecast (cross correlation)</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>move</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>moveUD</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>boot</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>MASS</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>BBMM</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>momentuHMM</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>adehabitatLT</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>DescTools</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>splancs</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>vegan</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>EloRating</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>compete</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>changepoint</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>igraph</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>rethinking</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>pdist</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>polyclip</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>geoR</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>SDMTools</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>FactoMineR</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>OpenCV</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                       <tr>
                         <td>pamk</td>
-                        <td>1 (0.60%)</td>
+                        <td>1 (0.59%)</td>
                       </tr>
                     </tbody>
                   </table>
@@ -11528,7 +11517,7 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
               <table-wrap>
                 <table>
                   <colgroup>
-                    <col width="60%"/>
+                    <col width="58%"/>
                     <col width="19%"/>
                   </colgroup>
                   <thead>
@@ -11939,7 +11928,7 @@ code, but ESRI:54030 is. Assuming ESRI:54030 was meant</preformat>
                       <td>1 (0.24%)</td>
                     </tr>
                     <tr>
-                      <td>perturbation test of dynamic interaction</td>
+                      <td>pertubation test of dynamic interaction</td>
                       <td>1 (0.24%)</td>
                     </tr>
                     <tr>
