@@ -78,6 +78,11 @@
           "given_name": "Quinn M.R.",
           "name": "Webber, Quinn M.R.",
           "type": "personal"
+          "identifiers": [
+            {
+              "identifier": "0000-0002-0434-9360",
+              "scheme": "orcid"
+            }
         }
       },
       {
