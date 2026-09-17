@@ -11,6 +11,7 @@ project:
 
 
 format:
+  docx: default
   jats: default
   html:
     theme:
