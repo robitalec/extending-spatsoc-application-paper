@@ -2,11 +2,11 @@
 title: Extending the open-source R package {spatsoc} with measures of intragroup social
   dynamics identified by a scoping review
 author:
-  - name: Alec L. Robitaille
+  - name: Alec L. Robitaille (corresponding author)
     orcid: 0000-0002-4706-1762
     corresponding: true
     affiliations:
-      - Department of Biology, Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador, St. John's, Newfoundland and Labrador, Canada
     roles:
       - Conceptualization
       - Software
@@ -21,7 +21,7 @@ author:
     orcid: 0000-0002-0434-9360
     corresponding: false
     affiliations:
-      - University of Guelph
+      - Department of Integrative Biology, University of Guelph, Guelph, Ontario, Canada
     roles:
       - Conceptualization
       - Writing - Review & Editing
@@ -29,7 +29,7 @@ author:
     orcid: 0000-0002-8534-4317
     corresponding: false
     affiliations:
-      - Department of Biology, Memorial University of Newfoundland and Labrador
+      - Department of Biology, Memorial University of Newfoundland and Labrador, St. John's, Newfoundland and Labrador, Canada
     roles:
       - Conceptualization
       - Methodology
