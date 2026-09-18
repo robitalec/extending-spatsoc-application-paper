@@ -98,7 +98,8 @@ The open availability of these new and flexible functions in {spatsoc} will
 allow researchers to more comprehensively measure the multifaceted social
 behaviours in their study systems. Users can now start by detecting
 spatiotemporal groups and analysing social networks, then move to investigating
-the behaviours of individuals, dyads and groups within animal social groups.
+the behaviours of individuals, dyads and groups within animal social
+populations.
 
 # Keywords
 
@@ -107,8 +108,8 @@ leader-follower behaviour, fission-fusion, GPS, telemetry data, movement data
 
 # Background
 
-Many facets of group living need to be considered to better measure animal
-social systems [@King_2018]. Beyond associations, additional types of dyadic
+Many facets of group living need to be considered to characterize animal social
+systems [@King_2018]. Beyond associations, additional types of dyadic
 relationships including genetic, affiliative, agonistic, and cooperative
 [@Farine_2015] and the interactions between spatial phenotypes, social
 phenotypes, and environments [@Webber_2023]. Using direct observations,
@@ -146,11 +147,10 @@ sufficient and accessible functionality for measuring the behaviour of
 individuals within social groups.
 
 We first conducted a scoping review to identify metrics applicable to
-spatiotemporal data, and focused on dyadic interactions, leadership patterns,
-and dominance hierarchies. Of the resulting metrics, we selected those with a
-high evidence of use, and lack of availability in the R programming language,
-either through R packages or supplemental materials in the literature. Here we
-present
+spatiotemporal data focusing on dyadic interactions, leadership patterns, and
+dominance hierarchies. Of the resulting metrics, we selected those with a high
+evidence of use, and lack of availability in the R programming language, either
+through R packages or supplemental materials in the literature. Here we present
 `r length(grep('cent|dir|dista|ali|del|zon|lead|get_geo|fus', ls('package:spatsoc')))`
 new functions in the R package {spatsoc} [@Robitaille_2019] for measuring
 intragroup dynamics. We will demonstrate these new functions through a case
@@ -189,7 +189,7 @@ Science) or PUBYEAR (Scopus) fields. The resulting set of papers were imported
 into Covidence [@VeritasHealthInnovation_2025] for deduplication, title and
 abstract screening, full text screening, and data extraction.
 
-Articles were screened out based on the following criteria:
+Articles were screened based on the following criteria for exclusion:
 
 - Paper does not describe dyadic or group metric related to leadership or
   dominance (e.g. @Papageorgiou_2020)
@@ -199,8 +199,8 @@ Articles were screened out based on the following criteria:
   used home range or spatial overlap)
 - Paper does not describe metric beyond group size (e.g. @delMarDelgado_2021)
 - Paper full text is not available in English (e.g. @Bernard_2002)
-- Paper is not a thesis
-- Paper is not a book chapter (e.g. @Bernstein_2019)
+- Paper is a thesis
+- Paper is a book chapter (e.g. @Bernstein_2019)
 
 Despite the intended focus on animal ecology, some papers discussed movement
 data more generically or, alternatively, specifically focused on human or
@@ -208,7 +208,7 @@ robotic movement data (e.g. @Long_2022). These papers were retained when the
 metrics described were deemed applicable to animal spatiotemporal movement data.
 Papers using mathematical models or simulations were largely beyond the scope of
 this review but papers were retained when the parameters used as inputs could be
-applied to spatial temporal data (e.g. @Long_2015). Review papers were read for
+applied to spatiotemporal data (e.g. @Long_2015). Review papers were read for
 building the scope of the introduction and discussion but not included in data
 extraction unless they explicitly discussed dyadic measures (e.g. @King_2018).
 
@@ -251,7 +251,7 @@ Supplement [@sec-selected].
 The R package {spatsoc} was originally developed to detect spatiotemporal groups
 in animal telemetry data for building social networks [@Robitaille_2019]. In
 this new version, {spatsoc} provides an additional suite of functions to measure
-individual, dyadic and group level behaviours within spatial temporal groups.
+individual, dyadic and group level behaviours within spatiotemporal groups.
 These measures of intragroup dynamics are derived from three geospatial
 operations (distance, direction, and centroid) calculated in internal functions
 built on top of the R spatial packages {sf} [@Pebesma_2018], {lwgeom}
@@ -520,7 +520,7 @@ behaviours from animal telemetry data in their ecological systems.
 ## Position within groups
 
 Extending {spatsoc}'s abilities to identify spatiotemporal groups, a new set of
-functions are now available to measure individuals position relative within
+functions are now available to measure individual's relative position within
 spatiotemporal groups. After identifying spatiotemporal groups with e.g.
 `group_pts()`, we can measure the group centroid, as defined by the mean of
 individual locations in a group, using `centroid_group()`
