@@ -1,0 +1,9 @@
+# Terminology pairs are domain-specific: we can't know which synonyms your
+# documents actually confuse. The pair below is a placeholder, replace or
+# extend `either` with your own domain's pairs.
+extends: consistency
+message: "Inconsistent terminology: Use '%s' instead of '%s'. (STE-1.11)."
+level: error
+ignorecase: true
+swap:
+  spatial temporal: spatiotemporal
