@@ -76,21 +76,21 @@ options(tinytable_format_escape = TRUE)
 
 Beyond proximity-based social networks and home range overlap, animal telemetry
 data can also be used to measure intragroup social dynamics including individual
-position within groups, individual and group level movement directions,
+position within groups, individual and group-level movement directions,
 leadership patterns and lagged follower behaviours. We used a scoping review of
 literature across domains, including behavioural ecology, collective movement,
 and GISciences, to identify widely used metrics for measuring intragroup social
-dynamics that are not openly available in the R programming language.
+dynamics not openly available in the R programming language.
 
 ## Results
 
 The scoping review identified a series of metrics for measuring intragroup
-social dynamics that were both commonly used in the literature and not available
-in the R programming language at the time of the review. We developed a suite of
-new functions for the R package {spatsoc} to make these metrics readily
-available in the R programming language for broader application across study
-species and systems. We present a case study to illustrate these new functions
-for measuring intragroup social dynamics with animal telemetry data.
+social dynamics commonly used in the literature and not available in the R
+programming language at the time of the review. We developed a suite of new
+functions for the R package {spatsoc} to make these metrics readily available in
+the R programming language for broader application across study species and
+systems. We present a case study to illustrate these new functions for measuring
+intragroup social dynamics with animal telemetry data.
 
 ## Conclusions
 
@@ -108,9 +108,9 @@ leader-follower behaviour, fission-fusion, GPS, telemetry data, movement data
 # Background
 
 Many facets of group living need to be considered to better measure animal
-social systems [@King_2018]. Beyond associations, there are additional types of
-dyadic relationships including genetic, affiliative, agonistic, and cooperative
-[@Farine_2015]. There are also interactions between spatial phenotypes, social
+social systems [@King_2018]. Beyond associations, additional types of dyadic
+relationships including genetic, affiliative, agonistic, and cooperative
+[@Farine_2015] and the interactions between spatial phenotypes, social
 phenotypes, and environments [@Webber_2023]. Using direct observations,
 researchers have studied intragroup social dynamics including social foraging
 [@Barnard_1981; @Giraldeau_1986; @Hirsch_2020], spatial position within groups
@@ -145,7 +145,7 @@ Despite the substantive and varied applications of {spatsoc}, users lacked
 sufficient and accessible functionality for measuring the behaviour of
 individuals within social groups.
 
-We first conducted a scoping review to identify metrics that were applicable to
+We first conducted a scoping review to identify metrics applicable to
 spatiotemporal data, and focused on dyadic interactions, leadership patterns,
 and dominance hierarchies. Of the resulting metrics, we selected those with a
 high evidence of use, and lack of availability in the R programming language,
@@ -178,21 +178,16 @@ in four categories: topic, population, method and exclusion. Topic included
 terms associated with dyadic interactions, dominance hierarchies and leadership
 patterns. Population included terms associated with animals, wildlife and
 ecology. Method included terms associated with data collection and data types.
-Finally, a list of exclusion terms were used to remove clearly irrelevant
-papers. Each category of terms were combined with OR operators and all four
-categories of terms were combined with AND operators. The resulting set of
-papers used in further steps was the combination of the last iteration of search
-terms applied to both of the Web of Science (using the "TS" field) and Scopus
-(using the "TITLE-ABS-KEY" field) databases (Supplement A
-@suptbl-search-strings). The temporal range of articles was limited to 1980-2023
-using the PY (Web of Science) or PUBYEAR (Scopus) fields. The resulting set of
-papers were imported into Covidence [@VeritasHealthInnovation_2025] for
-deduplication, title and abstract screening, full text screening, and data
-extraction.
-
-Articles were marked as duplicates using Covidence and manual screening.
-Covidence detected 799 duplicates based on title, year, volume, and authors, and
-manual screening identified an additional 128 duplicates.
+Finally, a list of exclusion terms were used to remove irrelevant papers. Each
+category of terms was combined with OR operators and all four categories of
+terms were combined with AND operators. The resulting set of papers used in
+further steps was the combination of the last iteration of search terms applied
+to both of the Web of Science (using the "TS" field) and Scopus (using the
+"TITLE-ABS-KEY" field) databases (Supplement A @suptbl-search-strings). The
+temporal range of articles was limited to 1980-2023 using the PY (Web of
+Science) or PUBYEAR (Scopus) fields. The resulting set of papers were imported
+into Covidence [@VeritasHealthInnovation_2025] for deduplication, title and
+abstract screening, full text screening, and data extraction.
 
 Articles were screened out based on the following criteria:
 
@@ -225,7 +220,7 @@ simulation, algorithm, model, or review), study species and study region.
 Metrics discussed in each paper were listed including data input required,
 citations and interpretation. Code availability was described including location
 of code (e.g. Zenodo, or GitHub), programming languages and software packages
-used. The data extraction form is in (Supplement A Table @suptbl-form).
+used. The data extraction form is in Supplement A Table @suptbl-form.
 
 Metrics identified were aggregated using a manual process to identify synonymous
 terms. This aggregation process was required due to variability in defining
@@ -256,7 +251,7 @@ Supplement [@sec-selected].
 The R package {spatsoc} was originally developed to detect spatiotemporal groups
 in animal telemetry data for building social networks [@Robitaille_2019]. In
 this new version, {spatsoc} provides an additional suite of functions to measure
-individual, dyadic and group level behaviours within spatiotemporal groups.
+individual, dyadic and group level behaviours within spatial temporal groups.
 These measures of intragroup dynamics are derived from three geospatial
 operations (distance, direction, and centroid) calculated in internal functions
 built on top of the R spatial packages {sf} [@Pebesma_2018], {lwgeom}
@@ -359,15 +354,15 @@ and home range overlap, respectively.
 
 `get_geometry()` is a new helper function added to {spatsoc} to provide an
 alternative interface for providing coordinates and, optionally, coordinate
-reference system. Instead of providing the names to columns for the X and Y
+reference systems. Instead of providing the names to columns for the X and Y
 coordinates using the `coords` argument, the `get_geometry()` function adds a
 simple feature geometry list column (`sfc`) using the {sf} package
 [@Pebesma_2018]. The geometry method is used by default for all {spatsoc}
 functions that require coordinates when the `coords` argument is left null. This
-interface also extends {spatsoc} to allow users to provide coordinates in any of
-the many coordinate reference systems, both projected and longlat degrees, that
-the {sf} package supports. The following examples and case study will illustrate
-the geometry interface throughout.
+interface also extends {spatsoc} to allow users to provide coordinates in any
+coordinate reference systems, including both projected and longlat degrees,
+supported by the {sf} package. The following examples and case study will
+illustrate the geometry interface throughout.
 
 For example, the suggested `group_pts()` workflow with the example data from the
 package and the `get_geometry()` helper function to identify spatiotemporal
@@ -516,10 +511,10 @@ sel_tg <- nn_edges[, uniqueN(ID), by = timegroup][between(V1, 6, 8)][, sample(
 tinytable::tt(nn_edges[timegroup == sel_tg][order(NN)][seq.int(6)])
 ```
 
-Building on these, {spatsoc}'s new functions provide a more detailed measuring
-of an individual's behaviour with respect to their conspecifics. We aim to
-provide users with accessible, flexible functions that will help to identify
-leader-follower patterns, fission fusion dynamics and potentially dominance
+Building on these, {spatsoc}'s new functions provide more detailed measures of
+an individual's behaviour with respect to their conspecifics. We aim to provide
+users with accessible, flexible functions that will help to identify
+leader-follower patterns, fission-fusion dynamics and potentially dominance
 behaviours from animal telemetry data in their ecological systems.
 
 ## Position within groups
@@ -591,7 +586,7 @@ returned by centroid_group, distance_to_centroid() and direction_to_centroid()
 return the columns 'distance_centroid' and 'direction_centroid' representing the
 focal individual's distance and direction to the group centroid. Optionally, the
 rank distance to the group centroid can be returned by distance_to_centroid() if
-'return_rank' is true.](graphics/fig_dist_dir_cent.png){#fig-dist-dir-cent}
+the argument 'return_rank' is true.](graphics/fig_dist_dir_cent.png){#fig-dist-dir-cent}
 
 ## Directions
 
@@ -640,13 +635,13 @@ tinytable::tt(group_directions[ID != 'A' & group %in% sel_groups][order(
 
 We can measure polarization, the uniformity of movement directions in a group of
 individuals, using `direction_polarization()` ([Figure @fig-dir-pol]).
-Polarization is represented on a scale of 0-1 where values near 0 indicate that
-individuals in a group are moving in completely different directions (or
-"non-aligned") and values near 1 indicate that individuals are moving in similar
-directions or ("aligned"). Polarization in the movement direction of groups of
-animals has been used to study cognition [@Wang_2022], learning
-[@Vega-Trejo_2020], the influence of habitat [@Strandburg-Peshkin_2017] and
-individual differences [@Jolles_2017] in collective behaviour.
+Polarization is on a scale of 0-1 where values near 0 show that individuals in a
+group are moving in different directions (or "non-aligned") and values near 1
+show that individuals are moving in similar directions or ("aligned").
+Polarization in the movement direction of groups of animals has been used to
+study cognition [@Wang_2022], learning [@Vega-Trejo_2020], the influence of
+habitat [@Strandburg-Peshkin_2017] and individual differences [@Jolles_2017] in
+collective behaviour.
 
 ```{r}
 #| label: calc-dir-pol
@@ -777,7 +772,7 @@ direction. To do so, we first calculate each individual's movement direction
 with `direction_step()` and the group's mean direction with `direction_group()`.
 Then `leader_direction_group()` rotates the coordinate system around the group
 centroid by the group's mean direction. The distance along this new axis is the
-measure of front-back position of an individual within the group
+measure of an individual's front-back position within the group
 [@Quera_2023; @Harel_2021; @Andrienko_2013] ([Figure @fig-leader-dir-group]).
 The rank of individual positions within spatiotemporal groups [@Burns_2012] can
 be optionally returned when the argument 'return_rank' is true.
@@ -806,7 +801,7 @@ column returned by direction_group() and 'centroid' column returned by
 centroid_group(), leader_direction_group() returns a column named
 'position_group_direction' representing the front-back position along the mean
 group direction. Optionally, the rank position along the mean group direction if
-'return_rank' is true.](graphics/fig_pos_group_dir.png){#fig-leader-dir-group}
+the argument 'return_rank' is true.](graphics/fig_pos_group_dir.png){#fig-leader-dir-group}
 
 Taking this simple, dynamic definition of leadership, we can identify the
 distance and direction of individuals to the leader of each spatiotemporal group
@@ -847,7 +842,7 @@ NA.](graphics/fig_dist_dir_leader.png){#fig-dist-dir-lead}
 
 Fusion events, or temporal periods where two individuals are within a given
 threshold distance from each other, can be identified using `fusion_id()`
-([Figure @fig-fusion]). Given the variability in defining fission fusion
+([Figure @fig-fusion]). Given the variability in defining fission-fusion
 dynamics in the literature ([@suptbl-defn-fission]), the `fusion_id()` function
 flexibly allows users to use specific thresholds and definitions that match
 their study species and research questions. This will also allow users to easily
@@ -961,7 +956,7 @@ using leader_edge_delay(). Using the 'direction_delay' column returned by
 edge_delay(), the leader_edge_delay() function returns a column named
 'mean_direction_delay_dyad' representing the mean directional correlation delay
 between two individuals and a column named 'mean_direction_delay' that
-represents the the mean correlation delay for each focal individual and all
+represents the mean correlation delay for each focal individual and all
 observed neighbours. Optionally, a threshold difference in direction can be used
 to subset the temporal delays included in the calculation of mean directional
 delay with the argument
@@ -977,11 +972,11 @@ open source package {spatsoc} [@Robitaille_2019] for the R programming language
 [@RCoreTeam_2025a] has improved accessibility to methods for spatiotemporal
 grouping and social network analysis with animal telemetry data
 [e.g. @Albery_2025; @Bracken_2022; @Merkle_2024; @Heeres_2024]. Despite this,
-proximity based associations are only one dimension and studying intragroup
-social dynamics will allow researchers to further measure animal social systems.
-The new functions in {spatsoc} and the accompanying case study presented here
-make openly available a series of metrics that, while commonly used in the
-literature, have been largely absent from R packages. Paired with the continued
+proximity-based association is only one dimension and studying intragroup social
+dynamics will allow researchers to further measure animal social systems. The
+new functions in {spatsoc} and the accompanying case study presented here make
+openly available a series of metrics that, while commonly used in the
+literature, are largely absent from R packages. Paired with the continued
 development of animal tracking technology [@Nathan_2022; @Beardsworth_2022] and
 novel data collection methods [@Koger_2023; @Pedrazzi_2025], the open
 availability of these metrics in R will broaden their application across
@@ -993,12 +988,12 @@ such as:
   discovered by others [@Barnard_1981; @Vickery_1991; @Giraldeau_2000]. This
   concept can be applied to animal telemetry data by evaluating the position of
   individuals within groups, the individual's arrival timing to forage patches
-  and the characteristics of forage patches. Individuals balance predation risk
-  and foraging success by adjusting their spatial position within groups
-  [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy selected by an
-  individual can be influenced by the size of forage patches [@Hansen_2016].
+  and the characteristics of forage patches. Individuals balance risk of
+  predation and foraging success by adjusting their spatial position within
+  groups [@Teichroeb_2015; @Hirsch_2020], and the foraging strategy selected by
+  an individual can be influenced by the size of forage patches [@Hansen_2016].
 
-- Leader-follower patterns in groups of moving animals can be studied both to
+- Leader-follower behaviour in groups of moving animals is studied both to
   determine factors that causally influence leadership, and for the influence of
   leader-follower strategies on foraging success and downstream fitness. Applied
   to animal telemetry data, leadership can be defined simply by identifying the
