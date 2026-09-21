@@ -30,6 +30,7 @@ accompanying the publication:
 
 - mFLICA provided in code accompanying @Amornbunchornvej_2018 and R package
   {mFLICA} [@Amornbunchornvej_2021]
+- StickyDBSCAN provided in code accompanying [@DellaLibera_2023]
 
 The follow metrics were not selected due to the expected input data differing
 from existing {spatsoc} functions (XYT):

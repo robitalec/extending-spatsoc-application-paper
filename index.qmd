@@ -873,11 +873,11 @@ individuals identified as leaders using 'position_group_direction', the distance
 is 0 and the direction is
 NA.](graphics/fig_dist_dir_leader.png){#fig-dist-dir-lead}
 
-## Fusion events
+## Dyadic fusion events
 
-Fusion events, or temporal periods where two individuals are within a given
+Dyadic fusion events, or temporal periods where two individuals are within a given
 threshold distance from each other, can be identified using `fusion_id()`
-([Figure @fig-fusion]). Given the variability in defining fission-fusion
+([Figure @fig-fusion]). Given the variability in defining dyadic fission-fusion
 dynamics in the literature ([@suptbl-defn-fission]), the `fusion_id()` function
 flexibly allows users to use specific thresholds and definitions that match
 their study species and research questions. This will also allow users to easily
@@ -901,7 +901,7 @@ used to study resource seasonality [@Baden_2016], information transfer
 # Identify dyads
 dyad_id(interindividual_dist, id1 = 'ID1', id2 = 'ID2')
 
-# Identify fusion events
+# Identify dyadic fusion events
 fusion_events <- fusion_id(
   interindividual_dist,
   threshold = spatial_threshold,
@@ -910,7 +910,7 @@ fusion_events <- fusion_id(
   allow_split = TRUE
 )
 
-# Measure centroids of fusion events
+# Measure centroids of dyadic fusion events
 centroid_fusion(
   interindividual_dist,
   DT,
@@ -918,18 +918,18 @@ centroid_fusion(
 )
 ```
 
-![A) Example fusion event for individuals 'J' and 'C' with black points
+![A) Example dyadic fusion event for dyad of individuals 'J' and 'C' with black points
 representing the centroid of fusion observations returned by centroid_fusion().
-B) A fusion event identified using fusion_id. Using the distance based
+B) A dyadic fusion event identified using fusion_id. Using the distance based
 edge-lists measured using edge_dist() and the dyad id returned by dyad_id(),
-fusion_id() a returns a column named 'fusionID' representing the fusion events
+fusion_id() a returns a column named 'fusionID' representing the dyadic fusion events
 defined with user specified constraints: the distance threshold ('threshold'),
 the minimum number of observations defining a fusion event ('n_min_length'), the
 maximum number of missing observations from either individual in a fusion event
 ('n_max_missing') and if a single observation where individuals are beyond the
 distance threshold should result in a fission event ('allow_split'). In B), a
-fusion event is identified for individuals J and C given they are within the
-distance threshold at timegroups 2, 3, and 4. Individual J is shown at
+dyadic fusion event is identified for individuals 'J' and 'C' given they are within the
+distance threshold at timegroups 2, 3, and 4. Individual 'J' is shown at
 timegroups 1 and 5 with no neighbours within the threshold spatial distance (ID2
 is NA).](graphics/fig_fusion_events.png){#fig-fusion}
 
