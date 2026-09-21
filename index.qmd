@@ -338,6 +338,38 @@ new_functions[, .(Function, Description)] |>
 
 # Discussion: case study
 
+The expected input data structure for functions in {spatsoc} is a `data.table`
+with columns representing the individual identifiers (e.g. "ID"), the date and
+time (e.g. "datetime") and the coordinates (e.g. "X", "Y") of each location.
+Other tabular data formats in R can be converted to `data.table` with the
+function `as.data.table`. Many of the functions in {spatsoc} process input data
+using {data.table}'s modify-by-reference to avoid making copies of input data
+and, instead, directly adding or updating columns in place. Functions that
+return the input `data.table` with an added column do not need to be reassigned
+(e.g. `group_pts` and `group_times`). In contrast, functions that reshape the
+input data, return aggregated results or require an internal merge need to be
+reassigned (e.g. `edge_dist` and `centroid_dyad`). Each function's documentation
+describes if it uses modify-by-reference or if its output needs to be reassigned
+The [FAQ](https://docs.ropensci.org/spatsoc/articles/faq.html) vignette lists
+all functions in these two categories and users are encouraged to read more
+about {data.table}'s modify-by-reference in their vignette about [Reference
+Semantics](https://r-datatable.com/articles/datatable-reference-semantics.html).
+
+```{r}
+#| label: tbl-dt
+#| tbl-cap: >-
+#|   Expected input data structure for {spatsoc} functions: a `data.table` with
+#|   columns representing the individual identifier ("ID"), date and time
+#|   ("datetime") and coordinates ("X" and "Y") of each location.
+#| echo: false
+
+DT <- tar_read(spatial_groups)
+tinytable::tt(DT[, first(.SD), ID][
+  seq.int(6),
+  .(ID, X, Y, datetime)
+])
+```
+
 Functions previously available in {spatsoc} can be used to identify
 spatiotemporal grouping, generate distance based edge-lists and conduct
 data-stream permutations (see existing functionality in @Robitaille_2019;
