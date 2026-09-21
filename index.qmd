@@ -292,11 +292,11 @@ were defined by spatial and temporal thresholds
 [e.g. @Nishikawa_2014; @Haydon_2008], but also how to handle missed observations
 and temporary separations [e.g. @Lesmerises_2018; @DellaLibera_2023] (Supplement
 B @suptbl-defn-fission). Definitions of group-level leadership patterns were
-based on selected measures of leadership including tendency to be at the front
-of the group [e.g. @Andrienko_2013; @Perez-Barberia_2018; @Jolles_2018],
-directional correlation delay [e.g. @Pettit_2013; @Kano_2021], and movement
-initiations [e.g. @Quera_2023; @Bracken_2022; @Strandburg-Peshkin_2018]
-(Supplement B @suptbl-defn-leadership).
+based on measures of leadership including tendency to be at the front of the
+group [e.g. @Andrienko_2013; @Perez-Barberia_2018; @Jolles_2018], directional
+correlation delay [e.g. @Pettit_2013; @Kano_2021], and movement initiations
+[e.g. @Quera_2023; @Bracken_2022; @Strandburg-Peshkin_2018] (Supplement B
+@suptbl-defn-leadership).
 
 Details in the methods and supplemental materials were used to assess the
 availability of the extracted metrics in open source programming languages
@@ -796,18 +796,19 @@ individual. Example shows positions of neighbour 'E' in behavioural zones with
 respect to focal individual 'G' across the sample
 period.](graphics/fig_edge_zones.png){#fig-edge-zones}
 
-## Position relative to leader
+## Position along group direction
 
-After considering how individuals are positioned relative to the group centroid,
-we can also measure how individuals are positioned relative to the mean group
-direction. To do so, we first calculate each individual's movement direction
-with `direction_step()` and the group's mean direction with `direction_group()`.
-Then `leader_direction_group()` rotates the coordinate system around the group
-centroid by the group's mean direction. The distance along this new axis is the
-measure of an individual's front-back position within the group
-[@Quera_2023; @Harel_2021; @Andrienko_2013] ([Figure @fig-leader-dir-group]).
-The rank of individual positions within spatiotemporal groups [@Burns_2012] can
-be optionally returned when the argument 'return_rank' is true.
+An individual's position relative to the mean group direction can be calculated
+with `leader_direction_group()`. We first calculate each individual's movement
+direction with `direction_step()`, the group's centroid with `centroid_group()`
+and the group's mean direction with `direction_group()`. Then
+`leader_direction_group()` rotates the coordinate system around the group
+centroid by the group's mean direction for each spatiotemporal group. This new
+axis represents individual's front-back position within the group along the
+group's mean direction [@Quera_2023; @Harel_2021; @Andrienko_2013]
+([Figure @fig-leader-dir-group]). The rank of individual positions within
+spatiotemporal groups [@Burns_2012] can be optionally returned when the argument
+'return_rank' is true.
 
 ```{r}
 #| label: calc-leader-dir-group
@@ -846,6 +847,9 @@ been used to study interaction rules [@Weesner_2023], leadership
 reproduction influences social structure [@Perez-Barberia_2018]. In addition, a
 user can calculate an individual's time spent leading by calculating the rate
 each individual was in the first ranked position out of the total observations.
+Other definitions of leadership in the scoping review also include the
+directional correlation delay, described below, and movement initiations
+(Supplement B @suptbl-defn-leadership).
 
 ```{r}
 #| label: calc-dist-dir-lead
